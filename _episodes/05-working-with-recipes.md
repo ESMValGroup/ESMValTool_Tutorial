@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Working with the recipe"
 teaching: 0
 exercises: 0
 questions:

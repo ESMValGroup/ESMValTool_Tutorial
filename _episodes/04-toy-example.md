@@ -69,6 +69,11 @@ These directory contain:
 - plots: This is the output location for all the plots produced in the diagnostic, split up into individual diagnosics and fields.
 - work: This is a place for post-processed files such as NetCDF file containing data derived in the diagnostic. The content of this file is specific to each diagnostic.
 
+
+Exercise:
+
+Please find and inspect the `settings.yml` and `metadata.yml` files in your output directory.
+
 {: .source}
 
 {% include links.md %}

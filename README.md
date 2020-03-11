@@ -11,7 +11,7 @@ questions, concerns, or experience any difficulties along the way.
 
 We'd like to ask you to familiarize yourself with our [Contribution Guide](CONTRIBUTING.md) and have a look at
 the [more detailed guidelines][lesson-example] on proper formatting, ways to render the lesson locally, and even
-how to write new episodes.
+how to write new episodes. Note that the content of the web page is located in the directory [_episodes](https://github.com/ESMValGroup/tutorial/tree/master/_episodes).
 
 Please see the current list of [issues][FIXME] for ideas for contributing to this
 repository. For making your contribution, we use the GitHub flow, which is

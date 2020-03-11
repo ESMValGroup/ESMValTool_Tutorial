@@ -3,25 +3,27 @@ title: "Configuration"
 teaching: 0
 exercises: 0
 questions:
-- "Key question (FIXME)"
+- "What is user configuration file and how can I use it?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Understand the data directories structure"
+- "Configure ESMValTool to ignore some settings"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "The ``config-user.yml`` file tells ESMValTool what data are input"
+- "The ``config-user.yml`` file tells ESMValTool what directory is the destination"
 ---
 
 ## The configuration file
 
-The ``config-user.yml`` configuration file contains all the global level
-information needed by ESMValTool to run. This is an (YAML file) [https://yaml.org/spec/1.2/spec.html]. An example configuration file can be found in the root directory of the ESMValTool repository.
-Make a copy and rename it to ``config-user.yml``.
+The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.
+This is an (YAML file) [https://yaml.org/spec/1.2/spec.html]. An example configuration file can be found in the root directory of the ESMValTool repository.
+Make a copy and rename it to ``config-user.yml``:
 
 ~~~
   cp config-user-example.yml config-user.yml
 ~~~
 {: .source}
 
-This file contains:
+This file contains the information for:
   * Rootpaths to the data from different projects
   * Directory structure for input data
   * Number of available CPUs
@@ -30,9 +32,10 @@ This file contains:
   * Output settings
 
 ## Rootpaths to input data
-ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source, like CMIP for dataset from climate model intercomparison project, OBS for observational dataset that adhere to (CMOR standard)[https://cmor.llnl.gov/]
+ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source, like CMIP for dataset from climate model intercomparison project, and OBS for observational dataset that adhere to (CMOR standard)[https://cmor.llnl.gov/].
 For each category, you can define either one path or several pathes as a list.
-Add the root path of the folder where you downloaded the data during the (Setup)[https://escience-academy.github.io/lesson-esmvaltool/setup.html]
+In this lesson, you work with data from (CMIP5)[https://esgf-node.llnl.gov/projects/cmip5/].
+Add the root path of the folder where you downloaded the data during the (Setup)[https://escience-academy.github.io/lesson-esmvaltool/setup.html].
 
 ~~~
   rootpath:

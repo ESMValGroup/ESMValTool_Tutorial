@@ -24,26 +24,29 @@ Make a copy and rename it to ``config-user.yml``:
 {: .source}
 
 This file contains the information for:
-  * Rootpaths to the data from different projects
-  * Directory structure for input data
+  * Directory structure for the data from different projects
+  * Rootpaths to input data
   * Number of available CPUs
   * Destination directory
   * Auxiliary data directory
   * Output settings
 
-## Rootpaths to input data
+## Directory structure for the data from different projects
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source, like CMIP for dataset from climate model intercomparison project, and OBS for observational dataset that adhere to (CMOR standard)[https://cmor.llnl.gov/].
 For each category, you can define either one path or several pathes as a list.
+
+## Rootpaths to input data
 In this lesson, you work with data from (CMIP5)[https://esgf-node.llnl.gov/projects/cmip5/].
 Add the root path of the folder where you downloaded the data during the (Setup)[https://escience-academy.github.io/lesson-esmvaltool/setup.html].
 
 ~~~
   rootpath:
   ...
-    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/escience-academy/test_data]
+    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/tutorial/test_data]
 ~~~
 {: .source}
 
+## Number of available CPUs
 ## Auxiliary data directory (used for some additional datasets)
   auxiliary_data_dir: ~/auxiliary_data
 

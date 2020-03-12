@@ -128,8 +128,10 @@ repository for reference while revising.
 
 Extensive instructions for building and viewing the pages locally can be found [here](https://carpentries.github.io/lesson-example/setup.html). To get started quickly, run
 ```bash
+# apt (Ubuntu/Devian)
 sudo apt install ruby-dev ruby-bundler
-```
+# dnf (Fedora/Redhat)
+sudo dnf install rubygem-bundler ruby-devel
 to install the required ruby packages and
 ```bash
 make serve

@@ -36,7 +36,7 @@ This file contains the information for:
 
 > ## Which text editor
 >
-> No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. We use ``nano`` in examples because it is one of the least complex text editors. Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file, and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit nano.
+> No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. We use ``nano`` in examples because it is one of the least complex text editors. Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file, and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .callout}
 
 ## Rootpath to input data

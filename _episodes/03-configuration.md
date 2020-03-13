@@ -3,7 +3,7 @@ title: "Configuration"
 teaching: 0
 exercises: 0
 questions:
-- "What is user configuration file and how can I use it?"
+- "What is the user configuration file and how can I use it?"
 objectives:
 - "Understand the data directories structure"
 - "Configure ESMValTool to ignore some settings"
@@ -25,19 +25,40 @@ Make a copy and rename it to ``config-user.yml``:
 
 This file contains the information for:
   * Directory structure for the data from different projects
-  * Rootpaths to input data
+  * Rootpath to input data
   * Number of available CPUs
   * Destination directory
   * Auxiliary data directory
   * Output settings
 
 ## Directory structure for the data from different projects
-ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source, like CMIP for dataset from climate model intercomparison project, and OBS for observational dataset that adhere to (CMOR standard)[https://cmor.llnl.gov/].
-For each category, you can define either one path or several pathes as a list.
+Input data can be from various models, observations and reanalysis data that adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source.
+The current categories in the configuration file are mentioned below. For example, CMIP is used for a dataset from the climate model intercomparison project whereas OBS for an observational dataset. For each category, you can define either one path or several pathes as a list.
+
+~~~
+rootpath:
+  CMIP3: [~/cmip3_inputpath1, ~/cmip3_inputpath2]
+  CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
+  CMIP6: [~/cmip6_inputpath1, ~/cmip6_inputpath2]
+  OBS: ~/obs_inputpath
+  OBS6: ~/obs6_inputpath
+  obs4mips: ~/obs4mips_inputpath
+  ana4mips: ~/ana4mips_inputpath
+  native6:  ~/native6_inputpath
+  RAWOBS: ~/rawobs_inputpath
+  default: ~/default_inputpath
+~~~
+{: .source}
+
+> ## Attention
+>
+> * For more information about data from different projects, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/inputdata.html).
+{: .callout}
 
 ## Rootpaths to input data
+The ``rootpath`` specifies the directories where ESMValTool will look for input data.
 In this lesson, you work with data from (CMIP5)[https://esgf-node.llnl.gov/projects/cmip5/].
-Add the root path of the folder where you downloaded the data during the (Setup)[https://escience-academy.github.io/lesson-esmvaltool/setup.html].
+Add the root path of the folder where you downloaded the data during the (Setup)[https://esmvalgroup.github.io/tutorial/setup.html].
 
 ~~~
   rootpath:
@@ -45,6 +66,11 @@ Add the root path of the folder where you downloaded the data during the (Setup)
     CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/tutorial/test_data]
 ~~~
 {: .source}
+
+> ## Attention
+>
+> * For more information about setting the correct rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+{: .callout}
 
 ## Number of available CPUs
 ## Auxiliary data directory (used for some additional datasets)

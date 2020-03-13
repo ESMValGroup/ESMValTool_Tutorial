@@ -70,9 +70,15 @@ These directory contain:
 - work: This is a place for post-processed files such as NetCDF file containing data derived in the diagnostic. The content of this file is specific to each diagnostic.
 
 
-Exercise:
+> ## Exercise:
+> Please find and inspect the `settings.yml` and `metadata.yml` files.
+> > {: .solution}
+> > The files should be :
+> >  -  esmvaltool_output/recipe_python_\*/run/\*/settings.yml
+> >  -  esmvaltool_output/recipe_python_\*/run/\*/\*/metadata.yml
 
-Please find and inspect the `settings.yml` and `metadata.yml` files in your output directory.
+
+{: .challenge}
 
 {: .source}
 

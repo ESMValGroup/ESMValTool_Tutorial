@@ -38,6 +38,17 @@ How to make your own diagnostic script.
  - What does ESMValTool pass to the diagnostic?
 
 
+## The difference between ESMValTool and ESMValCore
+
+ESmValTool is built from two repositories.
+
+  - (ESMValTool)[https://github.com/ESMValGroup/ESMValTool]
+  - (ESMValCore)[https://github.com/ESMValGroup/ESMValCore]
+
+
+
+Most users will only need to interact with the ESMValTool repository.
+
 ## Four main parts
 
 There are four main parts of ESMValTool:
@@ -114,6 +125,7 @@ you may need to make your own diagnostic.
 The diagnostics section of the recipe tells ESMValTool which variables to load,
 which preprocessors to apply to each variable, and which diagnostic scripts to run.
 
+
 ### User Configuration
 
 The user configuration is not called in the recipe, but rather at run time.
@@ -128,7 +140,7 @@ They tell ESMValTool things like:
   - Where you want to save your output
 
 Exercise:
-  Find and inspect the exmaple user-config.yml file.
+  Find and inspect the example `user-config.yml` file.
 
 
 

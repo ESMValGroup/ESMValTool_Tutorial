@@ -8,8 +8,9 @@ objectives:
 - "Understand the data directories structure"
 - "Configure ESMValTool to ignore some settings"
 keypoints:
-- "The ``config-user.yml`` file tells ESMValTool what data are input"
-- "The ``config-user.yml`` file tells ESMValTool what directory is the destination"
+- "The ``config-user.yml`` tells ESMValTool about input, output and your preference."
+- " ``rootpath`` determines root directory for input data."
+- " ``output_dir`` is the destination directory."
 ---
 
 ## The configuration file
@@ -38,7 +39,7 @@ This file contains the information for:
 > No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. We use ``nano`` in examples because it is one of the least complex text editors. Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file, and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit nano.
 {: .callout}
 
-## Rootpaths to input data
+## Rootpath to input data
 
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source.
 The current categories in the configuration file are mentioned below. For example, CMIP is used for a dataset from the climate model intercomparison project whereas OBS for an observational dataset. The ``rootpath`` specifies the directories where ESMValTool will look for input data. For each category, you can define either one path or several paths as a list.
@@ -57,7 +58,7 @@ rootpath:
   default: ~/default_inputpath
 ~~~
 
-In this lesson, you work with data from [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
+In this lesson, we will work with data from [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
 Add the root path of the folder where you downloaded the data during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
 
 ~~~YAML

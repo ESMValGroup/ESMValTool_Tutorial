@@ -44,6 +44,10 @@ and to meet some of our community members.
 4.  Information on how to write a software carpentry lesson,
     can be found [here](https://carpentries.github.io/lesson-example/).
 
+5.  Guidelines on how to develop a software carpentry style curriculum
+    can be found [here](https://carpentries.github.io/curriculum-development/).
+
+
 ## Where to Contribute
 
 1.  If you wish to change this tutorial,

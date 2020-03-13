@@ -28,7 +28,7 @@ Let's change our working directory to ESMValTool, then make a copy of the file a
 This file contains the information for:
   * Rootpath to input data
   * Directory structure for the data from different projects
-  * Number of available CPUs
+  * Number of parallel tasks
   * Destination directory
   * Auxiliary data directory
   * Output settings
@@ -69,7 +69,7 @@ Add the root path of the folder where you downloaded the data during the [Setup]
 
 > ## Setting the correct rootpath
 >
-> * For more information about setting the rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+> For more information about setting the rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 
 ## Directory structure for the data from different projects
@@ -83,10 +83,22 @@ drs:
 
 > ## Available drs
 >
-> * For more information about directories, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/config.html#developer-configuration-file).
+> For more information about directories, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/config.html#developer-configuration-file).
 {: .callout}
 
-## Number of available CPUs
+## Number of parallel tasks
+This option enables you to perform parallel processing. You can choose the number of tasks in parallel as 1/2/3/4/... or you can set it to ``null`` that tells ESMValTool to use the number of available CPUs:
+
+~~~
+max_parallel_tasks: null
+~~~
+{: .source}
+
+> ## Set the number of tasks
+>
+> If you run out of memory, try setting ``max_parallel_tasks`` to 1. Then, check the amount of memory you need for that by inspecting the file ``run/resource_usage.txt`` in the output directory. Using the number there you can increase the number of parallel tasks again to a reasonable number for the amount of memory available in your system.
+{: .callout}
+
 ## Auxiliary data directory (used for some additional datasets)
   auxiliary_data_dir: ~/auxiliary_data
 

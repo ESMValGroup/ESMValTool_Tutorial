@@ -1,9 +1,7 @@
 # Contributing
 
-[The Carpentries][c-site] ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and [Library Carpentry][lc-site]) are open source projects,
-and we welcome contributions of all kinds:
-new lessons,
-fixes to existing material,
+The format of this tutorial is based on the [The Carpentries][c-site] ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and [Library Carpentry][lc-site]), which are open source projects. We welcome contributions of all kinds:
+fixes to this tutorial,
 bug reports,
 and reviews of proposed changes are all welcome.
 
@@ -48,18 +46,18 @@ and to meet some of our community members.
 
 ## Where to Contribute
 
-1.  If you wish to change this lesson,
-    please work in <https://github.com/swcarpentry/FIXME>,
-    which can be viewed at <https://swcarpentry.github.io/FIXME>.
+1.  If you wish to change this tutorial,
+    please work in <https://github.com/esmvalgroup/tutorial>,
+    which can be viewed at <https://esmvalgroup.github.io/tutorial>.
 
-2.  If you wish to change the example lesson,
+2.  If you wish to change the Carpentries example lesson,
     please work in <https://github.com/carpentries/lesson-example>,
-    which documents the format of our lessons
+    which documents the format of the Carpentry lessons
     and can be viewed at <https://carpentries.github.io/lesson-example>.
 
-3.  If you wish to change the template used for workshop websites,
+3.  If you wish to change the template used for Carpentry workshop websites,
     please work in <https://github.com/carpentries/workshop-template>.
-    The home page of that repository explains how to set up workshop websites,
+    The home page of that repository explains how to set up Carpentry workshop websites,
     while the extra pages in <https://carpentries.github.io/workshop-template>
     provide more background on our design choices.
 
@@ -128,6 +126,24 @@ Additionally, please only work from your newly-created branch(es) and *not*
 your clone of the originating `gh-pages` branch.
 Lastly, published copies of all the lessons are available in the `gh-pages` branch of the originating
 repository for reference while revising.
+
+## Previewing your changes locally
+
+Extensive instructions for building and viewing the pages locally can be found [here](https://carpentries.github.io/lesson-example/setup.html). To get started quickly, run
+```bash
+# apt (Ubuntu/Devian)
+sudo apt install ruby-dev ruby-bundler
+# dnf (Fedora/Redhat)
+sudo dnf install rubygem-bundler ruby-devel
+to install the required ruby packages and
+```bash
+make serve
+```
+to build and serve the website locally. The output on the terminal will contain a line similar to
+```
+Server address: http://127.0.0.1:4000
+```
+open the address in your browser to preview the website.
 
 ## Other Resources
 

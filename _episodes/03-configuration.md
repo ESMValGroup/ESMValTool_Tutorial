@@ -67,19 +67,23 @@ Add the root path of the folder where you downloaded the data during the [Setup]
 ~~~
 {: .source}
 
-> ## Attention
+> ## Setting the correct rootpath
 >
-> * For more information about setting the correct rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+> * For more information about setting the rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 
 ## Directory structure for the data from different projects
-Input data can be from various models, observations and reanalysis data that adhere to the [CF/CMOR standard](https://cmor.llnl.gov/).
+Input data can be from various models, observations and reanalysis data that adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). To set a directory, you can use one of the values of ``default``, ``BADC``, ``DKRZ``, ``ETHZ``, ... . Let's use ``default`` in our example:
 
+~~~
+drs:
+  CMIP5: default
+~~~
+{: .source}
 
-
-> ## Attention
+> ## Available drs
 >
-> * For more information about data from different projects, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/inputdata.html).
+> * For more information about directories, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/config.html#developer-configuration-file).
 {: .callout}
 
 ## Number of available CPUs

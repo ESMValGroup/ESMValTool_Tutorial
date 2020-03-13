@@ -57,8 +57,8 @@ rootpath:
 
 ## Rootpaths to input data
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
-In this lesson, you work with data from (CMIP5)[https://esgf-node.llnl.gov/projects/cmip5/].
-Add the root path of the folder where you downloaded the data during the (Setup)[https://esmvalgroup.github.io/tutorial/setup.html].
+In this lesson, you work with data from [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
+Add the root path of the folder where you downloaded the data during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
 
 ~~~
   rootpath:

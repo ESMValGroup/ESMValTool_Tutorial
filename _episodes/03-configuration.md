@@ -24,8 +24,6 @@ Let's change our working directory to ESMValTool, then make a copy of the file a
   nano config-user.yml
 ~~~
 
-{: .source}
-
 This file contains the information for:
 
 * Rootpath to input data
@@ -59,8 +57,6 @@ rootpath:
   default: ~/default_inputpath
 ~~~
 
-{: .source}
-
 In this lesson, you work with data from [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
 Add the root path of the folder where you downloaded the data during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
 
@@ -69,8 +65,6 @@ Add the root path of the folder where you downloaded the data during the [Setup]
   ...
     CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/tutorial/test_data]
 ~~~
-
-{: .source}
 
 > ## Setting the correct rootpath
 >
@@ -86,8 +80,6 @@ drs:
   CMIP5: default
 ~~~
 
-{: .source}
-
 > ## Available drs
 >
 > For more information about directories, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/config.html#developer-configuration-file).
@@ -101,8 +93,6 @@ This option enables you to perform parallel processing. You can choose the numbe
 
 max_parallel_tasks: null
 ~~~
-
-{: .source}
 
 > ## Set the number of tasks
 >
@@ -118,8 +108,6 @@ Let's name our destination directory as ``esmvaltool_output`` in the working dir
 ~~~YAML
 output_dir: ./esmvaltool_output
 ~~~
-
-{: .source}
 
 > ## Content of subfolders
 >
@@ -146,8 +134,6 @@ plotting such as coastline descriptions and so on.
 ~~~YAML
 auxiliary_data_dir: ~/auxiliary_data
 ~~~
-
-{: .source}
 
 
 ## Output settings

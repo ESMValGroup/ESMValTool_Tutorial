@@ -15,23 +15,25 @@ keypoints:
 ## The configuration file
 
 The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.
-This is an (YAML file) [https://yaml.org/spec/1.2/spec.html]. An example configuration file can be found in the root directory of the ESMValTool repository.
+This is an [YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be found in the root directory of the ESMValTool repository.
 Let's change our working directory to ESMValTool, then make a copy of the file and rename it to ``config-user.yml``, then run a text editor called Nano to open it:
 
-~~~
+~~~bash
   cd ESMValTool
   cp config-user-example.yml config-user.yml
   nano config-user.yml
 ~~~
+
 {: .source}
 
 This file contains the information for:
-  * Rootpath to input data
-  * Directory structure for the data from different projects
-  * Number of parallel tasks
-  * Destination directory
-  * Auxiliary data directory
-  * Output settings
+
+* Rootpath to input data
+* Directory structure for the data from different projects
+* Number of parallel tasks
+* Destination directory
+* Auxiliary data directory
+* Output settings
 
 > ## Which text editor
 >
@@ -39,10 +41,11 @@ This file contains the information for:
 {: .callout}
 
 ## Rootpaths to input data
+
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source.
 The current categories in the configuration file are mentioned below. For example, CMIP is used for a dataset from the climate model intercomparison project whereas OBS for an observational dataset. The ``rootpath`` specifies the directories where ESMValTool will look for input data. For each category, you can define either one path or several paths as a list.
 
-~~~
+~~~YAML
 rootpath:
   CMIP3: [~/cmip3_inputpath1, ~/cmip3_inputpath2]
   CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
@@ -55,16 +58,18 @@ rootpath:
   RAWOBS: ~/rawobs_inputpath
   default: ~/default_inputpath
 ~~~
+
 {: .source}
 
 In this lesson, you work with data from [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
 Add the root path of the folder where you downloaded the data during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
 
-~~~
+~~~YAML
   rootpath:
   ...
     CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/tutorial/test_data]
 ~~~
+
 {: .source}
 
 > ## Setting the correct rootpath
@@ -73,12 +78,14 @@ Add the root path of the folder where you downloaded the data during the [Setup]
 {: .callout}
 
 ## Directory structure for the data from different projects
+
 Input data can be from various models, observations and reanalysis data that adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). To set a directory, you can use one of the values of ``default``, ``BADC``, ``DKRZ``, ``ETHZ``, ... . Let's use ``default`` in our example:
 
-~~~
+~~~YAML
 drs:
   CMIP5: default
 ~~~
+
 {: .source}
 
 > ## Available drs
@@ -87,11 +94,14 @@ drs:
 {: .callout}
 
 ## Number of parallel tasks
+
 This option enables you to perform parallel processing. You can choose the number of tasks in parallel as 1/2/3/4/... or you can set it to ``null`` that tells ESMValTool to use the number of available CPUs:
 
-~~~
+~~~YAML
+
 max_parallel_tasks: null
 ~~~
+
 {: .source}
 
 > ## Set the number of tasks
@@ -100,13 +110,15 @@ max_parallel_tasks: null
 {: .callout}
 
 ## Destination directory
+
 The destination directory is the rootpath where ESMValTool will store its output, i.e. figures, data, logs, etc. With every run, ESMValTool automatically generates a new output folder determined by the recipe name, and date and time using the format: YYYYMMDD_HHMMSS. This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, ``work``.
 
 Let's name our destination directory as ``esmvaltool_output`` in the working directory:
 
-~~~
+~~~YAML
 output_dir: ./esmvaltool_output
 ~~~
+
 {: .source}
 
 > ## Content of subfolders
@@ -119,9 +131,7 @@ output_dir: ./esmvaltool_output
 > We explain more about output in the next [lesson](https://esmvalgroup.github.io/tutorial/04-toy-example/index.html)
 {: .callout}
 
-
-## Auxiliary data directory (used for some additional datasets)
-  auxiliary_data_dir: ~/auxiliary_data
+## Auxiliary data directory
 
 The ``auxiliary_data_dir`` setting is the path to place any required
 additional auxiliary data files. This method was necessary because certain
@@ -132,6 +142,12 @@ location allows us to tell cartopy (and other similar tools) where to find the
 files if they can not be downloaded at runtime. To reiterate, this setting is
 not for model or observational datasets, rather it is for data files used in
 plotting such as coastline descriptions and so on.
+
+~~~YAML
+auxiliary_data_dir: ~/auxiliary_data
+~~~
+
+{: .source}
 
 
 ## Output settings

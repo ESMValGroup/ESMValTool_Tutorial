@@ -99,6 +99,27 @@ max_parallel_tasks: null
 > If you run out of memory, try setting ``max_parallel_tasks`` to 1. Then, check the amount of memory you need for that by inspecting the file ``run/resource_usage.txt`` in the output directory. Using the number there you can increase the number of parallel tasks again to a reasonable number for the amount of memory available in your system.
 {: .callout}
 
+## Destination directory
+The destination directory is the rootpath where ESMValTool will store its output, i.e. figures, data, logs, etc. With every run, ESMValTool automatically generates a new output folder determined by the recipe name, and date and time using the format: YYYYMMDD_HHMMSS. This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, ``work``.
+
+Let's name our destination directory as ``esmvaltool_output`` in the working directory:
+
+~~~
+output_dir: ./esmvaltool_output
+~~~
+{: .source}
+
+> ## Content of subfolders
+>
+> * ``plots``: the location for all plots, split by individual diagnostics and fields.
+> * ``preproc``: this folder contains all the preprocessed data and metadata.yml interface files. Note that by default this directory will be deleted after each run because most users will only need the results from the diagnostic scripts.
+> * ``run``: this folder includes all log files, a copy of the recipe, a summary of the resource usage, and the settings.yml interface files, resource_usage.txt and temporary files created by the diagnostic scripts.
+> * ``work``: a place for any diagnostic script results that are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
+>
+> We explain more about output in the next [lesson](https://esmvalgroup.github.io/tutorial/04-toy-example/index.html)
+{: .callout}
+
+
 ## Auxiliary data directory (used for some additional datasets)
   auxiliary_data_dir: ~/auxiliary_data
 

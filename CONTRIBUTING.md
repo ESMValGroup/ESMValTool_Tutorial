@@ -71,7 +71,7 @@ and submitting [bug reports][issues]
 about things that don't work, aren't clear, or are missing.
 If you are looking for ideas, please see the 'Issues' tab for
 a list of issues associated with this repository,
-or you may also look at the issues for [Data Carpentry][dc-issues], 
+or you may also look at the issues for [Data Carpentry][dc-issues],
 [Software Carpentry][swc-issues], and [Library Carpentry][lc-issues] projects.
 
 Comments on issues and reviews of pull requests are just as welcome:
@@ -130,17 +130,30 @@ Extensive instructions for building and viewing the pages locally can be found [
 ```bash
 # apt (Ubuntu/Devian)
 sudo apt install ruby-dev ruby-bundler
+```
+or
+```bash
 # dnf (Fedora/Redhat)
 sudo dnf install rubygem-bundler ruby-devel
-to install the required ruby packages and
+```
+
+Alternatively, there's an environment file available which can be installed in conda with:
+```bash
+conda env create -f environment.yml -n esmvaltool_tutorial
+```
+
+To install the required ruby packages, run the following command in the tutorial's
+main directory to build and serve the website locally.:
 ```bash
 make serve
 ```
-to build and serve the website locally. The output on the terminal will contain a line similar to
+
+The output on the terminal will contain a line similar to:
 ```
 Server address: http://127.0.0.1:4000
 ```
-open the address in your browser to preview the website.
+This address can be opened in your browser to preview the website.
+
 
 ## Other Resources
 

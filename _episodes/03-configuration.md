@@ -16,10 +16,12 @@ keypoints:
 
 The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.
 This is an (YAML file) [https://yaml.org/spec/1.2/spec.html]. An example configuration file can be found in the root directory of the ESMValTool repository.
-Make a copy and rename it to ``config-user.yml``:
+Let's change our working directory to ESMValTool, then make a copy of the file and rename it to ``config-user.yml``, then run a text editor called Nano to open it:
 
 ~~~
+  cd ESMValTool
   cp config-user-example.yml config-user.yml
+  nano config-user.yml
 ~~~
 {: .source}
 
@@ -30,6 +32,11 @@ This file contains the information for:
   * Destination directory
   * Auxiliary data directory
   * Output settings
+
+> ## Which text editor
+>
+> No matter what editor you use, you will need to know where it searches for and saves files. If you start it from the shell, it will (probably) use your current working directory as its default location. We use ``nano`` in examples because it is one of the least complex text editors. Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file, and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit nano.
+{: .callout}
 
 ## Rootpaths to input data
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source.

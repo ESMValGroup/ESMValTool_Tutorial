@@ -35,12 +35,13 @@ This file contains the information for:
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects) for input data based on their source, like CMIP for dataset from climate model intercomparison project, and OBS for observational dataset that adhere to (CMOR standard)[https://cmor.llnl.gov/].
 For each category, you can define either one path or several pathes as a list.
 In this lesson, you work with data from (CMIP5)[https://esgf-node.llnl.gov/projects/cmip5/].
-Add the root path of the folder where you downloaded the data during the (Setup)[https://escience-academy.github.io/lesson-esmvaltool/setup.html].
+Add the root path of the folder where you downloaded the data during the setup.
+
 
 ~~~
   rootpath:
   ...
-    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/escience-academy/test_data]
+    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/tutorial/test_data]
 ~~~
 {: .source}
 

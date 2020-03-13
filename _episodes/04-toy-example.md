@@ -19,8 +19,7 @@ Now we have installed and configured ESMValTool it is time to run a simple examp
 what it produces.
 
 For this we need our general ESMValTool settings from episode 3 (configuration), the example data 
-that you downloaded in the 
-[setup](https://escience-academy.github.io/lesson-esmvaltool/setup.html) and an example recipe to 
+that you downloaded in the (setup) and an example recipe to
 tell ESMValTool what it should do. Let's make sure you have all set to continue. Check whether 
 you can find these three items in your ESMValTool folder.
 
@@ -31,8 +30,7 @@ you can find these three items in your ESMValTool folder.
 {: .challenge}
 
 
-As already mentioned in the 
-[introduction](https://escience-academy.github.io/lesson-esmvaltool/01-introduction/index.html), 
+As already mentioned in the introduction, 
 ESMValTool consists of two parts: the core and the diagnostics. The core part (also called 
 ESMValCore after its repository name) contains the code to run the actual software as well as 
 several preprocessing functions that are widely used. The diagnostics part (confusingly situated 

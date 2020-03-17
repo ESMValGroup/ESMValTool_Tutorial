@@ -1,9 +1,26 @@
-Please delete this line and the text below before submitting your contribution.
+# Pull Request checklist
 
----
+Thanks for contributing!
+Please keep in mind that lesson maintainers are volunteers and it may be some time before they can respond to your contribution. Although not all contributions can be incorporated into the lesson materials, we appreciate your time and effort to improve the curriculum.
+* * *
 
-Thanks for contributing! If this contribution is for instructor training, please send an email to checkout@carpentries.org with a link to this contribution so we can record your progress. You’ve completed your contribution step for instructor checkout just by submitting this contribution.  
+**Tasks**
 
-Please keep in mind that lesson maintainers are volunteers and it may be some time before they can respond to your contribution. Although not all contributions can be incorporated into the lesson materials, we appreciate your time and effort to improve the curriculum.  If you have any questions about the lesson maintenance process or would like to volunteer your time as a contribution reviewer, please contact The Carpentries Team at team@carpentries.org.  
+-   [ ] Read [CONTRIBUTING.md](https://github.com/ESMValGroup/tutorial/blob/master/CONTRIBUTING.md).
+-   [ ] Create an [issue](https://github.com/ESMValGroup/tutorial/issues) to discuss what you are going to do.
+-   [ ] Give this pull request a descriptive title.
+-   [ ] If you are contributing to the lesson materials, make sure the content does not have spelling or grammar errors.
+-   [ ] Please use `markdownlinter` to check that your files do not contain errors.
+-   [ ] Preview changes on your own machine before pushing them to GitHub by running `make docker-serve`.
 
----
+New episode
+
+-   [ ] Follow `Lesson Organization` in [CONTRIBUTING.md](https://github.com/ESMValGroup/tutorial/blob/master/CONTRIBUTING.md).
+-   [ ] Follow `Lesson Formatting` in [CONTRIBUTING.md](https://github.com/ESMValGroup/tutorial/blob/master/CONTRIBUTING.md).
+
+
+If you need help with any of the tasks above, please do not hesitate to ask by commenting in the issue or pull request.
+
+* * *
+
+Closes {Link to the corresponding issue}

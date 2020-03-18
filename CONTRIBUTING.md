@@ -143,7 +143,7 @@ conda env create -f environment.yml -n esmvaltool_tutorial
 ```
 
 To install the required ruby packages, run the following command in the tutorial's
-main directory to build and serve the website locally.:
+main directory to build and serve the website locally:
 ```bash
 make serve
 ```

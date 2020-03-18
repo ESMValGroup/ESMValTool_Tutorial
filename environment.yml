@@ -1,7 +1,6 @@
-name: tutorial_short
+name: esmvaltool_tutorial
 channels:
   - conda-forge
-  - defaults
 dependencies:
   - gxx_linux-64
   - rb-nokogiri

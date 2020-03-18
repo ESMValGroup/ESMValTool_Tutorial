@@ -17,11 +17,11 @@ keypoints:
 
 The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.
 This is an [YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be found in the root directory of the ESMValTool repository.
-Let's change our working directory to ESMValTool, then make a copy of the file and rename it to ``config-user.yml``, then run a text editor called Nano to open it:
+Let's change our working directory to ``esmvaltool_tutorial`` that is made during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html). Then we copy the config file and rename it to ``config-user.yml``, then run a text editor called Nano to open it:
 
 ~~~bash
-  cd ESMValTool
-  cp config-user-example.yml config-user.yml
+  cd esmvaltool_tutorial
+  cp ESMValTool/config-user-example.yml config-user.yml
   nano config-user.yml
 ~~~
 
@@ -59,17 +59,18 @@ rootpath:
 ~~~
 
 In this lesson, we will work with data from [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
-Add the root path of the folder where you downloaded the data during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+We add the root path of the folder where data is available.
 
 ~~~YAML
   rootpath:
   ...
-    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/tutorial/test_data]
+    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/esmvaltool_tutorial/data]
 ~~~
 
 > ## Setting the correct rootpath
 >
-> For more information about setting the rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+> * To get the data (or its correct rootpath), check instruction in [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+> * For more information about setting the rootpath, you can visit ESMValTool [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 
 ## Directory structure for the data from different projects

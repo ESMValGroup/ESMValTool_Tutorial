@@ -13,7 +13,7 @@ Please keep in mind that lesson maintainers are volunteers and it may be some ti
 - [ ] Please use `markdownlint` to check that your files do not contain errors.
 - [ ] Preview changes on your own machine before pushing them to GitHub by running `make docker-serve`.
 
-New episode
+## More tasks for a new episode
 
 - [ ] Follow `Lesson Organization` in [CONTRIBUTING.md](https://github.com/ESMValGroup/tutorial/blob/master/CONTRIBUTING.md).
 - [ ] Follow `Lesson Formatting` in [CONTRIBUTING.md](https://github.com/ESMValGroup/tutorial/blob/master/CONTRIBUTING.md).

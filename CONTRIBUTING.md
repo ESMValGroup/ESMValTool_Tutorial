@@ -1,9 +1,13 @@
 # Contributing
 
-The format of this tutorial is based on the [The Carpentries][c-site] ([Software Carpentry][swc-site], [Data Carpentry][dc-site], and [Library Carpentry][lc-site]), which are open source projects. We welcome contributions of all kinds:
-fixes to this tutorial,
-bug reports,
-and reviews of proposed changes are all welcome.
+We greatly value contributions of any kind. Contributions could include fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please do not hesitate to propose them.
+
+If you have a bug or other issue to report or just need help, please open an [issue].
+
+If you would like to contribute a new diagnostic and recipe or a new feature, please discuss your idea with the development team before getting started, to avoid double work and/or disappointment later. A good way to do this is to open an issue on GitHub. This is also a good way to get help.
+
+The format of this tutorial is based on the [Software Carpentry][swc-site], which is an open source project. We welcome contributions of all kinds:
+fixes to this tutorial, bug reports, and reviews of proposed changes.
 
 ## Contributor Agreement
 

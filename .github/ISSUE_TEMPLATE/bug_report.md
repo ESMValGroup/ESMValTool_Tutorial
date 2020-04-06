@@ -8,4 +8,4 @@ assignees: ''
 ---
 
 **Describe the bug**
-A clear and concise description of what the bug is. If this issue is about a specific episode within a lesson, please provide its link or filename.
+A clear and concise description of what the bug is. If this issue is about a specific episode, please provide its link or filename.

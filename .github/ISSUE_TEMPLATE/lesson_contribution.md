@@ -2,7 +2,7 @@
 name: New lesson material
 about: Develop lessons
 title: ''
-labels: enhancement
+labels: enhancement, lesson
 assignees: ''
 
 ---

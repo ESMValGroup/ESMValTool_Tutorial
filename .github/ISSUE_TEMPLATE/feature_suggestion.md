@@ -2,7 +2,7 @@
 name: Suggestion
 about: Suggest a feature for the tutorial repository
 title: ''
-labels: enhancement
+labels: enhancement, feature
 assignees: ''
 
 ---

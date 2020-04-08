@@ -1,8 +1,8 @@
 ---
-name: New feature
+name: Suggestion
 about: Suggest a feature for the tutorial repository
 title: ''
-labels: feature
+labels: enhancement
 assignees: ''
 
 ---

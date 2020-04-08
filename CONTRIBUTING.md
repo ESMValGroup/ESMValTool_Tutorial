@@ -43,15 +43,23 @@ To do so, you can make use of the [pull request checklist][PR].
 The reviewers are community volunteers who provide feedback.
 The maintainers have final say over what gets merged into the tutorial.
 
-## Lesson development guides
+## Tutorial content guides
 
-This tutorial is developed based on the [Carpentries Curriculum Development Handbook][swc-handbook].
+This section demonstrates all the features that can be used when developing a lesson in [RMarkdown] (https://rmarkdown.rstudio.com/).
+TODO level
 
 ### Lesson development
 
+The content of this tutorial is developed based on the [Carpentries Curriculum Development Handbook][swc-handbook].
+
 ### Lesson organization
 
+https://carpentries.github.io/lesson-example/03-organization/index.html
+
+
 ### Lesson formatting
+
+https://carpentries.github.io/lesson-example/04-formatting/index.html
 
 ## Previewing your changes locally
 

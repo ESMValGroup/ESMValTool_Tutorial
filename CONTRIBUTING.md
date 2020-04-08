@@ -1,6 +1,6 @@
 # Contributing to ESMValTool tutorial
 
-[ESMValTool](https://www.esmvaltool.org/) tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues] by choosing the ``New feature`` template in the ``issues`` tab of this repository.
+[ESMValTool](https://www.esmvaltool.org/) tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues] by choosing the ``Suggestion`` template in the ``issues`` tab of this repository.
 
 ## Acknowledgement
 
@@ -26,16 +26,17 @@ we will be able to respond more quickly if you use one of the other methods desc
 or are willing to [create one][github-join],
 please work in this [repository][site],
 which can be viewed at <https://esmvalgroup.github.io/tutorial>.
-You can report problems or suggest improvements by [creating an issue][issues].
+You can ask your questions, report problems or suggest improvements by [creating an issue][issues].
 This is the easiest way to tell us about your ideas,
 and a good way to introduce yourself
 and to meet some of our community members.
 This allows us to assign the item to someone
 and to respond to it in a threaded discussion.
-There are three templates to make an issue:
-  * for reporting a bug, please use [bug reports][issues]
+There are several templates to make an issue:
+  * for asking a question, please use [Question and answer][issues]
+  * for reporting a bug, please use [Bug reports][issues]
   * for developing lesson material, please use [New lesson material][issues]
-  * for adding a feature to the repository, please use [New feature][issues]
+  * for adding a feature to the repository, please use [Suggestion][issues]
 
 * If you would like to add what is already discussed in an issue,
 you can submit a [pull request][PR].

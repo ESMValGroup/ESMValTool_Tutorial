@@ -53,6 +53,7 @@ The tutorial is a set of lessons (or episodes) that together teach **basic** ski
 
 The content of this tutorial is mainly developed based on the [Carpentries Curriculum Development Handbook][swc-handbook].
 The handbook explains why we teach the way we do, and why our lessons are designed the way they are.
+If you are contributing to existing lesson materials, please make sure the content conforms to the concepts provided in the handbook and does not contain any spelling or grammatical errors.
 
 ### Lesson organization
 

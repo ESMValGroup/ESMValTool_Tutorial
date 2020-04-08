@@ -1,6 +1,6 @@
 # Contributing to ESMValTool tutorial
 
-[ESMValTool](https://www.esmvaltool.org/) tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues] by choosing the ``Suggestion`` template in the ``issues`` tab of this repository.
+[ESMValTool][ESMValTool-site] tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues] by choosing the ``Suggestion`` template in the ``issues`` tab of this repository.
 
 ## Acknowledgement
 
@@ -11,7 +11,7 @@ The format of this tutorial is based on the [Software Carpentry][swc-site], whic
 
 By contributing, you agree that we may redistribute your work under [our license](LICENSE.md).
 In exchange, we will address your issues and/or assess your change proposal as promptly as we can, and help you become a member of our community.
-Everyone involved in this [tutorial](site) agrees to abide by our [code of conduct](CODE_OF_CONDUCT.md).
+Everyone involved in this [tutorial](tutorial-repo) agrees to abide by our [code of conduct](CODE_OF_CONDUCT.md).
 
 ## How to Contribute
 
@@ -24,8 +24,8 @@ we will be able to respond more quickly if you use one of the other methods desc
 
 * If you have a [GitHub][github] account,
 or are willing to [create one][github-join],
-please work in this [repository][site],
-which can be viewed at <https://esmvalgroup.github.io/tutorial>.
+please work in this [repository][tutorial-repo],
+which can be viewed at the [tutorial site][tutorial-site].
 You can ask your questions, report problems or suggest improvements by [creating an issue][issues].
 This is the easiest way to tell us about your ideas,
 and a good way to introduce yourself
@@ -44,23 +44,24 @@ To do so, you can make use of the [pull request checklist][PR].
 The reviewers are community volunteers who provide feedback.
 The maintainers have final say over what gets merged into the tutorial.
 
-## Tutorial content guides
+## Tutorial guidelines
 
-This section demonstrates all the features that can be used when developing a lesson in [RMarkdown] (https://rmarkdown.rstudio.com/).
-TODO level
+This section demonstrates all the instructions for developing a lesson in the [ESMValTool tutorial][tutorial-site].
+The tutorial is a set of lessons (or episodes) that together teach **basic** skills needed to work with [ESMValTool][ESMValTool-site] in climate-related domains.
 
 ### Lesson development
 
-The content of this tutorial is developed based on the [Carpentries Curriculum Development Handbook][swc-handbook].
+The content of this tutorial is mainly developed based on the [Carpentries Curriculum Development Handbook][swc-handbook].
+The handbook explains why we teach the way we do, and why our lessons are designed the way they are.
 
 ### Lesson organization
 
-https://carpentries.github.io/lesson-example/03-organization/index.html
+[swc-lesson-organization]
 
 
 ### Lesson formatting
-
-https://carpentries.github.io/lesson-example/04-formatting/index.html
+[RMarkdown](https://rmarkdown.rstudio.com/)
+[swc-lesson-formatting]
 
 ## Previewing your changes locally
 
@@ -108,7 +109,9 @@ which everyone is welcome to join.
 You can also [reach us by email][email].
 
 [email]: mailto:admin@software-carpentry.org
-[site]: https://esmvalgroup.github.io/tutorial/
+[ESMValTool-site]: https://www.esmvaltool.org/
+[tutorial-repo]: https://esmvalgroup.github.io/tutorial/
+[tutorial-site]: https://esmvalgroup.github.io/tutorial
 [discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
 [github]: https://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
@@ -120,6 +123,8 @@ You can also [reach us by email][email].
 [swc-lessons]: https://software-carpentry.org/lessons/
 [swc-site]: https://software-carpentry.org/
 [swc-handbook]: https://carpentries.github.io/curriculum-development/
+[swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
+[swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [ea-site]: https://github.com/escience-academy
 [c-site]: https://carpentries.org/
 [lc-site]: https://librarycarpentry.org/

@@ -4,7 +4,6 @@
 
 ## Acknowledgement
 
-The [eScience academy][ea-site] initiated this tutorial.
 The format of this tutorial is based on the [Software Carpentry][swc-site], which is an open-source project.
 
 ## Agreement
@@ -42,7 +41,7 @@ There are several templates to make an issue:
 you can submit a [pull request][PR].
 To do so, you can make use of the [pull request checklist][PR].
 The reviewers are community volunteers who provide feedback.
-The maintainers have final say over what gets merged into the tutorial.
+The [maintainers][tutorial-maintainers] have final say over what gets merged into the tutorial.
 
 ## Tutorial guidelines
 
@@ -51,9 +50,12 @@ The tutorial is a set of lessons (or episodes) that together teach **basic** ski
 
 ### Lesson development
 
-The content of this tutorial is mainly developed based on the [Carpentries Curriculum Development Handbook][swc-handbook].
-The handbook explains why we teach the way we do, and why our lessons are designed the way they are.
-If you are contributing to existing lesson materials, please make sure the content conforms to the concepts provided in the handbook and does not contain any spelling or grammatical errors.
+The content of this tutorial is mainly developed based on the [Carpentries Curriculum Development Handbook][swc-handbook]. The handbook explains why we teach the way we do, and why our lessons are designed the way they are.
+If you are contributing to existing lesson materials, please make sure the content conforms to the concepts provided in the handbook.
+
+We recommend using software to check spelling or grammatical errors.
+The following link will guide you through a list of tools for several editors:
+<http://wiki.languagetool.org/software-that-supports-languagetool-as-a-plug-in-or-add-on>
 
 ### Lesson organization
 
@@ -113,6 +115,7 @@ You can also [reach us by email][email].
 [ESMValTool-site]: https://www.esmvaltool.org/
 [tutorial-repo]: https://esmvalgroup.github.io/tutorial/
 [tutorial-site]: https://esmvalgroup.github.io/tutorial
+[tutorial-maintainers]: https://github.com/ESMValGroup/tutorial#maintainers
 [discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
 [github]: https://github.com
 [github-flow]: https://guides.github.com/introduction/flow/

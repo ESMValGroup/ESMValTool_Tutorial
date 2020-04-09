@@ -59,12 +59,24 @@ The following link will guide you through a list of tools for several editors:
 
 ### Lesson organization
 
-[swc-lesson-organization]
-
+Each lesson is made up of episodes, which are focused on a particular topic and include time for both teaching and exercises. If you are making a new episode, please make sure the content conforms to the [Carpentries lesson organization][swc-lesson-organization].
 
 ### Lesson formatting
-[RMarkdown](https://rmarkdown.rstudio.com/)
-[swc-lesson-formatting]
+
+Episodes files are [Markdown](https://en.wikipedia.org/wiki/Markdown) files. If you are making a new episode or contributing to existing ones, please make sure the content conforms to the [Carpentries lesson formatting][swc-lesson-formatting].
+We recommend using a linter to check errors in Markdown files.
+For example, a [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) can be installed as an extension in ``Visual Studio Code``.
+Alternatively, it can installed with:
+
+```bash
+gem install mdl
+```
+
+and can be used as:
+
+```bash
+mdl your_markdown_filename
+```
 
 ## Previewing your changes locally
 

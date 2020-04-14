@@ -41,7 +41,7 @@ The [maintainers][tutorial-maintainers] have final say over what gets merged int
 ## Tutorial guidelines
 
 This section demonstrates all the instructions for developing a lesson in the [ESMValTool tutorial][tutorial-site].
-The tutorial is a set of lessons (or episodes) that together teach **basic** skills needed to work with [ESMValTool][ESMValTool-site] in climate-related domains.
+The tutorial is a set of lessons (or episodes) that together teach **basic** skills needed to work with [ESMValTool][ESMValTool-doc] in climate-related domains.
 
 ### Lesson development
 
@@ -120,6 +120,7 @@ You can reach us by [email][email].
 
 [email]: mailto:TODO_FIX_ME
 [ESMValTool-site]: https://www.esmvaltool.org/
+[ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
 [tutorial-repo]: https://esmvalgroup.github.io/tutorial/
 [tutorial-site]: https://esmvalgroup.github.io/tutorial
 [tutorial-maintainers]: https://github.com/ESMValGroup/tutorial#maintainers

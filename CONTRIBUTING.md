@@ -1,6 +1,6 @@
 # Contributing to ESMValTool tutorial
 
-[ESMValTool][ESMValTool-site] tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues] by choosing the ``Suggestion`` template in the ``issues`` tab of this repository.
+[ESMValTool][ESMValTool-site] tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues]. To do so, click on `new issue` in the ``issues`` tab of this repository and choose the ``Suggestion`` template.
 
 ## Acknowledgement
 
@@ -17,26 +17,25 @@ Everyone involved in this [tutorial](tutorial-repo) agrees to abide by our [code
 There are many ways to contribute:
 
 * If you do not have a [GitHub][github] account,
-you can [send us comments by email][email].
+you can send us comments by [email][email].
 However,
 we will be able to respond more quickly when you use one of the other methods described below.
 
 * If you have a [GitHub][github] account, work in this [repository][tutorial-repo],
-which can be viewed at the [tutorial site][tutorial-site].
+which can be viewed at the tutorial [site][tutorial-site].
 You can ask your questions, report problems or suggest improvements by [creating an issue][issues].
 This is the easiest way to tell us about your ideas, and a good way to introduce yourself
 and to meet some of our community members.
 This allows us to assign the item to someone and to respond to it in a threaded discussion.
-There are several templates to make an issue:
-  * for asking a question, please use [Question and answer][issues]
-  * for reporting a bug, please use [Bug reports][issues]
-  * for developing lesson material, please use [New lesson material][issues]
-  * for adding a feature to the repository, please use [Suggestion][issues]
+To open an issue, click on `new issue` in the ``issues`` tab of this repository and choose a template from the list as described below:
+  * for asking a question, please use `Question and answer`.
+  * for reporting a bug, please use `Bug reports`.
+  * for developing lesson material, please use `New lesson material`.
+  * for adding a feature to the repository, please use `Suggestion`.
 
 * If you would like to add what is already discussed in an issue,
-you can submit a [pull request][PR].
-To do so, you can make use of the [pull request checklist][PR].
-Each pull request is reviewed at least by one reviewer who is a community volunteer and provides feedback.
+you can submit a [pull request][PR] and make use of the `pull request checklist`.
+Each pull request is reviewed at least by one reviewer who is a community volunteer.
 The [maintainers][tutorial-maintainers] have final say over what gets merged into the tutorial.
 
 ## Tutorial guidelines
@@ -60,8 +59,9 @@ Each lesson is made up of episodes, which are focused on a particular topic and 
 ### Lesson formatting
 
 Episodes files are [Markdown](https://en.wikipedia.org/wiki/Markdown) files. If you are making a new episode or contributing to existing ones, please make sure the content conforms to the [Carpentries lesson formatting][swc-lesson-formatting].
-We recommend using a linter to check errors in Markdown files.
-For example, a [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) can be installed as an extension in ``Visual Studio Code``.
+
+We also, recommend using a linter to check errors in Markdown files.
+For example, a [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) can be installed as an extension in [Visual Studio Code](https://code.visualstudio.com/).
 Alternatively, a linter can be installed with:
 
 ```bash
@@ -74,10 +74,11 @@ and can be used as:
 mdl your_markdown_filename
 ```
 
-## Previewing your changes locally
+### Previewing your changes locally
 
-Please preview changes on your machine before pushing them to GitHub.
-To do so, you need to install the software described below.
+If you are making a new episode or contributing to existing ones,
+please preview changes on your machine before submitting a [pull request][PR].
+To do so, you need to install the software described below:
 
 ```bash
 # apt (Ubuntu/Devian)
@@ -115,7 +116,7 @@ This address can be opened in your browser to preview the tutorial website.
 ## Other Resources
 
 General discussion of the tutorial happens in `User Engagement Team`.
-You can [reach us by email][email].
+You can reach us by [email][email].
 
 [email]: mailto:TODO_FIX_ME.org
 [ESMValTool-site]: https://www.esmvaltool.org/

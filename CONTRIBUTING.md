@@ -1,6 +1,6 @@
 # Contributing to ESMValTool tutorial
 
-[ESMValTool][ESMValTool-site] tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues]. To do so, click on `New issue` in the `issues` tab of this repository and choose the `Suggestion` template.
+[ESMValTool][tutorial-site] tutorial is an open-source project in [ESMValGroup][ESMValTool-site] and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues]. To do so, click on `New issue` in the `issues` tab of this repository and choose the `Suggestion` template.
 
 ## Acknowledgement
 

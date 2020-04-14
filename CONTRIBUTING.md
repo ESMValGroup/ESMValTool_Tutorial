@@ -1,6 +1,6 @@
 # Contributing to ESMValTool tutorial
 
-[ESMValTool][ESMValTool-site] tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues]. To do so, click on `new issue` in the ``issues`` tab of this repository and choose the ``Suggestion`` template.
+[ESMValTool][ESMValTool-site] tutorial is an open-source project and we greatly value contributions of all kinds: fixes to this tutorial, bug reports, reviews of pull requests, infrastructure improvements, community help, and outreach. We value the time you invest in contributing and strive to make the process as easy as possible. If you have suggestions for improving the process of contributing, please open an [issue][issues]. To do so, click on [new issue](https://github.com/ESMValGroup/tutorial/issues/new/choose) in the ``issues`` tab of this repository and choose the ``Suggestion`` template.
 
 ## Acknowledgement
 
@@ -27,14 +27,14 @@ You can ask your questions, report problems or suggest improvements by [creating
 This is the easiest way to tell us about your ideas, and a good way to introduce yourself
 and to meet some of our community members.
 This allows us to assign the item to someone and to respond to it in a threaded discussion.
-To open an issue, click on `new issue` in the ``issues`` tab of this repository and choose a template from the list as described below:
+To open an issue, click on [new issue](https://github.com/ESMValGroup/tutorial/issues/new/choose) in the ``issues`` tab of this repository and choose a template from the list as described below:
   * for asking a question, please use `Question and answer`.
   * for reporting a bug, please use `Bug reports`.
   * for developing lesson material, please use `New lesson material`.
   * for adding a feature to the repository, please use `Suggestion`.
 
 * If you would like to add what is already discussed in an issue,
-you can submit a [pull request][PR] and make use of the `pull request checklist`.
+you can submit a [pull request][PR] by clicking on [New pull request](https://github.com/ESMValGroup/tutorial/compare) and make use of the `pull request checklist`.
 Each pull request is reviewed at least by one reviewer who is a community volunteer.
 The [maintainers][tutorial-maintainers] have final say over what gets merged into the tutorial.
 

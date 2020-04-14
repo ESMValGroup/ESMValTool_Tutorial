@@ -133,17 +133,30 @@ Extensive instructions for building and viewing the pages locally can be found [
 ```bash
 # apt (Ubuntu/Devian)
 sudo apt install ruby-dev ruby-bundler
+```
+or
+```bash
 # dnf (Fedora/Redhat)
 sudo dnf install rubygem-bundler ruby-devel
-to install the required ruby packages and
+```
+
+Alternatively, there's an environment file available which can be installed in conda with:
+```bash
+conda env create -f environment.yml -n esmvaltool_tutorial
+```
+
+To install the required ruby packages, run the following command in the tutorial's
+main directory to build and serve the website locally:
 ```bash
 make serve
 ```
-to build and serve the website locally. The output on the terminal will contain a line similar to
+
+The output on the terminal will contain a line similar to:
 ```
 Server address: http://127.0.0.1:4000
 ```
-open the address in your browser to preview the website.
+This address can be opened in your browser to preview the website.
+
 
 ## Other Resources
 

@@ -19,18 +19,14 @@ There are many ways to contribute:
 * If you do not have a [GitHub][github] account,
 you can [send us comments by email][email].
 However,
-we will be able to respond more quickly if you use one of the other methods described below.
+we will be able to respond more quickly when you use one of the other methods described below.
 
-* If you have a [GitHub][github] account,
-or are willing to [create one][github-join],
-please work in this [repository][tutorial-repo],
+* If you have a [GitHub][github] account, work in this [repository][tutorial-repo],
 which can be viewed at the [tutorial site][tutorial-site].
 You can ask your questions, report problems or suggest improvements by [creating an issue][issues].
-This is the easiest way to tell us about your ideas,
-and a good way to introduce yourself
+This is the easiest way to tell us about your ideas, and a good way to introduce yourself
 and to meet some of our community members.
-This allows us to assign the item to someone
-and to respond to it in a threaded discussion.
+This allows us to assign the item to someone and to respond to it in a threaded discussion.
 There are several templates to make an issue:
   * for asking a question, please use [Question and answer][issues]
   * for reporting a bug, please use [Bug reports][issues]
@@ -40,7 +36,7 @@ There are several templates to make an issue:
 * If you would like to add what is already discussed in an issue,
 you can submit a [pull request][PR].
 To do so, you can make use of the [pull request checklist][PR].
-The reviewers are community volunteers who provide feedback.
+Each pull request is reviewed at least by one reviewer who is a community volunteer and provides feedback.
 The [maintainers][tutorial-maintainers] have final say over what gets merged into the tutorial.
 
 ## Tutorial guidelines
@@ -66,7 +62,7 @@ Each lesson is made up of episodes, which are focused on a particular topic and 
 Episodes files are [Markdown](https://en.wikipedia.org/wiki/Markdown) files. If you are making a new episode or contributing to existing ones, please make sure the content conforms to the [Carpentries lesson formatting][swc-lesson-formatting].
 We recommend using a linter to check errors in Markdown files.
 For example, a [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) can be installed as an extension in ``Visual Studio Code``.
-Alternatively, it can installed with:
+Alternatively, a linter can be installed with:
 
 ```bash
 gem install mdl

@@ -34,7 +34,7 @@ To open an issue, click on [new issue](https://github.com/ESMValGroup/tutorial/i
   * for adding a feature to the repository, please use `Suggestion`.
 
 * If you would like to add what is already discussed in an issue,
-you can submit a [pull request][PR] by clicking on [New pull request](https://github.com/ESMValGroup/tutorial/compare) and make use of the `pull request checklist`.
+you can submit a [pull request][PR] and make use of the `pull request checklist`.
 Each pull request is reviewed at least by one reviewer who is a community volunteer.
 The [maintainers][tutorial-maintainers] have final say over what gets merged into the tutorial.
 

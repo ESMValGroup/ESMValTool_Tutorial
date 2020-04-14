@@ -76,7 +76,8 @@ mdl your_markdown_filename
 
 ## Previewing your changes locally
 
-Extensive instructions for building and viewing the pages locally can be found [here](https://carpentries.github.io/lesson-example/setup.html). To get started quickly, run
+Please preview changes on your machine before pushing them to GitHub.
+To do so, you need to install the software described below.
 
 ```bash
 # apt (Ubuntu/Devian)
@@ -90,7 +91,7 @@ or
 sudo dnf install rubygem-bundler ruby-devel
 ```
 
-Alternatively, there's an environment file available which can be installed in conda with:
+Alternatively, there is an environment file available which can be installed with:
 
 ```bash
 conda env create -f environment.yml -n esmvaltool_tutorial
@@ -109,35 +110,23 @@ The output on the terminal will contain a line similar to:
 Server address: http://127.0.0.1:4000
 ```
 
-This address can be opened in your browser to preview the website.
-
+This address can be opened in your browser to preview the tutorial website.
 
 ## Other Resources
 
-General discussion of [Software Carpentry][swc-site] and [Data Carpentry][dc-site]
-happens on the [discussion mailing list][discuss-list],
-which everyone is welcome to join.
-You can also [reach us by email][email].
+General discussion of the tutorial happens in `User Engagement Team`.
+You can [reach us by email][email].
 
-[email]: mailto:admin@software-carpentry.org
+[email]: mailto:TODO_FIX_ME.org
 [ESMValTool-site]: https://www.esmvaltool.org/
 [tutorial-repo]: https://esmvalgroup.github.io/tutorial/
 [tutorial-site]: https://esmvalgroup.github.io/tutorial
 [tutorial-maintainers]: https://github.com/ESMValGroup/tutorial#maintainers
-[discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
 [github]: https://github.com
-[github-flow]: https://guides.github.com/introduction/flow/
-[github-join]: https://github.com/join
-[how-contribute]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [issues]: https://github.com/ESMValGroup/tutorial/issues
 [PR]: https://github.com/ESMValGroup/tutorial/pulls
-[swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
-[swc-lessons]: https://software-carpentry.org/lessons/
 [swc-site]: https://software-carpentry.org/
 [swc-handbook]: https://carpentries.github.io/curriculum-development/
 [swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [ea-site]: https://github.com/escience-academy
-[c-site]: https://carpentries.org/
-[lc-site]: https://librarycarpentry.org/
-[lc-issues]: https://github.com/issues?q=user%3Alibrarycarpentry

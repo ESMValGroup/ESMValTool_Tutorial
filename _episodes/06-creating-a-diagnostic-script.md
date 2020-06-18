@@ -16,4 +16,4 @@ FIXME
 Important part here is to introduce the standard tools that allow users to access ESMValTool settings configs.
 
 
-This file should be renamed to advanced: creatiung a diagnostic
+This file should be renamed to advanced: creating a diagnostic

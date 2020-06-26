@@ -1,6 +1,3 @@
-File name : first_example_recipe.md
-Episode 4.
-
 ---
 title: "Running a recipe (First example)"
 teaching: 10

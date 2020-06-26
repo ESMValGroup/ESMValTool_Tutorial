@@ -8,13 +8,18 @@ This tutorial is built to teach you ESMValTool. It starts from the basics, what 
 
 Don’t be alarmed if you can’t work through it all in one sitting. It may take some time to get used to working with ESMValTool.
 
-> ## What will you learn in this course:
+> ## What will you learn in this course
 >
-> - What is ESMValTool
-> - How to install ESMValTool
-> - How to run ESMValTool
-> - How to develop your own diagnostics and recipes
-> - How to contribute your recipes and diagnostics back into ESMValTool
+>   - What is ESMValTool
+>
+>   - How to install ESMValTool
+>
+>   - How to run ESMValTool
+>
+>   - How to develop your own diagnostics and recipes
+>
+>   - How to contribute your recipes and diagnostics back into ESMValTool
+>
 {: .checklist}
 
 > ## Prerequisites
@@ -26,7 +31,7 @@ Don’t be alarmed if you can’t work through it all in one sitting. It may tak
 > Github account (optional, but useful!)
 {: .prereq}
 
-> ## Main things you need to know before starting this course:
+> ## Main things you need to know before starting this course
 >
 > 1. This tutorial can be taken online independently or taught by one of our instructors.
 > 2. Please check the common issues page if you get stuck. Otherwise, help is always available from ESMValTool developers via the github issues page.  

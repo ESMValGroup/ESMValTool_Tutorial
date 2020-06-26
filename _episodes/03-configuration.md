@@ -14,19 +14,18 @@ keypoints:
 - " ``output_dir`` is the destination directory."
 ---
 
-Contents:
-
 Exercise: Copy the user config to your working area
 Exercise: Make site specific configuration information(ie the changes needed to you config-user.yml file before you can run)
 
 ## The configuration file
 
 The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.
-This is an [YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be found in the [root directory of the ESMValTool repository](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
-Let's download it in our working directory ``esmvaltool_tutorial`` that is made during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
-Click on [this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml) to see a raw version of the file, right-click and press save as, then you can rename it to ``config-user.yml`` and save it into the working directory ``esmvaltool_tutorial``.
+This is an [YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be found in the root directory of the ESMValTool repository: [config-user-example.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
 
-Lets change our working directory to ``esmvaltool_tutorial``. Then, we run a text editor called Nano to open it:
+Let's download it to our working directory ``esmvaltool_tutorial`` that is made during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+To do that, click on [this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml) to see a raw version of the file, right-click and press ``save as``, then you can rename it to ``config-user.yml`` and save it into the working directory ``esmvaltool_tutorial``.
+
+Now in a terminal, let's change our working directory to ``esmvaltool_tutorial``. Then, we run a text editor called Nano to open the configuration file:
 
 ~~~bash
   cd esmvaltool_tutorial
@@ -165,5 +164,21 @@ remove_preproc_dir: true
 # Only available for Python diagnostics
 profile_diagnostic: false
 ~~~
+
+> ## Make your own configuration file
+>
+> It is possible to have several configuration files with different purposes, for example: config-user_formalised_runs.yml, config-user_debugging.yml
+{: .callout}
+
+> ## Set different preferences
+>
+> In the configuration file, which settings are useful to store preprocessed data?
+>
+>> ## Solution
+>>
+>> If the option ``save_intermediary_cubes`` is set to true in the config-user.yml file, then the intermediary cubes will also be saved in the folder ``preproc``. Also, if the option ``remove_preproc_dir`` is set to ``false``, then the ``preproc/`` directory contains all the preprocessed data and the metadata interface files.
+> {: .solution}
+{: .challenge}
+
 
 {% include links.md %}

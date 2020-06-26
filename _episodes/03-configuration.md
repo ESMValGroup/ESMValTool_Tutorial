@@ -170,7 +170,7 @@ profile_diagnostic: false
 > It is possible to have several configuration files with different purposes, for example: config-user_formalised_runs.yml, config-user_debugging.yml
 {: .callout}
 
-> ## Set different preferences
+> ## Different settings
 >
 > In the configuration file, which settings are useful to store preprocessed data?
 >
@@ -179,6 +179,5 @@ profile_diagnostic: false
 >> If the option ``save_intermediary_cubes`` is set to true in the config-user.yml file, then the intermediary cubes will also be saved in the folder ``preproc``. Also, if the option ``remove_preproc_dir`` is set to ``false``, then the ``preproc/`` directory contains all the preprocessed data and the metadata interface files.
 > {: .solution}
 {: .challenge}
-
 
 {% include links.md %}

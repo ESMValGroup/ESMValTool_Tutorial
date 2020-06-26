@@ -4,9 +4,7 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-This tutorial is built to teach you ESMValTool. It starts from the basics, what it is, how it works, and goes to the advanced sections of how can I make my own diagnostics within ESMValTool and how do I contribute my code back to share with the ESMValTool community.
-
-Don’t be alarmed if you can’t work through it all in one sitting. It may take some time to get used to working with ESMValTool.
+This tutorial is built to teach you ESMValTool.  
 
 > ## What will you learn in this course
 >
@@ -36,6 +34,23 @@ Don’t be alarmed if you can’t work through it all in one sitting. It may tak
 > 1. This tutorial can be taken online independently or taught by one of our instructors.
 > 2. Please check the common issues page if you get stuck. Otherwise, help is always available from ESMValTool developers via the github issues page.  
 > 3. This tutorial includes several advanced lessons after the conclusion. These advanced lessons should be treated like “mini-tutorials”, and include aspects like “developing your own diagnostic” or “how to include observations”.
+> 4. Don’t be alarmed if you can’t work through the entire tutorial in one sitting. It may take some time to get used to working with ESMValTool.
 {: .checklist}
 
 {% include links.md %}
+
+
+> ## Additional resources: 
+> 
+> - Read the docs page.
+> - github main page.
+> - GMD paper
+> - ESMValTool home page
+{: .callout}
+
+
+Please cite this tutorial as:
+ESMVAlTool 2.0 tutorial, website, version [ADD AUTO VERSION?] 
+
+
+

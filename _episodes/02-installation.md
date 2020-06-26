@@ -3,14 +3,14 @@ title: "Installation"
 teaching: 10
 exercises: 20
 questions:
-- "What are the prerequisites for installing ESMValTool?"
-- "How do I confirm that the installation was successful?"
+  - "What are the prerequisites for installing ESMValTool?"
+  - "How do I confirm that the installation was successful?"
 objectives:
-- "Install ESMValTool"
-- "Demonstate that the installation was successful"
+  - "Install ESMValTool"
+  - "Demonstate that the installation was successful"
 keypoints:
-- "All the required packages can be installed using conda"
-- "You can find more information about installation in the documentation"
+  - "All the required packages can be installed using conda"
+  - "You can find more information about installation in the documentation"
 ---
 ## Overview
 
@@ -29,20 +29,20 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 ### Linux
 
-1. Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
+1.  Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
 
-2. Next, run the installer
+2.  Next, run the installer
 
     ~~~
     bash Miniconda3-latest-Linux-x86_64.sh
     ~~~
     {:.language-bash}
 
-3. Follow the instructions in the installer. The defaults should normally suffice.
+3.  Follow the instructions in the installer. The defaults should normally suffice.
 
-4. You will need to restart your terminal for the changes to have effect.
+4.  You will need to restart your terminal for the changes to have effect.
 
-5. Verify you have a working conda installation by listing all installed packages
+5.  Verify you have a working conda installation by listing all installed packages
 
     ~~~
     conda list
@@ -51,20 +51,20 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 ### MacOSX
 
-1. Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
+1.  Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
 
-2. Next, run the installer
+2.  Next, run the installer
 
     ~~~
     bash Miniconda3-latest-MacOSX-x86_64.sh
     ~~~
     {:.language-bash}
 
-3. Follow the instructions in the installer. The defaults should normally suffice.
+3.  Follow the instructions in the installer. The defaults should normally suffice.
 
-4. You will need to restart your terminal for the changes to have effect.
+4.  You will need to restart your terminal for the changes to have effect.
 
-5. Verify you have a working conda installation by listing all installed packages
+5.  Verify you have a working conda installation by listing all installed packages
 
     ~~~
     conda list

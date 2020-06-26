@@ -12,6 +12,14 @@ keypoints:
 - "All the required packages can be installed using conda"
 - "You can find more information about installation in the documentation"
 ---
-FIXME
+## Overview
+
+## Install Conda
+
+## Install Julia
+
+## Install ESMValTool
+
+## Test that the installation was successful
 
 {% include links.md %}

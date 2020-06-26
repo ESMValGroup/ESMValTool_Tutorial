@@ -5,23 +5,31 @@ exercises: 0
 questions:
 - "What is the user configuration file and how can I use it?"
 objectives:
-- "Understand the data directories structure"
+- "Understand the contents of the user-config.yml file"
+- "Prepare the user-config.yml file for use"
 - "Configure ESMValTool to ignore some settings"
 keypoints:
-- "The ``config-user.yml`` tells ESMValTool about input, output and your preference."
+- "The ``config-user.yml`` tells ESMValTool where to find input data."
 - " ``rootpath`` determines root directory for input data."
 - " ``output_dir`` is the destination directory."
 ---
 
+Contents:
+
+Exercise: Copy the user config to your working area
+Exercise: Make site specific configuration information(ie the changes needed to you config-user.yml file before you can run)
+
 ## The configuration file
 
 The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.
-This is an [YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be found in the root directory of the ESMValTool repository.
-Let's change our working directory to ``esmvaltool_tutorial`` that is made during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html). Then we copy the config file and rename it to ``config-user.yml``, then run a text editor called Nano to open it:
+This is an [YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be found in the [root directory of the ESMValTool repository](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
+Let's download it in our working directory ``esmvaltool_tutorial`` that is made during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+Click on [this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml) to see a raw version of the file, right-click and press save as, then you can rename it to ``config-user.yml`` and save it into the working directory ``esmvaltool_tutorial``.
+
+Lets change our working directory to ``esmvaltool_tutorial``. Then, we run a text editor called Nano to open it:
 
 ~~~bash
   cd esmvaltool_tutorial
-  cp ESMValTool/config-user-example.yml config-user.yml
   nano config-user.yml
 ~~~
 

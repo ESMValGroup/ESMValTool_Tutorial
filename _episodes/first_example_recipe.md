@@ -1,3 +1,6 @@
+File name : first_example_recipe.md
+Episode 4.
+
 ---
 title: "Running a recipe (First example)"
 teaching: 10
@@ -8,13 +11,13 @@ questions:
 - "What are the files and directories after running a recipe?"
 - "What happens when I run a recipe?"
 objectives:
-- "Run an ESMValTool recipe"
+- "Run an ESMValTool recipe”
 - "Understand the purpose of different settings in the recipe"
 - "Inspect the output directories"
 - "Examine the log information"
 keypoints:
 - "A recipe does not break by fiddling with it"
-- "Log information is useful to How to interpret the first warnings/errors"
+- "Log information is useful when interpreting the first warnings/errors"
 - "The dataset section in the recipe relates to Understanding the directory structure of CMIP data on your server/disk and knowing how to use data from different experiments such as CMIP/ScenarioMIP."
 ---
 
@@ -22,28 +25,36 @@ This episode describes how ESMValTool recipes work, how to run a recipe and how 
 
 ## Introduction to Recipes
 
-Recipes are the instructions that you give to ESMValTool that tell it what you want to do. This includes four main section:
-- datasets: what datasets you want to use
+Recipes are the instructions that you give to ESMValTool that tell it what you want to do. This includes four main sections: datasets, preprocessors, diagnostics and description.
+
+- datasets: what datasets you want to use, including
  - the time range and time resolution,
  - the MIP, ensemble member,
- - the experiment (ie historical, ssp125 etc...)
- - the grid type (CMIP6 only)
- - This section can also be optional, as datasets can no preprocessing is needed.
+ - the experiment (i.e. historical, ssp125 etc...),
+ - and the grid type (CMIP6 only)
 
-- proprocessors: one or preprocessors
- - which preprocessor modules to apply
- - the order to apply them
- - and the preprocesor arguments.
- - This section can also be optional, if no preprocessing is needed.
+ This section can also be optional, as datasets can no preprocessing is needed.
 
-- diagnostics: All the information about diagnostic
- -
+- preprocessors: general operations applied to a dataset before handling it in a diagnostic, listing
+ - which preprocessor modules to apply,
+ - the order to apply them,
+ - and the preprocessor arguments.
 
-- description: a brief description of the recipe
- - who wrote the recipe, and who maintains it
- - which project is responsible for it
- - which publications, reference are linked with the recipe
- - Note that the authors, publications and references and named in the config-references.yml
+ This section can also be optional, if no preprocessing is needed.
+
+- diagnostics: all the information about the diagnostic, including
+ - list of variables to evaluate (with their respective configurations),
+ - the desired diagnostic script to use,
+ - and additional diagnostic script options or arguments, if needed.
+
+ Also Include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
+
+- description: a brief description of the recipe, including
+ - who wrote the recipe and who maintains it,
+ - which project is responsible for it,
+ - and which publications, references are linked with the recipe.
+
+ Note that the authors, publications and references are to be named in the config-references.yml
 
 This information
 
@@ -53,6 +64,7 @@ Once you’ve set up your conda environment and installed ESMValTool (See episod
 ~~~
 esmvaltool -c configuration recipe
 ~~~
+{: .source}
 
 To try your hand with a basic recipe, please work through this episode.
 
@@ -70,8 +82,8 @@ Please copy and paste the following recipe into your ESMValTool working area wit
 
       authors:
         - demora_lee
-        - Ben
-        - Ranjini
+        - mueller_benjamin
+        - swaminathan_ranjini
 
       maintainer:
         - demora_lee
@@ -83,16 +95,13 @@ Please copy and paste the following recipe into your ESMValTool working area wit
       projects:
         - ukesm
 
+      datasets:
+        - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005, }
 
     preprocessors:
-      # --------------------------------------------------
-      # Time series preprocessors
-      # --------------------------------------------------
-      prep_timeseries: # For 0D fields
-        multi_model_statistics:
-          span: full
-          statistics: [mean ]
-
+          prep_timeseries: # For 0D fields
+          annual_statistics:
+            operator: mean
 
     diagnostics:
       # --------------------------------------------------
@@ -100,27 +109,21 @@ Please copy and paste the following recipe into your ESMValTool working area wit
       # --------------------------------------------------
       diag_timeseries_temperature:
         variables:
-          thetaoga:
-            preprocessor: prep_timeseries
-            additional_datasets:
-              - {dataset: CESM1-BGC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: CNRM-CM5, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: CSIRO-Mk3-6-0, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: CanESM2, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: GFDL-ESM2M, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1861, end_year: 2005, }
-              - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005, }
-              - {dataset: IPSL-CM5A-LR, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: MIROC-ESM, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: MPI-ESM-LR, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
-              - {dataset: NorESM1-M, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1850, end_year: 2005, }
+        timeseries_variable:
+          short_name: thetaoga
+          preprocessor: prep_timeseries
         scripts:
           timeseries_diag:
             script: ocean/diagnostic_timeseries.py
 
+
 > ## Explore the recipe
 >
 > Use the command and investigate the sample recipe.
+> ~~~
 > vim  recipe.yml
+> ~~~
+> {: .source}
 >
 > Please note the datasets, preprocessors, diagnostic sections.
 > What is the short_name of the variable being analysed?
@@ -136,23 +139,24 @@ Please copy and paste the following recipe into your ESMValTool working area wit
 > ## Running ESMValTool
 >
 > Use the command:
+> ~~~
 > esmvaltool -c user-config.yml recipe_example.yml
+> ~~~
 >
+> {: .source}
 > What
 {: .challenge}
 
 
 > ## Inspect the output:
 > Now that you have run the esmvaltool command for the first time, please locate your output directory.
-> Each time you run ESMValTool, it will produce a new output directory with the format:
+> Each time you run ESMValTool, it will produce a new output directory with the following format:
 > This directory should contain four folders:
 >  run work preproc plots
-> If you’re missing the preproc directory, then your config-user.yml file has the value remove_preproc_dir set to true.
-
-
+> If you’re missing the preproc directory, then your config-user.yml file has the value remove_preproc_dir set to true (this is used to save disk space). Please set this value to false and run the recipe again.
 >
 > Please locate and inspect the following files:
->  You output plot(s).
+>  Your output plot(s).
 >  Your main output log file
 >  Your settings.yml file
 >  A metadata.yml file
@@ -161,29 +165,49 @@ Please copy and paste the following recipe into your ESMValTool working area wit
 
 > ## Edit the recipe and run
 > So far, the example recipe has used global volume-weighted ocean temperature. Please edit this recipe to investigate one of the following fields:
->  Land surface temperature
->  Atmospheric surface temperature
->  Ocean surface temperature (tos)
-> You will need to edit the dataset request, c
+> - Land surface average temperature (tsland)
+> - Atmospheric surface average temperature (tas)
+> - Ocean surface average temperature (tos)
+>
+> You will need to edit:
+> - the dataset:
+>   - mip, start_year, end_year
+> - the preprocessor:
+>   - These fields are all 2D fields, but thetaga was a 0D field. This means that we need to take the average over the latitude and longitude dimensions. To do this, add the area_statistics to the preprocessor.
+> - the diagnostic
+>  - change the short_name value (thetaoga) for another:
+>     - Land surface average temperature (tsland)
+>     - Atmospheric surface average temperature (tas)
+>     - Ocean surface average temperature (tos)
+> ### Advanced:
+> If you want to add a different field, please have a look here:
+> http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html
 {: .challenge}
 
 
 > ## Common issues & tips
 >
-> ### ESMValTool can’t locate the data
-> User didn’t correctly edit user-config.yml
->
 > ### Esmvaltool not found
-> User didn’t active or correctly install conda
+> Can you run the command “esmvaltool -h”. If no, then it’s possible that the conda environment isn’t activated. Please return to the installation section, epside [2] LINK.  
+>
+> ### ESMValTool can’t locate the data
+> The error message is “esmvalcore._recipe_checks.RecipeError: Missing data”
+> Which computing machine are you using? Does your user-config.yml file reflect your machine's settings? Is the dataset’s name in the correct order?
+>
 >
 > ### Diagnostic path problems
-> explain ESMValTool’s methods to determine diagnostic path, and how it should appear in the recipe
+> The directory path to your diagnostics code is set relative to the esmvaltool/diag_scripts subdirectory. Is the code placed in this subdirectory? Is it spelled correctly?
+>
 >
 > ### FX files not found.
 >
+>
 > ### The preprocessor works but the diagnostic fails:
-> How to tell them appart and how to re-run a failed diagnostic (but not the preprocessor)
+> If your preprocessor works fine but your diagnostic script fails, congratulations! A failed diagnostic means that you won’t need to re-run the preprocessor. In your “run/main_log.txt” run output, you should see a line that reads: “To re-run this diagnostic script, run:”, followed by a line with a command that will allow you to re-run your diagnostic script only. Append this line with the “-i” option after the python script you call to re-run your diagnostic.
+>
 >
 > ### Your recipe’s name/project/reference isn’t recognised by ESMValTool.
+> Error message is “ValueError: Tag 'NAME' does not exist in section 'authors' of path/esmvaltool/config-references.yml”
+> Most likely, you added your own name to the recipe in the description section, but didn’t add it to the esmvaltool/config-references.yml file, where the names are linked to an email address, institute, and ORCID Identity.
 >
 {: .callout}

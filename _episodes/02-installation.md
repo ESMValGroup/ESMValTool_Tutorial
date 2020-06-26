@@ -69,6 +69,44 @@ After installing the WSL, installation can be done using the Linux installation 
 
 ## Install Julia
 
+Complete instructions for installing Julia can be found on the
+[Julia installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
+In this tutorial, we will use the following steps.
+First, open a bash terminal and create a directory to install Julia in
+```bash
+mkdir ~/julia
+```
+Next, download the file
+[`julia-1.0.5-linux-x86_64.tar.gz`](https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.5-linux-x86_64.tar.gz)
+by clicking the link or going to the [Julia downloads page](https://julialang.org/downloads/).
+To extract the file, you can use the following command:
+```bash
+tar -xvzf ~/Downloads/julia-1.0.5-linux-x86\_64.tar.gz -C ~/julia
+```
+This will extract the files to a folder named `~/julia/julia-1.0.5`.
+To run Julia, you need to add the full path of Julia's `bin` folder to PATH environment variable.
+To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
+Open the file in your favorite editor and add a new line as follows at the bottom of the file:
+```bash
+export PATH="$PATH:$HOME/julia/julia-1.0.5/bin"
+```
+Finally, for the settings to take effect, either reload your bash profile
+```bash
+source ~/.bashrc
+```
+(or `source ~/.bash_profile`), or close the bash terminal window and open a new one.
+
+To check that the Julia executable can be found, run
+```bash
+which julia
+```
+to display the path to the Julia executable, it should be `~/julia/julia-1.0.5/bin/julia`.
+To test that Julia is installed correctly, run
+```bash
+julia
+```
+to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
+
 ## Install ESMValTool
 
 ## Test that the installation was successful

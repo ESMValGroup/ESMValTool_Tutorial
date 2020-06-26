@@ -41,7 +41,8 @@ We will be using the Miniconda minimal installer for conda.
 
 1. Please download miniconda at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html)
 
-2. Next, run the installer:
+2. Next, run the installer
+
 ~~~
 bash Miniconda3-latest-Linux-x86_64.sh
 ~~~
@@ -52,9 +53,11 @@ bash Miniconda3-latest-Linux-x86_64.sh
 4. You will need to restart your terminal for the changes to have effect.
 
 5. Verify you have a working conda installation by listing all installed packages
+
 ~~~
 conda list
 ~~~
+{:.language-bash}
 
 ### MacOSX
 

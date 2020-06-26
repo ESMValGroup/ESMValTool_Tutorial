@@ -28,7 +28,7 @@ keypoints:
 ---
 
 ## What is ESMValTool?
-EMSValTool is first and foremost a tool to analyse climate data. But you probably already knew that, and we like to think there's more to it than that.So let's start with a quick check to synchronize our expectations.
+EMSValTool is first and foremost a tool to analyse climate data. But you probably already knew that and we like to think there's more to it than that. So let's start with a quick check to synchronize our expectations.
 
 > ## Question: what is ESMValTool?
 >
@@ -41,7 +41,7 @@ EMSValTool is first and foremost a tool to analyse climate data. But you probabl
 > - A command line tool
 > - A way to make climate science more [FAIR](https://fair-software.eu/about)
 > - Perfect
-> - Quite suitable for (Jupyter) notebooks
+> - Suitable for (Jupyter) notebooks
 >
 > Check our answers by unfolding the boxes below.
 >
@@ -56,29 +56,38 @@ EMSValTool is first and foremost a tool to analyse climate data. But you probabl
 >
 >> ## ESMValTool is not ...
 >>
+>> - The easy way out. If you just want to do an exploratory analysis or quickly hack something together, ESMValTool is probably not the way to go. The tool is intended for robust, repeatable and shareable climate analysis. That *does* require a bit more effort.
 >> - Perfect. Although we are continuously working to improve the tool, you may encounter some bugs or missing features. In this lesson, you'll learn how to troubleshoot, find help, and maybe even contribute to the solution yourself.
->> - The easy way out. If you just want to do an exploratory analysis or quickly hack something together, ESMValTool is probably not the way to go. The tool is intended for robust, repeatable and shareable climate analysis.
->> - Quite suitable for (Jupyter) notebooks. ESMValTool was designed as a command line tool. But, we are working on a user-friendly Python interface as well.
+>> - Suitable for (Jupyter) notebooks. ESMValTool was designed as a command line tool. But, we are working on a user-friendly Python interface as well.
 >{: .solution}
 {: .challenge}
 
-To learn more about ESMValTool, you can find more information in the [documentation](https://docs.esmvaltool.org/en/latest/introduction.html), or the [overview paper](https://gmd.copernicus.org/articles/13/1179/2020/) in *Geoscientific Model Development*.
+To learn more about ESMValTool is, you can look at the [documentation](https://docs.esmvaltool.org/en/latest/introduction.html), the [official website](https://www.esmvaltool.org/about.html), or the [overview paper](https://gmd.copernicus.org/articles/13/1179/2020/) in *Geoscientific Model Development*.
 
 ## How does ESMValTool work?
+The figure below shows the different components of ESMValTool. Most of the work is done in the 'core', which performs a number of preprocessor steps. Outside of the core we have some configuration files that specify things like *where to find the CMIP data*. The most important file however, is the *recipe* that specifies which preprocessor functions need to be applied to what data. The recipe also points to a diagnostic script that is executed after the preprocessor and performs a more specific analysis on the preprocessed data.
 
-### ESMValTool and ESMValCore
+![figure showing ESMValTool architecture]({{ page.root }}/fig/esmvaltool_architecture.png)
 
-Include figure describing ESMValTool
-
-### Preprocessor
-
-### Recipe (include callout on yml)
-
-### Global settings (user-config.yml)
-
-### Diagnostics
+>## Discussion: (dis)advantages of this approach?
+> Discuss or think about the pro's and cons of this architecture for a moment. Then unfold the box below to see our answers.
+>
+>
+>>## See our thoughts
+>>
+>> - Streamlining common preprocessing steps ensures consistency in the algorithms being used and the way they are executed. This facilitates comparison and reproducibility.
+>> - Provenance and citation information can be tracked through the entire workflow.
+>> - The core builds upon the [iris](https://scitools.org.uk/iris/docs/latest/) package, which is quite strict in order to minimize unexpected results.
+>> - Recipes are easy to read and share.
+>> - A collection of recipes and diagnostic scripts is shipped with ESMValTool, ready for re-use. Everyone can add to this collection.
+>> - The recipe format takes some getting used to and may be a bit less flexible then working on the datasets directly.
+>> - Missing features can be more of a limiting factor.
+>{: .solution}
+{: .discussion}
 
 ## Community
+
+some exercises:
 
 - How many people are connected to github?
 - How many open issues?

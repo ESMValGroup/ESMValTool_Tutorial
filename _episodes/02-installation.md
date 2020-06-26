@@ -25,28 +25,18 @@ We end this chapter by testing that the installation was successful.
 
 ## Install Conda
 
-ESMValTool is distributed using Conda(link). Most users use Linux or OSX, but succesful usage has also been reported through the Windows Subsystem for Linux(WSL) (link).
-
-We will be using the Miniconda minimal installer for conda.
-
-> ## Python 3 Only
->
-> Please make sure to download a Python 3 based installation (Miniconda3), as ESMValTool only supports Python 3
->
->
-{: .callout}
-
+ESMValTool is distributed using [Conda](https://conda.io/). We will be using the Miniconda minimal installer for conda. We suggest a Python 3 based installer, though if you happen to already have Conda installed it should also work with Python 2. For more information about installing conda, see [the conda installation documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
 ### Linux
 
-1. Please download miniconda at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html)
+1. Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
 
 2. Next, run the installer
 
-~~~
-bash Miniconda3-latest-Linux-x86_64.sh
-~~~
-{:.language-bash}
+    ~~~
+    bash Miniconda3-latest-Linux-x86_64.sh
+    ~~~
+    {:.language-bash}
 
 3. Follow the instructions in the installer. The defaults should normally suffice.
 
@@ -54,18 +44,40 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 5. Verify you have a working conda installation by listing all installed packages
 
-~~~
-conda list
-~~~
-{:.language-bash}
+    ~~~
+    conda list
+    ~~~
+    {:.language-bash}
 
 ### MacOSX
 
+1. Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
+
+2. Next, run the installer
+
+    ~~~
+    bash Miniconda3-latest-MacOSX-x86_64.sh
+    ~~~
+    {:.language-bash}
+
+3. Follow the instructions in the installer. The defaults should normally suffice.
+
+4. You will need to restart your terminal for the changes to have effect.
+
+5. Verify you have a working conda installation by listing all installed packages
+
+    ~~~
+    conda list
+    ~~~
+    {:.language-bash}
+
 ### Windows
 
+ESMValTool does not directly support Windows, But succesful usage has been reported through the [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows 10.
+
+To install the WSL please follow the instructions [on the Windows Documentation page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
 After installing the WSL, installation can be done using the Linux installation instructions.
-
-
 
 ## Install Julia
 

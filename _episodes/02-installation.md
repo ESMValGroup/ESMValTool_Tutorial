@@ -107,8 +107,31 @@ julia
 ```
 to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
 
-## Install ESMValTool
+## Install the ESMValTool package
+
+To install the ESMValTool package, run
+```bash
+conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool
+```
+This will create a new
+[Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+called `esmvaltool`, with the ESMValTool package and all of its dependencies installed in it.
 
 ## Test that the installation was successful
+
+To test that the installation was successful, run
+```bash
+conda activate esmvaltool
+```
+to activate the conda environment called `esmvaltool`.
+Next, run
+```bash
+esmvaltool --help
+```
+to display the command line help.
+To find the location where the ESMValTool package was installed on your system, run
+```bash
+python -c 'import esmvaltool; print(esmvaltool.__path__[0])'
+```
 
 {% include links.md %}

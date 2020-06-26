@@ -1,5 +1,5 @@
 ---
-title: "Installation"
+title: "Development Setup"
 teaching: 0
 exercises: 0
 questions:

@@ -1,15 +1,17 @@
 ---
 title: "Installation"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 20
 questions:
-- "Key question (FIXME)"
+- "What are the prerequisites for installing ESMValTool?"
+- "How do I confirm that the installation was successful?"
 objectives:
-- "First learning objective. (FIXME)"
+- "Install ESMValTool"
+- "Demonstate that the installation was successful"
 keypoints:
-- "First key point. Brief Answer to questions. (FIXME)"
+- "All the required packages can be installed using conda"
+- "You can find more information about installation in the documentation"
 ---
 FIXME
 
 {% include links.md %}
-

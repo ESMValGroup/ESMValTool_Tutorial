@@ -14,9 +14,6 @@ keypoints:
 - " ``output_dir`` is the destination directory."
 ---
 
-Exercise: Copy the user config to your working area
-Exercise: Make site specific configuration information(ie the changes needed to you config-user.yml file before you can run)
-
 ## The configuration file
 
 The ``config-user.yml`` configuration file contains all the global level information needed by ESMValTool to run.

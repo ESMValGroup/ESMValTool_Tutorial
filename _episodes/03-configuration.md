@@ -93,7 +93,7 @@ We add the root path of the folder where data is available.
 > ## Setting the correct rootpath
 >
 > * To get the data (or its correct rootpath), check instruction in
-[Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+[Setup]({{ page.root }}{% link setup.md %}).
 > * For more information about setting the rootpath, you can visit the ESMValTool
 [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
@@ -164,7 +164,7 @@ resource_usage.txt and temporary files created by the diagnostic scripts.
 files in NetCDF format (depends on the diagnostic script).
 >
 > We explain more about output in the next
-[lesson](https://esmvalgroup.github.io/tutorial/04-toy-example/index.html)
+[lesson]({{ page.root }}{% link _episodes/04-toy-example.md %})
 {: .callout}
 
 ## Auxiliary data directory

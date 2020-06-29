@@ -130,26 +130,47 @@ Please note the following sections:
 - documentation: lines 4-20
 
   The documentation consists of the following information:
-  - description: a one line description of the recipe
+  - description: a short description of the recipe
   - authors: a list of authors (linked to esmvaltool/config-references.yml)
   - maintainer: a list of maintainers (linked to esmvaltool/config-references.yml)
   - references: a list of references (linked to a bibtexfile in esmvaltool/references with the same name)
   - projects: a list of projects (linked to esmvaltool/config-references.yml)
 
 
-- datasets: lines 22-23
-  The dataset definition consists of a list of dictionaries with the information on the datasets.
-  [List of entries?]
+  - datasets: lines 22-23
+
+    The dataset definition consists of a list of python dictionaries with the information on the datasets.
+    - dataset name (key: dataset)
+    - project (key: project)
+    - experiment (key: exp)
+    - mip (for CMIP data, key: mip)
+    - ensemble member (key: ensemble)
+    - time range (e.g. key-value-pair: start_year: 1982, end_year: 1990)
+    - model grid (for CMIP6 data only, key: grid)
+    - alias (key: alias; use the alias for e.g. a more human readable name)
 
 
-- preprocessors: lines 25-28
-  The definition for different preprocessors or combinations.
-  [go into detail]
+  - preprocessors: lines 25-28
+
+    The definition for different preprocessors or combinations.
+    If no preprocessing is needed, the preprocessor can be set to an empty python dictionary (`{}`).
+    Here, we produce annual means. The preprocessor is called with its name (here: prep_timeseries), later in the diagnostic (line 39).
+    (See episode #5 LINK for more details.)
 
 
 - diagnostic section: lines 30-42
+
   The information of which diagnostic script to run with which variables.
-  [go into detail]
+  The diagnostics section has some indents that are free to call.
+  - the first indent (here: diag_timeseries_temperature) is the diagnostic’s name (a string without whitespace), used for setting up the respective directories
+  - description: a short description of the diagnostic
+  - variables: a definition of all variables that are used in this diagnostic
+  - the next indent (here: timeseries_variable) is the variables’ names (a string without whitespace) for the diagnostic to use
+  - short_name: the variable name as listed in the dataset
+  - preprocessor: the preprocessor(s) applied to the variable before running the diagnostic
+  - scripts: a definition of all scripts that are used in this diagnostic
+  - the next indent (here: timeseries_diag) is the scripts’ names (a string without whitespace) for the script to use
+  - script: a executable script with a directory relative to the `esmvaltool/diag_scripts/` directory
 
 
 > What is the short_name of the variable being analysed?
@@ -168,9 +189,8 @@ Please note the following sections:
 > ~~~
 > esmvaltool -c user-config.yml recipe_example.yml
 > ~~~
->
 > {: .source}
-> What
+> What ...
 {: .challenge}
 
 

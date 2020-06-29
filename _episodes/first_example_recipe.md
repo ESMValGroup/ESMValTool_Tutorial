@@ -59,10 +59,11 @@ For additional reeds, please have a look at the recipe format description in the
 ## How to run ESMValTool
 
 Once you’ve set up your conda environment and installed ESMValTool (see episode #2 LINK) and set up your config-user.yml file to correctly match you local environment, (see episode #3 LINK), ESMValTool is invoked using a simple command:
-~~~
+
+~~~source
 esmvaltool -c configuration recipe
 ~~~
-{: .source}
+
 
 To try your hand with a basic recipe, please work through this episode.
 
@@ -72,61 +73,60 @@ The recipe presented here is a simple, basic recipe that takes a single dataset 
 
 Please download the following recipe into your ESMValTool working area with the name: recipe_example.yml LINK
 
->## recipe_example.yml
->~~~YAML
-> 1    # ESMValTool
-> 2    # recipe_example.yml
-> 3    ---
-> 4    documentation:
-> 5      description: Demonstrate basic ESMValTool example
-> 6
-> 7      authors:
-> 8        - demora_lee
-> 9        - mueller_benjamin
->10        - swaminathan_ranjini
->11
->12      maintainer:
->13        - demora_lee
->14
->15      references:
->16        - demora2018gmd
->17        # Some plots also appear in ESMValTool paper 2.
->18
->19      projects:
->20        - ukesm
->21
->22    datasets:
->23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
->24
->25    preprocessors:
->26      prep_timeseries: # For 0D fields
->27        annual_statistics:
->28          operator: mean
->29
->30    diagnostics:
->31      # --------------------------------------------------      
->32      # Time series diagnostics
->33      # --------------------------------------------------
->34      diag_timeseries_temperature:
->35        description: simple_time_series
->36        variables:
->37          timeseries_variable:
->38            short_name: thetaoga
->39            preprocessor: prep_timeseries
->40        scripts:
->41          timeseries_diag:
->42            script: ocean/diagnostic_timeseries.py
->~~~
+> ## recipe_example.yml
+> ~~~YAML
+>  1    # ESMValTool
+>  2    # recipe_example.yml
+>  3    ---
+>  4    documentation:
+>  5      description: Demonstrate basic ESMValTool example
+>  6
+>  7      authors:
+>  8        - demora_lee
+>  9        - mueller_benjamin
+> 10        - swaminathan_ranjini
+> 11
+> 12      maintainer:
+> 13        - demora_lee
+> 14
+> 15      references:
+> 16        - demora2018gmd
+> 17        # Some plots also appear in ESMValTool paper 2.
+> 18
+> 19      projects:
+> 20        - ukesm
+> 21
+> 22    datasets:
+> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> 24
+> 25    preprocessors:
+> 26      prep_timeseries: # For 0D fields
+> 27        annual_statistics:
+> 28          operator: mean
+> 29
+> 30    diagnostics:
+> 31      # --------------------------------------------------      
+> 32      # Time series diagnostics
+> 33      # --------------------------------------------------
+> 34      diag_timeseries_temperature:
+> 35        description: simple_time_series
+> 36        variables:
+> 37          timeseries_variable:
+> 38            short_name: thetaoga
+> 39            preprocessor: prep_timeseries
+> 40        scripts:
+> 41          timeseries_diag:
+> 42            script: ocean/diagnostic_timeseries.py
+> ~~~
 {: .solution}
 
 
 > ## Explore the recipe
 > Use the command and investigate the sample recipe.
-> ~~~
+> ~~~bash
 > vim  recipe_example.yml
 > ~~~
-> {: .source}
->
+{: .challenge}
 
 Please note the following sections:
 - documentation: lines 4-20
@@ -174,15 +174,32 @@ Please note the following sections:
   - the next indent (here: timeseries_diag) is the scripts’ names (a string without whitespace) for the script to use
   - script: a executable script with a directory relative to the `esmvaltool/diag_scripts/` directory
 
-
-> What is the short_name of the variable being analysed?
+> ## Please answer the following questions:
+> What is the short_name of the variable being analyzed?
 >
 > What is the diagnostic script being used?
 >
-> How many years of data are being analysed?
+> How many years of data are being analyzed?
 >
 > What do you think running this recipe will produce?
 {: .challenge}
+
+
+> ## What is the short_name of the variable being analyzed?
+> thetaoga -  Global Average Sea Water Potential Temperature
+{: .solution}
+
+> ## What is the diagnostic script being used?
+> `ocean/diagnostic_timeseries.py`
+{: .solution}
+
+> ## How many years of data are being analyzed?
+> 1859 to 2005, that is 147 years.
+{: .solution}
+
+> ## What do you think running this recipe will produce?
+> A time series plot of thetaoga with increements of 1 year.
+{: .solution}
 
 > ## Not all parts of the recipe are mandatory
 > Some functionalities of the example recipe are mandatory, while others are not. E.g., if you miss any of the documentation information, the call will break.
@@ -191,13 +208,16 @@ Please note the following sections:
 > ## Running ESMValTool
 >
 > Use the command:
-> ~~~
+> ~~~bash
 > esmvaltool -c ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
 > ~~~
-> {: .source}
 >
 > Follow the terminal guiding you through the subprocesses that are running. Can you find where the preprocessor and the diagnostic are starting? Which one took longer to process?
 {: .challenge}
+
+> ## Exemplary output
+> FIXME
+{: .solution}
 
 Each time you run the ESMValTool, it will produce a new output directory within your specified work directory with the name of the recipe and the tagged runtime. This folder should contain four folders:
 - run
@@ -218,8 +238,31 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 > - Your settings.yml file.
 > - A metadata.yml file.
 > - The diagnostic log file.
-{: .discussion}
+{: .checklist}
 
+Exemplary output (depending on the directory paths and package versions that are available) can be found below:
+
+> ## Your output plot(s).
+> FIXME (include plots)
+{: .solution}
+
+> ## Your main output log file.
+> FIXME (include example log)
+{: .solution}
+
+> ##  Your settings.yml file.
+> FIXME (include the settings)
+{: .solution}
+
+> ## A metadata.yml file.
+> FIXME (include the metadata)
+{: .solution}
+
+> ## The diagnostic log file.
+> FIXME (include the diag log)
+{: .solution}
+
+## Do your first edits
 
 > ## Edit the recipe and run again
 > So far, the example recipe has used global volume-weighted ocean temperature. Please edit this recipe to investigate one of the following fields:
@@ -239,6 +282,30 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 >     - Ocean surface average temperature (tos)
 {: .challenge}
 
+The snippets for the edits can be found below:
+
+> ## Land surface average temperature
+> FIXME (include line numbers, see below)
+> ~~~YAML
+>  ...
+> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+>  ...
+> 27        annual_statistics:
+> 28          operator: mean
+>  ...
+> 38            short_name: thetaoga
+> 39            preprocessor: prep_timeseries
+> ~~~~
+{: .solution}
+
+> ## Atmospheric surface average temperature
+> FIXME
+{: .solution}
+
+> ## Ocean surface average temperature
+> FIXME
+{: .solution}
+
 > ## Advanced:
 > If you want to add a different field, please have a look here:
 > http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html
@@ -247,7 +314,7 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 
 ## Common issues & tips
 
-> ## Esmvaltool not found
+> ## esmvaltool not found
 > Can you run the command “esmvaltool -h”. If no, then it’s possible that the conda environment isn’t activated. Please return to the installation section, episode #2 LINK.
 {: .solution}
 

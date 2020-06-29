@@ -1,0 +1,287 @@
+---
+title: "Working with preprocessors"
+teaching: 20?
+exercises: 15?
+questions:
+- "How do I set up a preprocessor?"
+- "Can I use different preprocessors for different variables?"
+- "Can I use different datasets for different variables?"
+objectives:
+- "Create a recipe with multiple preprocessors"
+- "Use different preprocessors for different variables"
+- "Run a recipe with variables from different datasets"
+keypoints:
+- "A recipe can run different preprocessors at the same time."
+- "The setting additional_datasets can be used to add a different dataset."
+- "Variable groups are useful for defining different settings for different variables."
+---
+
+## Preprocessors: What are they and how do they work?
+
+Preprocessing is the process of performing a set of modular operations on the data before applying diagnostics or metrics. In the figure below you see the preprocessor functions in the light blue box on the right.
+
+![figure showing ESMValTool architecture]({{ page.root }}/fig/esmvaltool_architecture.png)
+
+Underneath the hood, each preprocessor is a modular python function that receives an iris cube and sometimes some arguments. The preprocessor applies some mathematical or computational transformation to the input iris cube, then returns the processed iris cube.
+
+## Inspect the example preprocessor
+
+Each preprocessor section includes a preprocessor name, a list of preprocessor steps to be executed and any arguments needed by the preprocessor steps.
+
+>~~~YAML
+> preprocessors:
+>   prep_timeseries:
+>     annual_statistics:
+>       operator: mean
+>~~~
+{: .source}
+
+For instance, the 'annual_statistics' with the  'operation: mean' argument preprocessor receives an iris cube, takes the annual average for each year of data in the cube, and returns the processed cube. 
+
+You could use several preprocessor steps listed in the [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html). The standardised interface between the preprocessors allows them to be used modularly - like lego blocks. Almost any conceivable preprocessing order of operations can be performed using ESMValTool preprocessors. 
+
+> ## The 'custom order' command.
+>
+>If you do not want your preprocessors to be applied in the [default order](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html), then add the following line to your preprocessor chain:
+>
+>~~~
+>    custom_order: true
+>~~~
+>
+>The default preprocessor order is listed in the [ESMValCore preprocessor API page](>https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html).
+>
+> Also note that not preprocessor operations aren't always commutative - meaning that the order of operations matters. For instance, if you run the preprocessor 'extract_volume' to extract the top 100m of the ocean surface, then 'volume_statistics' to calculate the volume-weighted mean of the data, then your result will differ depending on the order of these two preprocessors. In fact, the 'extract_volume' preprocessor will fail if you try to run it on a 2D dataset.
+>
+> Changing the order of preprocessors can also speed up your processing. For instance, if you want to extract a two-dimensional layer from a 3D field and re-grid it, the layer extraction should be done first. If you did it the other way around, then the regridding function would be applied to all the layers of your 3D cube and it would take much more time.
+{: .callout}
+
+Some preprocessor stages are always applied and do not need to be called. This includes the preprocessors that load the data, apply the fixes, and save the data file afterwards. They do not need to be explicitly included in recipes. 
+
+> ## Exercise: Adding more preprocessor steps
+>
+> Edit the [example recipe](LINK to episode #4) to change the variable in ?thetao? and to add preprocessors which take the average over the latitude and longitude dimensions and the average over the depth. And then run the recipe.
+>
+>> ## Solution
+>> 
+>>~~~YAML
+>> preprocessors:
+>>   prep_timeseries:
+>>     annual_statistics:
+>>       operator: mean
+>>     area_statistics:
+>>       operator: mean
+>>     depth_integration:
+>>~~~
+>>{: .source}
+>{: .solution}
+{: .challenge}
+
+## Using different preprocessors for different variables
+
+You could define different preprocessors with several preprocessor sections (setting different preprocessor names). In the variable section you call the specific preprocessor which should be applied.
+
+> ## Example
+>~~~YAML
+> preprocessors:
+>   prep_timeseries_1:
+>     annual_statistics:
+>       Operator: mean
+>   prep_timeseries_2:
+>     annual_statistics:
+>       operator: mean
+>     area_statistics:
+>       operator: mean
+>     Depth_integration:
+> ---
+> diagnostics:
+>   # --------------------------------------------------      
+>   # Time series diagnostics
+>   # --------------------------------------------------
+>   diag_timeseries_temperature_1:
+>     description: simple_time_series>
+>     variables:
+>         timeseries_variable:
+>         short_name: thetaoga
+>         preprocessor: prep_timeseries_1
+>     scripts:
+>          timeseries_diag:
+>         script: ocean/diagnostic_timeseries.py
+> 
+>   diag_timeseries_temperature_2:
+>     description: simple_time_series
+>     variables:
+>         timeseries_variable:
+>         short_name: thetao
+>         preprocessor: prep_timeseries_2
+>     scripts:
+>          timeseries_diag:
+>         script: ocean/diagnostic_timeseries.py
+>~~~
+>{: .source}
+{: .solution}
+
+>## Challenge : How to write a recipe with multiple preprocessors
+> We now know that a recipe can have more than one diagnostic, variable or preprocessor. As we saw in the examples so far, we can group preprocessors with a single user defined name and can have more than one such preprocessor group in the recipe as well. Write two different preprocessors - one to regrid the data to a 1x1 resolution and the second preprocessor to mask out sea and ice grid cells before regridding to the saem resolution. In the second case, ensure you perform the masking first before regridding (hint: custom order your operations). Now, use the two preprocessors in different diagnostics within the same recipe. You may use any variable(s) of your choice. Once you succeed, try to add new datasets to the same recipe. Placeholders for the different components are provided below:
+>
+>> ## Recipe
+>>
+>>~~~YAML
+>>
+>> datasets:
+>>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
+>>      ensemble: r1i1p1f2} #single dataset as an example
+>> 
+>> preprocessors:
+>>   prep_map: #preprocessor to just regrid data
+>>     #fill preprocessor details here
+>> 
+>>   prep_map_land: #preprocessor to mask grid cells and then regrid
+>>     #fill preprocessor details here including ordering
+>> 
+>> diagnostics:
+>>   # --------------------------------------------------      
+>>   # Two Simple diagnostics that illustrate the use of
+>>   # different preprocessors
+>>   # --------------------------------------------------
+>>  diag_simple_plot:
+>>    description: # preprocess a variable for a simple 2D plot
+>>    variables:
+>>      # put your variable of choice here
+>>      # apply the first preprocessor i.e. name your preprocessor
+>>      # edit the following 4 lines for mip, grid and time 
+>>      # based on your variable choice
+>>      mip: Amon
+>>      grid: gn #can change for variables from the same model
+>>      start_year: 1970 
+>>      end_year: 2000
+>>    scripts: null #no scripts called
+>>  diag_land_only_plot: #second diagnostic
+>>    description: #preprocess a variable for a 2D land only plot
+>>    variables:
+>>      # include  a variable and information 
+>>      # as in the previous diagnostic and 
+>>      # include your second preprocessor (masking and regridding)
+>>    scripts: null # no scripts
+>>~~~
+>>{: .source}
+>{: .solution}
+>
+>> ## Solution: 
+>> 
+>> Here is one possible way to use two different preprocessors including a 
+>> group of preprocessors on different variables.
+>> 
+>>~~~YAML
+>>
+>> datasets:
+>>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
+>>      ensemble: r1i1p1f2} #single dataset as an example
+>> 
+>> preprocessors:
+>>   prep_map:
+>>     regrid:    #apply the preprocessor to regrid
+>>       target_grid: 1x1 # target resolution
+>>       scheme: linear  #how to interpolate for regridding
+>> 
+>>   prep_map_land:
+>>     custom_order: true #ensure order follows a given
+>>     mask_landsea:    #apply a mask
+>>       mask_out: sea   #mask out sea grid cells
+>>     regrid:    # now apply the preprocessor to regrid
+>>       target_grid: 1x1 # target resolution
+>>       scheme: linear  #how to interpolate for regridding
+>> 
+>> diagnostics:
+>>   # --------------------------------------------------      
+>>   # Two Simple diagnostics that illustrate the use of
+>>   # different preprocessors
+>>   # --------------------------------------------------
+>>   diag_simple_plot:
+>>     description: # preprocess a variable for a simple 2D plot
+>>     variables:
+>>       tas:  # surface temperature
+>>         preprocessor: prep_map
+>>         mip: Amon
+>>         grid: gn #can change for variables from the same model
+>>         start_year: 1970 
+>>         end_year: 2000
+>>         additional_datasets:
+>>     scripts: null
+>> 
+>>   diag_land_only_plot:
+>>     description: #preprocess a variable for a 2D land only plot
+>>     variables:
+>>       tas:  # surface temperature
+>>       preprocessor: prep_map_land
+>>       mip: Amon
+>>       grid: gn #can change for variables from the same model
+>>       start_year: 1970 
+>>       end_year: 2000
+>>       additional_datasets:
+>>     scripts: null
+>> ~~~
+>> {: .source}
+> {: .solution}
+{: .challenge}
+
+## Adding different datasets for different variables
+
+Sometimes, we may want to include specific datasets for certain variables. An example is when we use observations for two different variables in a diagnostic. While the CMIP dataset details for the two variables may be common, the observations will likely not be so. It would be useful to know how to include different datasets for different variables. Here is an example of a simple preprocessor and diagnostic setup for that:
+
+> ## Example
+>~~~YAML
+>
+> datasets:
+>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical, 
+>      ensemble: r1i1p1f2} #common to both variables discussed below
+> 
+> preprocessors:
+>   prep_regrid: # regrid to get all data to the same resolution
+>     regrid:    #apply the preprocessor to regrid
+>       target_grid: 2.5x2.5 # target resolution
+>       scheme: linear  #how to interpolate for regridding
+> 
+> diagnostics:
+>   # --------------------------------------------------      
+>   # Simple diagnostic to illustrate use of different
+>   # datasets for different variables
+>   # --------------------------------------------------
+>   diag_diff_datasets:
+>     description: diff_datasets_for_vars
+>     variables:
+>       pr:  #first variable is precipitation
+>         preprocessor: prep_regrid
+>         mip: Amon
+>         grid: gn #can change for variables from the same model
+>         start_year: 1970  
+>         end_year: 2000 #  start and end years for a30 year period, 
+>                        # we assume this is common and exists for all
+>                        # model and obs data 
+>         additional_datasets:
+>           - {dataset: GPCP-SG, project: obs4mips, level: L3, 
+>              version: v2.2, tier: 1} #dataset specific to this variable
+> 
+>       tas: #second variable is surface temperature
+>         preprocessor: prep_regrid
+>         mip: Amon
+>         grid: gn #can change for variables from the same model
+>         start_year: 1970  #some 30 year period
+>         end_year: 2000
+>         additional_datasets:
+>           - {dataset: HadCRUT4, project: OBS, type: ground, 
+>              version: 1, tier: 2} #dataset specific to the temperature var
+> 
+>     scripts: null
+>~~~
+>{: .source}
+{: .solution}
+
+> ## How to find what CMIP data is available?
+>
+> [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/index.html) and [CMIP6](https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html) data obey the [CF-conventions](http://cfconventions.org/). Available variables could be found under the [CMIP5 data request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28) and the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
+>
+> CMIP data is widely available via the Earth System Grid Federation ([ESGF](https://esgf.llnl.gov/)) and is accessible to users either via download from the ESGF portal or through the ESGF data nodes hosted by large computing facilities (like [CEDA-Jasmin](https://esgf-index1.ceda.ac.uk/), [DKRZ](https://esgf-data.dkrz.de/), etc). The ESGF also hosts observations for Model Intercomparison Projects (obs4MIPs) and reanalyses data (ana4MIPs).
+>
+> A full list of all CMIP named variables is available here: [http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
+{: .callout}
+

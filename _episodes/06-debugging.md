@@ -72,6 +72,11 @@ To inspect them, we can look inside the files. For example:
   cat main_log.txt
 ~~~
 
+If you encounter an error and don’t know what it means, it is important to read the log information.
+Sometimes knowing where the error occurred is enough to fix it, even if you don’t entirely understand the message.
+However, note that you may not always be able to find the error or fix it.
+In that case, ESMValTool community helps you figure out what went wrong.
+
 > ## Different log files
 >
 > In the ``run`` directory, there are two log files ``main_log_debug.txt`` and ``main_log.txt``.
@@ -83,11 +88,6 @@ What are their differences?
 the ``main_log.txt`` shows general errors and warnings that might happen in running the recipe and diagnostics script.
 > {: .solution}
 {: .challenge}
-
-If you encounter an error and don’t know what it means, it is important to read the log information.
-Sometimes knowing where the error occurred is enough to fix it, even if you don’t entirely understand the message.
-However, note that you may not always be able to find the error or fix it.
-In that case, ESMValTool community helps you figure out what went wrong.
 
 Let's change some settings in the recipe to run a regional pre-processor.
 We run a text editor called ``Nano`` to open the recipe file:
@@ -236,7 +236,7 @@ that is introduced in the recipe as:
 The diagnostic scripts are located in the folder ``diag_scripts`` in
 the ESMValTool installation directory ``path_to_esmvaltool``.
 To find ``path_to_esmvaltool`` on your system,
-see [Installation]({{ page.root }}{% link_episodes/02-installation.md %}).
+see [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 
 let's see if we can change the script path as:
 
@@ -299,7 +299,7 @@ without re-running the pre-processors:
 
 > ## Memory issues
 >
-> If you run out of memory, try setting ``max_parallel_tasks`` to 1.
+> If you run out of memory, try setting ``max_parallel_tasks`` to 1 in the configuration file.
 Then, check the amount of memory you need for that by inspecting
 the file ``run/resource_usage.txt`` in the output directory.
 Using the number there you can increase the number of parallel tasks again to a reasonable number

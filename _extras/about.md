@@ -8,8 +8,11 @@ The Earth System Model Evaluation Tool (ESMValTool) is a community-development t
 
 The goal is to develop a benchmarking and evaluation tool that produces well-established analyses as soon as model output from CMIP simulations becomes available, e.g., at one of the central repositories of the ESGF. This is realized through standard recipes that reproduce a certain set of diagnostics and performance metrics that have demonstrated its importance in benchmarking Earth System Models (ESMs) in a paper or assessment report, such as Chapter 9 of the Intergovernmental Panel on Climate Change (IPCC) Fifth Assessment Report (AR5) (Flato et al., 2013). The expectation is that in this way a routine and systematic evaluation of model results can be made more efficient, thereby enabling scientists to focus on developing more innovative methods of analysis rather than constantly having to “reinvent the wheel”.
 
-## ESMValTool developper community.
+## ESMValTool community.
 
+The ESMValTool community includes scientists and programmers from around the world. 
+
+ESMValTool has been used to analyse data 
 
 
 ## OBS4Mips

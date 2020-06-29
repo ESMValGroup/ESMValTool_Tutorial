@@ -16,7 +16,7 @@ objectives:
 keypoints:
 - "A recipe does not break by fiddling with it"
 - "Log information is useful when interpreting the first warnings/errors"
-- "The dataset section in the recipe relates to Understanding the directory structure of CMIP data on your server/disk and knowing how to use data from different experiments such as CMIP/ScenarioMIP."
+- "The dataset section resembles the filename or directory structure (e.g. CMIP subdirectories)."
 
 ---
 
@@ -29,7 +29,7 @@ Recipes are the instructions that you give to ESMValTool that tell it what you w
 - datasets: what datasets you want to use, including
   - the time range and time resolution,
   - the MIP, ensemble member,
-  - the experiment (i.e. historical, ssp125 etc...),
+  - the experiment (i.e. historical, ssp125, etc.),
   - and the grid type (CMIP6 only).
 
 - preprocessors: general operations applied to a dataset before handling it in a diagnostic, listing
@@ -44,7 +44,7 @@ Recipes are the instructions that you give to ESMValTool that tell it what you w
   - the desired diagnostic script to use,
   - and additional diagnostic script options or arguments, if needed.
 
-  Also Include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
+  Also include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
 
 - description: a brief description of the recipe, including
   - who wrote the recipe and who maintains it,
@@ -53,7 +53,8 @@ Recipes are the instructions that you give to ESMValTool that tell it what you w
 
   Note that the authors, publications and references are to be named in the config-references.yml
 
-This information ...
+The information you provide in the recipe is not only affecting the processes you are starting, but also the directory names your output will be structured in.
+For additional reeds, please have a look at the recipe format description in the [ESMValTool manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics).
 
 ## How to run ESMValTool
 
@@ -67,9 +68,9 @@ To try your hand with a basic recipe, please work through this episode.
 
 
 ## Introduction to the example recipe
-Threcipe presented here is a simple, basic recipe that takes a single dataset and produces a time series plot.
+The recipe presented here is a simple, basic recipe that takes a single dataset and produces a time series plot.
 
-Please copy and paste the following recipe into your ESMValTool working area with the name: recipe_example.yml
+Please download the following recipe into your ESMValTool working area with the name: recipe_example.yml LINK
 
 >## recipe_example.yml
 >~~~YAML
@@ -205,7 +206,7 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 - plots
 
 > ## Inspect the output:
-> Now that you have ran the esmvaltool command for the first time, please locate your output directory.
+> Now that you have run the esmvaltool command for the first time, please locate your output directory.
 > If you’re missing the preproc directory, then your config-user.yml file has the value remove_preproc_dir set to true (this is used to save disk space). Please set this value to false and run the recipe again.
 >
 {: .challenge}
@@ -230,16 +231,18 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 > - the dataset:
 >   - mip, start_year, end_year
 > - the preprocessor:
->   - These fields are all 2D fields, but thetaga was a 0D field. This means that we need to take the average over the latitude and longitude dimensions. To do this, add the area_statistics to the preprocessor.
+>   - These fields are all 2D fields, but thetaoga was a 0D field. This means that we need to take the average over the latitude and longitude dimensions. To do this, add the area_statistics to the preprocessor.
 > - the diagnostic
 >  - change the short_name value (thetaoga) for another:
 >     - Land surface average temperature (tsland)
 >     - Atmospheric surface average temperature (tas)
 >     - Ocean surface average temperature (tos)
-> ### Advanced:
+{: .challenge}
+
+> ## Advanced:
 > If you want to add a different field, please have a look here:
 > http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html
-{: .challenge}
+{: .callout}
 
 
 ## Common issues & tips
@@ -248,22 +251,26 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 > Can you run the command “esmvaltool -h”. If no, then it’s possible that the conda environment isn’t activated. Please return to the installation section, episode #2 LINK.
 {: .solution}
 
-> ## ESMValTool can’t locate the data. The error message is “esmvalcore._recipe_checks.RecipeError: Missing data”
+> ## ESMValTool can’t locate the data. The error message is `esmvalcore._recipe_checks.RecipeError: Missing data`
 > Which computing machine are you using? Does your user-config.yml file reflect your machine's settings? Is the dataset’s name in the correct order?
 {: .solution}
+
 
 > ## Diagnostic path problems
 > The directory path to your diagnostics code is set relative to the esmvaltool/diag_scripts subdirectory. Is the code placed in this subdirectory? Is it spelled correctly?
 {: .solution}
 
+
 > ## FX files not found
->
+> There is no FX file for your corresponding dataset. Are your datasets’ names spelled correctly? Is there a FX file for this dataset?
 {: .solution}
+
 
 > ## The preprocessor works but the diagnostic fails
 > If your preprocessor works fine but your diagnostic script fails, congratulations! A failed diagnostic means that you won’t need to re-run the preprocessor. In your “run/main_log.txt” run output, you should see a line that reads: “To re-run this diagnostic script, run:”, followed by a line with a command that will allow you to re-run your diagnostic script only. Append this line with the “-i” option after the python script you call to re-run your diagnostic.
 {: .solution}
 
-> ## Your recipe’s name/project/reference isn’t recognised by ESMValTool. Error message is “ValueError: Tag 'NAME' does not exist in section 'authors' of path/esmvaltool/config-references.yml”
+
+> ## Your recipe’s name/project/reference isn’t recognised by ESMValTool. Error message is `ValueError: Tag 'NAME' does not exist in section 'authors' of path/esmvaltool/config-references.yml`
 > Most likely, you added your own name to the recipe in the description section, but didn’t add it to the esmvaltool/config-references.yml file, where the names are linked to an email address, institute, and ORCID Identity.
 {: .solution}

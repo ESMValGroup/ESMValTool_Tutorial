@@ -20,7 +20,6 @@ keypoints:
 
 ---
 
-
 This episode describes how ESMValTool recipes work, how to run a recipe and how to explore the recipe output. By the end of this episode, you should be able to run your first recipe, look at the recipe output, modify a recipe, explore and run some basic recipe debugging.
 
 ## Introduction to Recipes
@@ -177,8 +176,11 @@ Please note the following sections:
 
 
 > What is the short_name of the variable being analysed?
+>
 > What is the diagnostic script being used?
+>
 > How many years of data are being analysed?
+>
 > What do you think running this recipe will produce?
 {: .challenge}
 
@@ -190,29 +192,36 @@ Please note the following sections:
 >
 > Use the command:
 > ~~~
-> esmvaltool -c user-config.yml recipe_example.yml
+> esmvaltool -c ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
 > ~~~
 > {: .source}
-> What ...
+>
+> Follow the terminal guiding you through the subprocesses that are running. Can you find where the preprocessor and the diagnostic are starting? Which one took longer to process?
 {: .challenge}
 
+Each time you run the ESMValTool, it will produce a new output directory within your specified work directory with the name of the recipe and the tagged runtime. This folder should contain four folders:
+- run
+- work
+- preproc
+- plots
 
 > ## Inspect the output:
-> Now that you have run the esmvaltool command for the first time, please locate your output directory.
-> Each time you run ESMValTool, it will produce a new output directory with the following format:
-> This directory should contain four folders:
->  run work preproc plots
+> Now that you have ran the esmvaltool command for the first time, please locate your output directory.
 > If you’re missing the preproc directory, then your config-user.yml file has the value remove_preproc_dir set to true (this is used to save disk space). Please set this value to false and run the recipe again.
 >
+{: .challenge}
+
+> ## Inspect specific files:
 > Please locate and inspect the following files:
->  Your output plot(s).
->  Your main output log file
->  Your settings.yml file
->  A metadata.yml file
+> - Your output plot(s).
+> - Your main output log file.
+> - Your settings.yml file.
+> - A metadata.yml file.
+> - The diagnostic log file.
 {: .discussion}
 
 
-> ## Edit the recipe and run
+> ## Edit the recipe and run again
 > So far, the example recipe has used global volume-weighted ocean temperature. Please edit this recipe to investigate one of the following fields:
 > - Land surface average temperature (tsland)
 > - Atmospheric surface average temperature (tas)

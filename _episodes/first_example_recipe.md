@@ -27,31 +27,31 @@ This episode describes how ESMValTool recipes work, how to run a recipe and how 
 Recipes are the instructions that you give to ESMValTool that tell it what you want to do. This includes four main sections: datasets, preprocessors, diagnostics and description.
 
 - datasets: what datasets you want to use, including
- - the time range and time resolution,
- - the MIP, ensemble member,
- - the experiment (i.e. historical, ssp125 etc...),
- - and the grid type (CMIP6 only).
+  - the time range and time resolution,
+  - the MIP, ensemble member,
+  - the experiment (i.e. historical, ssp125 etc...),
+  - and the grid type (CMIP6 only).
 
 - preprocessors: general operations applied to a dataset before handling it in a diagnostic, listing
- - which preprocessor modules to apply,
- - the order to apply them,
- - and the preprocessor arguments.
+  - which preprocessor modules to apply,
+  - the order to apply them,
+  - and the preprocessor arguments.
 
- This section can also be optional, if no preprocessing is needed.
+  This section can also be optional, if no preprocessing is needed.
 
 - diagnostics: all the information about the diagnostic, including
- - list of variables to evaluate (with their respective configurations),
- - the desired diagnostic script to use,
- - and additional diagnostic script options or arguments, if needed.
+  - list of variables to evaluate (with their respective configurations),
+  - the desired diagnostic script to use,
+  - and additional diagnostic script options or arguments, if needed.
 
- Also Include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
+  Also Include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
 
 - description: a brief description of the recipe, including
- - who wrote the recipe and who maintains it,
- - which project is responsible for it,
- - and which publications, references are linked with the recipe.
+  - who wrote the recipe and who maintains it,
+  - which project is responsible for it,
+  - and which publications, references are linked with the recipe.
 
- Note that the authors, publications and references are to be named in the config-references.yml
+  Note that the authors, publications and references are to be named in the config-references.yml
 
 This information ...
 
@@ -138,25 +138,25 @@ Please note the following sections:
   - projects: a list of projects (linked to esmvaltool/config-references.yml)
 
 
-  - datasets: lines 22-23
+- datasets: lines 22-23
 
-    The dataset definition consists of a list of python dictionaries with the information on the datasets.
-    - dataset name (key: dataset)
-    - project (key: project)
-    - experiment (key: exp)
-    - mip (for CMIP data, key: mip)
-    - ensemble member (key: ensemble)
-    - time range (e.g. key-value-pair: start_year: 1982, end_year: 1990)
-    - model grid (for CMIP6 data only, key: grid)
-    - alias (key: alias; use the alias for e.g. a more human readable name)
+  The dataset definition consists of a list of python dictionaries with the information on the datasets.
+  - dataset name (key: dataset)
+  - project (key: project)
+  - experiment (key: exp)
+  - mip (for CMIP data, key: mip)
+  - ensemble member (key: ensemble)
+  - time range (e.g. key-value-pair: start_year: 1982, end_year: 1990)
+  - model grid (for CMIP6 data only, key: grid)
+  - alias (key: alias; use the alias for e.g. a more human readable name)
 
 
-  - preprocessors: lines 25-28
+- preprocessors: lines 25-28
 
-    The definition for different preprocessors or combinations.
-    If no preprocessing is needed, the preprocessor can be set to an empty python dictionary (`{}`).
-    Here, we produce annual means. The preprocessor is called with its name (here: prep_timeseries), later in the diagnostic (line 39).
-    (See episode #5 LINK for more details.)
+  The definition for different preprocessors or combinations.
+  If no preprocessing is needed, the preprocessor can be set to an empty python dictionary (`{}`).
+  Here, we produce annual means. The preprocessor is called with its name (here: prep_timeseries), later in the diagnostic (line 39).
+  (See episode #5 LINK for more details.)
 
 
 - diagnostic section: lines 30-42

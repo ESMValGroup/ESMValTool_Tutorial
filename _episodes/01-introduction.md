@@ -49,17 +49,24 @@ EMSValTool is first and foremost a tool to analyse climate data. But you probabl
 >> ## ESMValTool is ...
 >>
 >>  &#10003; **A tool to analyse climate data.**  It takes care of finding, opening, checking, fixing, concatenating, and preprocessing CMIP data and several other supported datasets.
+>>
 >>  &#10005;  **The easy way out.** If you just want to do an exploratory analysis or quickly hack something together, ESMValTool is probably not the way to go. The tool is intended for robust, repeatable and shareable climate analysis. That *does* require a bit more effort.
+>>
 >>  &#10003; **A community effort.** EMSValTool is developed and maintained by a large team of climate scientists and software engineers. It is an open source project to which anyone can contribute. Its longevity depends on these contributions.
+>>
 >>  &#10003; **Free.** ESMValTool is licenced under Apache 2.0, which means everyone can use, modify, or share it free of charge. However, we *do* encourage all users to contribute to the community once they get more comfortable with the tool.
+>>
 >>  &#10003; **A command line tool.** ESMValTool was originally designed for the command line. But, we are working on a user-friendly python interface as well.
->>  &#10003; **A way to make climate science more [FAIR](https://fair-software.eu/about).** ESMValTool collects provenance information about the data and code that are used to obtain a result. It comes with a readible recipe format that makes climate analysis consistent, reproducible, and easy to share.
+>>
+>>  &#10003; **A way to make climate science more [FAIR](https://fair-software.eu/about).** ESMValTool collects provenance information about the data and code that are used to obtain a result. It comes with a readable recipe format that makes climate analysis consistent, reproducible, and easy to share.
+>>
 >>  &#10005;  **Perfect.** Although we are continuously working to improve the tool, you may encounter some bugs or missing features. In this lesson, you will learn how to troubleshoot, find help, and maybe even contribute to the solution yourself.
+>>
 >>  &#10005;  **Suitable for (Jupyter) notebooks.** ESMValTool was designed as a command line tool. But, we are working on a user-friendly Python interface as well.
 >{: .solution}
 {: .challenge}
 
-To learn more about ESMValTool is, you can look at the [documentation](https://docs.esmvaltool.org/en/latest/introduction.html), the [official website](https://www.esmvaltool.org/about.html), or the [overview paper](https://gmd.copernicus.org/articles/13/1179/2020/) in *Geoscientific Model Development*.
+To learn more about ESMValTool, you can look at the [documentation](https://docs.esmvaltool.org/en/latest/introduction.html), the [official website](https://www.esmvaltool.org/about.html), or the [overview paper](https://gmd.copernicus.org/articles/13/1179/2020/) in *Geoscientific Model Development*.
 
 ## How does ESMValTool work?
 

@@ -30,9 +30,7 @@ Recipes are the instructions that you give to ESMValTool that tell it what you w
  - the time range and time resolution,
  - the MIP, ensemble member,
  - the experiment (i.e. historical, ssp125 etc...),
- - and the grid type (CMIP6 only)
-
- This section can also be optional, as datasets can no preprocessing is needed.
+ - and the grid type (CMIP6 only).
 
 - preprocessors: general operations applied to a dataset before handling it in a diagnostic, listing
  - which preprocessor modules to apply,
@@ -75,50 +73,51 @@ Please copy and paste the following recipe into your ESMValTool working area wit
 
 >## recipe_example.yml
 >~~~YAML
->      # ESMValTool
->      # recipe_example.yml
->      ---
->      documentation:
->        description: Demonstrate basic ESMValTool example
->
->        authors:
->          - demora_lee
->          - mueller_benjamin
->          - swaminathan_ranjini
->
->        maintainer:
->          - demora_lee
->
->        references:
->          - demora2018gmd
->          # Some plots also appear in ESMValTool paper 2.
->
->        projects:
->          - ukesm
->
->      datasets:
->        - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
->
->      preprocessors:
->        prep_timeseries: # For 0D fields
->          annual_statistics:
->            operator: mean
->
->      diagnostics:
->        # --------------------------------------------------      
->        # Time series diagnostics
->        # --------------------------------------------------
->        diag_timeseries_temperature:
->          description: simple_time_series
->          variables:
->            timeseries_variable:
->              short_name: thetaoga
->              preprocessor: prep_timeseries
->          scripts:
->            timeseries_diag:
->              script: ocean/diagnostic_timeseries.py
+> 1    # ESMValTool
+> 2    # recipe_example.yml
+> 3    ---
+> 4    documentation:
+> 5      description: Demonstrate basic ESMValTool example
+> 6
+> 7      authors:
+> 8        - demora_lee
+> 9        - mueller_benjamin
+>10        - swaminathan_ranjini
+>11
+>12      maintainer:
+>13        - demora_lee
+>14
+>15      references:
+>16        - demora2018gmd
+>17        # Some plots also appear in ESMValTool paper 2.
+>18
+>19      projects:
+>20        - ukesm
+>21
+>22    datasets:
+>23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+>24
+>25    preprocessors:
+>26      prep_timeseries: # For 0D fields
+>27        annual_statistics:
+>28          operator: mean
+>29
+>30    diagnostics:
+>31      # --------------------------------------------------      
+>32      # Time series diagnostics
+>33      # --------------------------------------------------
+>34      diag_timeseries_temperature:
+>35        description: simple_time_series
+>36        variables:
+>37          timeseries_variable:
+>38            short_name: thetaoga
+>39            preprocessor: prep_timeseries
+>40        scripts:
+>41          timeseries_diag:
+>42            script: ocean/diagnostic_timeseries.py
 >~~~
 {: .solution}
+
 
 > ## Explore the recipe
 > Use the command and investigate the sample recipe.
@@ -245,21 +244,26 @@ Each time you run the ESMValTool, it will produce a new output directory within 
 
 ## Common issues & tips
 
-### Esmvaltool not found
-Can you run the command “esmvaltool -h”. If no, then it’s possible that the conda environment isn’t activated. Please return to the installation section, epside [2] LINK.  
+> ## Esmvaltool not found
+> Can you run the command “esmvaltool -h”. If no, then it’s possible that the conda environment isn’t activated. Please return to the installation section, episode #2 LINK.
+{: .solution}
 
-### ESMValTool can’t locate the data
-The error message is “esmvalcore._recipe_checks.RecipeError: Missing data”
-Which computing machine are you using? Does your user-config.yml file reflect your machine's settings? Is the dataset’s name in the correct order?
+> ## ESMValTool can’t locate the data. The error message is “esmvalcore._recipe_checks.RecipeError: Missing data”
+> Which computing machine are you using? Does your user-config.yml file reflect your machine's settings? Is the dataset’s name in the correct order?
+{: .solution}
 
-### Diagnostic path problems
-The directory path to your diagnostics code is set relative to the esmvaltool/diag_scripts subdirectory. Is the code placed in this subdirectory? Is it spelled correctly?
+> ## Diagnostic path problems
+> The directory path to your diagnostics code is set relative to the esmvaltool/diag_scripts subdirectory. Is the code placed in this subdirectory? Is it spelled correctly?
+{: .solution}
 
-### FX files not found.
+> ## FX files not found
+>
+{: .solution}
 
-### The preprocessor works but the diagnostic fails:
-If your preprocessor works fine but your diagnostic script fails, congratulations! A failed diagnostic means that you won’t need to re-run the preprocessor. In your “run/main_log.txt” run output, you should see a line that reads: “To re-run this diagnostic script, run:”, followed by a line with a command that will allow you to re-run your diagnostic script only. Append this line with the “-i” option after the python script you call to re-run your diagnostic.
+> ## The preprocessor works but the diagnostic fails
+> If your preprocessor works fine but your diagnostic script fails, congratulations! A failed diagnostic means that you won’t need to re-run the preprocessor. In your “run/main_log.txt” run output, you should see a line that reads: “To re-run this diagnostic script, run:”, followed by a line with a command that will allow you to re-run your diagnostic script only. Append this line with the “-i” option after the python script you call to re-run your diagnostic.
+{: .solution}
 
-### Your recipe’s name/project/reference isn’t recognised by ESMValTool.
-Error message is “ValueError: Tag 'NAME' does not exist in section 'authors' of path/esmvaltool/config-references.yml”
-Most likely, you added your own name to the recipe in the description section, but didn’t add it to the esmvaltool/config-references.yml file, where the names are linked to an email address, institute, and ORCID Identity.
+> ## Your recipe’s name/project/reference isn’t recognised by ESMValTool. Error message is “ValueError: Tag 'NAME' does not exist in section 'authors' of path/esmvaltool/config-references.yml”
+> Most likely, you added your own name to the recipe in the description section, but didn’t add it to the esmvaltool/config-references.yml file, where the names are linked to an email address, institute, and ORCID Identity.
+{: .solution}

@@ -8,8 +8,8 @@ This page includes some basic information on how to prepare to participate in th
 > The prerequisites for the tutorial are listed here: 
 > Basic understanding of git (optional - but useful)
 > Basic understanding of your preferred command line interface (ie a bash terminal)
-> Access to CMIP data
-> Access to a suitable computing system (egie jasmin)
+> Access to CMIP and observational data
+> Access to a suitable compute cluster (e.g. CEDA-Jasmin)
 > Github account (optional, but useful!)
 {: .prereq}
 
@@ -35,19 +35,23 @@ https://swcarpentry.github.io/git-novice/
 
 
 
-## Access to CMIP data and a suitable computing system
+## Access to CMIP and OBS data and a suitable compute cluster
 
-There are multiple ways to use the 
-We typically recommend using the one of the following systems:
-- JASMIN computing system (UK)
-- Something in DLR (Germany) 
-- Local installation on your machine
+ESMValTool may be run on multiple platforms, including local machines and
+large compute clusters; the benefit of using a compute cluster is that most often than not,
+it will host an ESGF node where CMIP data is locally stored on disk and accessible directly by the tool;
+in the same manner, observational (OBS) data will be found centrally stored as well. Here are a few options
+for compute clusters with ESGF nodes:
+
+- CEDA-Jasmin (UK):
+- DKRZ (Germany):
+- ETHZ (Switzerland):
 
 
-### JASMIN
+### CEDA-Jasmin
 
 If you do not already have an account on JASMIN, then request an account as
-soon as possible. The instructions on how to create a jasmin account are here: https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal
+soon as possible. The instructions on how to create a Jasmin account are here: https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal
 
 During the account creation, you will need an SSH key, which can be generated following these instructions: https://help.jasmin.ac.uk/article/185-generate-ssh-key-pair 
 

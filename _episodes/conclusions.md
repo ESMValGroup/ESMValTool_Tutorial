@@ -11,7 +11,7 @@ questions:
 
 objectives:
 - "breathe - you're finished now!"
-- "Congratulations & Thanks!”
+- "Congratulations & Thanks!"
 - "Find out about the mini-tutorials, and what to do next."
 ---
 
@@ -36,11 +36,20 @@ From here, there are lots of ways that you can continue to use ESMValTool.
 
 Read the docs page: https://esmvaltool.readthedocs.io/
 
+ESMValTool home page: https://www.esmvaltool.org/
+
 Technical description paper: https://doi.org/10.5194/gmd-13-1179-2020 
 
 Source code (ESMValTool): https://github.com/ESMValGroup/ESMValTool
 
 Source code (ESMValCore ): https://github.com/ESMValGroup/ESMValCore 
+
+Additional publications:
+- Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A., Lorenz, R., Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., Weigel, K., and Zechlau, S.: Earth System Model Evaluation Tool (ESMValTool) v2.0 – diagnostics for emergent constraints and future projections from Earth system models in CMIP, Geosci. Model Dev. Discuss., https://doi.org/10.5194/gmd-2020-60, in review, 2020.
+
+- Eyring, V., Bock, L., Lauer, A., Righi, M., Schlund, M., Andela, B., Arnone, E., Bellprat, O., Brötz, B., Caron, L.-P., Carvalhais, N., Cionni, I., Cortesi, N., Crezee, B., Davin, E., Davini, P., Debeire, K., de Mora, L., Deser, C., Docquier, D., Earnshaw, P., Ehbrecht, C., Gier, B. K., Gonzalez-Reviriego, N., Goodman, P., Hagemann, S., Hardiman, S., Hassler, B., Hunter, A., Kadow, C., Kindermann, S., Koirala, S., Koldunov, N. V., Lejeune, Q., Lembo, V., Lovato, T., Lucarini, V., Massonnet, F., Müller, B., Pandde, A., Pérez-Zanón, N., Phillips, A., Predoi, V., Russell, J., Sellar, A., Serva, F., Stacke, T., Swaminathan, R., Torralba, V., Vegas-Regidor, J., von Hardenberg, J., Weigel, K., and Zimmermann, K.: ESMValTool v2.0 – Extended set of large-scale diagnostics for quasi-operational and comprehensive evaluation of Earth system models in CMIP, Geosci. Model Dev. Discuss., https://doi.org/10.5194/gmd-2019-291, in review, 2019.
+
+- Eyring, V., Righi, M., Lauer, A., Evaldsson, M., Wenzel, S., Jones, C., Anav, A., Andrews, O., Cionni, I., Davin, E. L., Deser, C., Ehbrecht, C., Friedlingstein, P., Gleckler, P., Gottschaldt, K.-D., Hagemann, S., Juckes, M., Kindermann, S., Krasting, J., Kunert, D., Levine, R., Loew, A., Mäkelä, J., Martin, G., Mason, E., Phillips, A. S., Read, S., Rio, C., Roehrig, R., Senftleben, D., Sterl, A., van Ulft, L. H., Walton, J., Wang, S., and Williams, K. D.: ESMValTool (v1.0) – a community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP, Geosci. Model Dev., 9, 1747–1802, https://doi.org/10.5194/gmd-9-1747-2016, 2016.
 
 
 ### Where can I get more help?
@@ -53,11 +62,15 @@ If you get stuck, a great starting point is to create a new issue. [Link to ep 1
 
 ### What if I find a bug? 
 
-If you find a bug, please report it back to the ESMValTool team. This will help us fix it so that you can continue working, but also it means that ESMValTool will be more stable for everyone else as well. 
+If you find a bug, please report it back to the ESMValTool team. 
+This will help us fix it so that you can continue working, 
+but also it means that ESMValTool will be more stable for everyone else as well. 
 
-Please create a new issue using this page: https://github.com/ESMValGroup/ESMValTool/issues
+To report a bug, please create a new issue using this page: https://github.com/ESMValGroup/ESMValTool/issues/new/choose
 
-In your issue, please describe the problem as clearly and as completely as possible. 
+In your bug report, please describe the problem as clearly and as completely as possible. 
+You may need to include a recipe or the output log as well.
+
 
 
 ### How do I cite ESMValTool?
@@ -66,6 +79,8 @@ Please use the following reference:
 
 Righi, M., Andela, B., Eyring, V., Lauer, A., Predoi, V., Schlund, M., Vegas-Regidor, J., Bock, L., Brötz, B., de Mora, L., Diblen, F., Dreyer, L., Drost, N., Earnshaw, P., Hassler, B., Koldunov, N., Little, B., Loosveldt Tomas, S., and Zimmermann, K.: Earth System Model Evaluation Tool (ESMValTool) v2.0 – technical overview, Geosci. Model Dev., 13, 1179–1199, https://doi.org/10.5194/gmd-13-1179-2020, 2020.
 
+
+The following papers 
 
 {% include links.md %}
 

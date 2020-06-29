@@ -10,24 +10,26 @@ questions:
 - "How can I cite ESMValtool?"
 
 objectives:
+- "breathe - you're finished now!"
 - "Congratulations & Thanks!”
-- “In this episode, you should find out about the rest of the tutorial, and where to do next."
+- "Find out about the mini-tutorials, and what to do next."
 ---
 
 ## Congratulations!
 
 Congratulations on completing the ESMValTool tutorial! You should be now ready to go and start using ESMValTool independently. 
 
-The rest of this tutorial contains individual mini-tutorials to help work through a specific issue. Please see the contents page for specific
+The rest of this tutorial contains individual mini-tutorials to help work through a specific issue. 
 
 
 ### What next?
 
 From here, there are lots of ways that you can continue to use ESMValTool.
-- You can start from the list of existing recipes and run one of those.
-- You can learn how to write your own diagnostics and recipes.
-- You can contribute your recipe and diagnostics back into ESMValTool
-- You can learn how to prepare observational datasets to be suitable for use by ESMValTool.
+
+- You can start from the list of existing recipes and run one of those. [LINK to ep 8]
+- You can learn how to write your own diagnostics and recipes. [LINK to ep 9]
+- You can contribute your recipe and diagnostics back into ESMValTool. [Link to ep 10]
+- You can learn how to prepare observational datasets to be suitable for use by ESMValTool. [ Link to ep 11]
 
 
 ### Where can I get more information on ESMValTool?
@@ -45,6 +47,7 @@ Source code (ESMValCore ): https://github.com/ESMValGroup/ESMValCore
 
 There are lots of resources available for helping you use ESMValTool. 
 
+If you get stuck, a great starting point is to create a new issue. [Link to ep 10]
 
 
 
@@ -55,8 +58,6 @@ If you find a bug, please report it back to the ESMValTool team. This will help 
 Please create a new issue using this page: https://github.com/ESMValGroup/ESMValTool/issues
 
 In your issue, please describe the problem as clearly and as completely as possible. 
-
-
 
 
 ### How do I cite ESMValTool?

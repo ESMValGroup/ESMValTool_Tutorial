@@ -23,7 +23,7 @@ can be found in the root directory of the ESMValTool repository:
 [config-user-example.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
 
 Let's download it to our working directory ``esmvaltool_tutorial``
-that was created during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+that was created during the [Setup]({{ page.root }}{% link setup.md %}).
 To do that, click on
 [this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml)
 to see a raw version of the file, right-click and press ``save as``,

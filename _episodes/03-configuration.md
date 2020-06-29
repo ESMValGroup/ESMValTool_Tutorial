@@ -3,15 +3,15 @@ title: "Configuration"
 teaching: 0
 exercises: 0
 questions:
-- "What is the user configuration file and how can I use it?"
+- "What is the user configuration file and how should I use it?"
 objectives:
 - "Understand the contents of the user-config.yml file"
-- "Prepare the user-config.yml file for use"
-- "Configure ESMValTool to ignore some settings"
+- "Prepare a personalized user-config.yml file"
+- "Configure ESMValTool to use some settings"
 keypoints:
 - "The ``config-user.yml`` tells ESMValTool where to find input data."
-- " ``rootpath`` determines root directory for input data."
-- " ``output_dir`` is the destination directory."
+- " ``rootpath`` defines the root directory for the input data."
+- " ``output_dir`` defines the destination directory."
 ---
 
 ## The configuration file
@@ -23,14 +23,14 @@ can be found in the root directory of the ESMValTool repository:
 [config-user-example.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
 
 Let's download it to our working directory ``esmvaltool_tutorial``
-that is made during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
+that was created during the [Setup](https://esmvalgroup.github.io/tutorial/setup.html).
 To do that, click on
 [this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml)
 to see a raw version of the file, right-click and press ``save as``,
 then you can rename it to ``config-user.yml``and save it into the working directory
 ``esmvaltool_tutorial``.
 
-Now in a terminal, let's change our working directory to ``esmvaltool_tutorial``.
+Now, let's change our working directory in a terminal window to ``esmvaltool_tutorial``.
 Then, we run a text editor called Nano to open the configuration file:
 
 ~~~bash
@@ -42,17 +42,17 @@ This file contains the information for:
 
 * Rootpath to input data
 * Directory structure for the data from different projects
-* Number of parallel tasks
+* Number of tasks that can be run in parallel
 * Destination directory
 * Auxiliary data directory
 * Output settings
 
-> ## Which text editor
+> ## Text editor side note
 >
 > No matter what editor you use, you will need to know where it searches
 for and saves files. If you start it from the shell, it will (probably)
 use your current working directory as its default location. We use ``nano``
-in examples because it is one of the least complex text editors.
+in examples here because it is one of the least complex text editors.
 Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
 and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .callout}
@@ -62,7 +62,7 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
 for input data based on their source. The current categories in the configuration
 file are mentioned below. For example, CMIP is used for a dataset from
-the climate model intercomparison project whereas OBS for an observational dataset.
+the climate model intercomparison project whereas OBS is used for an observational dataset.
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
 For each category, you can define either one path or several paths as a list.
 
@@ -82,7 +82,7 @@ rootpath:
 
 In this lesson, we will work with data from
 [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
-We add the root path of the folder where data is available.
+We add the root path of the folder where  our/your data is available.
 
 ~~~YAML
   rootpath:
@@ -94,7 +94,8 @@ We add the root path of the folder where data is available.
 >
 > * To get the data (or its correct rootpath), check instruction in
 [Setup]({{ page.root }}{% link setup.md %}).
-> * For more information about setting the rootpath, you can visit the ESMValTool
+> * For more information about setting the rootpath, see also the ESMValTool
+For more information about setting the roothpath, see also ESMValTool...
 [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 
@@ -102,8 +103,8 @@ We add the root path of the folder where data is available.
 
 Input data can be from various models, observations and reanalysis data that adhere
 to the [CF/CMOR standard](https://cmor.llnl.gov/).
-To set a directory, you can use one of the values of
-``default``, ``BADC``, ``DKRZ``, ``ETHZ``, .... Let's use ``default`` in our example:
+The ``drs`` setting describes the file structure.
+Let's use ``default`` for ``CMIP5`` in our example here:
 
 ~~~YAML
 drs:
@@ -112,16 +113,19 @@ drs:
 
 > ## Available drs
 >
-> For more information about directories, you can visit the ESMValTool
-[documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/config.html#developer-configuration-file).
+> The ``drs`` setting describes the file structure for several projects
+(e.g. ``CMIP6``, ``CMIP5``, ``obs4mips``, ``OBS6``, ``OBS``) on several key machines
+(e.g. ``BADC``, ``CP4CDS``, ``DKRZ``, ``ETHZ``, ``SMHI``, ``BSC``).
+For more information about ``drs``, you can visit the ESMValTool
+[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#cmor-drs).
 {: .callout}
 
 ## Number of parallel tasks
 
 This option enables you to perform parallel processing.
 You can choose the number of tasks in parallel as
-1/2/3/4/... or you can set it to ``null`` that tells
-ESMValTool to use the number of available CPUs:
+1/2/3/4/... or you can set it to ``null``. That tells
+ESMValTool to use the maximum number of available CPUs:
 
 ~~~YAML
 
@@ -141,11 +145,11 @@ again to a reasonable number for the amount of memory available in your system.
 
 The destination directory is the rootpath where ESMValTool will store its output,
 i.e. figures, data, logs, etc. With every run, ESMValTool automatically generates
-a new output folder determined by the recipe name, and date and time using
+a new output folder determined by recipe name, and date and time using
 the format: YYYYMMDD_HHMMSS.
 This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, ``work``.
 
-Let's name our destination directory as ``esmvaltool_output`` in the working directory:
+Let's name our destination directory ``esmvaltool_output`` in the working directory:
 
 ~~~YAML
 output_dir: ./esmvaltool_output
@@ -160,8 +164,8 @@ each run because most users will only need the results from the diagnostic scrip
 > * ``run``: this folder includes all log files, a copy of the recipe,
 a summary of the resource usage, and the settings.yml interface files,
 resource_usage.txt and temporary files created by the diagnostic scripts.
-> * ``work``: a place for any diagnostic script results that are not plots, e.g.
-files in NetCDF format (depends on the diagnostic script).
+> * ``work``: this folder is a place for any diagnostic script results that
+are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
 >
 > We explain more about output in the next
 [lesson]({{ page.root }}{% link _episodes/04-toy-example.md %})
@@ -169,11 +173,11 @@ files in NetCDF format (depends on the diagnostic script).
 
 ## Auxiliary data directory
 
-The ``auxiliary_data_dir`` setting is the path to place any required
-additional auxiliary data files. This location allows us to tell
+The ``auxiliary_data_dir`` setting is the path where any required
+additional auxiliary data files are stored. This location allows us to tell
 the diagnostic script where to find the files if they can not be downloaded
-at runtime. This option is not for model or observational datasets, rather
-it is for data files used in plotting such as coastline descriptions and so on.
+at runtime. This option should not be used for model or observational datasets, but
+for data files  (e.g. shape files) used in plotting such as coastline descriptions and so on.
 
 ~~~YAML
 auxiliary_data_dir: ~/auxiliary_data
@@ -181,7 +185,7 @@ auxiliary_data_dir: ~/auxiliary_data
 
 ## Output settings
 
-These settings are used to inform ESMValTool about your preference.
+These settings are used to inform ESMValTool about your preference about specific actions.
 You can turn on or off the setting by ``true`` or ``false`` values.
 Most of these settings are fairly self-explanatory, ie:
 
@@ -216,9 +220,10 @@ profile_diagnostic: false
 for example: config-user_formalised_runs.yml, config-user_debugging.yml
 {: .callout}
 >
-> ## Different settings
+> ## Saving preprocessed data
 >
-> In the configuration file, which settings are useful to store preprocessed data?
+> In the configuration file, which settings are useful to make sure preprocessed data
+is stored when ESMValTool is run?
 >
 >> ## Solution
 >>

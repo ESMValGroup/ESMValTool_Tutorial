@@ -43,22 +43,18 @@ EMSValTool is first and foremost a tool to analyse climate data. But you probabl
 > - Perfect
 > - Suitable for (Jupyter) notebooks
 >
-> Check our answers by unfolding the boxes below.
+> Check our answers by unfolding the box below.
 >
 >> ## ESMValTool is ...
 >>
->>  - A tool to analyse climate data. It takes care of finding, opening, checking, fixing, concatenating, and preprocessing CMIP data and several other supported datasets.
->>  - A way to make climate science more [FAIR](https://fair-software.eu/about). ESMValTool collects provenance information about the data and code that are used to obtain a result. It comes with a readible recipe format that makes climate analysis consistent, reproducbile, and easy to share.
->>  - A community effort. EMSValTool is developed and maintained by a large team of climate scientists and software engineers. It is an open source project to which anyone can contribute. It's longevity depends on these contributions.
->>  - A command line tool. ESMValTool was originally designed for the command line. But, we are working on a user-friendly python interface as well.
->>  - Free. ESMValTool is licenced under Apache 2.0, which means everyone can use, modify, or share it free of charge. We *do* encourage all users to contribute to the community once they get more comfortable with the tool, though.
->{: .solution}
->
->> ## ESMValTool is not ...
->>
->>  - The easy way out. If you just want to do an exploratory analysis or quickly hack something together, ESMValTool is probably not the way to go. The tool is intended for robust, repeatable and shareable climate analysis. That *does* require a bit more effort.
->>  - Perfect. Although we are continuously working to improve the tool, you may encounter some bugs or missing features. In this lesson, you'll learn how to troubleshoot, find help, and maybe even contribute to the solution yourself.
->>  - Suitable for (Jupyter) notebooks. ESMValTool was designed as a command line tool. But, we are working on a user-friendly Python interface as well.
+>>  &#10003; **A tool to analyse climate data.**  It takes care of finding, opening, checking, fixing, concatenating, and preprocessing CMIP data and several other supported datasets.  
+>>  &#10005;  **The easy way out.** If you just want to do an exploratory analysis or quickly hack something together, ESMValTool is probably not the way to go. The tool is intended for robust, repeatable and shareable climate analysis. That *does* require a bit more effort.  
+>>  &#10003; **A community effort.** EMSValTool is developed and maintained by a large team of climate scientists and software engineers. It is an open source project to which anyone can contribute. Its longevity depends on these contributions.  
+>>  &#10003; **Free.** ESMValTool is licenced under Apache 2.0, which means everyone can use, modify, or share it free of charge. However, we *do* encourage all users to contribute to the community once they get more comfortable with the tool.  
+>>  &#10003; **A command line tool.** ESMValTool was originally designed for the command line. But, we are working on a user-friendly python interface as well.  
+>>  &#10003; **A way to make climate science more [FAIR](https://fair-software.eu/about).** ESMValTool collects provenance information about the data and code that are used to obtain a result. It comes with a readible recipe format that makes climate analysis consistent, reproducible, and easy to share.  
+>>  &#10005;  **Perfect.** Although we are continuously working to improve the tool, you may encounter some bugs or missing features. In this lesson, you will learn how to troubleshoot, find help, and maybe even contribute to the solution yourself.  
+>>  &#10005;  **Suitable for (Jupyter) notebooks.** ESMValTool was designed as a command line tool. But, we are working on a user-friendly Python interface as well.  
 >{: .solution}
 {: .challenge}
 
@@ -70,18 +66,18 @@ The figure below shows the different components of ESMValTool. Most of the work 
 ![figure showing ESMValTool architecture]({{ page.root }}/fig/esmvaltool_architecture.png)
 
 >## Discussion: (dis)advantages of this approach?
-> Discuss or think about the pro's and cons of this architecture for a moment. Then unfold the box below to see our answers.
+> Discuss or think about the pros and cons of this architecture for a moment. Then unfold the box below to see our answers.
 >
 >
 >>## See our thoughts
 >>
->>  - Streamlining common preprocessing steps ensures consistency in the algorithms being used and the way they are executed. This facilitates comparison and reproducibility.
+>>  -  Streamlining common preprocessing steps ensures consistency in the algorithms being used and the way they are executed. This facilitates comparison and reproducibility.
 >>  - Provenance and citation information can be tracked through the entire workflow.
->>  - The core builds upon the [iris](https://scitools.org.uk/iris/docs/latest/) package, which is quite strict in order to minimize unexpected results.
+>>  - The core builds upon the [iris](https://scitools.org.uk/iris/docs/latest/) package, which is quite strict in order to comply with CF conventions and minimize unexpected results.
 >>  - Recipes are easy to read and share.
 >>  - A collection of recipes and diagnostic scripts is shipped with ESMValTool, ready for re-use. Everyone can add to this collection.
 >>  - The recipe format takes some getting used to and may be a bit less flexible then working on the datasets directly.
->>  - Missing features can be more of a limiting factor.
+>>  - Features or dataset support that are missing from ESMValCore can be a limiting factor.
 >{: .solution}
 {: .discussion}
 

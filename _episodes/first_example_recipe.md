@@ -1,11 +1,12 @@
 ---
+
 title: "Running a recipe (First example)"
 teaching: 20
 exercises: 25
 questions:
 - "What is a recipe?"
 - "How can I do the same preprocessing on many different datasets?"
-- "What are the files and directories after running a recipe?"
+- "What are the files and directories that are created after running a recipe?"
 - "What happens when I run a recipe?"
 objectives:
 - "Run an ESMValTool recipe"
@@ -15,8 +16,10 @@ objectives:
 keypoints:
 - "A recipe does not break by fiddling with it"
 - "Log information is useful when interpreting the first warnings/errors"
-- "The dataset section in the recipe relates to Understanding the directory structure of CMIP data on your server/disk and knowing how to use data from different experiments such as CMIP/ScenarioMIP"
+- "The dataset section in the recipe relates to Understanding the directory structure of CMIP data on your server/disk and knowing how to use data from different experiments such as CMIP/ScenarioMIP."
+
 ---
+
 
 This episode describes how ESMValTool recipes work, how to run a recipe and how to explore the recipe output. By the end of this episode, you should be able to run your first recipe, look at the recipe output, modify a recipe, explore and run some basic recipe debugging.
 

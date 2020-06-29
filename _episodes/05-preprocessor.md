@@ -85,13 +85,13 @@ You could define different preprocessors with several preprocessor sections (set
 > preprocessors:
 >   prep_timeseries_1:
 >     annual_statistics:
->       Operator: mean
+>       operator: mean
 >   prep_timeseries_2:
 >     annual_statistics:
 >       operator: mean
 >     area_statistics:
 >       operator: mean
->     Depth_integration:
+>     depth_integration:
 > ---
 > diagnostics:
 >   # --------------------------------------------------      

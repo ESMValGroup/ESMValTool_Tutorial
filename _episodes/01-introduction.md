@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
 teaching: 0
-exercises: 10
+exercises: 25
 questions:
 -  What is ESMValTool?
 -  When to use ESMValTool?
@@ -28,6 +28,7 @@ keypoints:
 ---
 
 ## What is ESMValTool?
+
 EMSValTool is first and foremost a tool to analyse climate data. But you probably already knew that and we like to think there's more to it than that. So let's start with a quick check to synchronize our expectations.
 
 > ## Question: what is ESMValTool?
@@ -87,10 +88,30 @@ The figure below shows the different components of ESMValTool. Most of the work 
 
 ## Community
 
-some exercises:
+ESMValTool is built and maintained by an active community of scientists and engineers. Many of the interactions take place on GitHub. Here, we briefly introduce you to some of the most important pages.
 
-- How many people are connected to github?
-- How many open issues?
-- How many merged pull requests in the last month?
+> ## Challenge: meet ESMValGroup
+>
+> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? You should see 2 main repositories: ESMValTool and ESMValCore. Clicking on them will take you to there. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
+>
+>> ## Solution
+>>
+>> At the time of making this lesson, there were 138 members of ESMValGroup. 55 of them contributed to ESMValTool, 48 to ESMValCore. 52 (!) people contributed to this tutorial.
+>{: .solution}
+{: .challenge}
+
+>## Challenge: issues and pull requests
+>
+> Go back to the repository pages of [ESMValTool](https://github.com/ESMValGroup/ESMValTool) or [ESMValCore](https://github.com/ESMValGroup/ESMValCore). You should see tabs for 'issues' and 'pull requests'. You can use the labels to navigate them a bit more. How many open issues are about enhancements of ESMValTool? And how many bugs have been fixed in ESMValCore? There is also an 'insights' tab, where you can see a summary of recent activity. How many issues have been opened and closed in the past month?
+>
+>> ## Solution
+>>
+>> At the time of making this tutorial, there were 50 ESMValTool issues (the majority) about enhancement and 31 bugs had been fixed in the Core. 13 ESMValTool issues had been closed in the past month, versus 8 opened: overall good progress.
+>{: .solution}
+{: .challenge}
+
+## Conclusion
+
+This concludes the introduction of the tutorial. You should now have a basic knowledge of ESMValTool and our community. The following episodes will walk you through the installation, configuration and running your first recipes.
 
 {% include links.md %}

@@ -31,6 +31,14 @@ From here, there are lots of ways that you can continue to use ESMValTool.
 - You can contribute your recipe and diagnostics back into ESMValTool. [Link to ep 10]
 - You can learn how to prepare observational datasets to be suitable for use by ESMValTool. [ Link to ep 11]
 
+> ## `What's next?`
+>
+> - Think about what you want to do with ESMValTool.
+>   - Decide what datasets you want to use.
+>   - How will you preprocess the data?
+>   - What will your diagnostic need to do?
+>   - What will your final figure show? 
+{: .challenge}
 
 ### Where can I get more information on ESMValTool?
 
@@ -57,7 +65,7 @@ There are lots of resources available for helping you use ESMValTool.
 
 If you get stuck, a great starting point is to create a new issue. [Link to ep 10]
 
-There is also an ESMValTool email list [esmvaltool@listserv.dfn.de](esmvaltool@listserv.dfn.de).
+There is also an ESMValTool email list [esmvaltool@listserv.dfn.de](mailto:esmvaltool@listserv.dfn.de).
 
 Everybody can send mail without being subscribed to the group, but note that there is a spam filter.
 The email group archive is also [online](https://www.listserv.dfn.de/sympa/arc/esmvaltool/2020-06/).
@@ -76,10 +84,7 @@ In your bug report, please describe the problem as clearly and as completely as 
 You may need to include a recipe or the output log as well.
 
 
-
 ### How do I cite ESMValTool?
-
-Please use the following reference:
 
 Please cite ESMValTool as:
 
@@ -100,8 +105,6 @@ Please cite this tutorial as:
   [DATE].
 
 
-
-The following papers 
 
 {% include links.md %}
 

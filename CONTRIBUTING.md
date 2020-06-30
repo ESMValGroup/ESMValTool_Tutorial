@@ -74,6 +74,19 @@ and can be used as:
 mdl your_markdown_filename
 ```
 
+We use [Codacy](https://app.codacy.com/gh/ESMValGroup/tutorial) as an automated code analysis services. To run the analyis [locally](https://github.com/codacy/codacy-analysis-cli) on Markdown files with Docker use
+
+```bash
+docker run \
+  --rm=true \
+  --env CODACY_CODE=${PWD} \
+  --volume /var/run/docker.sock:/var/run/docker.sock \
+  --volume ${PWD}:${PWD} \
+  --volume /tmp:/tmp \
+  codacy/codacy-analysis-cli \
+  analyse --tool remark-int
+```
+
 ### Previewing your changes locally
 
 If you are making a new episode or contributing to existing ones,

@@ -81,15 +81,16 @@ conda activate esmvaltool
 
 If you run into trouble, please try recreating the environment. More information can be found in the [conda documentation](https://docs.conda.io/en/latest/).
 
-
 ## Software installation
 
 Once all prerequisites are fulfilled, ESMValTool can be installed by running
 the following commands in the directory containing the ESMValTool source code:
 
 ~~~bash
-pip install .
+pip install --editable '.[develop]'
 ~~~
+
+This will add the `esmvaltool` directory to the Python path in editable mode and install the developemnt dependencies.
 
 ## Test the installation
 

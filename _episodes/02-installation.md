@@ -169,10 +169,5 @@ esmvaltool --help
 ```
 
 to display the command line help.
-To find the location where the ESMValTool package was installed on your system, run
-
-```bash
-python -c 'import esmvaltool; print(esmvaltool.__path__[0])'
-```
 
 {% include links.md %}

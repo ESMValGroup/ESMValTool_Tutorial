@@ -54,7 +54,7 @@ EMSValTool is first and foremost a tool to analyse climate data. But you probabl
 > >
 > > &#10003; **A way to make climate science more [FAIR](https://fair-software.eu/about).** ESMValTool collects provenance information about the data and code that are used to obtain a result. It comes with a readable recipe format that makes climate analysis consistent, reproducible, and easy to share.
 > >
-> > &#10005;  **Perfect.** Although we are continuously working to improve the tool, you may encounter some bugs or missing features. In this lesson, you will learn how to troubleshoot, find help, and maybe even contribute to the solution yourself.
+> > &#10005;  **Perfect.** Although we are continuously working to improve the tool, you may encounter some bugs or missing features. In the following episodes, you will learn how to troubleshoot, find help, and maybe even contribute to the solution yourself.
 > >
 > > &#10005;  **Suitable for (Jupyter) notebooks.** ESMValTool was designed as a command line tool. But, we are working on a user-friendly Python interface as well.
 > {: .solution}
@@ -64,7 +64,7 @@ To learn more about ESMValTool, you can look at the [documentation](https://docs
 
 ## How does ESMValTool work
 
-The figure below shows the different components of ESMValTool. Most of the work is done in the 'core', which performs a number of preprocessor steps. Outside of the core we have some configuration files that specify things like *where to find the CMIP data*. The most important file however, is the *recipe* that specifies which preprocessor functions need to be applied to what data. The recipe also points to a diagnostic script that is executed after the preprocessor and performs a more specific analysis on the preprocessed data.
+The figure below shows the different components of ESMValTool. Some of the most important work is done in the 'core', which performs a number of preprocessor steps. Outside of the core we have some configuration files that specify things like *where to find the CMIP data*. The most important file however, is the *recipe* that specifies which preprocessor functions need to be applied to what data. The recipe also points to a diagnostic script that is executed after the preprocessor and performs a more specific analysis on the preprocessed data.
 
 ![figure showing ESMValTool architecture]({{ page.root }}/fig/esmvaltool_architecture.png)
 
@@ -87,11 +87,11 @@ The figure below shows the different components of ESMValTool. Most of the work 
 
 ## Community
 
-ESMValTool is built and maintained by an active community of scientists and engineers. Many of the interactions take place on GitHub. Here, we briefly introduce you to some of the most important pages.
+ESMValTool is built and maintained by an active community of scientists and software engineers. Many of the interactions take place on GitHub. Here, we briefly introduce you to some of the most important pages.
 
 > ## Challenge: meet ESMValGroup
 >
-> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? You should see 2 main repositories: ESMValTool and ESMValCore. Clicking on them will take you to there. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
+> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? You should see 2 main repositories: ESMValTool and ESMValCore. Visit each of the repositofires. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
 >
 > > ## Solution
 > >
@@ -105,7 +105,7 @@ ESMValTool is built and maintained by an active community of scientists and engi
 >
 > > ## Solution
 > >
-> > At the time of making this tutorial, there were 50 ESMValTool issues (the majority) about enhancement and 31 bugs had been fixed in the Core. 13 ESMValTool issues had been closed in the past month, versus 8 opened: overall good progress.
+> > At the time of making this lesson, there were 50 ESMValTool issues (the majority) about enhancement and 31 bugs had been fixed in the Core. 13 ESMValTool issues had been closed in the past month, versus 8 opened: overall good progress.
 > {: .solution}
 {: .challenge}
 

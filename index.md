@@ -68,7 +68,7 @@ These mini-tutorials can be appended to the main tutorial or worked through inde
 
 Please cite this tutorial as:
 
-- ESMVAlTool 2.0 tutorial, ESMValtool developpers, version [ADD VERSION], 
+- ESMValTool 2.0 tutorial, ESMValTool developers, version [ADD VERSION], 
   [https://github.com/ESMValGroup/tutorial](https://github.com/ESMValGroup/tutorial), 
   $date. 
 
@@ -82,5 +82,4 @@ Please cite ESMValTool as:
   Geosci. Model Dev. Discuss., 
   [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60), 
   in review, 2020.
-
 

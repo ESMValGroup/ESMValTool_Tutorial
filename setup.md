@@ -20,7 +20,7 @@ This page includes some information on how to prepare for participating in this 
 {: .prereq}
 
 
-## Optional tutorials
+## Optional tutorials to be prepared to use ESMValTool
 
 Where available, we include links to other software carpentry courses. 
 

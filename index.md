@@ -4,7 +4,12 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-This tutorial is built to teach you ESMValTool.  
+This tutorial is built to teach you how to use ESMValTool.  
+
+The Earth System Model Evaluation Tool (ESMValTool) is a community developped software toolkit that aims to faciliate
+the diagnosis and evaluation of the causes and effects of model biases and inter-model spread within the CMIP model
+ensemble.
+
 
 > ## What will you learn in this course
 >
@@ -22,11 +27,15 @@ This tutorial is built to teach you ESMValTool.
 
 > ## Prerequisites
 >
-> Basic understanding of git (optional - but useful)
-> Basic understanding of your preferred command line interface (ie a bash terminal)
-> Access to CMIP data
-> Access to a suitable computing system (eg Jasmin)
-> Github account (optional, but useful!)
+> - Basic understanding of git (optional - but useful)
+>
+>  - Basic understanding of your preferred command line interface (ie a bash terminal)
+>
+>  - Access to CMIP data
+>
+>  - Access to a suitable computing system (eg Jasmin)
+>
+> - Github account (optional, but useful!)
 {: .prereq}
 
 > ## Main things you need to know before starting this course
@@ -41,17 +50,16 @@ This tutorial is built to teach you ESMValTool.
 
 
 > ## Additional resources: 
-> 
-> - Read the docs page: https://esmvaltool.readthedocs.io/
-> - ESMValTool home page: https://www.esmvaltool.org/
-> - Technical description paper: https://doi.org/10.5194/gmd-13-1179-2020 
-> - Source code (ESMValTool): https://github.com/ESMValGroup/ESMValTool
-> - Source code (ESMValCore ): https://github.com/ESMValGroup/ESMValCore 
+> - [Read the docs page](https://esmvaltool.readthedocs.io/)
+> - [ESMValTool home page](https://www.esmvaltool.org/)
+> - [Technical description paper](https://doi.org/10.5194/gmd-13-1179-2020)
+> - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
+> - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
 {: .callout}
 
-
+## Citation
 Please cite this tutorial as:
-ESMVAlTool 2.0 tutorial, website, version [ADD AUTO VERSION?] 
+ESMVAlTool 2.0 tutorial, ESMValtool developpers, version [ADD VERSION], https://github.com/ESMValGroup/tutorial/, '`r format(Sys.Date(), "%B %d, %Y")`'. 
 
 
 

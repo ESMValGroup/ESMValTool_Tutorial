@@ -29,19 +29,19 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 ### Linux
 
-1. Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
+1.  Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
 
-1. Next, run the installer
+2.  Next, run the installer
 
     ```bash
     bash Miniconda3-latest-Linux-x86_64.sh
     ```
 
-1. Follow the instructions in the installer. The defaults should normally suffice.
+3.  Follow the instructions in the installer. The defaults should normally suffice.
 
-1. You will need to restart your terminal for the changes to have effect.
+4.  You will need to restart your terminal for the changes to have effect.
 
-1. Verify you have a working conda installation by listing all installed packages
+5.  Verify you have a working conda installation by listing all installed packages
 
     ```bash
     conda list
@@ -49,19 +49,19 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 ### MacOSX
 
-1. Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
+1.  Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
 
-1. Next, run the installer
+2.  Next, run the installer
 
     ```bash
     bash Miniconda3-latest-MacOSX-x86_64.sh
     ```
 
-1. Follow the instructions in the installer. The defaults should normally suffice.
+3.  Follow the instructions in the installer. The defaults should normally suffice.
 
-1. You will need to restart your terminal for the changes to have effect.
+4.  You will need to restart your terminal for the changes to have effect.
 
-1. Verify you have a working conda installation by listing all installed packages
+5.  Verify you have a working conda installation by listing all installed packages
 
     ```bash
     conda list
@@ -138,6 +138,18 @@ conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool
 This will create a new
 [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 called `esmvaltool`, with the ESMValTool package and all of its dependencies installed in it.
+
+> ## Conda common problems
+>
+> Below are some common problems that could happen while installing.
+>
+> -   installation takes long time,
+>     -   downloads and compilations can take several minutes to complete, please be patient
+>     -   you might have bad luck and the dependencies can not be resolved at the moment, please try again later or [raise an issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
+> -   if you have a old conda installation you could get a `UnsatisfiableError` error. Please install a new conda and try again
+> -   downloads fail due to company proxy, see [conda docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to resolve
+>
+{: .callout}
 
 ## Test that the installation was successful
 

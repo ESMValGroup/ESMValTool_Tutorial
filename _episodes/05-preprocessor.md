@@ -86,7 +86,7 @@ You can also define different preprocessors with several preprocessor sections (
 > preprocessors:
 >   prep_timeseries_1:
 >     annual_statistics:
->       Operator: mean
+>       operator: mean
 >   prep_timeseries_2:
 >     annual_statistics:
 >       operator: mean

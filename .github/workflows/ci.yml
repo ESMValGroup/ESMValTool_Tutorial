@@ -1,0 +1,36 @@
+name: Jekyll site CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup R
+      uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: '3.5.3'
+    - name: R deps
+      run: |
+        install.packages('knitr', repos = 'https://', dependencies = TRUE)
+        install.packages('stringr', repos = 'https://cran.rstudio.com', dependencies = TRUE)
+        install.packages('checkpoint', repos = 'https://cran.rstudio.com', dependencies = TRUE)
+        install.packages('ggplot2', repos = 'https://cran.rstudio.com', dependencies = TRUE)
+      shell: Rscript {0}      
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1.38.0
+      with: 
+        ruby-version: 2.6
+    - name: Ruby deps
+      run: gem install json kramdown jekyll bundler
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Python deps
+      run: pip install pyyaml
+    - name: Check all lessons
+      run: make lesson-check-all

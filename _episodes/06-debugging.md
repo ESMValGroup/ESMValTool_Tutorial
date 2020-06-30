@@ -210,10 +210,10 @@ What suggestions would you give the researcher for fixing the error?
 >
 >> ## Solution
 >>
->> 1. inspect the ``main_log.txt``
->> 2. check the user-config.yml to see if the correct directory for input data is introduced.
->> 3. check the available data, regarding exp, mip, ensemble, start_year, and end_year
->> 4. check the variable name in the ``diag_timeseries_temperature`` section in the recipe.
+>> 1. Inspect ``main_log.txt``
+>> 2. Check ``user-config.yml`` to see if the correct directory for input data is introduced
+>> 3. Check the available data, regarding exp, mip, ensemble, start_year, and end_year
+>> 4. Check the variable name in the ``diag_timeseries_temperature`` section in the recipe
 > {: .solution}
 {: .challenge}
 

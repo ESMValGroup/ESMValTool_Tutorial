@@ -19,7 +19,6 @@ These mini-tutorials can be appended to the main tutorial or worked through inde
 > ## What will you learn in this course
 >
 >   - What is ESMValTool
->
 >   - How to install ESMValTool
 >   - How to configure ESMValTool for your local system
 >   - How to run ESMValTool

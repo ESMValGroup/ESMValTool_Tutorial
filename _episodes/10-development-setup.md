@@ -3,7 +3,7 @@ title: "Development Setup"
 teaching: 10
 exercises: 20
 questions:
-- "What are the prerequisites for installing ESMValTool?"
+- "What are the prerequisites for installing ESMValTool from source?"
 - "How do I confirm that the installation was succesful?"
 objectives:
 - "Execute a succesful ESMValTool installation from source"

@@ -12,31 +12,37 @@ the diagnosis and evaluation of the causes and effects of model biases and inter
 ensemble.
 
 
+This tutorial is structured such that the main body of the tutorial, up to the episode 7, can be done in one sitting.
+From there, there are several mini-tutorials which each covers one aspect of working with ESMValTool.
+These mini-tutorials can be appended to the main tutorial or worked through independently.
+
 > ## What will you learn in this course
 >
 >   - What is ESMValTool
 >
 >   - How to install ESMValTool
->
+>   - How to configure ESMValTool for your local system
 >   - How to run ESMValTool
->
->   - How to develop your own diagnostics and recipes
->
->   - How to contribute your recipes and diagnostics back into ESMValTool
+>   - How to work with ESMValTool's suite of preprocessors
+>   - How to debug your recipes
+>   - How to access and deploy recipes from the ESMValTools gallery (Advanced)
+>   - How to develop your own diagnostics and recipes (Advanced)
+>   - How to contribute your recipes and diagnostics back into ESMValTool (Advanced)
+>   - How to include new observational datasets (Advanced)
 >
 {: .checklist}
 
 > ## Prerequisites
 >
-> - Basic understanding of git (optional - but useful)
+> - Basic understanding of git (optional)
 >
->  - Basic understanding of your preferred command line interface (ie a bash terminal)
+> - Basic understanding of your preferred command line interface (ie a bash terminal)
 >
->  - Access to CMIP data
+> - Access to CMIP data
 >
->  - Access to a suitable computing system (eg Jasmin)
+> - Access to a suitable computing system (eg Jasmin, DLR machine)
 >
-> - Github account (optional, but useful!)
+> - Github account (optional)
 {: .prereq}
 
 > ## Main things you need to know before starting this course
@@ -59,10 +65,11 @@ ensemble.
 {: .callout}
 
 ## Citation
+
 Please cite this tutorial as:
 
 - ESMVAlTool 2.0 tutorial, ESMValtool developpers, version [ADD VERSION], 
-  https://github.com/ESMValGroup/tutorial/, 
+  [https://github.com/ESMValGroup/tutorial](https://github.com/ESMValGroup/tutorial), 
   $date. 
 
 Please cite ESMValTool as:
@@ -73,6 +80,7 @@ Please cite ESMValTool as:
   Earth System Model Evaluation Tool (ESMValTool) v2.0 – diagnostics for 
   emergent constraints and future projections from Earth system models in CMIP, 
   Geosci. Model Dev. Discuss., 
-  https://doi.org/10.5194/gmd-2020-60, in review, 2020.
+  [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60), 
+  in review, 2020.
 
 

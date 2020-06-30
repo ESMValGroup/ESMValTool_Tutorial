@@ -155,6 +155,7 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .solution}
 
 We change the ``projects`` value ``ukesm`` to ``tutorial``:
+
 ~~~YAML
 19      projects:
 20        - tutorial

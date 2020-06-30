@@ -2,7 +2,7 @@
 title: Preparations for participating in the tutorial 
 ---
 
-This page includes some basic information on how to prepare to participate in this tutorial. 
+This page includes some information on how to prepare for participating in this tutorial. 
 
 > ## Prerequisites
 > The prerequisites for the tutorial are listed on the 
@@ -20,7 +20,7 @@ This page includes some basic information on how to prepare to participate in th
 {: .prereq}
 
 
-## Optional tutorials
+## Optional tutorials to be prepared to use ESMValTool
 
 
 We typically use the command line to interact with ESMValTool.

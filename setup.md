@@ -256,8 +256,7 @@ You don’t need a github account to participate in the tutorial.
 However, if you want to raise an issue, contribute to the discussions, 
 or share your code, please [create a github account](https://github.com/).
 
-To learn how to use github, please have a look at this [introduction to github]
-(https://lab.github.com/githubtraining/introduction-to-github).
+To learn how to use github, please have a look at this [introduction to github](https://lab.github.com/githubtraining/introduction-to-github).
 
 You may hear a few of the following phrases during the tutorial. Don’t be alarmed, they will make sense eventually. 
 

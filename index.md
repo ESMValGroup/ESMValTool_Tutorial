@@ -13,7 +13,7 @@ ensemble.
 
 
 This tutorial is structured such that the main body of the tutorial, up to the episode 7, can be done in one sitting.
-From there, there are several mini-tutorials which each covers one aspect of working with ESMValTool.
+From episode 8, each episode is a mini-tutorial covering an advanced aspect of working with ESMValTool.
 These mini-tutorials can be appended to the main tutorial or worked through independently.
 
 > ## What will you learn in this course

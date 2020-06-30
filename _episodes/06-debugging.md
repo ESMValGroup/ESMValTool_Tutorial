@@ -198,7 +198,7 @@ like time manipulation, area manipulation, land-sea masking, variable derivation
 
 > ## ESMValTool can’t locate the data
 >
-> You are assisting a researcher with ``ESMValTool``. The researcher changes the ``project`` entry to ``CMIP6``
+> You are assisting a colleague with ESMValTool. The colleague changes the ``project`` entry to ``CMIP6``
 and runs the recipe. However, ESMValTool encounters an error like:
 >
 ~~~bash

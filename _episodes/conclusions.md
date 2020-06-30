@@ -54,7 +54,7 @@ From here, there are lots of ways that you can continue to use ESMValTool.
 
 Additional publications:
 - Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A., Lorenz, R., 
-Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., Weigel, K., and Zechlau, S.:
+  Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., Weigel, K., and Zechlau, S.:
 Earth System Model Evaluation Tool (ESMValTool) v2.0 – diagnostics
 for emergent constraints and future projections from Earth system models in CMIP,
 Geosci. Model Dev. Discuss.,
@@ -113,6 +113,5 @@ Please cite this tutorial as:
 
 
 {% include links.md %}
-
 
 

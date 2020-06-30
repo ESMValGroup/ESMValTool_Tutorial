@@ -5,44 +5,42 @@ title: Preparations for participating in the tutorial
 This page includes some information on how to prepare for participating in this tutorial. 
 
 > ## Prerequisites
+>
 > The prerequisites for the tutorial are listed on the 
 > [tutorials home page]({{ page.root}}[% index.md %})
->  and are also eproduced here:
-> - Basic understanding of git (optional)
+>  and are also reproduced here:
 >
-> - Basic understanding of your preferred command line interface (ie a bash terminal)
+> *Minimal requirements:*
+>  - Basic understanding of your preferred command line interface (ie a bash terminal)
+>  - Laptop/desktop with [(mini)conda](https://docs.conda.io/en/latest/miniconda.html) installed
+>  - Access to CMIP data
 >
-> - Access to CMIP data
->
-> - Access to a suitable computing system (eg Jasmin, DLR machine)
->
-> - Github account (optional)
+> *Optional, but useful:*
+>  - Basic understanding of git
+>  - Access to a suitable computing system (eg CEDA-Jasmin, DKRZ-Mistral)
+>  - GitHub account
 {: .prereq}
 
 
-## Optional tutorials to be prepared to use ESMValTool
-
+## Command line & git tutorials
 
 We typically use the command line to interact with ESMValTool.
 While most of us are likely to have experience with the command line,
-novices may want to work through this software carpentry unix shell course.
+novices may want to work through this software carpentry unix shell course:
 
-- Command line: [https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/)
+- Introduction to the unix shell: [https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/)
 
  
 Git is a distributed version-control system for tracking changes in source code during software development. 
 It’s how we distribute, share, and manage the ESMValTool code. 
 
-- git: [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
-
-
+- Introduction to git: [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
 
 
 ## Access to CMIP and Observational data and a suitable compute cluster
 
-To complete this tutorial and use ESMValTool, you will need access to data in a reasonable format.
-Some data will be provided, but there is simply too much data available
-for your tutors to make it all available directly. 
+To complete this tutorial and use ESMValTool, you will need access to data in a reasonable format
+and you will need some kind of computer to run ESMValTool.
 
 ESMValTool may be run on multiple platforms, from your local machine to 
 large computing clusters. 
@@ -53,8 +51,7 @@ The benefit of using a compute cluster with an ESGF node is that the
 is locally stored on disk and accessible directly by the tool.
 Similarly, observational data would also be available at these sites.
 
-Here are a few options
-for compute clusters with ESGF nodes:
+Here are a few options for compute clusters with ESGF nodes:
 
 - CEDA-Jasmin (UK):
 - DKRZ (Germany):
@@ -62,17 +59,21 @@ for compute clusters with ESGF nodes:
 
 A full list of all ESGF nodes is available [here](https://esgf.llnl.gov/nodes.html).
 
-
 If you're running on a computing cluster without an ESGF node, such as 
 your local machine, or your institue machine, you will most likely 
 have to make a local copy of the data that you need.
 
-If neccesairy, data can be downloaded using the 
+While some data will be provided by your tutors, there is simply too much data 
+for your tutors to make it all available directly.
+
+If you do not have access to an ESGF node, data can be downloaded using the 
 [synda tool](https://prodiguer.github.io/synda/index.html).
  
 
-
 ### CEDA-Jasmin
+
+Please skip this section if you are not going to use JASMIN and go [here](Github account (Advanced)).
+
 
 If you do not already have an account on JASMIN, then request an account as
 soon as possible. 

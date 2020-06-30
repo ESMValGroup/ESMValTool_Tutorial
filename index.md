@@ -34,15 +34,14 @@ These mini-tutorials can be appended to the main tutorial or worked through inde
 
 > ## Prerequisites
 >
-> - Basic understanding of git (optional)
->
-> - Basic understanding of your preferred command line interface (ie a bash terminal)
->
-> - Access to CMIP data
->
-> - Access to a suitable computing system (eg Jasmin, DLR machine)
->
-> - Github account (optional)
+> *Minimal requirements:*
+>  - Basic understanding of your preferred command line interface (ie a bash terminal)
+>  - Laptop/desktop with [(mini)conda](https://docs.conda.io/en/latest/miniconda.html) installed
+>  - Access to CMIP data
+> *Optional, but useful:*
+>  - Basic understanding of git 
+>  - Access to a suitable computing system (eg CEDA-Jasmin, DKRZ-Mistral)
+>  - GitHub account 
 {: .prereq}
 
 

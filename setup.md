@@ -22,23 +22,19 @@ This page includes some basic information on how to prepare to participate in th
 
 ## Optional tutorials
 
-Where available, we include links to other software carpentry courses. 
 
-### Command line
+We typically use the command line to interact with ESMValTool.
+While most of us are likely to have experience with the command line,
+novices may want to work through this software carpentry unix shell course.
 
-We typically use the command line to interact with ESMValTool. 
-Here’s a software carpentry tutorial on the unix shell:
-[https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/)
+- Command line: [https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/)
 
-### Basic understanding of git
  
 Git is a distributed version-control system for tracking changes in source code during software development. 
 It’s how we distribute, share, and manage the ESMValTool code. 
 
-There are many basic introductions to git available.
- 
-Here’s a software carpentry tutorial on git:
-[https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
+- git: [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
+
 
 
 

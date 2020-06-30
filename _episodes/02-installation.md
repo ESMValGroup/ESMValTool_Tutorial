@@ -29,47 +29,43 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 ### Linux
 
-1.  Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
+1. Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
 
-2.  Next, run the installer
+1. Next, run the installer
 
-    ~~~
+    ```bash
     bash Miniconda3-latest-Linux-x86_64.sh
-    ~~~
-    {:.language-bash}
+    ```
 
-3.  Follow the instructions in the installer. The defaults should normally suffice.
+1. Follow the instructions in the installer. The defaults should normally suffice.
 
-4.  You will need to restart your terminal for the changes to have effect.
+1. You will need to restart your terminal for the changes to have effect.
 
-5.  Verify you have a working conda installation by listing all installed packages
+1. Verify you have a working conda installation by listing all installed packages
 
-    ~~~
+    ```bash
     conda list
-    ~~~
-    {:.language-bash}
+    ```
 
 ### MacOSX
 
-1.  Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
+1. Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
 
-2.  Next, run the installer
+1. Next, run the installer
 
-    ~~~
+    ```bash
     bash Miniconda3-latest-MacOSX-x86_64.sh
-    ~~~
-    {:.language-bash}
+    ```
 
-3.  Follow the instructions in the installer. The defaults should normally suffice.
+1. Follow the instructions in the installer. The defaults should normally suffice.
 
-4.  You will need to restart your terminal for the changes to have effect.
+1. You will need to restart your terminal for the changes to have effect.
 
-5.  Verify you have a working conda installation by listing all installed packages
+1. Verify you have a working conda installation by listing all installed packages
 
-    ~~~
+    ```bash
     conda list
-    ~~~
-    {:.language-bash}
+    ````
 
 ### Windows
 
@@ -85,46 +81,60 @@ Complete instructions for installing Julia can be found on the
 [Julia installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
 In this tutorial, we will use the following steps.
 First, open a bash terminal and create a directory to install Julia in
+
 ```bash
 mkdir ~/julia
 ```
+
 Next, download the file
 [`julia-1.0.5-linux-x86_64.tar.gz`](https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.5-linux-x86_64.tar.gz)
 by clicking the link or going to the [Julia downloads page](https://julialang.org/downloads/).
 To extract the file, you can use the following command:
+
 ```bash
 tar -xvzf ~/Downloads/julia-1.0.5-linux-x86\_64.tar.gz -C ~/julia
 ```
+
 This will extract the files to a folder named `~/julia/julia-1.0.5`.
 To run Julia, you need to add the full path of Julia's `bin` folder to PATH environment variable.
 To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
 Open the file in your favorite editor and add a new line as follows at the bottom of the file:
+
 ```bash
 export PATH="$PATH:$HOME/julia/julia-1.0.5/bin"
 ```
+
 Finally, for the settings to take effect, either reload your bash profile
+
 ```bash
 source ~/.bashrc
 ```
+
 (or `source ~/.bash_profile`), or close the bash terminal window and open a new one.
 
 To check that the Julia executable can be found, run
+
 ```bash
 which julia
 ```
+
 to display the path to the Julia executable, it should be `~/julia/julia-1.0.5/bin/julia`.
 To test that Julia is installed correctly, run
+
 ```bash
 julia
 ```
+
 to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
 
 ## Install the ESMValTool package
 
 To install the ESMValTool package, run
+
 ```bash
 conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool
 ```
+
 This will create a new
 [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
 called `esmvaltool`, with the ESMValTool package and all of its dependencies installed in it.
@@ -132,16 +142,21 @@ called `esmvaltool`, with the ESMValTool package and all of its dependencies ins
 ## Test that the installation was successful
 
 To test that the installation was successful, run
+
 ```bash
 conda activate esmvaltool
 ```
+
 to activate the conda environment called `esmvaltool`.
 Next, run
+
 ```bash
 esmvaltool --help
 ```
+
 to display the command line help.
 To find the location where the ESMValTool package was installed on your system, run
+
 ```bash
 python -c 'import esmvaltool; print(esmvaltool.__path__[0])'
 ```

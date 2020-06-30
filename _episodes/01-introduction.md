@@ -3,21 +3,21 @@ title: "Introduction"
 teaching: 0
 exercises: 25
 questions:
--   What is ESMValTool and when is it useful?
--   What are the main components of ESMValTool?
--   How does ESMValTool contribute to FAIR climate research?
--   What is the role of the ESMValTool community?
+- What is ESMValTool and when is it useful?
+- What are the main components of ESMValTool?
+- How does ESMValTool contribute to FAIR climate research?
+- What is the role of the ESMValTool community?
 
 objectives:
--   Describe key strengths and weaknesses of ESMValTool
--   Know the different components of ESMValTool
--   Understand the concept of a community-driven software project
+- Describe key strengths and weaknesses of ESMValTool
+- Know the different components of ESMValTool
+- Understand the concept of a community-driven software project
 
 keypoints:
--   ESMValTool provides a reliable interface to analyse and evaluate climate data
--   Using ESMValTool promotes standardization, collaboration, and reuse
--   ESMValTool is built and maintained by an active community of scientists and developers
--   ESMValTool is written in Python, but supports diagnostic scripts in multiple languages
+- ESMValTool provides a reliable interface to analyse and evaluate climate data
+- Using ESMValTool promotes standardization, collaboration, and reuse
+- ESMValTool is built and maintained by an active community of scientists and developers
+- ESMValTool is written in Python, but supports diagnostic scripts in multiple languages
 
 ---
 

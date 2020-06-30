@@ -24,15 +24,14 @@ So you want to contribute code to ESMValTool, what follows describes a developme
 ## Obtaining the source code
 
 The ESMValTool source code is available on a public GitHub repository:
-https://github.com/ESMValGroup/ESMValTool
+[https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool)
 
 The easiest way to obtain it is to clone the repository using git. 
 To clone the public repository open a terminal window and type:
 
+~~~bash
+git clone https://github.com/ESMValGroup/ESMValTool.git
 ~~~
-    git clone https://github.com/ESMValGroup/ESMValTool.git
-~~~
-{: .source}
 
 By default, this command will create a folder called ESMValTool containing the
 source code of the tool. 
@@ -42,16 +41,15 @@ Move into the directory to continue installation.
 > ## Attention
 > 
 > Make sure that the master branch is checked out before continuing intallation:
-> ~~~
+> ~~~bash
 > git checkout master
 > ~~~ 
-> {: .source}
 {: .callout}
 
 ## Prerequisites
 
 It is recommended to use conda to manage ESMValTool dependencies.
-For a minimal conda installation go to https://conda.io/miniconda.html. To
+For a minimal conda installation go to [https://conda.io/miniconda.html](https://conda.io/miniconda.html). To
 simplify the installation process, an environment definition file is provided
 in the repository (``environment.yml`` in the root folder).
 
@@ -69,21 +67,19 @@ independent from any other Python tools present in the system.
 To create an environment, go to the directory containing the ESMValTool source
 code (called ESMValTool if you did not choose a different name) and run
 
+~~~bash
+conda env create --name esmvaltool --file environment.yml
 ~~~
-    conda env create --name esmvaltool --file environment.yml
-~~~
-{: .source}
 
 The environment is called ``esmvaltool`` by default, but it is possible to use
 the option ``--name ENVIRONMENT_NAME`` to define a custom name. You can activate
 the environment using the command:
 
+~~~bash
+conda activate esmvaltool
 ~~~
-    conda activate esmvaltool
-~~~
-{: .source}
 
-If you run into trouble, please try recreating the environment. More information can be found in the (conda documentation)[https://docs.conda.io/en/latest/].
+If you run into trouble, please try recreating the environment. More information can be found in the [conda documentation](https://docs.conda.io/en/latest/).
 
 
 ## Software installation
@@ -91,20 +87,18 @@ If you run into trouble, please try recreating the environment. More information
 Once all prerequisites are fulfilled, ESMValTool can be installed by running
 the following commands in the directory containing the ESMValTool source code:
 
+~~~bash
+pip install .
 ~~~
-    pip install .
-~~~
-{: .source}
 
 ## Test the installation
 
 The next step is to check that the installation works properly.
 To do this, run the tool with:
 
+~~~bash
+esmvaltool --help
 ~~~
-    esmvaltool --help
-~~~
-{: .source}
 
 If everything was installed properly, ESMValTool should have printed a
 help message to the console.
@@ -112,10 +106,8 @@ help message to the console.
 For a more complete installation verification, run the automated tests and
 confirm that no errors are reported:
 
+~~~bash
+python setup.py test --installation
 ~~~
-    python setup.py test --installation
-~~~
-{: .source}
 
 {% include links.md %}
-

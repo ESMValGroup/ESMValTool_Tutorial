@@ -70,7 +70,7 @@ Please cite this tutorial as:
 
 - ESMValTool 2.0 tutorial, ESMValTool developers, version [ADD VERSION], 
   [https://github.com/ESMValGroup/tutorial](https://github.com/ESMValGroup/tutorial), 
-  $date. 
+  [DATE]. 
 
 Please cite ESMValTool as:
 
@@ -82,4 +82,3 @@ Please cite ESMValTool as:
   Geosci. Model Dev. Discuss., 
   [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60), 
   in review, 2020.
-

@@ -7,7 +7,7 @@ date: '`r format(Sys.time(), "%d %B, %Y")`'
 
 This tutorial is built to teach you how to use ESMValTool.  
 
-The Earth System Model Evaluation Tool (ESMValTool) is a community developped software toolkit that aims to faciliate
+The Earth System Model Evaluation Tool (ESMValTool) is a community developed software toolkit that aims to facilitate
 the diagnosis and evaluation of the causes and effects of model biases and inter-model spread within the CMIP model
 ensemble.
 

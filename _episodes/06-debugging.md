@@ -90,7 +90,7 @@ the ``main_log.txt`` shows general errors and warnings that might happen in runn
 {: .challenge}
 
 Let's change some settings in the recipe to run a regional pre-processor.
-We run a text editor called ``Nano`` to open the recipe file:
+We use a text editor called ``nano`` to open the recipe file:
 
 ~~~bash
   cd esmvaltool_tutorial

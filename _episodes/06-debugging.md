@@ -202,7 +202,7 @@ like time manipulation, area manipulation, land-sea masking, variable derivation
 and runs the recipe. However, ESMValTool encounters an error like:
 >
 ~~~bash
- esmvalcore._recipe_checks.RecipeError: Missing data
+esmvalcore._recipe_checks.RecipeError: Missing data
 2020-06-29 17:26:41,303 UTC [43830] INFO    If you suspect this is a bug or need help,
 please open an issue on https://github.com/ESMValGroup/ESMValTool/issues and
 attach the run/recipe_*.yml and run/main_log_debug.txt files from the output directory.

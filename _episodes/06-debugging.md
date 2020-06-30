@@ -12,7 +12,7 @@ keypoints:
 
 Every user encounters errors. Once you know why you get certain types of errors,
 they become much easier to fix.
-The good news is, ``ESMValTool`` creates a record of the output messages and stores them in log files.
+The good news is, ESMValTool creates a record of the output messages and stores them in log files.
 They can be used for debugging or monitoring the process.
 This lesson helps to understand what the different types of errors are and when you are likely to encounter them.
 

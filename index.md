@@ -2,6 +2,7 @@
 layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
+date: '`r format(Sys.time(), "%d %B, %Y")`'
 ---
 
 This tutorial is built to teach you how to use ESMValTool.  
@@ -59,7 +60,19 @@ ensemble.
 
 ## Citation
 Please cite this tutorial as:
-ESMVAlTool 2.0 tutorial, ESMValtool developpers, version [ADD VERSION], https://github.com/ESMValGroup/tutorial/, '`r format(Sys.Date(), "%B %d, %Y")`'. 
 
+- ESMVAlTool 2.0 tutorial, ESMValtool developpers, version [ADD VERSION], 
+  https://github.com/ESMValGroup/tutorial/, 
+  $date. 
+
+Please cite ESMValTool as:
+
+- Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A., 
+  Lorenz, R., Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., 
+  Weigel, K., and Zechlau, S.: 
+  Earth System Model Evaluation Tool (ESMValTool) v2.0 – diagnostics for 
+  emergent constraints and future projections from Earth system models in CMIP, 
+  Geosci. Model Dev. Discuss., 
+  https://doi.org/10.5194/gmd-2020-60, in review, 2020.
 
 

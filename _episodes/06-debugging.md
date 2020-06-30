@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Fix a broken recipe"
 keypoints:
-- "There are two different kinds of log files: ``main_log.txt``, and ``main_log_debug.txt``."
+- "There are three different kinds of log files: ``main_log.txt``, and ``main_log_debug.txt`` and ``log.txt``."
 ---
 
 Every user encounters errors. Once you know why you get certain types of errors,
@@ -60,7 +60,7 @@ Let's change the working directory to the folder ``run`` and list its files:
 ~~~
 
 ~~~
-main_log_debug.txt   main_log.txt  recipe_example.yml   resource_usage.txt
+diag_timeseries_temperature  main_log_debug.txt   main_log.txt  recipe_example.yml   resource_usage.txt
 ~~~
 {: .output}
 
@@ -71,6 +71,21 @@ To inspect them, we can look inside the files. For example:
 ~~~bash
   cat main_log.txt
 ~~~
+
+Now, let's have a look inside the folder ``diag_timeseries_temperature``:
+
+~~~bash
+  cd path_to_output_directory/run/diag_timeseries_temperature
+  ls
+~~~
+
+~~~
+diag_provenance.yml  log.txt  resource_usage.txt  settings.yml
+~~~
+{: .output}
+
+In the ``log.txt``, ESMValTool writes the output messages,
+warnings and possible errors that are related to the diagnostic script.
 
 If you encounter an error and don’t know what it means, it is important to read the log information.
 Sometimes knowing where the error occurred is enough to fix it, even if you don’t entirely understand the message.

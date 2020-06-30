@@ -53,8 +53,8 @@ Similarly, observational data would also be available at these sites.
 
 Here are a few options for compute clusters with ESGF nodes:
 
-- CEDA-Jasmin (UK):
-- DKRZ (Germany):
+- [CEDA-Jasmin (UK)](#CEDA-Jasmin)
+- [DKRZ (Germany)](#DKRZ)
 - ETHZ (Switzerland):
 
 A full list of all ESGF nodes is available [here](https://esgf.llnl.gov/nodes.html).
@@ -68,11 +68,16 @@ for your tutors to make it all available directly.
 
 If you do not have access to an ESGF node, data can be downloaded using the 
 [synda tool](https://prodiguer.github.io/synda/index.html).
- 
+
+Depending on which machine you plan to use, you will need to work through one set of the following instructions:
+- [CEDA-Jasmin (UK)](#CEDA-Jasmin)
+- [DKRZ (Germany)](#DKRZ)
+- [Your local machine](#Your-local-machine)
+
 
 ### CEDA-Jasmin
 
-Please skip this section if you are not going to use JASMIN and go [here](Github account (Advanced)).
+Please skip this section if you are not going to use JASMIN and go [here](#Github-account-(Advanced)).
 
 
 If you do not already have an account on JASMIN, then request an account as
@@ -183,7 +188,13 @@ Note that the JASMIN is only open to certain locations (mostly universities, and
 You may need a VPN if you wish to connect from your home network.
 
 
+Congratulations! Please go here [here](#Github-account-(Advanced)) next.
+
+
+
 ### DKRZ
+
+Please skip this section if you are not going to use JASMIN and go [here](#Github-account-(Advanced)).
 
 If you do not already have an account at the DKRZ, then [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could find a short introduction on how to get started at DKRZ [here](https://www.dkrz.de/up/my-dkrz/getting-started/getting-started-at-dkrz).
 
@@ -226,10 +237,15 @@ Running batch jobs:
 Info and examples on SLURM job scheduling system at DKRZ can be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
 
 
+Congratulations! Please go here [here](#Github-account-(Advanced)) next.
+
+
 ### Other computing systems
 FIXME
 
-### Your own machine
+### Your local machine
+
+Please skip this section if you are not going to use ESMValTool on your local machine and go [here](#Github-account-(Advanced)).
 
 If you are planning on running ESMValTool on your own machine, please make sure that you are able to download CMIP data and that you have several GB of space available to install conda & ESMVAlTool, but also enough to make a copy of some data. 
 

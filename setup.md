@@ -149,7 +149,7 @@ This is an advanced feature of GitHub, and will generally be performed by the ES
 
 The python package manager Conda (anaconda or miniconda) needs to be installed on your system before the tutorial starts. In some cases, your system may have a central version installed already. 
 
-More details on this process are available in the Installation episode. 
+More details on this process are available in the [Installation episode]({{ page.root}}[% link _episodes/02-installation.md  %}). 
 
 
 

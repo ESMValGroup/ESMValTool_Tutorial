@@ -13,10 +13,12 @@ keypoints:
 - "You can find more information about installation in the [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html)"
 ---
 
+So you want to contribute code to ESMValTool, what follows describes a development installation to help you get going.
+
 > ## Attention
-> 
-> * This episode is based on the ESMValTool installation instructions, for more information and advanced cases you can visit the  ESMValTool [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html). 
-> * For this episode it is assumed you have knowledge of [git](https://git-scm.com/) you can refresh your knowledge in the corresponding [git carpentries course](http://swcarpentry.github.io/git-novice/). 
+>
+> -   This episode is based on the ESMValTool installation instructions, for more information and advanced cases you can visit the  ESMValTool [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html). 
+> -   For this episode it is assumed you have knowledge of [git](https://git-scm.com/) you can refresh your knowledge in the corresponding [git carpentries course](http://swcarpentry.github.io/git-novice/). 
 {: .callout}
 
 ## Obtaining the source code

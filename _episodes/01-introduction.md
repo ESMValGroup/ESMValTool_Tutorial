@@ -91,7 +91,7 @@ ESMValTool is built and maintained by an active community of scientists and soft
 
 > ## Challenge: meet ESMValGroup
 >
-> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? You should see 2 main repositories: ESMValTool and ESMValCore. Visit each of the repositofires. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
+> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? You should see 2 main repositories: ESMValTool and ESMValCore. Visit each of the repositories. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
 >
 > > ## Solution
 > >

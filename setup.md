@@ -140,7 +140,7 @@ Raising an issue is the act of creating a new issue. If you are asked to raise a
 
 A github pull request is the act of requesting that a branch is merged with another branch.
 
-This is an advanced feature of ESMValTool, and will generally be performed by the Core development team. 
+This is an advanced feature of GitHub, and will generally be performed by the ESMValTool  development team. 
 
 
 

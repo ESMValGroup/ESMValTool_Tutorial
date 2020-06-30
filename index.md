@@ -5,7 +5,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 ---
 
-This tutorial is built to teach you how to use ESMValTool.  
+This tutorial helps you to use ESMValTool.  
 
 The Earth System Model Evaluation Tool (ESMValTool) is a community developed software toolkit that aims to facilitate
 the diagnosis and evaluation of the causes and effects of model biases and inter-model spread within the CMIP model

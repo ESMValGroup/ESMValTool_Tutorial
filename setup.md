@@ -1,4 +1,4 @@
----
+			---
 title: Preparations for participating in the tutorial 
 ---
 
@@ -49,15 +49,22 @@ Some data will be provided, but there is too much CMIP data available for your t
 
 ESMValTool may be run on multiple platforms, from your local machine to 
 large computing clusters. 
-The best option is to use a computing cluster with an ESGF node. 
-The benefit of using a compute cluster with an ESGF node is that the CMIP data is locally stored on disk and accessible directly by the tool.
+The best option is to use a computing cluster with an
+[Earth System Grid Federation (ESGF) node](https://esgf.llnl.gov/nodes.html). 
+The benefit of using a compute cluster with an ESGF node is that the 
+[Coupled Model Intercomparison Project (CMIP)](https://en.wikipedia.org/wiki/Coupled_Model_Intercomparison_Project)
+is locally stored on disk and accessible directly by the tool.
 Similarly, observational data would also be available at these sites.
 
-Here are a few options for compute clusters with ESGF nodes:
+Here are a few options
+for compute clusters with ESGF nodes:
 
 - CEDA-Jasmin (UK):
 - DKRZ (Germany):
 - ETHZ (Switzerland):
+
+A full list of all ESGF nodes is available [here](https://esgf.llnl.gov/nodes.html).
+
 
 If you're running on a computing cluster without an ESGF node, such as 
 your local machine, or your institue machine, you will most likely 

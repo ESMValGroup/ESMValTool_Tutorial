@@ -168,7 +168,7 @@ esmvaltool --help
 
 to display the command line help.
 
-> ## Challenge Title
+> ## Version of ESMValTool
 >
 > Can you figure out which version of ESMValTool has been installed?
 >

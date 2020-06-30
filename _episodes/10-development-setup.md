@@ -1,7 +1,7 @@
 ---
 title: "Development Setup"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 20
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was succesful?"

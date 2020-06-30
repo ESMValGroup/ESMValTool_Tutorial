@@ -64,7 +64,7 @@ main_log_debug.txt   main_log.txt  recipe_example.yml   resource_usage.txt
 ~~~
 {: .output}
 
-In the ``main_log_debug.txt`` and ``main_log.txt``, ESMValTool tells us the output messages,
+In the ``main_log_debug.txt`` and ``main_log.txt``, ESMValTool writes the output messages,
 warnings and possible errors that might happen during pre-processings.
 To inspect them, we can look inside the files. For example:
 

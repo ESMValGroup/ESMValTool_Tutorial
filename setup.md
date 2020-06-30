@@ -184,17 +184,17 @@ You may need a VPN if you wish to connect from your home network.
 
 ### DKRZ
 
-If you do not already have an account at the DKRZ, then [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could find a short introduction how to get started at DKRZ [here](https://www.dkrz.de/up/my-dkrz/getting-started/getting-started-at-dkrz).
+If you do not already have an account at the DKRZ, then [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could find a short introduction on how to get started at DKRZ [here](https://www.dkrz.de/up/my-dkrz/getting-started/getting-started-at-dkrz).
 
-There is also an [user manual](https://www.dkrz.de/up/systems/mistral) for mistral which is DKRZ's current supercomputer.
+There is also a [user manual](https://www.dkrz.de/up/systems/mistral) for Mistral which is DKRZ's current supercomputer.
 
 #### Join a project
 
-To use the resources on DKRZ you have to join a project. You could join an existing project by logging into [https://luv.dkrz.de/](https://luv.dkrz.de/) with your account and select 'Join existing project'. Once you are accepted by a project we will turn your web account into a full LDAP account which allows you to log into and use our systems. If you have no access to an existing project here are some instructions [how to apply for resources](https://www.dkrz.de/services/bereitstellung-von-rechenleistung?set_language=en&cl=en).
+To use the resources on DKRZ you have to join a project. One option is to join an existing project by logging into [https://luv.dkrz.de/](https://luv.dkrz.de/) with your account and select 'Join existing project'. Once you are accepted by the manager of your chosen project, your web account will be turned into a full LDAP account which will allow you to log into and use the DKRZ's resources. If you do not have access to an existing project, another option for you would be to apply for resources at DKRZ. Here are some instructions on [how to apply for resources](https://www.dkrz.de/services/bereitstellung-von-rechenleistung?set_language=en&cl=en).
 
 #### Access to data on DKRZ
 
-Availability of CMIP5 and CMIP6 data in this directories:
+CMIP5 and CMIP6 data are available in these directories:
 - CMIP5: /mnt/lustre01/work/kd0956/CMIP5/data/cmip5/output1/
 - CMIP6: /mnt/lustre02/work/ik1017/CMIP6/data/CMIP6/CMIP/
 
@@ -218,11 +218,11 @@ ssh -X <user-account>@mistralpp.dkrz.de
 Data storage:
 - Personal data: home directory (24GiB)
 - Project data: /work/<project>/<user-account>
-- Temporary data: scratch directory on /scratch/*/<user-account> will be automatically deleted after 14 days (15TiB) (Please use this directory for tests! Do not use the work directory for tests.)
+- Temporary data: scratch directory on /scratch/*/<user-account> is automatically deleted after 14 days (15TiB) (Please use this directory for all your testing! Do not use the work directory for tests.)
 (see also [this](https://www.dkrz.de/up/systems/mistral/hpc-concepts))
 
 Running batch jobs:
-Info and examples on SLURM job scheduling system at DKRZ could be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
+Info and examples on SLURM job scheduling system at DKRZ can be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
 
 
 ### Other computing systems

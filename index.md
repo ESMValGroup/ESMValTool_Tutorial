@@ -45,13 +45,14 @@ These mini-tutorials can be appended to the main tutorial or worked through inde
 > - Github account (optional)
 {: .prereq}
 
-> ## Main things you need to know before starting this course
->
-> 1. This tutorial can be taken online independently or taught by one of our instructors.
-> 2. Please check the common issues page if you get stuck [Link to common issues page]. Otherwise, help is always available from ESMValTool developers via the github issues page.  
-> 3. This tutorial includes several advanced lessons after the conclusion. These advanced lessons should be treated like “mini-tutorials”, and include aspects like “developing your own diagnostic” or “how to include observations”.
-> 4. Don’t be alarmed if you can’t work through the entire tutorial in one sitting. It may take some time to get used to working with ESMValTool.
-{: .checklist}
+
+### Main things you need to know before starting this course
+
+1. This tutorial can be taken online independently or taught by one of our instructors.
+2. Please check the common issues page if you get stuck [Link to common issues page]. Otherwise, help is always available from ESMValTool developers via the github issues page.  
+3. This tutorial includes several advanced lessons after the conclusion. These advanced lessons should be treated like “mini-tutorials”, and include aspects like “developing your own diagnostic” or “how to include observations”.
+4. Don’t be alarmed if you can’t work through the entire tutorial in one sitting. It may take some time to get used to working with ESMValTool.
+
 
 {% include links.md %}
 

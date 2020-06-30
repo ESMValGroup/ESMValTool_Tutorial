@@ -97,7 +97,7 @@ We add the root path of the folder where  our/your data is available.
 > - To get the data (or its correct rootpath), check instruction in
 [Setup]({{ page.root }}{% link setup.md %}).
 > - For more information about setting the rootpath, see also the ESMValTool
-For more information about setting the roothpath, see also ESMValTool...
+For more information about setting the roothpath, see also ESMValTool
 [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 

@@ -77,6 +77,8 @@ After installing the WSL, installation can be done using the Linux installation 
 
 ## Install Julia
 
+Some parts of ESMValTool are written in Julia, to be able to execute those parts a Julia installation is needed.
+
 Complete instructions for installing Julia can be found on the
 [Julia installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
 In this tutorial, we will use the following steps.

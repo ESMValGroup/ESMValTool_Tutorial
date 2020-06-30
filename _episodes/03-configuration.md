@@ -4,10 +4,12 @@ teaching: 0
 exercises: 0
 questions:
 - "What is the user configuration file and how should I use it?"
+
 objectives:
 - "Understand the contents of the user-config.yml file"
 - "Prepare a personalized user-config.yml file"
 - "Configure ESMValTool to use some settings"
+
 keypoints:
 - "The ``config-user.yml`` tells ESMValTool where to find input data."
 - " ``rootpath`` defines the root directory for the input data."
@@ -31,7 +33,7 @@ then you can rename it to ``config-user.yml``and save it into the working direct
 ``esmvaltool_tutorial``.
 
 Now, let's change our working directory in a terminal window to ``esmvaltool_tutorial``.
-Then, we run a text editor called Nano to open the configuration file:
+Then, we run a text editor called Nano to have a look inside the configuration file:
 
 ~~~bash
   cd esmvaltool_tutorial
@@ -40,12 +42,12 @@ Then, we run a text editor called Nano to open the configuration file:
 
 This file contains the information for:
 
-* Rootpath to input data
-* Directory structure for the data from different projects
-* Number of tasks that can be run in parallel
-* Destination directory
-* Auxiliary data directory
-* Output settings
+- Rootpath to input data
+- Directory structure for the data from different projects
+- Number of tasks that can be run in parallel
+- Destination directory
+- Auxiliary data directory
+- Output settings
 
 > ## Text editor side note
 >
@@ -92,9 +94,9 @@ We add the root path of the folder where  our/your data is available.
 
 > ## Setting the correct rootpath
 >
-> * To get the data (or its correct rootpath), check instruction in
+> - To get the data (or its correct rootpath), check instruction in
 [Setup]({{ page.root }}{% link setup.md %}).
-> * For more information about setting the rootpath, see also the ESMValTool
+> - For more information about setting the rootpath, see also the ESMValTool
 For more information about setting the roothpath, see also ESMValTool...
 [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
@@ -157,14 +159,14 @@ output_dir: ./esmvaltool_output
 
 > ## Content of subfolders
 >
-> * ``plots``: the location for all plots, split by individual diagnostics and fields.
-> * ``preproc``: this folder contains all the preprocessed data and metadata.yml
+> - ``plots``: the location for all plots, split by individual diagnostics and fields.
+> - ``preproc``: this folder contains all the preprocessed data and metadata.yml
 interface files. Note that by default this directory will be deleted after
 each run because most users will only need the results from the diagnostic scripts.
-> * ``run``: this folder includes all log files, a copy of the recipe,
+> - ``run``: this folder includes all log files, a copy of the recipe,
 a summary of the resource usage, and the settings.yml interface files,
 resource_usage.txt and temporary files created by the diagnostic scripts.
-> * ``work``: this folder is a place for any diagnostic script results that
+> - ``work``: this folder is a place for any diagnostic script results that
 are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
 >
 > We explain more about output in the next

@@ -6,19 +6,19 @@ questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was succesful?"
 objectives:
-- "Execute a succesful ESMValTool installation"
+- "Execute a succesful ESMValTool installation from source"
 keypoints:
 - "ESMValTool is installed from source code that lives in the [GitHub repository](https://github.com/ESMValGroup/ESMValTool)"
 - "All the required packages can be installed using conda and the [environment.yml file](https://github.com/ESMValGroup/ESMValTool/blob/master/environment.yml)"
 - "You can find more information about installation in the [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html)"
 ---
 
-So you want to contribute code to ESMValTool, what follows describes a development installation to help you get going.
+So you want to contribute code to ESMValTool. What follows describes a development installation to help you get going.
 
 > ## Attention
 >
 > -   This episode is based on the ESMValTool installation instructions, for more information and advanced cases you can visit the  ESMValTool [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html). 
-> -   For this episode it is assumed you have knowledge of [git](https://git-scm.com/) you can refresh your knowledge in the corresponding [git carpentries course](http://swcarpentry.github.io/git-novice/). 
+> -   For this episode it is assumed you have knowledge of [git](https://git-scm.com/). You can refresh your knowledge in the corresponding [git carpentries course](http://swcarpentry.github.io/git-novice/). 
 {: .callout}
 
 ## Obtaining the source code
@@ -61,7 +61,7 @@ in the repository (``environment.yml`` in the root folder).
 From now on, we will assume that the installation is going to be done through
 conda.
 
-Ideally, you should create a conda environment for ESMValTool, so it is
+Ideally, you should create a dedicated conda environment for ESMValTool, so it is
 independent from any other Python tools present in the system.
 
 To create an environment, go to the directory containing the ESMValTool source

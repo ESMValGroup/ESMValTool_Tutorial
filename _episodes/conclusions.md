@@ -34,15 +34,14 @@ From here, there are lots of ways that you can continue to use ESMValTool.
 
 ### Where can I get more information on ESMValTool?
 
-Read the docs page: https://esmvaltool.readthedocs.io/
+> ## Additional resources: 
+> - [Read the docs page](https://esmvaltool.readthedocs.io/)
+> - [ESMValTool home page](https://www.esmvaltool.org/)
+> - [Technical description paper](https://doi.org/10.5194/gmd-13-1179-2020)
+> - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
+> - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
+{: .callout}
 
-ESMValTool home page: https://www.esmvaltool.org/
-
-Technical description paper: https://doi.org/10.5194/gmd-13-1179-2020 
-
-Source code (ESMValTool): https://github.com/ESMValGroup/ESMValTool
-
-Source code (ESMValCore ): https://github.com/ESMValGroup/ESMValCore 
 
 Additional publications:
 - Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A., Lorenz, R., Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., Weigel, K., and Zechlau, S.: Earth System Model Evaluation Tool (ESMValTool) v2.0 – diagnostics for emergent constraints and future projections from Earth system models in CMIP, Geosci. Model Dev. Discuss., https://doi.org/10.5194/gmd-2020-60, in review, 2020.
@@ -58,6 +57,10 @@ There are lots of resources available for helping you use ESMValTool.
 
 If you get stuck, a great starting point is to create a new issue. [Link to ep 10]
 
+There is also an ESMValTool email list [esmvaltool@listserv.dfn.de](esmvaltool@listserv.dfn.de).
+
+Everybody can send mail without being subscribed to the group, but note that there is a spam filter.
+The email group archive is also [online](https://www.listserv.dfn.de/sympa/arc/esmvaltool/2020-06/).
 
 
 ### What if I find a bug? 
@@ -66,7 +69,8 @@ If you find a bug, please report it back to the ESMValTool team.
 This will help us fix it so that you can continue working, 
 but also it means that ESMValTool will be more stable for everyone else as well. 
 
-To report a bug, please create a new issue using this page: https://github.com/ESMValGroup/ESMValTool/issues/new/choose
+To report a bug, please create a new issue using the 
+[new issue page](https://github.com/ESMValGroup/ESMValTool/issues/new/choose).
 
 In your bug report, please describe the problem as clearly and as completely as possible. 
 You may need to include a recipe or the output log as well.
@@ -77,7 +81,24 @@ You may need to include a recipe or the output log as well.
 
 Please use the following reference:
 
-Righi, M., Andela, B., Eyring, V., Lauer, A., Predoi, V., Schlund, M., Vegas-Regidor, J., Bock, L., Brötz, B., de Mora, L., Diblen, F., Dreyer, L., Drost, N., Earnshaw, P., Hassler, B., Koldunov, N., Little, B., Loosveldt Tomas, S., and Zimmermann, K.: Earth System Model Evaluation Tool (ESMValTool) v2.0 – technical overview, Geosci. Model Dev., 13, 1179–1199, https://doi.org/10.5194/gmd-13-1179-2020, 2020.
+Please cite ESMValTool as:
+
+- Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A., 
+  Lorenz, R., Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., 
+  Weigel, K., and Zechlau, S.: 
+  Earth System Model Evaluation Tool (ESMValTool) v2.0 – diagnostics for 
+  emergent constraints and future projections from Earth system models in CMIP, 
+  Geosci. Model Dev. Discuss., 
+  [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60), 
+  in review, 2020.
+
+
+Please cite this tutorial as:
+
+- ESMValTool 2.0 tutorial, ESMValTool developers, version [ADD VERSION],
+  [https://github.com/ESMValGroup/tutorial](https://github.com/ESMValGroup/tutorial),
+  [DATE].
+
 
 
 The following papers 

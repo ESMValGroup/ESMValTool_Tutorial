@@ -69,7 +69,7 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 ### Windows
 
-ESMValTool does not directly support Windows, But succesful usage has been reported through the [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows 10.
+ESMValTool does not directly support Windows, but succesful usage has been reported through the [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows 10.
 
 To install the WSL please follow the instructions [on the Windows Documentation page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
@@ -143,11 +143,11 @@ called `esmvaltool`, with the ESMValTool package and all of its dependencies ins
 >
 > Below are some common problems that could happen while installing.
 >
-> -   installation takes long time,
->     -   downloads and compilations can take several minutes to complete, please be patient
->     -   you might have bad luck and the dependencies can not be resolved at the moment, please try again later or [raise an issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
-> -   if you have a old conda installation you could get a `UnsatisfiableError` error. Please install a new conda and try again
-> -   downloads fail due to company proxy, see [conda docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to resolve
+> -   Installation takes long time
+>     -   Downloads and compilations can take several minutes to complete, please be patient.
+>     -   You might have bad luck and the dependencies can not be resolved at the moment, please try again later or [raise an issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
+> -   If you have an old conda installation you could get a `UnsatisfiableError` message. Please install a newer version of conda and try again
+> -   Downloads fail due to company proxy, see [conda docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to resolve
 >
 {: .callout}
 

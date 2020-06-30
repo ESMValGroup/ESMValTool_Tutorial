@@ -3,17 +3,18 @@ title: "Configuration"
 teaching: 0
 exercises: 0
 questions:
-- "What is the user configuration file and how should I use it?"
+- What is the user configuration file and how should I use it?
 
 objectives:
-- "Understand the contents of the user-config.yml file"
-- "Prepare a personalized user-config.yml file"
-- "Configure ESMValTool to use some settings"
+- Understand the contents of the user-config.yml file
+- Prepare a personalized user-config.yml file
+- Configure ESMValTool to use some settings
 
 keypoints:
-- "The ``config-user.yml`` tells ESMValTool where to find input data."
-- " ``rootpath`` defines the root directory for the input data."
-- " ``output_dir`` defines the destination directory."
+- The ``config-user.yml`` tells ESMValTool where to find input data.
+- "``rootpath`` defines the root directory for the input data."
+- "``output_dir`` defines the destination directory."
+
 ---
 
 ## The configuration file
@@ -24,8 +25,15 @@ needed by ESMValTool to run. This is an
 can be found in the root directory of the ESMValTool repository:
 [config-user-example.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
 
-Let's download it to our working directory ``esmvaltool_tutorial``
-that was created during the [Setup]({{ page.root }}{% link setup.md %}).
+First, we make a working directory ``esmvaltool_tutorial``.
+In a new terminal, run:
+
+~~~bash
+  mkdir esmvaltool_tutorial
+  cd esmvaltool_tutorial
+~~~
+
+Now, we download the configuration file to our working directory.
 To do that, click on
 [this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml)
 to see a raw version of the file, right-click and press ``save as``,
@@ -36,7 +44,6 @@ Now, let's change our working directory in a terminal window to ``esmvaltool_tut
 Then, we run a text editor called Nano to have a look inside the configuration file:
 
 ~~~bash
-  cd esmvaltool_tutorial
   nano config-user.yml
 ~~~
 
@@ -52,11 +59,11 @@ This file contains the information for:
 > ## Text editor side note
 >
 > No matter what editor you use, you will need to know where it searches
-for and saves files. If you start it from the shell, it will (probably)
-use your current working directory as its default location. We use ``nano``
-in examples here because it is one of the least complex text editors.
-Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
-and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
+> for and saves files. If you start it from the shell, it will (probably)
+> use your current working directory as its default location. We use ``nano``
+> in examples here because it is one of the least complex text editors.
+> Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
+> and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .callout}
 
 ## Rootpath to input data
@@ -65,6 +72,8 @@ ESMValTool uses several categories (in ESMValTool, this is referred to as projec
 for input data based on their source. The current categories in the configuration
 file are mentioned below. For example, CMIP is used for a dataset from
 the climate model intercomparison project whereas OBS is used for an observational dataset.
+We can find more information about the projects in the ESMValTool
+[documentation](https://docs.esmvaltool.org/en/latest/input.html).
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
 For each category, you can define either one path or several paths as a list.
 
@@ -97,7 +106,6 @@ We add the root path of the folder where  our/your data is available.
 > - To get the data (or its correct rootpath), check instruction in
 [Setup]({{ page.root }}{% link setup.md %}).
 > - For more information about setting the rootpath, see also the ESMValTool
-For more information about setting the roothpath, see also ESMValTool
 [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 

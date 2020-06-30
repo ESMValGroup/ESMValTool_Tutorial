@@ -45,7 +45,8 @@ Here’s a software carpentry tutorial on git:
 ## Access to CMIP and Observational data and a suitable compute cluster
 
 To complete this tutorial and use ESMValTool, you will need access to data in a reasonable format.
-Some data will be provided, but there is too much CMIP data available for your tutors to make it all available directly. 
+Some data will be provided, but there is simply too much data available
+for your tutors to make it all available directly. 
 
 ESMValTool may be run on multiple platforms, from your local machine to 
 large computing clusters. 
@@ -78,12 +79,13 @@ If neccesairy, data can be downloaded using the
 ### CEDA-Jasmin
 
 If you do not already have an account on JASMIN, then request an account as
-soon as possible. The instructions on how to create a Jasmin account are here: https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal
+soon as possible. 
+Please follow [these instructions on how to create a Jasmin account](https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal)
 
-During the account creation, you will need an SSH key, which can be generated following these instructions: https://help.jasmin.ac.uk/article/185-generate-ssh-key-pair 
+During the account creation, you will need an SSH key, which can be generated following 
+[these instructions](https://help.jasmin.ac.uk/article/185-generate-ssh-key-pair)
 
-More instructions on how to get started:
-https://help.jasmin.ac.uk/article/189-get-started-with-jasmin 
+Here are some more [instructions on how to get started with jasmin](https://help.jasmin.ac.uk/article/189-get-started-with-jasmin).
 
 Also note that if you are working from home, JASMIN may not be directly
 accessible from your home. You may need to use ssh to connect to a machine
@@ -92,36 +94,53 @@ the tutorial.
 
 #### Jasmin-login
 
-Note that you have only created an account for the web-interface. To log into the jasmin machine and do work, you&#39;ll need to create a login account too: https://help.jasmin.ac.uk/article/161-get-login-account 
+Note that you have only created an account for the web-interface. 
+To log into the jasmin machine and do work, you'll need to create a 
+login account too using [this page](https://help.jasmin.ac.uk/article/161-get-login-account).
+
 
 #### Access to data on JASMIN
 
 Please request access to the working groups:
-- https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval 
-- https://services.ceda.ac.uk/cedasite/resreg/application?attributeid=cmip5_research 
+- [esmeval working group](https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval)
+- [CMIP5 data](https://services.ceda.ac.uk/cedasite/resreg/application?attributeid=cmip5_research)
 
 Once you have access to the data archive on CEDA, make sure to link your
-CEDA and JASMIN accounts. This can be done by checking the link to CEDA box on your JASMIN profile page:
-https://accounts.jasmin.ac.uk/account/profile/ 
+CEDA and JASMIN accounts. 
+This can be done by checking the link to CEDA box on 
+[your JASMIN profile page](https://accounts.jasmin.ac.uk/account/profile/).
 
 The linking may take a few hours to take effect and is necessary for you to
 access the BADC archives via JASMIN. Some CMIP5 data sets such as MIROC
 are not accessible by default and special permission has to be requested to
-access them via the CEDA catalogue page https://catalogue.ceda.ac.uk/
+access them via [the CEDA catalogue page](https://catalogue.ceda.ac.uk/).
 
 #### Test your Setup
+
 Log into jasmin-login:
-ssh -X JASMIN-USERNAME@jasmin-login1.ceda.ac.uk 
+
+~~~
+ssh -X JASMIN-USERNAME@jasmin-login1.ceda.ac.uk
+~~~
+{: .language-bash}
 
 Then log into the sci1 machine:
+
+~~~
 ssh -X jasmin-sci1
+~~~
+{: .language-bash}
 
 Can you see the following locations:
+~~~
 - ls /group_workspaces/jasmin4/esmeval/obsdata/Tier2
 - ls /badc/cmip5/data/cmip5/output1/MOHC/HadGEM2-ES
 - ls /badc/cmip6/data/CMIP6/CMIP/*/*/historical/r1i1p1f?/Omon/[ts]os/gn/latest/*.nc
+~~~
+{: .language-bash}
 
-Note that the JASMIN is only open to certain locations (mostly universities, and research centres). You may need a VPN if you wish to connect from your home network.
+Note that the JASMIN is only open to certain locations (mostly universities, and research centres). 
+You may need a VPN if you wish to connect from your home network.
 
 ### DLR 
 FIXME
@@ -144,40 +163,53 @@ You will also need to able to use:
 
 #### Windows
 
-ESMValTool does not directly support Windows, But successful usage has been reported through the [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows 10.
+ESMValTool does not directly support Windows, 
+but successful usage has been reported through the 
+[Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
+available in Windows 10.
 
 
 
 ## Github account (Advanced)
 
-You don’t need a github account to participate in the tutorial. However, if you want to raise an issue, contribute to the discussions, or share your code, please create a github account, here: https://github.com/
+You don’t need a github account to participate in the tutorial. 
+However, if you want to raise an issue, contribute to the discussions, 
+or share your code, please [create a github account](https://github.com/).
 
-To learn how to use github, please have a look at this page:
-https://lab.github.com/githubtraining/introduction-to-github
+To learn how to use github, please have a look at this [introduction to github]
+(https://lab.github.com/githubtraining/introduction-to-github).
 
 You may hear a few of the following phrases during the tutorial. Don’t be alarmed, they will make sense eventually. 
 
 ### github issues
-Issues are github’s ticketing system. They allow users and developers to discuss problems, identify bugs, or to make suggestions. Each issue is assigned a number and will have it’s own page on github. 
+Issues are github’s ticketing system. 
+They allow users and developers to discuss problems, 
+identify bugs, or to make suggestions. 
+Each issue is assigned a number and will have it’s own page on github. 
 
-Here’s an explanation of the github issues: https://guides.github.com/features/issues/
+Here’s an explanation of the [github issues](https://guides.github.com/features/issues/).
 
-Raising an issue is the act of creating a new issue. If you are asked to raise an issue, please follow any instructions that you are given, and also make sure that you read the default issue text. 
+Raising an issue is the act of creating a new issue. 
+If you are asked to raise an issue, please follow any instructions that you are given,
+and also make sure that you read the default issue text. 
+
 
 ### pull request 
 
 A github pull request is the act of requesting that a branch is merged with another branch.
 
-This is an advanced feature of GitHub, and will generally be performed by the ESMValTool  development team. 
-
+This is an advanced feature of GitHub, and will generally be performed by the ESMValTool development team. 
 
 
 
 ## Install conda
 
-The python package manager Conda (anaconda or miniconda) needs to be installed on your system before the tutorial starts. In some cases, your system may have a central version installed already. 
+The python package manager Conda (anaconda or miniconda)
+needs to be installed on your system before the tutorial starts. 
+In some cases, your system may have a central version installed already. 
 
-More details on this process are available in the [Installation episode]({{ page.root}}[% link _episodes/02-installation.md  %}). 
+More details on this process are available in the 
+[Installation episode]({{ page.root}}[% link _episodes/02-installation.md  %}). 
 
 
 

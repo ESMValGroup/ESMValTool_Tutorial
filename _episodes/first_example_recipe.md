@@ -25,14 +25,15 @@ This episode describes how ESMValTool recipes work, how to run a recipe and how 
 Recipes are the instructions that you give to ESMValTool that tell it what you want to do. This includes four main sections: datasets, preprocessors, diagnostics and description.
 
   - datasets: what datasets you want to use, including
-    - the time range and time resolution,
-    - the MIP, ensemble member,
+    - the time period and temporal resolution,
+    - the MIP (Model Intercomparison Project, like atmospheric MIP monthly data: amon),
+    - ensemble member,
     - the experiment (i.e. historical, ssp125, etc.),
-    - and the grid type (CMIP6 only).
+    - and the grid type (necessary for CMIP6 only).
 
-  - preprocessors: general operations applied to a dataset before handling it in a diagnostic, listing
+  - preprocessors: general operations applied to a dataset before handling it in a diagnostic, defining
     - which preprocessor modules to apply,
-    - the order to apply them,
+    - the order in which they are applied,
     - and the preprocessor arguments.
 
     This section can also be optional, if no preprocessing is needed.
@@ -42,17 +43,17 @@ Recipes are the instructions that you give to ESMValTool that tell it what you w
     - the desired diagnostic script to use,
     - and additional diagnostic script options or arguments, if needed.
 
-    Also include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
+    It is possible to also include additional datasets beyond those included in the datasets section mentioned above, for instance variable specific observational data.
 
   - description: a brief description of the recipe, including
     - who wrote the recipe and who maintains it,
-    - which project is responsible for it,
-    - and which publications, references are linked with the recipe.
+    - which project the recipe was written for,
+    - and which publications and references are linked with the recipe.
 
-    Note that the authors, publications and references are to be named in the config-references.yml
+    Note that the authors, publications and references need to be included in the `config-references.yml` for the recipe to run successfully.
 
 The information you provide in the recipe is not only affecting the processes you are starting, but also the directory names your output will be structured in.
-For additional reeds, please have a look at the recipe format description in the [ESMValTool manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics).
+For additional reads, please have a look at the recipe format description in the [ESMValTool manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics).
 
 ## How to run ESMValTool
 
@@ -67,7 +68,7 @@ To try your hand with a basic recipe, please work through this episode.
 ## Introduction to the example recipe
 The recipe presented here is a simple, basic recipe that takes a single dataset and produces a time series plot.
 
-Please download the following recipe into your ESMValTool working area with the name: recipe_example.yml LINK
+Please download the following recipe into your ESMValTool working directory with the name: recipe_example.yml LINK
 
 > ## recipe_example.yml
 > ~~~YAML
@@ -117,7 +118,7 @@ Please download the following recipe into your ESMValTool working area with the 
 {: .solution}
 
 > ## Explore the recipe
-> Use the command and investigate the sample recipe.
+> Use the following command and investigate the sample recipe.
 > ~~~bash
 > vim  recipe_example.yml
 > ~~~
@@ -128,10 +129,10 @@ Please note the following sections:
 
     The documentation consists of the following information:
     - description: a short description of the recipe
-    - authors: a list of authors (linked to esmvaltool/config-references.yml)
-    - maintainer: a list of maintainers (linked to esmvaltool/config-references.yml)
-    - references: a list of references (linked to a bibtexfile in esmvaltool/references with the same name)
-    - projects: a list of projects (linked to esmvaltool/config-references.yml)
+    - authors: a list of authors (linked to `esmvaltool/config-references.yml`)
+    - maintainer: a list of maintainers (linked to `esmvaltool/config-references.yml`)
+    - references: a list of references (linked to a bibtexfile in `esmvaltool/references` with the same name)
+    - projects: a list of projects (linked to `esmvaltool/config-references.yml`)
 
 
   - datasets: lines 22-23
@@ -144,7 +145,7 @@ Please note the following sections:
     - ensemble member (key: ensemble)
     - time range (e.g. key-value-pair: start_year: 1982, end_year: 1990)
     - model grid (for CMIP6 data only, key: grid)
-    - alias (key: alias; use the alias for e.g. a more human readable name)
+    - alias (key: alias; use the alias for e.g. a more human readable name for the dataset)
 
 
   - preprocessors: lines 25-28

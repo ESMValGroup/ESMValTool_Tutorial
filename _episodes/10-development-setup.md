@@ -113,7 +113,7 @@ python setup.py test --installation
 
 > ## ESMValCore
 >
-> Most core functionality for the ESMValTool is available in [ESMValCore](https://github.com/ESMValGroup/ESMValCore) Python package.
+> Most core functionality for the ESMValTool is available in the [ESMValCore](https://github.com/ESMValGroup/ESMValCore) Python package.
 > If your contribution in ESMValTool needs changes to ESMValCore please follow [its contribution guide](https://github.com/ESMValGroup/ESMValCore/blob/master/CONTRIBUTING.md).
 {: .callout}
 

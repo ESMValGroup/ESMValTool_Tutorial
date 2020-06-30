@@ -31,12 +31,13 @@ From here, there are lots of ways that you can continue to use ESMValTool.
 - You can contribute your recipe and diagnostics back into ESMValTool. [Link to ep 10]
 - You can learn how to prepare observational datasets to be suitable for use by ESMValTool. [ Link to ep 11]
 
-> ## `What's next?`
+> ## `Exercise: What do you want to do next?`
 >
 > - Think about what you want to do with ESMValTool.
->   - Decide what datasets you want to use.
+>   - Decide what datasets and variables you want to use.
+>   - Is any observational data available?
 >   - How will you preprocess the data?
->   - What will your diagnostic need to do?
+>   - What will your diagnostic script need to do?
 >   - What will your final figure show? 
 {: .challenge}
 

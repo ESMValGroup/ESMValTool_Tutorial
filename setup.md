@@ -138,8 +138,92 @@ ls /badc/cmip6/data/CMIP6/CMIP/*/*/historical/r1i1p1f?/Omon/[ts]os/gn/latest/*.n
 Note that the JASMIN is only open to certain locations (mostly universities, and research centres). 
 You may need a VPN if you wish to connect from your home network.
 
-### DLR 
-FIXME
+
+
+Please request access to the working groups:
+- [esmeval working group](https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval)
+- [CMIP5 data](https://services.ceda.ac.uk/cedasite/resreg/application?attributeid=cmip5_research)
+
+Once you have access to the data archive on CEDA, make sure to link your
+CEDA and JASMIN accounts. 
+This can be done by checking the link to CEDA box on 
+[your JASMIN profile page](https://accounts.jasmin.ac.uk/account/profile/).
+
+The linking may take a few hours to take effect and is necessary for you to
+access the BADC archives via JASMIN. Some CMIP5 data sets such as MIROC
+are not accessible by default and special permission has to be requested to
+access them via [the CEDA catalogue page](https://catalogue.ceda.ac.uk/).
+
+#### Test your Setup
+
+Log into jasmin-login:
+
+~~~
+ssh -X JASMIN-USERNAME@jasmin-login1.ceda.ac.uk
+~~~
+{: .language-bash}
+
+Then log into the sci1 machine:
+
+~~~
+ssh -X jasmin-sci1
+~~~
+: .language-bash}
+
+Can you see the following locations:
+~~~
+ls /group_workspaces/jasmin4/esmeval/obsdata/Tier2
+ls /badc/cmip5/data/cmip5/output1/MOHC/HadGEM2-ES
+ls /badc/cmip6/data/CMIP6/CMIP/*/*/historical/r1i1p1f?/Omon/[ts]os/gn/latest/*.nc
+~~~
+{: .language-bash}
+
+Note that the JASMIN is only open to certain locations (mostly universities, and research centres). 
+You may need a VPN if you wish to connect from your home network.
+
+
+### DKRZ
+
+If you do not already have an account at the DKRZ, then [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could find a short introduction how to get started at DKRZ [here](https://www.dkrz.de/up/my-dkrz/getting-started/getting-started-at-dkrz).
+
+There is also an [user manual](https://www.dkrz.de/up/systems/mistral) for mistral which is DKRZ's current supercomputer.
+
+#### Join a project
+
+To use the resources on DKRZ you have to join a project. You could join an existing project by logging into [https://luv.dkrz.de/](https://luv.dkrz.de/) with your account and select 'Join existing project'. Once you are accepted by a project we will turn your web account into a full LDAP account which allows you to log into and use our systems. If you have no access to an existing project here are some instructions [how to apply for resources](https://www.dkrz.de/services/bereitstellung-von-rechenleistung?set_language=en&cl=en).
+
+#### Access to data on DKRZ
+
+Availability of CMIP5 and CMIP6 data in this directories:
+- CMIP5: /mnt/lustre01/work/kd0956/CMIP5/data/cmip5/output1/
+- CMIP6: /mnt/lustre02/work/ik1017/CMIP6/data/CMIP6/CMIP/
+
+#### Test your Setup
+
+Log into Mistral (DKRZ)
+
+~~~
+ssh -X user-account@mistral.dkrz.de
+~~~
+{: .language-bash}
+
+#### Additional information
+
+Login nodes are for compiling and job submission only! For all other tasks, use one of the pre- and post-processing nodes
+~~~
+ssh -X <user-account>@mistralpp.dkrz.de
+~~~
+(see also [this](https://www.dkrz.de/up/systems/mistral/hpc-concepts))
+
+Data storage:
+- Personal data: home directory (24GiB)
+- Project data: /work/<project>/<user-account>
+- Temporary data: scratch directory on /scratch/*/<user-account> will be automatically deleted after 14 days (15TiB) (Please use this directory for tests! Do not use the work directory for tests.)
+(see also [this](https://www.dkrz.de/up/systems/mistral/hpc-concepts))
+
+Running batch jobs:
+Info and examples on SLURM job scheduling system at DKRZ could be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
+
 
 ### Other computing systems
 FIXME

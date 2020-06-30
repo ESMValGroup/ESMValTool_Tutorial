@@ -31,7 +31,7 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 1.  Please download Miniconda3 for Linux at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). The 64 bit version should work on any recent system. If you have problems in the next step(s) you can alternatively try a 32 bit version.
 
-2.  Next, run the installer
+2.  Next, run the installer from the place where you downloaded it
 
     ```bash
     bash Miniconda3-latest-Linux-x86_64.sh
@@ -63,7 +63,7 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
 
 1.  Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
 
-2.  Next, run the installer
+2.  Next, run the installer from the place where you downloaded it
 
     ```bash
     bash Miniconda3-latest-MacOSX-x86_64.sh

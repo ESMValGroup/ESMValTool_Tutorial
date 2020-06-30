@@ -145,7 +145,13 @@ To check that the Julia executable can be found, run
 which julia
 ```
 
-to display the path to the Julia executable, it should be `~/julia/julia-1.0.5/bin/julia`.
+to display the path to the Julia executable, it should be
+
+```
+~/julia/julia-1.0.5/bin/julia
+```
+{: .output}
+
 To test that Julia is installed correctly, run
 
 ```bash
@@ -187,6 +193,8 @@ conda activate esmvaltool
 ```
 
 to activate the conda environment called `esmvaltool`.
+In the shell prompt the active conda environment should have been changed from `(base)` to `(esmvaltool)`.
+
 Next, run
 
 ```bash

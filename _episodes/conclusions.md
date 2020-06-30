@@ -75,7 +75,17 @@ Geosci. Model Dev. Discuss.,
   [https://doi.org/10.5194/gmd-2019-291](https://doi.org/10.5194/gmd-2019-291),
    in review, 2019.
 
-- Eyring, V., Righi, M., Lauer, A., Evaldsson, M., Wenzel, S., Jones, C., Anav, A., Andrews, O., Cionni, I., Davin, E. L., Deser, C., Ehbrecht, C., Friedlingstein, P., Gleckler, P., Gottschaldt, K.-D., Hagemann, S., Juckes, M., Kindermann, S., Krasting, J., Kunert, D., Levine, R., Loew, A., Mäkelä, J., Martin, G., Mason, E., Phillips, A. S., Read, S., Rio, C., Roehrig, R., Senftleben, D., Sterl, A., van Ulft, L. H., Walton, J., Wang, S., and Williams, K. D.: ESMValTool (v1.0) – a community diagnostic and performance metrics tool for routine evaluation of Earth system models in CMIP, Geosci. Model Dev., 9, 1747–1802, https://doi.org/10.5194/gmd-9-1747-2016, 2016.
+- Eyring, V., Righi, M., Lauer, A., Evaldsson, M., Wenzel, S., Jones, C., Anav, A.,
+  Andrews, O., Cionni, I., Davin, E. L., Deser, C., Ehbrecht, C., Friedlingstein, P., 
+  Gleckler, P., Gottschaldt, K.-D., Hagemann, S., Juckes, M., Kindermann, S., 
+  Krasting, J., Kunert, D., Levine, R., Loew, A., Mäkelä, J., Martin, G., Mason, E., 
+  Phillips, A. S., Read, S., Rio, C., Roehrig, R., Senftleben, D., Sterl, A., 
+  van Ulft, L. H., Walton, J., Wang, S., and Williams, K. D.: 
+  ESMValTool (v1.0) – a community diagnostic and performance metrics tool for 
+  routine evaluation of Earth system models in CMIP, 
+  Geosci. Model Dev., 9, 1747–1802, 
+  [https://doi.org/10.5194/gmd-9-1747-2016](https://doi.org/10.5194/gmd-9-1747-2016),
+  2016.
 
 
 ### Where can I get more help?
@@ -126,4 +136,3 @@ Please cite this tutorial as:
 
 
 {% include links.md %}
-

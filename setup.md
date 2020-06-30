@@ -188,13 +188,13 @@ Note that the JASMIN is only open to certain locations (mostly universities, and
 You may need a VPN if you wish to connect from your home network.
 
 
-Congratulations! Please go here [here](#Github-account-(Advanced)) next.
+Congratulations! Please go here [here](#GitHub-account-(Advanced)) next.
 
 
 
 ### DKRZ
 
-Please skip this section if you are not going to use JASMIN and go [here](#Github-account-(Advanced)).
+Please skip this section if you are not going to use JASMIN and go [here](#GitHub-account-(Advanced)).
 
 If you do not already have an account at the DKRZ, then [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could find a short introduction on how to get started at DKRZ [here](https://www.dkrz.de/up/my-dkrz/getting-started/getting-started-at-dkrz).
 
@@ -237,7 +237,7 @@ Running batch jobs:
 Info and examples on SLURM job scheduling system at DKRZ can be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
 
 
-Congratulations! Please go here [here](#Github-account-(Advanced)) next.
+Congratulations! Please go here [here](#GitHub-account-(Advanced)) next.
 
 
 ### Other computing systems
@@ -245,7 +245,7 @@ FIXME
 
 ### Your local machine
 
-Please skip this section if you are not going to use ESMValTool on your local machine and go [here](#Github-account-(Advanced)).
+Please skip this section if you are not going to use ESMValTool on your local machine and go [here](#GitHub-account-(Advanced)).
 
 If you are planning on running ESMValTool on your own machine, please make sure that you are able to download CMIP data and that you have several GB of space available to install conda & ESMVAlTool, but also enough to make a copy of some data. 
 
@@ -267,23 +267,23 @@ available in Windows 10.
 
 
 
-## Github account (Advanced)
+## GitHub account (Advanced)
 
-You don’t need a github account to participate in the tutorial. 
+You don’t need a GitHub account to participate in the tutorial. 
 However, if you want to raise an issue, contribute to the discussions, 
-or share your code, please [create a github account](https://github.com/).
+or share your code, please [create a GitHub account](https://github.com/).
 
-To learn how to use github, please have a look at this [introduction to github](https://lab.github.com/githubtraining/introduction-to-github).
+To learn how to use GitHub, please have a look at this [introduction to GitHub](https://lab.github.com/githubtraining/introduction-to-github).
 
 You may hear a few of the following phrases during the tutorial. Don’t be alarmed, they will make sense eventually. 
 
-### github issues
-Issues are github’s ticketing system. 
+### GitHub issues
+Issues are GitHub’s ticketing system. 
 They allow users and developers to discuss problems, 
 identify bugs, or to make suggestions. 
-Each issue is assigned a number and will have it’s own page on github. 
+Each issue is assigned a number and will have it’s own page on GitHub. 
 
-Here’s an explanation of the [github issues](https://guides.github.com/features/issues/).
+Here’s an explanation of the [GitHub issues](https://guides.github.com/features/issues/).
 
 Raising an issue is the act of creating a new issue. 
 If you are asked to raise an issue, please follow any instructions that you are given,
@@ -292,7 +292,7 @@ and also make sure that you read the default issue text.
 
 ### pull request 
 
-A github pull request is the act of requesting that a branch is merged with another branch.
+A GitHub pull request is the act of requesting that a branch is merged with another branch.
 
 This is an advanced feature of GitHub, and will generally be performed by the ESMValTool development team. 
 

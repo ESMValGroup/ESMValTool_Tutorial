@@ -84,7 +84,7 @@ What are their differences?
 >
 >> ## Solution
 >>
->> The ``main_log_debug.txt`` contains the output messages from the pr-processors whereas
+>> The ``main_log_debug.txt`` contains the output messages from the pre-processor whereas
 the ``main_log.txt`` shows general errors and warnings that might happen in running the recipe and diagnostics script.
 > {: .solution}
 {: .challenge}

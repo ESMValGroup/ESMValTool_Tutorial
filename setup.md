@@ -39,7 +39,7 @@ https://swcarpentry.github.io/git-novice/
 
 ESMValTool may be run on multiple platforms, including local machines and
 large compute clusters; the benefit of using a compute cluster is that most often than not,
-it will host an ESGF node where CMIP data is locally stored on disk and accessible directly by the tool;
+it will host an  [Earth System Grid Federation (ESGF) node](https://esgf.llnl.gov/nodes.html) where [Coupled Model Intercomparison Project (CMIP)](https://en.wikipedia.org/wiki/Coupled_Model_Intercomparison_Project) data is locally stored on disk and accessible directly by the tool;
 in the same manner, observational (OBS) data will be found centrally stored as well. Here are a few options
 for compute clusters with ESGF nodes:
 

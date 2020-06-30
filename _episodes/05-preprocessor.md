@@ -56,7 +56,7 @@ You may use one or more of several preprocessors listed in the [documentation](h
 > Changing the order of preprocessors can also speed up your processing. For instance, if you want to extract a two-dimensional layer from a 3D field and re-grid it, the layer extraction should be done first. If you did it the other way around, then the regridding function would be applied to all the layers of your 3D cube and it would take much more time.
 {: .callout}
 
-Some preprocessor modeules are always applied and do not need to be called. This includes the preprocessors that load the data, apply any fixes and save the data file afterwards. These do not need to be explicitly included in recipes. 
+Some preprocessor modules are always applied and do not need to be called. This includes the preprocessors that load the data, apply any fixes and save the data file afterwards. These do not need to be explicitly included in recipes. 
 
 > ## Exercise: Adding more preprocessor steps
 >
@@ -298,8 +298,8 @@ Variable grouping can be used to preprocess different clusters of data for the s
 >      target_grid: 2.5 x 2.5
 >      scheme: linear
 >
-> #note that there is no field called datasets anymore
-> #note how multiple ensembles are added by using (1:4)
+># note that there is no field called datasets anymore
+># note how multiple ensembles are added by using (1:4)
 >cmip5_datasets: &cmip5_datasets 
 >  - {dataset: CanESM2, ensemble: "r(1:4)i1p1", project: CMIP5} 
 >  - {dataset: MPI-ESM-LR, ensemble: "r(1:2)i1p1", project: CMIP5}

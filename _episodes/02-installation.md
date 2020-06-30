@@ -170,4 +170,25 @@ esmvaltool --help
 
 to display the command line help.
 
+> ## Challenge Title
+>
+> Can you figure out which version of ESMValTool has been installed?
+>
+> > ## Solution
+> >
+> > The `esmvaltool --help` command lists `-v` or `--version` as optional argument to get the version
+> >
+> > In my case when I run
+> > ~~~
+> > esmvaltool --version
+> > ~~~
+> > {: .bash}
+> > I get that my installed ESMValTool version is
+> > ~~~
+> > 2.0.0b9
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
 {% include links.md %}

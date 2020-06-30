@@ -224,7 +224,7 @@ save the pre-processed data. More information about this setting can be found at
 [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %})
 {: .callout}
 
-The result of the pre-processors is passed to the ``diagnostic_timeseries.py`` script,
+The result of the pre-processor is passed to the ``diagnostic_timeseries.py`` script,
 that is introduced in the recipe as:
 
 ~~~YAML

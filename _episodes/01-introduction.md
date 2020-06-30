@@ -89,9 +89,9 @@ The figure below shows the different components of ESMValTool. Some of the most 
 
 ESMValTool is built and maintained by an active community of scientists and software engineers. Many of the interactions take place on GitHub. Here, we briefly introduce you to some of the most important pages.
 
-> ## Challenge: meet ESMValGroup
+> ## Meet ESMValGroup
 >
-> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? You should see 2 main repositories: ESMValTool and ESMValCore. Visit each of the repositories. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
+> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is our 'organization' GitHub page. Have a look around. How many collaborators are there? Do you know any of them? Near the top of the page there are 2 pinned repositories: ESMValTool and ESMValCore. Visit each of the repositories. How many people have contributed to each of them? Can you also find out how many people have contributed to this tutorial?
 >
 > > ## Solution
 > >
@@ -99,9 +99,9 @@ ESMValTool is built and maintained by an active community of scientists and soft
 > {: .solution}
 {: .challenge}
 
-> ## Challenge: issues and pull requests
+> ## Issues and pull requests
 >
-> Go back to the repository pages of [ESMValTool](https://github.com/ESMValGroup/ESMValTool) or [ESMValCore](https://github.com/ESMValGroup/ESMValCore). You should see tabs for 'issues' and 'pull requests'. You can use the labels to navigate them a bit more. How many open issues are about enhancements of ESMValTool? And how many bugs have been fixed in ESMValCore? There is also an 'insights' tab, where you can see a summary of recent activity. How many issues have been opened and closed in the past month?
+> Go back to the repository pages of [ESMValTool](https://github.com/ESMValGroup/ESMValTool) or [ESMValCore](https://github.com/ESMValGroup/ESMValCore). There are tabs for 'issues' and 'pull requests'. You can use the labels to navigate them a bit more. How many open issues are about enhancements of ESMValTool? And how many bugs have been fixed in ESMValCore? There is also an 'insights' tab, where you can see a summary of recent activity. How many issues have been opened and closed in the past month?
 >
 > > ## Solution
 > >
@@ -111,6 +111,6 @@ ESMValTool is built and maintained by an active community of scientists and soft
 
 ## Conclusion
 
-This concludes the introduction of the tutorial. You should now have a basic knowledge of ESMValTool and our community. The following episodes will walk you through the installation, configuration and running your first recipes.
+This concludes the introduction of the tutorial. You now have a basic knowledge of ESMValTool and our community. The following episodes will walk you through the installation, configuration and running your first recipes.
 
 {% include links.md %}

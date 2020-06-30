@@ -48,24 +48,22 @@ These mini-tutorials can be appended to the main tutorial or worked through inde
 ### Main things you need to know before starting this course
 
 1. This tutorial can be taken online independently or taught by one of our instructors.
-2. If you get stuck, help is always available from the tutors, from ESMValTool developers via the [github issues page](https://github.com/ESMValGroup/ESMValTool/issues) 
+2. Don’t be alarmed if you can’t work through the entire tutorial in one sitting. It may take some time to get used to working with ESMValTool.
+3. If you get stuck, help is always available from the tutors, from ESMValTool developers via the [github issues page](https://github.com/ESMValGroup/ESMValTool/issues) 
    or via the [ESMValTool email list](mailto:esmvaltool@listserv.dfn.de).  
-3. This tutorial includes several advanced lessons after the conclusion. These advanced lessons should be treated like “mini-tutorials”, and include aspects like “developing your own diagnostic” or “how to include observations”.
-4. Don’t be alarmed if you can’t work through the entire tutorial in one sitting. It may take some time to get used to working with ESMValTool.
+4. This tutorial includes several advanced lessons after the conclusion. These advanced lessons should be treated like “mini-tutorials”, and include aspects like “developing your own diagnostic” or “how to include observations”.
 
-
-{% include links.md %}
 
 
 > ## Additional resources: 
 > - [Read the docs page](https://esmvaltool.readthedocs.io/)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
 > - [Technical description paper](https://doi.org/10.5194/gmd-13-1179-2020)
-> - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
-> - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
+> - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)
+> - [ESMValCore Source code](https://github.com/ESMValGroup/ESMValCore)
 {: .callout}
 
-## Citation
+## How to cite ESMValTool
 
 Please cite this tutorial as:
 
@@ -83,3 +81,7 @@ Please cite ESMValTool as:
   Geosci. Model Dev. Discuss., 
   [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60), 
   in review, 2020.
+
+
+{% include links.md %}
+

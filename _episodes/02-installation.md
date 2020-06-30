@@ -47,6 +47,18 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
     conda list
     ```
 
+    Should output something like
+
+    ```
+    # packages in environment at ~/miniconda3:
+    #
+    # Name                    Version                   Build  Channel
+    ...
+    conda                     4.8.3                    py37_0
+    ...
+    ```
+    {: .output}
+
 ### MacOSX
 
 1.  Please download Miniconda3 for MacOSX at [the miniconda page](https://docs.conda.io/en/latest/miniconda.html). 
@@ -67,6 +79,19 @@ ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
     conda list
     ````
 
+    Should output something like
+
+    ```
+    # packages in environment at ~/miniconda3:
+    #
+    # Name                    Version                   Build  Channel
+    ...
+    conda                     4.8.3                    py37_0
+    ...
+    ```
+    {: .output}
+
+
 ### Windows
 
 ESMValTool does not directly support Windows, but succesful usage has been reported through the [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows 10.
@@ -80,22 +105,24 @@ After installing the WSL, installation can be done using the Linux installation 
 Complete instructions for installing Julia can be found on the
 [Julia installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
 In this tutorial, we will use the following steps.
-First, open a bash terminal and create a directory to install Julia in
+First, open a bash terminal and create a directory to install Julia in and cd into it
 
 ```bash
 mkdir ~/julia
+cd ~/julia
 ```
 
 Next, download the file
 [`julia-1.0.5-linux-x86_64.tar.gz`](https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.5-linux-x86_64.tar.gz)
 by clicking the link or going to the [Julia downloads page](https://julialang.org/downloads/).
+Download the file directly to the `~/julia` directory or move it there after downloading.
 To extract the file, you can use the following command:
 
 ```bash
-tar -xvzf ~/Downloads/julia-1.0.5-linux-x86\_64.tar.gz -C ~/julia
+tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
 ```
 
-This will extract the files to a folder named `~/julia/julia-1.0.5`.
+This will extract the files to a directory named `~/julia/julia-1.0.5`.
 To run Julia, you need to add the full path of Julia's `bin` folder to PATH environment variable.
 To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
 Open the file in your favorite editor and add a new line as follows at the bottom of the file:

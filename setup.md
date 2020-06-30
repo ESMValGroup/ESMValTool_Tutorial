@@ -70,8 +70,8 @@ Note that you have only created an account for the web-interface. To log into th
 #### Access to data on JASMIN
 
 Please request access to the working groups:
-● https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval 
-●https://services.ceda.ac.uk/cedasite/resreg/application?attributeid=cmip5_research 
+- https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval 
+- https://services.ceda.ac.uk/cedasite/resreg/application?attributeid=cmip5_research 
 
 Once you have access to the data archive on CEDA, make sure to link your
 CEDA and JASMIN accounts. This can be done by checking the link to CEDA box on your JASMIN profile page:
@@ -154,4 +154,3 @@ More details on this process are available in the Installation episode.
 
 
 {% include links.md %}
-

@@ -6,13 +6,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
       with:
-        ruby-version: 2.7
+        ruby-version: 2.5
     - name: Bundle path
       run: |
         bundle config path .vendor/bundle

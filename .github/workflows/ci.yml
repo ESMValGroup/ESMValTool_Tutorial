@@ -13,6 +13,12 @@ jobs:
       uses: r-lib/actions/setup-r@v1
       with:
         r-version: '3.5.3'
+    - name: Cache R deps
+      uses: actions/cache@v2
+      with:
+        path: $HOME/.local/share/renv
+        key: r-${{ hashFiles('renv.lock') }}
+        restore-keys: r-
     - name: R deps
       run: |
         install.packages('knitr', repos = 'https://', dependencies = TRUE)
@@ -23,7 +29,6 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
       with: 
-        ruby-version: 2.6
         bundler-cache: true
     - name: Ruby deps
       run: gem install json kramdown jekyll bundler
@@ -37,12 +42,6 @@ jobs:
       run: make lesson-check-all | tee check-messages.txt
     - name: Build site
       run: make --always-make site
-    - name: Cache R deps
-      uses: actions/cache@v2
-      with:
-        path: $HOME/.local/share/renv
-        key: r-${{ hashFiles('renv.lock') }}
-        restore-keys: r-
     - uses: actions/upload-artifact@v2
       with:
         name: check-messages

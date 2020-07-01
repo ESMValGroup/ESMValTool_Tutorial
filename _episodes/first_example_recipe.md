@@ -26,7 +26,7 @@ Recipes are the instructions that you give to ESMValTool that tell it what you w
 
   - datasets: what datasets you want to use, including
     - the time period and temporal resolution,
-    - the MIP (Model Intercomparison Project, like atmospheric MIP monthly data: amon),
+    - the MIP (Model Intercomparison Project, like atmospheric realm of MIP monthly data: Amon),
     - ensemble member,
     - the experiment (i.e. historical, ssp125, etc.),
     - and the grid type (necessary for CMIP6 only).
@@ -325,7 +325,7 @@ Exemplary output (depending on the directory paths and package versions that are
 >
 > Overlay plot, if multiple datasets are defined:
 >
-> > ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png "multiple datasets")
+> ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png "multiple datasets")
 {: .solution}
 
 > ## Your main output log file.
@@ -524,9 +524,9 @@ Exemplary output (depending on the directory paths and package versions that are
 
 > ## Edit the recipe and run again
 > So far, the example recipe has used global volume-weighted ocean temperature. Please edit this recipe to investigate one of the following fields:
-> - Land surface average temperature (tsland)
-> - Atmospheric surface average temperature (tas)
-> - Ocean surface average temperature (tos)
+> - Land surface temperature (ts) for dataset HadGEM2-ES for 1901 - 2000
+> - Atmospheric surface average temperature (tas) for datasets HadGEM2-AO and HadGEM2-ES for 1901 - 2000
+> - Ocean surface average temperature (tos) for datasets HadGEM2-AO, HadGEM2-CC and HadGEM2-ES for 1901 - 2000
 >
 > You will need to edit:
 > - the dataset:
@@ -535,7 +535,7 @@ Exemplary output (depending on the directory paths and package versions that are
 >   - These fields are all 2D fields, but thetaoga was a 0D field. This means that we need to take the average over the latitude and longitude dimensions. To do this, add the area_statistics to the preprocessor.
 > - the diagnostic
 >  - change the short_name value (thetaoga) for another:
->     - Land surface average temperature (tsland)
+>     - Land surface average temperature (ts)
 >     - Atmospheric surface average temperature (tas)
 >     - Ocean surface average temperature (tos)
 {: .challenge}
@@ -543,26 +543,56 @@ Exemplary output (depending on the directory paths and package versions that are
 The snippets for the edits can be found below:
 
 > ## Land surface average temperature
-> FIXME (include line numbers, see below)
 > ~~~YAML
 >  ...
-> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
 >  ...
 > 27        annual_statistics:
 > 28          operator: mean
+> XX        area_statistics:
+> XX          operator: mean
 >  ...
-> 38            short_name: thetaoga
+> 38            short_name: ts
 > 39            preprocessor: prep_timeseries
 > ~~~~
+> Note: The x-axis in the plot now shows the years 1900 - 2000.
 {: .solution}
 
 > ## Atmospheric surface average temperature
-> FIXME
+> ~~~YAML
+>  ...
+> 23      - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> XX      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>  ...
+> 27        annual_statistics:
+> 28          operator: mean
+> XX        area_statistics:
+> XX          operator: mean
+>  ...
+> 38            short_name: tas
+> 39            preprocessor: prep_timeseries
+> ~~~~
+> Note: There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
 {: .solution}
 
 > ## Ocean surface average temperature
-> FIXME
+> ~~~YAML
+>  ...
+> 23      - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> XX      - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> XX      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>  ...
+> 27        annual_statistics:
+> 28          operator: mean
+> XX        area_statistics:
+> XX          operator: mean
+>  ...
+> 38            short_name: tos
+> 39            preprocessor: prep_timeseries
+> ~~~~
+> Note: The unit in the plots is now degrees celsius! There is a plot also for HadGEM2-CC.
 {: .solution}
+
 
 > ## Advanced:
 > If you want to add a different field, please have a look here:

@@ -1,0 +1,53 @@
+Starting diagnostic script timeseries_diag with configuration:
+auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
+input_data:
+  ? /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
+  : alias: HadGEM2-ES
+    dataset: HadGEM2-ES
+    diagnostic: diag_timeseries_temperature
+    end_year: 2005
+    ensemble: r1i1p1
+    exp: historical
+    filename: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
+    frequency: mon
+    institute:
+    - INPE
+    - MOHC
+    long_name: Global Average Sea Water Potential Temperature
+    mip: Omon
+    modeling_realm:
+    - ocean
+    preprocessor: prep_timeseries
+    project: CMIP5
+    recipe_dataset_index: 0
+    short_name: thetaoga
+    standard_name: sea_water_potential_temperature
+    start_year: 1859
+    units: K
+    variable_group: timeseries_variable
+input_files:
+- /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
+log_level: info
+output_file_type: png
+plot_dir: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
+profile_diagnostic: false
+recipe: recipe_example.yml
+run_dir: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag
+script: timeseries_diag
+version: 2.0.0b9
+work_dir: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
+write_netcdf: true
+write_plots: true
+
+Creating /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
+Creating /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
+metadata filename:	/scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
+No handles with labels found to put in legend.
+Image path will be: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png
+Saving plots to /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png
+-----------------
+model filenames:	/scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
+Image path will be: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_0.png
+Saving plots to /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_0.png
+Success
+End of diagnostic script run.

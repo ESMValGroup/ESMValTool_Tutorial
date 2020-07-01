@@ -1,0 +1,24 @@
+? /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
+: alias: HadGEM2-ES
+  dataset: HadGEM2-ES
+  diagnostic: diag_timeseries_temperature
+  end_year: 2005
+  ensemble: r1i1p1
+  exp: historical
+  filename: /scratch/b/b380506/ESACCISST_test/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
+  frequency: mon
+  institute:
+  - INPE
+  - MOHC
+  long_name: Global Average Sea Water Potential Temperature
+  mip: Omon
+  modeling_realm:
+  - ocean
+  preprocessor: prep_timeseries
+  project: CMIP5
+  recipe_dataset_index: 0
+  short_name: thetaoga
+  standard_name: sea_water_potential_temperature
+  start_year: 1859
+  units: K
+  variable_group: timeseries_variable

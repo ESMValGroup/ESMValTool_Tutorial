@@ -25,6 +25,8 @@ jobs:
           ruby-deps-
     - name: Ruby deps
       run: gem install json kramdown jekyll bundler
+    - name: Nokogiri deps
+      run: sudo apt install -y pkg-config libxml2-dev libxslt-dev
     - name: Nokogiri
       run: gem install nokogiri -- --use-system-libraries
     - name: Setup Python

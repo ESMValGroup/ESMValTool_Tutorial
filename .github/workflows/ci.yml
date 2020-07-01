@@ -24,7 +24,7 @@ jobs:
         restore-keys: |
           ruby-deps-
     - name: Ruby deps
-      run: gem install json kramdown jekyll bundler
+      run: gem install json kramdown jekyll bundler github-pages
     - name: Nokogiri deps
       run: sudo apt install -y pkg-config libxml2-dev libxslt-dev
     - name: Nokogiri
@@ -42,5 +42,5 @@ jobs:
         name: check-messages
         path: check-messages.txt
     - name: Build site
-      run: make --always-make site
+      run: jekyll build
 

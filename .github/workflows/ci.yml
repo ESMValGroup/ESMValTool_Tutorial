@@ -9,26 +9,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Setup R
-      uses: r-lib/actions/setup-r@v1
-      with:
-        r-version: '3.5.3'
-    - name: Cache R deps
-      uses: actions/cache@v2
-      with:
-        path: $HOME/.local/share/renv
-        key: r-${{ hashFiles('renv.lock') }}
-        restore-keys: r-
-    - name: R deps
-      run: |
-        install.packages('knitr', repos = 'https://', dependencies = TRUE)
-        install.packages('stringr', repos = 'https://cran.rstudio.com', dependencies = TRUE)
-        install.packages('checkpoint', repos = 'https://cran.rstudio.com', dependencies = TRUE)
-        install.packages('ggplot2', repos = 'https://cran.rstudio.com', dependencies = TRUE)
-      shell: Rscript {0}      
+    # - name: Setup R
+    #   uses: r-lib/actions/setup-r@v1
+    #   with:
+    #     r-version: '3.5.3'
+    # - name: Cache R deps
+    #   uses: actions/cache@v2
+    #   with:
+    #     path: $HOME/.local/share/renv
+    #     key: r-${{ hashFiles('renv.lock') }}
+    #     restore-keys: r-
+    # - name: R deps
+    #   run: |
+    #     install.packages('knitr', repos = 'https://', dependencies = TRUE)
+    #     install.packages('stringr', repos = 'https://cran.rstudio.com', dependencies = TRUE)
+    #     install.packages('checkpoint', repos = 'https://cran.rstudio.com', dependencies = TRUE)
+    #     install.packages('ggplot2', repos = 'https://cran.rstudio.com', dependencies = TRUE)
+    #   shell: Rscript {0}
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
-      with: 
+      with:
+        ruby-version: 2.5
         bundler-cache: true
     - name: Ruby deps
       run: gem install json kramdown jekyll bundler

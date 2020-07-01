@@ -12,7 +12,7 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
       with:
-        ruby-version: 2.6
+        ruby-version: 2.7
     - name: Bundle path
       run: |
         bundle config path .vendor/bundle
@@ -25,6 +25,8 @@ jobs:
           ruby-deps-
     - name: Ruby deps
       run: gem install json kramdown jekyll bundler
+    - name: Nokogiri
+      run: gem install nokogiri -- --use-system-libraries
     - name: Setup Python
       uses: actions/setup-python@v2
       with:

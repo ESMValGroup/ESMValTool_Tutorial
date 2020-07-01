@@ -6,15 +6,13 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    - name: Install automake
-      run: sudo apt-get install automake
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
       with:
-        ruby-version: 2.5
+        ruby-version: 2.6
     - name: Bundle path
       run: |
         bundle config path .vendor/bundle

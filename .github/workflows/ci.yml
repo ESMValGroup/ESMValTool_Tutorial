@@ -20,9 +20,9 @@ jobs:
       uses: actions/cache@v2
       with:
         path: .vendor/bundle
-        key: ruby-${{ matrix.os }}-${{ matrix.ruby }}-${{ hashFiles('**/Gemfile.lock') }}
+        key: ruby-deps-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
-          ruby-${{ matrix.os }}-${{ matrix.ruby }}-
+          ruby-deps-
     - name: Ruby deps
       run: gem install json kramdown jekyll bundler
     - name: Setup Python

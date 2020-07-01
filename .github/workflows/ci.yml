@@ -6,26 +6,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    # - name: Setup R
-    #   uses: r-lib/actions/setup-r@v1
-    #   with:
-    #     r-version: '3.5.3'
-    # - name: Cache R deps
-    #   uses: actions/cache@v2
-    #   with:
-    #     path: $HOME/.local/share/renv
-    #     key: r-${{ hashFiles('renv.lock') }}
-    #     restore-keys: r-
-    # - name: R deps
-    #   run: |
-    #     install.packages('knitr', repos = 'https://', dependencies = TRUE)
-    #     install.packages('stringr', repos = 'https://cran.rstudio.com', dependencies = TRUE)
-    #     install.packages('checkpoint', repos = 'https://cran.rstudio.com', dependencies = TRUE)
-    #     install.packages('ggplot2', repos = 'https://cran.rstudio.com', dependencies = TRUE)
-    #   shell: Rscript {0}
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1.38.0
       with:
@@ -41,9 +24,10 @@ jobs:
       run: pip install pyyaml
     - name: Check all lessons
       run: make lesson-check-all | tee check-messages.txt
-    - name: Build site
-      run: make --always-make site
     - uses: actions/upload-artifact@v2
       with:
         name: check-messages
         path: check-messages.txt
+    - name: Build site
+      run: make --always-make site
+

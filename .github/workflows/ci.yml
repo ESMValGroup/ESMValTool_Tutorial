@@ -35,8 +35,4 @@ jobs:
     - name: Build site
       run: bundle exec jekyll build
     - name: Check all lessons
-      run: make lesson-check-all | tee check-messages.txt
-    - uses: actions/upload-artifact@v2
-      with:
-        name: check-messages
-        path: check-messages.txt
+      run: make lesson-check-all

@@ -13,22 +13,15 @@ jobs:
       uses: ruby/setup-ruby@v1.38.0
       with:
         ruby-version: 2.7
-    - name: Bundle path
-      run: |
-        bundle config path .vendor/bundle
     - name: Cache Ruby deps
       uses: actions/cache@v2
       with:
-        path: .vendor/bundle
+        path: vendor/bundle
         key: ruby-deps-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ruby-deps-
     - name: Ruby deps
-      run: gem install json kramdown jekyll bundler github-pages
-    - name: Nokogiri deps
-      run: sudo apt install -y pkg-config libxml2-dev libxslt-dev
-    - name: Nokogiri
-      run: gem install nokogiri -- --use-system-libraries
+      run: gem install json kramdown jekyll bundler
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
@@ -41,6 +34,10 @@ jobs:
       with:
         name: check-messages
         path: check-messages.txt
+    - name: Nokogiri deps
+      run: sudo apt install -y pkg-config libxml2-dev libxslt-dev
+    - name: Site deps
+      run: bundle install
     - name: Build site
-      run: jekyll build
+      run: bundle exec jekyll build
 

@@ -132,7 +132,7 @@ lesson-check : lesson-fixme
 
 ## * lesson-check-all : validate lesson Markdown, checking line lengths and trailing whitespace
 lesson-check-all :
-	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w --permissive
+	@${PYTHON} bin/lesson_check.py -s . -p ${PARSER} -r _includes/links.md -l -w
 
 ## * unittest         : run unit tests on checking tools
 unittest :

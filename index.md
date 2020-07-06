@@ -2,7 +2,6 @@
 layout: lesson
 root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
-date: '`r format(Sys.time(), "%d %B, %Y")`'
 ---
 
 This tutorial helps you to use ESMValTool.
@@ -98,4 +97,3 @@ Please cite ESMValTool as:
   in review, 2020.
 
 {% include links.md %}
-

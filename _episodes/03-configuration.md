@@ -19,10 +19,10 @@ keypoints:
 
 ## The configuration file
 
-The ``config-user.yml`` configuration file contains all the global level information
-needed by ESMValTool to run. This is an
-[YAML file](https://yaml.org/spec/1.2/spec.html). An example configuration file
-can be found in the root directory of the ESMValTool repository:
+The ``config-user.yml`` configuration file contains all the global level
+information needed by ESMValTool to run. This is an [YAML
+file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be
+found in the root directory of the ESMValTool repository:
 [config-user-example.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
 
 First, we make a working directory ``esmvaltool_tutorial``.
@@ -33,15 +33,16 @@ In a new terminal, run:
   cd esmvaltool_tutorial
 ~~~
 
-Now, we download the configuration file to our working directory.
-To do that, click on
-[this link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml)
-to see a raw version of the file, right-click and press ``save as``,
-then you can rename it to ``config-user.yml``and save it into the working directory
+Now, we download the configuration file to our working directory. To do that,
+click on [this
+link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml)
+to see a raw version of the file, right-click and press ``save as``, then you
+can rename it to ``config-user.yml``and save it into the working directory
 ``esmvaltool_tutorial``.
 
-Now, let's change our working directory in a terminal window to ``esmvaltool_tutorial``.
-Then, we run a text editor called Nano to have a look inside the configuration file:
+Now, let's change our working directory in a terminal window to
+``esmvaltool_tutorial``. Then, we run a text editor called Nano to have a look
+inside the configuration file:
 
 ~~~bash
   nano config-user.yml
@@ -77,7 +78,7 @@ We can find more information about the projects in the ESMValTool
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
 For each category, you can define either one path or several paths as a list.
 
-~~~YAML
+```yaml
 rootpath:
   CMIP3: [~/cmip3_inputpath1, ~/cmip3_inputpath2]
   CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
@@ -89,45 +90,45 @@ rootpath:
   native6:  ~/native6_inputpath
   RAWOBS: ~/rawobs_inputpath
   default: ~/default_inputpath
-~~~
+```
 
 In this lesson, we will work with data from
 [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
 We add the root path of the folder where  our/your data is available.
 
-~~~YAML
+```yaml
   rootpath:
   ...
     CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/esmvaltool_tutorial/data]
-~~~
+```
 
 > ## Setting the correct rootpath
 >
-> - To get the data (or its correct rootpath), check instruction in
-[Setup]({{ page.root }}{% link setup.md %}).
+> - To get the data (or its correct rootpath), check instruction in [Setup]({{
+>   page.root }}{% link setup.md %}).
 > - For more information about setting the rootpath, see also the ESMValTool
-[documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+>   [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 
 ## Directory structure for the data from different projects
 
-Input data can be from various models, observations and reanalysis data that adhere
-to the [CF/CMOR standard](https://cmor.llnl.gov/).
-The ``drs`` setting describes the file structure.
-Let's use ``default`` for ``CMIP5`` in our example here:
+Input data can be from various models, observations and reanalysis data that
+adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). The ``drs`` setting
+describes the file structure. Let's use ``default`` for ``CMIP5`` in our example
+here:
 
-~~~YAML
+```yaml
 drs:
   CMIP5: default
-~~~
+```
 
 > ## Available drs
 >
-> The ``drs`` setting describes the file structure for several projects
-(e.g. ``CMIP6``, ``CMIP5``, ``obs4mips``, ``OBS6``, ``OBS``) on several key machines
-(e.g. ``BADC``, ``CP4CDS``, ``DKRZ``, ``ETHZ``, ``SMHI``, ``BSC``).
-For more information about ``drs``, you can visit the ESMValTool
-[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#cmor-drs).
+> The ``drs`` setting describes the file structure for several projects (e.g.
+> ``CMIP6``, ``CMIP5``, ``obs4mips``, ``OBS6``, ``OBS``) on several key machines
+> (e.g. ``BADC``, ``CP4CDS``, ``DKRZ``, ``ETHZ``, ``SMHI``, ``BSC``). For more
+> information about ``drs``, you can visit the ESMValTool
+> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#cmor-drs).
 {: .callout}
 
 ## Number of parallel tasks
@@ -137,10 +138,10 @@ You can choose the number of tasks in parallel as
 1/2/3/4/... or you can set it to ``null``. That tells
 ESMValTool to use the maximum number of available CPUs:
 
-~~~YAML
+```yaml
 
 max_parallel_tasks: null
-~~~
+```
 
 > ## Set the number of tasks
 >
@@ -161,9 +162,9 @@ This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, `
 
 Let's name our destination directory ``esmvaltool_output`` in the working directory:
 
-~~~YAML
+```yaml
 output_dir: ./esmvaltool_output
-~~~
+```
 
 > ## Content of subfolders
 >
@@ -183,23 +184,24 @@ are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
 
 ## Auxiliary data directory
 
-The ``auxiliary_data_dir`` setting is the path where any required
-additional auxiliary data files are stored. This location allows us to tell
-the diagnostic script where to find the files if they can not be downloaded
-at runtime. This option should not be used for model or observational datasets, but
-for data files  (e.g. shape files) used in plotting such as coastline descriptions and so on.
+The ``auxiliary_data_dir`` setting is the path where any required additional
+auxiliary data files are stored. This location allows us to tell the diagnostic
+script where to find the files if they can not be downloaded at runtime. This
+option should not be used for model or observational datasets, but for data
+files  (e.g. shape files) used in plotting such as coastline descriptions and so
+on.
 
-~~~YAML
+```yaml
 auxiliary_data_dir: ~/auxiliary_data
-~~~
+```
 
 ## Output settings
 
-These settings are used to inform ESMValTool about your preference about specific actions.
-You can turn on or off the setting by ``true`` or ``false`` values.
-Most of these settings are fairly self-explanatory, ie:
+These settings are used to inform ESMValTool about your preference about
+specific actions. You can turn on or off the setting by ``true`` or ``false``
+values. Most of these settings are fairly self-explanatory, ie:
 
-~~~YAML
+```yaml
 # Diagnostics create plots? [true]/false
 write_plots: true
 # Diagnositcs write NetCDF files? [true]/false
@@ -222,26 +224,26 @@ remove_preproc_dir: true
 # Get profiling information for diagnostics
 # Only available for Python diagnostics
 profile_diagnostic: false
-~~~
+```
 
 > ## Make your own configuration file
 >
 > It is possible to have several configuration files with different purposes,
-for example: config-user_formalised_runs.yml, config-user_debugging.yml
-{: .callout}
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml {:
+> .callout}
 >
 > ## Saving preprocessed data
 >
-> In the configuration file, which settings are useful to make sure preprocessed data
-is stored when ESMValTool is run?
+> In the configuration file, which settings are useful to make sure preprocessed
+> data is stored when ESMValTool is run?
 >
 >> ## Solution
 >>
->> If the option ``save_intermediary_cubes`` is set to true in
-the config-user.yml file, then the intermediary cubes will also be saved
-in the folder ``preproc``. Also, if the option ``remove_preproc_dir``
-is set to ``false``, then the ``preproc/`` directory contains all
-the preprocessed data and the metadata interface files.
+> > If the option ``save_intermediary_cubes`` is set to true in the
+> > config-user.yml file, then the intermediary cubes will also be saved in the
+> > folder ``preproc``. Also, if the option ``remove_preproc_dir`` is set to
+> > ``false``, then the ``preproc/`` directory contains all the preprocessed
+> > data and the metadata interface files.
 > {: .solution}
 {: .challenge}
 

@@ -179,7 +179,7 @@ resource_usage.txt and temporary files created by the diagnostic scripts.
 are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
 >
 > We explain more about output in the next
-[lesson]({{ page.root }}{% link _episodes/04-toy-example.md %})
+[lesson]({{ page.root }}{% link _episodes/04-recipe.md %})
 {: .callout}
 
 ## Auxiliary data directory

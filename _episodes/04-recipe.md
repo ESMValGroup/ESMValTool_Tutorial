@@ -145,7 +145,7 @@ the name: recipe_example.yml LINK
 
 Please note the following sections:
 
-  - documentation: lines 4-20.
+  - documentation: lines 4-20
   
     The documentation consists of the following information:
 

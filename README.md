@@ -36,9 +36,8 @@ A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
 
 ## Citation
 
-To cite this Tutorial, please consult with [CITATION](CITATION).
+To cite this tutorial, please consult with [CITATION](CITATION).
 
-[email]: mailto:TODO_FIX_ME
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
 [tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/

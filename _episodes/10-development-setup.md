@@ -8,17 +8,28 @@ questions:
 objectives:
 - "Execute a succesful ESMValTool installation from source"
 keypoints:
-- "ESMValTool is installed from source code that lives in the [GitHub repository](https://github.com/ESMValGroup/ESMValTool)"
-- "All the required packages can be installed using conda and the [environment.yml file](https://github.com/ESMValGroup/ESMValTool/blob/master/environment.yml)"
-- "You can find more information about installation in the [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html)"
+- "ESMValTool is installed from source code that lives in the [GitHub
+  repository](https://github.com/ESMValGroup/ESMValTool)"
+- "All the required packages can be installed using conda and the
+  [environment.yml
+  file](https://github.com/ESMValGroup/ESMValTool/blob/master/environment.yml)"
+- "You can find more information about installation in the
+  [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html)"
 ---
 
-So you want to contribute code to ESMValTool. What follows describes a development installation to help you get going.
+So you want to contribute code to ESMValTool. What follows describes a
+development installation to help you get going.
 
 > ## Attention
 >
-> -   This episode is based on the ESMValTool installation instructions, for more information and advanced cases you can visit the  ESMValTool [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html). 
-> -   For this episode it is assumed you have knowledge of [git](https://git-scm.com/). You can refresh your knowledge in the corresponding [git carpentries course](http://swcarpentry.github.io/git-novice/). 
+> -   This episode is based on the ESMValTool installation instructions, for
+>     more information and advanced cases you can visit the  ESMValTool
+>     [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html).
+>
+> -   For this episode it is assumed you have knowledge of
+>     [git](https://git-scm.com/). You can refresh your knowledge in the
+>     corresponding [git carpentries
+>     course](http://swcarpentry.github.io/git-novice/).
 {: .callout}
 
 ## Obtaining the source code
@@ -26,43 +37,45 @@ So you want to contribute code to ESMValTool. What follows describes a developme
 The ESMValTool source code is available on a public GitHub repository:
 [https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool)
 
-The easiest way to obtain it is to clone the repository using git. 
-To clone the public repository open a terminal window and type:
+The easiest way to obtain it is to clone the repository using git. To clone the
+public repository open a terminal window and type:
 
 ~~~bash
 git clone https://github.com/ESMValGroup/ESMValTool.git
 ~~~
 
 By default, this command will create a folder called ESMValTool containing the
-source code of the tool. 
+source code of the tool.
 
-Move into the directory to continue installation. 
+Move into the directory to continue installation.
 
 > ## Attention
-> 
+>
 > Make sure that the master branch is checked out before continuing intallation:
 > ~~~bash
 > git checkout master
-> ~~~ 
+> ~~~
 {: .callout}
 
 ## Prerequisites
 
-It is recommended to use conda to manage ESMValTool dependencies.
-For a minimal conda installation go to [https://conda.io/miniconda.html](https://conda.io/miniconda.html). To
-simplify the installation process, an environment definition file is provided
-in the repository (``environment.yml`` in the root folder).
+It is recommended to use conda to manage ESMValTool dependencies. For a minimal
+conda installation go to
+[https://conda.io/miniconda.html](https://conda.io/miniconda.html). To simplify
+the installation process, an environment definition file is provided in the
+repository (``environment.yml`` in the root folder).
 
 > ## Attention
-> It is preferable to use a local, fully user-controlled conda installation.
-> If you have conda installed already, make sure it is up to date by running ``conda update -n base conda``.
+> It is preferable to use a local, fully user-controlled conda installation. If
+> you have conda installed already, make sure it is up to date by running
+> ``conda update -n base conda``.
 {: .callout}
 
 From now on, we will assume that the installation is going to be done through
 conda.
 
-Ideally, you should create a dedicated conda environment for ESMValTool, so it is
-independent from any other Python tools present in the system.
+Ideally, you should create a dedicated conda environment for ESMValTool, so it
+is independent from any other Python tools present in the system.
 
 To create an environment, go to the directory containing the ESMValTool source
 code (called ESMValTool if you did not choose a different name) and run
@@ -79,7 +92,8 @@ the environment using the command:
 conda activate esmvaltool
 ~~~
 
-If you run into trouble, please try recreating the environment. More information can be found in the [conda documentation](https://docs.conda.io/en/latest/).
+If you run into trouble, please try recreating the environment. More information
+can be found in the [conda documentation](https://docs.conda.io/en/latest/).
 
 ## Software installation
 
@@ -90,7 +104,8 @@ the following commands in the directory containing the ESMValTool source code:
 pip install --editable '.[develop]'
 ~~~
 
-This will add the `esmvaltool` directory to the Python path in editable mode and install the developemnt dependencies.
+This will add the `esmvaltool` directory to the Python path in editable mode and
+install the developemnt dependencies.
 
 ## Test the installation
 
@@ -113,8 +128,11 @@ python setup.py test --installation
 
 > ## ESMValCore
 >
-> Most core functionality for the ESMValTool is available in the [ESMValCore](https://github.com/ESMValGroup/ESMValCore) Python package.
-> If your contribution in ESMValTool needs changes to ESMValCore please follow [its contribution guide](https://github.com/ESMValGroup/ESMValCore/blob/master/CONTRIBUTING.md).
+> Most core functionality for the ESMValTool is available in the
+> [ESMValCore](https://github.com/ESMValGroup/ESMValCore) Python package. If
+> your contribution in ESMValTool needs changes to ESMValCore please follow [its
+> contribution
+> guide](https://github.com/ESMValGroup/ESMValCore/blob/master/CONTRIBUTING.md).
 {: .callout}
 
 {% include links.md %}

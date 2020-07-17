@@ -31,7 +31,6 @@ REQUIRED_FILES = {
     'CONTRIBUTING.md': False,
     'LICENSE.md': True,
     'README.md': False,
-    os.path.join('_extras', 'discuss.md'): True,
     os.path.join('_extras', 'guide.md'): True,
     'index.md': True,
     'reference.md': True,

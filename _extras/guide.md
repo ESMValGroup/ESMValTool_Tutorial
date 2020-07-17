@@ -3,6 +3,7 @@ title: "Instructor Notes"
 ---
 
 This page includes some tips, reminders and advice for giving this tutorial.
+
 ## Tutorial Content
 
 Well ahead of the planned tutorial date, please go over the available 
@@ -30,7 +31,7 @@ Once you have agreed to a date, and attendees have signed up, send them an email
 with the following information: 
  - a link to the [pre-tutorial instructions page](setup.md)
  - a contact email address so they can post any questions that arise during setup
- - Venue details (if on site) or meeting connection details (if online).   
+ - venue details (if on site) or meeting connection details (if online).   
 
 Also allow for sufficient time to get access to any 
 accounts etc. which could take more than a few days in some cases (a good 
@@ -39,12 +40,13 @@ the first email,
 so that participants will still have time after the reminder to complete 
 setup). 
 
-Plan for the tutorial to last at least two hours (this could vary based on
+Prepare an estimate for how long the tutorial will last 
+(this could vary based on
 your choice of modules and any changes you have made to the tutorial). 
-If you do go longer, please include comfort breaks as needed.
+Do include comfort breaks as needed.
 
 If more than one person will be conducting the tutorial, discuss ahead 
-and decide who will handle each component for a smooth flow of material.
+and decide who will handle each component for a smooth flow of the material.
 
 Remind people a few days before the meeting about the pre-meeting exercises.
 
@@ -67,9 +69,11 @@ the tutorial as possible.
 
 - Test all recipes, diagnostics and instructions in advance.
 
-- Make sure you don't have issues with accessing the compute node via VPN or wifi,
+- Make sure you don't have issues with accessing the compute node via VPN 
+or Wi-Fi.
 
-- Check with your computing service for any planned downtime or potential interuptions.
+- Check with your computing service for any planned downtime or potential 
+interuptions.
 
 - Download a local copy of the data, just in case.
 

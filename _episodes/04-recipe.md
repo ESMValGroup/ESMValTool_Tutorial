@@ -87,7 +87,7 @@ The recipe presented here is a simple, basic recipe that takes a single dataset
 and produces a time series plot.
 
 Please download the following recipe into your ESMValTool working directory with
-the name: recipe_example.yml LINK
+the name: [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
 
 > ## recipe_example.yml
 > ```YAML

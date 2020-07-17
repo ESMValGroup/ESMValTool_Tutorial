@@ -235,7 +235,7 @@ Please note the following sections:
 >
 > Use the command:
 > ~~~bash
-> esmvaltool -c ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
+> esmvaltool run --config_file ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
 > ~~~
 >
 > Follow the terminal guiding you through the subprocesses that are running. Can

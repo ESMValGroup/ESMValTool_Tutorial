@@ -5,8 +5,8 @@ exercises: 25
 questions:
 - "What is a recipe?"
 - "How can I do the same preprocessing on many different datasets?"
-- "What are the files and directories that are created after running a recipe?"
 - "What happens when I run a recipe?"
+- "What are the files and directories that are created after running a recipe?"
 objectives:
 - "Run an ESMValTool recipe"
 - "Understand the purpose of different settings in the recipe"

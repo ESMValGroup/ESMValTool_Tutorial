@@ -223,7 +223,7 @@ Please note the following sections:
 {: .solution}
 
 > ## What do you think running this recipe will produce?
-> A time series plot of thetaoga with increements of 1 year.
+> A time series plot of thetaoga with increments of 1 year.
 {: .solution}
 
 > ## Not all parts of the recipe are mandatory

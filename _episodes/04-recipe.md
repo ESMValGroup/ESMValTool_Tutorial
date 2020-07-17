@@ -71,7 +71,7 @@ manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overvie
 ## How to run ESMValTool
 
 Once you’ve set up your conda environment and installed ESMValTool (see episode
-#2 LINK) and set up your config-user.yml file to correctly match you local
+#2 LINK) and set up your `config-user.yml` file to correctly match you local
 environment, (see episode #3 LINK), ESMValTool is invoked using a simple
 command:
 

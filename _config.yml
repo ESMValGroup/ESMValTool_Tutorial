@@ -11,11 +11,11 @@
 carpentry: "ea"
 
 # Overall title for pages.
-title: "ESMValTool Introduction"
+title: "ESMValTool Tutorial"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
-life_cycle: "pre-alpha"
+life_cycle: "beta"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).

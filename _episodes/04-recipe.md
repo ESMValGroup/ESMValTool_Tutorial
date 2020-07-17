@@ -76,6 +76,13 @@ environment, (see episode #3 LINK), ESMValTool is invoked using a simple
 command:
 
 ~~~
+esmvaltool run recipe
+~~~
+{: .source}
+
+If the configuration file is not in the default {HOME}\.esmvaltool\ path you can pass its path explicitly:
+
+~~~
 esmvaltool run --config_file configuration recipe
 ~~~
 {: .source}
@@ -94,7 +101,7 @@ the name: recipe_example.yml LINK
 >  1    # ESMValTool
 >  2    # recipe_example.yml
 >  3    ---
->  4    documentation:
+>  4    documentation
 >  5      description: Demonstrate basic ESMValTool example
 >  6
 >  7      authors:

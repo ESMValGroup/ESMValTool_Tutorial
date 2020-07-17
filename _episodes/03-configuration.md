@@ -22,26 +22,19 @@ keypoints:
 The ``config-user.yml`` configuration file contains all the global level
 information needed by ESMValTool to run. This is an [YAML
 file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be
-found in the root directory of the ESMValTool repository:
-[config-user-example.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/config-user-example.yml).
+found in the ESMValCore repository:
+[config-user-example.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-user.yml).
 
-First, we make a working directory ``esmvaltool_tutorial``.
-In a new terminal, run:
+You can generate the default configuration file by running:
 
 ~~~bash
-  mkdir esmvaltool_tutorial
-  cd esmvaltool_tutorial
+  esmvaltool config get_config_user
 ~~~
 
-Now, we download the configuration file to our working directory. To do that,
-click on [this
-link](https://raw.githubusercontent.com/ESMValGroup/ESMValTool/master/config-user-example.yml)
-to see a raw version of the file, right-click and press ``save as``, then you
-can rename it to ``config-user.yml``and save it into the working directory
-``esmvaltool_tutorial``.
+It will save the file to: ``{HOME}/.esmvaltool/config-user.yml``.
 
 Now, let's change our working directory in a terminal window to
-``esmvaltool_tutorial``. Then, we run a text editor called Nano to have a look
+``{HOME}/.esmvaltool``. Then, we run a text editor called Nano to have a look
 inside the configuration file:
 
 ~~~bash
@@ -50,12 +43,12 @@ inside the configuration file:
 
 This file contains the information for:
 
-- Rootpath to input data
-- Directory structure for the data from different projects
-- Number of tasks that can be run in parallel
+- Output settings
 - Destination directory
 - Auxiliary data directory
-- Output settings
+- Number of tasks that can be run in parallel
+- Rootpath to input data
+- Directory structure for the data from different projects
 
 > ## Text editor side note
 >
@@ -67,94 +60,46 @@ This file contains the information for:
 > and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .callout}
 
-## Rootpath to input data
+## Output settings
 
-ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
-for input data based on their source. The current categories in the configuration
-file are mentioned below. For example, CMIP is used for a dataset from
-the climate model intercomparison project whereas OBS is used for an observational dataset.
-We can find more information about the projects in the ESMValTool
-[documentation](https://docs.esmvaltool.org/en/latest/input.html).
-The ``rootpath`` specifies the directories where ESMValTool will look for input data.
-For each category, you can define either one path or several paths as a list.
+These settings are used to inform ESMValTool about your preference about
+specific actions. You can turn on or off the setting by ``true`` or ``false``
+values. Most of these settings are fairly self-explanatory, ie:
 
 ```yaml
-rootpath:
-  CMIP3: [~/cmip3_inputpath1, ~/cmip3_inputpath2]
-  CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
-  CMIP6: [~/cmip6_inputpath1, ~/cmip6_inputpath2]
-  OBS: ~/obs_inputpath
-  OBS6: ~/obs6_inputpath
-  obs4mips: ~/obs4mips_inputpath
-  ana4mips: ~/ana4mips_inputpath
-  native6:  ~/native6_inputpath
-  RAWOBS: ~/rawobs_inputpath
-  default: ~/default_inputpath
+# Diagnostics create plots? [true]/false
+write_plots: true
+# Diagnositcs write NetCDF files? [true]/false
+write_netcdf: true
+# Set the console log level debug, [info], warning, error
+log_level: info
+# Exit on warning (only for NCL diagnostic scripts)? true/[false]
+exit_on_warning: false
+# Plot file format? [png]/pdf/ps/eps/epsi
+output_file_type: png
+
+...
+
+# Use netCDF compression true/[false]
+compress_netcdf: false
+# Save intermediary cubes in the preprocessor true/[false]
+save_intermediary_cubes: false
+# Remove the preproc dir if all fine
+remove_preproc_dir: true
+
+...
+
+# Path to custom config-developer file, to customise project configurations.
+# See config-developer.yml for an example. Set to [null] to use the default
+ config_developer_file: null
+# Get profiling information for diagnostics
+# Only available for Python diagnostics
+profile_diagnostic: false
 ```
-
-In this lesson, we will work with data from
-[CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
-We add the root path of the folder where  our/your data is available.
-
-```yaml
-  rootpath:
-  ...
-    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/esmvaltool_tutorial/data]
-```
-
-> ## Setting the correct rootpath
->
-> - To get the data (or its correct rootpath), check instruction in [Setup]({{
->   page.root }}{% link setup.md %}).
-> - For more information about setting the rootpath, see also the ESMValTool
->   [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
-{: .callout}
-
-## Directory structure for the data from different projects
-
-Input data can be from various models, observations and reanalysis data that
-adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). The ``drs`` setting
-describes the file structure. Let's use ``default`` for ``CMIP5`` in our example
-here:
-
-```yaml
-drs:
-  CMIP5: default
-```
-
-> ## Available drs
->
-> The ``drs`` setting describes the file structure for several projects (e.g.
-> ``CMIP6``, ``CMIP5``, ``obs4mips``, ``OBS6``, ``OBS``) on several key machines
-> (e.g. ``BADC``, ``CP4CDS``, ``DKRZ``, ``ETHZ``, ``SMHI``, ``BSC``). For more
-> information about ``drs``, you can visit the ESMValTool
-> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#cmor-drs).
-{: .callout}
-
-## Number of parallel tasks
-
-This option enables you to perform parallel processing.
-You can choose the number of tasks in parallel as
-1/2/3/4/... or you can set it to ``null``. That tells
-ESMValTool to use the maximum number of available CPUs:
-
-```yaml
-
-max_parallel_tasks: null
-```
-
-> ## Set the number of tasks
->
-> If you run out of memory, try setting ``max_parallel_tasks`` to 1.
-Then, check the amount of memory you need for that by inspecting
-the file ``run/resource_usage.txt`` in the output directory.
-Using the number there you can increase the number of parallel tasks
-again to a reasonable number for the amount of memory available in your system.
-{: .callout}
 
 ## Destination directory
 
-The destination directory is the rootpath where ESMValTool will store its output,
+The destination directory is the rootpath where ESMValTool will store its output folders containing
 i.e. figures, data, logs, etc. With every run, ESMValTool automatically generates
 a new output folder determined by recipe name, and date and time using
 the format: YYYYMMDD_HHMMSS.
@@ -195,43 +140,94 @@ on.
 auxiliary_data_dir: ~/auxiliary_data
 ```
 
-## Output settings
+## Number of parallel tasks
 
-These settings are used to inform ESMValTool about your preference about
-specific actions. You can turn on or off the setting by ``true`` or ``false``
-values. Most of these settings are fairly self-explanatory, ie:
+This option enables you to perform parallel processing.
+You can choose the number of tasks in parallel as
+1/2/3/4/... or you can set it to ``null``. That tells
+ESMValTool to use the maximum number of available CPUs:
 
 ```yaml
-# Diagnostics create plots? [true]/false
-write_plots: true
-# Diagnositcs write NetCDF files? [true]/false
-write_netcdf: true
-# Set the console log level debug, [info], warning, error
-log_level: info
-# Exit on warning (only for NCL diagnostic scripts)? true/[false]
-exit_on_warning: false
-# Plot file format? [png]/pdf/ps/eps/epsi
-output_file_type: png
-# Use netCDF compression true/[false]
-compress_netcdf: false
-# Save intermediary cubes in the preprocessor true/[false]
-save_intermediary_cubes: false
-# Remove the preproc dir if all fine
-remove_preproc_dir: true
-# Path to custom config-developer file, to customise project configurations.
-# See config-developer.yml for an example. Set to [null] to use the default
-# config_developer_file: null
-# Get profiling information for diagnostics
-# Only available for Python diagnostics
-profile_diagnostic: false
+
+max_parallel_tasks: null
 ```
+
+> ## Set the number of tasks
+>
+> If you run out of memory, try setting ``max_parallel_tasks`` to 1.
+Then, check the amount of memory you need for that by inspecting
+the file ``run/resource_usage.txt`` in the output directory.
+Using the number there you can increase the number of parallel tasks
+again to a reasonable number for the amount of memory available in your system.
+{: .callout}
+
+
+## Rootpath to input data
+
+ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
+for input data based on their source. The current categories in the configuration
+file are mentioned below. For example, CMIP is used for a dataset from
+the climate model intercomparison project whereas OBS is used for an observational dataset.
+We can find more information about the projects in the ESMValTool
+[documentation](https://docs.esmvaltool.org/en/latest/input.html).
+The ``rootpath`` specifies the directories where ESMValTool will look for input data.
+For each category, you can define either one path or several paths as a list.
+
+```yaml
+rootpath:
+  CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
+  OBS: ~/obs_inputpath
+  RAWOBS: ~/rawobs_inputpath
+  default: ~/default_inputpath
+  CORDEX: ~/default_inputpath
+```
+Site-specific entries for Jasmin, DKRZ and ETHZ are listed at the end of the example configuration file. 
+
+In this lesson, we will work with data from
+[CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
+We add the root path of the folder where  our/your data is available.
+
+```yaml
+  rootpath:
+  ...
+    CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/esmvaltool_tutorial/data]
+```
+
+> ## Setting the correct rootpath
+>
+> - To get the data (or its correct rootpath), check instruction in [Setup]({{
+>   page.root }}{% link setup.md %}).
+> - For more information about setting the rootpath, see also the ESMValTool
+>   [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+{: .callout}
+
+## Directory structure for the data from different projects
+
+Input data can be from various models, observations and reanalysis data that
+adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). The ``drs`` setting
+describes the file structure. Let's use ``default`` for ``CMIP5`` in our example
+here:
+
+```yaml
+drs:
+  CMIP5: default
+```
+
+> ## Available drs
+>
+> The ``drs`` setting describes the file structure for several projects (e.g.
+> ``CMIP6``, ``CMIP5``, ``obs4mips``, ``OBS6``, ``OBS``) on several key machines
+> (e.g. ``BADC``, ``CP4CDS``, ``DKRZ``, ``ETHZ``, ``SMHI``, ``BSC``). For more
+> information about ``drs``, you can visit the ESMValTool
+> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#cmor-drs).
+{: .callout}
 
 > ## Make your own configuration file
 >
 > It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml {:
-> .callout}
->
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml 
+{: .callout}
+
 > ## Saving preprocessed data
 >
 > In the configuration file, which settings are useful to make sure preprocessed

@@ -27,12 +27,12 @@ directory ``esmvaltool_tutorial`` that was created during the
 [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
 
 In a new terminal, go to our working directory ``esmvaltool_tutorial`` where
-both files ``user-config.yml`` and ``recipe_example.yml`` are located and run
+the file ``recipe_example.yml`` is located and run
 the recipe:
 
 ~~~bash
   cd esmvaltool_tutorial
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run recipe_example.yml
 ~~~
 
 ~~~
@@ -202,7 +202,7 @@ Also, we change the ``projects`` value ``ukesm`` to ``tutorial``:
 
 Then, we save the file and run the recipe:
 ~~~bash
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run recipe_example.yml
 ~~~
 
 ~~~
@@ -216,10 +216,17 @@ attach the run/recipe_*.yml and run/main_log_debug.txt files from the output dir
 The values for the keys ``author``, ``maintainer``, ``projects`` and
 ``references`` in the recipe should be known by ESMValTool. A list of ESMValTool
 author, maintainer, references, and projects can be found in the
-``config-references.yml`` that is located in the folder ``references`` in the
-ESMValTool installation directory ``path_to_esmvaltool``. To find
-``path_to_esmvaltool`` on your system, see [Installation]({{ page.root }}{% link
-_episodes/02-installation.md %}).
+``config-references.yml``. You could download this file by typing:
+
+~~~bash
+  esmvaltool config get_config_reference
+~~~
+
+It will be saved to: ``{HOME}/.esmvaltool/config-references.yml``. If you modify this file, please add the directory in the ``config-user.yml``:
+
+```yaml
+config_developer_file: {HOME}/.esmvaltool/config_reference.yml
+```
 
 > ## ESMValTool can’t locate the data
 >
@@ -282,7 +289,7 @@ let's see if we can change the script path as:
 ```
 
 ~~~bash
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run recipe_example.yml
 ~~~
 
 ~~~
@@ -304,7 +311,7 @@ recipe:
 ```
 
 ~~~bash
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run recipe_example.yml
 ~~~
 
 > ## Available recipe and diagnostic scripts

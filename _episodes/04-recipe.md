@@ -76,7 +76,14 @@ environment, (see episode #3 LINK), ESMValTool is invoked using a simple
 command:
 
 ~~~
-esmvaltool -c configuration recipe
+esmvaltool run recipe
+~~~
+{: .source}
+
+If the configuration file is not in the default {HOME}\.esmvaltool\ path you can pass its path explicitly:
+
+~~~
+esmvaltool run --config_file configuration recipe
 ~~~
 {: .source}
 
@@ -235,7 +242,7 @@ Please note the following sections:
 >
 > Use the command:
 > ~~~bash
-> esmvaltool -c ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
+> esmvaltool run --config_file ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
 > ~~~
 >
 > Follow the terminal guiding you through the subprocesses that are running. Can

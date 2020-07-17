@@ -340,7 +340,7 @@ runtime. This folder should contain four folders:
 > ## Inspect the output:
 > Now that you have run the esmvaltool command for the first time, please locate
 > your output directory. If you’re missing the preproc directory, then your
-> config-user.yml file has the value remove_preproc_dir set to true (this is
+> `config-user.yml` file has the value remove_preproc_dir set to true (this is
 > used to save disk space). Please set this value to false and run the recipe
 > again.
 >

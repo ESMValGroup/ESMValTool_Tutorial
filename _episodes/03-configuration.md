@@ -1,7 +1,7 @@
 ---
 title: "Configuration"
-teaching: 0
-exercises: 0
+teaching: 10
+exercises: 10
 questions:
 - What is the user configuration file and how should I use it?
 

@@ -1,7 +1,7 @@
 ---
 title: "Running a recipe (First example)"
-teaching: 20
-exercises: 25
+teaching: 25
+exercises: 30
 questions:
 - "What is a recipe?"
 - "How can I do the same preprocessing on many different datasets?"

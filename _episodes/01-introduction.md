@@ -1,7 +1,7 @@
 ---
 title: "Introduction"
-teaching: 0
-exercises: 25
+teaching: 20
+exercises: 10
 questions:
 - What is ESMValTool and when is it useful?
 - What are the main components of ESMValTool?

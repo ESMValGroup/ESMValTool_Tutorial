@@ -23,7 +23,9 @@ The ``config-user.yml`` configuration file contains all the global level
 information needed by ESMValTool to run. This is an [YAML
 file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be
 found in the ESMValCore repository:
-[config-user-example.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-user.yml). You could download it by typing:
+[config-user-example.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-user.yml).
+
+You can generate the default configuration file by running:
 
 ~~~bash
   esmvaltool config get_config_user
@@ -97,7 +99,7 @@ profile_diagnostic: false
 
 ## Destination directory
 
-The destination directory is the rootpath where ESMValTool will store its output,
+The destination directory is the rootpath where ESMValTool will store its output folders containing
 i.e. figures, data, logs, etc. With every run, ESMValTool automatically generates
 a new output folder determined by recipe name, and date and time using
 the format: YYYYMMDD_HHMMSS.

@@ -101,7 +101,7 @@ the name: recipe_example.yml LINK
 >  1    # ESMValTool
 >  2    # recipe_example.yml
 >  3    ---
->  4    documentation
+>  4    documentation:
 >  5      description: Demonstrate basic ESMValTool example
 >  6
 >  7      authors:

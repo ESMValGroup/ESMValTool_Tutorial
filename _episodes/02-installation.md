@@ -249,7 +249,7 @@ to display the command line help.
 > > {: .bash}
 > > I get that my installed ESMValTool version is
 > > ~~~
-> > 2.0.0
+> > ESMValCore: 2.0.0
 > > ~~~
 > > {: .output}
 > {: .solution}

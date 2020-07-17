@@ -100,10 +100,10 @@ and can be used as:
 mdl your_markdown_filename
 ```
 
-We use [Codacy](https://app.codacy.com/gh/ESMValGroup/tutorial) as an automated
-code analysis services. To run the analyis
-[locally](https://github.com/codacy/codacy-analysis-cli) on Markdown files with
-Docker use
+We use [Codacy](https://app.codacy.com/gh/ESMValGroup/ESMValTool_Tutorial)
+as an automated code analysis services. To run the analyis
+[locally](https://github.com/codacy/codacy-analysis-cli)
+on Markdown files with Docker use
 
 ```bash
 docker run \
@@ -118,9 +118,10 @@ docker run \
 
 ### Previewing your changes locally
 
-If you are making a new episode or contributing to existing ones, please preview
-changes on your machine before submitting a [pull request][PR]. To do so, you
-need to install the software described below:
+If you are making a new episode or contributing to existing ones,
+please preview changes on your machine before submitting a
+[pull request][PR]. To do so, you need to install
+the software described below:
 
 ```bash
 # apt (Ubuntu/Devian)
@@ -158,20 +159,24 @@ This address can be opened in your browser to preview the tutorial website.
 
 ## Other Resources
 
-General discussion of the tutorial happens in `User Engagement Team`.
-You can reach us by [email][email].
+General discussion of the tutorial happens in
+ESMValTool [User Engagement Team][user-engagement].
+You can reach us by email.
+Please see the [contact information][contact-info].
 
 [email]: mailto:TODO_FIX_ME
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
-[tutorial-repo]: https://esmvalgroup.github.io/tutorial/
-[tutorial-site]: https://esmvalgroup.github.io/tutorial
-[tutorial-maintainers]: https://github.com/ESMValGroup/tutorial#maintainers
+[tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
+[tutorial-site]: https://esmvalgroup.github.io/ESMValTool_Tutorial
+[tutorial-maintainers]: https://github.com/ESMValGroup/ESMValTool_Tutorial#maintainers
 [github]: https://github.com
-[issues]: https://github.com/ESMValGroup/tutorial/issues
-[PR]: https://github.com/ESMValGroup/tutorial/pulls
+[issues]: https://github.com/ESMValGroup/ESMValTool_Tutorial/issues
+[PR]: https://github.com/ESMValGroup/ESMValTool_Tutorial/pulls
 [swc-site]: https://software-carpentry.org/
 [swc-handbook]: https://carpentries.github.io/curriculum-development/
 [swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [ea-site]: https://github.com/escience-academy
+[user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
+[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html

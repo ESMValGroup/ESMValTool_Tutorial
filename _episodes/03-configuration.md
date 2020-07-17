@@ -223,9 +223,9 @@ drs:
 > ## Make your own configuration file
 >
 > It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml {:
-> .callout}
->
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml 
+{: .callout}
+
 > ## Saving preprocessed data
 >
 > In the configuration file, which settings are useful to make sure preprocessed

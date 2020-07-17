@@ -76,7 +76,7 @@ environment, (see episode #3 LINK), ESMValTool is invoked using a simple
 command:
 
 ~~~
-esmvaltool -c configuration recipe
+esmvaltool run --config_file configuration recipe
 ~~~
 {: .source}
 

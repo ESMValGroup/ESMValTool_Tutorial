@@ -182,7 +182,7 @@ Please note the following sections:
   - diagnostic section: lines 30-42
 
     The information of which diagnostic script to run with which variables. The
-    diagnostics section has some indents that are free to call.
+    diagnostics section has some indents that are free to be called.
 
     - the first indent (here: diag_timeseries_temperature) is the diagnostic’s
       name (a string without whitespace), used for setting up the respective
@@ -223,7 +223,7 @@ Please note the following sections:
 {: .solution}
 
 > ## What do you think running this recipe will produce?
-> A time series plot of thetaoga with increements of 1 year.
+> A time series plot of thetaoga with increments of 1 year.
 {: .solution}
 
 > ## Not all parts of the recipe are mandatory
@@ -340,7 +340,7 @@ runtime. This folder should contain four folders:
 > ## Inspect the output:
 > Now that you have run the esmvaltool command for the first time, please locate
 > your output directory. If you’re missing the preproc directory, then your
-> config-user.yml file has the value remove_preproc_dir set to true (this is
+> `config-user.yml` file has the value remove_preproc_dir set to true (this is
 > used to save disk space). Please set this value to false and run the recipe
 > again.
 >

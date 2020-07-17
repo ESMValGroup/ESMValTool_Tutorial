@@ -6,7 +6,7 @@ This page includes some information on how to prepare for participating in this 
 
 > ## Prerequisites
 >
-> The prerequisites for the tutorial are listed on the 
+> The prerequisites for the tutorial are listed on the
 > [tutorials home page]({{ page.root}}[% index.md %})
 >  and are also reproduced here:
 >
@@ -72,7 +72,6 @@ local copy of the data that you need.
 
 If neccesairy, data can be downloaded using the
 [synda tool](https://prodiguer.github.io/synda/index.html).
-
 
 
 ### CEDA-Jasmin
@@ -149,7 +148,6 @@ research centres). You may need a VPN if you wish to connect from your home
 network.
 
 
-
 Please request access to the working groups:
 - [esmeval working
   group](https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval)
@@ -164,6 +162,7 @@ The linking may take a few hours to take effect and is necessary for you to
 access the BADC archives via JASMIN. Some CMIP5 data sets such as MIROC are not
 accessible by default and special permission has to be requested to access them
 via [the CEDA catalogue page](https://catalogue.ceda.ac.uk/).
+
 
 #### Test your Setup
 
@@ -193,12 +192,12 @@ Note that the JASMIN is only open to certain locations (mostly universities, and
 research centres). You may need a VPN if you wish to connect from your home
 network.
 
-
-Congratulations! Please go here [here](#GitHub-account-(Advanced)) next.
-
+Congratulations! Please go here [here](#gitHub-account-(advanced)) next.
 
 
 ### DKRZ
+
+Please skip this section if you are not going to use DKRZ and go [here](#github-account-(advanced)).
 
 If you do not already have an account at the DKRZ, then
 [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could
@@ -246,7 +245,7 @@ ssh -X <user-account>@mistralpp.dkrz.de
 Data storage:
 - Personal data: home directory (24GiB)
 - Project data: /work/<project>/<user-account>
-- Temporary data: scratch directory on /scratch/*/<user-account> is
+- Temporary data: scratch directory on /scratch/\*/<user-account> is
   automatically deleted after 14 days (15TiB) (Please use this directory for all
   your testing! Do not use the work directory for tests.) (see also
   [this](https://www.dkrz.de/up/systems/mistral/hpc-concepts))
@@ -258,12 +257,15 @@ be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
 Congratulations! Please go here [here](#GitHub-account-(Advanced)) next.
 
 
-### Other computing systems
-FIXME
+<!-- ### Other computing systems
+Fix me
+ -->
+
 
 ### Your local machine
 
-Please skip this section if you are not going to use ESMValTool on your local machine and go [here](#GitHub-account-(Advanced)).
+Please skip this section if you are not going to use ESMValTool on your
+local machine and go [here](#gitHub-account-(advanced)).
 
 If you are planning on running ESMValTool on your own machine, please make sure
 that you are able to download CMIP data and that you have several GB of space
@@ -277,7 +279,13 @@ You will also need to able to use:
 
 #### Linux/unix
 
+ESMValTool is easilly installable in Linux/unix, please follow
+the installation instructions in epiode 2.
+
 #### Mac OSx
+
+Installing ESMValTool in a Mac OSx environment is possible, but not
+directly supported.  
 
 #### Windows
 
@@ -285,7 +293,6 @@ ESMValTool does not directly support Windows,
 but successful usage has been reported through the
 [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
 available in Windows 10.
-
 
 
 ## GitHub account (Advanced)
@@ -314,13 +321,12 @@ an issue, please follow any instructions that you are given, and also make sure
 that you read the default issue text.
 
 
-### pull request
+### GitHub pull requests
 
 A GitHub pull request is the act of requesting that a branch is merged with another branch.
 
 This is an advanced feature of GitHub, and will generally be performed by the
 ESMValTool development team.
-
 
 
 ## Install conda

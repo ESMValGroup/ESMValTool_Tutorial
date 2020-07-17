@@ -145,8 +145,9 @@ the name: recipe_example.yml LINK
 
 Please note the following sections:
 
-  - documentation: lines 4-20.
-  The documentation consists of the following information:
+  - documentation: lines 4-20
+  
+    The documentation consists of the following information:
 
     - description: a short description of the recipe
     - authors: a list of authors (linked to `esmvaltool/config-references.yml`)
@@ -172,7 +173,7 @@ Please note the following sections:
 
   - preprocessors: lines 25-28
 
-    The definition for different preprocessors or combinations. If no
+    The definition for different preprocessors or preprocessor combinations. If no
     preprocessing is needed, the preprocessor can be set to an empty python
     dictionary (`{}`). Here, we produce annual means. The preprocessor is called
     with its name (here: prep_timeseries), later in the diagnostic (line 39).

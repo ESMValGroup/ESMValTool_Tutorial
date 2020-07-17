@@ -86,7 +86,7 @@ project under grant agreement no. 641816; (4) the the European Union's Horizon
 sIMulation: AdVances in high-resolution modelling and European climate Risk
 Assessment (PRIMAVERA)” project under grant agreement no. 641727; (5) the
 Helmholtz Society project “Advanced Earth System Model Evaluation for CMIP
-(EVal4CMIP)”; (6) project S1 (Diagnosis and Metrics in Climate Models) of
+(Eval4CMIP)”; (6) project S1 (Diagnosis and Metrics in Climate Models) of
 the Collaborative Research Centre TRR 181 “Energy Transfer in Atmosphere and
 Ocean” funded by the Deutsche Forschungsgemeinschaft (DFG, German Research
 Foundation) project no. 274762653; and (7) National Environmental Research

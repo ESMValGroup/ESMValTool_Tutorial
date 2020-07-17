@@ -70,9 +70,9 @@ manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overvie
 
 ## How to run ESMValTool
 
-Once you’ve set up your conda environment and installed ESMValTool (see episode
-#2 LINK) and set up your `config-user.yml` file to correctly match your local
-environment, (see episode #3 LINK), ESMValTool is invoked using a simple
+Once you’ve set up your conda environment and installed ESMValTool (see[ episode
+#2]({{ page.root}}{% link _episodes/02-installation.md %})) and set up your `config-user.yml` file to correctly match your local
+environment, (see [episode #3]({{ page.root}}{% link _episodes/03-configuration.md %})), ESMValTool is invoked using a simple
 command:
 
 ~~~
@@ -177,7 +177,7 @@ Please note the following sections:
     preprocessing is needed, the preprocessor can be set to an empty python
     dictionary (`{}`). Here, we produce annual means. The preprocessor is called
     with its name (here: prep_timeseries), later in the diagnostic (line 39).
-    (See episode #5 LINK for more details.)
+    (See [episode #5]({{ page.root}}{% link _episodes/05-preprocessor.md %}) for more details.)
 
   - diagnostic section: lines 30-42
 
@@ -657,8 +657,8 @@ The snippets for the edits can be found below:
 
 > ## esmvaltool not found
 > Can you run the command “esmvaltool -h”. If no, then it’s possible that the
-> conda environment isn’t activated. Please return to the installation section,
-> episode #2 LINK.
+> conda environment isn’t activated. Please return to the in
+> [installation section]({{ page.root }}{% link _episodes/02-installation.md %}).
 {: .solution}
 
 > ## The error message is `esmvalcore._recipe_checks.RecipeError: Missing data`

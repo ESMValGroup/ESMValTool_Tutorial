@@ -1,51 +1,46 @@
-# FIXME Lesson title
+# ESMValTool Tutorial
 
-[![Create a Slack Account with
-us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
 [![Join the chat at
 https://gitter.im/ESMValGroup/Tutorial](https://badges.gitter.im/ESMValGroup/Tutorial.svg)](https://gitter.im/ESMValGroup/Tutorial?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This repository generates the corresponding lesson website from [The
-Carpentries](https://carpentries.org/) repertoire of lessons.
+[ESMValTool Tutorial][tutorial-site] is an open-source project in
+[ESMValGroup][ESMValTool-site].
+This tutorial is a set of lessons that together teach skills needed to work
+with ESMValTool in climate-related domains.
+The Earth System Model Evaluation Tool ([ESMValTool][ESMValTool-site]) is a
+community diagnostics and performance metrics tool for the evaluation of
+Earth System Models (ESMs) that allows for routine comparison of single or
+multiple models.
 
 ## Contributing
 
-We welcome all contributions to improve the lesson! Maintainers will do their
-best to help you if you have any questions, concerns, or experience any
-difficulties along the way.
-
-We'd like to ask you to familiarize yourself with our [Contribution
-Guide](CONTRIBUTING.md) and have a look at the [more detailed
-guidelines][lesson-example] on proper formatting, ways to render the lesson
-locally, and even how to write new episodes. Note that the content of the web
-page is located in the directory
-[_episodes](https://github.com/ESMValGroup/tutorial/tree/master/_episodes).
-
-Please see the current list of [issues][FIXME] for ideas for contributing to
-this repository. For making your contribution, we use the GitHub flow, which is
-nicely explained in the chapter [Contributing to a
-Project](http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project) in Pro
-Git by Scott Chacon. Look for the tag
-![good_first_issue](https://img.shields.io/badge/-good%20first%20issue-gold.svg).
-This indicates that the maintainers will welcome a pull request fixing this
-issue.
-
+We welcome all contributions to improve the lesson!
+We'd like to ask you to familiarize yourself with our guide in
+[CONTRIBUTING](CONTRIBUTING) and our [Code of Conduct](CODE_OF_CONDUCT).
 
 ## Maintainer(s)
 
-Current maintainers of this lesson are
+Current maintainers of this tutorial are ESMValTool
+[User Engagement Team][user-engagement].
+Maintainers will do their
+best to help you if you have any questions, concerns, or experience any
+difficulties along the way.
 
-* FIXME
-* FIXME
-* FIXME
-
+If you work or study in climate-related domains and would be interested in
+getting involved, you can reach us by email.
+Please see the [contact information][contact-info].
 
 ## Authors
 
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS)
+A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
 
 ## Citation
 
-To cite this lesson, please consult with [CITATION](CITATION)
+To cite this tutorial, please consult with [CITATION](CITATION).
 
-[lesson-example]: https://carpentries.github.io/lesson-example
+[ESMValTool-site]: https://www.esmvaltool.org/
+[ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
+[tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
+[tutorial-site]: https://esmvalgroup.github.io/ESMValTool_Tutorial
+[user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
+[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html

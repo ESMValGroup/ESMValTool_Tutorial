@@ -32,7 +32,7 @@ the recipe:
 
 ~~~bash
   cd esmvaltool_tutorial
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run --config_file user-config.yml recipe_example.yml
 ~~~
 
 ~~~
@@ -202,7 +202,7 @@ Also, we change the ``projects`` value ``ukesm`` to ``tutorial``:
 
 Then, we save the file and run the recipe:
 ~~~bash
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run --config_file user-config.yml recipe_example.yml
 ~~~
 
 ~~~
@@ -282,7 +282,7 @@ let's see if we can change the script path as:
 ```
 
 ~~~bash
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run --config_file user-config.yml recipe_example.yml
 ~~~
 
 ~~~
@@ -304,7 +304,7 @@ recipe:
 ```
 
 ~~~bash
-  esmvaltool -c user-config.yml recipe_example.yml
+  esmvaltool run --config_file user-config.yml recipe_example.yml
 ~~~
 
 > ## Available recipe and diagnostic scripts

@@ -182,7 +182,7 @@ Please note the following sections:
   - diagnostic section: lines 30-42
 
     The information of which diagnostic script to run with which variables. The
-    diagnostics section has some indents that are free to call.
+    diagnostics section has some indents that are free to be called.
 
     - the first indent (here: diag_timeseries_temperature) is the diagnostic’s
       name (a string without whitespace), used for setting up the respective

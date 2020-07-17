@@ -73,7 +73,7 @@ development teams.
 
 ## Acknowledgements
 
-The technical development work for ESValTool v2.0 was funded by various projects,
+The technical development work for ESMValTool v2.0 was funded by various projects,
 in particular (1) the Copernicus Climate Change Service (C3S) “Metrics and Access
 to Global Indices for Climate Projections (C3S-MAGIC)” project; (2) the
 European Union's Horizon 2020 Framework Programme for Research and Innovation

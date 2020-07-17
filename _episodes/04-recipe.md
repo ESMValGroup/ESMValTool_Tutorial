@@ -146,7 +146,8 @@ the name: recipe_example.yml LINK
 Please note the following sections:
 
   - documentation: lines 4-20.
-  The documentation consists of the following information:
+  
+    The documentation consists of the following information:
 
     - description: a short description of the recipe
     - authors: a list of authors (linked to `esmvaltool/config-references.yml`)

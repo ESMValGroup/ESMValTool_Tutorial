@@ -4,56 +4,41 @@ title: About
 
 ## ESMValTool
 
-The Earth System Model Evaluation Tool (ESMValTool) is a community-development
-that aims at improving diagnosing and understanding of the causes and effects
-of model biases and inter-model spread. The ESMValTool is open to both users
-and developers encouraging open exchange of diagnostic source code and
-evaluation results from the Coupled Model Intercomparison Project (CMIP) ensemble.
-This will facilitate and improve ESM evaluation beyond the state-of-the-art and
-aims at supporting the activities within CMIP and at individual modelling centers.
-We envisage running the ESMValTool routinely on the CMIP model output utilizing
-observations available through the Earth System Grid Federation (ESGF) in standard
-formats (obs4MIPs) or made available at ESGF nodes.
+The Earth System Model Evaluation Tool, ESMValTool, is a python-based
+software toolkit built to evaluate models of the Earths climate.
 
-The goal is to develop a benchmarking and evaluation tool that produces
-well-established analyses as soon as model output from CMIP simulations becomes
-available, e.g., at one of the central repositories of the ESGF.
-This is realized through standard recipes that reproduce a certain set of
-diagnostics and performance metrics that have demonstrated its importance in
-benchmarking Earth System Models (ESMs) in a paper or assessment report,
-such as Chapter 9 of the Intergovernmental Panel on Climate Change (IPCC)
-Fifth Assessment Report (AR5) (Flato et al., 2013).
-The expectation is that in this way a routine and systematic evaluation of
-model results can be made more efficient, thereby enabling scientists to
-focus on developing more innovative methods of analysis rather than
-constantly having to “reinvent the wheel”.
+ESMVAlTool is made to be:
 
-## ESMValTool community.
+- Versatile
+- Flexible
+- Modular
+- Standardised 
+- Community driven
 
-The ESMValTool community includes scientists and programmers from around the world.
+The toolkit is built with a sensible and modern code development process.
+Where possible, we follow software development best practices,
+including code review & monitoring, unit & integration testing,
+and fully transparent design decisions.
 
-ESMValTool has been used to analyse data
+ESMValTool is open source and available on github, and is written
+in PEP8-compliant Python3.
+
+For more details on ESMValTool, please go to:
+- [https://esmvaltool.org](ESMValTool home page)
+- [https://esmvaltool.readthedocs.io/](ESMValTool Read The Docs page)
 
 
-## Obs4MIPs
+## ESMValTool_Tutorial
 
-In parallel to standardization of model output, the ESGF also hosts observations
-for Model Intercomparison Projects (obs4MIPs) and reanalyses data (ana4MIPs).
-Obs4MIPs provides open access data sets of satellite data that are comparable
-in terms of variables, temporal and spatial frequency, and periods to CMIP model
-output (Taylor et al., 2012). The ESMValTool utilizes these observations and
-reanalyses from ana4MIPs plus additionally available observations in order to
-evaluate the models performance. In many diagnostics and metrics, more than
-one observational data set or meteorological reanalysis is used to assess
-uncertainties in observations.
+The ESMValTool tutorial was made to help people learn how to install, use,
+and develop ESMValTool.
 
-The main idea of the ESMValTool is to provide a broad suite of diagnostics which
-can be performed easily when new model simulations are run.
-The suite of diagnostics needs to be broad enough to reflect the diversity and
-complexity of Earth System Models, but must also be robust enough to be run
-routinely or semi-operationally. In order the address these challenging
-objectives the ESMValTool is conceived as a framework which allows community
-contributions to be bound into a coherent framework.
+The tutorial uses the software carpentry format and tools, and can be
+followed both independently and in a taught tutorial environment.
+
+The tutorial has been produced by the ESMValTool User Engagement team,
+and may be forked, developped and rehosted by other groups.
+
 
 ## License
 The ESMValTool is released under the Apache License, version 2.0. Citation of
@@ -74,12 +59,17 @@ Geosci. Model Dev., 13, 1179–1199, https://doi.org/10.5194/gmd-13-1179-2020,
 2020.
 
 Besides the above citation, users are kindly asked to register any journal article
- (or other scientific documents) that use the software at the ESMValTool webpage
- (http://www.esmvaltool.org/). Citing the Software Documentation Paper and
- registering your paper(s) will serve to document the scientific impact of the Software,
- which is of vital importance for securing future funding.
- You should consider this an obligation if you have taken advantage of the
-  ESMValTool, which represents the end product of considerable effort by the development team.
+(or other scientific documents) that use the software at the ESMValTool webpage
+(http://www.esmvaltool.org/).
+
+Citing the Software Documentation Paper and registering your papers
+will serve to document the scientific impact of the Software,
+which is of vital importance for securing future funding.
+
+You should consider this an obligation if you have taken advantage of the
+ESMValTool, which represents the end product of considerable effort by the
+development teams.
+
 
 ## Acknowledgements
 

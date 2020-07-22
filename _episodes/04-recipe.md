@@ -5,8 +5,8 @@ exercises: 30
 questions:
 - "What is a recipe?"
 - "How can I do the same preprocessing on many different datasets?"
-- "What are the files and directories that are created after running a recipe?"
 - "What happens when I run a recipe?"
+- "What are the files and directories that are created after running a recipe?"
 objectives:
 - "Run an ESMValTool recipe"
 - "Understand the purpose of different settings in the recipe"
@@ -70,9 +70,9 @@ manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overvie
 
 ## How to run ESMValTool
 
-Once you’ve set up your conda environment and installed ESMValTool (see episode
-#2 LINK) and set up your config-user.yml file to correctly match you local
-environment, (see episode #3 LINK), ESMValTool is invoked using a simple
+Once you’ve set up your conda environment and installed ESMValTool (see[ episode
+#2]({{ page.root}}{% link _episodes/02-installation.md %})) and set up your `config-user.yml` file to correctly match your local
+environment, (see [episode #3]({{ page.root}}{% link _episodes/03-configuration.md %})), ESMValTool is invoked using a simple
 command:
 
 ~~~
@@ -94,7 +94,7 @@ The recipe presented here is a simple, basic recipe that takes a single dataset
 and produces a time series plot.
 
 Please download the following recipe into your ESMValTool working directory with
-the name: recipe_example.yml LINK
+the name: [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
 
 > ## recipe_example.yml
 > ```YAML
@@ -152,8 +152,9 @@ the name: recipe_example.yml LINK
 
 Please note the following sections:
 
-  - documentation: lines 4-20.
-  The documentation consists of the following information:
+  - documentation: lines 4-20
+  
+    The documentation consists of the following information:
 
     - description: a short description of the recipe
     - authors: a list of authors (linked to `esmvaltool/config-references.yml`)
@@ -179,16 +180,16 @@ Please note the following sections:
 
   - preprocessors: lines 25-28
 
-    The definition for different preprocessors or combinations. If no
+    The definition for different preprocessors or preprocessor combinations. If no
     preprocessing is needed, the preprocessor can be set to an empty python
     dictionary (`{}`). Here, we produce annual means. The preprocessor is called
     with its name (here: prep_timeseries), later in the diagnostic (line 39).
-    (See episode #5 LINK for more details.)
+    (See [episode #5]({{ page.root}}{% link _episodes/05-preprocessor.md %}) for more details.)
 
   - diagnostic section: lines 30-42
 
     The information of which diagnostic script to run with which variables. The
-    diagnostics section has some indents that are free to call.
+    diagnostics section has some indents that are free to be called.
 
     - the first indent (here: diag_timeseries_temperature) is the diagnostic’s
       name (a string without whitespace), used for setting up the respective
@@ -229,7 +230,7 @@ Please note the following sections:
 {: .solution}
 
 > ## What do you think running this recipe will produce?
-> A time series plot of thetaoga with increements of 1 year.
+> A time series plot of thetaoga with increments of 1 year.
 {: .solution}
 
 > ## Not all parts of the recipe are mandatory
@@ -346,7 +347,7 @@ runtime. This folder should contain four folders:
 > ## Inspect the output:
 > Now that you have run the esmvaltool command for the first time, please locate
 > your output directory. If you’re missing the preproc directory, then your
-> config-user.yml file has the value remove_preproc_dir set to true (this is
+> `config-user.yml` file has the value remove_preproc_dir set to true (this is
 > used to save disk space). Please set this value to false and run the recipe
 > again.
 >
@@ -663,8 +664,8 @@ The snippets for the edits can be found below:
 
 > ## esmvaltool not found
 > Can you run the command “esmvaltool -h”. If no, then it’s possible that the
-> conda environment isn’t activated. Please return to the installation section,
-> episode #2 LINK.
+> conda environment isn’t activated. Please return to the in
+> [installation section]({{ page.root }}{% link _episodes/02-installation.md %}).
 {: .solution}
 
 > ## The error message is `esmvalcore._recipe_checks.RecipeError: Missing data`

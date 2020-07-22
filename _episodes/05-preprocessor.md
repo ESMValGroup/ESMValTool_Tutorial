@@ -88,7 +88,7 @@ file afterwards. These do not need to be explicitly included in recipes.
 
 > ## Exercise: Adding more preprocessor steps
 >
-> Edit the [example recipe](LINK to episode #4) to first change the variable
+> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable
 > thetao, then add preprocessors to average over the latitude and longitude
 > dimensions and finally average over the depth. Now run the recipe.
 >

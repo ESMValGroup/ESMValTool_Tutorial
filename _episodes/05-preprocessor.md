@@ -1,7 +1,7 @@
 ---
 title: "Working with preprocessors"
-teaching: 20
-exercises: 20
+teaching: 15
+exercises: 45
 questions:
 - "How do I set up a preprocessor?"
 - "Can I use different preprocessors for different variables?"

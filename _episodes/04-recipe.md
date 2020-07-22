@@ -1,7 +1,7 @@
 ---
 title: "Running a recipe (First example)"
-teaching: 20
-exercises: 25
+teaching: 25
+exercises: 30
 questions:
 - "What is a recipe?"
 - "How can I do the same preprocessing on many different datasets?"
@@ -74,6 +74,13 @@ Once you’ve set up your conda environment and installed ESMValTool (see[ episo
 #2]({{ page.root}}{% link _episodes/02-installation.md %})) and set up your `config-user.yml` file to correctly match your local
 environment, (see [episode #3]({{ page.root}}{% link _episodes/03-configuration.md %})), ESMValTool is invoked using a simple
 command:
+
+~~~
+esmvaltool run recipe
+~~~
+{: .source}
+
+If the configuration file is not in the default {HOME}\.esmvaltool\ path you can pass its path explicitly:
 
 ~~~
 esmvaltool run --config_file configuration recipe

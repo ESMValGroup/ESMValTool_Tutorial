@@ -53,7 +53,7 @@ and run one of those.
 >
 > - [Read the docs page](https://esmvaltool.readthedocs.io/)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
-> - [Technical description papers](../CITATION)
+> - [Technical description papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
 > - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
 > - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
 {: .callout}
@@ -66,8 +66,8 @@ There are lots of resources available for helping you use ESMValTool.
 If you get stuck, a great starting point is to create a
 [new issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose).
 
-There is also an ESMValTool email list, please see
-[contact information](https://docs.esmvaltool.org/en/latest/community/contact.html).
+There is also an ESMValTool email list, you can ask your questions via
+[email](mailto:esmvaltool@listserv.dfn.de).
 
 ### What if I find a bug?
 
@@ -81,7 +81,7 @@ To report a bug, please create a new issue using the
 In your bug report, please describe the problem as clearly and as completely as possible.
 You may need to include a recipe or the output log as well.
 
-### How do I cite ESMValTool?
+### How do I cite the Tutorial and ESMValTool?
 
 Please see [citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
 

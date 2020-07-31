@@ -73,7 +73,7 @@ independently.
 >
 > - [Documentation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
-> - [Technical description papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
+> - [Papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
 > - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)
 > - [ESMValCore Source code](https://github.com/ESMValGroup/ESMValCore)
 >

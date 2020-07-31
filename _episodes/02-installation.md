@@ -145,7 +145,13 @@ tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
 This will extract the files to a directory named `~/julia/julia-1.0.5`. To run
 Julia, you need to add the full path of Julia's `bin` folder to PATH environment
 variable. To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
-Open the file in your favorite editor and add a new line as follows at the
+Open the file in a text editor called Nano:
+
+```bash
+nano ~/.bashrc
+```
+
+and add a new line as follows at the
 bottom of the file:
 
 ```bash
@@ -181,6 +187,16 @@ julia
 ```
 
 to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
+
+> ## Text editor side note
+>
+> No matter what editor you use, you will need to know where it searches
+> for and saves files. If you start it from the shell, it will (probably)
+> use your current working directory as its default location. We use ``nano``
+> in examples here because it is one of the least complex text editors.
+> Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
+> and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
+{: .callout}
 
 ## Install the ESMValTool package
 

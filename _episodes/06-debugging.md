@@ -50,8 +50,8 @@ conda activate esmvaltool
 
 > ## conda environment
 >
-> More information about conda environment can be found at [Installation]({{
-> page.root }}{% link _episodes/02-installation.md %})
+> More information about the conda environment can be found at
+> [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 {: .callout}
 
 Let's change the working directory to the folder ``run`` and list its files:

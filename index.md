@@ -35,19 +35,8 @@ independently.
 
 > ## Prerequisites
 >
-> *Minimal requirements:*
->
-> - Basic understanding of your preferred command line interface (ie a bash
->   terminal)
-> - Laptop/desktop with
->   [(mini)conda](https://docs.conda.io/en/latest/miniconda.html) installed
-> - Access to CMIP data
->
-> *Optional, but useful:*
->
-> - Basic understanding of git
-> - Access to a suitable computing system (eg CEDA-Jasmin, DKRZ-Mistral)
-> - GitHub account
+> The prerequisites for the tutorial are listed on the
+> [tutorial setup page]({{ page.root }}{% link setup.md %}).
 >
 {: .prereq}
 

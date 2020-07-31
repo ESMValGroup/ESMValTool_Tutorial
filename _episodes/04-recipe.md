@@ -146,9 +146,20 @@ the name: [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutoria
 > ## Explore the recipe
 > Use the following command and investigate the sample recipe.
 > ~~~bash
-> vim  recipe_example.yml
+> nano recipe_example.yml
 > ~~~
 {: .challenge}
+
+> ## Text editor side note
+>
+> No matter what editor you use, you will need to know where it searches
+> for and saves files. If you start it from the shell, it will (probably)
+> use your current working directory as its default location. We use ``nano``
+> in examples here because it is one of the least complex text editors.
+> Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
+> and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
+> The line numbers can be shown by pressing <kbd>alt</kbd> + <kbd>shift</kbd> + <kbd>3</kbd>.
+{: .callout}
 
 Please note the following sections:
 

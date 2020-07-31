@@ -273,9 +273,20 @@ Please note the following sections:
 
 > ## Running ESMValTool
 >
-> Use the command:
+> The example recipe presented above requires a single data file. If you are not
+> working on a system with data available, you can download the file with the
+> command:
+>
 > ~~~bash
-> esmvaltool run --config_file ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
+> wget http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
+> ~~~
+>
+> Make sure to move the downloaded file to the directory you configured in
+> [episode #3]({{ page.root}}{% link _episodes/03-configuration.md %}).
+>
+> To run the recipe, use the command:
+> ~~~bash
+> esmvaltool run ./path_to_file/recipe_example.yml
 > ~~~
 >
 > Follow the terminal guiding you through the subprocesses that are running. Can

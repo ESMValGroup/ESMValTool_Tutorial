@@ -176,5 +176,4 @@ You can reach us by [email][email].
 [swc-handbook]: https://carpentries.github.io/curriculum-development/
 [swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
-[ea-site]: https://github.com/escience-academy
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam

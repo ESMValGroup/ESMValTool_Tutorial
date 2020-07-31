@@ -31,11 +31,17 @@ to help work through a specific issue (not developed yet).
 
 From here, there are lots of ways that you can continue to use ESMValTool.
 
-- You can start from the list of [existing recipes](https://docs.esmvaltool.org/en/latest/recipes/index.html)
+- You can start from the list of
+[existing recipes](https://docs.esmvaltool.org/en/latest/recipes/index.html)
 and run one of those.
-- You can learn how to [write your own diagnostics and recipes](https://docs.esmvaltool.org/en/latest/develop/index.html).
-- You can [contribute your recipe and diagnostics](https://docs.esmvaltool.org/en/latest/community/index.html) back into ESMValTool.
-- You can learn how to prepare [observational datasets](https://docs.esmvaltool.org/en/latest/input.html#observations) to be suitable for use by ESMValTool.
+- You can learn how to
+[write your own diagnostics and recipes](https://docs.esmvaltool.org/en/latest/develop/index.html).
+- You can
+[contribute your recipe and diagnostics](https://docs.esmvaltool.org/en/latest/community/index.html)
+back into ESMValTool.
+- You can learn how to prepare
+[observational datasets](https://docs.esmvaltool.org/en/latest/input.html#observations)
+to be suitable for use by ESMValTool.
 
 > ## `Exercise: What do you want to do next?`
 >

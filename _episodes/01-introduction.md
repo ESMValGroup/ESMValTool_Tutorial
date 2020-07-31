@@ -87,7 +87,8 @@ let's start with a quick check to synchronize our expectations.
 {: .challenge}
 
 To learn more about ESMValTool, you can look at the section
-``Where can I get more information on ESMValTool?`` in the lesson [Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/07-conclusions.md %}).
+``Where can I get more information on ESMValTool?`` in the lesson
+[Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/07-conclusions.md %}).
 
 ## How does ESMValTool work
 

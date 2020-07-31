@@ -24,8 +24,9 @@ ESMValTool is open source and available on github, and is written
 in PEP8-compliant Python3.
 
 For more details on ESMValTool, please go to:
-- [https://esmvaltool.org](ESMValTool home page)
-- [https://esmvaltool.readthedocs.io/](ESMValTool Read The Docs page)
+
+- [ESMValTool home page](https://esmvaltool.org)
+- [ESMValTool Read The Docs page](https://esmvaltool.readthedocs.io/)
 
 
 ## ESMValTool_Tutorial
@@ -48,7 +49,8 @@ and ESMValCore (doi:10.5281/zenodo.3387139) and version number.
 
 ## Citation
 
-Please see [citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
+Please see
+[citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
 
 Citing the Software Documentation Paper and registering your papers
 will serve to document the scientific impact of the Software,

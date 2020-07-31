@@ -81,6 +81,7 @@ independently.
 
 ## How to cite the Tutorial and ESMValTool
 
-Please see [citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
+Please see
+[citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
 
 {% include links.md %}

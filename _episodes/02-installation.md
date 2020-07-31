@@ -7,7 +7,7 @@ questions:
 - "How do I confirm that the installation was successful?"
 objectives:
 - "Install ESMValTool"
-- "Demonstate that the installation was successful"
+- "Demonstrate that the installation was successful"
 keypoints:
 - "All the required packages can be installed using conda"
 - "You can find more information about installation in the documentation"

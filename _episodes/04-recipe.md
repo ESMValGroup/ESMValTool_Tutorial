@@ -157,7 +157,7 @@ wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/da
 {: .solution}
 
 > ## Explore the recipe
-> Use the following command and investigate the sample recipe.
+> We use the text editor ``nano`` to investigate the sample recipe.
 > ~~~bash
 > nano recipe_example.yml
 > ~~~

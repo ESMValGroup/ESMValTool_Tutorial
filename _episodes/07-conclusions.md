@@ -59,7 +59,7 @@ to be suitable for use by ESMValTool.
 >
 > - [Documenation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
-> - [Technical description papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
+> - [Papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
 > - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
 > - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
 {: .callout}

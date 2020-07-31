@@ -27,8 +27,7 @@ best to help you if you have any questions, concerns, or experience any
 difficulties along the way.
 
 If you work or study in climate-related domains and would be interested in
-getting involved, you can reach us by email.
-Please see the [contact information][contact-info].
+getting involved, you can reach us by [email](email).
 
 ## Authors
 
@@ -43,4 +42,4 @@ To cite this tutorial, please consult with [CITATION](CITATION).
 [tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
 [tutorial-site]: https://esmvalgroup.github.io/ESMValTool_Tutorial
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
-[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html
+[email]: mailto:esmvaltool@listserv.dfn.de

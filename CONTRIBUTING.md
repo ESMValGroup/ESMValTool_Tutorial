@@ -161,10 +161,9 @@ This address can be opened in your browser to preview the tutorial website.
 
 General discussion of the tutorial happens in
 ESMValTool [User Engagement Team][user-engagement].
-You can reach us by email.
-Please see the [contact information][contact-info].
+You can reach us by [email][email].
 
-[email]: mailto:TODO_FIX_ME
+[email]: mailto:esmvaltool@listserv.dfn.de
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
 [tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
@@ -179,4 +178,3 @@ Please see the [contact information][contact-info].
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [ea-site]: https://github.com/escience-academy
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
-[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html

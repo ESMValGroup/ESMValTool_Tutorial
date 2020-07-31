@@ -286,7 +286,7 @@ Please note the following sections:
 >
 > To run the recipe, use the command:
 > ~~~bash
-> esmvaltool run ./path_to_file/recipe_example.yml
+> esmvaltool run ./recipe_example.yml
 > ~~~
 >
 > Follow the terminal guiding you through the subprocesses that are running. Can

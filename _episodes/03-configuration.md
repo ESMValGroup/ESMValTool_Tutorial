@@ -34,7 +34,7 @@ You can generate the default configuration file by running:
 It will save the file to: ``{HOME}/.esmvaltool/config-user.yml``.
 
 Now, let's change our working directory in a terminal window to
-``{HOME}/.esmvaltool``. Then, we run a text editor called Nano to have a look
+``{HOME}/.esmvaltool``. Then, we run a text editor called ``nano`` to have a look
 inside the configuration file:
 
 ~~~bash

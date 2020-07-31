@@ -51,7 +51,9 @@ independently.
 3. If you get stuck, help is always available from the tutors, from ESMValTool
     developers via the [github issues
     page](https://github.com/ESMValGroup/ESMValTool/issues) or via the
-    [ESMValTool email list](mailto:esmvaltool@listserv.dfn.de).
+    ESMValTool email list. Please see
+    [information](https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list)
+    on how to subscribe to user mailing list.
 
 4. This tutorial includes several advanced lessons after the conclusion. These
    advanced lessons should be treated like “mini-tutorials”, and include aspects
@@ -59,30 +61,17 @@ independently.
 
 > ## Additional Resources
 >
-> - [Read the docs page](https://esmvaltool.readthedocs.io/)
+> - [Documentation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
-> - [Technical description paper](https://doi.org/10.5194/gmd-13-1179-2020)
+> - [Papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
 > - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)
 > - [ESMValCore Source code](https://github.com/ESMValGroup/ESMValCore)
 >
 {: .callout}
 
-## How to cite ESMValTool
+## How to cite the Tutorial and ESMValTool
 
-Please cite this tutorial as:
-
-- ESMValTool 2.0 tutorial, ESMValTool developers, version [ADD VERSION],
-  [https://github.com/ESMValGroup/tutorial](https://github.com/ESMValGroup/tutorial),
-  [DATE].
-
-Please cite ESMValTool as:
-
-- Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A.,
-  Lorenz, R., Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., Weigel,
-  K., and Zechlau, S.: Earth System Model Evaluation Tool (ESMValTool) v2.0 –
-  diagnostics for emergent constraints and future projections from Earth
-  system models in CMIP, Geosci. Model Dev. Discuss.,
-  [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60),
-  in review, 2020.
+Please see
+[citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
 
 {% include links.md %}

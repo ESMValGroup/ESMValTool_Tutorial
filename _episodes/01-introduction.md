@@ -86,11 +86,9 @@ let's start with a quick check to synchronize our expectations.
 > {: .solution}
 {: .challenge}
 
-To learn more about ESMValTool, you can look at the
-[documentation](https://docs.esmvaltool.org/en/latest/introduction.html), the
-[official website](https://www.esmvaltool.org/about.html), or the [overview
-paper](https://gmd.copernicus.org/articles/13/1179/2020/) in *Geoscientific
-Model Development*.
+To learn more about ESMValTool, you can look at the section
+``Where can I get more information on ESMValTool?`` in the lesson
+[Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/07-conclusions.md %}).
 
 ## How does ESMValTool work
 

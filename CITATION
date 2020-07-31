@@ -6,10 +6,12 @@ Please cite this tutorial as:
 
 and cite ESMValTool as:
 
-- Lauer, A., Eyring, V., Bellprat, O., Bock, L., Gier, B. K., Hunter, A.,
-  Lorenz, R., Pérez-Zanón, N., Righi, M., Schlund, M., Senftleben, D., Weigel,
-  K., and Zechlau, S.: Earth System Model Evaluation Tool (ESMValTool) v2.0 –
-  diagnostics for emergent constraints and future projections from Earth
-  system models in CMIP, Geosci. Model Dev. Discuss.,
-  [https://doi.org/10.5194/gmd-2020-60](https://doi.org/10.5194/gmd-2020-60),
-  in review, 2020.
+- Righi, M., Andela, B., Eyring, V., Lauer, A., Predoi, V., Schlund, M.,
+  Vegas-Regidor, J., Bock, L., Brötz, B., de Mora, L., Diblen, F., Dreyer, L.,
+  Drost, N., Earnshaw, P., Hassler, B., Koldunov, N., Little, B., Loosveldt Tomas,
+  S., and Zimmermann, K.:
+  Earth System Model Evaluation Tool (ESMValTool) v2.0 – technical overview,
+  Geosci. Model Dev., 13, 1179–1199, https://doi.org/10.5194/gmd-13-1179-2020,2020.
+
+See additional resources at https://www.esmvaltool.org/references.html.
+

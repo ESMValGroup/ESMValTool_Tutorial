@@ -71,7 +71,7 @@ independently.
 
 > ## Additional Resources
 >
-> - [Read the docs page](https://esmvaltool.readthedocs.io/)
+> - [Documentation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
 > - [Technical description papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
 > - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)

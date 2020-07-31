@@ -26,7 +26,7 @@ in PEP8-compliant Python3.
 For more details on ESMValTool, please go to:
 
 - [ESMValTool home page](https://esmvaltool.org)
-- [ESMValTool Read The Docs page](https://esmvaltool.readthedocs.io/)
+- [ESMValTool Documentation page](https://docs.esmvaltool.org)
 
 
 ## ESMValTool_Tutorial

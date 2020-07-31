@@ -53,25 +53,22 @@ observational data would also be available at these sites.
 
 Here are a few options for compute clusters with ESGF nodes:
 
-- [CEDA-Jasmin (UK)](#CEDA-Jasmin)
-- [DKRZ (Germany)](#DKRZ)
+- [CEDA-Jasmin (UK)](#ceda-jasmin)
+- [DKRZ (Germany)](#dkrz)
 
 A full list of all ESGF nodes is available
 [here](https://esgf.llnl.gov/nodes.html).
 
-
 If you're running on a computing cluster without an ESGF node, such as your
-local machine, or your institue machine, you will most likely have to make a
+local machine, or your institute machine, you will most likely have to make a
 local copy of the data that you need.
 
 If necessary, data can be downloaded using the
 [synda tool](https://prodiguer.github.io/synda/index.html).
 
-
 ### CEDA-Jasmin
 
 Please skip this section if you are not going to use JASMIN and go [here](#Github-account-(Advanced)).
-
 
 If you do not already have an account on JASMIN, then request an account as soon
 as possible. Please follow [these instructions on how to create a Jasmin
@@ -94,7 +91,6 @@ tutorial.
 Note that you have only created an account for the web-interface. To log into
 the jasmin machine and do work, you'll need to create a login account too using
 [this page](https://help.jasmin.ac.uk/article/161-get-login-account).
-
 
 #### Access to data on JASMIN
 
@@ -266,15 +262,13 @@ You will also need to able to use:
 
 #### Linux/Unix
 
-For Linux/Unix systems, follow the instructions of the [Installation episode]({{
+For Linux/Unix systems, please follow the instructions of the [Installation episode]({{
 page.root}}{% link _episodes/02-installation.md  %}).
 
-ESMValTool is easilly installable in Linux/unix, please follow
-the installation instructions in epiode 2.
 
 #### Mac OSx
 
-Also, for Mac OSx systems, follow the instructions of the [Installation episode]({{
+Also, for Mac OSx systems, please follow the instructions of the [Installation episode]({{
 page.root}}{% link _episodes/02-installation.md  %}).
 
 #### Windows

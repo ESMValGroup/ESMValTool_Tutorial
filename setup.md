@@ -70,7 +70,7 @@ If you're running on a computing cluster without an ESGF node, such as your
 local machine, or your institue machine, you will most likely have to make a
 local copy of the data that you need.
 
-If neccesairy, data can be downloaded using the
+If necessary, data can be downloaded using the
 [synda tool](https://prodiguer.github.io/synda/index.html).
 
 
@@ -253,23 +253,16 @@ Data storage:
 Running batch jobs: Info and examples on SLURM job scheduling system at DKRZ can
 be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
 
-
 Congratulations! Please go here [here](#GitHub-account-(Advanced)) next.
 
-
-<!-- ### Other computing systems
-Fix me
- -->
-
-
-### Your local machine
+### Using your own machine
 
 Please skip this section if you are not going to use ESMValTool on your
 local machine and go [here](#gitHub-account-(advanced)).
 
 If you are planning on running ESMValTool on your own machine, please make sure
 that you are able to download CMIP data and that you have several GB of space
-available to install conda & ESMVAlTool, but also enough to make a copy of some
+available to install conda & ESMValTool, but also enough to make a copy of some
 data.
 
 You will also need to able to use:
@@ -277,15 +270,18 @@ You will also need to able to use:
 - conda
 - synda
 
-#### Linux/unix
+#### Linux/Unix
+
+For Linux/Unix systems, follow the instructions of the [Installation episode]({{
+page.root}}{% link _episodes/02-installation.md  %}).
 
 ESMValTool is easilly installable in Linux/unix, please follow
 the installation instructions in epiode 2.
 
 #### Mac OSx
 
-Installing ESMValTool in a Mac OSx environment is possible, but not
-directly supported.  
+Also, for Mac OSx systems, follow the instructions of the [Installation episode]({{
+page.root}}{% link _episodes/02-installation.md  %}).
 
 #### Windows
 
@@ -293,7 +289,6 @@ ESMValTool does not directly support Windows,
 but successful usage has been reported through the
 [Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
 available in Windows 10.
-
 
 ## GitHub account (Advanced)
 
@@ -320,14 +315,12 @@ Raising an issue is the act of creating a new issue. If you are asked to raise
 an issue, please follow any instructions that you are given, and also make sure
 that you read the default issue text.
 
-
 ### GitHub pull requests
 
 A GitHub pull request is the act of requesting that a branch is merged with another branch.
 
 This is an advanced feature of GitHub, and will generally be performed by the
 ESMValTool development team.
-
 
 ## Install conda
 
@@ -336,8 +329,6 @@ on your system before the tutorial starts. In some cases, your system may have a
 central version installed already.
 
 More details on this process are available in the [Installation episode]({{
-page.root}}[% link _episodes/02-installation.md  %}).
-
-
+page.root}}{% link _episodes/02-installation.md  %}).
 
 {% include links.md %}

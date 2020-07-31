@@ -244,12 +244,12 @@ to display the command line help.
 > >
 > > In my case when I run
 > > ~~~
-> > esmvaltool --version
+> > esmvaltool version
 > > ~~~
 > > {: .bash}
 > > I get that my installed ESMValTool version is
 > > ~~~
-> > 2.0.0b9
+> > ESMValCore: 2.0.0
 > > ~~~
 > > {: .output}
 > {: .solution}

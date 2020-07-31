@@ -20,9 +20,9 @@ keypoints:
 ## The configuration file
 
 The ``config-user.yml`` configuration file contains all the global level
-information needed by ESMValTool to run. This is an [YAML
-file](https://yaml.org/spec/1.2/spec.html). An example configuration file can be
-found in the ESMValCore repository:
+information needed by ESMValTool to run.
+This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
+An example configuration file can be found in the ESMValCore repository:
 [config-user-example.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-user.yml).
 
 You can generate the default configuration file by running:
@@ -184,7 +184,8 @@ rootpath:
   default: ~/default_inputpath
   CORDEX: ~/default_inputpath
 ```
-Site-specific entries for Jasmin, DKRZ and ETHZ are listed at the end of the example configuration file.
+Site-specific entries for Jasmin, DKRZ and ETHZ are listed at the end of the
+example configuration file.
 
 In this lesson, we will work with data from
 [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).

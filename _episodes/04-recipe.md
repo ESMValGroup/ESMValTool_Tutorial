@@ -64,9 +64,9 @@ diagnostics and description.
 
 The information you provide in the recipe is not only affecting the processes
 you are starting, but also the directory names your output will be structured
-in. For additional reads, please have a look at the recipe format description in
-the [ESMValTool
-manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics).
+in.
+For additional reads, please have a look at the recipe format description in the
+[ESMValTool manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics).
 
 ## How to run ESMValTool
 
@@ -80,7 +80,6 @@ environment, (see
 ~~~bash
 esmvaltool run /path/to/recipe_example.yml
 ~~~
-{: .source}
 
 If the configuration file is not in the default location
 `~/.esmvaltool/config-user.yml`, you can pass its path explicitly:
@@ -88,7 +87,6 @@ If the configuration file is not in the default location
 ~~~bash
 esmvaltool run --config_file /path/to/config-user.yml /path/to/recipe_example.yml
 ~~~
-{: .source}
 
 Note that the path to the recipe can be either a path to a recipe file or it can
 be the name of an installed recipe.
@@ -96,7 +94,6 @@ To view the list of installed recipes, run
 ~~~bash
 esmvaltool recipes list
 ~~~
-{: .source}
 
 To try your hand with a basic recipe, please work through this episode.
 
@@ -104,13 +101,13 @@ To try your hand with a basic recipe, please work through this episode.
 The recipe presented here is a simple, basic recipe that takes a single dataset
 and produces a time series plot.
 
-Please download [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
+Please download
+[recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
 into your ESMValTool working directory:
 
 ~~~bash
 wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/data/recipe_example.yml
 ~~~
-{: .source}
 
 > ## recipe_example.yml
 > ```YAML
@@ -174,9 +171,12 @@ Please note the following sections:
 
     - description: a short description of the recipe
     - authors: a list of authors (linked to `esmvaltool/config-references.yml`)
-    - maintainer: a list of maintainers (linked to `esmvaltool/config-references.yml`)
-    - references: a list of references (linked to a bibtexfile in `esmvaltool/references` with the same name)
-    - projects: a list of projects (linked to `esmvaltool/config-references.yml`)
+    - maintainer: a list of maintainers (linked to
+      `esmvaltool/config-references.yml`)
+    - references: a list of references (linked to a bibtexfile in
+      `esmvaltool/references` with the same name)
+    - projects: a list of projects (linked to
+      `esmvaltool/config-references.yml`)
 
 
   - datasets: lines 22-23
@@ -196,11 +196,12 @@ Please note the following sections:
 
   - preprocessors: lines 25-28
 
-    The definition for different preprocessors or preprocessor combinations. If no
-    preprocessing is needed, the preprocessor can be set to an empty python
-    dictionary (`{}`). Here, we produce annual means. The preprocessor is called
+    The definition for different preprocessors or preprocessor combinations.
+    If no preprocessing is needed, the preprocessor can be set to an empty
+    map (`{}`). Here, we produce annual means. The preprocessor is called
     with its name (here: prep_timeseries), later in the diagnostic (line 39).
-    (See [episode #5]({{ page.root}}{% link _episodes/05-preprocessor.md %}) for more details.)
+    (See [episode #5]({{ page.root}}{% link _episodes/05-preprocessor.md %})
+    for more details.)
 
   - diagnostic section: lines 30-42
 

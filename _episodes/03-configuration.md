@@ -36,7 +36,7 @@ path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.esmvaltool` directory in the terminal use
 `ls -la ~`.
 
-We run a text editor called Nano to have a look inside the configuration file:
+We run a text editor called ``nano`` to have a look inside the configuration file:
 
 ~~~bash
   nano ~/.esmvaltool/config-user.yml

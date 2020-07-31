@@ -78,7 +78,7 @@ There is also an ESMValTool email list, you can ask your questions via
 ### What if I find a bug?
 
 If you find a bug, please report it back to the ESMValTool team.
-This will help us fix it so that you can continue working,
+This will help us fix it, so that you can continue working,
 but also it means that ESMValTool will be more stable for everyone else as well.
 
 To report a bug, please create a new issue using the

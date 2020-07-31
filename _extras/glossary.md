@@ -13,6 +13,10 @@ Here, there are some definitions used throughout this tutorial:
 - **CMOR**: CMOR stands for [“Climate Model Output Rewriter” library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant netCDF files that fulfill the requirements of many of the climate community's standard model experiments.
 
 - **Recipe**: A recipe contains the instructions that you give to ESMValTool describing what you want it to do. This includes four main sections: datasets, preprocessors, diagnostics and description.
+=======
+- **CMOR**:
+
+- **Recipe**: Recipes are the instructions that you give to ESMValTool that tell it what you want to do. This includes four main sections: datasets, preprocessors, diagnostics and description.
 
 For more details on ESMValTool, please go to:
 Additional info can be found in [ESMValTool home page](https://esmvaltool.org)

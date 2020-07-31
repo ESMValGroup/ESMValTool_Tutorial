@@ -256,10 +256,18 @@ available to install conda & ESMValTool, but also enough to make a copy of some
 data.
 
 For this tutorial you can download the required data files by 
-1. Going to https://esgf-data.dkrz.de/projects/esgf-dkrz/ 
-2. Performing the following search
-  * 
-3. Download the NetCDF file to a ~/
+1. Going to https://esgf-data.dkrz.de/search/cmip5-dkrz/
+2. Performing the following search constraints
+  * Model = HadGEM2-ES
+  * Experiment = historical
+  * Time frequency = mon
+  * Ensemble =  r1i1p1 
+  * Variable = thetaoga
+3. Press search button
+4. On single single search result press `Show files`
+5. Click on more files
+6. Find the thetaoga datafile in the list
+7. Download the NetCDF file to a ~/
 
 You will also need to able to use:
 - git

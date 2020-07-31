@@ -161,7 +161,7 @@ This address can be opened in your browser to preview the tutorial website.
 
 General discussion of the tutorial happens in
 ESMValTool [User Engagement Team][user-engagement].
-Please see [information](contact-info) on how to subscribe to user mailing list.
+Please see [information][contact-info] on how to subscribe to user mailing list.
 
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/

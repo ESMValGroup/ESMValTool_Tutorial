@@ -28,7 +28,7 @@ difficulties along the way.
 
 If you work or study in climate-related domains and would be interested in
 getting involved, you can reach us by email.
-Please see [information](contact-info) on how to subscribe to user mailing list.
+Please see [information][contact-info] on how to subscribe to user mailing list.
 
 ## Authors
 

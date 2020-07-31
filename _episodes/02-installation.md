@@ -7,7 +7,7 @@ questions:
 - "How do I confirm that the installation was successful?"
 objectives:
 - "Install ESMValTool"
-- "Demonstate that the installation was successful"
+- "Demonstrate that the installation was successful"
 keypoints:
 - "All the required packages can be installed using conda"
 - "You can find more information about installation in the documentation"
@@ -145,7 +145,13 @@ tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
 This will extract the files to a directory named `~/julia/julia-1.0.5`. To run
 Julia, you need to add the full path of Julia's `bin` folder to PATH environment
 variable. To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
-Open the file in your favorite editor and add a new line as follows at the
+Open the file in a text editor called ``nano``:
+
+```bash
+nano ~/.bashrc
+```
+
+and add a new line as follows at the
 bottom of the file:
 
 ```bash
@@ -181,6 +187,16 @@ julia
 ```
 
 to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
+
+> ## Text editor side note
+>
+> No matter what editor you use, you will need to know where it searches
+> for and saves files. If you start it from the shell, it will (probably)
+> use your current working directory as its default location. We use ``nano``
+> in examples here because it is one of the least complex text editors.
+> Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
+> and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
+{: .callout}
 
 ## Install the ESMValTool package
 
@@ -239,8 +255,8 @@ to display the command line help.
 >
 > > ## Solution
 > >
-> > The `esmvaltool --help` command lists `-v` or `--version` as optional
-> > argument to get the version
+> > The `esmvaltool --help` command lists `version` as a
+> > command to get the version
 > >
 > > In my case when I run
 > > ~~~
@@ -250,6 +266,7 @@ to display the command line help.
 > > I get that my installed ESMValTool version is
 > > ~~~
 > > ESMValCore: 2.0.0
+> > ESMValTool: 2.0.0
 > > ~~~
 > > {: .output}
 > {: .solution}

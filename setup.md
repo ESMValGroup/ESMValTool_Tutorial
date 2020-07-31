@@ -255,16 +255,20 @@ that you are able to download CMIP data and that you have several GB of space
 available to install conda & ESMValTool, but also enough to make a copy of some
 data.
 
+For this tutorial you can download the required data files by 
+1. Going to https://esgf-data.dkrz.de/projects/esgf-dkrz/ 
+2. Performing the following search
+  * 
+3. Download the NetCDF file to a ~/
+
 You will also need to able to use:
 - git
 - conda
-- synda
 
 #### Linux/Unix
 
 For Linux/Unix systems, please follow the instructions of the [Installation episode]({{
 page.root}}{% link _episodes/02-installation.md  %}).
-
 
 #### Mac OSx
 

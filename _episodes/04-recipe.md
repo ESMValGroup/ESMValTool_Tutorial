@@ -70,20 +70,31 @@ manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overvie
 
 ## How to run ESMValTool
 
-Once you’ve set up your conda environment and installed ESMValTool (see[ episode
-#2]({{ page.root}}{% link _episodes/02-installation.md %})) and set up your `config-user.yml` file to correctly match your local
-environment, (see [episode #3]({{ page.root}}{% link _episodes/03-configuration.md %})), ESMValTool is invoked using a simple
-command:
+Once you’ve set up your conda environment and installed ESMValTool (see
+[episode #2]({{ page.root}}{% link _episodes/02-installation.md %})
+) and set up your `config-user.yml` file to correctly match your local
+environment, (see
+[episode #3]({{ page.root}}{% link _episodes/03-configuration.md %})
+), ESMValTool is invoked using the command:
 
-~~~
-esmvaltool run recipe
+~~~bash
+esmvaltool run /path/to/recipe_example.yml
 ~~~
 {: .source}
 
-If the configuration file is not in the default {HOME}\.esmvaltool\ path you can pass its path explicitly:
+If the configuration file is not in the default location
+`~/.esmvaltool/config-user.yml`, you can pass its path explicitly:
 
+~~~bash
+esmvaltool run --config_file /path/to/config-user.yml /path/to/recipe_example.yml
 ~~~
-esmvaltool run --config_file configuration recipe
+{: .source}
+
+Note that the path to the recipe can be either a path to a recipe file or it can
+be the name of an installed recipe.
+To view the list of installed recipes, run
+~~~bash
+esmvaltool recipes list
 ~~~
 {: .source}
 
@@ -93,8 +104,13 @@ To try your hand with a basic recipe, please work through this episode.
 The recipe presented here is a simple, basic recipe that takes a single dataset
 and produces a time series plot.
 
-Please download the following recipe into your ESMValTool working directory with
-the name: [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
+Please download [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
+into your ESMValTool working directory:
+
+~~~bash
+wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/data/recipe_example.yml
+~~~
+{: .source}
 
 > ## recipe_example.yml
 > ```YAML
@@ -153,7 +169,7 @@ the name: [recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutoria
 Please note the following sections:
 
   - documentation: lines 4-20
-  
+
     The documentation consists of the following information:
 
     - description: a short description of the recipe
@@ -204,8 +220,11 @@ Please note the following sections:
     - scripts: a definition of all scripts that are used in this diagnostic
     - the next indent (here: timeseries_diag) is the scripts’ names (a string
       without whitespace) for the script to use
-    - script: a executable script with a directory relative to the
-      `esmvaltool/diag_scripts/` directory
+    - script: a script that will produce the plots. The path can be either
+      relative the ESMValTool installation with subdirectory
+      [`esmvaltool/diag_scripts/`](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/diag_scripts)
+      or an absolute path. In this case, it is a diagnostic script that is
+      installed with ESMValTool.
 
 > ## Please answer the following questions:
 > What is the short_name of the variable being analyzed?
@@ -222,7 +241,8 @@ Please note the following sections:
 {: .solution}
 
 > ## What is the diagnostic script being used?
-> `ocean/diagnostic_timeseries.py`
+> The installed copy of
+> [`ocean/diagnostic_timeseries.py`](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py)
 {: .solution}
 
 > ## How many years of data are being analyzed?

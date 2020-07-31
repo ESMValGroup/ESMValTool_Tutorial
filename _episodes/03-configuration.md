@@ -31,14 +31,15 @@ You can generate the default configuration file by running:
   esmvaltool config get_config_user
 ~~~
 
-It will save the file to: ``{HOME}/.esmvaltool/config-user.yml``.
+It will save the file to: `~/.esmvaltool/config-user.yml`, where `~` is the
+path to your home directory. Note that files and directories starting with a
+period are "hidden", to see the `.esmvaltool` directory in the terminal use
+`ls -la ~`.
 
-Now, let's change our working directory in a terminal window to
-``{HOME}/.esmvaltool``. Then, we run a text editor called Nano to have a look
-inside the configuration file:
+We run a text editor called Nano to have a look inside the configuration file:
 
 ~~~bash
-  nano config-user.yml
+  nano ~/.esmvaltool/config-user.yml
 ~~~
 
 This file contains the information for:
@@ -91,11 +92,13 @@ remove_preproc_dir: true
 
 # Path to custom config-developer file, to customise project configurations.
 # See config-developer.yml for an example. Set to [null] to use the default
- config_developer_file: null
+config_developer_file: null
 # Get profiling information for diagnostics
 # Only available for Python diagnostics
 profile_diagnostic: false
 ```
+
+In general there is no need to change the settings listed above.
 
 ## Destination directory
 
@@ -169,7 +172,7 @@ for input data based on their source. The current categories in the configuratio
 file are mentioned below. For example, CMIP is used for a dataset from
 the climate model intercomparison project whereas OBS is used for an observational dataset.
 We can find more information about the projects in the ESMValTool
-[documentation](https://docs.esmvaltool.org/en/latest/input.html).
+[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html).
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
 For each category, you can define either one path or several paths as a list.
 
@@ -181,7 +184,7 @@ rootpath:
   default: ~/default_inputpath
   CORDEX: ~/default_inputpath
 ```
-Site-specific entries for Jasmin, DKRZ and ETHZ are listed at the end of the example configuration file. 
+Site-specific entries for Jasmin, DKRZ and ETHZ are listed at the end of the example configuration file.
 
 In this lesson, we will work with data from
 [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
@@ -195,10 +198,10 @@ We add the root path of the folder where  our/your data is available.
 
 > ## Setting the correct rootpath
 >
-> - To get the data (or its correct rootpath), check instruction in [Setup]({{
->   page.root }}{% link setup.md %}).
+> - To get the data (or its correct rootpath), check instruction in
+>   [Setup]({{ page.root }}{% link setup.md %}).
 > - For more information about setting the rootpath, see also the ESMValTool
->   [documentation](https://esmvaltool.readthedocs.io/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
+>   [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/esmvalcore/datafinder.html).
 {: .callout}
 
 ## Directory structure for the data from different projects
@@ -225,7 +228,7 @@ drs:
 > ## Make your own configuration file
 >
 > It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml 
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml
 {: .callout}
 
 > ## Saving preprocessed data
@@ -235,11 +238,13 @@ drs:
 >
 >> ## Solution
 >>
-> > If the option ``save_intermediary_cubes`` is set to true in the
-> > config-user.yml file, then the intermediary cubes will also be saved in the
-> > folder ``preproc``. Also, if the option ``remove_preproc_dir`` is set to
-> > ``false``, then the ``preproc/`` directory contains all the preprocessed
-> > data and the metadata interface files.
+> > If the option ``remove_preproc_dir`` is set to ``false``, then the
+> > ``preproc/`` directory contains all the pre-processed data and the
+> > metadata interface files.
+> > If the option ``save_intermediary_cubes`` is set to ``true``
+> > then data will also be saved after each preprocessor step in the folder
+> > ``preproc``. Note that saving all intermediate results to file will result
+> > in a considerable slowdown.
 > {: .solution}
 {: .challenge}
 

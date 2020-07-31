@@ -268,7 +268,7 @@ For this tutorial you can download the required data files by
 3. Press search button
 4. On single single search result press `Show files`
 5. Click on `Show All Files` at bottom of page
-6. Find the `thetaoga` datafile in the list
+6. Find the datafile which starts with `thetaoga` in the list
 7. Use `HTTP Download` link to download the NetCDF file to `~/default_inputpath/` directory
 
 You will also need to able to use:

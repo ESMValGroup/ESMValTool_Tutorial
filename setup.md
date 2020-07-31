@@ -6,13 +6,8 @@ This page includes some information on how to prepare for participating in this 
 
 > ## Prerequisites
 >
-> The prerequisites for the tutorial are listed on the
-> [tutorials home page]({{ page.root}}[% index.md %})
->  and are also reproduced here:
->
 > *Minimal requirements:*
 >  - Basic understanding of your preferred command line interface (ie a bash terminal)
->  - Laptop/desktop with [(mini)conda](https://docs.conda.io/en/latest/miniconda.html) installed
 >  - Access to CMIP data
 >
 > *Optional, but useful:*
@@ -60,7 +55,6 @@ Here are a few options for compute clusters with ESGF nodes:
 
 - [CEDA-Jasmin (UK)](#CEDA-Jasmin)
 - [DKRZ (Germany)](#DKRZ)
-- ETHZ (Switzerland):
 
 A full list of all ESGF nodes is available
 [here](https://esgf.llnl.gov/nodes.html).

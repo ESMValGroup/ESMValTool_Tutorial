@@ -72,8 +72,10 @@ There are lots of resources available for helping you use ESMValTool.
 If you get stuck, a great starting point is to create a
 [new issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose).
 
-There is also an ESMValTool email list, you can ask your questions via
-[email](mailto:esmvaltool@listserv.dfn.de).
+There is also an ESMValTool email list.
+Please see
+[information](https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list)
+on how to subscribe to user mailing list.
 
 ### What if I find a bug?
 

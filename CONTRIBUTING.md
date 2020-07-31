@@ -27,7 +27,7 @@ by our [code of conduct](CODE_OF_CONDUCT.md).
 There are many ways to contribute:
 
 * If you do not have a [GitHub][github] account, you can send us comments by
-  [email][email]. However, we will be able to respond more quickly when you use
+  [email][contact-info]. However, we will be able to respond more quickly when you use
   one of the other methods described below.
 
 * If you have a [GitHub][github] account, work in this
@@ -161,9 +161,8 @@ This address can be opened in your browser to preview the tutorial website.
 
 General discussion of the tutorial happens in
 ESMValTool [User Engagement Team][user-engagement].
-You can reach us by [email][email].
+Please see [information](contact-info) on how to subscribe to user mailing list.
 
-[email]: mailto:esmvaltool@listserv.dfn.de
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
 [tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
@@ -177,3 +176,4 @@ You can reach us by [email][email].
 [swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
+[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list

@@ -51,8 +51,9 @@ independently.
 3. If you get stuck, help is always available from the tutors, from ESMValTool
     developers via the [github issues
     page](https://github.com/ESMValGroup/ESMValTool/issues) or via the
-    ESMValTool email list, you can ask your questions via
-    [email](mailto:esmvaltool@listserv.dfn.de).
+    ESMValTool email list. Please see
+    [information](https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list)
+    on how to subscribe to user mailing list.
 
 4. This tutorial includes several advanced lessons after the conclusion. These
    advanced lessons should be treated like “mini-tutorials”, and include aspects

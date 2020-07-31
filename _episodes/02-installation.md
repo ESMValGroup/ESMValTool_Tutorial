@@ -145,7 +145,7 @@ tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
 This will extract the files to a directory named `~/julia/julia-1.0.5`. To run
 Julia, you need to add the full path of Julia's `bin` folder to PATH environment
 variable. To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
-Open the file in a text editor called Nano:
+Open the file in a text editor called ``nano``:
 
 ```bash
 nano ~/.bashrc

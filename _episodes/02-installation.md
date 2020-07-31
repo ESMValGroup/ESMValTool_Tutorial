@@ -239,8 +239,8 @@ to display the command line help.
 >
 > > ## Solution
 > >
-> > The `esmvaltool --help` command lists `-v` or `--version` as optional
-> > argument to get the version
+> > The `esmvaltool --help` command lists `version` as a
+> > command to get the version
 > >
 > > In my case when I run
 > > ~~~
@@ -250,6 +250,7 @@ to display the command line help.
 > > I get that my installed ESMValTool version is
 > > ~~~
 > > ESMValCore: 2.0.0
+> > ESMValTool: 2.0.0
 > > ~~~
 > > {: .output}
 > {: .solution}

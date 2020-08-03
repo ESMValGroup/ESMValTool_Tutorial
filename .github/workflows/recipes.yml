@@ -9,9 +9,23 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+      - name: Cache conda
+        uses: actions/cache@v1
+        env:
+          # Increase this value to reset cache if data/recipe_example.yml has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/recipe_example.yml') }}
       - uses: goanpeca/setup-miniconda@v1
       - name: Install esmvaltool
-        run: conda install -c esmvalgroup -c conda-forge esmvaltool-python
+        run: conda install -y -c esmvalgroup -c conda-forge esmvaltool-python
+      - name: Debug
+        run:
+          echo $CONDA
+          echo $PATH
+          ls $CONDA/envs/test/bin
+          which esmvaltool
       - name: Setup config
         run: |
           esmvaltool config get_config_user
@@ -25,6 +39,14 @@ jobs:
           ---
           >   default: ~/default_inputpath
           EOF
+      - name: Cache datasets
+        uses: actions/cache@v1
+        env:
+          # Increase this value to reset cache if data/dataset.urls has not changed
+          CACHE_NUMBER: 0
+        with:
+          path: ~/default_inputpath
+          key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
       - name: Download dataset files for data/recipe_example.yml
         run: |
           head -4 data/dataset.urls |grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/

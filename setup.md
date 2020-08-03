@@ -255,23 +255,29 @@ that you are able to download CMIP data and that you have several GB of space
 available to install conda & ESMValTool, but also enough to make a copy of some
 data.
 
-For this tutorial you can download the required data files by 
-1. Going to https://esgf-data.dkrz.de/search/cmip5-dkrz/
+For this tutorial you can download the required data files by
+
+1. Going to [the CMIP5 search page on the DKRZ ESGF node](https://esgf-data.dkrz.de/search/cmip5-dkrz/)
 2. Performing the following search constraints
 
-    * Model = HadGEM2-ES
-    * Experiment = historical
-    * Time frequency = mon
-    * Ensemble =  r1i1p1 
-    * Variable = thetaoga
+    - Model = HadGEM2-ES
+    - Experiment = historical
+    - Time frequency = mon
+    - Ensemble =  r1i1p1
+    - Variable = thetaoga
 
 3. Press search button
-4. On single single search result press `Show files`
-5. Click on `Show All Files` at bottom of page
+4. On single single search result press `List files`
+5. At bottom of page click on `Show All Files`
 6. Find the datafile which starts with `thetaoga` in the list
-7. Use `HTTP Download` link to download the NetCDF file to `~/default_inputpath/` directory
+7. Use `HTTP Download` link to download the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc)) file to `~/default_inputpath/` directory
+
+The tutorial also needs the following data files, we will use deep links instead of going through the search form. Please download all the links below to `~/default_inputpath/` directory:
+
+- TODO complete list of urls
 
 You will also need to able to use:
+
 - git
 - conda
 

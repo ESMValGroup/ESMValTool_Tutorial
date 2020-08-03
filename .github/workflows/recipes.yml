@@ -9,10 +9,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
+      - uses: goanpeca/setup-miniconda@v1
       - name: Install esmvaltool
-        run: conda create -n esmvaltool -c esmvalgroup -c conda-forge esmvaltool-python
-      - name: Activate esmvaltool conda env
-        run: conda activate esmvaltool
+        run: conda install -c esmvalgroup -c conda-forge esmvaltool-python
       - name: Setup config
         run: |
           esmvaltool config get_config_user

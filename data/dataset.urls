@@ -8,26 +8,38 @@ http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
 # Variable = tas, model =  HadGEM2-AO
-# TODO add links
+http://aims3.llnl.gov/thredds/fileServer/cmip5_css02_data/cmip5/output1/NIMR-KMA/HadGEM2-AO/historical/mon/atmos/Amon/r1i1p1/tas/1/tas_Amon_HadGEM2-AO_historical_r1i1p1_186001-200512.nc
 # Variable = tas, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
 # Variable = tos, model = HadGEM2-AO
-# TODO add links
+http://aims3.llnl.gov/thredds/fileServer/cmip5_css02_data/cmip5/output1/NIMR-KMA/HadGEM2-AO/historical/mon/ocean/Omon/r1i1p1/tos/1/tos_Omon_HadGEM2-AO_historical_r1i1p1_186001-200512.nc
 # Variable = tos, model = HadGEM2-CC
-# TODO add links
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-CC/historical/mon/ocean/Omon/r1i1p1/v20110930/tos/tos_Omon_HadGEM2-CC_historical_r1i1p1_185912-195911.nc
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-CC/historical/mon/ocean/Omon/r1i1p1/v20110930/tos/tos_Omon_HadGEM2-CC_historical_r1i1p1_195912-200511.nc
 # Variable = tos, model = HadGEM2-ES
-# TODO add links
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_185912-195911.nc
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_195912-200512.nc
 # For Working with preprocessors episode
-# Model = UKESM1-0-LL, project = CMIP6, Experiment = historical, ensemble= r1i1p1f2, variable = pr and tas
-# TODO add links
+# Model = UKESM1-0-LL, project = CMIP6, Experiment = historical, ensemble= r1i1p1f2, variable = pr and tas, 1970-2000
+http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r1i1p1f2/Amon/tas/gn/v20190406/tas_Amon_UKESM1-0-LL_historical_r1i1p1f2_gn_195001-201412.nc
+http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r1i1p1f2/Amon/pr/gn/v20190406/pr_Amon_UKESM1-0-LL_historical_r1i1p1f2_gn_195001-201412.nc
 # Model = CanESM2, ensemble: "r(1:4)i1p1", project: CMIP5, variable = tas
-# TODO add links
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esg_dataroot/AR5/CMIP5/output/CCCma/CanESM2/historical/mon/atmos/tas/r1i1p1/tas_Amon_CanESM2_historical_r1i1p1_185001-200512.nc
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esg_dataroot/AR5/CMIP5/output/CCCma/CanESM2/historical/mon/atmos/tas/r2i1p1/tas_Amon_CanESM2_historical_r2i1p1_185001-200512.nc
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esg_dataroot/AR5/CMIP5/output/CCCma/CanESM2/historical/mon/atmos/tas/r3i1p1/tas_Amon_CanESM2_historical_r3i1p1_185001-200512.nc
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esg_dataroot/AR5/CMIP5/output/CCCma/CanESM2/historical/mon/atmos/tas/r4i1p1/tas_Amon_CanESM2_historical_r4i1p1_185001-200512.nc
 # Model = MPI-ESM-LR, ensemble: "r(1:2)i1p1", project: CMIP5, variable = tas
-# TODO add links
+http://esgf1.dkrz.de/thredds/fileServer/cmip5/cmip5/output1/MPI-M/MPI-ESM-LR/historical/mon/atmos/Amon/r1i1p1/v20120315/tas/tas_Amon_MPI-ESM-LR_historical_r1i1p1_185001-200512.nc
+http://esgf1.dkrz.de/thredds/fileServer/cmip5/cmip5/output1/MPI-M/MPI-ESM-LR/historical/mon/atmos/Amon/r2i1p1/v20120315/tas/tas_Amon_MPI-ESM-LR_historical_r2i1p1_185001-200512.nc
 # Model = UKESM1-0-LL, ensemble: "r(1:4)i1p1f2", grid: gn, project: CMIP6, variable = tas
-# TODO add links
+http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r2i1p1f2/Amon/tas/gn/v20190502/tas_Amon_UKESM1-0-LL_historical_r2i1p1f2_gn_195001-201412.nc
+http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r3i1p1f2/Amon/tas/gn/v20190502/tas_Amon_UKESM1-0-LL_historical_r3i1p1f2_gn_195001-201412.nc
+http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r4i1p1f2/Amon/tas/gn/v20190502/tas_Amon_UKESM1-0-LL_historical_r4i1p1f2_gn_195001-201412.nc
 # Model = CanESM5, ensemble: "r(1:4)i1p2f1", grid: gn, project: CMIP6, variable = tas
-# TODO add links
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r1i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r1i1p2f1_gn_185001-201412.nc
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r2i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r2i1p2f1_gn_185001-201412.nc
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r3i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r3i1p2f1_gn_185001-201412.nc
+http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r4i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r4i1p2f1_gn_185001-201412.nc

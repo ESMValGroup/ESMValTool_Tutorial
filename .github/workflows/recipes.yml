@@ -20,9 +20,6 @@ jobs:
       - uses: goanpeca/setup-miniconda@v1
       - name: Install esmvaltool
         run: conda install -n test -y -c esmvalgroup -c conda-forge esmvaltool-python
-      - name: Debug
-        run: |
-          ls -R $CONDA/envs
       - name: Setup config
         run: |
           $CONDA/envs/test/bin/esmvaltool config get_config_user

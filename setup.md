@@ -270,43 +270,12 @@ For this tutorial you can download the required data files by
 4. On single single search result press `List files`
 5. At bottom of page click on `Show All Files`
 6. Find the datafile which starts with `thetaoga` in the list
-7. Use `HTTP Download` link to download the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc)) file to `~/default_inputpath/` directory
+7. Use `HTTP Download` link to download the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc)) file to
 
-The tutorial also needs the following data files, we will use deep links instead of going through the search form. Please download all the links below to `~/default_inputpath/` directory:
-
-- Variable = ts, model = HadGEM2-ES
-  - [ts_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc)
-  - [ts_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc)
-  - [ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc)
-  - [ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc)
-- Variable = tas, model =  HadGEM2-AO
-  - TODO add links
-- Variable = tas, model = HadGEM2-ES
-  - [tas_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc)
-  - [tas_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc)
-  - [tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc)
-  - [tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc)
-- Variable = tos, model = HadGEM2-AO
-  - TODO add links
-- Variable = tos, model = HadGEM2-CC
-  - TODO add links
-- Variable = tos, model = HadGEM2-ES
-  - TODO add links
-- Model = UKESM1-0-LL, project = CMIP6, Experiment = historical, ensemble= r1i1p1f2, variable = pr and tas
-  - TODO add links
-- Model = CanESM2, ensemble: "r(1:4)i1p1", project: CMIP5, variable = tas
-  - TODO add links
-- Model = MPI-ESM-LR, ensemble: "r(1:2)i1p1", project: CMIP5, variable = tas
-  - TODO add links
-- Model = UKESM1-0-LL, ensemble: "r(1:4)i1p1f2", grid: gn, project: CMIP6, variable = tas
-  - TODO add links
-- Model = CanESM5, ensemble: "r(1:4)i1p2f1", grid: gn, project: CMIP6, variable = tas
-  - TODO add links
-
-To download all these files at once use the [dataset.urls](https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/recipe_example.yml) file and wget
+The tutorial needs the more data files, we will use deep links instead of going through the search form. To download all dataset files to `~/default_inputpath/` directory use the [dataset.urls](https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/recipe_example.yml) file and [wget](https://en.wikipedia.org/wiki/Wget):
 
 ~~~shell
-wget --input-file dataset.urls --no-clobber --directory-prefix $HOME/default_inputpath/
+wget --input-file https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/recipe_example.yml --no-clobber --directory-prefix $HOME/default_inputpath/
 ~~~
 
 You will also need to able to use:

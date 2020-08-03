@@ -1,10 +1,33 @@
 # Dataset urls required fo tutorial, described at https://esmvalgroup.github.io/ESMValTool_Tutorial/setup.html#using-your-own-machine
+# For Running a recipe episode
+# Variable = thetaoga, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
+# Variable = ts, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
+# Variable = tas, model =  HadGEM2-AO
+# TODO add links
+# Variable = tas, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
+# Variable = tos, model = HadGEM2-AO
+# TODO add links
+# Variable = tos, model = HadGEM2-CC
+# TODO add links
+# Variable = tos, model = HadGEM2-ES
+# TODO add links
+# For Working with preprocessors episode
+# Model = UKESM1-0-LL, project = CMIP6, Experiment = historical, ensemble= r1i1p1f2, variable = pr and tas
+# TODO add links
+# Model = CanESM2, ensemble: "r(1:4)i1p1", project: CMIP5, variable = tas
+# TODO add links
+# Model = MPI-ESM-LR, ensemble: "r(1:2)i1p1", project: CMIP5, variable = tas
+# TODO add links
+# Model = UKESM1-0-LL, ensemble: "r(1:4)i1p1f2", grid: gn, project: CMIP6, variable = tas
+# TODO add links
+# Model = CanESM5, ensemble: "r(1:4)i1p2f1", grid: gn, project: CMIP6, variable = tas
+# TODO add links

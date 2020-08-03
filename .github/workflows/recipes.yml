@@ -18,10 +18,12 @@ jobs:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/recipe_example.yml') }}
       - uses: goanpeca/setup-miniconda@v1
+        with:
+          activate-environment: esmvaltool
       - name: Install esmvaltool
         run: conda install -y -c esmvalgroup -c conda-forge esmvaltool-python
       - name: Debug
-        run:
+        run: |
           echo $CONDA
           echo $PATH
           ls $CONDA/envs/test/bin

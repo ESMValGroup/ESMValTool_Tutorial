@@ -56,7 +56,7 @@ site : lesson-md
 docker-serve :
 	docker run --rm -it --volume ${PWD}:/srv/jekyll \
            --volume=${PWD}/.docker-vendor/bundle:/usr/local/bundle \
-           -p 0.0.0.0:4000:4000 \
+           -p 127.0.0.1:4000:4000 \
            jekyll/jekyll:${JEKYLL_VERSION} \
            bin/run-make-docker-serve.sh
 

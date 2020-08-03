@@ -18,19 +18,11 @@ jobs:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/recipe_example.yml') }}
       - uses: goanpeca/setup-miniconda@v1
-        with:
-          activate-environment: esmvaltool
       - name: Install esmvaltool
         run: conda install -y -c esmvalgroup -c conda-forge esmvaltool-python
-      - name: Debug
-        run: |
-          echo $CONDA
-          echo $PATH
-          ls $CONDA/envs/test/bin
-          which esmvaltool
       - name: Setup config
         run: |
-          esmvaltool config get_config_user
+          $CONDA/envs/test/bin/esmvaltool config get_config_user
           patch ~/.esmvaltool/config-user.yml << EOF
           44c44
           < #rootpath:
@@ -51,6 +43,6 @@ jobs:
           key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
       - name: Download dataset files for data/recipe_example.yml
         run: |
-          head -4 data/dataset.urls |grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/
+          head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/
       - name: Run data/recipe_example.yml
-        run: esmvaltool run $PWD/data/recipe_example.yml
+        run: $CONDA/envs/test/bin/esmvaltool run $PWD/data/recipe_example.yml

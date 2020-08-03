@@ -270,7 +270,7 @@ For this tutorial you can download the required data files by
 4. On single single search result press `List files`
 5. At bottom of page click on `Show All Files`
 6. Find the file which starts with `thetaoga` in the list
-7. Use `HTTP Download` link to download the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc)) file to
+7. Use `HTTP Download` link to download the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc)) file to `~/default_inputpath/` directory.
 
 The tutorial needs more data files. All of the data files should be downloaded to `~/default_inputpath/` directory and [wget](https://en.wikipedia.org/wiki/Wget):
 

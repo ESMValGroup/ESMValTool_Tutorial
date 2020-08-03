@@ -1,0 +1,33 @@
+name: Test recipes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install esmvaltool
+        run: conda create -n esmvaltool -c esmvalgroup -c conda-forge esmvaltool-python
+      - name: Activate esmvaltool conda env
+        run: conda activate esmvaltool
+      - name: Setup config
+        run: |
+          esmvaltool config get_config_user
+          patch ~/.esmvaltool/config-user.yml << EOF
+          44c44
+          < #rootpath:
+          ---
+          > rootpath:
+          48c48
+          < #  default: ~/default_inputpath
+          ---
+          >   default: ~/default_inputpath
+          EOF
+      - name: Download dataset files for data/recipe_example.yml
+        run: |
+          head -4 data/dataset.urls |grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/
+      - name: Run data/recipe_example.yml
+        run: esmvaltool run $PWD/data/recipe_example.yml

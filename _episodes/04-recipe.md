@@ -635,57 +635,109 @@ The snippets for the edits can be found below:
 
 > ## Land surface average temperature
 >
-> ```YAML
->  ...
-> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
->  ...
-> 27        annual_statistics:
-> 28          operator: mean
-> XX        area_statistics:
-> XX          operator: mean
->  ...
-> 38            short_name: ts
-> 39            preprocessor: prep_timeseries
+> ```diff
+> --- data/recipe_example.yml	2020-07-31 14:43:48.976660742 +0200
+> +++ data/recipe_example_ts.yml	2020-08-03 14:57:45.962391097 +0200
+> @@ -20,12 +20,14 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +37,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: ts
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
 > ```
 >
 > Note: The x-axis in the plot now shows the years 1900 - 2000.
 {: .solution}
 
 > ## Atmospheric surface average temperature
-> ```YAML
->  ...
-> 23      - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
-> XX      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
->  ...
-> 27        annual_statistics:
-> 28          operator: mean
-> XX        area_statistics:
-> XX          operator: mean
->  ...
-> 38            short_name: tas
-> 39            preprocessor: prep_timeseries
+>
+> ```diff
+> --- data/recipe_example.yml	2020-07-31 14:43:48.976660742 +0200
+> +++ data/recipe_example_tas.yml	2020-08-03 14:58:22.981947194 +0200
+> @@ -20,12 +20,15 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> +  - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +38,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: tas
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
 > ```
 > Note: There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
 {: .solution}
 
 > ## Ocean surface average temperature
-> ```YAML
->  ...
-> 23      - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
-> XX      - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
-> XX      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
->  ...
-> 27        annual_statistics:
-> 28          operator: mean
-> XX        area_statistics:
-> XX          operator: mean
->  ...
-> 38            short_name: tos
-> 39            preprocessor: prep_timeseries
+>
+> ```diff
+> --- data/recipe_example.yml	2020-07-31 14:43:48.976660742 +0200
+> +++ data/recipe_example_tos.yml	2020-08-03 14:11:33.721000000 +0200
+> @@ -20,12 +20,16 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> +  - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> +  - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +39,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: tos
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
 > ```
 > Note: The unit in the plots is now degrees celsius! There is a plot also for HadGEM2-CC.
 {: .solution}
-
 
 > ## Advanced:
 > If you want to add a different field, please have a look here:

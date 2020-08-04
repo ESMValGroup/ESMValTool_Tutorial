@@ -1,0 +1,65 @@
+# ESMValTool
+# recipe_example.yml
+---
+documentation:
+  description: Demonstrate basic ESMValTool example
+
+  authors:
+    - demora_lee
+    - mueller_benjamin
+    - swaminathan_ranjini
+
+  maintainer:
+    - demora_lee
+
+  references:
+    - demora2018gmd
+    # Some plots also appear in ESMValTool paper 2.
+
+  projects:
+    - ukesm
+
+datasets:
+  - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
+     ensemble: r1i1p1f2} #single dataset as an example
+
+preprocessors:
+  prep_map:
+    regrid:    #apply the preprocessor to regrid
+      target_grid: 1x1 # target resolution
+      scheme: linear  #how to interpolate for regridding
+
+  prep_map_land:
+    custom_order: true #ensure that given order of preprocessing is followed
+    mask_landsea:    #apply a mask
+      mask_out: sea   #mask out sea grid cells
+    regrid:    # now apply the preprocessor to regrid
+      target_grid: 1x1 # target resolution
+      scheme: linear  #how to interpolate for regridding
+
+diagnostics:
+  # --------------------------------------------------
+  # Two Simple diagnostics that illustrate the use of
+  # different preprocessors
+  # --------------------------------------------------
+  diag_simple_plot:
+    description: # preprocess a variable for a simple 2D plot
+    variables:
+      tas:  # surface temperature
+        preprocessor: prep_map
+        mip: Amon
+        grid: gn #can change for variables from the same model
+        start_year: 1970
+        end_year: 2000
+    scripts: null
+
+  diag_land_only_plot:
+    description: #preprocess a variable for a 2D land only plot
+    variables:
+      tas:  # surface temperature
+        preprocessor: prep_map_land
+        mip: Amon
+        grid: gn #can change for variables from the same model
+        start_year: 1970
+        end_year: 2000
+    scripts: null

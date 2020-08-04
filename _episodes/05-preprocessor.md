@@ -264,6 +264,7 @@ specific preprocessor which should be applied.
 >>     scripts: null
 >> ```
 >>
+>> Complete recipe can be downloaded [here](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_multi_preprocessors.yml).
 > {: .solution}
 {: .challenge}
 

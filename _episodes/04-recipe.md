@@ -636,8 +636,8 @@ The snippets for the edits can be found below:
 > ## Land surface average temperature
 >
 > ```diff
-> --- data/recipe_example.yml	2020-07-31 14:43:48.976660742 +0200
-> +++ data/recipe_example_ts.yml	2020-08-03 14:57:45.962391097 +0200
+> --- data/recipe_example.yml
+> +++ data/recipe_example_ts.yml
 > @@ -20,12 +20,14 @@
 >      - ukesm
 >
@@ -666,13 +666,15 @@ The snippets for the edits can be found below:
 > ```
 >
 > Note: The x-axis in the plot now shows the years 1900 - 2000.
+>
+> Complete recipe can be downloaded as [recipe_example_ts.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_ts.yml)
 {: .solution}
 
 > ## Atmospheric surface average temperature
 >
 > ```diff
-> --- data/recipe_example.yml	2020-07-31 14:43:48.976660742 +0200
-> +++ data/recipe_example_tas.yml	2020-08-03 14:58:22.981947194 +0200
+> --- data/recipe_example.yml
+> +++ data/recipe_example_tas.yml
 > @@ -20,12 +20,15 @@
 >      - ukesm
 >
@@ -701,13 +703,15 @@ The snippets for the edits can be found below:
 >        timeseries_diag:
 > ```
 > Note: There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
+>
+> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas.yml)
 {: .solution}
 
 > ## Ocean surface average temperature
 >
 > ```diff
-> --- data/recipe_example.yml	2020-07-31 14:43:48.976660742 +0200
-> +++ data/recipe_example_tos.yml	2020-08-03 14:11:33.721000000 +0200
+> --- data/recipe_example.yml
+> +++ data/recipe_example_tos.yml
 > @@ -20,12 +20,16 @@
 >      - ukesm
 >
@@ -737,6 +741,8 @@ The snippets for the edits can be found below:
 >        timeseries_diag:
 > ```
 > Note: The unit in the plots is now degrees celsius! There is a plot also for HadGEM2-CC.
+>
+> Complete recipe can be downloaded as [recipe_example_tos.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tos.yml)
 {: .solution}
 
 > ## Advanced:

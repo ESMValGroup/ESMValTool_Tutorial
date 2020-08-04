@@ -256,11 +256,11 @@ specific preprocessor which should be applied.
 >>     description: #preprocess a variable for a 2D land only plot
 >>     variables:
 >>       tas:  # surface temperature
->>       preprocessor: prep_map_land
->>       mip: Amon
->>       grid: gn #can change for variables from the same model
->>       start_year: 1970
->>       end_year: 2000
+>>         preprocessor: prep_map_land
+>>         mip: Amon
+>>         grid: gn #can change for variables from the same model
+>>         start_year: 1970
+>>         end_year: 2000
 >>     scripts: null
 >> ```
 >>

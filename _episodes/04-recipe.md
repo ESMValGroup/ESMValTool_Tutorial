@@ -635,6 +635,8 @@ The snippets for the edits can be found below:
 
 > ## Land surface average temperature
 >
+> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,14 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format)
+>
 > ```diff
 > --- data/recipe_example.yml
 > +++ data/recipe_example_ts.yml

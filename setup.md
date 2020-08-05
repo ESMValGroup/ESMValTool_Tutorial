@@ -276,7 +276,7 @@ We can download a single data file following the instructions as described below
    to `~/default_inputpath/` directory.
 
 However, the tutorial needs more data files. The [dataset.urls][ds] file contains all data set URLs and in comments the used search constraints. All of the data files should be downloaded
-to `~/default_inputpath/` directory. 
+to `~/default_inputpath/` directory.
 
 To download the data, run the following command using [wget](https://en.wikipedia.org/wiki/Wget):
 
@@ -285,29 +285,6 @@ wget --no-clobber --input-file \
   https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
   --directory-prefix $HOME/default_inputpath/
 ~~~
-
-
-You will also need to able to use:
-
-- git
-- conda
-
-#### Linux/Unix
-
-For Linux/Unix systems, please follow the instructions of the [Installation episode]({{
-page.root}}{% link _episodes/02-installation.md  %}).
-
-#### Mac OSx
-
-Also, for Mac OSx systems, please follow the instructions of the [Installation episode]({{
-page.root}}{% link _episodes/02-installation.md  %}).
-
-#### Windows
-
-ESMValTool does not directly support Windows,
-but successful usage has been reported through the
-[Windows Subsystem for Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
-available in Windows 10.
 
 ## GitHub account (Advanced)
 

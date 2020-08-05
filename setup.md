@@ -68,7 +68,8 @@ If necessary, data can be downloaded using the
 
 ### CEDA-Jasmin
 
-Please skip this section if you are not going to use JASMIN and go [here](#Github-account-(Advanced)).
+Please skip this section if you are not going to use JASMIN
+and go [here](#Github-account-(Advanced)).
 
 If you do not already have an account on JASMIN, then request an account as soon
 as possible. Please follow [these instructions on how to create a Jasmin
@@ -257,7 +258,7 @@ data (12Gb).
 
 For this tutorial you can download the required data files by
 
-1. Going to the [CMIP5 search page on the DKRZ ESGF node](https://esgf-data.dkrz.de/search/cmip5-dkrz/)
+1. Going to the [CMIP5 search page on the DKRZ ESGF node](cmip5-search)
 2. Performing the following search constraints
 
     - Model = HadGEM2-ES
@@ -270,15 +271,20 @@ For this tutorial you can download the required data files by
 4. On single single search result press `List files`
 5. At bottom of page click on `Show All Files`
 6. Find the file which starts with `thetaoga` in the list
-7. Use `HTTP Download` link to download the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc)) file to `~/default_inputpath/` directory.
+7. Use `HTTP Download` link to download
+   the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](theatoga.nc) file
+   to `~/default_inputpath/` directory.
 
-The tutorial needs more data files. All of the data files should be downloaded to `~/default_inputpath/` directory with [wget](https://en.wikipedia.org/wiki/Wget):
+The tutorial needs more data files. All of the data files should be downloaded
+to `~/default_inputpath/` directory with [wget](https://en.wikipedia.org/wiki/Wget):
 
 ~~~shell
-wget --input-file https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls --no-clobber --directory-prefix $HOME/default_inputpath/
+wget --no-clobber --input-file \
+  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
+  --directory-prefix $HOME/default_inputpath/
 ~~~
 
-The [dataset.urls](https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/rdataset.urls) file contains all data set urls and in comments the used search constraints.
+The [dataset.urls](ds) file contains all data set urls and in comments the used search constraints.
 
 You will also need to able to use:
 
@@ -344,3 +350,7 @@ More details on this process are available in the [Installation episode]({{
 page.root}}{% link _episodes/02-installation.md  %}).
 
 {% include links.md %}
+
+[cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/
+[theatoga.nc]: http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
+[ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls

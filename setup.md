@@ -318,15 +318,6 @@ A GitHub pull request is the act of requesting that a branch is merged with anot
 This is an advanced feature of GitHub, and will generally be performed by the
 ESMValTool development team.
 
-## Install conda
-
-The python package manager Conda (anaconda or miniconda) needs to be installed
-on your system before the tutorial starts. In some cases, your system may have a
-central version installed already.
-
-More details on this process are available in the [Installation episode]({{
-page.root}}{% link _episodes/02-installation.md  %}).
-
 {% include links.md %}
 
 [cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/

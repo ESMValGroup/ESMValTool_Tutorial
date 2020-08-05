@@ -256,10 +256,10 @@ that you are able to download CMIP data and that you have several GB of space
 available to install conda & ESMValTool, but also enough to make a copy of some
 data (12Gb).
 
-For this tutorial you can download the required data files by
+We can download a single data file following the instructions as described below:
 
-1. Going to the [CMIP5 search page on the DKRZ ESGF node][cmip5-search]
-2. Performing the following search constraints
+1. Go to the [CMIP5 search page on the DKRZ ESGF node][cmip5-search]
+2. Perform the following search constraints
 
     - Model = HadGEM2-ES
     - Experiment = historical
@@ -268,7 +268,7 @@ For this tutorial you can download the required data files by
     - Variable = thetaoga
 
 3. Press search button
-4. On single single search result press `List files`
+4. On single search result press `List files`
 5. At bottom of page click on `Show All Files`
 6. Find the file which starts with `thetaoga` in the list
 7. Use `HTTP Download` link to download

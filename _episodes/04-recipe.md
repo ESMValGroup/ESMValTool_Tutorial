@@ -635,57 +635,117 @@ The snippets for the edits can be found below:
 
 > ## Land surface average temperature
 >
-> ```YAML
->  ...
-> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
->  ...
-> 27        annual_statistics:
-> 28          operator: mean
-> XX        area_statistics:
-> XX          operator: mean
->  ...
-> 38            short_name: ts
-> 39            preprocessor: prep_timeseries
+> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,14 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format)
+>
+> ```diff
+> --- data/recipe_example.yml
+> +++ data/recipe_example_ts.yml
+> @@ -20,12 +20,14 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +37,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: ts
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
 > ```
 >
 > Note: The x-axis in the plot now shows the years 1900 - 2000.
+>
+> Complete recipe can be downloaded as [recipe_example_ts.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_ts.yml)
 {: .solution}
 
 > ## Atmospheric surface average temperature
-> ```YAML
->  ...
-> 23      - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
-> XX      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
->  ...
-> 27        annual_statistics:
-> 28          operator: mean
-> XX        area_statistics:
-> XX          operator: mean
->  ...
-> 38            short_name: tas
-> 39            preprocessor: prep_timeseries
+>
+> ```diff
+> --- data/recipe_example.yml
+> +++ data/recipe_example_tas.yml
+> @@ -20,12 +20,15 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> +  - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +38,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: tas
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
 > ```
 > Note: There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
+>
+> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas.yml)
 {: .solution}
 
 > ## Ocean surface average temperature
-> ```YAML
->  ...
-> 23      - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
-> XX      - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
-> XX      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
->  ...
-> 27        annual_statistics:
-> 28          operator: mean
-> XX        area_statistics:
-> XX          operator: mean
->  ...
-> 38            short_name: tos
-> 39            preprocessor: prep_timeseries
+>
+> ```diff
+> --- data/recipe_example.yml
+> +++ data/recipe_example_tos.yml
+> @@ -20,12 +20,16 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+> +  - {dataset: HadGEM2-AO, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> +  - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +39,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: tos
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
 > ```
 > Note: The unit in the plots is now degrees celsius! There is a plot also for HadGEM2-CC.
+>
+> Complete recipe can be downloaded as [recipe_example_tos.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tos.yml)
 {: .solution}
-
 
 > ## Advanced:
 > If you want to add a different field, please have a look here:

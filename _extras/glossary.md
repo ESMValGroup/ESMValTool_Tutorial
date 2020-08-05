@@ -6,7 +6,7 @@ title: Glossary
 
 Here, there are some definitions used throughout this tutorial:
 
-- **Diagnostics**:
+- **Diagnostics**: A diagnostic script is the last step in a recipe to convert the pre-processed input data to the desired output like plots or NetCDF files.
 
 - **CMIP**: The Coupled Model Intercomparison Project (CMIP) aims at better understanding past, present and future climate changes arising from natural, unforced variability or in response to changes in radiative forcing in a multi-model context. For more information, check the [WCR-Climate webpage](https://www.wcrp-climate.org/).
 
@@ -17,4 +17,3 @@ Here, there are some definitions used throughout this tutorial:
 For more details on ESMValTool, please go to:
 Additional info can be found in [ESMValTool home page](https://esmvaltool.org)
 and [https://esmvaltool.readthedocs.io/](ESMValTool Read The Docs page).
-

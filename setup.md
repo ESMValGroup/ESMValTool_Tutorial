@@ -275,7 +275,7 @@ We can download a single data file following the instructions as described below
    the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc][theatoga.nc] file
    to `~/default_inputpath/` directory.
 
-The tutorial needs more data files. All of the data files should be downloaded
+However, the tutorial needs more data files. The [dataset.urls][ds] file contains all data set URLs and in comments the used search constraints. All of the data files should be downloaded
 to `~/default_inputpath/` directory with [wget](https://en.wikipedia.org/wiki/Wget):
 
 ~~~shell

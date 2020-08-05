@@ -258,7 +258,7 @@ data (12Gb).
 
 For this tutorial you can download the required data files by
 
-1. Going to the [CMIP5 search page on the DKRZ ESGF node](cmip5-search)
+1. Going to the [CMIP5 search page on the DKRZ ESGF node][cmip5-search]
 2. Performing the following search constraints
 
     - Model = HadGEM2-ES
@@ -272,7 +272,7 @@ For this tutorial you can download the required data files by
 5. At bottom of page click on `Show All Files`
 6. Find the file which starts with `thetaoga` in the list
 7. Use `HTTP Download` link to download
-   the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc](theatoga.nc) file
+   the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc][theatoga.nc] file
    to `~/default_inputpath/` directory.
 
 The tutorial needs more data files. All of the data files should be downloaded
@@ -284,7 +284,7 @@ wget --no-clobber --input-file \
   --directory-prefix $HOME/default_inputpath/
 ~~~
 
-The [dataset.urls](ds) file contains all data set urls and in comments the used search constraints.
+The [dataset.urls][ds] file contains all data set urls and in comments the used search constraints.
 
 You will also need to able to use:
 

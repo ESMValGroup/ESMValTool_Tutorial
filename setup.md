@@ -276,7 +276,9 @@ We can download a single data file following the instructions as described below
    to `~/default_inputpath/` directory.
 
 However, the tutorial needs more data files. The [dataset.urls][ds] file contains all data set URLs and in comments the used search constraints. All of the data files should be downloaded
-to `~/default_inputpath/` directory with [wget](https://en.wikipedia.org/wiki/Wget):
+to `~/default_inputpath/` directory. 
+
+To download the data, run the following command using [wget](https://en.wikipedia.org/wiki/Wget):
 
 ~~~shell
 wget --no-clobber --input-file \
@@ -284,7 +286,6 @@ wget --no-clobber --input-file \
   --directory-prefix $HOME/default_inputpath/
 ~~~
 
-The [dataset.urls][ds] file contains all data set urls and in comments the used search constraints.
 
 You will also need to able to use:
 

@@ -57,7 +57,8 @@ and ESMValCore (doi:10.5281/zenodo.3387139) and version number.
 
 ## Style
 
-Using the [Carpentries style][style] version [9.5.3][version].
+ESMValTool tutorial uses
+the [Carpentries style][style] version [9.5.3][version].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode

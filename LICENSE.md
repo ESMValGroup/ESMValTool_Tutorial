@@ -24,7 +24,9 @@ license terms.
 Under the following terms:
 
 * **Attribution**---You must give appropriate credit (mentioning that
-  your work is derived from ESMValTool tutorial, provide a [link to the
+  your work is derived from  work that is
+  Copyright © [ESMValTool Development Team][Development_Team],
+  provide a [link to the
   license][cc-by-human], and indicate if changes were made. You may do
   so in any reasonable manner, but not in any way that suggests the
   licensor endorses you or your use.
@@ -51,9 +53,8 @@ provided by ESMValTool tutorial are made available under the
 
 Citation of the
 [ESMValTool paper](https://doi.org/10.5194/gmd-13-1179-2020,2020)
-is kindly requested upon use, alongside with the software DOI for
-ESMValTool (doi:10.5281/zenodo.3401363)
-and ESMValCore (doi:10.5281/zenodo.3387139) and version number.
+is kindly requested upon use, alongside with the software license for
+[ESMValTool and ESMValCore][ESMValTool-ESMValCore-license].
 
 ## Style
 
@@ -62,6 +63,8 @@ the [Carpentries style][style] version [9.5.3][version].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
+[Development_Team]: https://www.esmvaltool.org/team.html
 [Apache-license]: http://www.apache.org/licenses/LICENSE-2.0
+[ESMValTool-ESMValCore-license]: https://docs.esmvaltool.org/en/latest/introduction.html#license
 [style]: https://github.com/carpentries/styles/
 [version]: https://github.com/carpentries/styles/releases/tag/v9.5.3

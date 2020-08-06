@@ -32,7 +32,7 @@ Please see [information][contact-info] on how to subscribe to user mailing list.
 
 ## Citation
 
-To cite this tutorial, please consult with [CITATION](CITATION.cff).
+To cite this tutorial, please use the information available [here](CITATION.cff).
 
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/

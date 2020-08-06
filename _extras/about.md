@@ -120,7 +120,8 @@ and cite ESMValTool and ESMValCore software as:
   copyright = {Apache License 2.0}
 }
 
-See additional resources at https://www.esmvaltool.org/references.html.
+See additional resources at
+[https://www.esmvaltool.org/references.html](https://www.esmvaltool.org/references.html).
 
 The technical development work for ESMValTool v2.0 was funded by
 [various projects](https://www.esmvaltool.org/acknowledgements.html).

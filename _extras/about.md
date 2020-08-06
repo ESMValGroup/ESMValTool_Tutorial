@@ -47,8 +47,8 @@ Please see
 
 ## Citation
 
-Please see
-[citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION.cff).
+Please use citation information available at
+[http://doi.org/10.5281/zenodo.3974592](http://doi.org/10.5281/zenodo.3974592).
 
 ## Acknowledgements
 

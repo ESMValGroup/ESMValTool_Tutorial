@@ -34,7 +34,8 @@ Please see [information][contact-info] on how to subscribe to user mailing list.
 
 ## Citation
 
-To cite this tutorial, please use the information available [here](CITATION.cff).
+To cite this tutorial, please use the information available at
+[http://doi.org/10.5281/zenodo.3974592](http://doi.org/10.5281/zenodo.3974592).
 
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/

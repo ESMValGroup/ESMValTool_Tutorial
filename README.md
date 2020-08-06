@@ -30,13 +30,9 @@ If you work or study in climate-related domains and would be interested in
 getting involved, you can reach us by email.
 Please see [information][contact-info] on how to subscribe to user mailing list.
 
-## Authors
-
-A list of contributors to the lesson can be found in [AUTHORS](AUTHORS).
-
 ## Citation
 
-To cite this tutorial, please consult with [CITATION](CITATION).
+To cite this tutorial, please consult with [CITATION](CITATION.cff).
 
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/

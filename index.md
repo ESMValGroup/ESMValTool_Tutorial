@@ -63,15 +63,16 @@ independently.
 >
 > - [Documentation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
-> - [Papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
+> - [Papers](https://www.esmvaltool.org/references.html)
 > - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)
 > - [ESMValCore Source code](https://github.com/ESMValGroup/ESMValCore)
+> - [ESMValTool Citation info](https://esmvalgroup.github.io/ESMValTool_Tutorial/about/index.html)
 >
 {: .callout}
 
-## How to cite the Tutorial and ESMValTool
+## How to cite the Tutorial
 
 Please see
-[citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
+[citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION.cff).
 
 {% include links.md %}

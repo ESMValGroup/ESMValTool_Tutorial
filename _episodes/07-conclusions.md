@@ -59,7 +59,7 @@ to be suitable for use by ESMValTool.
 >
 > - [Documenation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
-> - [Papers](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION)
+> - [Papers](https://www.esmvaltool.org/references.html)
 > - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
 > - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
 {: .callout}
@@ -89,8 +89,8 @@ To report a bug, please create a new issue using the
 In your bug report, please describe the problem as clearly and as completely as possible.
 You may need to include a recipe or the output log as well.
 
-### How do I cite the Tutorial and ESMValTool?
+### How do I cite the Tutorial?
 
-Please see [citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION).
+Please see [citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION.cff)
 
 {% include links.md %}

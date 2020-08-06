@@ -42,10 +42,8 @@ and may be forked, developped and rehosted by other groups.
 
 ## License
 
-The ESMValTool is released under the Apache License, version 2.0. Citation of
-the ESMValTool paper (“Software Documentation Paper”) is kindly requested upon use,
-alongside with the software DOI for ESMValTool (doi:10.5281/zenodo.3401363)
-and ESMValCore (doi:10.5281/zenodo.3387139) and version number.
+Please see
+[license information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/LICENSE.md).
 
 ## Citation
 

@@ -51,11 +51,6 @@ Except where otherwise noted, the example programs and other software
 provided by ESMValTool tutorial are made available under the
 [Apache License, version 2.0][Apache-license].
 
-Citation of the
-[ESMValTool paper](https://doi.org/10.5194/gmd-13-1179-2020,2020)
-is kindly requested upon use, alongside with the software license for
-[ESMValTool and ESMValCore][ESMValTool-ESMValCore-license].
-
 ## Style
 
 ESMValTool tutorial uses

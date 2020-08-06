@@ -76,7 +76,7 @@ message: "If you use this tutorial, please cite it using these metadata."
 repository-code: "https://github.com/ESMValGroup/ESMValTool_Tutorial/"
 title: "ESMValTool Tutorial"
 keywords:
-  - Earth System Model Validation
-  - Climate Science
+  - "Earth System Model Validation"
+  - "Climate Science"
 version: "v1.0.0"
 ...

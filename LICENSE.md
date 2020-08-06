@@ -31,7 +31,7 @@ Under the following terms:
   so in any reasonable manner, but not in any way that suggests the
   licensor endorses you or your use.
 
-**No additional restrictions**---You may not apply legal terms or
+* **No additional restrictions**---You may not apply legal terms or
 technological measures that legally restrict others from doing
 anything the license permits.  With the understanding that:
 

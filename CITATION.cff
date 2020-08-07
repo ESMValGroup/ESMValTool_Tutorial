@@ -70,7 +70,7 @@ authors:
     orcid: "https://orcid.org/0000-0002-5821-2060"
 cff-version: "1.0.3"
 date-released: 2020-08-06
-doi: ""
+doi: "10.5281/zenodo.3974591"
 license: "CC-BY-4.0"
 message: "If you use this tutorial, please cite it using these metadata."
 repository-code: "https://github.com/ESMValGroup/ESMValTool_Tutorial/"

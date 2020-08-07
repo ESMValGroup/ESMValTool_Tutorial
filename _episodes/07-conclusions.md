@@ -91,6 +91,7 @@ You may need to include a recipe or the output log as well.
 
 ### How do I cite the Tutorial?
 
-Please see [citation information](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/CITATION.cff)
+Please use citation information available at
+[https://doi.org/10.5281/zenodo.3974591](https://doi.org/10.5281/zenodo.3974591).
 
 {% include links.md %}

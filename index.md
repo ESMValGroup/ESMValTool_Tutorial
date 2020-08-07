@@ -73,6 +73,6 @@ independently.
 ## How to cite the Tutorial
 
 Please use citation information available at
-[http://doi.org/10.5281/zenodo.3974592](http://doi.org/10.5281/zenodo.3974592).
+[https://doi.org/10.5281/zenodo.3974591](https://doi.org/10.5281/zenodo.3974591).
 
 {% include links.md %}

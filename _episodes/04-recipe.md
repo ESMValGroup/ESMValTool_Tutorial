@@ -34,7 +34,7 @@ diagnostics and description.
     - the MIP (Model Intercomparison Project, like atmospheric realm of MIP
       monthly data: Amon),
     - ensemble member,
-    - the experiment (i.e. historical, ssp125, etc.),
+    - the experiment (e.g. historical, ssp125),
     - and the grid type (necessary for CMIP6 only).
 
   - preprocessors: general operations applied to a dataset before handling it in
@@ -613,7 +613,7 @@ available) can be found below. Note that the timestamps differ.
 >
 > - the dataset:
 >
->   - mip, start_year, end_year
+>   - `mip`, `start_year`, `end_year`
 >
 > - the preprocessor:
 >
@@ -635,7 +635,7 @@ The snippets for the edits can be found below:
 
 > ## Land surface average temperature
 >
-> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,14 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format)
+> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,14 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format).
 >
 > ```diff
 > --- data/recipe_example.yml
@@ -755,7 +755,7 @@ The snippets for the edits can be found below:
 ## Common issues & tips
 
 > ## esmvaltool not found
-> Can you run the command “esmvaltool -h”. If no, then it’s possible that the
+> Can you run the command `esmvaltool -h`. If no, then it’s possible that the
 > conda environment isn’t activated. Please return to the in
 > [installation section]({{ page.root }}{% link _episodes/02-installation.md %}).
 {: .solution}
@@ -763,13 +763,13 @@ The snippets for the edits can be found below:
 > ## The error message is `esmvalcore._recipe_checks.RecipeError: Missing data`
 > ESMValTool can’t locate the data.
 >
-> Which computing machine are you using? Does your user-config.yml file reflect
+> Which computing machine are you using? Does your `user-config.yml` file reflect
 > your machine's settings? Is the dataset’s name in the correct order?
 {: .solution}
 
 > ## Diagnostic path problems
 > The directory path to your diagnostics code is set relative to the
-> esmvaltool/diag_scripts subdirectory. Is the code placed in this subdirectory?
+> `esmvaltool/diag_scripts` subdirectory. Is the code placed in this subdirectory?
 > Is it spelled correctly?
 {: .solution}
 
@@ -781,7 +781,7 @@ The snippets for the edits can be found below:
 > ## The preprocessor works but the diagnostic fails
 > If your preprocessor works fine but your diagnostic script fails,
 > congratulations! A failed diagnostic means that you won’t need to re-run the
-> preprocessor. In your “run/main_log.txt” run output, you should see a line
+> preprocessor. In your `run/main_log.txt` run output, you should see a line
 > that reads: “To re-run this diagnostic script, run:”, followed by a line with
 > a command that will allow you to re-run your diagnostic script only. Append
 > this line with the “-i” option after the python script you call to re-run your

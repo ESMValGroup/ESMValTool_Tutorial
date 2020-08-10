@@ -91,7 +91,7 @@ documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install
 
     ```bash
     conda list
-    ````
+    ```
 
     Should output something like
 

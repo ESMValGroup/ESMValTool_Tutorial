@@ -103,7 +103,7 @@ In general there is no need to change the settings listed above.
 ## Destination directory
 
 The destination directory is the rootpath where ESMValTool will store its output folders containing
-i.e. figures, data, logs, etc. With every run, ESMValTool automatically generates
+e.g. figures, data, logs, etc. With every run, ESMValTool automatically generates
 a new output folder determined by recipe name, and date and time using
 the format: YYYYMMDD_HHMMSS.
 This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, ``work``.

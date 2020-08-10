@@ -398,16 +398,20 @@ Exemplary output (depending on the directory paths and package versions that are
 available) can be found below. Note that the timestamps differ.
 
 > ## Your output plot(s).
-> Plot for the dataset(s):
->
+> Plots for the dataset(s) are located in `./recipe_example_#_#/diag_timeseries_temperature/timeseries_diag/`
+> 
+> For a single dataset:
+> 
 > ![single dataset](../fig/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_0.png "single dataset")
 >
-> Overlay plot, if multiple datasets are defined:
+> Or an overlay plot, if multiple datasets are defined:
 >
 > ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png "multiple datasets")
 {: .solution}
 
 > ## Your main output log file.
+> The main output file is located at `./recipe_example_#_#/run/main_log.txt/` 
+> 
 > ~~~bash
 > INFO    [33433]
 > ______________________________________________________________________
@@ -494,6 +498,8 @@ available) can be found below. Note that the timestamps differ.
 {: .solution}
 
 > ##  Your settings.yml file.
+> This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/settings.yaml`.
+> 
 > ```YAML
 > auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
 > input_files:
@@ -513,6 +519,9 @@ available) can be found below. Note that the timestamps differ.
 {: .solution}
 
 > ## A metadata.yml file.
+> 
+> This file is located at `./recipe_example_#_#/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml`.
+> 
 > ```YAML
 > ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
 > : alias: HadGEM2-ES
@@ -542,6 +551,8 @@ available) can be found below. Note that the timestamps differ.
 {: .solution}
 
 > ## The diagnostic log file.
+> This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/log.txt`
+> 
 > ~~~bash
 > Starting diagnostic script timeseries_diag with configuration:
 > auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data

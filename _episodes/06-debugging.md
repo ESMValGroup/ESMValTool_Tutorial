@@ -231,7 +231,7 @@ config_developer_file: {HOME}/.esmvaltool/config_reference.yml
 > ## ESMValTool can’t locate the data
 >
 > You are assisting a colleague with ESMValTool. The colleague changes the
-> ``project`` entry to ``CMIP6`` and runs the recipe. However, ESMValTool
+> ``datasets/project`` entry to ``CMIP6`` and runs the recipe. However, ESMValTool
 > encounters an error like:
 >
 > ~~~bash

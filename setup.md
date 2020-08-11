@@ -283,7 +283,7 @@ To download the data, run the following command using [wget](https://en.wikipedi
 ~~~shell
 wget --no-clobber --input-file \
   https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
-  --directory-prefix $HOME/default_inputpath/
+  --directory-prefix $HOME/esmvaltool_tutorial/data/
 ~~~
 
 ## GitHub account (Advanced)

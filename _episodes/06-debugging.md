@@ -112,7 +112,7 @@ Let's change some settings in the recipe to run a regional pre-processor.
 We use a text editor called ``nano`` to open the recipe file:
 
 ~~~bash
-  cd esmvaltool_tutorial
+  cd ~/esmvaltool_tutorial
   nano recipe_example.yml
 ~~~
 

@@ -82,7 +82,7 @@ Now, let's have a look inside the folder ``diag_timeseries_temperature``:
 ~~~
 
 ~~~
-diag_provenance.yml  log.txt  resource_usage.txt  settings.yml
+log.txt  resource_usage.txt  settings.yml
 ~~~
 {: .output}
 

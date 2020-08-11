@@ -153,7 +153,7 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
 >24
 >25    preprocessors:
->26      prep_timeseries: # For 0D fields
+>26      prep_timeseries:  # For 0D fields
 >27        annual_statistics:
 >28          operator: mean
 >29
@@ -178,12 +178,12 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 The [ESMValTool
 pre-processors](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/preprocessor.html?highlight=preprocessor)
 cover a broad range of operations on the input data, like time manipulation,
-area manipulation, land-sea masking, variable derivation, ... . Let's add the
+area manipulation, land-sea masking, variable derivation, etc. Let's add the
 preprocessor ``extract_region`` to the section ``prep_timeseries``:
 
 ```yaml
 25    preprocessors:
-26      prep_timeseries: # For 0D fields
+26      prep_timeseries:  # For 0D fields
 27        annual_statistics:
 28          operator: mean
 29        extract_region:
@@ -276,11 +276,11 @@ script, that is introduced in the recipe as:
 ```
 
 The diagnostic scripts are located in the folder ``diag_scripts`` in the
-ESMValTool installation directory ``path_to_esmvaltool``. To find
-``path_to_esmvaltool`` on your system, see [Installation]({{ page.root }}{% link
+ESMValTool installation directory ``<path_to_esmvaltool>``. To find
+where ESMValTool is located on your system, see [Installation]({{ page.root }}{% link
 _episodes/02-installation.md %}).
 
-let's see if we can change the script path as:
+Let's see what happens if we can change the script path as:
 
 ```yaml
 40        scripts:

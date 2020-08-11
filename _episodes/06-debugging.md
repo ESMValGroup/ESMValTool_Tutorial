@@ -57,7 +57,7 @@ conda activate esmvaltool
 Let's change the working directory to the folder ``run`` and list its files:
 
 ~~~bash
-  cd path_to_output_directory/run
+  cd esmvaltool_output/recipe_example_#_#/run
   ls
 ~~~
 
@@ -77,7 +77,7 @@ To inspect them, we can look inside the files. For example:
 Now, let's have a look inside the folder ``diag_timeseries_temperature``:
 
 ~~~bash
-  cd path_to_output_directory/run/diag_timeseries_temperature
+  cd diag_timeseries_temperature/timeseries_diag
   ls
 ~~~
 

@@ -88,22 +88,46 @@ file afterwards. These do not need to be explicitly included in recipes.
 
 > ## Exercise: Adding more preprocessor steps
 >
-> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable
-> thetao, then add preprocessors to average over the latitude and longitude
+> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable to
+> `thetao`, then add preprocessors to average over the latitude and longitude
 > dimensions and finally average over the depth. Now run the recipe.
 >
 >> ## Solution
 >>
->>```yaml
->> preprocessors:
->>   prep_timeseries:
->>     annual_statistics:
->>       operator: mean
->>     area_statistics:
->>       operator: mean
->>     depth_integration:
->>```
+>> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,15 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format).
 >>
+>>```diff
+>> --- data/recipe_example.yml
+>> --- data/recipe_example_thetao.yml
+>> @@ -20,12 +20,15 @@
+>>      - ukesm
+>>
+>>  datasets:
+>> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+>> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
+>>
+>>  preprocessors:
+>>    prep_timeseries: # For 0D fields
+>>      annual_statistics:
+>>        operator: mean
+>> +    area_statistics:
+>> +      operator: mean
+>> +    depth_integration:
+>>
+>>  diagnostics:
+>>    # --------------------------------------------------
+>> @@ -35,7 +38,7 @@
+>>      description: simple_time_series
+>>      variables:
+>>        timeseries_variable:
+>> -        short_name: thetaoga
+>> +        short_name: thetao
+>>          preprocessor: prep_timeseries
+>>      scripts:
+>>        timeseries_diag:
+>> ```
+>>
+>> Complete recipe can be downloaded as [recipe_example_thetao.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_thetao.yml)
 >{: .solution}
 {: .challenge}
 

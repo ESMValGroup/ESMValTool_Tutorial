@@ -230,8 +230,8 @@ config_developer_file: {HOME}/.esmvaltool/config_reference.yml
 
 > ## ESMValTool can’t locate the data
 >
-> You are assisting a colleague with ESMValTool. The colleague changes the
-> ``datasets/project`` entry to ``CMIP6`` and runs the recipe. However, ESMValTool
+> You are assisting a colleague with ESMValTool. The colleague replaces the
+> ``CMIP5`` entry in ``project: CMIP5`` to ``CMIP6`` and runs the recipe. However, ESMValTool
 > encounters an error like:
 >
 > ~~~bash

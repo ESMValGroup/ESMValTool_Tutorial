@@ -398,7 +398,7 @@ Exemplary output (depending on the directory paths and package versions that are
 available) can be found below. Note that the timestamps differ.
 
 > ## Your output plot(s).
-> Plots for the dataset(s) are located in `./recipe_example_#_#/diag_timeseries_temperature/timeseries_diag/`
+> Plots for the dataset(s) are located in `./recipe_example_#_#/plots/timeseries_diag/`
 > 
 > For a single dataset:
 > 

@@ -216,17 +216,11 @@ attach the run/recipe_*.yml and run/main_log_debug.txt files from the output dir
 The values for the keys ``author``, ``maintainer``, ``projects`` and
 ``references`` in the recipe should be known by ESMValTool. A list of ESMValTool
 author, maintainer, references, and projects can be found in the
-``config-references.yml``. You could download this file by typing:
+``config-references.yml``. You could download this file:
 
 ~~~bash
-  esmvaltool config get_config_reference
+  wget https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml
 ~~~
-
-It will be saved to: ``{HOME}/.esmvaltool/config-references.yml``. If you modify this file, please add the directory in the ``config-user.yml``:
-
-```yaml
-config_developer_file: {HOME}/.esmvaltool/config_reference.yml
-```
 
 > ## ESMValTool can’t locate the data
 >
@@ -300,7 +294,7 @@ esmvalcore._task.DiagnosticError: Cannot execute script 'diag_scripts/examples/d
 
 The script path should be relative to ``diag_scripts`` directory. It means that
 the script ``diagnostic_timeseries.py`` is located in
-``<path_to_esmvaltool>/diag_scripts/ocean/``. 
+``<path_to_esmvaltool>/diag_scripts/ocean/``.
 Alternatively, the script path can be an absolute path. To examine this, we can download the script from the ``ESMValTool`` repository:
 
 ```bash

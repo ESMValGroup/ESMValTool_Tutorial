@@ -300,14 +300,25 @@ esmvalcore._task.DiagnosticError: Cannot execute script 'diag_scripts/examples/d
 
 The script path should be relative to ``diag_scripts`` directory. It means that
 the script ``diagnostic_timeseries.py`` is located in
-``<path_to_esmvaltool>/diag_scripts/ocean/``. Alternatively, the script path can
-be an absolute path. To examine this, we change the script path and run the
-recipe:
+``<path_to_esmvaltool>/diag_scripts/ocean/``. 
+Alternatively, the script path can be an absolute path. To examine this, we can download the script from the ``ESMValTool`` repository:
+
+```bash
+wget https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py
+```
+
+One way to get the absolute path is to run:
+
+```bash
+readlink -f diagnostic_timeseries.py
+```
+
+Then we can update the script path and run the recipe:
 
 ```yaml
 40        scripts:
 41          timeseries_diag:
-42            script: <path_to_esmvaltool>/diag_scripts/ocean/diagnostic_timeseries.py
+42            script: <path_to_script>/diagnostic_timeseries.py
 ```
 
 ~~~bash

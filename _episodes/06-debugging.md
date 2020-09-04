@@ -320,7 +320,7 @@ Change and run the recipe:
   esmvaltool run recipe_example.yml
 ~~~
 
-Now examine `./esmvaltool_output/recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/` to see if it worked! Of course, this is a simple example, but it shows how you can customize diagnostic scripts or even make your own. Have a look through the scripts available in the [ESMValTool repository](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/).
+Now examine `./esmvaltool_output/recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/` to see if it worked!
 
 > ## Available recipe and diagnostic scripts
 >

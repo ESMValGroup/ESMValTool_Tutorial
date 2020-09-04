@@ -307,7 +307,7 @@ recipe:
 ```yaml
 40        scripts:
 41          timeseries_diag:
-42            script: ~/esmvaltool_tutorial/hello.py
+42            script: <path_to_esmvaltool>/diag_scripts/ocean/diagnostic_timeseries.py
 ```
 
 ~~~bash

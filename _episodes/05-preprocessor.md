@@ -140,6 +140,9 @@ specific preprocessor which should be applied.
 > ## Example
 >
 > ```yaml
+>datasets:
+>  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
+>
 > preprocessors:
 >   prep_timeseries_1:
 >     annual_statistics:
@@ -176,6 +179,7 @@ specific preprocessor which should be applied.
 >         script: ocean/diagnostic_timeseries.py
 > ```
 >
+> Complete recipe can be downloaded as [recipe_example_thetao_thetaoga.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_thetao_thetaoga.yml)
 {: .solution}
 
 >## Challenge : How to write a recipe with multiple preprocessors

@@ -1,0 +1,57 @@
+# ESMValTool
+# recipe_example.yml
+---
+documentation:
+  description: Demonstrate basic ESMValTool example
+
+  authors:
+    - demora_lee
+    - mueller_benjamin
+    - swaminathan_ranjini
+
+  maintainer:
+    - demora_lee
+
+  references:
+    - demora2018gmd
+    # Some plots also appear in ESMValTool paper 2.
+
+  projects:
+    - ukesm
+
+datasets:
+  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
+
+preprocessors:
+  prep_timeseries_1:
+    annual_statistics:
+      operator: mean
+  prep_timeseries_2: # For 0D fields
+    annual_statistics:
+      operator: mean
+    area_statistics:
+      operator: mean
+    depth_integration:
+
+diagnostics:
+  # --------------------------------------------------
+  # Time series diagnostics
+  # --------------------------------------------------
+  diag_timeseries_temperature_1:
+    description: simple_time_series
+    variables:
+      timeseries_variable:
+        short_name: thetaoga
+        preprocessor: prep_timeseries_1
+    scripts:
+      timeseries_diag:
+        script: ocean/diagnostic_timeseries.py
+  diag_timeseries_temperature_2:
+    description: simple_time_series
+    variables:
+      timeseries_variable:
+        short_name: thetao
+        preprocessor: prep_timeseries_2
+    scripts:
+      timeseries_diag:
+        script: ocean/diagnostic_timeseries.py

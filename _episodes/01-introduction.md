@@ -23,9 +23,9 @@ keypoints:
 
 ---
 
-## What is ESMValTool
+## What is ESMValTool?
 
-EMSValTool is first and foremost a tool to analyse climate data. But you
+ESMValTool is first and foremost a tool to analyse climate data. But you
 probably already knew that and we like to think there's more to it than that. So
 let's start with a quick check to synchronize our expectations.
 
@@ -55,7 +55,7 @@ let's start with a quick check to synchronize our expectations.
 > > way to go. The tool is intended for robust, repeatable and shareable climate
 > > analysis. That *does* require a bit more effort.
 > >
-> > &#10003; **A community effort.** EMSValTool is developed and maintained by a
+> > &#10003; **A community effort.** ESMValTool is developed and maintained by a
 > > large team of climate scientists and software engineers. It is an open
 > > source project to which anyone can contribute. Its longevity depends on
 > > these contributions.

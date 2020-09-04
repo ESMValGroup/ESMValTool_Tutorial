@@ -57,7 +57,7 @@ conda activate esmvaltool
 Let's change the working directory to the folder ``run`` and list its files:
 
 ~~~bash
-  cd path_to_output_directory/run
+  cd esmvaltool_output/recipe_example_#_#/run
   ls
 ~~~
 
@@ -77,12 +77,12 @@ To inspect them, we can look inside the files. For example:
 Now, let's have a look inside the folder ``diag_timeseries_temperature``:
 
 ~~~bash
-  cd path_to_output_directory/run/diag_timeseries_temperature
+  cd diag_timeseries_temperature/timeseries_diag
   ls
 ~~~
 
 ~~~
-diag_provenance.yml  log.txt  resource_usage.txt  settings.yml
+log.txt  resource_usage.txt  settings.yml
 ~~~
 {: .output}
 
@@ -112,7 +112,7 @@ Let's change some settings in the recipe to run a regional pre-processor.
 We use a text editor called ``nano`` to open the recipe file:
 
 ~~~bash
-  cd esmvaltool_tutorial
+  cd ~/esmvaltool_tutorial
   nano recipe_example.yml
 ~~~
 
@@ -153,7 +153,7 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
 >24
 >25    preprocessors:
->26      prep_timeseries: # For 0D fields
+>26      prep_timeseries:  # For 0D fields
 >27        annual_statistics:
 >28          operator: mean
 >29
@@ -178,12 +178,12 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 The [ESMValTool
 pre-processors](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/preprocessor.html?highlight=preprocessor)
 cover a broad range of operations on the input data, like time manipulation,
-area manipulation, land-sea masking, variable derivation, ... . Let's add the
+area manipulation, land-sea masking, variable derivation, etc. Let's add the
 preprocessor ``extract_region`` to the section ``prep_timeseries``:
 
 ```yaml
 25    preprocessors:
-26      prep_timeseries: # For 0D fields
+26      prep_timeseries:  # For 0D fields
 27        annual_statistics:
 28          operator: mean
 29        extract_region:
@@ -230,8 +230,8 @@ config_developer_file: {HOME}/.esmvaltool/config_reference.yml
 
 > ## ESMValTool can’t locate the data
 >
-> You are assisting a colleague with ESMValTool. The colleague changes the
-> ``project`` entry to ``CMIP6`` and runs the recipe. However, ESMValTool
+> You are assisting a colleague with ESMValTool. The colleague replaces the
+> ``CMIP5`` entry in ``project: CMIP5`` to ``CMIP6`` and runs the recipe. However, ESMValTool
 > encounters an error like:
 >
 > ~~~bash
@@ -276,11 +276,11 @@ script, that is introduced in the recipe as:
 ```
 
 The diagnostic scripts are located in the folder ``diag_scripts`` in the
-ESMValTool installation directory ``path_to_esmvaltool``. To find
-``path_to_esmvaltool`` on your system, see [Installation]({{ page.root }}{% link
+ESMValTool installation directory ``<path_to_esmvaltool>``. To find
+where ESMValTool is located on your system, see [Installation]({{ page.root }}{% link
 _episodes/02-installation.md %}).
 
-let's see if we can change the script path as:
+Let's see what happens if we can change the script path as:
 
 ```yaml
 40        scripts:
@@ -300,19 +300,32 @@ esmvalcore._task.DiagnosticError: Cannot execute script 'diag_scripts/examples/d
 
 The script path should be relative to ``diag_scripts`` directory. It means that
 the script ``diagnostic_timeseries.py`` is located in
-``path_to_esmvaltool/diag_scripts/ocean/``. Alternatively, the script path can
-be an absolute path. To examine this, we change the script path and run the
-recipe:
+``<path_to_esmvaltool>/diag_scripts/ocean/``. 
+Alternatively, the script path can be an absolute path. To examine this, we can download the script from the ``ESMValTool`` repository:
+
+```bash
+wget https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py
+```
+
+One way to get the absolute path is to run:
+
+```bash
+readlink -f diagnostic_timeseries.py
+```
+
+Then we can update the script path and run the recipe:
 
 ```yaml
 40        scripts:
 41          timeseries_diag:
-42            script: path_to_esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py
+42            script: <path_to_script>/diagnostic_timeseries.py
 ```
 
 ~~~bash
   esmvaltool run recipe_example.yml
 ~~~
+
+Now examine `./esmvaltool_output/recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/` to see if it worked!
 
 > ## Available recipe and diagnostic scripts
 >

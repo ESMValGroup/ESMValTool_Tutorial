@@ -34,7 +34,7 @@ diagnostics and description.
     - the MIP (Model Intercomparison Project, like atmospheric realm of MIP
       monthly data: Amon),
     - ensemble member,
-    - the experiment (i.e. historical, ssp125, etc.),
+    - the experiment (e.g. historical, ssp125),
     - and the grid type (necessary for CMIP6 only).
 
   - preprocessors: general operations applied to a dataset before handling it in
@@ -275,7 +275,7 @@ Please note the following sections:
 >
 > Use the command:
 > ~~~bash
-> esmvaltool run --config_file ./path_to_file/user-config.yml ./path_to_file/recipe_example.yml
+> esmvaltool run ./path_to_file/recipe_example.yml
 > ~~~
 >
 > Follow the terminal guiding you through the subprocesses that are running. Can
@@ -398,16 +398,20 @@ Exemplary output (depending on the directory paths and package versions that are
 available) can be found below. Note that the timestamps differ.
 
 > ## Your output plot(s).
-> Plot for the dataset(s):
->
+> Plots for the dataset(s) are located in `./recipe_example_#_#/plots/timeseries_diag/`
+> 
+> For a single dataset:
+> 
 > ![single dataset](../fig/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_0.png "single dataset")
 >
-> Overlay plot, if multiple datasets are defined:
+> Or an overlay plot, if multiple datasets are defined:
 >
 > ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png "multiple datasets")
 {: .solution}
 
 > ## Your main output log file.
+> The main output file is located at `./recipe_example_#_#/run/main_log.txt/` 
+> 
 > ~~~bash
 > INFO    [33433]
 > ______________________________________________________________________
@@ -494,6 +498,8 @@ available) can be found below. Note that the timestamps differ.
 {: .solution}
 
 > ##  Your settings.yml file.
+> This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/settings.yaml`.
+> 
 > ```YAML
 > auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
 > input_files:
@@ -513,6 +519,9 @@ available) can be found below. Note that the timestamps differ.
 {: .solution}
 
 > ## A metadata.yml file.
+> 
+> This file is located at `./recipe_example_#_#/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml`.
+> 
 > ```YAML
 > ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
 > : alias: HadGEM2-ES
@@ -542,6 +551,8 @@ available) can be found below. Note that the timestamps differ.
 {: .solution}
 
 > ## The diagnostic log file.
+> This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/log.txt`
+> 
 > ~~~bash
 > Starting diagnostic script timeseries_diag with configuration:
 > auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
@@ -613,7 +624,7 @@ available) can be found below. Note that the timestamps differ.
 >
 > - the dataset:
 >
->   - mip, start_year, end_year
+>   - `mip`, `start_year`, `end_year`
 >
 > - the preprocessor:
 >
@@ -635,7 +646,7 @@ The snippets for the edits can be found below:
 
 > ## Land surface average temperature
 >
-> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,14 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format)
+> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,14 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format).
 >
 > ```diff
 > --- data/recipe_example.yml
@@ -755,7 +766,7 @@ The snippets for the edits can be found below:
 ## Common issues & tips
 
 > ## esmvaltool not found
-> Can you run the command “esmvaltool -h”. If no, then it’s possible that the
+> Can you run the command `esmvaltool -h`. If no, then it’s possible that the
 > conda environment isn’t activated. Please return to the in
 > [installation section]({{ page.root }}{% link _episodes/02-installation.md %}).
 {: .solution}
@@ -763,13 +774,13 @@ The snippets for the edits can be found below:
 > ## The error message is `esmvalcore._recipe_checks.RecipeError: Missing data`
 > ESMValTool can’t locate the data.
 >
-> Which computing machine are you using? Does your user-config.yml file reflect
+> Which computing machine are you using? Does your `user-config.yml` file reflect
 > your machine's settings? Is the dataset’s name in the correct order?
 {: .solution}
 
 > ## Diagnostic path problems
 > The directory path to your diagnostics code is set relative to the
-> esmvaltool/diag_scripts subdirectory. Is the code placed in this subdirectory?
+> `esmvaltool/diag_scripts` subdirectory. Is the code placed in this subdirectory?
 > Is it spelled correctly?
 {: .solution}
 
@@ -781,7 +792,7 @@ The snippets for the edits can be found below:
 > ## The preprocessor works but the diagnostic fails
 > If your preprocessor works fine but your diagnostic script fails,
 > congratulations! A failed diagnostic means that you won’t need to re-run the
-> preprocessor. In your “run/main_log.txt” run output, you should see a line
+> preprocessor. In your `run/main_log.txt` run output, you should see a line
 > that reads: “To re-run this diagnostic script, run:”, followed by a line with
 > a command that will allow you to re-run your diagnostic script only. Append
 > this line with the “-i” option after the python script you call to re-run your

@@ -5,6 +5,7 @@ http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/
 # Variable = ts, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_193412-195911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
 # Variable = tas, model =  HadGEM2-AO
@@ -12,6 +13,7 @@ http://aims3.llnl.gov/thredds/fileServer/cmip5_css02_data/cmip5/output1/NIMR-KMA
 # Variable = tas, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_193412-195911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
 # Variable = tos, model = HadGEM2-AO

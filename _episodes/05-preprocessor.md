@@ -331,9 +331,8 @@ simple preprocessor and diagnostic setup for that:
 >         preprocessor: prep_regrid
 >         mip: Amon
 >         grid: gn  # can change for variables from the same model
->         start_year: 1970
->         end_year: 2000 # start and end years for a 30 year period,
->                        # we assume this is common and exists for all
+>         start_year: 1979
+>         end_year: 2000 # we assume this exists for all
 >                        # model and obs data
 >         additional_datasets:
 >           - {dataset: GPCP-SG, project: obs4mips, level: L3,
@@ -342,11 +341,8 @@ simple preprocessor and diagnostic setup for that:
 >         preprocessor: prep_regrid
 >         mip: Amon
 >         grid: gn  # can change for variables from the same model
->         start_year: 1970  # some 30 year period
+>         start_year: 1979
 >         end_year: 2000
->         additional_datasets:
->           - {dataset: HadCRUT4, project: OBS, type: ground,
->              version: 1, tier: 2}  # dataset specific to the temperature variable
 >     scripts: null
 > ```
 >
@@ -357,7 +353,6 @@ simple preprocessor and diagnostic setup for that:
 Variable grouping can be used to preprocess different clusters of data for the
 same variable. For instance, the example below illustrates how we can compute
 separate multimodel means for CMIP5 and CMIP6 data given the same variable.
-Additionally we can also preprocess observed data for evaluation.
 
 > ## Example
 >```yaml
@@ -403,12 +398,6 @@ Additionally we can also preprocess observed data for evaluation.
 >        end_year: 2005
 >        tag: TAS_CMIP5  # tag is optional if you are using these settings just once
 >        additional_datasets: *cmip5_datasets
->      tas_obs:
->        <<: *variable_settings
->        preprocessor: prep_obs
->        tag: TAS_OBS
->        additional_datasets:
->          - {dataset: HadCRUT4, project: OBS, type: ground, version: 1, tier: 2}
 >      tas_cmip6:
 >        <<: *variable_settings
 >        tag: TAS_CMIP6
@@ -420,7 +409,7 @@ Additionally we can also preprocess observed data for evaluation.
 
 You should be able to see the variables grouped under different subdirectories
 under your output preproc directory. The different groupings can be accessed in
-your diagnostic by selecting the key name of the field `variable_group`  such as `tas_cmip5`, `tas_cmip6` or `tas_obs`.
+your diagnostic by selecting the key name of the field `variable_group`  such as `tas_cmip5`, or `tas_cmip6`.
 
 > ## How to find what CMIP data is available?
 >

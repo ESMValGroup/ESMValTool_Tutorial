@@ -49,3 +49,5 @@ http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCC
 http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r2i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r2i1p2f1_gn_185001-201412.nc
 http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r3i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r3i1p2f1_gn_185001-201412.nc
 http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r4i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r4i1p2f1_gn_185001-201412.nc
+# Variable = pr, model = GPCP-SG, project= obs4mips
+https://dpesgf03.nccs.nasa.gov/thredds/fileServer/obs4MIPs/observations/NASA-GSFC/Obs-GPCP/GPCP/V2.2/atmos/pr/pr_GPCP-SG_L3_v2.2_197901-201312.nc

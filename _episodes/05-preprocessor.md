@@ -413,20 +413,5 @@ your diagnostic by selecting the key name of the field `variable_group`  such as
 
 > ## How to find what CMIP data is available?
 >
-> [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/index.html) and
-> [CMIP6](https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html) data obey the
-> [CF-conventions](http://cfconventions.org/). Available variables can be found
-> under the [CMIP5 data
-> request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28) and
-> the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
->
-> CMIP data is widely available via the Earth System Grid Federation
-> ([ESGF](https://esgf.llnl.gov/)) and is accessible to users either via
-> download from the ESGF portal or through the ESGF data nodes hosted by large
-> computing facilities (like [CEDA-Jasmin](https://esgf-index1.ceda.ac.uk/),
-> [DKRZ](https://esgf-data.dkrz.de/), etc). The ESGF also hosts observations for
-> Model Intercomparison Projects (obs4MIPs) and reanalyses data (ana4MIPs).
->
-> A full list of all CMIP named variables is available here:
-> [http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
+> Please see section "Access to CMIP and Observational data" in [Setup]({{ page.root }}{% link setup.md %}).
 {: .callout}

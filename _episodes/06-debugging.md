@@ -216,7 +216,7 @@ attach the run/recipe_*.yml and run/main_log_debug.txt files from the output dir
 The values for the keys ``author``, ``maintainer``, ``projects`` and
 ``references`` in the recipe should be known by ESMValTool. A list of ESMValTool
 author, maintainer, and projects can be found in the
-``config-references.yml``. You could download this file:
+[config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml). 
 
 ~~~bash
   wget https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml

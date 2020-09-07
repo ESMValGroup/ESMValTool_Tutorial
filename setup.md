@@ -257,10 +257,19 @@ To download the data, run the following command using [wget](https://en.wikipedi
 wget --no-clobber --input-file \
   https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
+~~~
+
+The `dataset.urls` contains the dataset `GPCP-SG` that is a part of
+[obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/) project.
+To set the correct directory structure for this project, run the following command:
+
+~~~shell
 cd $HOME/esmvaltool_tutorial/data/
 mkdir -p Tier1/GPCP-SG
 mv pr_GPCP-SG_*.nc Tier1/GPCP-SG/
 ~~~
+
+We will learn more about this in the lesson **Configuration** in this tutorial.
 
 ## GitHub account (Advanced)
 

@@ -133,7 +133,7 @@ wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/da
 > 20        - ukesm
 > 21
 > 22    datasets:
-> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
+> 23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
 > 24
 > 25    preprocessors:
 > 26      prep_timeseries: # For 0D fields
@@ -200,7 +200,7 @@ Please note the following sections:
     - experiment (key: exp)
     - mip (for CMIP data, key: mip)
     - ensemble member (key: ensemble)
-    - time range (e.g. key-value-pair: start_year: 1970, end_year: 2000)
+    - time range (e.g. key-value-pair: start_year: 1900, end_year: 2000)
     - model grid (for CMIP6 data only, key: grid)
     - alias (key: alias; use the alias for e.g. a more human readable name for
       the dataset)
@@ -258,7 +258,7 @@ Please note the following sections:
 {: .solution}
 
 > ## How many years of data are being analyzed?
-> 1970 to 2000.
+> 1900 to 2000.
 {: .solution}
 
 > ## What do you think running this recipe will produce?
@@ -523,14 +523,14 @@ available) can be found below. Note that the timestamps differ.
 > This file is located at `./recipe_example_#_#/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml`.
 >
 > ```YAML
-> ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1970-2000.nc
+> ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
 > : alias: HadGEM2-ES
 >   dataset: HadGEM2-ES
 >   diagnostic: diag_timeseries_temperature
 >   end_year: 2000
 >   ensemble: r1i1p1
 >   exp: historical
->   filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1970-2000.nc
+>   filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
 >   frequency: mon
 >   institute:
 >   - INPE
@@ -557,14 +557,14 @@ available) can be found below. Note that the timestamps differ.
 > Starting diagnostic script timeseries_diag with configuration:
 > auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
 > input_data:
->   ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1970-2000.nc
+>   ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
 >   : alias: HadGEM2-ES
 >     dataset: HadGEM2-ES
 >     diagnostic: diag_timeseries_temperature
 >     end_year: 2005
 >     ensemble: r1i1p1
 >     exp: historical
->     filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1970-2000.nc
+>     filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
 >     frequency: mon
 >     institute:
 >     - INPE
@@ -599,12 +599,12 @@ available) can be found below. Note that the timestamps differ.
 > Creating /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
 > metadata filename:	/scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
 > No handles with labels found to put in legend.
-> Image path will be: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1970-2000_timeseries_.png
-> Saving plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1970-2000_timeseries_.png
+> Image path will be: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_.png
+> Saving plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_.png
 > -----------------
 > model filenames:	/scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
-> Image path will be: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1970-2000_timeseries_0.png
-> Saving plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1970-2000_timeseries_0.png
+> Image path will be: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_0.png
+> Saving plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_0.png
 > Success
 > End of diagnostic script run.
 > ~~~
@@ -652,6 +652,11 @@ The snippets for the edits can be found below:
 > --- data/recipe_example.yml
 > +++ data/recipe_example_ts.yml
 > @@ -20,12 +20,14 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
 >
 >  preprocessors:
 >    prep_timeseries: # For 0D fields
@@ -683,7 +688,48 @@ The snippets for the edits can be found below:
 > ```diff
 > --- data/recipe_example.yml
 > +++ data/recipe_example_tas.yml
+> @@ -20,12 +20,14 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
+>
+>  preprocessors:
+>    prep_timeseries: # For 0D fields
+>      annual_statistics:
+>        operator: mean
+> +    area_statistics:
+> +      operator: mean
+>
+>  diagnostics:
+>    # --------------------------------------------------
+> @@ -35,7 +37,7 @@
+>      description: simple_time_series
+>      variables:
+>        timeseries_variable:
+> -        short_name: thetaoga
+> +        short_name: tas
+>          preprocessor: prep_timeseries
+>      scripts:
+>        timeseries_diag:
+> ```
+>
+> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas.yml)
+{: .solution}
+
+> ## Ocean surface average temperature
+>
+> ```diff
+> --- data/recipe_example.yml
+> +++ data/recipe_example_tos.yml
 > @@ -20,12 +20,15 @@
+>      - ukesm
+>
+>  datasets:
+> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
+> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
+> +  - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
 >
 >  preprocessors:
 >    prep_timeseries: # For 0D fields
@@ -695,42 +741,6 @@ The snippets for the edits can be found below:
 >  diagnostics:
 >    # --------------------------------------------------
 > @@ -35,7 +38,7 @@
->      description: simple_time_series
->      variables:
->        timeseries_variable:
-> -        short_name: thetaoga
-> +        short_name: tas
->          preprocessor: prep_timeseries
->      scripts:
->        timeseries_diag:
-> ```
-> Note: There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
->
-> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas.yml)
-{: .solution}
-
-> ## Ocean surface average temperature
->
-> ```diff
-> --- data/recipe_example.yml
-> +++ data/recipe_example_tos.yml
-> @@ -20,12 +20,16 @@
->      - ukesm
->
->  datasets:
->  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
-> +  - {dataset: HadGEM2-CC, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
->
->  preprocessors:
->    prep_timeseries: # For 0D fields
->      annual_statistics:
->        operator: mean
-> +    area_statistics:
-> +      operator: mean
->
->  diagnostics:
->    # --------------------------------------------------
-> @@ -35,7 +39,7 @@
 >      description: simple_time_series
 >      variables:
 >        timeseries_variable:

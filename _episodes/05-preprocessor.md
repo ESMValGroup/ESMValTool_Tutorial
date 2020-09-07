@@ -173,8 +173,7 @@ specific preprocessor which should be applied.
 >> ```yaml
 >>
 >> datasets:
->>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
->>      ensemble: r1i1p1f2}  # single dataset as an example
+>>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
 >>
 >> preprocessors:
 >>   prep_map:  # preprocessor to just regrid data
@@ -195,10 +194,6 @@ specific preprocessor which should be applied.
 >>      # apply the first preprocessor i.e. name your preprocessor
 >>      # edit the following 4 lines for mip, grid and time
 >>      # based on your variable choice
->>      mip: Amon
->>      grid: gn  # can change for variables from the same model
->>      start_year: 1970
->>      end_year: 2000
 >>    scripts: null  # no scripts called
 >>  diag_land_only_plot: # second diagnostic
 >>    description:  # preprocess a variable for a 2D land only plot
@@ -216,55 +211,64 @@ specific preprocessor which should be applied.
 >> Here is one solution to complete the challenge above using  two different
 >> preprocessors:
 >>
->>```yaml
+>>```diff
+>> --- data/recipe_example.yml
+>> +++ data/recipe_example_multi_preprocessors.yml
+>> @@ -20,23 +20,37 @@
+>>      - ukesm
 >>
->> datasets:
->>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
->>      ensemble: r1i1p1f2}  # single dataset as an example
+>>  datasets:
+>> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
+>> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
 >>
->> preprocessors:
->>   prep_map:
->>     regrid:  # apply the preprocessor to regrid
->>       target_grid: 1x1  # target resolution
->>       scheme: linear  # how to interpolate for regridding
+>>  preprocessors:
+>> -  prep_timeseries: # For 0D fields
+>> -    annual_statistics:
+>> -      operator: mean
+>> +  prep_map:
+>> +    regrid:    #apply the preprocessor to regrid
+>> +      target_grid: 1x1 # target resolution
+>> +      scheme: linear  #how to interpolate for regridding
+>> +
+>> +  prep_map_land:
+>> +    custom_order: true #ensure that given order of preprocessing is followed
+>> +    mask_landsea:    #apply a mask
+>> +      mask_out: sea   #mask out sea grid cells
+>> +    regrid:    # now apply the preprocessor to regrid
+>> +      target_grid: 1x1 # target resolution
+>> +      scheme: linear  #how to interpolate for regridding
 >>
->>   prep_map_land:
->>     custom_order: true  # ensure that given order of preprocessing is followed
->>     mask_landsea:    # apply a mask
->>       mask_out: sea   # mask out sea grid cells
->>     regrid:  # now apply the preprocessor to regrid
->>       target_grid: 1x1  # target resolution
->>       scheme: linear  # how to interpolate for regridding
->>
->> diagnostics:
->>   # --------------------------------------------------
->>   # Two Simple diagnostics that illustrate the use of
->>   # different preprocessors
->>   # --------------------------------------------------
->>   diag_simple_plot:
->>     description:  # preprocess a variable for a simple 2D plot
->>     variables:
->>       tas:  # surface temperature
->>         preprocessor: prep_map
->>         mip: Amon
->>         grid: gn  # can change for variables from the same model
->>         start_year: 1970
->>         end_year: 2000
->>     scripts: null
->>
->>   diag_land_only_plot:
->>     description:  # preprocess a variable for a 2D land only plot
->>     variables:
->>       tas:  # surface temperature
->>         preprocessor: prep_map_land
->>         mip: Amon
->>         grid: gn  # can change for variables from the same model
->>         start_year: 1970
->>         end_year: 2000
->>     scripts: null
+>>  diagnostics:
+>>    # --------------------------------------------------
+>> -  # Time series diagnostics
+>> +  # Two Simple diagnostics that illustrate the use of
+>> +  # different preprocessors
+>>    # --------------------------------------------------
+>> -  diag_timeseries_temperature:
+>> -    description: simple_time_series
+>> +  diag_simple_plot:
+>> +    description: # preprocess a variable for a simple 2D plot
+>> +    variables:
+>> +      tas:  # surface temperature
+>> +        preprocessor: prep_map
+>> +    scripts: null
+>> +
+>> +  diag_land_only_plot:
+>> +    description: #preprocess a variable for a 2D land only plot
+>>      variables:
+>> -      timeseries_variable:
+>> -        short_name: thetaoga
+>> -        preprocessor: prep_timeseries
+>> -    scripts:
+>> -      timeseries_diag:
+>> -        script: ocean/diagnostic_timeseries.py
+>> +      tas:  # surface temperature
+>> +        preprocessor: prep_map_land
+>> +    scripts: null
 >> ```
 >>
->> Complete recipe can be downloaded [here](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_multi_preprocessors.yml).
+>> Complete recipe can be downloaded as
+>> [recipe_example_multi_preprocessors.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_multi_preprocessors.yml).
 > {: .solution}
 {: .challenge}
 
@@ -282,8 +286,7 @@ simple preprocessor and diagnostic setup for that:
 > ```yaml
 >
 > datasets:
->   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
->      ensemble: r1i1p1f2}  # common to both variables discussed below
+>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
 >
 > preprocessors:
 >   prep_regrid: # regrid to get all data to the same resolution
@@ -301,24 +304,11 @@ simple preprocessor and diagnostic setup for that:
 >     variables:
 >       pr:  # first variable is precipitation
 >         preprocessor: prep_regrid
->         mip: Amon
->         grid: gn  # can change for variables from the same model
->         start_year: 1970
->         end_year: 2000 # start and end years for a 30 year period,
->                        # we assume this is common and exists for all
->                        # model and obs data
 >         additional_datasets:
 >           - {dataset: GPCP-SG, project: obs4mips, level: L3,
 >              version: v2.2, tier: 1}  # dataset specific to this variable
 >       tas:  # second variable is surface temperature
 >         preprocessor: prep_regrid
->         mip: Amon
->         grid: gn  # can change for variables from the same model
->         start_year: 1970  # some 30 year period
->         end_year: 2000
->         additional_datasets:
->           - {dataset: HadCRUT4, project: OBS, type: ground,
->              version: 1, tier: 2}  # dataset specific to the temperature variable
 >     scripts: null
 > ```
 >

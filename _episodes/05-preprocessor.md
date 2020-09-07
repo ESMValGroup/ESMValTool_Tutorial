@@ -376,32 +376,31 @@ separate multimodel means for CMIP5 and CMIP6 data given the same variable.
 >
 ># note that there is no field called datasets anymore
 ># note how multiple ensembles are added by using (1:4)
->cmip5_datasets: &cmip5_datasets
->  - {dataset: CanESM2, ensemble: "r(1:4)i1p1", project: CMIP5}
->  - {dataset: MPI-ESM-LR, ensemble: "r(1:2)i1p1", project: CMIP5}
+>cmip5_control: &cmip5_control
+>  - {dataset: HadGEM2-ES, ensemble: r1i1p1, project: CMIP5}
+>  - {dataset: MPI-ESM-LR, ensemble: r1i1p1, project: CMIP5}
 >
->cmip6_datasets: &cmip6_datasets
->  - {dataset: UKESM1-0-LL, ensemble: "r(1:4)i1p1f2", grid: gn, project: CMIP6}
->  - {dataset: CanESM5, ensemble: "r(1:4)i1p2f1", grid: gn, project: CMIP6}
+>cmip5_target: &cmip5_target
+>  - {dataset: CanESM2, ensemble: "r(1:2)i1p1", project: CMIP5}
 >
 >diagnostics:
 >
 >  diag_variable_groups:
 >    description: Demonstrate the use of variable groups.
 >    variables:
->      tas_cmip5: &variable_settings  # need a key name for the grouping
+>      tas_contorl: &variable_settings  # need a key name for the grouping
 >        short_name: tas  # specify variable to look for
 >        preprocessor: prep_mmm
 >        mip: Amon
 >        exp: historical
 >        start_year: 2000
 >        end_year: 2005
->        tag: TAS_CMIP5  # tag is optional if you are using these settings just once
->        additional_datasets: *cmip5_datasets
->      tas_cmip6:
+>        tag: TAS_CONTROL  # tag is optional if you are using these settings just once
+>        additional_datasets: *cmip5_control
+>      tas_target:
 >        <<: *variable_settings
->        tag: TAS_CMIP6
->        additional_datasets: *cmip6_datasets  # nothing changes from cmip5 except the data set
+>        tag: TAS_TARGET
+>        additional_datasets: *cmip5_target  # nothing changes from cmip5 except the data set
 >    scripts: null
 >```
 >
@@ -409,7 +408,8 @@ separate multimodel means for CMIP5 and CMIP6 data given the same variable.
 
 You should be able to see the variables grouped under different subdirectories
 under your output preproc directory. The different groupings can be accessed in
-your diagnostic by selecting the key name of the field `variable_group`  such as `tas_cmip5`, or `tas_cmip6`.
+your diagnostic by selecting the key name of the field
+`variable_group`  such as `TAS_CONTROL`, or `TAS_TARGET`.
 
 > ## How to find what CMIP data is available?
 >

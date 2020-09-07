@@ -227,7 +227,7 @@ local machine and go [here](#gitHub-account-(advanced)).
 If you are planning on running ESMValTool on your own machine, please make sure
 that you are able to download CMIP data and that you have several GB of space
 available to install conda & ESMValTool, but also enough to make a copy of some
-data (12Gb).
+data (13Gb).
 
 We can download a single data file following the instructions as described below:
 

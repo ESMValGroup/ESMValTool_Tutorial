@@ -223,7 +223,7 @@ author, maintainer, and projects can be found in the
 ~~~
 
 And ESMValTool references in `BibTeX` format can be found
-[here](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references).
+[ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references) directory.
 
 > ## ESMValTool can’t locate the data
 >

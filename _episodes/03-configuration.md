@@ -188,13 +188,15 @@ Site-specific entries for Jasmin, DKRZ and ETHZ are listed at the end of the
 example configuration file.
 
 In this lesson, we will work with data from
-[CMIP5](https://esgf-node.llnl.gov/projects/cmip5/).
+[CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
+and [obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/).
 We add the root path of the folder where  our/your data is available.
 
 ```yaml
   rootpath:
   ...
     CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2, ~/esmvaltool_tutorial/data]
+    obs4mips: ~/esmvaltool_tutorial/data
 ```
 
 > ## Setting the correct rootpath

@@ -257,6 +257,9 @@ To download the data, run the following command using [wget](https://en.wikipedi
 wget --no-clobber --input-file \
   https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
+cd $HOME/esmvaltool_tutorial/data/
+mkdir -p Tier1/GPCP-SG
+mv pr_GPCP-SG_*.nc Tier1/GPCP-SG/
 ~~~
 
 ## GitHub account (Advanced)

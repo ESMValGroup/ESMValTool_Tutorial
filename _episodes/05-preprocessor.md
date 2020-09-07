@@ -299,7 +299,7 @@ specific preprocessor which should be applied.
 ## Adding different datasets for different variables
 
 Sometimes, we may want to include specific datasets only for certain variables.
-An example is when we use observations for two different variables in a
+An example is when we use observations for variables in a
 diagnostic. While the CMIP dataset details for the two variables may be common,
 the observations will likely not be so. It would be useful to know how to
 include different datasets for different variables. Here is an example of a

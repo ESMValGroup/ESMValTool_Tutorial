@@ -25,6 +25,8 @@ http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_185912-195911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_195912-200512.nc
 # For Working with preprocessors episode
+# Variable = thetao, model = HadGEM2-ES
+http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetao/thetao_Omon_HadGEM2-ES_historical_r1i1p1_199912-200512.nc
 # Model = UKESM1-0-LL, project = CMIP6, Experiment = historical, ensemble= r1i1p1f2, variable = thetao, pr and tas, 1970-2000
 http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r1i1p1f2/Omon/thetao/gn/v20190627/thetao_Omon_UKESM1-0-LL_historical_r1i1p1f2_gn_200001-201412.nc
 http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r1i1p1f2/Omon/thetao/gn/v20190627/thetao_Omon_UKESM1-0-LL_historical_r1i1p1f2_gn_195001-199912.nc
@@ -47,3 +49,5 @@ http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCC
 http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r2i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r2i1p2f1_gn_185001-201412.nc
 http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r3i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r3i1p2f1_gn_185001-201412.nc
 http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esgC_dataroot/AR6/CMIP6/CMIP/CCCma/CanESM5/historical/r4i1p2f1/Amon/tas/gn/v20190429/tas_Amon_CanESM5_historical_r4i1p2f1_gn_185001-201412.nc
+# Variable = pr, model = GPCP-SG, project= obs4mips
+https://dpesgf03.nccs.nasa.gov/thredds/fileServer/obs4MIPs/observations/NASA-GSFC/Obs-GPCP/GPCP/V2.2/atmos/pr/pr_GPCP-SG_L3_v2.2_197901-201312.nc

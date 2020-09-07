@@ -88,22 +88,46 @@ file afterwards. These do not need to be explicitly included in recipes.
 
 > ## Exercise: Adding more preprocessor steps
 >
-> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable
-> thetao, then add preprocessors to average over the latitude and longitude
+> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable to
+> `thetao`, then add preprocessors to average over the latitude and longitude
 > dimensions and finally average over the depth. Now run the recipe.
 >
 >> ## Solution
 >>
->>```yaml
->> preprocessors:
->>   prep_timeseries:
->>     annual_statistics:
->>       operator: mean
->>     area_statistics:
->>       operator: mean
->>     depth_integration:
->>```
+>> In the `diff` file below you will see the changes we have made to the file. The top 2 lines are the filenames and the lines like @@ -20,12 +20,15 @@ indicate the line numbers in the original and modified file, respectively. For more info on this format, see [here](https://en.wikipedia.org/wiki/Diff#Unified_format).
 >>
+>>```diff
+>> --- data/recipe_example.yml
+>> --- data/recipe_example_thetao.yml
+>> @@ -20,12 +20,15 @@
+>>      - ukesm
+>>
+>>  datasets:
+>> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+>> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
+>>
+>>  preprocessors:
+>>    prep_timeseries: # For 0D fields
+>>      annual_statistics:
+>>        operator: mean
+>> +    area_statistics:
+>> +      operator: mean
+>> +    depth_integration:
+>>
+>>  diagnostics:
+>>    # --------------------------------------------------
+>> @@ -35,7 +38,7 @@
+>>      description: simple_time_series
+>>      variables:
+>>        timeseries_variable:
+>> -        short_name: thetaoga
+>> +        short_name: thetao
+>>          preprocessor: prep_timeseries
+>>      scripts:
+>>        timeseries_diag:
+>> ```
+>>
+>> Complete recipe can be downloaded as [recipe_example_thetao.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_thetao.yml)
 >{: .solution}
 {: .challenge}
 
@@ -116,6 +140,9 @@ specific preprocessor which should be applied.
 > ## Example
 >
 > ```yaml
+>datasets:
+>  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
+>
 > preprocessors:
 >   prep_timeseries_1:
 >     annual_statistics:
@@ -152,6 +179,7 @@ specific preprocessor which should be applied.
 >         script: ocean/diagnostic_timeseries.py
 > ```
 >
+> Complete recipe can be downloaded as [recipe_example_thetao_thetaoga.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_thetao_thetaoga.yml)
 {: .solution}
 
 >## Challenge : How to write a recipe with multiple preprocessors
@@ -271,7 +299,7 @@ specific preprocessor which should be applied.
 ## Adding different datasets for different variables
 
 Sometimes, we may want to include specific datasets only for certain variables.
-An example is when we use observations for two different variables in a
+An example is when we use observations for variables in a
 diagnostic. While the CMIP dataset details for the two variables may be common,
 the observations will likely not be so. It would be useful to know how to
 include different datasets for different variables. Here is an example of a
@@ -303,9 +331,8 @@ simple preprocessor and diagnostic setup for that:
 >         preprocessor: prep_regrid
 >         mip: Amon
 >         grid: gn  # can change for variables from the same model
->         start_year: 1970
->         end_year: 2000 # start and end years for a 30 year period,
->                        # we assume this is common and exists for all
+>         start_year: 1979
+>         end_year: 2000 # we assume this exists for all
 >                        # model and obs data
 >         additional_datasets:
 >           - {dataset: GPCP-SG, project: obs4mips, level: L3,
@@ -314,11 +341,8 @@ simple preprocessor and diagnostic setup for that:
 >         preprocessor: prep_regrid
 >         mip: Amon
 >         grid: gn  # can change for variables from the same model
->         start_year: 1970  # some 30 year period
+>         start_year: 1979
 >         end_year: 2000
->         additional_datasets:
->           - {dataset: HadCRUT4, project: OBS, type: ground,
->              version: 1, tier: 2}  # dataset specific to the temperature variable
 >     scripts: null
 > ```
 >
@@ -329,7 +353,6 @@ simple preprocessor and diagnostic setup for that:
 Variable grouping can be used to preprocess different clusters of data for the
 same variable. For instance, the example below illustrates how we can compute
 separate multimodel means for CMIP5 and CMIP6 data given the same variable.
-Additionally we can also preprocess observed data for evaluation.
 
 > ## Example
 >```yaml
@@ -375,12 +398,6 @@ Additionally we can also preprocess observed data for evaluation.
 >        end_year: 2005
 >        tag: TAS_CMIP5  # tag is optional if you are using these settings just once
 >        additional_datasets: *cmip5_datasets
->      tas_obs:
->        <<: *variable_settings
->        preprocessor: prep_obs
->        tag: TAS_OBS
->        additional_datasets:
->          - {dataset: HadCRUT4, project: OBS, type: ground, version: 1, tier: 2}
 >      tas_cmip6:
 >        <<: *variable_settings
 >        tag: TAS_CMIP6
@@ -392,24 +409,9 @@ Additionally we can also preprocess observed data for evaluation.
 
 You should be able to see the variables grouped under different subdirectories
 under your output preproc directory. The different groupings can be accessed in
-your diagnostic by selecting the key name of the field `variable_group`  such as `tas_cmip5`, `tas_cmip6` or `tas_obs`.
+your diagnostic by selecting the key name of the field `variable_group`  such as `tas_cmip5`, or `tas_cmip6`.
 
 > ## How to find what CMIP data is available?
 >
-> [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/index.html) and
-> [CMIP6](https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html) data obey the
-> [CF-conventions](http://cfconventions.org/). Available variables can be found
-> under the [CMIP5 data
-> request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28) and
-> the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
->
-> CMIP data is widely available via the Earth System Grid Federation
-> ([ESGF](https://esgf.llnl.gov/)) and is accessible to users either via
-> download from the ESGF portal or through the ESGF data nodes hosted by large
-> computing facilities (like [CEDA-Jasmin](https://esgf-index1.ceda.ac.uk/),
-> [DKRZ](https://esgf-data.dkrz.de/), etc). The ESGF also hosts observations for
-> Model Intercomparison Projects (obs4MIPs) and reanalyses data (ana4MIPs).
->
-> A full list of all CMIP named variables is available here:
-> [http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
+> Please see section "Access to CMIP and Observational data" in [Setup]({{ page.root }}{% link setup.md %}).
 {: .callout}

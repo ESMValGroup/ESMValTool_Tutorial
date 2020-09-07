@@ -35,7 +35,6 @@ ESMValTool code.
   [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
 
 
-
 ## Access to CMIP and Observational data and a suitable compute cluster
 
 To complete this tutorial and use ESMValTool, you will need access to data in a
@@ -50,21 +49,25 @@ Intercomparison Project
 (CMIP)](https://en.wikipedia.org/wiki/Coupled_Model_Intercomparison_Project) is
 locally stored on disk and accessible directly by the tool. Similarly,
 observational data would also be available at these sites.
+The ESGF also hosts observations for Model Intercomparison Projects (obs4MIPs) and reanalyses data (ana4MIPs).
 
 Here are a few options for compute clusters with ESGF nodes:
 
 - [CEDA-Jasmin (UK)](#ceda-jasmin)
 - [DKRZ (Germany)](#dkrz)
 
-A full list of all ESGF nodes is available
-[here](https://esgf.llnl.gov/nodes.html).
+For more information see:
 
-If you're running on a computing cluster without an ESGF node, such as your
-local machine, or your institute machine, you will most likely have to make a
-local copy of the data that you need.
+- [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/index.html) and
+[CMIP6](https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html) data obey the
+[CF-conventions](http://cfconventions.org/). Available variables can be found
+under the [CMIP5 data request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28)
+and the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
 
-If necessary, data can be downloaded using the
-[synda tool](https://prodiguer.github.io/synda/index.html).
+- A full list of all
+[CMIP named variables](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
+
+- A full list of [all ESGF nodes](https://esgf.llnl.gov/nodes.html).
 
 ### CEDA-Jasmin
 
@@ -138,7 +141,6 @@ Note that the JASMIN is only open to certain locations (mostly universities, and
 research centres). You may need a VPN if you wish to connect from your home
 network.
 
-
 Please request access to the working groups:
 - [esmeval working
   group](https://accounts.jasmin.ac.uk/services/group_workspaces/esmeval)
@@ -153,35 +155,6 @@ The linking may take a few hours to take effect and is necessary for you to
 access the BADC archives via JASMIN. Some CMIP5 data sets such as MIROC are not
 accessible by default and special permission has to be requested to access them
 via [the CEDA catalogue page](https://catalogue.ceda.ac.uk/).
-
-
-#### Test your Setup
-
-Log into jasmin-login:
-
-~~~
-ssh -X JASMIN-USERNAME@jasmin-login1.ceda.ac.uk
-~~~
-{: .language-bash}
-
-Then log into the sci1 machine:
-
-~~~
-ssh -X jasmin-sci1
-~~~
-{: .language-bash}
-
-Can you see the following locations:
-~~~
-ls /group_workspaces/jasmin4/esmeval/obsdata/Tier2
-ls /badc/cmip5/data/cmip5/output1/MOHC/HadGEM2-ES
-ls /badc/cmip6/data/CMIP6/CMIP/*/*/historical/r1i1p1f?/Omon/[ts]os/gn/latest/*.nc
-~~~
-{: .language-bash}
-
-Note that the JASMIN is only open to certain locations (mostly universities, and
-research centres). You may need a VPN if you wish to connect from your home
-network.
 
 Congratulations! Please go here [here](#gitHub-account-(advanced)) next.
 
@@ -254,7 +227,7 @@ local machine and go [here](#gitHub-account-(advanced)).
 If you are planning on running ESMValTool on your own machine, please make sure
 that you are able to download CMIP data and that you have several GB of space
 available to install conda & ESMValTool, but also enough to make a copy of some
-data (12Gb).
+data (13Gb).
 
 We can download a single data file following the instructions as described below:
 
@@ -285,6 +258,18 @@ wget --no-clobber --input-file \
   https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
 ~~~
+
+The `dataset.urls` contains the dataset `GPCP-SG` that is a part of
+[obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/) project.
+To set the correct directory structure for this project, run the following command:
+
+~~~shell
+cd $HOME/esmvaltool_tutorial/data/
+mkdir -p Tier1/GPCP-SG
+mv pr_GPCP-SG_*.nc Tier1/GPCP-SG/
+~~~
+
+We will learn more about this in the lesson **Configuration** in this tutorial.
 
 ## GitHub account (Advanced)
 

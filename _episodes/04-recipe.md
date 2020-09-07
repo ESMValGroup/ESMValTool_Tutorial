@@ -181,14 +181,24 @@ Please note the following sections:
     The documentation consists of the following information:
 
     - description: a short description of the recipe
-    - authors: a list of authors (linked to `esmvaltool/config-references.yml`)
-    - maintainer: a list of maintainers (linked to
-      `esmvaltool/config-references.yml`)
-    - references: a list of references (linked to a bibtexfile in
-      `esmvaltool/references` with the same name)
-    - projects: a list of projects (linked to
-      `esmvaltool/config-references.yml`)
+    - authors: a list of authors
+    - maintainer: a list of maintainers
+    - references: a list of references
+    - projects: a list of projects
 
+> ## config-references.yml and references
+>
+> The values for the keys ``author``, ``maintainer``, ``projects`` and
+> ``references`` in the recipe should be known by ESMValTool:
+>
+> - A list of ESMValTool
+> author, maintainer, and projects are mentioned in the file ``config-references.yml``
+> that can be found in
+> [ESMValTool/esmvaltool](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml).
+>
+> - ESMValTool references in `BibTeX` format can be found in
+> [ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references) directory.
+{: .callout}
 
   - datasets: lines 22-23
 

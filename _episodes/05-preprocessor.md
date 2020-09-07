@@ -286,7 +286,7 @@ simple preprocessor and diagnostic setup for that:
 > ```yaml
 >
 > datasets:
->   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
+>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, ensemble: r1i1p1}
 >
 > preprocessors:
 >   prep_regrid: # regrid to get all data to the same resolution
@@ -303,11 +303,17 @@ simple preprocessor and diagnostic setup for that:
 >     description: diff_datasets_for_vars
 >     variables:
 >       pr:  # first variable is precipitation
+>         mip: Amon
+>         start_year: 2000
+>         end_year: 2004
 >         preprocessor: prep_regrid
 >         additional_datasets:
 >           - {dataset: GPCP-SG, project: obs4mips, level: L3,
 >              version: v2.2, tier: 1}  # dataset specific to this variable
 >       tas:  # second variable is surface temperature
+>         mip: Amon
+>         start_year: 2000
+>         end_year: 2004
 >         preprocessor: prep_regrid
 >     scripts: null
 > ```

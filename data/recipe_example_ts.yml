@@ -20,7 +20,7 @@ documentation:
     - ukesm
 
 datasets:
-  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1901, end_year: 2000}
+  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
 
 preprocessors:
   prep_timeseries: # For 0D fields

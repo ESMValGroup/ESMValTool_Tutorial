@@ -3,27 +3,16 @@
 # Variable = thetaoga, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
 # Variable = ts, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_193412-195911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
-# Variable = tas, model =  HadGEM2-AO
-http://aims3.llnl.gov/thredds/fileServer/cmip5_css02_data/cmip5/output1/NIMR-KMA/HadGEM2-AO/historical/mon/atmos/Amon/r1i1p1/tas/1/tas_Amon_HadGEM2-AO_historical_r1i1p1_186001-200512.nc
 # Variable = tas, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_188412-190911.nc
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_190912-193411.nc
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_193412-195911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
-# Variable = tos, model = HadGEM2-AO
-http://aims3.llnl.gov/thredds/fileServer/cmip5_css02_data/cmip5/output1/NIMR-KMA/HadGEM2-AO/historical/mon/ocean/Omon/r1i1p1/tos/1/tos_Omon_HadGEM2-AO_historical_r1i1p1_186001-200512.nc
-# Variable = tos, model = HadGEM2-CC
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-CC/historical/mon/ocean/Omon/r1i1p1/v20110930/tos/tos_Omon_HadGEM2-CC_historical_r1i1p1_185912-195911.nc
+# Variable = tos, model =  HadGEM2-CC
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-CC/historical/mon/ocean/Omon/r1i1p1/v20110930/tos/tos_Omon_HadGEM2-CC_historical_r1i1p1_195912-200511.nc
 # Variable = tos, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_185912-195911.nc
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_195912-200512.nc
+#
 # For Working with preprocessors episode
 # Model = UKESM1-0-LL, project = CMIP6, Experiment = historical, ensemble= r1i1p1f2, variable = thetao, pr and tas, 1970-2000
 http://esgf-data3.ceda.ac.uk/thredds/fileServer/esg_cmip6/CMIP6/CMIP/MOHC/UKESM1-0-LL/historical/r1i1p1f2/Omon/thetao/gn/v20190627/thetao_Omon_UKESM1-0-LL_historical_r1i1p1f2_gn_200001-201412.nc

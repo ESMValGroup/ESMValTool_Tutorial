@@ -195,7 +195,7 @@ Please note the following sections:
 > [ESMValTool/esmvaltool](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml).
 >
 > ESMValTool references in `BibTeX` format can be found in
-> [ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references).
+> [ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references) directory.
 {: .callout}
 
   - datasets: lines 22-23

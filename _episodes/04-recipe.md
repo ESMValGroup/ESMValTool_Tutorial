@@ -189,12 +189,14 @@ Please note the following sections:
 > ## config-references.yml and references
 >
 > The values for the keys ``author``, ``maintainer``, ``projects`` and
-> ``references`` in the recipe should be known by ESMValTool. A list of ESMValTool
+> ``references`` in the recipe should be known by ESMValTool:
+>
+> - A list of ESMValTool
 > author, maintainer, and projects are mentioned in the file ``config-references.yml``
 > that can be found in
 > [ESMValTool/esmvaltool](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml).
 >
-> ESMValTool references in `BibTeX` format can be found in
+> - ESMValTool references in `BibTeX` format can be found in
 > [ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references) directory.
 {: .callout}
 

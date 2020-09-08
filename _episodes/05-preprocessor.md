@@ -333,7 +333,7 @@ simple preprocessor and diagnostic setup for that:
 >       pr:  # first variable is precipitation
 >         mip: Amon
 >         start_year: 2000
->         end_year: 2004
+>         end_year: 2005
 >         preprocessor: prep_regrid
 >         additional_datasets:
 >           - {dataset: GPCP-SG, project: obs4mips, level: L3,
@@ -341,7 +341,7 @@ simple preprocessor and diagnostic setup for that:
 >       tas:  # second variable is surface temperature
 >         mip: Amon
 >         start_year: 2000
->         end_year: 2004
+>         end_year: 2005
 >         preprocessor: prep_regrid
 >     scripts: null
 > ```

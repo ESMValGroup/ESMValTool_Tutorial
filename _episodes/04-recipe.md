@@ -554,7 +554,7 @@ available) can be found below. Note that the timestamps differ.
 >   recipe_dataset_index: 0
 >   short_name: thetaoga
 >   standard_name: sea_water_potential_temperature
->   start_year: 1970
+>   start_year: 1900
 >   units: K
 >   variable_group: timeseries_variable
 > ```

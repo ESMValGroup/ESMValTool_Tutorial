@@ -247,7 +247,7 @@ specific preprocessor which should be applied.
 >>
 >>  datasets:
 >> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
->> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
+>> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
 >>
 >>  preprocessors:
 >> -  prep_timeseries: # For 0D fields
@@ -345,6 +345,7 @@ simple preprocessor and diagnostic setup for that:
 >         preprocessor: prep_regrid
 >     scripts: null
 > ```
+> Complete recipe can be downloaded as [recipe_example_pr_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_pr_tas.yml).
 >
 {: .solution}
 
@@ -352,7 +353,7 @@ simple preprocessor and diagnostic setup for that:
 
 Variable grouping can be used to preprocess different clusters of data for the
 same variable. For instance, the example below illustrates how we can compute
-separate multimodel means for CMIP5 and CMIP6 data given the same variable.
+separate multimodel means for different CMIP5 datasets given the same variable.
 
 > ## Example
 >```yaml
@@ -403,6 +404,10 @@ separate multimodel means for CMIP5 and CMIP6 data given the same variable.
 >        additional_datasets: *cmip5_target  # nothing changes from cmip5 except the data set
 >    scripts: null
 >```
+> There is no field called datasets anymore.
+> Also, note how multiple ensembles are added by using (1:2).
+> Complete recipe can be downloaded as
+> [recipe_example_tas_control_target.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas_control_target.yml).
 >
 {: .solution}
 

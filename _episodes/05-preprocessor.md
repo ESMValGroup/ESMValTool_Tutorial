@@ -193,48 +193,34 @@ specific preprocessor which should be applied.
 >you perform the masking first before regridding (hint: custom order your
 >operations). Now, use the two preprocessors in different diagnostics within the
 >same recipe. You may use any variable(s) of your choice. Once you succeed, try
->to add new datasets to the same recipe. Placeholders for the different
->components are provided below:
+>to add new datasets to the same recipe.
 >
->> ## Recipe
->>
->> ```yaml
->>
->> datasets:
->>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
->>
->> preprocessors:
->>   prep_map:  # preprocessor to just regrid data
->>     # fill preprocessor details here
->>
->>   prep_map_land:  # preprocessor to mask grid cells and then regrid
->>     # fill preprocessor details here including ordering
->>
->> diagnostics:
->>   # --------------------------------------------------
->>   # Two Simple diagnostics that illustrate the use of
->>   # different preprocessors
->>   # --------------------------------------------------
->>  diag_simple_plot:
->>    description:  # preprocess a variable for a simple 2D plot
->>    variables:
->>      # put your variable of choice here
->>      # apply the first preprocessor i.e. name your preprocessor
->>      # edit the following 4 lines for mip, grid and time
->>      # based on your variable choice
->>    scripts: null  # no scripts called
->>  diag_land_only_plot: # second diagnostic
->>    description:  # preprocess a variable for a 2D land only plot
->>    variables:
->>      # include  a variable and information
->>      # as in the previous diagnostic and
->>      # include your second preprocessor (masking and regridding)
->>    scripts: null  # no scripts
->> ```
->>
->{: .solution}
+> To complete this exercise, we need to change the following sections in the recipe:
 >
->> ## Solution:
+> - `preprocessors`:
+>   - `prep_map`: add a preprocessor to regrid data
+>     - fill preprocessor details here
+>
+>   - `prep_map_land`: add a preprocessor to mask grid cells and then regrid
+>     - fill preprocessor details here including ordering
+>
+> - `diag_simple_plot`:
+>   - `description`: preprocess a variable for a simple 2D plot
+>   - `variables`:
+>     - put your variable of choice here
+>     - edit mip, and time based on your variable choice
+>     - apply the first preprocessor i.e. name your preprocessor
+>
+>   - `scripts`: `null` it means that no scripts called.
+>
+> - `diag_land_only_plot`: second diagnostic
+>   - `description`: preprocess a variable for a 2D land only plot
+>   - ``variables``:
+>     - include a variable and information as in the previous diagnostic
+>     - include your second preprocessor (masking and regridding)
+>   - `scripts`: `null` it means that no scripts called.
+>
+>> ## Solution
 >>
 >> Here is one solution to complete the challenge above using  two different
 >> preprocessors:

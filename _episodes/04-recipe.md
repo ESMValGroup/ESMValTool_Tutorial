@@ -412,11 +412,11 @@ available) can be found below. Note that the timestamps differ.
 >
 > For a single dataset:
 >
-> ![single dataset](../fig/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_0.png "single dataset")
+> ![single dataset](../fig/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1900_2000_timeseries_0.png "single dataset")
 >
 > Or an overlay plot, if multiple datasets are defined:
 >
-> ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1859_2005_timeseries_.png "multiple datasets")
+> ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1900_2000_timeseries_.png "multiple datasets")
 {: .solution}
 
 > ## Your main output log file.
@@ -571,7 +571,7 @@ available) can be found below. Note that the timestamps differ.
 >   : alias: HadGEM2-ES
 >     dataset: HadGEM2-ES
 >     diagnostic: diag_timeseries_temperature
->     end_year: 2005
+>     end_year: 2000
 >     ensemble: r1i1p1
 >     exp: historical
 >     filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
@@ -588,7 +588,7 @@ available) can be found below. Note that the timestamps differ.
 >     recipe_dataset_index: 0
 >     short_name: thetaoga
 >     standard_name: sea_water_potential_temperature
->     start_year: 1859
+>     start_year: 2000
 >     units: K
 >     variable_group: timeseries_variable
 > input_files:

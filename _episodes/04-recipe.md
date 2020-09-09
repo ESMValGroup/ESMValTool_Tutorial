@@ -521,7 +521,7 @@ available) can be found below. Note that the timestamps differ.
 > recipe: recipe_example.yml
 > run_dir: /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag
 > script: timeseries_diag
-> version: 2.0.0
+> version: 2.0.0b9
 > work_dir: /scratch/b/b380506/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
 > write_netcdf: true
 > write_plots: true

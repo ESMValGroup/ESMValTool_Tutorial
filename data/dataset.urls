@@ -12,8 +12,6 @@ http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-CC/historical/mon/ocean/Omon/r1i1p1/v20110930/tos/tos_Omon_HadGEM2-CC_historical_r1i1p1_195912-200511.nc
 # Variable = tos, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_195912-200512.nc
-#
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/pr/pr_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
 # For Working with preprocessors episode
 # Variable = thetao, model = HadGEM2-ES
 http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetao/thetao_Omon_HadGEM2-ES_historical_r1i1p1_199912-200512.nc

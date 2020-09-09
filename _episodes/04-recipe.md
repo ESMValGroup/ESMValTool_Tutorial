@@ -628,7 +628,7 @@ available) can be found below. Note that the timestamps differ.
 >
 > - Land surface temperature (ts) for dataset HadGEM2-ES for 1970-2000
 > - Atmospheric surface average temperature (tas) for dataset HadGEM2-ES for 1970-2000
-> - Ocean surface average temperature (tos) for dataset HadGEM2-ES for 1970-2000
+> - Ocean surface average temperature (tos) for datasets HadGEM2-ES and HadGEM2-CC for 1970-2000
 >
 > You will need to edit:
 >

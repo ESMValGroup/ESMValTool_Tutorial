@@ -201,7 +201,7 @@ specific preprocessor which should be applied.
 >> ```yaml
 >>
 >> datasets:
->>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1970, end_year: 2000}
+>>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
 >>
 >> preprocessors:
 >>   prep_map:  # preprocessor to just regrid data
@@ -389,7 +389,7 @@ separate multimodel means for different CMIP5 datasets given the same variable.
 >  diag_variable_groups:
 >    description: Demonstrate the use of variable groups.
 >    variables:
->      tas_contorl: &variable_settings  # need a key name for the grouping
+>      tas_control: &variable_settings  # need a key name for the grouping
 >        short_name: tas  # specify variable to look for
 >        preprocessor: prep_mmm
 >        mip: Amon

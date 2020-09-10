@@ -193,106 +193,96 @@ specific preprocessor which should be applied.
 >you perform the masking first before regridding (hint: custom order your
 >operations). Now, use the two preprocessors in different diagnostics within the
 >same recipe. You may use any variable(s) of your choice. Once you succeed, try
->to add new datasets to the same recipe. Placeholders for the different
->components are provided below:
+>to add new datasets to the same recipe.
 >
->> ## Recipe
->>
->> ```yaml
->>
->> datasets:
->>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
->>      ensemble: r1i1p1f2}  # single dataset as an example
->>
->> preprocessors:
->>   prep_map:  # preprocessor to just regrid data
->>     # fill preprocessor details here
->>
->>   prep_map_land:  # preprocessor to mask grid cells and then regrid
->>     # fill preprocessor details here including ordering
->>
->> diagnostics:
->>   # --------------------------------------------------
->>   # Two Simple diagnostics that illustrate the use of
->>   # different preprocessors
->>   # --------------------------------------------------
->>  diag_simple_plot:
->>    description:  # preprocess a variable for a simple 2D plot
->>    variables:
->>      # put your variable of choice here
->>      # apply the first preprocessor i.e. name your preprocessor
->>      # edit the following 4 lines for mip, grid and time
->>      # based on your variable choice
->>      mip: Amon
->>      grid: gn  # can change for variables from the same model
->>      start_year: 1970
->>      end_year: 2000
->>    scripts: null  # no scripts called
->>  diag_land_only_plot: # second diagnostic
->>    description:  # preprocess a variable for a 2D land only plot
->>    variables:
->>      # include  a variable and information
->>      # as in the previous diagnostic and
->>      # include your second preprocessor (masking and regridding)
->>    scripts: null  # no scripts
->> ```
->>
->{: .solution}
+> To complete this exercise, we need to change the following sections in the recipe:
 >
->> ## Solution:
+> - `preprocessors`:
+>   - `prep_map`: add a preprocessor to regrid data
+>     - fill preprocessor details here
+>
+>   - `prep_map_land`: add a preprocessor to mask grid cells and then regrid
+>     - fill preprocessor details here including ordering
+>
+> - `diag_simple_plot`:
+>   - `description`: preprocess a variable for a simple 2D plot
+>   - `variables`:
+>     - put your variable of choice here
+>     - edit mip, and time based on your variable choice
+>     - apply the first preprocessor i.e. name your preprocessor
+>
+>   - `scripts`: `null` it means that no scripts called.
+>
+> - `diag_land_only_plot`: second diagnostic
+>   - `description`: preprocess a variable for a 2D land only plot
+>   - ``variables``:
+>     - include a variable and information as in the previous diagnostic
+>     - include your second preprocessor (masking and regridding)
+>   - `scripts`: `null` it means that no scripts called.
+>
+>> ## Solution
 >>
 >> Here is one solution to complete the challenge above using  two different
 >> preprocessors:
 >>
->>```yaml
+>>```diff
+>> --- data/recipe_example.yml
+>> +++ data/recipe_example_multi_preprocessors.yml
+>> @@ -20,23 +20,37 @@
+>>      - ukesm
 >>
->> datasets:
->>   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
->>      ensemble: r1i1p1f2}  # single dataset as an example
+>>  datasets:
+>> -  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1900, end_year: 2000}
+>> +  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 2000, end_year: 2005}
 >>
->> preprocessors:
->>   prep_map:
->>     regrid:  # apply the preprocessor to regrid
->>       target_grid: 1x1  # target resolution
->>       scheme: linear  # how to interpolate for regridding
+>>  preprocessors:
+>> -  prep_timeseries: # For 0D fields
+>> -    annual_statistics:
+>> -      operator: mean
+>> +  prep_map:
+>> +    regrid:    #apply the preprocessor to regrid
+>> +      target_grid: 1x1 # target resolution
+>> +      scheme: linear  #how to interpolate for regridding
+>> +
+>> +  prep_map_land:
+>> +    custom_order: true #ensure that given order of preprocessing is followed
+>> +    mask_landsea:    #apply a mask
+>> +      mask_out: sea   #mask out sea grid cells
+>> +    regrid:    # now apply the preprocessor to regrid
+>> +      target_grid: 1x1 # target resolution
+>> +      scheme: linear  #how to interpolate for regridding
 >>
->>   prep_map_land:
->>     custom_order: true  # ensure that given order of preprocessing is followed
->>     mask_landsea:    # apply a mask
->>       mask_out: sea   # mask out sea grid cells
->>     regrid:  # now apply the preprocessor to regrid
->>       target_grid: 1x1  # target resolution
->>       scheme: linear  # how to interpolate for regridding
->>
->> diagnostics:
->>   # --------------------------------------------------
->>   # Two Simple diagnostics that illustrate the use of
->>   # different preprocessors
->>   # --------------------------------------------------
->>   diag_simple_plot:
->>     description:  # preprocess a variable for a simple 2D plot
->>     variables:
->>       tas:  # surface temperature
->>         preprocessor: prep_map
->>         mip: Amon
->>         grid: gn  # can change for variables from the same model
->>         start_year: 1970
->>         end_year: 2000
->>     scripts: null
->>
->>   diag_land_only_plot:
->>     description:  # preprocess a variable for a 2D land only plot
->>     variables:
->>       tas:  # surface temperature
->>         preprocessor: prep_map_land
->>         mip: Amon
->>         grid: gn  # can change for variables from the same model
->>         start_year: 1970
->>         end_year: 2000
->>     scripts: null
+>>  diagnostics:
+>>    # --------------------------------------------------
+>> -  # Time series diagnostics
+>> +  # Two Simple diagnostics that illustrate the use of
+>> +  # different preprocessors
+>>    # --------------------------------------------------
+>> -  diag_timeseries_temperature:
+>> -    description: simple_time_series
+>> +  diag_simple_plot:
+>> +    description: # preprocess a variable for a simple 2D plot
+>> +    variables:
+>> +      tas:  # surface temperature
+>> +        preprocessor: prep_map
+>> +    scripts: null
+>> +
+>> +  diag_land_only_plot:
+>> +    description: #preprocess a variable for a 2D land only plot
+>>      variables:
+>> -      timeseries_variable:
+>> -        short_name: thetaoga
+>> -        preprocessor: prep_timeseries
+>> -    scripts:
+>> -      timeseries_diag:
+>> -        script: ocean/diagnostic_timeseries.py
+>> +      tas:  # surface temperature
+>> +        preprocessor: prep_map_land
+>> +    scripts: null
 >> ```
 >>
->> Complete recipe can be downloaded [here](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_multi_preprocessors.yml).
+>> Complete recipe can be downloaded as
+>> [recipe_example_multi_preprocessors.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_multi_preprocessors.yml).
 > {: .solution}
 {: .challenge}
 
@@ -310,8 +300,7 @@ simple preprocessor and diagnostic setup for that:
 > ```yaml
 >
 > datasets:
->   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical,
->      ensemble: r1i1p1f2}  # common to both variables discussed below
+>   - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, ensemble: r1i1p1}
 >
 > preprocessors:
 >   prep_regrid: # regrid to get all data to the same resolution
@@ -328,23 +317,21 @@ simple preprocessor and diagnostic setup for that:
 >     description: diff_datasets_for_vars
 >     variables:
 >       pr:  # first variable is precipitation
->         preprocessor: prep_regrid
 >         mip: Amon
->         grid: gn  # can change for variables from the same model
->         start_year: 1979
->         end_year: 2000 # we assume this exists for all
->                        # model and obs data
+>         start_year: 2000
+>         end_year: 2005
+>         preprocessor: prep_regrid
 >         additional_datasets:
 >           - {dataset: GPCP-SG, project: obs4mips, level: L3,
 >              version: v2.2, tier: 1}  # dataset specific to this variable
 >       tas:  # second variable is surface temperature
->         preprocessor: prep_regrid
 >         mip: Amon
->         grid: gn  # can change for variables from the same model
->         start_year: 1979
->         end_year: 2000
+>         start_year: 2000
+>         end_year: 2005
+>         preprocessor: prep_regrid
 >     scripts: null
 > ```
+> Complete recipe can be downloaded as [recipe_example_pr_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_pr_tas.yml).
 >
 {: .solution}
 
@@ -352,7 +339,7 @@ simple preprocessor and diagnostic setup for that:
 
 Variable grouping can be used to preprocess different clusters of data for the
 same variable. For instance, the example below illustrates how we can compute
-separate multimodel means for CMIP5 and CMIP6 data given the same variable.
+separate multimodel means for different CMIP5 datasets given the same variable.
 
 > ## Example
 >```yaml
@@ -376,40 +363,44 @@ separate multimodel means for CMIP5 and CMIP6 data given the same variable.
 >
 ># note that there is no field called datasets anymore
 ># note how multiple ensembles are added by using (1:4)
->cmip5_datasets: &cmip5_datasets
->  - {dataset: CanESM2, ensemble: "r(1:4)i1p1", project: CMIP5}
->  - {dataset: MPI-ESM-LR, ensemble: "r(1:2)i1p1", project: CMIP5}
+>cmip5_control: &cmip5_control
+>  - {dataset: HadGEM2-ES, ensemble: r1i1p1, project: CMIP5}
+>  - {dataset: MPI-ESM-LR, ensemble: r1i1p1, project: CMIP5}
 >
->cmip6_datasets: &cmip6_datasets
->  - {dataset: UKESM1-0-LL, ensemble: "r(1:4)i1p1f2", grid: gn, project: CMIP6}
->  - {dataset: CanESM5, ensemble: "r(1:4)i1p2f1", grid: gn, project: CMIP6}
+>cmip5_target: &cmip5_target
+>  - {dataset: CanESM2, ensemble: "r(1:2)i1p1", project: CMIP5}
 >
 >diagnostics:
 >
 >  diag_variable_groups:
 >    description: Demonstrate the use of variable groups.
 >    variables:
->      tas_cmip5: &variable_settings  # need a key name for the grouping
+>      tas_control: &variable_settings  # need a key name for the grouping
 >        short_name: tas  # specify variable to look for
 >        preprocessor: prep_mmm
 >        mip: Amon
 >        exp: historical
 >        start_year: 2000
 >        end_year: 2005
->        tag: TAS_CMIP5  # tag is optional if you are using these settings just once
->        additional_datasets: *cmip5_datasets
->      tas_cmip6:
+>        tag: TAS_CONTROL  # tag is optional if you are using these settings just once
+>        additional_datasets: *cmip5_control
+>      tas_target:
 >        <<: *variable_settings
->        tag: TAS_CMIP6
->        additional_datasets: *cmip6_datasets  # nothing changes from cmip5 except the data set
+>        tag: TAS_TARGET
+>        additional_datasets: *cmip5_target  # nothing changes from cmip5 except the data set
 >    scripts: null
 >```
+> There is no field called datasets anymore.
+> Also, note how multiple ensembles are added by using (1:2).
+> Complete recipe can be downloaded as
+> [recipe_example_tas_control_target.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas_control_target.yml).
 >
 {: .solution}
 
 You should be able to see the variables grouped under different subdirectories
 under your output preproc directory. The different groupings can be accessed in
-your diagnostic by selecting the key name of the field `variable_group`  such as `tas_cmip5`, or `tas_cmip6`.
+your diagnostic by selecting the key name of the field
+`variable_group`  such as `TAS_CONTROL`, or `TAS_TARGET`.
 
 > ## How to find what CMIP data is available?
 >

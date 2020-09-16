@@ -65,7 +65,7 @@ operations can be performed using ESMValTool preprocessors.
 >```
 >
 > The default preprocessor order is listed in the [ESMValCore preprocessor API
-> page](>https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html).
+> page](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html).
 >
 > Also note that preprocessor operations aren't always commutative - meaning
 > that the order of operations matters. For instance, when you run the two

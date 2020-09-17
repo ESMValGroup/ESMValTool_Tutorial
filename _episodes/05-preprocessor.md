@@ -89,7 +89,7 @@ file afterwards. These do not need to be explicitly included in recipes.
 > ## Exercise: Adding more preprocessor steps
 >
 > Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable to
-> `thetao`, then add preprocessors to average over the latitude and longitude
+> `thetao`, using only the years 2000-2005. Then add preprocessors to average over the latitude and longitude
 > dimensions and finally average over the depth. Now run the recipe.
 >
 >> ## Solution

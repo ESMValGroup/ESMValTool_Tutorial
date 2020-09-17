@@ -124,78 +124,78 @@ instructions.
 
 ## Install Julia
 
+Some ESMValTool diagnostics are written in the Julia programming language.
+If you want a full installation of ESMValTool including Julia diagnostics, you need
+to make sure Julia is installed before installing ESMValTool.
+
+In this tutorial, we will not use Julia, but for reference, we have listed the steps
+to install Julia below.
 Complete instructions for installing Julia can be found on the [Julia
 installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
-In this tutorial, we will use the following steps. First, open a bash terminal
-and create a directory to install Julia in and cd into it
 
-```bash
-mkdir ~/julia
-cd ~/julia
-```
-
-Next, to download and extract the file `julia-1.0.5-linux-x86_64.tar.gz`, you can use the following commands::
-
-```bash
-wget https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.5-linux-x86_64.tar.gz
-tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
-```
-
-This will extract the files to a directory named `~/julia/julia-1.0.5`. To run
-Julia, you need to add the full path of Julia's `bin` folder to PATH environment
-variable. To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
-Open the file in a text editor called ``nano``:
-
-```bash
-nano ~/.bashrc
-```
-
-and add a new line as follows at the
-bottom of the file:
-
-```bash
-export PATH="$PATH:$HOME/julia/julia-1.0.5/bin"
-```
-
-Finally, for the settings to take effect, either reload your bash profile
-
-```bash
-source ~/.bashrc
-```
-
-(or `source ~/.bash_profile`), or close the bash terminal window and open a new
-one.
-
-To check that the Julia executable can be found, run
-
-```bash
-which julia
-```
-
-to display the path to the Julia executable, it should be
-
-```
-~/julia/julia-1.0.5/bin/julia
-```
-{: .output}
-
-To test that Julia is installed correctly, run
-
-```bash
-julia
-```
-
-to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
-
-> ## Text editor side note
+> ## Julia installation instructions
 >
-> No matter what editor you use, you will need to know where it searches
-> for and saves files. If you start it from the shell, it will (probably)
-> use your current working directory as its default location. We use ``nano``
-> in examples here because it is one of the least complex text editors.
-> Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
-> and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
-{: .callout}
+> First, open a bash terminal and create a directory to install Julia in and cd
+> into it
+>
+> ```bash
+> mkdir ~/julia
+> cd ~/julia
+> ```
+>
+> Next, to download and extract the file `julia-1.0.5-linux-x86_64.tar.gz`, you can use the following commands::
+>
+> ```bash
+> wget https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.5-linux-x86_64.tar.gz
+> tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
+> ```
+>
+> This will extract the files to a directory named `~/julia/julia-1.0.5`. To run
+> Julia, you need to add the full path of Julia's `bin` folder to PATH environment
+> variable. To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
+> Open the file in a text editor called ``nano``:
+>
+> ```bash
+> nano ~/.bashrc
+> ```
+>
+> and add a new line as follows at the
+> bottom of the file:
+>
+> ```bash
+> export PATH="$PATH:$HOME/julia/julia-1.0.5/bin"
+> ```
+>
+> Finally, for the settings to take effect, either reload your bash profile
+>
+> ```bash
+> source ~/.bashrc
+> ```
+>
+> (or `source ~/.bash_profile`), or close the bash terminal window and open a new
+> one.
+>
+> To check that the Julia executable can be found, run
+>
+> ```bash
+> which julia
+> ```
+>
+> to display the path to the Julia executable, it should be
+>
+> ```
+> ~/julia/julia-1.0.5/bin/julia
+> ```
+> {: .output}
+>
+> To test that Julia is installed correctly, run
+>
+> ```bash
+> julia
+> ```
+>
+> to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
+{: .solution}
 
 ## Install the ESMValTool package
 

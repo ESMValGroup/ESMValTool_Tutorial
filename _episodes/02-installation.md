@@ -199,15 +199,28 @@ installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
 
 ## Install the ESMValTool package
 
-To install the ESMValTool package, run
+The ESMValTool package contains diagnostics scripts in four languages: R,
+Python, Julia and NCL. This introduces a lot of dependencies, and therefore the
+installation can take quite long. It is, however, possible to install
+'subpackages' for each of the languages. The following (sub)packages are
+available:
+
+- `esmvaltool-python`
+- `esmvaltool-ncl`
+- `esmvaltool-r`
+- `esmvaltool-julia`
+- `esmvaltool` --> the complete package, i.e. the combination of the above.
+
+For the tutorial, we will use only Python diagnostics. Thus, to install the
+ESMValTool-python package, run
 
 ```bash
-conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool
+conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool-python
 ```
 
 This will create a new [Conda
 environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-called `esmvaltool`, with the ESMValTool package and all of its dependencies
+called `esmvaltool`, with the ESMValTool-Python package and all of its dependencies
 installed in it.
 
 > ## Conda common problems

@@ -32,7 +32,8 @@ Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows
 To install the WSL please follow the instructions [on the Windows Documentation
 page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 
-After installing the WSL, installation can be done using the same instructions for Linux/MacOSX.
+After installing the WSL, installation can be done using the same instructions for ``Linux``.
+
 
 ## Install ESMValTool on Linux/MacOSX
 
@@ -52,24 +53,29 @@ We recommend updating conda before esmvaltool installation. To do so, run:
 conda update
 ```
 
-If conda is **not** installed, We can use Miniconda minimal installer for conda.
+If conda is **not** installed, we can use Miniconda minimal installer for conda.
 We recommend a Python 3 based installer. For more information about installing conda,
 see [the conda installation documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
 
 To install conda on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
-1.  Please download Miniconda3 by running:
+1.  Please download Miniconda3 at [the miniconda
+    page](https://docs.conda.io/en/latest/miniconda.html).
+    If you have problems with the 64 bit version in the next step(s)
+    you can alternatively try a 32 bit version.
 
-    ```bash
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    ```
+2.  Next, run the installer from the place where you downloaded it:
 
-    If you have problems with the 64 bit version in the next step(s) you can alternatively try a 32 bit version.
-
-2.  Next, run the installer from the place where you downloaded it
+    On ``Linux``:
 
     ```bash
     bash Miniconda3-latest-Linux-x86_64.sh
+    ```
+
+    On ``MacOSX``:
+
+    ```bash
+    bash Miniconda3-latest-MacOSX-x86_64.sh
     ```
 
 3.  Follow the instructions in the installer. The defaults should normally
@@ -83,19 +89,6 @@ To install conda on ``Linux`` or ``MacOSX``, follow the  instructions below:
     ```bash
     conda list
     ```
-
-    Should output something like
-
-    ```
-    # packages in environment at ~/miniconda3:
-    #
-    # Name                    Version                   Build  Channel
-    ...
-    conda                     4.8.3                    py37_0
-    ...
-    ```
-    {: .output}
-
 
 ### Install Julia
 
@@ -198,9 +191,8 @@ environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/man
 called `esmvaltool`, with the ESMValTool-Python package and all of its dependencies
 installed in it.
 
-> ## Conda common problems
->
-> Below are some common problems that could happen while installing.
+
+> ## Common issues
 >
 > -   Installation takes long time
 >     -   Downloads and compilations can take several minutes to complete,
@@ -213,6 +205,8 @@ installed in it.
 > -   Downloads fail due to company proxy, see [conda
 >     docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to
 >     resolve
+> -   On ``MacOSX``, installation only works fine for ``esmvaltool-python`` and
+>     ``esmvaltool-ncl`` with Python 3.7.
 >
 {: .callout}
 

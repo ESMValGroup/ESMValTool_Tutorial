@@ -22,16 +22,41 @@ be found in the
 We will first install Conda, and then ESMValTool. We end this chapter by testing
 that the installation was successful.
 
-## Install Conda
+## Install ESMValTool on Windows
 
-ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
-Miniconda minimal installer for conda. We suggest a Python 3 based installer,
-though if you happen to already have Conda installed it should also work with
-Python 2. For more information about installing conda, see [the conda
-installation
-documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+ESMValTool does not directly support Windows, but succesful usage has been
+reported through the [Windows Subsystem for
+Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows
+10.
 
-### Linux
+To install the WSL please follow the instructions [on the Windows Documentation
+page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+
+After installing the WSL, installation can be done using the same instructions for Linux/MacOSX.
+
+## Install ESMValTool on Linux/MacOSX
+
+### Install Conda
+
+ESMValTool is distributed using [Conda](https://conda.io/).
+Let's check if we already have Conda installed by running:
+
+```bash
+conda list
+```
+
+If conda is installed, we will see a list of packages.
+We recommend updating conda before esmvaltool installation. To do so, run:
+
+```bash
+conda update
+```
+
+If conda is **not** installed, We can use Miniconda minimal installer for conda.
+We recommend a Python 3 based installer. For more information about installing conda,
+see [the conda installation documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+
+To install conda on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 1.  Please download Miniconda3 by running:
 
@@ -39,7 +64,7 @@ documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
     ```
 
-It is also possible to download Miniconda3 for Linux on the [miniconda page](https://docs.conda.io/en/latest/miniconda.html). If you have problems with the 64 bit version in the next step(s) you can alternatively try a 32 bit version.
+    If you have problems with the 64 bit version in the next step(s) you can alternatively try a 32 bit version.
 
 2.  Next, run the installer from the place where you downloaded it
 
@@ -71,56 +96,8 @@ It is also possible to download Miniconda3 for Linux on the [miniconda page](htt
     ```
     {: .output}
 
-### MacOSX
 
-1.  Please download Miniconda3 for MacOSX at [the miniconda
-    page](https://docs.conda.io/en/latest/miniconda.html).
-
-2.  Next, run the installer from the place where you downloaded it
-
-    ```bash
-    bash Miniconda3-latest-MacOSX-x86_64.sh
-    ```
-
-3.  Follow the instructions in the installer. The defaults should normally
-    suffice.
-
-4.  You will need to restart your terminal for the changes to have effect.
-
-5.  Verify you have a working conda installation by listing all installed
-    packages
-
-    ```bash
-    conda list
-    ```
-
-    Should output something like
-
-    ```
-    # packages in environment at ~/miniconda3:
-    #
-    # Name                    Version                   Build  Channel
-    ...
-    conda                     4.8.3                    py37_0
-    ...
-    ```
-    {: .output}
-
-
-### Windows
-
-ESMValTool does not directly support Windows, but succesful usage has been
-reported through the [Windows Subsystem for
-Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows
-10.
-
-To install the WSL please follow the instructions [on the Windows Documentation
-page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-
-After installing the WSL, installation can be done using the Linux installation
-instructions.
-
-## Install Julia
+### Install Julia
 
 Some ESMValTool diagnostics are written in the Julia programming language.
 If you want a full installation of ESMValTool including Julia diagnostics, you need
@@ -195,7 +172,7 @@ installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
 > to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
 {: .solution}
 
-## Install the ESMValTool package
+### Install the ESMValTool package
 
 The ESMValTool package contains diagnostics scripts in four languages: R,
 Python, Julia and NCL. This introduces a lot of dependencies, and therefore the
@@ -239,7 +216,7 @@ installed in it.
 >
 {: .callout}
 
-## Test that the installation was successful
+### Test that the installation was successful
 
 To test that the installation was successful, run
 

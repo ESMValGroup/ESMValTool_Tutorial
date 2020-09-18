@@ -19,10 +19,8 @@ In this tutorial we will be using the
 install the ESMValTool. Other installation methods are also available, they can
 be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
-ESMValTool also contains diagnostics written in [Julia](https://julialang.org/).
-Because Julia cannot be installed by Conda, we will install Julia separately. We
-will first learn how to install Conda, Julia, and finally the ESMValTool. We end
-this chapter by testing that the installation was successful.
+We will first install Conda, and then ESMValTool. We end this chapter by testing
+that the installation was successful.
 
 ## Install Conda
 

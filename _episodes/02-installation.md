@@ -33,7 +33,6 @@ that the installation was successful.
 > available in Windows 10.
 > To install the WSL please follow the instructions [on the Windows Documentation
 > page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
->
 > After installing the WSL, installation can be done using the same instructions for
 > [Linux/MacOSX](#install-esmvaltool-on-linuxmacosx).
 {: .callout}

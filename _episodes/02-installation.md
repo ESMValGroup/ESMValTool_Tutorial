@@ -9,74 +9,72 @@ objectives:
 - "Install ESMValTool"
 - "Demonstrate that the installation was successful"
 keypoints:
-- "All the required packages can be installed using conda"
-- "You can find more information about installation in the documentation"
+- "All the required packages can be installed using conda."
+- "You can find more information about installation in the
+[documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html)."
 ---
 ## Overview
 
-In this tutorial we will be using the
-[Conda](https://conda.io/projects/conda/en/latest/index.html) package manager to
+The instructions help with the installation of ESMValTool on operating systems
+like Linux/MacOSX/Windows.
+We use the [Conda](https://conda.io/projects/conda/en/latest/index.html)
+package manager to
 install the ESMValTool. Other installation methods are also available, they can
 be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
 We will first install Conda, and then ESMValTool. We end this chapter by testing
 that the installation was successful.
 
-## Install Conda
+> ## Install ESMValTool on Windows
+>
+> ESMValTool does not directly support Windows, but successful usage has been
+> reported through the [Windows Subsystem for
+> Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
+> available in Windows 10.
+> To install the WSL please follow the instructions [on the Windows Documentation
+> page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+> After installing the WSL, installation can be done using the same instructions for
+> [Linux/MacOSX](#install-esmvaltool-on-linuxmacosx).
+{: .callout}
 
-ESMValTool is distributed using [Conda](https://conda.io/). We will be using the
-Miniconda minimal installer for conda. We suggest a Python 3 based installer,
-though if you happen to already have Conda installed it should also work with
-Python 2. For more information about installing conda, see [the conda
-installation
-documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+## Install ESMValTool on Linux/MacOSX
 
-### Linux
+### Install Conda
 
-1.  Please download Miniconda3 by running:
+ESMValTool is distributed using [Conda](https://conda.io/).
+Let's check if we already have Conda installed by running:
 
-    ```bash
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    ```
+```bash
+conda list
+```
 
-It is also possible to download Miniconda3 for Linux on the [miniconda page](https://docs.conda.io/en/latest/miniconda.html). If you have problems with the 64 bit version in the next step(s) you can alternatively try a 32 bit version.
+If conda is installed, we will see a list of packages.
+We recommend updating conda before esmvaltool installation. To do so, run:
 
-2.  Next, run the installer from the place where you downloaded it
+```bash
+conda update -n base conda
+```
+
+If conda is **not** installed, we can use Miniconda minimal installer for conda.
+We recommend a Python 3 based installer. For more information about installing conda,
+see [the conda installation documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
+
+To install conda on ``Linux`` or ``MacOSX``, follow the  instructions below:
+
+1.  Please download Miniconda3 at [the miniconda
+    page](https://docs.conda.io/en/latest/miniconda.html).
+    If you have problems with the 64 bit version in the next step(s)
+    you can alternatively try a 32 bit version.
+
+2.  Next, run the installer from the place where you downloaded it:
+
+    On ``Linux``:
 
     ```bash
     bash Miniconda3-latest-Linux-x86_64.sh
     ```
 
-3.  Follow the instructions in the installer. The defaults should normally
-    suffice.
-
-4.  You will need to restart your terminal for the changes to have effect.
-
-5.  Verify you have a working conda installation by listing all installed
-    packages
-
-    ```bash
-    conda list
-    ```
-
-    Should output something like
-
-    ```
-    # packages in environment at ~/miniconda3:
-    #
-    # Name                    Version                   Build  Channel
-    ...
-    conda                     4.8.3                    py37_0
-    ...
-    ```
-    {: .output}
-
-### MacOSX
-
-1.  Please download Miniconda3 for MacOSX at [the miniconda
-    page](https://docs.conda.io/en/latest/miniconda.html).
-
-2.  Next, run the installer from the place where you downloaded it
+    On ``MacOSX``:
 
     ```bash
     bash Miniconda3-latest-MacOSX-x86_64.sh
@@ -94,33 +92,7 @@ It is also possible to download Miniconda3 for Linux on the [miniconda page](htt
     conda list
     ```
 
-    Should output something like
-
-    ```
-    # packages in environment at ~/miniconda3:
-    #
-    # Name                    Version                   Build  Channel
-    ...
-    conda                     4.8.3                    py37_0
-    ...
-    ```
-    {: .output}
-
-
-### Windows
-
-ESMValTool does not directly support Windows, but succesful usage has been
-reported through the [Windows Subsystem for
-Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows
-10.
-
-To install the WSL please follow the instructions [on the Windows Documentation
-page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-
-After installing the WSL, installation can be done using the Linux installation
-instructions.
-
-## Install Julia
+### Install Julia
 
 Some ESMValTool diagnostics are written in the Julia programming language.
 If you want a full installation of ESMValTool including Julia diagnostics, you need
@@ -195,7 +167,7 @@ installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
 > to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
 {: .solution}
 
-## Install the ESMValTool package
+### Install the ESMValTool package
 
 The ESMValTool package contains diagnostics scripts in four languages: R,
 Python, Julia and NCL. This introduces a lot of dependencies, and therefore the
@@ -221,9 +193,8 @@ environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/man
 called `esmvaltool`, with the ESMValTool-Python package and all of its dependencies
 installed in it.
 
-> ## Conda common problems
->
-> Below are some common problems that could happen while installing.
+
+> ## Common issues
 >
 > -   Installation takes long time
 >     -   Downloads and compilations can take several minutes to complete,
@@ -236,10 +207,12 @@ installed in it.
 > -   Downloads fail due to company proxy, see [conda
 >     docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to
 >     resolve
+> -   On ``MacOSX``, installation only works fine for ``esmvaltool-python`` and
+>     ``esmvaltool-ncl`` with Python 3.7.
 >
 {: .callout}
 
-## Test that the installation was successful
+### Test that the installation was successful
 
 To test that the installation was successful, run
 

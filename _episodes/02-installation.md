@@ -9,31 +9,35 @@ objectives:
 - "Install ESMValTool"
 - "Demonstrate that the installation was successful"
 keypoints:
-- "All the required packages can be installed using conda"
-- "You can find more information about installation in the documentation"
+- "All the required packages can be installed using conda."
+- "You can find more information about installation in the
+[documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html)."
 ---
 ## Overview
 
-In this tutorial we will be using the
-[Conda](https://conda.io/projects/conda/en/latest/index.html) package manager to
+The instructions help with the installation of ESMValTool on operating systems
+like Linux/MacOSX/Windows.
+We use the [Conda](https://conda.io/projects/conda/en/latest/index.html)
+package manager to
 install the ESMValTool. Other installation methods are also available, they can
 be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
 We will first install Conda, and then ESMValTool. We end this chapter by testing
 that the installation was successful.
 
-## Install ESMValTool on Windows
-
-ESMValTool does not directly support Windows, but succesful usage has been
-reported through the [Windows Subsystem for
-Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/), available in Windows
-10.
-
-To install the WSL please follow the instructions [on the Windows Documentation
-page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
-
-After installing the WSL, installation can be done using the same instructions for ``Linux``.
-
+> ## Install ESMValTool on Windows
+>
+> ESMValTool does not directly support Windows, but successful usage has been
+> reported through the [Windows Subsystem for
+> Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
+> available in Windows 10.
+>
+> To install the WSL please follow the instructions [on the Windows Documentation
+> page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
+>
+> After installing the WSL, installation can be done using the same instructions for
+> [Linux/MacOSX](#install-esmvaltool-on-linuxmacosx).
+{: .callout}
 
 ## Install ESMValTool on Linux/MacOSX
 
@@ -50,7 +54,7 @@ If conda is installed, we will see a list of packages.
 We recommend updating conda before esmvaltool installation. To do so, run:
 
 ```bash
-conda update
+conda update -n base conda
 ```
 
 If conda is **not** installed, we can use Miniconda minimal installer for conda.

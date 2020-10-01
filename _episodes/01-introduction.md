@@ -33,7 +33,7 @@ technical steps, let's talk about what ESMValTool is all about.
 > >
 > > &#10003; **A tool to analyse climate data**
 > >
-> > &#10003; **A library for reproducible climate science**
+> > &#10003; **A collection of diagnostics for reproducible climate science**
 > >
 > > &#10003; **A community effort**
 > >
@@ -49,7 +49,7 @@ The central componnent of ESMValTool that we will see in this tutorial is the
 **recipe**. Any ESMValTool recipe is basically a set of instructions to reproduce
 a certain result. The basic structure of a recipe is as follows:
 
-- **Description** with relevant (citation) information
+- **Documentation** with relevant (citation) information
 - **Datasets** that should be analysed
 - **Preprocessor** steps that must be applied
 - **Diagnostic** scripts performing more specific evaluation steps
@@ -63,7 +63,7 @@ documentation:
     - lastname_firstname
 
 datasets:
-  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1960, end_year: 2099}
+  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1960, end_year: 2005}
 
 preprocessors:
   global_mean:
@@ -92,11 +92,11 @@ diagnostics:
 > {: .solution}
 {: .challenge}
 
-## A library for reproducible climate science
+## A collection of diagnostics for reproducible climate science
 
-More than a tool, ESMValTool is a library of publicly available recipes and
-diagnostic scripts. It comes with a large collection of recipes and diagnostic
-scripts to reproduce important results.
+More than a tool, ESMValTool is a collection of publicly available recipes and
+diagnostic scripts. This makes it possible to easily reproduce important
+results.
 
 > ## Explore the available recipes
 >

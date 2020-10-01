@@ -31,7 +31,6 @@ that the installation was successful.
 > reported through the [Windows Subsystem for
 > Linux(WSL)](https://docs.microsoft.com/en-us/windows/wsl/),
 > available in Windows 10.
->
 > To install the WSL please follow the instructions [on the Windows Documentation
 > page](https://docs.microsoft.com/en-us/windows/wsl/install-win10).
 >

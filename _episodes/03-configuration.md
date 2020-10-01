@@ -220,8 +220,8 @@ example configuration file.
 > and [obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/).
 > How does ESMValTool find the data?
 >
-> Hint:
-> to get the data (or its correct rootpath), check instruction in
+> Note:
+> to get the data, check instruction in
 > [Setup]({{ page.root }}{% link setup.md %}).
 >
 >> ## Solution

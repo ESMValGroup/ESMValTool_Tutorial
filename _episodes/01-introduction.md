@@ -1,155 +1,127 @@
 ---
 title: "Introduction"
-teaching: 20
+teaching: 5
 exercises: 10
 questions:
-- What is ESMValTool and when is it useful?
-- What are the main components of ESMValTool?
-- How does ESMValTool contribute to FAIR climate research?
-- What is the role of the ESMValTool community?
+- What is ESMValTool?
+- Who are the people behind ESMValTool?
 
 objectives:
-- Describe key strengths and weaknesses of ESMValTool
-- Know the different components of ESMValTool
-- Understand the concept of a community-driven software project
+- Familiarize with ESMValTool
+- Synchronize expectations
 
 keypoints:
 - ESMValTool provides a reliable interface to analyse and evaluate climate data
-- Using ESMValTool promotes standardization, collaboration, and reuse
+- A large collection of recipes and diagnostic scripts is already available
 - ESMValTool is built and maintained by an active community of scientists and
   developers
-- ESMValTool is written in Python, but supports diagnostic scripts in multiple
-  languages
-
 ---
 
 ## What is ESMValTool?
 
-ESMValTool is first and foremost a tool to analyse climate data. But you
-probably already knew that and we like to think there's more to it than that. So
-let's start with a quick check to synchronize our expectations.
+This tutorial is a first introduction to ESMValTool. Before diving into the
+technical steps, let's talk about what ESMValTool is all about.
 
-> ## Question: what is ESMValTool
+> ## What is ESMValTool?
 >
-> Which of the following items would you say apply to ESMValTool?
+> What do you already know about, or expect from ESMValTool?
 >
-> - A tool to analyse climate data
-> - The easy way out
-> - A community effort
-> - Free
-> - A command line tool
-> - A way to make climate science more [FAIR](https://fair-software.eu/about)
-> - Perfect
-> - Suitable for (Jupyter) notebooks
->
-> Check our answers by unfolding the box below.
->
-> > ## ESMValTool is
+> > ## ESMValTool is...
 > >
-> > &#10003; **A tool to analyse climate data.**  It takes care of finding,
-> > opening, checking, fixing, concatenating, and preprocessing CMIP data and
-> > several other supported datasets.
+> > EMSValTool is many things, but in this tutorial we will focus on the
+> > following traits:
 > >
-> > &#10005;  **The easy way out.** If you just want to do an exploratory
-> > analysis or quickly hack something together, ESMValTool is probably not the
-> > way to go. The tool is intended for robust, repeatable and shareable climate
-> > analysis. That *does* require a bit more effort.
+> > &#10003; **A tool to analyse climate data**
 > >
-> > &#10003; **A community effort.** ESMValTool is developed and maintained by a
-> > large team of climate scientists and software engineers. It is an open
-> > source project to which anyone can contribute. Its longevity depends on
-> > these contributions.
+> > &#10003; **A collection of diagnostics for reproducible climate science**
 > >
-> > &#10003; **Free.** ESMValTool is licenced under Apache 2.0, which means
-> > everyone can use, modify, or share it free of charge. However, we *do*
-> > encourage all users to contribute to the community once they get more
-> > comfortable with the tool.
+> > &#10003; **A community effort**
 > >
-> > &#10003; **A command line tool.** ESMValTool was originally designed for the
-> > command line. But, we are working on a user-friendly python interface as
-> > well.
-> >
-> > &#10003; **A way to make climate science more
-> > [FAIR](https://fair-software.eu/about).** ESMValTool collects provenance
-> > information about the data and code that are used to obtain a result. It
-> > comes with a readable recipe format that makes climate analysis consistent,
-> > reproducible, and easy to share.
-> >
-> > &#10005;  **Perfect.** Although we are continuously working to improve the
-> > tool, you may encounter some bugs or missing features. In the following
-> > episodes, you will learn how to troubleshoot, find help, and maybe even
-> > contribute to the solution yourself.
-> >
-> > &#10005;  **Suitable for (Jupyter) notebooks.** ESMValTool was designed as a
-> > command line tool. But, we are working on a user-friendly Python interface
-> > as well.
 > {: .solution}
 {: .challenge}
 
-To learn more about ESMValTool, you can look at the section
-``Where can I get more information on ESMValTool?`` in the lesson
-[Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/07-conclusions.md %}).
+## A tool to analyse climate data
 
-## How does ESMValTool work
+ESMValTool takes care of finding, opening, checking, fixing, concatenating, and
+preprocessing CMIP data and several other supported datasets.
 
-The figure below shows the different components of ESMValTool. Some of the most
-important work is done in the 'core', which performs a number of preprocessor
-steps. Outside of the core we have some configuration files that specify things
-like *where to find the CMIP data*. The most important file however, is the
-*recipe* that specifies which preprocessor functions need to be applied to what
-data. The recipe also points to a diagnostic script that is executed after the
-preprocessor and performs a more specific analysis on the preprocessed data.
+The central componnent of ESMValTool that we will see in this tutorial is the
+**recipe**. Any ESMValTool recipe is basically a set of instructions to reproduce
+a certain result. The basic structure of a recipe is as follows:
 
-![figure showing ESMValTool architecture]({{ page.root
-}}/fig/esmvaltool_architecture.png)
+- **Documentation** with relevant (citation) information
+- **Datasets** that should be analysed
+- **Preprocessor** steps that must be applied
+- **Diagnostic** scripts performing more specific evaluation steps
 
-> ## Discussion: (dis)advantages of this approach
+An example recipe could look like this:
+
+```yaml
+documentation:
+  description: Example recipe
+  authors:
+    - lastname_firstname
+
+datasets:
+  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1960, end_year: 2005}
+
+preprocessors:
+  global_mean:
+    area_statistics:
+      operator: mean
+
+diagnostics:
+  hockeystick_plot:
+    description: plot of global mean temperature change
+    variables:
+      temperature:
+        short_name: tas
+        preprocessor: global_mean
+    scripts: hockeystick.py
+```
+
+> ## Understanding the different section of the recipe
 >
-> Discuss or think about the pros and cons of this architecture for a moment.
-> Then unfold the box below to see our answers.
+> Try to figure out the meaning of the different dataset keys. Hint: they can
+> be found in the documentation of ESMValTool.
 >
->
-> > ## See our thoughts
-> >
-> > - Streamlining common preprocessing steps ensures consistency in the
-> >   algorithms being used and the way they are executed. This facilitates
-> >   comparison and reproducibility.
-> > - Provenance and citation information can be tracked through the entire
-> >   workflow.
-> > - The core builds upon the [iris](https://scitools.org.uk/iris/docs/latest/)
-> >   package, which is quite strict in order to comply with CF conventions and
-> >   minimize unexpected results.
-> > - Recipes are easy to read and share.
-> > - A collection of recipes and diagnostic scripts is shipped with ESMValTool,
-> >   ready for re-use. Everyone can add to this collection.
-> > - The recipe format takes some getting used to and may be a bit less
-> >   flexible then working on the datasets directly.
-> > - Features or dataset support that are missing from ESMValCore can be a
-> >   limiting factor.
+> > ## Solution
+> > The keys are explained in the ESMValTool documentation, in the section `The
+> recipe format`, under
+> [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-datasets)
 > {: .solution}
-{: .discussion}
+{: .challenge}
 
-## Community
+## A collection of diagnostics for reproducible climate science
+
+More than a tool, ESMValTool is a collection of publicly available recipes and
+diagnostic scripts. This makes it possible to easily reproduce important
+results.
+
+> ## Explore the available recipes
+>
+> Go to the [documentation of esmvaltool](https://docs.esmvaltool.org/) and
+> explore the `available recipes` section. Which recipe(s) would you like to
+> try?
+{: .challenge}
+
+## A community effort
 
 ESMValTool is built and maintained by an active community of scientists and
-software engineers. Many of the interactions take place on GitHub. Here, we
-briefly introduce you to some of the most important pages.
+software engineers. It is an open source project to which anyone can contribute.
+Many of the interactions take place on GitHub. Here, we briefly introduce you to
+some of the most important pages.
 
 > ## Meet ESMValGroup
 >
 > Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is
 > our 'organization' GitHub page. Have a look around. How many collaborators are
-> there? Do you know any of them? Near the top of the page there are 2 pinned
-> repositories: ESMValTool and ESMValCore. Visit each of the repositories. How
-> many people have contributed to each of them? Can you also find out how many
-> people have contributed to this tutorial?
+> there? Do you know any of them?
 >
-> > ## Solution
-> >
-> > At the time of making this lesson, there were 138 members of ESMValGroup. 55
-> > of them contributed to ESMValTool, 48 to ESMValCore. 52 (!) people
-> > contributed to this tutorial.
-> {: .solution}
+> Near the top of the page there are 2 pinned repositories: ESMValTool and
+> ESMValCore. Visit each of the repositories. How many people have contributed
+> to each of them? Can you also find out how many people have contributed to
+> this tutorial?
 {: .challenge}
 
 > ## Issues and pull requests
@@ -162,20 +134,12 @@ briefly introduce you to some of the most important pages.
 > bugs have been fixed in ESMValCore? There is also an 'insights' tab, where you
 > can see a summary of recent activity. How many issues have been opened and
 > closed in the past month?
->
-> > ## Solution
-> >
-> > At the time of making this lesson, there were 50 ESMValTool issues (the
-> > majority) about enhancement and 31 bugs had been fixed in the Core. 13
-> > ESMValTool issues had been closed in the past month, versus 8 opened:
-> > overall good progress.
-> {: .solution}
 {: .challenge}
 
 ## Conclusion
 
 This concludes the introduction of the tutorial. You now have a basic knowledge
-of ESMValTool and our community. The following episodes will walk you through
+of ESMValTool and its community. The following episodes will walk you through
 the installation, configuration and running your first recipes.
 
 {% include links.md %}

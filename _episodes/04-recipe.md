@@ -102,11 +102,11 @@ The recipe presented here is a simple, basic recipe that takes a single dataset
 and produces a time series plot.
 
 Please download
-[recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
+[recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example.yml)
 into your ESMValTool working directory:
 
 ~~~bash
-wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/data/recipe_example.yml
+wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/files/recipe_example.yml
 ~~~
 
 > ## recipe_example.yml
@@ -690,7 +690,7 @@ The snippets for the edits can be found below:
 >
 > Note: The x-axis in the plot now shows the years 1970 - 2000.
 >
-> Complete recipe can be downloaded as [recipe_example_ts.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_ts.yml)
+> Complete recipe can be downloaded as [recipe_example_ts.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_ts.yml)
 {: .solution}
 
 > ## Atmospheric surface average temperature
@@ -725,7 +725,7 @@ The snippets for the edits can be found below:
 >        timeseries_diag:
 > ```
 >
-> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas.yml)
+> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_tas.yml)
 {: .solution}
 
 > ## Ocean surface average temperature
@@ -762,7 +762,7 @@ The snippets for the edits can be found below:
 > ```
 > Note: The unit in the plots is now degrees celsius! There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
 >
-> Complete recipe can be downloaded as [recipe_example_tos.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tos.yml)
+> Complete recipe can be downloaded as [recipe_example_tos.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_tos.yml)
 {: .solution}
 
 > ## Advanced:

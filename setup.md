@@ -64,15 +64,21 @@ For more information see:
 under the [CMIP5 data request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28)
 and the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
 
-- A full list of all
+- List of all
 [CMIP named variables](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
 
-- A full list of [all ESGF nodes](https://esgf.llnl.gov/nodes.html).
+- List of all [ESGF nodes](https://esgf.llnl.gov/nodes.html).
+
+- A good [tutorial](https://esgf.github.io/esgf-user-support/user_guide.html#data-search-and-download)
+on how to search and download CMIP data from ESGF nodes.
+
+- [Exploring climate model data](https://climate4impact.eu/impactportal/data/esgfsearch.jsp)
+on infrastructure for the European network for Earth system modelling.
 
 ### CEDA-Jasmin
 
 Please skip this section if you are not going to use JASMIN
-and go [here](#Github-account-(Advanced)).
+and go [here](#github-account-advanced).
 
 If you do not already have an account on JASMIN, then request an account as soon
 as possible. Please follow [these instructions on how to create a Jasmin
@@ -156,12 +162,12 @@ access the BADC archives via JASMIN. Some CMIP5 data sets such as MIROC are not
 accessible by default and special permission has to be requested to access them
 via [the CEDA catalogue page](https://catalogue.ceda.ac.uk/).
 
-Congratulations! Please go here [here](#gitHub-account-(advanced)) next.
+Congratulations! Please go here [here](#gitHub-account-advanced) next.
 
 
 ### DKRZ
 
-Please skip this section if you are not going to use DKRZ and go [here](#github-account-(advanced)).
+Please skip this section if you are not going to use DKRZ and go [here](#github-account-advanced).
 
 If you do not already have an account at the DKRZ, then
 [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could
@@ -217,41 +223,20 @@ Data storage:
 Running batch jobs: Info and examples on SLURM job scheduling system at DKRZ can
 be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
 
-Congratulations! Please go here [here](#GitHub-account-(Advanced)) next.
+Congratulations! Please go here [here](#github-account-advanced) next.
 
 ### Using your own machine
 
 Please skip this section if you are not going to use ESMValTool on your
-local machine and go [here](#gitHub-account-(advanced)).
+local machine and go [here](#github-account-advanced).
 
 If you are planning on running ESMValTool on your own machine, please make sure
 that you are able to download CMIP data and that you have several GB of space
 available to install conda and ESMValTool, but also enough to make a copy of some
 data (~2Gb).
 
-We can download a single data file following the instructions as described below:
-
-1. Go to the [CMIP5 search page on the DKRZ ESGF node][cmip5-search]
-2. Perform the following search constraints
-
-    - Model = HadGEM2-ES
-    - Experiment = historical
-    - Time frequency = mon
-    - Ensemble =  r1i1p1
-    - Variable = thetaoga
-
-3. Press search button
-4. On single search result press `List files`
-5. At bottom of page click on `Show All Files`
-6. Find the file which starts with `thetaoga` in the list
-7. Use `HTTP Download` link to download
-   the [thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc][theatoga.nc] file
-   to `~/default_inputpath/` directory.
-
-However, the tutorial needs more data files. The [dataset.urls][ds] file contains all data set URLs and in comments the used search constraints. All of the data files should be downloaded
-to `~/default_inputpath/` directory.
-
-To download the data, run the following command using [wget](https://en.wikipedia.org/wiki/Wget):
+To download the data required by this tutorial, run the following command using
+[wget](https://en.wikipedia.org/wiki/Wget):
 
 ~~~shell
 wget --no-clobber --input-file \

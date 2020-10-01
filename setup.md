@@ -64,13 +64,16 @@ For more information see:
 under the [CMIP5 data request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28)
 and the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
 
-- A full list of all
+- List of all
 [CMIP named variables](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
 
-- A full list of [all ESGF nodes](https://esgf.llnl.gov/nodes.html).
+- List of all [ESGF nodes](https://esgf.llnl.gov/nodes.html).
 
 - A good [tutorial](https://esgf.github.io/esgf-user-support/user_guide.html#data-search-and-download)
 on how to search and download CMIP data from ESGF nodes.
+
+- [Exploring climate model data](https://climate4impact.eu/impactportal/data/esgfsearch.jsp)
+on infrastructure for the European network for Earth system modelling.
 
 ### CEDA-Jasmin
 

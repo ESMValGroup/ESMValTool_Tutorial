@@ -63,8 +63,9 @@ This file contains the information for:
 
 ## Output settings
 
-These settings are used to inform ESMValTool about your preference about
-specific actions. You can turn on or off the setting by ``true`` or ``false``
+The configuration file starts with output settings that
+inform ESMValTool about your preference for output.
+You can turn on or off the setting by ``true`` or ``false``
 values. Most of these settings are fairly self-explanatory.
 For example, `write_plots: true` means that diagnostics create plots.
 

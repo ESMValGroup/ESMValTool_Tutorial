@@ -112,7 +112,7 @@ profile_diagnostic: false
 >> If the option ``save_intermediary_cubes`` is set to ``true``
 >> then data will also be saved after each preprocessor step in the folder
 >> ``preproc``. Note that saving all intermediate results to file will result
->> in a considerable slowdown.
+>> in a considerable slowdown, and can quickly fill your disk.
 > {: .solution}
 {: .challenge}
 

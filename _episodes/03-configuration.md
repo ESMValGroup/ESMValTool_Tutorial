@@ -333,7 +333,7 @@ information about ``drs``, you can visit the ESMValTool documentation on
 > ## Make your own configuration file
 >
 > It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml. In this case, you have to pass the path to the config file you want to use as a command line option when running the ESMValTool.
 {: .callout}
 
 {% include links.md %}

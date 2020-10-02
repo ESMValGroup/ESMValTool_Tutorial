@@ -23,10 +23,8 @@ keypoints:
 The ``config-user.yml`` configuration file contains all the global level
 information needed by ESMValTool to run.
 This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
-An example configuration file can be found in the ESMValCore repository:
-[config-user-example.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-user.yml).
 
-You can generate the default configuration file by running:
+You can get the default configuration file by running:
 
 ~~~bash
   esmvaltool config get_config_user
@@ -37,7 +35,8 @@ path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.esmvaltool` directory in the terminal use
 `ls -la ~`.
 
-We run a text editor called ``nano`` to have a look inside the configuration file:
+We run a text editor called ``nano`` to have a look inside the configuration file
+and then modify it if needed:
 
 ~~~bash
   nano ~/.esmvaltool/config-user.yml
@@ -66,43 +65,14 @@ This file contains the information for:
 
 These settings are used to inform ESMValTool about your preference about
 specific actions. You can turn on or off the setting by ``true`` or ``false``
-values. Most of these settings are fairly self-explanatory, ie:
-
-```yaml
-# Diagnostics create plots? [true]/false
-write_plots: true
-# Diagnositcs write NetCDF files? [true]/false
-write_netcdf: true
-# Set the console log level debug, [info], warning, error
-log_level: info
-# Exit on warning (only for NCL diagnostic scripts)? true/[false]
-exit_on_warning: false
-# Plot file format? [png]/pdf/ps/eps/epsi
-output_file_type: png
-
-...
-
-# Use netCDF compression true/[false]
-compress_netcdf: false
-# Save intermediary cubes in the preprocessor true/[false]
-save_intermediary_cubes: false
-# Remove the preproc dir if all fine
-remove_preproc_dir: true
-
-...
-
-# Path to custom config-developer file, to customise project configurations.
-# See config-developer.yml for an example. Set to [null] to use the default
-config_developer_file: null
-# Get profiling information for diagnostics
-# Only available for Python diagnostics
-profile_diagnostic: false
-```
+values. Most of these settings are fairly self-explanatory.
+For example, `write_plots: true` means that diagnostics create plots.
 
 > ## Saving preprocessed data
 >
-> In the configuration file, which settings are useful to make sure preprocessed
-> data is stored when ESMValTool is run?
+> Later in this tutorial, we will want to look at the contents of the `preproc` folder.
+> This folder contains preprocessed data and is removed by default when ESMValTool is run.
+> In the configuration file, which settings can be modified to prevent this from happening?
 >
 >> ## Solution
 >>
@@ -143,7 +113,8 @@ are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
 > ## Set the destination directory
 >
 > Let's name our destination directory ``esmvaltool_output`` in the working directory.
-> How to tell ESMValTool about our destination directory?
+> ESMValTool should write the output to this path.
+> How to modify the `config-user.yml`?
 >
 >> ## Solution
 >>
@@ -155,39 +126,6 @@ are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
 >> If the `esmvaltool_output` does not exist, ESMValTool will generate it for you.
 > {: .solution}
 {: .challenge}
-
-## Auxiliary data directory
-
-The ``auxiliary_data_dir`` setting is the path where any required additional
-auxiliary data files are stored. This location allows us to tell the diagnostic
-script where to find the files if they can not be downloaded at runtime. This
-option should not be used for model or observational datasets, but for data
-files  (e.g. shape files) used in plotting such as coastline descriptions and so
-on.
-
-```yaml
-auxiliary_data_dir: ~/auxiliary_data
-```
-
-## Number of parallel tasks
-
-This option enables you to perform parallel processing.
-You can choose the number of tasks in parallel as
-1/2/3/4/... or you can set it to ``null``. That tells
-ESMValTool to use the maximum number of available CPUs:
-
-```yaml
-max_parallel_tasks: null
-```
-
-> ## Set the number of tasks
->
-> If you run out of memory, try setting ``max_parallel_tasks`` to 1.
-Then, check the amount of memory you need for that by inspecting
-the file ``run/resource_usage.txt`` in the output directory.
-Using the number there you can increase the number of parallel tasks
-again to a reasonable number for the amount of memory available in your system.
-{: .callout}
 
 ## Rootpath to input data
 
@@ -218,7 +156,8 @@ example configuration file.
 > In this tutorial, we will work with data from
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
 > and [obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/).
-> How does ESMValTool find the data?
+> How can we moodify the `rootpath` to make sure the data path is set correctly
+> for both CMIP5 and obs4mips.
 >
 > Note:
 > to get the data, check instruction in
@@ -276,7 +215,7 @@ information about ``drs``, you can visit the ESMValTool documentation on
 > In this lesson, we will work with data from
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
 > and [obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/).
-> How does ESMValTool know the data structure?
+> How can we set the correct `drs`?
 >
 >> ## Solution
 >>
@@ -329,6 +268,42 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >>
 > {: .solution}
 {: .challenge}
+
+## Other settings
+
+> ## Auxiliary data directory
+>
+> The ``auxiliary_data_dir`` setting is the path where any required additional
+auxiliary data files are stored. This location allows us to tell the diagnostic
+script where to find the files if they can not be downloaded at runtime. This
+option should not be used for model or observational datasets, but for data
+files (e.g. shape files) used in plotting such as coastline descriptions and
+if you want to feed some additional data (e.g. shape files) to your recipe.
+>
+>```yaml
+> auxiliary_data_dir: ~/auxiliary_data
+> ```
+> See more information in ESMValTool
+[document](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html?highlight=auxiliary_data#user-configuration-file).
+{: .callout}
+
+> ## Number of parallel tasks
+>
+> This option enables you to perform parallel processing.
+You can choose the number of tasks in parallel as
+1/2/3/4/... or you can set it to ``null``. That tells
+ESMValTool to use the maximum number of available CPUs:
+>
+>```yaml
+> max_parallel_tasks: null
+> ```
+>
+> If you run out of memory, try setting ``max_parallel_tasks`` to 1.
+Then, check the amount of memory you need for that by inspecting
+the file ``run/resource_usage.txt`` in the output directory.
+Using the number there you can increase the number of parallel tasks
+again to a reasonable number for the amount of memory available in your system.
+{: .callout}
 
 > ## Make your own configuration file
 >

@@ -308,7 +308,11 @@ again to a reasonable number for the amount of memory available in your system.
 > ## Make your own configuration file
 >
 > It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml. In this case, you have to pass the path to the config file you want to use as a command line option when running the ESMValTool.
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml.
+> In this case, you have to pass the path of your own configuration file
+> as a command-line option when running the ESMValTool.
+> We will learn how to do this in the
+> [next lesson]({{ page.root }}{% link _episodes/04-recipe.md %}).
 {: .callout}
 
 {% include links.md %}

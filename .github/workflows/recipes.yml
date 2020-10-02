@@ -12,11 +12,11 @@ jobs:
       - name: Cache conda
         uses: actions/cache@v1
         env:
-          # Increase this value to reset cache if data/recipe_example.yml has not changed
+          # Increase this value to reset cache if files/recipe_example.yml has not changed
           CACHE_NUMBER: 1
         with:
           path: ~/conda_pkgs_dir
-          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/recipe_example.yml') }}
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('files/recipe_example.yml') }}
       - uses: goanpeca/setup-miniconda@v1
       - name: Install esmvaltool
         run: conda install -n test -y -c esmvalgroup -c conda-forge esmvaltool-python
@@ -41,8 +41,8 @@ jobs:
         with:
           path: ~/default_inputpath
           key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
-      - name: Download dataset files for data/recipe_example.yml
+      - name: Download dataset files for files/recipe_example.yml
         run: |
           head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/
-      - name: Run data/recipe_example.yml
-        run: $CONDA/envs/test/bin/esmvaltool run $PWD/data/recipe_example.yml
+      - name: Run files/recipe_example.yml
+        run: $CONDA/envs/test/bin/esmvaltool run $PWD/files/recipe_example.yml

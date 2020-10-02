@@ -295,8 +295,8 @@ Please note the following sections:
 
 > ## Exemplary output
 >
-> After running the `recipe_example.yml`, you will see some log information in the terminal.
-> The information is based on the settings in both `recipe_example.yml` and
+> After running the `recipe_example.yml`, some information (log messages) will be printed in the terminal.
+> The log messages depends on the settings in both `recipe_example.yml` and
 > the `config-user.yml` files.
 > As an example, the log information is:
 >

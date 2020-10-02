@@ -102,11 +102,11 @@ The recipe presented here is a simple, basic recipe that takes a single dataset
 and produces a time series plot.
 
 Please download
-[recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml)
+[recipe_example.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example.yml)
 into your ESMValTool working directory:
 
 ~~~bash
-wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/data/recipe_example.yml
+wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool_Tutorial/master/files/recipe_example.yml
 ~~~
 
 > ## recipe_example.yml
@@ -294,6 +294,12 @@ Please note the following sections:
 {: .challenge}
 
 > ## Exemplary output
+>
+> After running the `recipe_example.yml`, some information (log messages) will be printed in the terminal.
+> The log messages depends on the settings in both `recipe_example.yml` and
+> the `config-user.yml` files.
+> As an example, the log information is:
+>
 > ~~~bash
 > 2020-07-01 08:22:58,571 UTC [33433] INFO
 > ______________________________________________________________________
@@ -381,12 +387,14 @@ Please note the following sections:
 Each time you run the ESMValTool, it will produce a new output directory within
 your specified work directory with the name of the recipe and the tagged
 runtime. This folder should contain four folders:
+
   - run
   - work
   - preproc
   - plots
 
-> ## Inspect the output:
+> ## Inspect the output
+>
 > Now that you have run the esmvaltool command for the first time, please locate
 > your output directory. If you’re missing the preproc directory, then your
 > `config-user.yml` file has the value remove_preproc_dir set to true (this is
@@ -395,8 +403,10 @@ runtime. This folder should contain four folders:
 >
 {: .challenge}
 
-> ## Inspect specific files:
+> ## Inspect specific files
+>
 > Please locate and inspect the following files:
+>
 > - Your output plot(s).
 > - Your main output log file.
 > - Your settings.yml file.
@@ -407,7 +417,8 @@ runtime. This folder should contain four folders:
 Exemplary output (depending on the directory paths and package versions that are
 available) can be found below. Note that the timestamps differ.
 
-> ## Your output plot(s).
+> ## Your output plot(s)
+>
 > Plots for the dataset(s) are located in `./recipe_example_#_#/plots/timeseries_diag/`
 >
 > For a single dataset:
@@ -419,210 +430,57 @@ available) can be found below. Note that the timestamps differ.
 > ![multiple datasets](../fig/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1900_2000_timeseries_.png "multiple datasets")
 {: .solution}
 
-> ## Your main output log file.
+> ## Your main output log file
+>
 > The main output file is located at `./recipe_example_#_#/run/main_log.txt/`
+> Let's have look at the file:
 >
 > ~~~bash
-> INFO    [33433]
-> ______________________________________________________________________
->           _____ ____  __  ____     __    _ _____           _
->          | ____/ ___||  \/  \ \   / /_ _| |_   _|__   ___ | |
->          |  _| \___ \| |\/| |\ \ / / _` | | | |/ _ \ / _ \| |
->          | |___ ___) | |  | | \ V / (_| | | | | (_) | (_) | |
->          |_____|____/|_|  |_|  \_/ \__,_|_| |_|\___/ \___/|_|
-> ______________________________________________________________________
->
-> ESMValTool - Earth System Model Evaluation Tool.
->
-> http://www.esmvaltool.org
->
-> CORE DEVELOPMENT TEAM AND CONTACTS:
->   Veronika Eyring (PI; DLR, Germany - veronika.eyring@dlr.de)
->   Bouwe Andela (NLESC, Netherlands - b.andela@esciencecenter.nl)
->   Bjoern Broetz (DLR, Germany - bjoern.broetz@dlr.de)
->   Lee de Mora (PML, UK - ledm@pml.ac.uk)
->   Niels Drost (NLESC, Netherlands - n.drost@esciencecenter.nl)
->   Nikolay Koldunov (AWI, Germany - nikolay.koldunov@awi.de)
->   Axel Lauer (DLR, Germany - axel.lauer@dlr.de)
->   Benjamin Mueller (LMU, Germany - b.mueller@iggf.geo.uni-muenchen.de)
->   Valeriu Predoi (URead, UK - valeriu.predoi@ncas.ac.uk)
->   Mattia Righi (DLR, Germany - mattia.righi@dlr.de)
->   Manuel Schlund (DLR, Germany - manuel.schlund@dlr.de)
->   Javier Vegas-Regidor (BSC, Spain - javier.vegas@bsc.es)
->   Klaus Zimmermann (SMHI, Sweden - klaus.zimmermann@smhi.se)
->
-> For further help, please read the documentation at
-> http://esmvaltool.readthedocs.io. Have fun!
->
-> INFO    [33433] Using config file /pf/b/b380506/work/config-DKRZ.yml
-> INFO    [33433] Writing program log files to:
-> /scratch/b/b380506/recipe_example_20200701_082257/run/main_log.txt
-> /scratch/b/b380506/recipe_example_20200701_082257/run/main_log_debug.txt
-> INFO    [33433] Starting the Earth System Model Evaluation Tool v2.0.0b9 at time: 2020-07-01 08:22:58 UTC
-> INFO    [33433] ----------------------------------------------------------------------
-> INFO    [33433] RECIPE   = /pf/b/b380506/work/recipes/recipe_example.yml
-> INFO    [33433] RUNDIR     = /scratch/b/b380506/recipe_example_20200701_082257/run
-> INFO    [33433] WORKDIR    = /scratch/b/b380506/recipe_example_20200701_082257/work
-> INFO    [33433] PREPROCDIR = /scratch/b/b380506/recipe_example_20200701_082257/preproc
-> INFO    [33433] PLOTDIR    = /scratch/b/b380506/recipe_example_20200701_082257/plots
-> INFO    [33433] ----------------------------------------------------------------------
-> INFO    [33433] Running tasks using at most 8 processes
-> INFO    [33433] If your system hangs during execution, it may not have enough memory for keeping this number of tasks in memory.
-> INFO    [33433] If you experience memory problems, try reducing 'max_parallel_tasks' in your user configuration file.
-> INFO    [33433] Creating tasks from recipe
-> INFO    [33433] Creating tasks for diagnostic diag_timeseries_temperature
-> INFO    [33433] Creating preprocessor task diag_timeseries_temperature/timeseries_variable
-> INFO    [33433] Creating preprocessor 'prep_timeseries' task for variable 'thetaoga'
-> INFO    [33433] Using input files for variable thetaoga of dataset HadGEM2-ES:
-> /mnt/lustre01/work/kd0956/CMIP5/data/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
-> INFO    [33433] PreprocessingTask diag_timeseries_temperature/timeseries_variable created. It will create the files:
-> /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
-> INFO    [33433] Creating diagnostic task diag_timeseries_temperature/timeseries_diag
-> INFO    [33433] These tasks will be executed: diag_timeseries_temperature/timeseries_variable, diag_timeseries_temperature/timeseries_diag
-> INFO    [39196] Starting task diag_timeseries_temperature/timeseries_variable in process [39196]
-> INFO    [33433] Progress: 1 tasks running, 1 tasks waiting for ancestors, 0/2 done
-> INFO    [39196] Successfully completed task diag_timeseries_temperature/timeseries_variable (priority 0) in 0:00:07.241490
-> INFO    [33433] Progress: 0 tasks running, 1 tasks waiting for ancestors, 1/2 done
-> INFO    [39197] Starting task diag_timeseries_temperature/timeseries_diag in process [39197]
-> INFO    [39197] Running command ['/pf/b/b380506/miniconda3/envs/esmvaltool_pub/bin/python', '/mnt/lustre01/pf/b/b380506/work/GIT/ESMValTool/esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py', '/scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag/settings.yml']
-> INFO    [39197] Writing output to /scratch/b/b380506/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
-> INFO    [39197] Writing plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
-> INFO    [39197] Writing log to /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag/log.txt
-> INFO    [39197] To re-run this diagnostic script, run:
-> cd /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag; MPLBACKEND="Agg" /pf/b/b380506/miniconda3/envs/esmvaltool_pub/bin/python /mnt/lustre01/pf/b/b380506/work/GIT/ESMValTool/esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag/settings.yml
-> INFO    [33433] Progress: 1 tasks running, 0 tasks waiting for ancestors, 1/2 done
-> INFO    [39197] Maximum memory used (estimate): 0.2 GB
-> INFO    [39197] Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
-> WARNING [39197] No provenance information was written to /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag/diagnostic_provenance.yml
-> INFO    [39197] Successfully completed task diag_timeseries_temperature/timeseries_diag (priority 1) in 0:00:07.347165
-> INFO    [33433] Progress: 0 tasks running, 0 tasks waiting for ancestors, 2/2 done
-> INFO    [33433] Successfully completed all tasks.
-> INFO    [33433] Ending the Earth System Model Evaluation Tool v2.0.0b9 at time: 2020-07-01 08:23:13 UTC
-> INFO    [33433] Time for running the recipe was: 0:00:14.820802
-> INFO    [33433] Maximum memory used (estimate): 0.7 GB
-> INFO    [33433] Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
-> INFO    [33433] Run was successful
+> nano ./recipe_example_#_#/run/main_log.txt
 > ~~~
 >
 > Note: This is the same information as the terminal output, above, but without the time stamps.
 {: .solution}
 
-> ##  Your settings.yml file.
-> This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/settings.yaml`.
+> ##  Your settings.yml file
 >
-> ```YAML
-> auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
-> input_files:
-> - /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
-> log_level: info
-> output_file_type: png
-> plot_dir: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
-> profile_diagnostic: false
-> recipe: recipe_example.yml
-> run_dir: /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag
-> script: timeseries_diag
-> version: 2.0.0b9
-> work_dir: /scratch/b/b380506/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
-> write_netcdf: true
-> write_plots: true
-> ```
+> This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/settings.yaml`.
+> Let's have look at the file:
+>
+> ~~~bash
+> nano ./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/settings.yaml
+> ~~~
+>
 {: .solution}
 
 > ## A metadata.yml file.
 >
 > This file is located at `./recipe_example_#_#/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml`.
+> Please note that `preproc` diretctory exist if only `remove_preproc_dir: false`
+> in ``config-user.yml`` file.
+> Let's have look at the file:
 >
-> ```YAML
-> ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
-> : alias: HadGEM2-ES
->   dataset: HadGEM2-ES
->   diagnostic: diag_timeseries_temperature
->   end_year: 2000
->   ensemble: r1i1p1
->   exp: historical
->   filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
->   frequency: mon
->   institute:
->   - INPE
->   - MOHC
->   long_name: Global Average Sea Water Potential Temperature
->   mip: Omon
->   modeling_realm:
->   - ocean
->   preprocessor: prep_timeseries
->   project: CMIP5
->   recipe_dataset_index: 0
->   short_name: thetaoga
->   standard_name: sea_water_potential_temperature
->   start_year: 1900
->   units: K
->   variable_group: timeseries_variable
-> ```
+> ~~~bash
+> nano ./recipe_example_#_#/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
+> ~~~
+>
 {: .solution}
 
 > ## The diagnostic log file.
+>
 > This file is located at `./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/log.txt`
+> Let's have look at the file:
 >
 > ~~~bash
-> Starting diagnostic script timeseries_diag with configuration:
-> auxiliary_data_dir: /mnt/lustre01/pf/b/b380506/work/auxiliary_data
-> input_data:
->   ? /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
->   : alias: HadGEM2-ES
->     dataset: HadGEM2-ES
->     diagnostic: diag_timeseries_temperature
->     end_year: 2000
->     ensemble: r1i1p1
->     exp: historical
->     filename: /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1900-2000.nc
->     frequency: mon
->     institute:
->     - INPE
->     - MOHC
->     long_name: Global Average Sea Water Potential Temperature
->     mip: Omon
->     modeling_realm:
->     - ocean
->     preprocessor: prep_timeseries
->     project: CMIP5
->     recipe_dataset_index: 0
->     short_name: thetaoga
->     standard_name: sea_water_potential_temperature
->     start_year: 2000
->     units: K
->     variable_group: timeseries_variable
-> input_files:
-> - /scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
-> log_level: info
-> output_file_type: png
-> plot_dir: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
-> profile_diagnostic: false
-> recipe: recipe_example.yml
-> run_dir: /scratch/b/b380506/recipe_example_20200701_082257/run/diag_timeseries_temperature/timeseries_diag
-> script: timeseries_diag
-> version: 2.0.0b9
-> work_dir: /scratch/b/b380506/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
-> write_netcdf: true
-> write_plots: true
->
-> Creating /scratch/b/b380506/recipe_example_20200701_082257/work/diag_timeseries_temperature/timeseries_diag
-> Creating /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag
-> metadata filename:	/scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/metadata.yml
-> No handles with labels found to put in legend.
-> Image path will be: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_.png
-> Saving plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/MultipleModels__thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_.png
-> -----------------
-> model filenames:	/scratch/b/b380506/recipe_example_20200701_082257/preproc/diag_timeseries_temperature/timeseries_variable/CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_1859-2005.nc
-> Image path will be: /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_0.png
-> Saving plots to /scratch/b/b380506/recipe_example_20200701_082257/plots/diag_timeseries_temperature/timeseries_diag/diag_CMIP5_HadGEM2-ES_Omon_historical_r1i1p1_thetaoga_prep_timeseries_diag_timeseries_temperature_1900-2000_timeseries_0.png
-> Success
-> End of diagnostic script run.
+> nano ./recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/log.txt
 > ~~~
+>
 {: .solution}
 
 ## Do your first edits
 
 > ## Edit the recipe and run again
+>
 > So far, the example recipe has used global volume-weighted ocean temperature.
 > Please edit this recipe to investigate one of the following fields:
 >
@@ -690,7 +548,7 @@ The snippets for the edits can be found below:
 >
 > Note: The x-axis in the plot now shows the years 1970 - 2000.
 >
-> Complete recipe can be downloaded as [recipe_example_ts.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_ts.yml)
+> Complete recipe can be downloaded as [recipe_example_ts.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_ts.yml)
 {: .solution}
 
 > ## Atmospheric surface average temperature
@@ -725,7 +583,7 @@ The snippets for the edits can be found below:
 >        timeseries_diag:
 > ```
 >
-> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas.yml)
+> Complete recipe can be downloaded as [recipe_example_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_tas.yml)
 {: .solution}
 
 > ## Ocean surface average temperature
@@ -762,7 +620,7 @@ The snippets for the edits can be found below:
 > ```
 > Note: The unit in the plots is now degrees celsius! There are now 3 plots in the work directory. One for each dataset and one for the multiple dataset overview.
 >
-> Complete recipe can be downloaded as [recipe_example_tos.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tos.yml)
+> Complete recipe can be downloaded as [recipe_example_tos.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_tos.yml)
 {: .solution}
 
 > ## Advanced:

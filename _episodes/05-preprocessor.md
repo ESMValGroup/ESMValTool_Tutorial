@@ -88,7 +88,7 @@ file afterwards. These do not need to be explicitly included in recipes.
 
 > ## Exercise: Adding more preprocessor steps
 >
-> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example.yml) to first change the variable to
+> Edit the [example recipe](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example.yml) to first change the variable to
 > `thetao`, using only the years 2000-2005. Then add preprocessors to average over the latitude and longitude
 > dimensions and finally average over the depth. Now run the recipe.
 >
@@ -127,7 +127,7 @@ file afterwards. These do not need to be explicitly included in recipes.
 >>        timeseries_diag:
 >> ```
 >>
->> Complete recipe can be downloaded as [recipe_example_thetao.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_thetao.yml)
+>> Complete recipe can be downloaded as [recipe_example_thetao.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_thetao.yml)
 >{: .solution}
 {: .challenge}
 
@@ -179,7 +179,7 @@ specific preprocessor which should be applied.
 >         script: ocean/diagnostic_timeseries.py
 > ```
 >
-> Complete recipe can be downloaded as [recipe_example_thetao_thetaoga.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_thetao_thetaoga.yml)
+> Complete recipe can be downloaded as [recipe_example_thetao_thetaoga.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_thetao_thetaoga.yml)
 {: .solution}
 
 >## Challenge : How to write a recipe with multiple preprocessors
@@ -282,7 +282,7 @@ specific preprocessor which should be applied.
 >> ```
 >>
 >> Complete recipe can be downloaded as
->> [recipe_example_multi_preprocessors.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_multi_preprocessors.yml).
+>> [recipe_example_multi_preprocessors.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_multi_preprocessors.yml).
 > {: .solution}
 {: .challenge}
 
@@ -331,7 +331,7 @@ simple preprocessor and diagnostic setup for that:
 >         preprocessor: prep_regrid
 >     scripts: null
 > ```
-> Complete recipe can be downloaded as [recipe_example_pr_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_pr_tas.yml).
+> Complete recipe can be downloaded as [recipe_example_pr_tas.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_pr_tas.yml).
 >
 {: .solution}
 
@@ -393,7 +393,7 @@ separate multimodel means for different CMIP5 datasets given the same variable.
 > There is no field called datasets anymore.
 > Also, note how multiple ensembles are added by using (1:2).
 > Complete recipe can be downloaded as
-> [recipe_example_tas_control_target.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/data/recipe_example_tas_control_target.yml).
+> [recipe_example_tas_control_target.yml](https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/master/files/recipe_example_tas_control_target.yml).
 >
 {: .solution}
 

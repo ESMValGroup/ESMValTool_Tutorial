@@ -1,18 +1,58 @@
 ---
-title: Glossary 
+title: Glossary
 ---
 
 ## ESMValTool Glossary
 
 Here, there are some definitions used throughout this tutorial:
 
-- **Diagnostics**: A diagnostic script is the last step in a recipe to convert the pre-processed input data to the desired output like plots or NetCDF files.
+- **-ga**: Suffix indicating a variable is a global average
+
+- **Amon**: Monthly mean atmopsheric fields
 
 - **CMIP**: The Coupled Model Intercomparison Project (CMIP) aims at better understanding past, present and future climate changes arising from natural, unforced variability or in response to changes in radiative forcing in a multi-model context. For more information, check the [WCR-Climate webpage](https://www.wcrp-climate.org/).
 
-- **CMOR**: CMOR stands for [“Climate Model Output Rewriter” library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant netCDF files that fulfill the requirements of many of the climate community's standard model experiments.
+- **CMOR**: CMOR stands for [*Climate Model Output Rewriter* library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant netCDF files that fulfill the requirements of many of the climate community's standard model experiments.
 
-- **Recipe**: A recipe contains the instructions to be carried out by the ESMValTool. This includes four main sections: datasets, preprocessors, diagnostics and description.
+- **dataset**: Refers to the model that was used to simulate the data, e.g. HadGEM2-ES)
+
+- **diagnostic**: A diagnostic script is the last step in a recipe to convert the pre-processed input data to the desired output like plots or NetCDF files.
+
+- **ensemble**: An ensemble is a collection of experiments based on standardised inputs. This ensures that ensemble calculations use the same initial states, initialisation methods, and physics details. Ensemble members are named in the rip-nomenclature, *r* for realization, *i* for initialisation and *p* for physics, followed by an integer, e.g. r1i1p1.
+
+- **experiment**: An experiment is defined as an activity aimed at addressing a specific scientific problem. In CMIP, experiments are numerical experiments with climate models
+
+- **grid**: A grid is the array of coordinates on which a variable has been sampled.
+
+- **mask**: Masks are used to isolate regions. For example, if you apply an ocean mask, then coordinates in the ocean will not be taken into account for the preprocessors/diagnostics. Masks can also be used to work with regions that have have missing or invalid entries.
+
+- **mip**: Typically used to refer to a table of variables in ESMValTool. These are standardized per project, e.g. the [MIP tables for CMIP6](http://clipc-services.ceda.ac.uk/dreq/index/miptable.html).
+
+- **Omon**: Monthly mean ocean fields
+
+- **pr**: CMIP short-hand for 'precipitation'
+
+- **preprocessor**: A preprocessor is a function that is applied to a dataset
+
+- **project**: Typically refers to a standard experimental protocol for global models, e.g. CMIP.
+
+- **RCP**: *Representative Concentration Pathways* are scenarios that represent the full bandwidth of possible future emission trajectories. Depending on population growth and the development of energy production, food production and land use, various emission trajectories are possible.
+
+- **recipe**: A recipe contains the instructions to be carried out by the ESMValTool. This includes four main sections: datasets, preprocessors, diagnostics and description.
+
+- **ta**: CMIP short-hand for 'air temperature'
+
+- **tas**: CMIP short-hand for 'near-surface air temperature'
+
+- **thetao**: Sea water potential temperature variable (assume reference height is sea level)
+
+- **thetaoga**: Global average sea water potential temperature
+
+- **tos**:  CMIP short-hand for 'sea surface temperature'
+
+- **ts**: CMIP short-hand for 'surface temperature'
+
+- **yaml**: YAML is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or exchanged.
 
 For more details on ESMValTool, please go to:
 Additional info can be found in [ESMValTool home page](https://esmvaltool.org)

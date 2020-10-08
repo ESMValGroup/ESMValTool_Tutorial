@@ -93,23 +93,6 @@ The destination directory is the rootpath where ESMValTool will store its output
 e.g. figures, data, logs, etc. With every run, ESMValTool automatically generates
 a new output folder determined by recipe name, and date and time using
 the format: YYYYMMDD_HHMMSS.
-This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, ``work``.
-
-> ## Content of subfolders
->
-> - ``plots``: the location for all plots, split by individual diagnostics and fields.
-> - ``preproc``: this folder contains all the preprocessed data and metadata.yml
-interface files. Note that by default this directory will be deleted after
-each run because most users will only need the results from the diagnostic scripts.
-> - ``run``: this folder includes all log files, a copy of the recipe,
-a summary of the resource usage, and the settings.yml interface files,
-resource_usage.txt and temporary files created by the diagnostic scripts.
-> - ``work``: this folder is a place for any diagnostic script results that
-are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
->
-> We explain more about output in the next
-[lesson]({{ page.root }}{% link _episodes/04-recipe.md %})
-{: .callout}
 
 > ## Set the destination directory
 >

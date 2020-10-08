@@ -32,6 +32,16 @@ If you work or study in climate-related domains and would be interested in
 getting involved, you can reach us by email.
 Please see [information][contact-info] on how to subscribe to user mailing list.
 
+## Serving the tutorial locally
+
+```
+git clone https://github.com/esmvalgroup/tutorial
+cd tutorial
+conda env create
+conda activate esmvaltool_tutorial
+make serve
+```
+
 ## Citation
 
 To cite this tutorial, please use the information available at

@@ -26,7 +26,7 @@ title: Glossary
 
 - **Omon**: Monthly ocean data.
 
-- **pr**: CMIP shortname for 'precipitation'.
+- **pr**: CMIP short-name for 'precipitation'.
 
 - **preprocessor**: A preprocessor is an operation that is applied to a dataset.
 
@@ -36,17 +36,17 @@ title: Glossary
 
 - **recipe**: A recipe contains the instructions to be carried out by the ESMValTool. This includes four main sections: datasets, preprocessors, diagnostics and description.
 
-- **ta**: CMIP shortname for 'air temperature'.
+- **ta**: CMIP short-name for 'air temperature'.
 
-- **tas**: CMIP shortname for 'near-surface air temperature'.
+- **tas**: CMIP short-name for 'near-surface air temperature'.
 
 - **thetao**: Sea water potential temperature variable (assume reference height is sea level).
 
 - **thetaoga**: Global average sea water potential temperature
 
-- **tos**:  CMIP shortname for 'sea surface temperature'.
+- **tos**:  CMIP short-name for 'sea surface temperature'.
 
-- **ts**: CMIP shortname for 'surface temperature'.
+- **ts**: CMIP short-name for 'surface temperature'.
 
 - **yaml**: YAML is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or exchanged.
 

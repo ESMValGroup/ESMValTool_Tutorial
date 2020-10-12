@@ -12,25 +12,25 @@ Here, there are some definitions used throughout this tutorial:
 
 - **CMOR**: CMOR stands for [*Climate Model Output Rewriter* library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant NetCDF files that fulfill the requirements of many of the climate community's standard model experiments.
 
-- **dataset**: In a recipe, dataset refers to the name of the model or observation data, e.g. HadGEM2-ES
+- **dataset**: In a recipe, dataset refers to the name of the model or observation data, e.g. HadGEM2-ES.
 
-- **diagnostic**: A diagnostic script is the last step in a recipe to convert the pre-processed input data to the desired output like plots or NetCDF files.
+- **diagnostic**: In a recipe, the diagnostic section(s) define the tasks that will be executed when running the recipe. It can also include a diagnostic script that converts the preprocessed input data to the desired output like plots or NetCDF files.
 
 - **ensemble**: An ensemble is a collection of experiments based on standardised inputs. This ensures that ensemble calculations use the same initial states, initialisation methods, and physics details. Ensemble members are named in the rip-nomenclature, *r* for realization, *i* for initialisation and *p* for physics, followed by an integer, e.g. r1i1p1.
 
 - **experiment**: An experiment is defined as an activity aimed at addressing a specific scientific problem. In CMIP, experiments are numerical experiments with climate models
 
-- **grid**: A grid is the array of coordinates on which a variable has been sampled.
+- **grid**: In the dataset section of a recipe, a grid is the array of coordinates on which a variable has been sampled.
 
-- **mask**: Masks are used to isolate regions. For example, if you apply an ocean mask, then coordinates in the ocean will not be taken into account for the preprocessors/diagnostics. Masks can also be used to work with regions that have have missing or invalid entries.
+- **mask**: Masks are used to isolate regions. For example, if you apply an ocean mask, then coordinates in the ocean will not be taken into account for the preprocessors/diagnostics. Masks can also be used to work with regions that have missing or invalid entries.
 
 - **mip**: Typically used to refer to a table of variables in ESMValTool. These are standardized per project, e.g. the [MIP tables for CMIP6](http://clipc-services.ceda.ac.uk/dreq/index/miptable.html).
 
-- **Omon**: Monthly mean ocean fields
+- **Omon**: Monthly ocean data
 
 - **pr**: CMIP short-hand for 'precipitation'
 
-- **preprocessor**: A preprocessor is a function that is applied to a dataset
+- **preprocessor**: A preprocessor is an operation that is applied to a dataset.
 
 - **project**: Typically refers to a standard experimental protocol for global models, e.g. CMIP.
 

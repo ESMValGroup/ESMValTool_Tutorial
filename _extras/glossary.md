@@ -6,13 +6,11 @@ title: Glossary
 
 Here, there are some definitions used throughout this tutorial:
 
-- **-ga**: Suffix indicating a variable is a global average
-
-- **Amon**: Monthly mean atmopsheric fields
+- **Amon**: Monthly atmospheric data
 
 - **CMIP**: The Coupled Model Intercomparison Project (CMIP) aims at better understanding past, present and future climate changes arising from natural, unforced variability or in response to changes in radiative forcing in a multi-model context. For more information, check the [WCR-Climate webpage](https://www.wcrp-climate.org/).
 
-- **CMOR**: CMOR stands for [*Climate Model Output Rewriter* library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant netCDF files that fulfill the requirements of many of the climate community's standard model experiments.
+- **CMOR**: CMOR stands for [*Climate Model Output Rewriter* library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant NetCDF files that fulfill the requirements of many of the climate community's standard model experiments.
 
 - **dataset**: Refers to the model that was used to simulate the data, e.g. HadGEM2-ES)
 

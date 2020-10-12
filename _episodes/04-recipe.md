@@ -18,8 +18,7 @@ keypoints:
 
 This episode describes how ESMValTool recipes work, how to run a recipe and how
 to explore the recipe output. By the end of this episode, you should be able to
-run your first recipe, look at the recipe output, modify a recipe, explore and
-run some basic recipe debugging.
+run your first recipe, look at the recipe output, and make small modifications.
 
 ## Running an existing recipe
 
@@ -128,12 +127,12 @@ like the example output below. (FIXME: update output with new example recipe)
 > INFO    [29586] Starting task map/tas in process [29586]
 > INFO    [29586] Successfully completed task map/tas (priority 0) in 0:00:04.291697
 > INFO    [29586] Starting task map/script1 in process [29586]
-> INFO    [29586] Running command ['/home/user/miniconda3/envs/jungle/bin/python3.8', '/home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/> examples/diagnostic.py', '/home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/map/script1/settings.yml']
+> INFO    [29586] Running command ['/home/user/miniconda3/envs/esmvaltool_tutorial/bin/python3.8', '/home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/> examples/diagnostic.py', '/home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/map/script1/settings.yml']
 > INFO    [29586] Writing output to /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/work/map/script1
 > INFO    [29586] Writing plots to /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/plots/map/script1
 > INFO    [29586] Writing log to /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/map/script1/log.txt
 > INFO    [29586] To re-run this diagnostic script, run:
-> cd /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/map/script1; MPLBACKEND="Agg" /home/user/miniconda3/envs/jungle/bin/> python3.8 /home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /home/user/esmvaltool_tutorial/output/> recipe_python_20201007_141734/run/map/script1/settings.yml
+> cd /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/map/script1; MPLBACKEND="Agg" /home/user/miniconda3/envs/esmvaltool_tutorial/bin/> python3.8 /home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /home/user/esmvaltool_tutorial/output/> recipe_python_20201007_141734/run/map/script1/settings.yml
 > INFO    [29586] Maximum memory used (estimate): 0.3 GB
 > INFO    [29586] Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
 > INFO    [29586] Successfully completed task map/script1 (priority 1) in 0:00:03.574651
@@ -141,22 +140,22 @@ like the example output below. (FIXME: update output with new example recipe)
 > INFO    [29586] Generated PreprocessorFile: /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/preproc/timeseries/tas_amsterdam/> MultiModelMean_Amon_tas_1850-2000.nc
 > INFO    [29586] Successfully completed task timeseries/tas_amsterdam (priority 2) in 0:00:09.730443
 > INFO    [29586] Starting task timeseries/tas_global in process [29586]
-> WARNING [29586] /home/user/miniconda3/envs/jungle/lib/python3.8/site-packages/iris/analysis/cartography.py:394: UserWarning: Using > DEFAULT_SPHERICAL_EARTH_RADIUS.
+> WARNING [29586] /home/user/miniconda3/envs/esmvaltool_tutorial/lib/python3.8/site-packages/iris/analysis/cartography.py:394: UserWarning: Using > DEFAULT_SPHERICAL_EARTH_RADIUS.
 >   warnings.warn("Using DEFAULT_SPHERICAL_EARTH_RADIUS.")
 >
 > INFO    [29586] Calculated grid area shape: (1812, 64, 128)
-> WARNING [29586] /home/user/miniconda3/envs/jungle/lib/python3.8/site-packages/iris/analysis/cartography.py:394: UserWarning: Using > DEFAULT_SPHERICAL_EARTH_RADIUS.
+> WARNING [29586] /home/user/miniconda3/envs/esmvaltool_tutorial/lib/python3.8/site-packages/iris/analysis/cartography.py:394: UserWarning: Using > DEFAULT_SPHERICAL_EARTH_RADIUS.
 >   warnings.warn("Using DEFAULT_SPHERICAL_EARTH_RADIUS.")
 >
 > INFO    [29586] Calculated grid area shape: (1812, 64, 128)
 > INFO    [29586] Successfully completed task timeseries/tas_global (priority 3) in 0:00:06.073527
 > INFO    [29586] Starting task timeseries/script1 in process [29586]
-> INFO    [29586] Running command ['/home/user/miniconda3/envs/jungle/bin/python3.8', '/home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/> examples/diagnostic.py', '/home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/timeseries/script1/settings.yml']
+> INFO    [29586] Running command ['/home/user/miniconda3/envs/esmvaltool_tutorial/bin/python3.8', '/home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/> examples/diagnostic.py', '/home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/timeseries/script1/settings.yml']
 > INFO    [29586] Writing output to /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/work/timeseries/script1
 > INFO    [29586] Writing plots to /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/plots/timeseries/script1
 > INFO    [29586] Writing log to /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/timeseries/script1/log.txt
 > INFO    [29586] To re-run this diagnostic script, run:
-> cd /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/timeseries/script1; MPLBACKEND="Agg" /home/user/miniconda3/envs/jungle/> bin/python3.8 /home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /home/user/esmvaltool_tutorial/output/> recipe_python_20201007_141734/run/timeseries/script1/settings.yml
+> cd /home/user/esmvaltool_tutorial/output/recipe_python_20201007_141734/run/timeseries/script1; MPLBACKEND="Agg" /home/user/miniconda3/envs/esmvaltool_tutorial/> bin/python3.8 /home/user/gh/esmvalgroup/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /home/user/esmvaltool_tutorial/output/> recipe_python_20201007_141734/run/timeseries/script1/settings.yml
 > INFO    [29586] Maximum memory used (estimate): 0.3 GB
 > INFO    [29586] Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
 > INFO    [29586] Successfully completed task timeseries/script1 (priority 4) in 0:00:03.712112

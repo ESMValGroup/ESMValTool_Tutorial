@@ -12,7 +12,7 @@ Here, there are some definitions used throughout this tutorial:
 
 - **CMOR**: CMOR stands for [*Climate Model Output Rewriter* library](https://pcmdi.github.io/cmor-site/index.html). It comprises a set of C-based functions, with bindings to both Python and FORTRAN 90, that can be used to produce CF-compliant NetCDF files that fulfill the requirements of many of the climate community's standard model experiments.
 
-- **dataset**: Refers to the model that was used to simulate the data, e.g. HadGEM2-ES)
+- **dataset**: In a recipe, dataset refers to the name of the model or observation data, e.g. HadGEM2-ES
 
 - **diagnostic**: A diagnostic script is the last step in a recipe to convert the pre-processed input data to the desired output like plots or NetCDF files.
 

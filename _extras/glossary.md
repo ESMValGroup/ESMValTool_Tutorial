@@ -4,9 +4,7 @@ title: Glossary
 
 ## ESMValTool Glossary
 
-Here, there are some definitions used throughout this tutorial:
-
-- **Amon**: Monthly atmospheric data
+- **Amon**: Monthly atmospheric data.
 
 - **CMIP**: The Coupled Model Intercomparison Project (CMIP) aims at better understanding past, present and future climate changes arising from natural, unforced variability or in response to changes in radiative forcing in a multi-model context. For more information, check the [WCR-Climate webpage](https://www.wcrp-climate.org/).
 
@@ -18,7 +16,7 @@ Here, there are some definitions used throughout this tutorial:
 
 - **ensemble**: An ensemble is a collection of experiments based on standardised inputs. This ensures that ensemble calculations use the same initial states, initialisation methods, and physics details. Ensemble members are named in the rip-nomenclature, *r* for realization, *i* for initialisation and *p* for physics, followed by an integer, e.g. r1i1p1.
 
-- **experiment**: An experiment is defined as an activity aimed at addressing a specific scientific problem. In CMIP, experiments are numerical experiments with climate models
+- **experiment**: An experiment is defined as an activity aimed at addressing a specific scientific problem. In CMIP, experiments are numerical experiments with climate models.
 
 - **grid**: In the dataset section of a recipe, a grid is the array of coordinates on which a variable has been sampled.
 
@@ -26,7 +24,7 @@ Here, there are some definitions used throughout this tutorial:
 
 - **mip**: Typically used to refer to a table of variables in ESMValTool. These are standardized per project, e.g. the [MIP tables for CMIP6](http://clipc-services.ceda.ac.uk/dreq/index/miptable.html).
 
-- **Omon**: Monthly ocean data
+- **Omon**: Monthly ocean data.
 
 - **pr**: CMIP short-hand for 'precipitation'.
 
@@ -42,7 +40,7 @@ Here, there are some definitions used throughout this tutorial:
 
 - **tas**: CMIP short-hand for 'near-surface air temperature'.
 
-- **thetao**: Sea water potential temperature variable (assume reference height is sea level)
+- **thetao**: Sea water potential temperature variable (assume reference height is sea level).
 
 - **thetaoga**: Global average sea water potential temperature
 
@@ -52,6 +50,12 @@ Here, there are some definitions used throughout this tutorial:
 
 - **yaml**: YAML is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or exchanged.
 
-For more details on ESMValTool, please go to:
-Additional info can be found in [ESMValTool home page](https://esmvaltool.org)
-and [https://esmvaltool.readthedocs.io/](ESMValTool Read The Docs page).
+
+> ## Additional info
+>
+> Additional info can be found at the [ESMValTool homepage](https://esmvaltool.org)
+> and in the [ESMValTool documentation](https://esmvaltool.readthedocs.io/).
+{: .callout}
+
+
+{% include links.md %}

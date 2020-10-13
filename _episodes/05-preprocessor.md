@@ -316,27 +316,25 @@ Note: for the purpose of simplicity in this episode, we have not added logging o
 
 ## Bonus exercises
 
+Here's a copy of the [recipe at this point](../files/recipe_warming_stripes.yml)
+
 > ## Change the preprocessor from global mean to a specific location
->
+> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_local.yml)
 >
 {:.challenge}
 
 > ## Split the diagnostic in 2: the second one should use a different period
->
+> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_periods.yml)
 >
 {:.challenge}
 
 > ## Let the second diagnostic use a different pre-processor (different location)
+> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_multiple_locations.yml)
 >
 > Pro tip: use yaml anchors to avoid repetition
 {:.challenge}
 
 > ## Add a second dataset, but only for one of the diagnostics
+> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_additional_datasets.yml)
 >
->
-{:.challenge}
-
-> ## Also plot the absolute temperature
->
-> Pro-tip: use short name for variable group name as a short-hand.
 {:.challenge}

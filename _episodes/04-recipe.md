@@ -43,7 +43,7 @@ like the example output below. (FIXME: update output with new example recipe)
 
 > ## Example output
 >
-> ```sh
+> ```
 > INFO    [29586]
 > ______________________________________________________________________
 >           _____ ____  __  ____     __    _ _____           _
@@ -172,7 +172,7 @@ like the example output below. (FIXME: update output with new example recipe)
 >
 > You might wonder how ESMValTool was able find the recipe file, even though
 > it's not in your working directory. All the recipe paths printed from
-> `esmvaltool recipes list` are relative to ESMValTools installation location.
+> `esmvaltool recipes list` are relative to ESMValTool's installation location.
 > This is where ESMValTool will look if it cannot find the file by following the
 > path from your working directory.
 {: .callout}
@@ -184,7 +184,7 @@ Let's dissect what's happening here.
 
 > ## Output files and directories
 >
-> After the logo and general information, the output starts with some important locations.
+> After the banner and general information, the output starts with some important locations.
 >
 > 1. Did ESMValTool use the right config file?
 > 1. What is the path to the example recipe?
@@ -245,7 +245,7 @@ distinguished in the log messages:
 > > ```
 > >
 > > So there are three tasks related to timeseries: global temperature,
-> > Amsterdam temperature, and a script (tas=near-surface air temperature). And
+> > Amsterdam temperature, and a script (*tas*: near-surface air temperature). And
 > > then there are two tasks related to a map: something with temperature, and
 > > again a script.
 > {: .solution}
@@ -385,10 +385,10 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > Try to answer the following questions:
 >
 > 1. Who wrote this recipe?
-> 1. Who should I approach if I there's a problem with this recipe?
+> 1. Who should be approached if there is a problem with this recipe?
 > 1. How many datasets are analyzed?
-> 1. What does the preprocessor called 'annual_mean_global' do?
-> 1. Which script is applied for the diagnostic called 'map'?
+> 1. What does the preprocessor called `annual_mean_global` do?
+> 1. Which script is applied for the diagnostic called `map`?
 > 1. Can you link specific lines in the recipe to the tasks that we saw before?
 >
 > > ## Answers
@@ -400,7 +400,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >      - CMIP5 data from the model CANESM2
 > >   1. The preprocessor `annual_mean_global` computes an area mean as well as
 > >      annual means
-> >   1. The diagnostic called `map` executes a script referred to as 'script1'.
+> >   1. The diagnostic called `map` executes a script referred to as `script1`.
 > >      This is a python script named `examples/diagnostic.py`
 > >   1. There are two diagnostics: `map` and `timeseries`. Under the diagnostic
 > >      `map` we find two tasks:
@@ -416,7 +416,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >        called `annual_mean_global` to the variable `tas`.
 > >      - a diagnostic task called `script1`, applying the script
 > >        `examples/diagnostic.py` to the preprocessed data
-> >        (timeseries/tas_global and timeseries/tas_amsterdam).
+> >        (`timeseries/tas_global` and `timeseries/tas_amsterdam`).
 > >
 > {: .solution}
 {: .challenge}
@@ -427,8 +427,8 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > diagnostic `timeseries`, we have two variable groups: `tas_amsterdam` and
 > `tas_global`. Both of them operate on the variable `tas` (as indicated by the
 > `short_name`), but they apply different preprocessors. For the diagnostic
-> `map` the variable group itself is named `tas`, and you'll notice that we're
-> not explicitly providing the `short_name`. This is a shorthand build into
+> `map` the variable group itself is named `tas`, and you'll notice that we do
+> not explicitly provide the `short_name`. This is a shorthand build into
 > ESMValTool.
 {: .callout}
 
@@ -448,7 +448,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >   `metadata.yml`.
 > > - **timeseries/tas_amsterdam**: creates `/preproc/timeseries/tas_amsterdam`,
 > >   which contains preprocessed data for each of the input datasets, plus a
-> >   combined 'MultiModelMean', and `metadata.yml`.
+> >   combined `MultiModelMean`, and `metadata.yml`.
 > > - **map/script1**: creates `/run/map/script1` with general information and a
 > >   log of the diagnostic script run. It also creates `/plots/map/script1` and
 > >   `/work/map/script1`, which contain output figures and output datasets,
@@ -479,18 +479,18 @@ Let's make a small modification to the example recipe.
 
 > ## Change your location
 >
-> Modify the recipe to analyse the temperature for your own location.
+> Modify and run the recipe to analyse the temperature for your own location.
 >
 > > ## Solution
 > >
 > > In principle, you only have to modify the latitude and longitude coordinates
-> > in the preprocessor called 'annual_mean_amsterdam'. However, it is good
-> > practice to also replace all instances of 'amsterdam' with the correct name
+> > in the preprocessor called `annual_mean_amsterdam`. However, it is good
+> > practice to also replace all instances of `amsterdam` with the correct name
 > > of your location. Otherwise the log messages and output will be confusing.
 > > You are free to modify the names of preprocessors or diagnostics.
 > >
 > > In the `diff` file below you will see the changes we have made to the file.
-> > The top 2 lines are the filenames and the lines like @@ -29,10 +29,10 @@
+> > The top 2 lines are the filenames and the lines like `@@ -29,10 +29,10 @@`
 > > represent the line numbers in the original and modified file, respectively.
 > > For more info on this format, see
 > > [here](https://en.wikipedia.org/wiki/Diff#Unified_format).

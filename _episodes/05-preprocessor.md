@@ -32,7 +32,7 @@ Creative Commons 4.0 Attribution International licence. Source:
 <https://showyourstripes.info>*
 
 In this episode, we will reproduce and extend this functionality with
-ESMValTool. We have prepared a small Python script that takes a netcdf file with
+ESMValTool. We have prepared a small Python script that takes a NetCDF file with
 timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
@@ -90,7 +90,7 @@ Open a new file called `recipe_warming_stripes.yml`:
 nano recipe_warming_stripes.yml
 ```
 
-Let's add the standard header comments (these don't do anything), and a first description.
+Let's add the standard header comments (these do not do anything), and a first description.
 
 ```yaml
 # ESMValTool
@@ -100,7 +100,7 @@ documentation:
   description: Reproducing Ed Hawkins' warming stripes visualization
 ```
 
-Notice that yaml always requires 2 spaces indentation between the different
+Notice that `yaml` always requires 2 spaces indentation between the different
 levels. Pressing `ctrl+o` will save the file. Verify the filename at the bottom
 and press enter. Then use `ctrl+x` to exit the editor.
 
@@ -119,7 +119,7 @@ Error validating data /home/user/esmvaltool_tutorial/recipe_barcodes.yml with sc
 ```
 {: .error}
 
-Here, ESMValTool is telling us that it's missing a required field, namely the
+Here, ESMValTool is telling us that it is missing a required field, namely the
 authors. It is good to know that ESMValTool always tries to validate the recipe
 in an early stage. This initial check doesn't catch everything though, so we
 should always stay alert.

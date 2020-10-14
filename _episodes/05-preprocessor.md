@@ -36,17 +36,13 @@ ESMValTool. We have prepared a small Python script that takes a NetCDF file with
 timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
-TODO/FIXME: add this script
+Here's a link to the [diagnostic script](../files/warming_stripes.py)
 
-Download the file
+Download the file and store it in your working directory. If you want, you may
+also have a look at the contents, but it is not necessary to follow along.
 
-```bash
-wget ......
-```
-
-and verify that it is now in your working directory. If you want, you may also have a look at the contents, but it is not necessary to follow along.
-
-We will write an ESMValTool recipe that takes some data, performs the necessary preprocessing, and then runs our little Python script.
+We will write an ESMValTool recipe that takes some data, performs the necessary
+preprocessing, and then runs our little Python script.
 
 > ## Drawing up a plan
 >
@@ -90,7 +86,12 @@ Open a new file called `recipe_warming_stripes.yml`:
 nano recipe_warming_stripes.yml
 ```
 
+<<<<<<< Updated upstream
 Let's add the standard header comments (these do not do anything), and a first description.
+=======
+Let's add the standard header comments (these don't do anything), and a first
+description.
+>>>>>>> Stashed changes
 
 ```yaml
 # ESMValTool
@@ -149,8 +150,8 @@ diagnostics:
     scripts: null
 ```
 
-This is the minimal recipe layout that is required by ESMValTool.
-If we now run the recipe again, you will probably see the following error
+This is the minimal recipe layout that is required by ESMValTool. If we now run
+the recipe again, you will probably see the following error
 
 ```
 ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/miniconda3/envs/esmvaltool_tutorial/python3.8/site-packages/esmvaltool/config-references.yml
@@ -174,11 +175,15 @@ INFO    Run was successful
 
 ## Adding a dataset entry
 
-Let's add a datasets section. We will reuse the same datasets that we used in the previous episode. The data files are stored in `~/esmvaltool_tutorial/data`.
+Let's add a datasets section. We will reuse the same datasets that we used in
+the previous episode. The data files are stored in `~/esmvaltool_tutorial/data`.
 
 > ## Filling in the dataset keys
 >
-> Explore the data directory, and look at the explanation of the dataset entry in the [ESMValTool documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-documentation). For both the datasets, write down the following properties:
+> Explore the data directory, and look at the explanation of the dataset entry
+> in the [ESMValTool
+> documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-documentation).
+> For both the datasets, write down the following properties:
 >
 > - project
 > - variable (short name)
@@ -209,22 +214,29 @@ Let's add a datasets section. We will reuse the same datasets that we used in th
 > {: .solution}
 {: .challenge}
 
-We will start with the BCC-ESM1 dataset. Add a datasets section to the recipe, listing a single dataset, like so:
+We will start with the BCC-ESM1 dataset. Add a datasets section to the recipe,
+listing a single dataset, like so:
 
 ```yaml
 datasets:
   - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 ```
 
-Verify that the recipe still runs. Note that we have not included the short name of the variable in this dataset section. This allows us to reuse this dataset entry with different variable names later on. This is not really necessary for our simple use case, but it is common practice in ESMValTool.
+Verify that the recipe still runs. Note that we have not included the short name
+of the variable in this dataset section. This allows us to reuse this dataset
+entry with different variable names later on. This is not really necessary for
+our simple use case, but it is common practice in ESMValTool.
 
 ## Adding the preprocessor section
 
-Above, we already described the preprocessing task that needs to convert the standard, gridded temperature data to a timeseries of temperature anomalies.
+Above, we already described the preprocessing task that needs to convert the
+standard, gridded temperature data to a timeseries of temperature anomalies.
 
 > ## Defining the preprocessor
 >
-> Have a look at the available preprocessors in the [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html). Write down
+> Have a look at the available preprocessors in the
+> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html).
+> Write down
 >
 > - Which preprocessor functions do you think we should use?
 > - What are the parameters that we can pass to these functions?
@@ -271,7 +283,10 @@ and verify that the recipe still runs.
 
 ## Completing the diagnostics section
 
-Now we are ready to finish our diagnostics section. Remember that we want to make two tasks: a preprocessor task, and a diagnostic task. To illustrate that we can also pass settings to the diagnostic script, we add the option to specify a custom colormap.
+Now we are ready to finish our diagnostics section. Remember that we want to
+make two tasks: a preprocessor task, and a diagnostic task. To illustrate that
+we can also pass settings to the diagnostic script, we add the option to specify
+a custom colormap.
 
 > ## Fill in the blanks
 >
@@ -312,29 +327,202 @@ Now we are ready to finish our diagnostics section. Remember that we want to mak
 
 Now you should be able to run the recipe to get your own warming stripes.
 
-Note: for the purpose of simplicity in this episode, we have not added logging or provenance tracking in the diagnostic script. Once you start to develop your own diagnostic scripts and want to add them to the ESMValTool repositories, this will be required. However, writing your own diagnostic script is beyond the scope of the basic tutorial.
+Note: for the purpose of simplicity in this episode, we have not added logging
+or provenance tracking in the diagnostic script. Once you start to develop your
+own diagnostic scripts and want to add them to the ESMValTool repositories, this
+will be required. However, writing your own diagnostic script is beyond the
+scope of the basic tutorial.
 
 ## Bonus exercises
 
-Here's a copy of the [recipe at this point](../files/recipe_warming_stripes.yml)
+Below are a couple of exercise to practice modifying the recipe. For your
+reference, here's a copy of the [recipe at this
+point](../files/recipe_warming_stripes.yml). This will be the point of departure
+for each of the modifications we'll make below.
 
-> ## Change the preprocessor from global mean to a specific location
-> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_local.yml)
+> ## Specific location
+>
+> On showyourstripes.org, you can download stripes for specific locations. We
+> will reproduce this possibility. Look at the available preprocessors in the
+> documentation, and replace the global mean with a suitable alternative.
+>
+> > # Solution
+> >
+> > You could have used `extract_point` or `extract_region`. We used
+> > `extract_point`. Here's a copy of the [recipe at this
+> > point](../files/recipe_warming_stripes_local.yml) and this is the difference
+> > with the previous recipe:
+> >
+> > ```diff
+> > --- files/recipe_warming_stripes.yml
+> > +++ files/recipe_warming_stripes_local.yml
+> > @@ -10,9 +10,10 @@
+> >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> >
+> >  preprocessors:
+> > -  global_anomalies:
+> > -    area_statistics:
+> > -      operator: mean
+> > +  anomalies_amsterdam:
+> > +    extract_point:
+> > +      latitude: 52.379189
+> > +      longitude: 4.899431
+> >      anomalies:
+> >        period: month
+> >        reference:
+> > @@ -27,9 +28,9 @@
+> >  diagnostics:
+> >    diagnostic_warming_stripes:
+> >      variables:
+> > -      global_temperature_anomalies:
+> > +      temperature_anomalies_amsterdam:
+> >          short_name: tas
+> > -        preprocessor: global_anomalies
+> > +        preprocessor: anomalies_amsterdam
+> >      scripts:
+> >        warming_stripes_script:
+> >          script: ~/eucp-project/warming_stripes.py
+> > ```
+> >
+> {.solution}
+{:.challenge}
+
+> ## Different periods
+>
+> Split the diagnostic in 2: the second one should use a different period.
+> You're free to choose the periods yourself. For example, 1 could be 'recent',
+> the other '20th_century'. For this, you'll have to add a new variable group.
+>
+> > # Solution
+> >
+> > Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_periods.yml)
+> > and this is the difference with the previous recipe:
+> >
+> > ```diff
+> > --- files/recipe_warming_stripes_local.yml
+> > +++ files/recipe_warming_stripes_periods.yml
+> > @@ -7,7 +7,7 @@
+> >      - righi_mattia
+> >
+> >  datasets:
+> > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn}
+> >
+> >  preprocessors:
+> >    anomalies_amsterdam:
+> > @@ -28,9 +28,16 @@
+> >  diagnostics:
+> >    diagnostic_warming_stripes:
+> >      variables:
+> > -      temperature_anomalies_amsterdam:
+> > +      temperature_anomalies_recent:
+> >          short_name: tas
+> >          preprocessor: anomalies_amsterdam
+> > +        start_year: 1950
+> > +        end_year: 2014
+> > +      temperature_anomalies_20th_century:
+> > +        short_name: tas
+> > +        preprocessor: anomalies_amsterdam
+> > +        start_year: 1900
+> > +        end_year: 1999
+> >      scripts:
+> >        warming_stripes_script:
+> >          script: ~/eucp-project/warming_stripes.py
+> > ```
+> >
+> {.solution}
+{:.challenge}
+
+> ## Different preprocessors
+>
+> Now that you have different variable groups, we can also use different
+> preprocessors. Add a second preprocessor to add another location of your
+> choosing.
+>
+> Pro-tip: if you want to avoid repetition, you can use YAML anchors.
+>
+> > # Solution
+> >
+> > Here's a copy of the [recipe at this
+> > point](../files/recipe_warming_stripes_multiple_locations.yml) and this is
+> > the difference with the previous recipe:
+> >
+> > ```diff
+> > --- files/recipe_warming_stripes_periods.yml
+> > +++ files/recipe_warming_stripes_multiple_locations.yml
+> > @@ -14,7 +14,7 @@
+> >      extract_point:
+> >        latitude: 52.379189
+> >        longitude: 4.899431
+> > -    anomalies:
+> > +    anomalies: &anomalies
+> >        period: month
+> >        reference:
+> >          start_year: 1981
+> > @@ -24,20 +24,27 @@
+> >          end_month: 12
+> >          end_day: 31
+> >        standardize: false
+> > +  anomalies_london:
+> > +    extract_point:
+> > +      latitude: 51.5074
+> > +      longitude: 0.1278
+> > +    <<: *anomalies
+> >
+> >  diagnostics:
+> >    diagnostic_warming_stripes:
+> >      variables:
+> > -      temperature_anomalies_recent:
+> > +      temperature_anomalies_recent_amsterdam:
+> >          short_name: tas
+> >          preprocessor: anomalies_amsterdam
+> >          start_year: 1950
+> >          end_year: 2014
+> > -      temperature_anomalies_20th_century:
+> > +      temperature_anomalies_20th_century_london:
+> >          short_name: tas
+> > -        preprocessor: anomalies_amsterdam
+> > +        preprocessor: anomalies_london
+> >          start_year: 1900
+> >          end_year: 1999
+> > +        additional_datasets:
+> > +          - {dataset: CanESM2, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
+> >      scripts:
+> >        warming_stripes_script:
+> >          script: ~/eucp-project/warming_stripes.py
+> > ```
+> >
+> {.solution}
 >
 {:.challenge}
 
-> ## Split the diagnostic in 2: the second one should use a different period
-> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_periods.yml)
+> ## Additional datasets
 >
-{:.challenge}
-
-> ## Let the second diagnostic use a different pre-processor (different location)
-> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_multiple_locations.yml)
+> So far we have defined the datasets in the datasets section of the recipe.
+> However, it's also possible to add specific datasets only for specific
+> variable groups. Look at the documentation to learn about the
+> 'additional_datasets' keyword, and add a second dataset only for one of the
+> variable groups.
 >
-> Pro tip: use yaml anchors to avoid repetition
-{:.challenge}
-
-> ## Add a second dataset, but only for one of the diagnostics
-> Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_additional_datasets.yml)
->
+> > # Solution
+> >
+> > Here's a copy of the [recipe at this
+> > point](../files/recipe_warming_stripes_additional_datasets.yml) and this is
+> > the difference with the previous recipe:
+> >
+> > ```diff
+> > --- files/recipe_warming_stripes_multiple_locations.yml
+> > +++ files/recipe_warming_stripes_additional_datasets.yml
+> > @@ -43,8 +43,6 @@
+> >          preprocessor: anomalies_london
+> >          start_year: 1900
+> >          end_year: 1999
+> > -        additional_datasets:
+> > -          - {dataset: CanESM2, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
+> >      scripts:
+> >        warming_stripes_script:
+> >          script: ~/eucp-project/warming_stripes.py
+> > ```
+> >
+> {.solution}
 {:.challenge}

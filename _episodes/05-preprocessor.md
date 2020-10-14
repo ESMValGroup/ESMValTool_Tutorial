@@ -342,7 +342,7 @@ for each of the modifications we'll make below.
 > will reproduce this possibility. Look at the available preprocessors in the
 > documentation, and replace the global mean with a suitable alternative.
 >
-> > # Solution
+> > ## Solution
 > >
 > > You could have used `extract_point` or `extract_region`. We used
 > > `extract_point`. Here's a copy of the [recipe at this
@@ -380,7 +380,7 @@ for each of the modifications we'll make below.
 > >          script: ~/eucp-project/warming_stripes.py
 > > ```
 > >
-> {.solution}
+> {: .solution}
 {:.challenge}
 
 > ## Different periods
@@ -389,7 +389,7 @@ for each of the modifications we'll make below.
 > You're free to choose the periods yourself. For example, 1 could be 'recent',
 > the other '20th_century'. For this, you'll have to add a new variable group.
 >
-> > # Solution
+> > ## Solution
 > >
 > > Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_periods.yml)
 > > and this is the difference with the previous recipe:
@@ -426,7 +426,7 @@ for each of the modifications we'll make below.
 > >          script: ~/eucp-project/warming_stripes.py
 > > ```
 > >
-> {.solution}
+> {: .solution}
 {:.challenge}
 
 > ## Different preprocessors
@@ -437,7 +437,7 @@ for each of the modifications we'll make below.
 >
 > Pro-tip: if you want to avoid repetition, you can use YAML anchors.
 >
-> > # Solution
+> > ## Solution
 > >
 > > Here's a copy of the [recipe at this
 > > point](../files/recipe_warming_stripes_multiple_locations.yml) and this is
@@ -488,7 +488,7 @@ for each of the modifications we'll make below.
 > >          script: ~/eucp-project/warming_stripes.py
 > > ```
 > >
-> {.solution}
+> {: .solution}
 >
 {:.challenge}
 
@@ -500,7 +500,7 @@ for each of the modifications we'll make below.
 > 'additional_datasets' keyword, and add a second dataset only for one of the
 > variable groups.
 >
-> > # Solution
+> > ## Solution
 > >
 > > Here's a copy of the [recipe at this
 > > point](../files/recipe_warming_stripes_additional_datasets.yml) and this is
@@ -520,5 +520,5 @@ for each of the modifications we'll make below.
 > >          script: ~/eucp-project/warming_stripes.py
 > > ```
 > >
-> {.solution}
+> {: .solution}
 {:.challenge}

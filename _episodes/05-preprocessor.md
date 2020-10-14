@@ -86,12 +86,8 @@ Open a new file called `recipe_warming_stripes.yml`:
 nano recipe_warming_stripes.yml
 ```
 
-<<<<<<< Updated upstream
-Let's add the standard header comments (these do not do anything), and a first description.
-=======
 Let's add the standard header comments (these don't do anything), and a first
 description.
->>>>>>> Stashed changes
 
 ```yaml
 # ESMValTool

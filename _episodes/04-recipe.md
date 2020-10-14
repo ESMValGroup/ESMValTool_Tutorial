@@ -29,10 +29,9 @@ recipes that are shipped with ESMValTool, type
 esmvaltool recipes list
 ```
 
-We will start by running [examples/recipe_python.yml](TODO provide RTD link)
-FIXME:
+We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.org/en/latest/recipes/recipe_python.html)
 
-```bash
+```
 esmvaltool run examples/recipe_python.yml
 ```
 

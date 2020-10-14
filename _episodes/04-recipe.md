@@ -39,7 +39,7 @@ esmvaltool run examples/recipe_python.yml
 If everything is okay, you should see that ESMValTool is printing a lot of
 output to the command line. The final message should be "Run was successful".
 The exact output varies depending on your machine, but it should look something
-like the example output below. (FIXME: update output with new example recipe)
+like the example output below.
 
 > ## Example output
 >
@@ -268,7 +268,7 @@ verify). Use the `nano` editor to open this file:
 nano recipe_python.yml
 ```
 
-For reference, you can also view the recipe by unfolding the box below. !FIXME update the recipe.
+For reference, you can also view the recipe by unfolding the box below.
 
 > ## recipe_python.yml
 >
@@ -278,7 +278,7 @@ For reference, you can also view the recipe by unfolding the box below. !FIXME u
 > ---
 > documentation:
 >   description: |
->     Example recipe that plots the mean precipitation and temperature.
+>     Example recipe that plots a map and timeseries of temperature.
 >
 >   authors:
 >     - andela_bouwe
@@ -475,7 +475,15 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 
 ## Modifying the example recipe
 
-Let's make a small modification to the example recipe.
+Let's make a small modification to the example recipe. Notice that now that
+you've copied and edited the recipe, you can use
+
+```
+esmvaltool run recipe_example.yml
+```
+
+to refer to your local file rather than the default version shipped with
+ESMValTool.
 
 > ## Change your location
 >
@@ -536,96 +544,3 @@ Let's make a small modification to the example recipe.
 > >
 > {: .solution}
 {: .challenge}
-
-
-<!--
-
-    This section can also be optional, if no preprocessing is needed.
-
-    It is possible to also include additional datasets beyond those included in
-    the datasets section mentioned above, for instance variable specific
-    observational data.
-
-    Note that the authors, publications and references need to be included in
-    the `config-references.yml` for the recipe to run successfully.
-
-For additional reads, please have a look at the recipe format description in the
-[ESMValTool manual](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics).
-
-If the configuration file is not in the default location
-`~/.esmvaltool/config-user.yml`, you can pass its path explicitly:
-
-~~~bash
-esmvaltool run --config_file /path/to/config-user.yml /path/to/recipe_example.yml
-~~~
-
-> ## config-references.yml and references
->
-> The values for the keys ``author``, ``maintainer``, ``projects`` and
-> ``references`` in the recipe should be known by ESMValTool:
->
-> - A list of ESMValTool
-> author, maintainer, and projects are mentioned in the file ``config-references.yml``
-> that can be found in
-> [ESMValTool/esmvaltool](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml).
->
-> - ESMValTool references in `BibTeX` format can be found in
-> [ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references) directory.
-{: .callout}
-
-    - script: a script that will produce the plots. The path can be either
-      relative the ESMValTool installation with subdirectory
-      [`esmvaltool/diag_scripts/`](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/diag_scripts)
-      or an absolute path. In this case, it is a diagnostic script that is
-      installed with ESMValTool.
-
-
-## Common issues & tips
-
-> ## esmvaltool not found
->
-> Can you run the command `esmvaltool -h`. If no, then it’s possible that the
-> conda environment isn’t activated. Please return to the in
-> [installation section]({{ page.root }}{% link _episodes/02-installation.md %}).
-{: .solution}
-
-> ## The error message is `esmvalcore._recipe_checks.RecipeError: Missing data`
->
-> ESMValTool can’t locate the data.
->
-> Which computing machine are you using? Does your `user-config.yml` file reflect
-> your machine's settings? Is the dataset’s name in the correct order?
-{: .solution}
-
-> ## Diagnostic path problems
->
-> The directory path to your diagnostics code is set relative to the
-> `esmvaltool/diag_scripts` subdirectory. Is the code placed in this subdirectory?
-> Is it spelled correctly?
-{: .solution}
-
-> ## FX files not found
->
-> There is no FX file for your corresponding dataset. Are your datasets’ names
-> spelled correctly? Is there a FX file for this dataset?
-{: .solution}
-
-> ## The preprocessor works but the diagnostic fails
->
-> If your preprocessor works fine but your diagnostic script fails,
-> congratulations! A failed diagnostic means that you won’t need to re-run the
-> preprocessor. In your `run/main_log.txt` run output, you should see a line
-> that reads: “To re-run this diagnostic script, run:”, followed by a line with
-> a command that will allow you to re-run your diagnostic script only. Append
-> this line with the “-i” option after the python script you call to re-run your
-> diagnostic.
-{: .solution}
-
-> ## `ValueError: Tag 'NAME' does not exist in section 'authors' of path/esmvaltool/config-references.yml`
->
-> Your recipe’s name/project/reference isn’t recognised by ESMValTool.
->
-> Most likely, you added your own name to the recipe in the description section,
-> but didn’t add it to the esmvaltool/config-references.yml file, where the
-> names are linked to an email address, institute, and ORCID Identity.
-{: .solution} -->

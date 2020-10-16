@@ -32,5 +32,5 @@ diagnostics:
         preprocessor: global_anomalies
     scripts:
       warming_stripes_script:
-        script: ~/eucp-project/warming_stripes.py
+        script: ~/esmvaltool_tutorial/warming_stripes.py
         colormap: 'bwr'

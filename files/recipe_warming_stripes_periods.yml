@@ -1,5 +1,5 @@
 # ESMValTool
-# recipe_warming_stripes.yml
+# recipe_warming_stripes_periods.yml
 ---
 documentation:
   description: Reproducing Ed Hawkins' warming stripes visualization
@@ -14,6 +14,7 @@ preprocessors:
     extract_point:
       latitude: 52.379189
       longitude: 4.899431
+      scheme: linear
     anomalies:
       period: month
       reference:
@@ -40,5 +41,5 @@ diagnostics:
         end_year: 1999
     scripts:
       warming_stripes_script:
-        script: ~/eucp-project/warming_stripes.py
+        script: ~/esmvaltool_tutorial/warming_stripes.py
         colormap: 'bwr'

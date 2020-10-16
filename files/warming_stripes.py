@@ -47,7 +47,7 @@ def main(cfg):
         fig = plot_warming_stripes(cube, name, cmap)
 
         # Save output
-        output_file = Path(input_file).stem
+        output_file = Path(input_file).stem.replace('tas', name)
         output_path = get_plot_filename(output_file, cfg)
         fig.savefig(output_path)
 

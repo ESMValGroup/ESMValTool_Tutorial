@@ -315,7 +315,7 @@ a custom colormap.
 > >         preprocessor: global_anomalies
 > >     scripts:
 > >       warming_stripes_script:
-> >         script: /home/<user>/esmvaltool_tutorial/warming_stripes.py
+> >         script: ~/esmvaltool_tutorial/warming_stripes.py
 > >         colormap: 'bwr'
 > > ```
 > {: .solution}
@@ -350,9 +350,9 @@ for each of the modifications we'll make below.
 > > with the previous recipe:
 > >
 > > ```diff
-> > --- files/recipe_warming_stripes.yml
-> > +++ files/recipe_warming_stripes_local.yml
-> > @@ -10,9 +10,10 @@
+> > --- recipe_warming_stripes.yml
+> > +++ recipe_warming_stripes_local.yml
+> > @@ -10,9 +10,11 @@
 > >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 > >
 > >  preprocessors:
@@ -363,10 +363,11 @@ for each of the modifications we'll make below.
 > > +    extract_point:
 > > +      latitude: 52.379189
 > > +      longitude: 4.899431
+> > +      scheme: linear
 > >      anomalies:
 > >        period: month
 > >        reference:
-> > @@ -27,9 +28,9 @@
+> > @@ -27,9 +29,9 @@
 > >  diagnostics:
 > >    diagnostic_warming_stripes:
 > >      variables:
@@ -377,7 +378,7 @@ for each of the modifications we'll make below.
 > > +        preprocessor: anomalies_amsterdam
 > >      scripts:
 > >        warming_stripes_script:
-> >          script: ~/eucp-project/warming_stripes.py
+> >          script: ~/esmvaltool_tutorial/warming_stripes.py
 > > ```
 > >
 > {: .solution}
@@ -395,8 +396,8 @@ for each of the modifications we'll make below.
 > > and this is the difference with the previous recipe:
 > >
 > > ```diff
-> > --- files/recipe_warming_stripes_local.yml
-> > +++ files/recipe_warming_stripes_periods.yml
+> > --- recipe_warming_stripes_local.yml
+> > +++ recipe_warming_stripes_periods.yml
 > > @@ -7,7 +7,7 @@
 > >      - righi_mattia
 > >
@@ -406,7 +407,7 @@ for each of the modifications we'll make below.
 > >
 > >  preprocessors:
 > >    anomalies_amsterdam:
-> > @@ -28,9 +28,16 @@
+> > @@ -29,9 +29,16 @@
 > >  diagnostics:
 > >    diagnostic_warming_stripes:
 > >      variables:
@@ -423,7 +424,7 @@ for each of the modifications we'll make below.
 > > +        end_year: 1999
 > >      scripts:
 > >        warming_stripes_script:
-> >          script: ~/eucp-project/warming_stripes.py
+> >          script: ~/esmvaltool_tutorial/warming_stripes.py
 > > ```
 > >
 > {: .solution}
@@ -444,18 +445,18 @@ for each of the modifications we'll make below.
 > > the difference with the previous recipe:
 > >
 > > ```diff
-> > --- files/recipe_warming_stripes_periods.yml
-> > +++ files/recipe_warming_stripes_multiple_locations.yml
-> > @@ -14,7 +14,7 @@
-> >      extract_point:
+> > --- recipe_warming_stripes_periods.yml
+> > +++ recipe_warming_stripes_multiple_locations.yml
+> > @@ -15,7 +15,7 @@
 > >        latitude: 52.379189
 > >        longitude: 4.899431
+> >        scheme: linear
 > > -    anomalies:
 > > +    anomalies: &anomalies
 > >        period: month
 > >        reference:
 > >          start_year: 1981
-> > @@ -24,20 +24,27 @@
+> > @@ -25,18 +25,24 @@
 > >          end_month: 12
 > >          end_day: 31
 > >        standardize: false
@@ -463,7 +464,8 @@ for each of the modifications we'll make below.
 > > +    extract_point:
 > > +      latitude: 51.5074
 > > +      longitude: 0.1278
-> > +    <<: *anomalies
+> > +      scheme: linear
+> > +    anomalies: *anomalies
 > >
 > >  diagnostics:
 > >    diagnostic_warming_stripes:
@@ -481,11 +483,7 @@ for each of the modifications we'll make below.
 > > +        preprocessor: anomalies_london
 > >          start_year: 1900
 > >          end_year: 1999
-> > +        additional_datasets:
-> > +          - {dataset: CanESM2, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
 > >      scripts:
-> >        warming_stripes_script:
-> >          script: ~/eucp-project/warming_stripes.py
 > > ```
 > >
 > {: .solution}
@@ -507,17 +505,17 @@ for each of the modifications we'll make below.
 > > the difference with the previous recipe:
 > >
 > > ```diff
-> > --- files/recipe_warming_stripes_multiple_locations.yml
-> > +++ files/recipe_warming_stripes_additional_datasets.yml
-> > @@ -43,8 +43,6 @@
+> > --- recipe_warming_stripes_multiple_locations.yml
+> > +++ recipe_warming_stripes_additional_datasets.yml
+> > @@ -45,6 +45,8 @@
 > >          preprocessor: anomalies_london
 > >          start_year: 1900
 > >          end_year: 1999
-> > -        additional_datasets:
-> > -          - {dataset: CanESM2, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
+> > +        additional_datasets:
+> > +          - {dataset: CanESM2, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
 > >      scripts:
 > >        warming_stripes_script:
-> >          script: ~/eucp-project/warming_stripes.py
+> >          script: ~/esmvaltool_tutorial/warming_stripes.py
 > > ```
 > >
 > {: .solution}

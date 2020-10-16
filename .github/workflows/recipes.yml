@@ -46,4 +46,6 @@ jobs:
           head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/
       - name: Run all recipes in files/
         run: |
+          mkdir ~/esmvaltool_tutorial
+          cp files/warming_stripes.py ~/esmvaltool_tutorial/
           for file in files/recipe*.yml; do $CONDA/envs/test/bin/esmvaltool run $PWD/$file; done

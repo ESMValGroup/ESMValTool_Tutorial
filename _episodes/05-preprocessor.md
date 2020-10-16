@@ -36,13 +36,13 @@ ESMValTool. We have prepared a small Python script that takes a NetCDF file with
 timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
-Here's a link to the [diagnostic script](../files/warming_stripes.py)
+You can find the diagnostic script that we will use [here (`warming_stripes.py`)](../files/warming_stripes.py).
 
 Download the file and store it in your working directory. If you want, you may
 also have a look at the contents, but it is not necessary to follow along.
 
 We will write an ESMValTool recipe that takes some data, performs the necessary
-preprocessing, and then runs our little Python script.
+preprocessing, and then runs our Python script.
 
 > ## Drawing up a plan
 >
@@ -86,7 +86,7 @@ Open a new file called `recipe_warming_stripes.yml`:
 nano recipe_warming_stripes.yml
 ```
 
-Let's add the standard header comments (these don't do anything), and a first
+Let's add the standard header comments (these do not do anything), and a first
 description.
 
 ```yaml
@@ -147,7 +147,7 @@ diagnostics:
 ```
 
 This is the minimal recipe layout that is required by ESMValTool. If we now run
-the recipe again, you will probably see the following error
+the recipe again, you will probably see the following error:
 
 ```
 ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/miniconda3/envs/esmvaltool_tutorial/python3.8/site-packages/esmvaltool/config-references.yml

@@ -475,7 +475,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 ## Modifying the example recipe
 
 Let's make a small modification to the example recipe. Notice that now that
-you've copied and edited the recipe, you can use
+you have copied and edited the recipe, you can use
 
 ```
 esmvaltool run recipe_example.yml

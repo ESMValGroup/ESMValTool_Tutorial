@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  build:
+  build_esmvaltool:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -41,8 +41,16 @@ jobs:
         with:
           path: ~/default_inputpath
           key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
-      - name: Download dataset files for files/recipe_example.yml
+      - name: Download dataset files for episodes 4 and 5
         run: |
           head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/default_inputpath/
-      - name: Run files/recipe_example.yml
-        run: $CONDA/envs/test/bin/esmvaltool run $PWD/files/recipe_example.yml
+
+  run_recipes:
+    runs-on: ubuntu-20.04
+    needs: build_esmvaltool
+    strategy:
+      matrix:
+        recipe: [files/recipe*.yml]
+    steps:
+      - name: Run ${{ matrix.recipe }}
+        run: $CONDA/envs/test/bin/esmvaltool run $PWD/files/${{ matrix.recipe }}

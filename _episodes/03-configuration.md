@@ -93,23 +93,6 @@ The destination directory is the rootpath where ESMValTool will store its output
 e.g. figures, data, logs, etc. With every run, ESMValTool automatically generates
 a new output folder determined by recipe name, and date and time using
 the format: YYYYMMDD_HHMMSS.
-This folder contains four further subfolders: ``plots``, ``preproc``, ``run``, ``work``.
-
-> ## Content of subfolders
->
-> - ``plots``: the location for all plots, split by individual diagnostics and fields.
-> - ``preproc``: this folder contains all the preprocessed data and metadata.yml
-interface files. Note that by default this directory will be deleted after
-each run because most users will only need the results from the diagnostic scripts.
-> - ``run``: this folder includes all log files, a copy of the recipe,
-a summary of the resource usage, and the settings.yml interface files,
-resource_usage.txt and temporary files created by the diagnostic scripts.
-> - ``work``: this folder is a place for any diagnostic script results that
-are not plots, e.g. files in NetCDF format (depends on the diagnostic script).
->
-> We explain more about output in the next
-[lesson]({{ page.root }}{% link _episodes/04-recipe.md %})
-{: .callout}
 
 > ## Set the destination directory
 >
@@ -156,7 +139,7 @@ example configuration file.
 >
 > In this tutorial, we will work with data from
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
-> and [obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/).
+> and [CMIP6](https://esgf-node.llnl.gov/projects/cmip6).
 > How can we moodify the `rootpath` to make sure the data path is set correctly
 > for both CMIP5 and obs4mips.
 >
@@ -173,7 +156,7 @@ example configuration file.
 >>  rootpath:
 >>  ...
 >>    CMIP5: ~/esmvaltool_tutorial/data
->>    obs4mips: ~/esmvaltool_tutorial/data
+>>    CMIP6: ~/esmvaltool_tutorial/data
 >>```
 >>
 >> - Are you working with on a computer cluster like Jasmin or DKRZ?
@@ -184,12 +167,12 @@ example configuration file.
 >>  # Site-specific entries: Jasmin
 >>  # Uncomment the lines below to locate data on JASMIN
 >>  rootpath:
->>  #  CMIP6: /badc/cmip6/data/CMIP6
+>>    CMIP6: /badc/cmip6/data/CMIP6
 >>    CMIP5: /badc/cmip5/data/cmip5/output1
 >>  #  CMIP3: /badc/cmip3_drs/data/cmip3/output
 >>  #  OBS: /group_workspaces/jasmin4/esmeval/obsdata-v2
 >>  #  OBS6: /group_workspaces/jasmin4/esmeval/obsdata-v2
->>    obs4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
+>>  #  obs4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
 >>  #  ana4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
 >>  #  CORDEX: /badc/cordex/data/CORDEX/output
 >>```
@@ -260,12 +243,14 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >
 >> ## Solution
 >>
->> 1. `drs: default` is one way to retrieve data from a ROOT directory that has no DRS-like structure.
->> ``default`` indicates that all the files are in a folder without any structure.
+>> 1. `drs: default` is one way to retrieve data from a ROOT directory that has
+>>    no DRS-like structure. ``default`` indicates that all the files are in a
+>>    folder without any structure.
 >>
->> 2. Observational data are organized in Tiers depending on their level of public availability.
->> Therefore the default directory must be structured accordingly with sub-directories
->> `TierX` e.g. Tier1, Tier2 or Tier3, even when `drs: default`.
+>> 2. Observational data are organized in Tiers depending on their level of
+>>    public availability. Therefore the default directory must be structured
+>>    accordingly with sub-directories `TierX` e.g. Tier1, Tier2 or Tier3, even
+>>    when `drs: default`.
 >>
 > {: .solution}
 {: .challenge}
@@ -290,21 +275,20 @@ if you want to feed some additional data (e.g. shape files) to your recipe.
 
 > ## Number of parallel tasks
 >
-> This option enables you to perform parallel processing.
-You can choose the number of tasks in parallel as
-1/2/3/4/... or you can set it to ``null``. That tells
-ESMValTool to use the maximum number of available CPUs:
+> This option enables you to perform parallel processing. You can choose the
+number of tasks in parallel as 1/2/3/4/... or you can set it to ``null``. That
+tells ESMValTool to use the maximum number of available CPUs. For the purpose of
+the tutorial, please set ESMValTool use only 1 cpu:
 >
 >```yaml
-> max_parallel_tasks: null
+> max_parallel_tasks: 1
 > ```
 >
-> If you run out of memory, try setting ``max_parallel_tasks`` to 1.
-Then, check the amount of memory you need for that by inspecting
-the file ``run/resource_usage.txt`` in the output directory.
-Using the number there you can increase the number of parallel tasks
-again to a reasonable number for the amount of memory available in your system.
-{: .callout}
+> In general, if you run out of memory, try setting ``max_parallel_tasks`` to 1.
+Then, check the amount of memory you need for that by inspecting the file
+``run/resource_usage.txt`` in the output directory. Using the number there you
+can increase the number of parallel tasks again to a reasonable number for the
+amount of memory available in your system. {: .callout}
 
 > ## Make your own configuration file
 >

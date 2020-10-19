@@ -1,26 +1,4 @@
 # Dataset urls required fo tutorial, described at https://esmvalgroup.github.io/ESMValTool_Tutorial/setup.html#using-your-own-machine
-# For Running a recipe episode
-# Variable = thetaoga, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
-# Variable = ts, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/ts/ts_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
-# Variable = tas, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_195912-198411.nc
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/tas/tas_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
-# Variable = tos, model =  HadGEM2-CC
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-CC/historical/mon/ocean/Omon/r1i1p1/v20110930/tos/tos_Omon_HadGEM2-CC_historical_r1i1p1_195912-200511.nc
-# Variable = tos, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/tos/tos_Omon_HadGEM2-ES_historical_r1i1p1_195912-200512.nc
-# For Working with preprocessors episode
-# Variable = thetao, model = HadGEM2-ES
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetao/thetao_Omon_HadGEM2-ES_historical_r1i1p1_199912-200512.nc
-# Model = CanESM2, ensemble: "r(1:2)i1p1", project: CMIP5, variable = tas
-http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esg_dataroot/AR5/CMIP5/output/CCCma/CanESM2/historical/mon/atmos/tas/r1i1p1/tas_Amon_CanESM2_historical_r1i1p1_185001-200512.nc
-http://crd-esgf-drc.ec.gc.ca/thredds/fileServer/esg_dataroot/AR5/CMIP5/output/CCCma/CanESM2/historical/mon/atmos/tas/r2i1p1/tas_Amon_CanESM2_historical_r2i1p1_185001-200512.nc
-# Model = MPI-ESM-LR, ensemble: r1i1p1", project: CMIP5, variable = tas
-http://esgf1.dkrz.de/thredds/fileServer/cmip5/cmip5/output1/MPI-M/MPI-ESM-LR/historical/mon/atmos/Amon/r1i1p1/v20120315/tas/tas_Amon_MPI-ESM-LR_historical_r1i1p1_185001-200512.nc
-# Variable = pr, model = GPCP-SG, project= obs4mips
-https://dpesgf03.nccs.nasa.gov/thredds/fileServer/obs4MIPs/observations/NASA-GSFC/Obs-GPCP/GPCP/V2.2/atmos/pr/pr_GPCP-SG_L3_v2.2_197901-201312.nc
-# Variable = pr, model = HadGEM2-ES, project= CMIP5
-http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/atmos/Amon/r1i1p1/v20120928/pr/pr_Amon_HadGEM2-ES_historical_r1i1p1_198412-200511.nc
+# For episodes 4 and 5
+http://esgf3.dkrz.de/thredds/fileServer/cmip6/CMIP/BCC/BCC-ESM1/historical/r1i1p1f1/Amon/tas/gn/v20181214/tas_Amon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412.nc
+http://esgf2.dkrz.de/thredds/fileServer/lta_dataroot/cmip5/output1/CCCma/CanESM2/historical/mon/atmos/Amon/r1i1p1/v20120718/tas/tas_Amon_CanESM2_historical_r1i1p1_185001-200512.nc

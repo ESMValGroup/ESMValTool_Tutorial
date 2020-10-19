@@ -1,0 +1,38 @@
+# ESMValTool
+# recipe_warming_stripes_local.yml
+---
+documentation:
+  description: Reproducing Ed Hawkins' warming stripes visualization
+  authors:
+    - righi_mattia
+
+datasets:
+  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+
+preprocessors:
+  anomalies_amsterdam:
+    extract_point:
+      latitude: 52.379189
+      longitude: 4.899431
+      scheme: linear
+    anomalies:
+      period: month
+      reference:
+        start_year: 1981
+        start_month: 1
+        start_day: 1
+        end_year: 2010
+        end_month: 12
+        end_day: 31
+      standardize: false
+
+diagnostics:
+  diagnostic_warming_stripes:
+    variables:
+      temperature_anomalies_amsterdam:
+        short_name: tas
+        preprocessor: anomalies_amsterdam
+    scripts:
+      warming_stripes_script:
+        script: ~/esmvaltool_tutorial/warming_stripes.py
+        colormap: 'bwr'

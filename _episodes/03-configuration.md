@@ -141,7 +141,7 @@ example configuration file.
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
 > and [CMIP6](https://esgf-node.llnl.gov/projects/cmip6).
 > How can we moodify the `rootpath` to make sure the data path is set correctly
-> for both CMIP5 and obs4mips.
+> for both CMIP5 and CMIP6?
 >
 > Note:
 > to get the data, check instruction in
@@ -198,7 +198,7 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >
 > In this lesson, we will work with data from
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
-> and [obs4mips](https://esgf-node.llnl.gov/projects/obs4mips/).
+> and [CMIP6](https://esgf-node.llnl.gov/projects/cmip6/).
 > How can we set the correct `drs`?
 >
 >> ## Solution
@@ -209,7 +209,7 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >>```yaml
 >>   drs:
 >>     CMIP5: default
->>     obs4mips: default
+>>     CMIP6: default
 >>```
 >>
 >> - Are you working with on a computer cluster like Jasmin or DKRZ?
@@ -220,13 +220,13 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >>  # Site-specific entries: Jasmin
 >>  # Uncomment the lines below to locate data on JASMIN
 >>  drs:
->>  #  CMIP6: BADC
+>>    CMIP6: BADC
 >>    CMIP5: BADC
 >>  #  CMIP3: BADC
 >>  #  CORDEX: BADC
 >>  #  OBS: BADC
 >>  #  OBS6: BADC
->>    obs4mips: BADC
+>>  #  obs4mips: BADC
 >>  #  ana4mips: BADC
 >>```
 >>

@@ -18,7 +18,7 @@ multiple models.
 
 We welcome all contributions to improve the lesson!
 We'd like to ask you to familiarize yourself with our guide in
-[CONTRIBUTING](CONTRIBUTING) and our [Code of Conduct](CODE_OF_CONDUCT).
+[CONTRIBUTING](CONTRIBUTING.md) and our [Code of Conduct](CODE_OF_CONDUCT.md).
 
 ## Maintainer(s)
 

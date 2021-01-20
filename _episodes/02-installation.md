@@ -196,18 +196,24 @@ installed in it.
 
 > ## Common issues
 >
-> -   Installation takes long time
+> -   Installation takes a long time
 >     -   Downloads and compilations can take several minutes to complete,
 >         please be patient.
 >     -   You might have bad luck and the dependencies can not be resolved at
 >         the moment, please try again later or [raise an
 >         issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
+>     -   If `Solving environment` takes more than 10 minutes, you may need to update
+>         conda: `conda update -n base conda`. Another fix can be to specify
+>         the python version:
+>         ```bash
+>         conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool-python python=3.8
+>         ```
 > -   If you have an old conda installation you could get a `UnsatisfiableError`
 >     message. Please install a newer version of conda and try again
 > -   Downloads fail due to company proxy, see [conda
 >     docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to
 >     resolve
-> -   On ``MacOSX``, installation only works fine for ``esmvaltool-python`` and
+> -   On ``MacOSX``, installation may only work for ``esmvaltool-python`` and
 >     ``esmvaltool-ncl`` with Python 3.7.
 >
 {: .callout}

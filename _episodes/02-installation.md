@@ -213,8 +213,8 @@ installed in it.
 > -   Downloads fail due to company proxy, see [conda
 >     docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to
 >     resolve
-> -   On ``MacOSX``, installation may only work for ``esmvaltool-python`` and
->     ``esmvaltool-ncl`` with Python 3.7.
+> -   On ``MacOSX``, ``esmvaltool-python`` and
+>     ``esmvaltool-ncl`` only work with Python 3.7. Use `python=3.7` instead of `python=3.8` in the installation code above.
 >
 {: .callout}
 

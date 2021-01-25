@@ -203,18 +203,19 @@ installed in it.
 >         the moment, please try again later or [raise an
 >         issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
 >     -   If `Solving environment` takes more than 10 minutes, you may need to update
->         conda: `conda update -n base conda`. Another fix can be to specify
+>         conda: `conda update -n base conda`
+>     -   You can help conda solve the environment by specifying
 >         the python version:
 >         ```bash
 >         conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool-python python=3.8
 >         ```
+>     -   Note that on ``MacOSX``, ``esmvaltool-python`` and
+>     ``esmvaltool-ncl`` only work with Python 3.7. Use `python=3.7` instead of `python=3.8`.
 > -   If you have an old conda installation you could get a `UnsatisfiableError`
 >     message. Please install a newer version of conda and try again
 > -   Downloads fail due to company proxy, see [conda
 >     docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to
->     resolve
-> -   On ``MacOSX``, ``esmvaltool-python`` and
->     ``esmvaltool-ncl`` only work with Python 3.7. Use `python=3.7` instead of `python=3.8` in the installation code above.
+>     resolve.
 >
 {: .callout}
 

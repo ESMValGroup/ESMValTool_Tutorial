@@ -2,7 +2,7 @@ name: esmvaltool_tutorial
 channels:
   - conda-forge
 dependencies:
-  - gxx_linux-64
   - python=3
+  - compilers
   - rb-nokogiri
   - ruby

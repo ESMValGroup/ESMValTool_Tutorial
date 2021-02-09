@@ -22,22 +22,44 @@ keypoints:
 Include some theory and a nice explanatory figure. Point to the
 [documentation](https://docs.esmvaltool.org/en/latest/input.html#observations)
 
-In this lesson, we will re-implement a CMORizer script for .... (include
-interesting datasets). We will go through all the steps and explain relevant topics as we go.
+In this lesson, we will re-implement a CMORizer script for the MTE dataset that contains observations of the Gross Primary Production (GPP), a variable that is important for calculting components of the carbon cycle. We will go through all the steps and explain relevant topics as we go.
 
-## 1. Check if your variable is CMOR standard
+## 1. Check if your variable is following the CMOR standard
 
-Most variables are defined in the CMIP data request and can be found in the
-CMOR tables in the folder `/esmvalcore/cmor/tables/cmip6/Tables/
-<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`,
+The very first step we have to do is to check if your data file follows the CMOR standard. Only data files that fully follow this standard can be read by the ESMValTool.
+
+> ## What is the CMOR standard?
+>
+> Describe the CMOR standard here.
+{: .callout}
+
+Most variables that we would want to use with the ESMValTool are defined in the Coupled Model Intercomparison Project (CMIP) data request and can be found in the
+CMOR tables in the folder `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`,
 differentiated according to the ``MIP`` they belong to. The tables are a
-copy of the `PCMDI <https://github.com/PCMDI>` guidelines. If you find the
-variable in one of these tables, you can proceed to the next section.
+copy of the `PCMDI <https://github.com/PCMDI>` guidelines. 
 
-If your variable is not available in the standard CMOR tables,
-you need to write a custom CMOR table entry for the variable
-as outlined below and add it to `/esmvalcore/cmor/tables/custom/
-<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/custom>`.
+> ## Find the variable "gpp" in a CMOR table
+>
+> Check the available CMOR tables to find the variable ``gpp`` with the following characteristics:
+> - standard_name: ``gross_primary_productivity_of_biomass_expressed_as_carbon``
+> - frequency: ``mon``
+> - modeling_realm: ``land``
+>
+> > ## Answers
+> >
+> > The variable ``gpp``belongs to the land variables. The temporal resolution that we are looking for is ``monthly``. 
+> > This information points to the "Lmon" CMIP table. And indeed, the variable ``gpp`` can be found in the file 
+> > `<https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json>`.
+> >
+> {: .solution}
+{: .challenge}
+
+
+If the variable you are interested in is not available in the standard CMOR tables,
+you need to write a custom CMOR table entry for the variable. Don't worry! It sounds more complicated than it is!
+Examples of custom CMOR table entries are for example the standard error of a specific variable.
+For our variable ``gpp`` there is indeed no CMOR definition for the standard error, therefore ``gppStderr`` was defined in the custom CMOR table here:
+`<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/custom>`, as ``CMOR_gppStderr.dat``.
 
 To create a new custom CMOR table you need to follow these
 guidelines:
@@ -52,8 +74,26 @@ guidelines:
   additional variable attributes that can be defined here (see the already
   available cmorizers).
 
-It is recommended to use an existing custom table as a template, to edit the
-content and save it as ``CMOR_<short_name>.dat``.
+It is easiest to start a new custom CMOR table by using an existing custom table as a template. 
+You can then edit the content and save it as ``CMOR_<short_name>.dat``.
+
+> ## Does the variable ``xxx`` need a costum CMOR table?
+>
+> Check the available CMOR tables to find the variable ``xxx`` with the following characteristics:
+> - standard_name: ``xxx``
+> - frequency: ``we will see``
+> - modeling_realm: ``we will see``
+>
+> If it is not available, create a custom CMOR table following the template of the 
+> custom CMOR table of ``yyy``
+
+> > ## Answers
+> >
+> > The answer depends on the variable that I will come up with.
+> >
+> {: .solution}
+{: .challenge}
+
 
 ## 2. Edit your configuration file
 

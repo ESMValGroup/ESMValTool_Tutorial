@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup Ruby
-      uses: ruby/setup-ruby@v1.38.0
+      uses: ruby/setup-ruby@v1.64.1
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       with:

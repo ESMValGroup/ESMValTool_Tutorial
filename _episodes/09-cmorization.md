@@ -36,7 +36,7 @@ The very first step we have to do is to check if your data file follows the CMOR
 Most variables that we would want to use with the ESMValTool are defined in the Coupled Model Intercomparison Project (CMIP) data request and can be found in the
 CMOR tables in the folder `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`,
 differentiated according to the ``MIP`` they belong to. The tables are a
-copy of the `PCMDI <https://github.com/PCMDI>` guidelines. 
+copy of the `PCMDI <https://github.com/PCMDI>` guidelines.
 
 > ## Find the variable "gpp" in a CMOR table
 >
@@ -47,8 +47,8 @@ copy of the `PCMDI <https://github.com/PCMDI>` guidelines.
 >
 > > ## Answers
 > >
-> > The variable ``gpp``belongs to the land variables. The temporal resolution that we are looking for is ``monthly``. 
-> > This information points to the "Lmon" CMIP table. And indeed, the variable ``gpp`` can be found in the file 
+> > The variable ``gpp``belongs to the land variables. The temporal resolution that we are looking for is ``monthly``.
+> > This information points to the "Lmon" CMIP table. And indeed, the variable ``gpp`` can be found in the file
 > > `<https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json>`.
 > >
 > {: .solution}
@@ -74,7 +74,7 @@ guidelines:
   additional variable attributes that can be defined here (see the already
   available cmorizers).
 
-It is easiest to start a new custom CMOR table by using an existing custom table as a template. 
+It is easiest to start a new custom CMOR table by using an existing custom table as a template.
 You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 
 > ## Does the variable ``xxx`` need a costum CMOR table?
@@ -84,7 +84,7 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 > - frequency: ``we will see``
 > - modeling_realm: ``we will see``
 >
-> If it is not available, create a custom CMOR table following the template of the 
+> If it is not available, create a custom CMOR table following the template of the
 > custom CMOR table of ``yyy``
 
 > > ## Answers
@@ -261,15 +261,84 @@ The different parts of the name are explained in more detail here:
 > ``config-developer.yml`` file).
 {: .callout}
 
-## 7. Test the CMORized dataset
+## 7. Make a test recipe
 
-To verify that the cmorized data file is indeed correctly formatted, you can
-run a dedicated test recipe, that does not include any diagnostic, but only
-reads in the data file and has it processed in the preprocessor. Such a recipe
-is called ``recipes/examples/recipe_check_obs.yml``. You just need to add a
-diagnostic for your dataset following the existing entries.
-Only the diagnostic of interest needs to be run, the others should be commented
-out for testing.
+Let's start with the end goal: we want to be able to run a recipe that is able
+to load our data. So we will make this recipe and try to run it. It will
+probably fail, but that's okay. As you will see, the error messages will come in
+handy. Moreover, the recipe will serve as a test case. Once we get it to run, we
+know we have completed our task.
+
+> ## Create a test recipe
+>
+> Create a simple recipe that loads the fluxnet data. It should include a
+> datasets section with a single entry for the fluxnet dataset with the correct
+> dataset keys, and a diagnostics section with two variables: gpp and gppStderr.
+> We won't need any preprocessors or scripts (set `scripts: null`), but you will
+> have to add a documentation section with a description, authors and
+> maintainer, otherwise the recipe will fail.
+>
+> > ## Answer
+> >
+> > Here's an example recipe
+> >
+> > ```yaml
+> > documentation:
+> >
+> >   description: Test recipe for fluxnet data
+> >
+> >   authors:
+> >     - kalverla_peter
+> >
+> >   maintainer:
+> >     - kalverla_peter
+> >
+> > datasets:
+> >   - {project: OBS6, dataset: fluxnet, mip: Lmon, tier: 3, start_year: 2010, end_year: 2015, type: reanaly, version: latestversion}
+> >
+> > diagnostics:
+> >   fluxnet:
+> >     description: Check that ESMValTool can load the cmorized fluxnet data without errors.
+> >     variables:
+> >       gpp:
+> >       gppStderr:
+> >     scripts: null
+> >
+> > ```
+> >
+> > Note: a recipe similar to this one is available under
+> > `~/path/to/ESMValTool/esmvaltool/recipes/examples/recipe_check_obs.yml`.
+> > That recipe includes checks all datasets for which CMORizers are available.
+> >
+> {: .solution}
+{: .challenge}
+
+Try to run the example recipe with
+
+```bash
+esmvaltool run recipe_check_fluxnet.yml --log_level debug
+```
+
+The `log_level` flag ensures that all relevant information is included in the
+output. We will need this information to find out what needs to be done. Look
+carefully through the log messages. You'll probably find something like
+
+```
+DEBUG   Retrieving OBS6 configuration
+DEBUG   Skipping non-existent /home/peter/default_inputpath/Tier3/fluxnet
+DEBUG   Looking for files matching ['OBS6_fluxnet_reanaly_latestversion_Lmon_gppStderr[_.]*nc'] in []
+ERROR   No input files found for variable {'variable_group': 'gppStderr' ...
+...
+ERROR   Missing data for preprocessor fluxnet/gppStderr
+...
+ERROR   Program terminated abnormally, see stack trace below for more information:
+...
+```
+{: .error}
+
+So the output tells us that it cannot find the data, and also where it has been
+looking. This makes sense, as we have not yet created a CMORized copy of the data.
+But it is always useful to know where ESMValTool will look for it later on.
 
 ## Conclusion
 

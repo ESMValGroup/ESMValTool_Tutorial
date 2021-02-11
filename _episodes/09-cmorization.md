@@ -179,6 +179,7 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 > > Note that there is no entry for ``standard_name``. This is on purpose. 
 > > It is a sign for the ESMValTool to not crash although the variable that 
 > > we are looking for is ok to have no official CMIP6 ``standard_name``.
+> >
 > {: .solution}
 {: .challenge}
 

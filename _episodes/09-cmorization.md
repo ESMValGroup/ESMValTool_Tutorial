@@ -247,36 +247,122 @@ rootpath:
   RAWOBS:   /path/to/my/rawobs/data
 ```
 
-## 4. Create a CMORizer for the dataset
+## 4. Naming convention of the observational data files
 
-ESMValTool can work with CMORizer script written in various programming languages. In the tutorial we will implement our CMORizer script in Python, but the steps would be the same for any other language.
+For the ESMValTool to be able to read the observations from the NetCDF file,
+the file name needs a very specific structure and order of information parts.
+The file name will be automatically correctly created if a cmorizing
+script has been used to create the netCDF file.
 
-Our example of a cmorizing script here is written for the ``MTE`` dataset
-that is available at the MPI for Biogeochemistry in Jena: `cmorize_obs_mte.py
-<https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmorize_obs_mte.py>`.
-It provides data about the Gross Primary Production (GPP).
+The correct structure of an observational data set is defined in
+[config-developer.yml]
+(https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-developer.yml),
+and looks like the following:
 
-All the necessary information about the dataset to write the filename
-correctly, and which variable is of interest, is stored in a seperate
-configuration file: `MTE.yml
-<https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmor_config/MTE.yml>`
+```bash
+OBS_[dataset]_[type]_[version]_[mip]_[short_name]_YYYYMM-YYYYMM.nc
+```
+
+For the example of the ``FLUXCOM`` data set, the correct structure of the
+file name looks then like this:
+
+```bash
+OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
+```
+
+The different parts of the name are explained in more detail here:
+
+- OBS: describes what kind of data can be expected in the file, in this case
+  ``observations``;
+- FLUXCOM: that is the name of the dataset;
+- reanaly: describes the source of the data, here we are looking at reanalysis 
+  data (therefore ``reanaly``), could also be ``sat`` for satellite data;
+- ANN-v1: describes the version of the dataset:
+- Lmon: is the information in which ``mip`` the variable is to be expected, and
+  what kind of temporal resolution it has; here we expect ``gpp`` to be part
+  of the land realm (``L``) and we have the dataset in a monthly resolution
+  (``mon``);
+- gpp: Is the name of the variable. Each observational data file is supposed
+  to only include one variable per file;
+- 198001-198012: Is the period the dataset spans with ``198001`` being the
+  start year and month, and ``198012`` being the end year and month;
+
+> ## Note
+>
+> There is a different naming convention for ``obs4mips`` data (see the exact
+> specifications for the obs4mips data file naming convention in the
+> ``config-developer.yml`` file).
+{: .callout}
+
+
+## 5. Create a CMORizer for the new dataset
+
+ESMValTool can work with CMORizer scripts written in various programming 
+languages, but most of them are written in either Python or NCL. In this 
+tutorial we will implement our CMORizer script in Python, but the steps 
+that one needs to consider when writing a cmorizer are the same for any 
+other language.
+
+As mentioned before, we will re-implement the cmorizing script for the 
+``FLUXCOM`` dataset that is available at the MPI for Biogeochemistry in Jena: 
+[cmorize_obs_fluxcom.py]
+(https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py).
+
+In a first step we need to create a configuration file for the dataset. This
+is necessary to allow the ESMValTool to retrieve all necessary information 
+about the datasets, and to write the filename of the cmorized variable from 
+this dataset correctly. This configutation file needs to be stored in the 
+following folder: 
+``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``
+It is imporant to note that the name of the configuration file has to be 
+identical to the name of our dataset. For our example the configuration file
+therefore must be called ``FLUXCOM.yml``, and it can be found here:
+[FLUXCOM.yml]
+(https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml)
+
+Let's have a closer look what that configuration file contains:
+
+```yaml
+---
+# Filename 
+filename: 'GPP.ANN.CRUNCEPv6.monthly.*.nc'
+
+# Common global attributes for Cmorizer output
+attributes:
+  dataset_id: FLUXCOM
+  version: 'ANN-v1'
+  tier: 3
+  modeling_realm: reanaly
+  project_id: OBS
+  source: 'http://www.bgc-jena.mpg.de/geodb/BGI/Home'
+  reference: 'fluxcom'
+  comment: ''
+
+# Variables to cmorize
+variables:
+  gpp:
+    mip: Lmon
+```
+
+The first part of this configuration file defines the filename of the raw
+observations file. The second part defines the common global attributes for
+the cmorizer output, e.g. information that is needed to piece together the
+final observations file name in the correct structure 
+(see Section `6. Naming convention of the observational data files`).
+Another global attribute is ``reference`` which includes a ``doi`` related to 
+the dataset. Please see the section `adding references
+<https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references>`
+on how to add reference tags to the ``reference`` section in the configuration 
+file. If a single dataset has more than one reference,
+it is possible to add tags as a list e.g. ``reference: ['tag1', 'tag2']``.
+The third part in the configuration file defines the variables that are 
+supposed to be cmorized.
+
 in the directory ``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``. Note
 that the name of this configuration file has to be identical to the name of
 your data set. It is recommended that you set ``project`` to ``OBS6`` in the
 configuration file. That way, the variables defined in the CMIP6 CMOR table,
 augmented with the custom variables described above, are available to your script.
-
-The first part of this configuration file defines the filename of the raw
-observations file. The second part defines the common global attributes for
-the cmorizer output, e.g. information that is needed to piece together the
-final observations file name in the correct structure (see Section `6. Naming convention of the observational data files`).
-Another global attribute is ``reference`` which includes a ``doi`` related to the dataset.
-Please see the section `adding references
-<https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references>`
-on how to add reference tags to the ``reference`` section in the configuration file.
-If a single dataset has more than one reference,
-it is possible to add tags as a list e.g. ``reference: ['tag1', 'tag2']``.
-The third part in the configuration file defines the variables that are supposed to be cmorized.
 
 The actual cmorizing script ``cmorize_obs_mte.py`` consists of a header with
 information on where and how to download the data, and noting the last access
@@ -314,7 +400,7 @@ saves a single variable from the raw data.
 .. utilities.py: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/utilities.py
 
 
-## 5. Run the CMORizer script
+## 6. Run the CMORizer script
 
 The cmorizing script for the given dataset can be run with:
 
@@ -345,59 +431,6 @@ output directory.
 > {: .solution}
 {: .challenge}
 
-
-## 6. Naming convention of the observational data files
-
-This is quite theoretical. Maybe it should come earlier on in the tutorial?
-
-For the ESMValTool to be able to read the observations from the NetCDF file,
-the file name needs a very specific structure and order of information parts
-(very similar to the naming convention for observations in ESMValTool
-v1.0). The file name will be automatically correctly created if a cmorizing
-script has been used to create the netCDF file.
-
-The correct structure of an observational data set is defined in
-`config-developer.yml
-<https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-developer.yml>`,
-and looks like the following:
-
-```bash
-OBS_[dataset]_[type]_[version]_[mip]_[short_name]_YYYYMM-YYYYMM.nc
-```
-
-For the example of the ``CDS-XCH4`` data set, the correct structure of the
-file name looks then like this:
-
-```bash
-OBS_CDS-XCH4_sat_L3_Amon_xch4_200301-201612.nc
-```
-
-The different parts of the name are explained in more detail here:
-
-- OBS: describes what kind of data can be expected in the file, in this case
-  ``observations``;
-- CDS-XCH4: that is the name of the dataset. It has been named this way for
-  illustration purposes (so that everybody understands it is the xch4 dataset
-  downloaded from the CDS), but a better name would indeed be ``ESACCI-XCH4``
-  since it is a ESA-CCI dataset;
-- sat: describes the source of the data, here we are looking at satellite data
-  (therefore ``sat``), could also be ``reanaly`` for reanalyses;
-- L3: describes the version of the dataset:
-- Amon: is the information in which ``mip`` the variable is to be expected, and
-  what kind of temporal resolution it has; here we expect ``xch4`` to be part
-  of the atmosphere (``A``) and we have the dataset in a monthly resolution
-  (``mon``);
-- xch4: Is the name of the variable. Each observational data file is supposed
-  to only include one variable per file;
-- 200301-201612: Is the period the dataset spans with ``200301`` being the
-  start year and month, and ``201612`` being the end year and month;
-
-> ## Note
->
-> There is a different naming convention for ``obs4mips`` data (see the exact
-> specifications for the obs4mips data file naming convention in the
-> ``config-developer.yml`` file).
-{: .callout}
 
 ## 7. Make a test recipe
 

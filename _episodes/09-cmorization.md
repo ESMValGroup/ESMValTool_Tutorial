@@ -63,9 +63,9 @@ The concepts discussed so far are illustrated in the figure below.
 ![Data flow with ESMValTool](../fig/data_flow.png)
 *Illustration of the data flow in ESMValTool.*
 
-In this lesson, we will re-implement a CMORizer script for the MTE dataset that
+In this lesson, we will re-implement a CMORizer script for the FLUXCOM dataset that
 contains observations of the Gross Primary Production (GPP), a variable that is
-important for calculating components of the carbon cycle. We will go through all
+important for calculating components of the global carbon cycle. We will go through all
 the steps and explain relevant topics as we go. If you prefer to implement CMOR
 fixes, please read the documentation
 [here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/fixing_data.html#fixing-data).
@@ -122,35 +122,129 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 
 > ## Does the variable ``cVegStderr`` need a costum CMOR table?
 >
-> Check the available CMOR tables to find the variable ``cVegStderr`` with the following characteristics:
+> Check the available CMOR tables to find the variable ``cVegStderr`` with the
+> following characteristics:
 > - standard_name: ``vegetation_carbon_content``
 > - frequency: ``mon``
 > - modeling_realm: ``land``
 >
-> If it is not available, create a custom CMOR table following the template of the
-> custom CMOR table of ``yyy``
-
+> If it is not available, create a custom CMOR table following the template of
+> the CMIP6 CMOR table of ``cVeg`` and custom CMOR table of ``gppStderr``.
+>
 > > ## Answers
 > >
-> > The answer depends on the variable that I will come up with.
+> > The first step here is to check if the variable ``cVegStderr`` is already
+> > listed in a CMOR table. We have the information that the modeling_realm 
+> > of the variable is ``land`` and that the frequency is ``mon``. This 
+> > means we have to check the CMOR table ``Lmon`` for an entry. We focus
+> > our search on the CMIP6 tables since these are the most recent tables
+> > available. You can find the lists here: 
+> > `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`
 > >
+> > We do not find the variable ``cVegStderr`` in the ``Lmon`` table, which
+> > means we will have to write our own custom table for this. 
+> > There were two examples given which we could use as templates for the 
+> > new custom table that we have to create. These two examples can be 
+> > found here: [cVeg](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json) 
+> > and [gppStderr](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/CMOR_gppStderr.dat)
+> >
+> > We have to create a new file with the name ``CMOR_cVegStrerr.dat`` in 
+> > the custom CMOR table folder (https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/). 
+> > The content of the file should then look like this:
+> >
+> > ```
+> > SOURCE: CMIP6
+> > !============
+> > variable_entry:    cVegStderr
+> > !============
+> > modeling_realm:    land
+> > !----------------------------------
+> > ! Variable attributes:
+> > !----------------------------------
+> > standard_name: 
+> > units:             kg m-2
+> > cell_methods:      area: mean where land time: mean
+> > cell_measures:     area: areacella
+> > long_name:         Carbon Mass in Vegetation Error
+> > !----------------------------------
+> > ! Additional variable information:
+> > !----------------------------------
+> > dimensions:        longitude latitude time
+> > out_name:          cVegStderr
+> > type:              real
+> > !----------------------------------
+> > !
+> > ```
+> >
+> > Note that there is no entry for ``standard_name``. This is on purpose. 
+> > It is a sign for the ESMValTool to not crash although the variable that 
+> > we are looking for is ok to have no official CMIP6 ``standard_name``.
 > {: .solution}
 {: .challenge}
 
 
-## 2. Edit your configuration file
+## 2. Store your dataset in the right place
 
-Make sure that beside the paths to the model simulations and observations, also
-the path to raw observational data to be cmorized (``RAWOBS``) is present in
-your configuration file.
+Now that we have made sure that we have a CMOR definition of our variable
+the next step in writing our own cmorizer script is to make sure that the
+ESMValTool will be able to find our data file that we want to use. Since
+it is not cmorized yet, it cannot be stored in the regular observations
+and reanalysis data folders. For that purpose it is great to create a 
+``RAWOBS`` folder in which you would store all non-cmorized data files.
+This folder needs the same sub-folder structure as the OBS folder we already
+know. In our case of the ``FLUXCOM`` data, we need a sub-folder called
+``Tier3`` in the folder ``RAWOBS`` and then a sub-folder called ``FLUXCOM``
+in the sub-folder ``Tier3``.
 
-## 3. Store your dataset in the right place
+> ## What is the deal with those ``tiers``?
+>
+> Many observations and reanalysis datasets are restricted in their access.
+> This is due to the huge amount of work that goes into creating these datasets
+> and the fact that the dataset creators feel a responisbility about what their
+> dataset is used for. In many cases "restricted access" just means that one 
+> has to register with an email address and is adivsed to achnowledge the data
+> providers in scientific publications. After that one is free to download the
+> data without any other hurdles.
+> 
+> However, there are also datasets available that do not need a registration
+> for access, e.g. the "obs4MIPs" or "ana4MIPs" datasets that are specifically
+> produced to facilitate comparisons with model simulations.
+> 
+> To reflect these different levels of access restriction, the ESMValTool team
+> has created a tier-system with which the different observations and 
+> reanalysis datasets are described. The definition of the different tiers are 
+> as follows:
+> - Tier1: obs4MIPs and ana4MIPS datasets (they do not need any additional 
+> cmorization before they can be used with the ESMValTool)
+> - Tier2: any other freely available datasets (most of them will need some 
+> kind of cmorization before they can be used with the ESMValTool)
+> - Tier3: any datasets that has an access restriction, meaning someone has to
+> register to access the data (most of these datasets will also need some kind
+> of cmorization before they can be used with the ESMValTool)
+>
+> The access restrictions are also the reason why it is not possible to 
+> providers the ESMValTool routinely during the installation with all 
+> observations and reanalysis data that are used in all example recipes. 
+> However, the cmorization scripts for these datasets are provided with the
+> ESMValTool so that each user can cmorize their own copy of the access 
+> restricted datasets if they need them.
+>
+{: .callout}
 
-The folder ``RAWOBS`` needs the subdirectories ``Tier1``, ``Tier2`` and
-``Tier3``. The different tiers describe the different levels of restrictions
-for downloading (e.g. providing contact information, licence agreements)
-and using the observations. The unformatted (raw) observations
-should then be stored then in the appropriate of these three folders.
+
+## 3. Edit your configuration file
+
+The next step then is to make sure that the ESMValTool will find the 
+``FLUXCOM`` data in the ``RAWOBS`` folder when it is running the cmorizing 
+script. For this to happen we have to specify the path to the ``RAWOBS`` 
+folder in our configuration file. In the same way as the path to the ``OBS`` 
+folder is defined, we define there our path to the ``RAWOBS`` folder:
+
+```yaml
+rootpath:
+  OBS:      /path/to/my/obs/data
+  RAWOBS:   /path/to/my/rawobs/data
+```
 
 ## 4. Create a CMORizer for the dataset
 

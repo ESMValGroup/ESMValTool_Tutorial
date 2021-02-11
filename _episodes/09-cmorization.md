@@ -77,12 +77,12 @@ guidelines:
 It is easiest to start a new custom CMOR table by using an existing custom table as a template.
 You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 
-> ## Does the variable ``xxx`` need a costum CMOR table?
+> ## Does the variable ``cVegStderr`` need a costum CMOR table?
 >
-> Check the available CMOR tables to find the variable ``xxx`` with the following characteristics:
-> - standard_name: ``xxx``
-> - frequency: ``we will see``
-> - modeling_realm: ``we will see``
+> Check the available CMOR tables to find the variable ``cVegStderr`` with the following characteristics:
+> - standard_name: ``vegetation_carbon_content``
+> - frequency: ``mon``
+> - modeling_realm: ``land``
 >
 > If it is not available, create a custom CMOR table following the template of the
 > custom CMOR table of ``yyy``

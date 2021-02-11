@@ -19,19 +19,62 @@ keypoints:
 
 ## Introduction
 
-Include some theory and a nice explanatory figure. Point to the
-[documentation](https://docs.esmvaltool.org/en/latest/input.html#observations)
+This episode deals with "CMORization". ESMValTool was designed to work with data
+that follow the CMOR standards. Unfortunately, not all datasets follow these
+standards. In order to use such datasets in ESMValTool we first need to reformat
+the data. This process is called "CMORization".
 
-In this lesson, we will re-implement a CMORizer script for the MTE dataset that contains observations of the Gross Primary Production (GPP), a variable that is important for calculting components of the carbon cycle. We will go through all the steps and explain relevant topics as we go.
+> ## What are the CMOR standards?
+>
+> The name "CMOR" originates from a tool: [the Climate Model Output
+> Rewriter](https://cmor.llnl.gov/). This tool is used to create "CF-Compliant
+> netCDF files for use in the CMIP projects". So CMOR extends the
+> [CF-standard](https://cfconventions.org/) with additional requirements for
+> the Coupled Model Intercomparison Projects (see e.g.
+> [here](https://pcmdi.llnl.gov/CMIP6/Guide/modelers.html#5-model-output-requirements)).
+>
+>
+> Concretely, the CMOR standards dictate e.g. the variable names and units,
+coordinate information, how the data should be structured (e.g. 1 variable per
+file), additional metadata requirements, but also file naming conventions a.k.a.
+the data reference syntax (DRS). All this information is stored in so-called
+CMOR tables. As example, the CMOR tables for the CMIP6 project can be found
+[here](https://github.com/PCMDI/cmip6-cmor-tables).
+{: .callout}
+
+The Earth System Grid Federation (ESGF) is home to all CMIP data. The data
+hosted there typically (mostly) follow the CMIP standards, and therefore
+ESMValTool should work with these data without problems.
+
+Datasets that are *not* part of one of the CMIP projects often don't follow the
+CMOR standards. In this case, a reformatting script can be used to create a
+CMOR-compliant copy of these datasets. CMORizer scripts for several popular
+datasets are included in ESMValTool, and ESMValTool also provides a convenient
+way to execute them.
+
+Occasionally it happens that there are still minor issue with CMIP datasets. In
+those cases, it is possible to fix those issues in ESMValCore before any further
+processing is done. The same can be done for non-CMIP data. The advantage is
+that you don't need to store an additional, reformatted copy of the data. The
+disadvantage is that these fixes should be implemented inside ESMValCore.
+Writing a CMORizer script is technically is simpler.
+
+The concepts discussed so far are illustrated in the figure below.
+![Data flow with ESMValTool](../fig/data_flow.png)
+*Illustration of the data flow in ESMValTool.*
+
+In this lesson, we will re-implement a CMORizer script for the MTE dataset that
+contains observations of the Gross Primary Production (GPP), a variable that is
+important for calculating components of the carbon cycle. We will go through all
+the steps and explain relevant topics as we go. If you prefer to implement CMOR
+fixes, please read the documentation
+[here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/fixing_data.html#fixing-data).
+While fixes are implemented slightly differently, conceptually the process is
+the same and the concepts explained in this episode are still useful.
 
 ## 1. Check if your variable is following the CMOR standard
 
 The very first step we have to do is to check if your data file follows the CMOR standard. Only data files that fully follow this standard can be read by the ESMValTool.
-
-> ## What is the CMOR standard?
->
-> Describe the CMOR standard here.
-{: .callout}
 
 Most variables that we would want to use with the ESMValTool are defined in the Coupled Model Intercomparison Project (CMIP) data request and can be found in the
 CMOR tables in the folder `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`,
@@ -342,6 +385,8 @@ But it is always useful to know where ESMValTool will look for it later on.
 
 ## Conclusion
 
+
+[documentation](https://docs.esmvaltool.org/en/latest/input.html#observations)
 
 ## For development purposes
 

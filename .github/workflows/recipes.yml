@@ -17,7 +17,10 @@ jobs:
         with:
           path: ~/conda_pkgs_dir
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('files/recipe_example.yml') }}
-      - uses: goanpeca/setup-miniconda@v1
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.8"
+          miniconda-version: "latest"
       - name: Install esmvaltool
         run: conda install -n test -y -c esmvalgroup -c conda-forge esmvaltool-python
       - name: Setup config

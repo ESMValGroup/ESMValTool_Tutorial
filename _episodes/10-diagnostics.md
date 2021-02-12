@@ -19,7 +19,7 @@ keypoints:
 
 ## Introduction
 
-The diagnostic script is an important component of ESMValTool where the actual 
+The diagnostic script is an important component of ESMValTool where the
 scientific analysis or performance metric is implemented. With ESMValTool, you 
 can reuse an existing diagnostic, adapt and existing one for your needs or
 write your own new diagnostic.  Diagnostics can be written in one or more open 

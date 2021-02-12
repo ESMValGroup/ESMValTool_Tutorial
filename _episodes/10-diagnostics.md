@@ -228,9 +228,37 @@ Finally, after grouping we read individual attributes such as the filename which
 the specific name of the preprocessed data file we want to read and analyse. 
 Following this, we see the call to a function called *compute_diagnostic*. 
 In this example, this is where the analyses on the data is done. 
-If you were writing your own diagnostic, this is the function you would put your own 
-analyses code in.
+If you were writing your own diagnostic, this is the function you would write your 
+own code in.
 
+## Diagnostic Computation
+The *compute_diagnostic* function in this example uses a software called [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read 
+data from a *netCDF* file and perform the simple computation of removing any dimension 
+of length one. This is just an illustrative example. Iris reads data into data structures called
+[cubes](https://scitools-iris.readthedocs.io/en/latest/userguide/iris_cubes.html). The data in
+these cubes can be modified, combined with other cubes' data or plotted. Two 
+other possible ways of reading netcdf files using [xarrays](http://xarray.pydata.org/en/stable/)  or [SciPy's netCDF library](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.netcdf.netcdf_file.html) 
+for your own diagnostics are given below.
+
+>## Example with xarray 
+>
+>~~~
+>import xarray as xr  #import statement at the beginning of the file
+>
+>
+>def compute_diagnostic(filename):
+>    """Compute an example diagnostic."""
+>    logger.debug("Loading %s", filename)
+>    ds = xr.open_dataset(filename)    
+>
+>    #do your analyses on the data here
+>
+>    return ds
+>
+>~~~
+>{: .language-python}
+>
+{: .solution}
 
 
 

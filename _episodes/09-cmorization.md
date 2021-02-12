@@ -63,130 +63,64 @@ The concepts discussed so far are illustrated in the figure below.
 ![Data flow with ESMValTool](../fig/data_flow.png)
 *Illustration of the data flow in ESMValTool.*
 
-In this lesson, we will re-implement a CMORizer script for the FLUXCOM dataset that
-contains observations of the Gross Primary Production (GPP), a variable that is
-important for calculating components of the global carbon cycle. We will go through all
-the steps and explain relevant topics as we go. If you prefer to implement CMOR
-fixes, please read the documentation
+In this lesson, we will re-implement a CMORizer script for the FLUXCOM dataset
+that contains observations of the Gross Primary Production (GPP), a variable
+that is important for calculating components of the global carbon cycle. We will
+go through all the steps and explain relevant topics as we go. If you prefer to
+implement CMOR fixes, please read the documentation
 [here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/fixing_data.html#fixing-data).
 While fixes are implemented slightly differently, conceptually the process is
 the same and the concepts explained in this episode are still useful.
 
-##  Download the data (and store in the right place)
+## Obtaining the data
 
-Now that we have made sure that we have a CMOR definition of our variable
-the next step in writing our own cmorizer script is to make sure that the
-ESMValTool will be able to find our data file that we want to use. Since
-it is not cmorized yet, it cannot be stored in the regular observations
-and reanalysis data folders. For that purpose it is great to create a
-``RAWOBS`` folder in which you would store all non-cmorized data files.
-This folder needs the same sub-folder structure as the OBS folder we already
-know. In our case of the "FLUXCOM" data, we need a sub-folder called
-``Tier3`` in the folder ``RAWOBS`` and then a sub-folder called "FLUXCOM"
-in the sub-folder ``Tier3``.
+> ## Get the data
+> The data for this episode is available via the [FluxCom Data
+> Portal](http://www.bgc-jena.mpg.de/geodb/BGI/Home). First you'll need to
+> register. After registration, in the dropdown boxes, select FLUXCOM as the data
+> choice and click download. Three files will be displayed. Click the download
+> button on the "FLUXCOM (RS+METEO) Global Land Carbon Fluxes using CRUNCEP
+> climate data". You'll be send an FTP address to access the server. Connect
+> to the server, follow the path in your email, and look for the file
+> `raw/monthly/GPP.ANN.CRUNCEPv6.monthly.2000.nc`. Download that file and save in
+> in a folder called `/RAWOBS/Tier3/`.
+>
+> Note: you'll need a user-friendly ftp client. On Linux, `ncftp` works okay.
+{: .challenge}
 
 > ## What is the deal with those "tiers"?
 >
-> Many observations and reanalysis datasets are restricted in their access.
-> This is due to the huge amount of work that goes into creating these datasets
-> and the fact that the dataset creators feel a responisbility about what their
-> dataset is used for. In many cases "restricted access" just means that one
-> has to register with an email address and is adivsed to achnowledge the data
-> providers in scientific publications. After that one is free to download the
-> data without any other hurdles.
+> Many datasets come with access restrictions. In this way the data providers
+> can keep track of how their data is used. In many cases "restricted access"
+> just means that one has to register with an email address and accept the terms
+> of use, which typically ask that you acknowledge the data providers.
 >
-> However, there are also datasets available that do not need a registration
-> for access, e.g. the "obs4MIPs" or "ana4MIPs" datasets that are specifically
-> produced to facilitate comparisons with model simulations.
+> There are also datasets available that do not need a registration. The
+> "obs4MIPs" or "ana4MIPs" datasets, for example, are specifically produced to
+> facilitate comparisons with model simulations.
 >
 > To reflect these different levels of access restriction, the ESMValTool team
-> has created a tier-system with which the different observations and
-> reanalysis datasets are described. The definition of the different tiers are
+> has created a tier-system. The definition of the different tiers are
 > as follows:
-> - Tier1: obs4MIPs and ana4MIPS datasets (they do not need any additional
-> cmorization before they can be used with the ESMValTool)
-> - Tier2: any other freely available datasets (most of them will need some
-> kind of cmorization before they can be used with the ESMValTool)
-> - Tier3: any datasets that has an access restriction, meaning someone has to
-> register to access the data (most of these datasets will also need some kind
-> of cmorization before they can be used with the ESMValTool)
 >
-> The access restrictions are also the reason why it is not possible to
-> providers the ESMValTool routinely during the installation with all
-> observations and reanalysis data that are used in all example recipes.
-> However, the cmorization scripts for these datasets are provided with the
-> ESMValTool so that each user can cmorize their own copy of the access
+> - **Tier1**: obs4MIPs and ana4MIPS datasets (can be used directly with the ESMValTool)
+> - **Tier2**: other freely available datasets (most of them will need some kind of
+>   cmorization)
+> - **Tier3**: datasets with access restrictions (most of these datasets will also
+>   need some kind of cmorization)
+>
+> These access restrictions are also the reason why the ESMValTool developers
+> cannot distribute copies or automate downloading of all observations and
+> reanalysis data used in the recipes. As a compromise we provide the
+> CMORization scripts so that each user can CMORize their own copy of the access
 > restricted datasets if they need them.
 >
 {: .callout}
 
-
-### Edit your configuration file
-
-The next step then is to make sure that the ESMValTool will find the
-"FLUXCOM" data in the ``RAWOBS`` folder when it is running the cmorizing
-script. For this to happen we have to specify the path to the ``RAWOBS``
-folder in our configuration file. In the same way as the path to the ``OBS``
-folder is defined, we define there our path to the ``RAWOBS`` folder:
-
-```yaml
-rootpath:
-  OBS:      /path/to/my/obs/data
-  RAWOBS:   /path/to/my/rawobs/data
-```
-
-### Naming convention of the observational data files
-
-For the ESMValTool to be able to read the observations from the NetCDF file,
-the file name needs a very specific structure and order of information parts.
-The file name will be automatically correctly created if a cmorizing
-script has been used to create the netCDF file.
-
-The correct structure of an observational data set is defined in
-[config-developer.yml]
-(https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-developer.yml),
-and looks like the following:
-
-```bash
-OBS_[dataset]_[type]_[version]_[mip]_[short_name]_YYYYMM-YYYYMM.nc
-```
-
-For the example of the "FLUXCOM" data set, the correct structure of the
-file name looks then like this:
-
-```bash
-OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
-```
-
-The different parts of the name are explained in more detail here:
-
-- OBS: describes what kind of data can be expected in the file, in this case
-  "observations";
-- FLUXCOM: that is the name of the dataset;
-- reanaly: describes the source of the data, here we are looking at reanalysis
-  data (therefore "reanaly"), could also be "sat" for satellite data;
-- ANN-v1: describes the version of the dataset:
-- Lmon: is the information in which "mip" the variable is to be expected, and
-  what kind of temporal resolution it has; here we expect "gpp" to be part
-  of the land realm ("L") and we have the dataset in a monthly resolution
-  ("mon");
-- gpp: Is the name of the variable. Each observational data file is supposed
-  to only include one variable per file;
-- 198001-198012: Is the period the dataset spans with "198001" being the
-  start year and month, and "198012" being the end year and month;
-
-> ## Note
->
-> There is a different naming convention for "obs4mips" data (see the exact
-> specifications for the obs4mips data file naming convention in the
-> ``config-developer.yml`` file).
-{: .callout}
-
-
 ## Make a test recipe
 
-Let's start with the end goal: we want to be able to run a recipe that is able
-to load our data. So we will make this recipe and try to run it. It will
+Now that we have downloaded the data, our end goal is to run a recipe that can
+load it and work with it. So we will make this recipe and try to run it. It will
 probably fail, but that's okay. As you will see, the error messages will come in
 handy. Moreover, the recipe will serve as a test case. Once we get it to run, we
 know we have completed our task.
@@ -199,6 +133,20 @@ know we have completed our task.
 > We won't need any preprocessors or scripts (set `scripts: null`), but you will
 > have to add a documentation section with a description, authors and
 > maintainer, otherwise the recipe will fail.
+>
+> Use the following dataset keys:
+>
+> - project: OBS6
+> - dataset: FLUXCOM
+> - type: reanaly
+> - version: ANN-v1
+> - mip: Lmon
+> - start_year: 2000
+> - end_year: 2000
+> - tier: 3
+>
+> Some of these dataset keys are further explained in the callout boxes in this
+> episode.
 >
 > > ## Answer
 > >
@@ -216,7 +164,7 @@ know we have completed our task.
 > >     - kalverla_peter
 > >
 > > datasets:
-> >   - {project: OBS6, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2010, end_year: 2015, type: reanaly, version: latestversion}
+> >   - {project: OBS6, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, end_year: 2000, type: reanaly, version: ANN-v1}
 > >
 > > diagnostics:
 > >   FLUXCOM:
@@ -248,7 +196,7 @@ carefully through the log messages. You'll probably find something like
 ```
 DEBUG   Retrieving OBS6 configuration
 DEBUG   Skipping non-existent /home/peter/default_inputpath/Tier3/FLUXCOM
-DEBUG   Looking for files matching ['OBS6_FLUXCOM_reanaly_latestversion_Lmon_gppStderr[_.]*nc'] in []
+DEBUG   Looking for files matching ['OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gppStderr[_.]*nc'] in []
 ERROR   No input files found for variable {'variable_group': 'gppStderr' ...
 ...
 ERROR   Missing data for preprocessor FLUXCOM/gppStderr
@@ -259,8 +207,62 @@ ERROR   Program terminated abnormally, see stack trace below for more informatio
 {: .error}
 
 So the output tells us that it cannot find the data, and also where it has been
-looking. This makes sense, as we have not yet created a CMORized copy of the data.
-But it is always useful to know where ESMValTool will look for it later on.
+looking. Let's try to understand what's going on.
+
+## Location, location, location
+
+The error messages above tell you that ESMValTool cannot find the data. That
+makes total sense, because we have not yet created our CMORized copy of the
+data. Our data is located in the `RAWOBS` folder, but ESMValTool is looking in
+`OBS6`. So the first thing our CMORizer will need to do is copy the data over
+from one folder to the other. To do end, we need to tell ESMValTool where our
+data may be found.
+
+> ## Set the correct paths in your user configuration file:
+>
+> This information is set in `config-user.yml`. Modify your
+> configuration file so that it has the correct paths
+>
+> ```yaml
+> rootpath:
+>   OBS6: /path/to/my/obs6/data
+>   RAWOBS: /path/to/my/rawobs/data
+> ```
+{: .challenge}
+
+> ## RAWOBS, OBS, OBS6!?
+>
+> ESMValTool uses project IDs to find the data on your hard drive, and also to
+> find more information about the data. The `RAWOBS` and `OBS` projects were
+> created for external data before and after CMORization, respectively. These
+> names can be misleading, though, since not all external datasets are
+> observations.
+>
+> Then, in going from CMIP5 to CMIP6, the CMOR standards changed a bit. Some
+> variables are named differently in CMIP5 and CMIP6. This posed a dilemma:
+> should CMORization reformat to the CMIP5 or CMIP6 definition? To solve this,
+> the `OBS6` project was created. So data in the `OBS6` follow the CMIP6
+> standards.
+>
+{: .callout}
+
+Looking closer at the path that ESMValTool told us it went looking for the data,
+we see that it has a very specific structure:
+
+`OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gppStderr[_.]*nc`
+
+Note that all components in the filename correspond to one of the dataset keys
+defined in our test recipe. By replacing them with the original tags, we can
+see the general structure for the OBS6 data:
+
+`[project]_[dataset]_[type]_[version]_[mip]_[short_name]_*.nc`
+
+This is the Data Reference Syntax (DRS) for OBS6 data. Each project has its own
+DRS, and some project IDs even have multiple different options. These settings
+can be found in the file
+[config-developer.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-developer.yml).
+Luckily, we don't need to worry about that. This file name will be automatically
+correctly created when we run our CMORizer script.
 
 
 ## Check if your variable is following the CMOR standard / Check if it's in a CMOR table

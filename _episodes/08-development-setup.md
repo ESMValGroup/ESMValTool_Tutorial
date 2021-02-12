@@ -4,9 +4,9 @@ teaching: 10
 exercises: 20
 questions:
 - "What are the prerequisites for installing ESMValTool from source?"
-- "How do I confirm that the installation was succesful?"
+- "How do I confirm that the installation was successful?"
 objectives:
-- "Execute a succesful ESMValTool installation from source"
+- "Execute a successful ESMValTool installation from the source code"
 keypoints:
 - "ESMValTool is installed from source code that lives in the [GitHub
   repository](https://github.com/ESMValGroup/ESMValTool)"
@@ -47,11 +47,11 @@ git clone https://github.com/ESMValGroup/ESMValTool.git
 By default, this command will create a folder called ESMValTool containing the
 source code of the tool.
 
-Move into the directory to continue installation.
+Move into the directory to continue the installation.
 
 > ## Attention
 >
-> Make sure that the master branch is checked out before continuing intallation:
+> Make sure that the master branch is checked out before continuing installation:
 > ~~~bash
 > git checkout master
 > ~~~
@@ -105,7 +105,7 @@ pip install --editable '.[develop]'
 ~~~
 
 This will add the `esmvaltool` directory to the Python path in editable mode and
-install the developemnt dependencies.
+install the development dependencies.
 
 ## Test the installation
 

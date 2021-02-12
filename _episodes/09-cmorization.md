@@ -343,7 +343,7 @@ attributes:
   modeling_realm: reanaly
   project_id: OBS
   source: 'http://www.bgc-jena.mpg.de/geodb/BGI/Home'
-  reference: 'fluxcom'
+  reference: 'doi:10.17871/FLUXCOM_RS_METEO_CRUNCEPv6_1980_2013_v1'
   comment: ''
 
 # Variables to cmorize

@@ -9,8 +9,8 @@ questions:
 
 
 objectives:
-- "Understanding the interface between the ESMValCore preprocessor and a diagnostic script."
 - "Writing a new Python diagnostic"
+- "Understanding the interface between the ESMValCore preprocessor and a diagnostic script."
 
 keypoints:
 - "Take home message 1"

@@ -71,9 +71,12 @@ For example, `write_plots: true` means that diagnostics create plots.
 
 > ## Saving preprocessed data
 >
-> Later in this tutorial, we will want to look at the contents of the `preproc` folder.
-> This folder contains preprocessed data and is removed by default when ESMValTool is run.
-> In the configuration file, which settings can be modified to prevent this from happening?
+> Later in this tutorial, we will want to look at the contents of the
+> `preproc` folder.
+> This folder contains preprocessed data and is removed by default when
+> ESMValTool is run.
+> In the configuration file, which settings can be modified to prevent
+> this from happening?
 >
 >> ## Solution
 >>
@@ -89,10 +92,11 @@ For example, `write_plots: true` means that diagnostics create plots.
 
 ## Destination directory
 
-The destination directory is the rootpath where ESMValTool will store its output folders containing
-e.g. figures, data, logs, etc. With every run, ESMValTool automatically generates
-a new output folder determined by recipe name, and date and time using
-the format: YYYYMMDD_HHMMSS.
+The destination directory is the rootpath where ESMValTool will store its
+output folders containing
+e.g. figures, data, logs, etc. With every run, ESMValTool automatically
+generates a new output folder determined by recipe name, and date and time
+using the format: YYYYMMDD_HHMMSS.
 
 > ## Set the destination directory
 >
@@ -153,28 +157,29 @@ example configuration file.
 >>   You need to add the root path of the folder where the data is available
 >> to the `config-user.yml` file as:
 >>```yaml
->>  rootpath:
->>  ...
->>    CMIP5: ~/esmvaltool_tutorial/data
->>    CMIP6: ~/esmvaltool_tutorial/data
+>>   rootpath:
+>>   ...
+>>     CMIP5: ~/esmvaltool_tutorial/data
+>>     CMIP6: ~/esmvaltool_tutorial/data
 >>```
 >>
 >> - Are you working with on a computer cluster like Jasmin or DKRZ?
 >>   Site-specific path to the data are already listed at the end of the
 >> `config-user.yml` file. You need to uncomment the related lines.
 >> For example, on Jasmin:
+>>
 >>```yaml
->>  # Site-specific entries: Jasmin
->>  # Uncomment the lines below to locate data on JASMIN
->>  rootpath:
->>    CMIP6: /badc/cmip6/data/CMIP6
->>    CMIP5: /badc/cmip5/data/cmip5/output1
->>  #  CMIP3: /badc/cmip3_drs/data/cmip3/output
->>  #  OBS: /group_workspaces/jasmin4/esmeval/obsdata-v2
->>  #  OBS6: /group_workspaces/jasmin4/esmeval/obsdata-v2
->>  #  obs4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
->>  #  ana4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
->>  #  CORDEX: /badc/cordex/data/CORDEX/output
+>>   # Site-specific entries: Jasmin
+>>   # Uncomment the lines below to locate data on JASMIN
+>>   rootpath:
+>>     CMIP6: /badc/cmip6/data/CMIP6
+>>     CMIP5: /badc/cmip5/data/cmip5/output1
+>>   #  CMIP3: /badc/cmip3_drs/data/cmip3/output
+>>   #  OBS: /group_workspaces/jasmin4/esmeval/obsdata-v2
+>>   #  OBS6: /group_workspaces/jasmin4/esmeval/obsdata-v2
+>>   #  obs4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
+>>   #  ana4mips: /group_workspaces/jasmin4/esmeval/obsdata-v2
+>>   #  CORDEX: /badc/cordex/data/CORDEX/output
 >>```
 >>
 >> - For more information about setting the rootpath, see also the ESMValTool
@@ -217,17 +222,17 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >> `config-user.yml` file. You need to uncomment the related lines.
 >> For example, on Jasmin:
 >>```yaml
->>  # Site-specific entries: Jasmin
->>  # Uncomment the lines below to locate data on JASMIN
->>  drs:
->>    CMIP6: BADC
->>    CMIP5: BADC
->>  #  CMIP3: BADC
->>  #  CORDEX: BADC
->>  #  OBS: BADC
->>  #  OBS6: BADC
->>  #  obs4mips: BADC
->>  #  ana4mips: BADC
+>>   # Site-specific entries: Jasmin
+>>   # Uncomment the lines below to locate data on JASMIN
+>>   drs:
+>>     CMIP6: BADC
+>>     CMIP5: BADC
+>>   #  CMIP3: BADC
+>>   #  CORDEX: BADC
+>>   #  OBS: BADC
+>>   #  OBS6: BADC
+>>   #  obs4mips: BADC
+>>   #  ana4mips: BADC
 >>```
 >>
 > {: .solution}
@@ -236,10 +241,10 @@ information about ``drs``, you can visit the ESMValTool documentation on
 > ## Explain the default drs (if working on local machine)
 >
 > 1. In the previous exercise, we set the `drs` of CMIP5 data to `default`.
-> Can you explain why?
->
+>    Can you explain why?
+
 > 2. Have a look at the directory structure of the data.
-> There is the folder `Tier1`. What does it mean?
+>    There is the folder `Tier1`. What does it mean?
 >
 >> ## Solution
 >>
@@ -288,7 +293,8 @@ the tutorial, please set ESMValTool use only 1 cpu:
 Then, check the amount of memory you need for that by inspecting the file
 ``run/resource_usage.txt`` in the output directory. Using the number there you
 can increase the number of parallel tasks again to a reasonable number for the
-amount of memory available in your system. {: .callout}
+amount of memory available in your system.
+{: .callout}
 
 > ## Make your own configuration file
 >

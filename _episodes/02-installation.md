@@ -19,7 +19,7 @@ The instructions help with the installation of ESMValTool on operating systems
 like Linux/MacOSX/Windows.
 We use the [Conda](https://conda.io/projects/conda/en/latest/index.html)
 package manager to
-install the ESMValTool. Other installation methods are also available, they can
+install the ESMValTool. Other installation methods are also available; they can
 be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
 We will first install Conda, and then ESMValTool. We end this chapter by testing

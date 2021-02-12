@@ -26,7 +26,7 @@ write your own new diagnostic.  Diagnostics can be written in a number of open
 source languages such as Python, R, Julia and NCL but we will focus on understanding 
 and writing Python diagnostics in this lesson. In order to access existing diagnostics or
 to write your own, please install ESMValTool in the development mode on your 
-machine using the instructions from [here](https://esmvalgroup.github.io/ESMValTool_Tutorial/08-development-setup/index.html).
+machine using the instructions from [this episode](08-development-setup/index.html).
 
 ## Understanding an existing Python diagnostic
 We revisit a recipe we have seen before, [recipe_python.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml) and the diagnostic script called by this recipe -- [diag_scripts/examples/diagnostic.py](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py). For reference, we have the diagnostic file in the dropdown box below.

@@ -476,6 +476,63 @@ had so nicely pointed out for us)
 - We need to store the data with the correct filename so that the ESMValTool
 will be able to identify it later
 
+But the very first part of the CMORizing script is a header. The header 
+contains information about where to obtain the data, when it was accessed
+the last time, which ESMValTool "tier" it is associated with, and more 
+detailed information about the necessary downloading and processing steps.
+
+> ## Fill out the header for the "FLUXCOM" dataset
+>
+> Fill out the information that is necessary in the header of a CMORizing
+> script for the dataset "FLUXCOM". The different parts that need to be
+> present in the header are the following:
+> - caption: " """ESMValTool CMORizer for FLUXCOM GPP data."
+> - Tier
+> - Source
+> - Last access
+> - Download and processing instructions
+>
+> > ## Answers
+> >
+> > The header for the "FLUXCOM" dataset could look something like this:
+> >
+> > ```python
+> > """ESMValTool CMORizer for FLUXCOM GPP data.
+> > 
+> > Tier
+> >     Tier 3: restricted dataset.
+> > 
+> > Source
+> >     http://www.bgc-jena.mpg.de/geodb/BGI/Home
+> > 
+> > Last access
+> >     20190727
+> > 
+> > Download and processing instructions
+> >     From the website, select FLUXCOM as the data choice and click download.
+> >     Two files will be displayed. One for Land Carbon Fluxes and one for
+> >     Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+> >     CRUNCEP data file has several data files for different variables.
+> >     The data for GPP generated using the
+> >     Artificial Neural Network Method will be in files with name:
+> >     GPP.ANN.CRUNCEPv6.monthly.\*.nc
+> >     A registration is required for downloading the data.
+> >     Users in the UK with a CEDA-JASMIN account may request access to the jules
+> >     workspace and access the data.
+> >     Note : This data may require rechunking of the netcdf files.
+> >     This constraint will not exist once iris is updated to
+> >     version 2.3.0 Aug 2019
+> > """
+> > ```
+> > 
+> > This is the header of the "FLUXCOM" CMORizer that is available with the
+> > ESMValTool already. It is therefore entirely possible that your entries for
+> > the section "Last access" and "Download and processing instructions" 
+> > differ from the example here since the entries for these sections are
+> > somewhat subjective.
+> > 
+> {: .solution}
+{: .challenge}
 
 
 

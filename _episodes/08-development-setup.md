@@ -1,12 +1,14 @@
 ---
-title: "Development Setup"
+title: "Development and contributions"
 teaching: 10
 exercises: 20
 questions:
-- "What are the prerequisites for installing ESMValTool from source?"
+- "What are the prerequisites for installing ESMValTool from the source code?"
 - "How do I confirm that the installation was successful?"
+- "How can I incorporate new or improved codes to esmvaltool?"
 objectives:
-- "Execute a successful ESMValTool installation from the source code"
+- "Execute a successful ESMValTool installation from the source code."
+- "Contribute to esmvaltool development."
 keypoints:
 - "ESMValTool is installed from source code that lives in the [GitHub
   repository](https://github.com/ESMValGroup/ESMValTool)"

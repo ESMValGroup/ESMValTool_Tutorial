@@ -384,26 +384,110 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 > {: .solution}
 {: .challenge}
 
-## 5. Creating a CMORizer script for the new dataset
+## 5. Create a CMORizer for the new dataset
 
-ESMValTool can work with CMORizer scripts written in various programming
-languages, but most of them are written in either Python or NCL. In this
-tutorial we will implement our CMORizer script in Python, but the steps
-that one needs to consider when writing a cmorizer are the same for any
-other language.
+Now that we have the data ready, have told the ESMValTool where to look
+for it, and have made sure that our variable of choice is listed either
+on a pre-existing or custom CMOR table, let's test if the data is actually 
+following the necessary CMOR standard already, or if we have to do some
+reformatting for the dataset.
 
-As mentioned before, we will re-implement the cmorizing script for the
-"FLUXCOM" dataset that is available at the MPI for Biogeochemistry in Jena:
-[cmorize_obs_fluxcom.py]
-(https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py).
+> ## Run the test recipe again
+>
+> Run the test recipe again from earlier where you wanted to check if the
+> ESMValTool can already find and read the freshly downloaded FLUXCOM data.
+>
+> > ## Answers
+> >
+> > ```bash
+> > esmvaltool run recipe_check_fluxnet.yml --log_level debug
+> > ``` 
+> > 
+> > The ESMValTool should now find your FLUXCOM datafile, and the error
+> > message that the ESMValTool can't find the data should now not be present
+> > anymore. However, there are plenty of other error messages around. 
+> > Somewhere within the many messages, you should see this:
+> > 
+> > ```bash
+> > ...
+> > esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
+> > Variable GPP units unknown can not be converted to kg m-2 s-1
+> >  lon: standard_name should be longitude, not None
+> >  lat: standard_name should be latitude, not None
+> >  lon longitude coordinate has values < -360 degrees
+> >  lon longitude coordinate has values > 720 degrees
+> >  lat: has values < valid_min = -90.0
+> >  lat: has values > valid_max = 90.0
+> >  GPP: does not match coordinate rank
+> > in cube:
+> > gross_primary_productivity_of_carbon / (unknown) (time: 12; lat: 360; lon: 720)
+> >      Dimension coordinates:
+> >           time                                        x        -         -
+> >           lat                                         -        x         -
+> >           lon                                         -        -         x
+> >      Attributes:
+> >           created_by: Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber [uweber@bgc-jena.mpg...
+> >           flux: GPP
+> >           forcing: CRUNCEPv6
+> >           institution: MPI-BGC-BGI
+> >           invalid_units: gC m-2 day-1
+> >           method: Artificial Neural Networks
+> >           provided_by: Martin Jung [mjung@bgc-jena.mpg.de] on behalf of FLUXCOM team
+> >           reference: Jung et al. 2016, Nature; Tramontana et al. 2016, Biogeosciences
+> >           source_file: /mnt/lustre02/work/bd0854/b309143/Data/Tier3/FLUXCOM/OBS_FLUXCOM_reana...
+> >           temporal_resolution: monthly
+> >           title: GPP based on FLUXCOM RS+METEO with CRUNCEPv6 climate
+> >           version: v1
+> > ...
+> > ``` 
 
-In a first step we need to create a configuration file for the dataset. This
-is necessary to allow the ESMValTool to retrieve all necessary information
-about the datasets, and to write the filename of the cmorized variable from
-this dataset correctly. This configutation file needs to be stored in the
-following folder:
+> {: .solution}
+{: .challenge}
+
+The error messages that we see tell us that we do have to reformat the dataset
+slightly to have it follow the CMOR standard. It seems like the variable "gpp"
+does not have the correct unit that is given in the CMOR table where it is 
+[defined](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
+It also seems like the "latitude" and "longitude" coordinates have some 
+problems. So let's start writing a short python script that will fix these 
+problems.
+
+The first step now is to create a file in the right folder that will contain
+the short python script. The home of all CMORizer scripts for observations 
+and reanalysis datasets is 
+[here](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/cmorizers/obs). 
+Add a file with the name ``cmorize_obs_fluxcom.py`` to this folder.
+
+> ## Note
+>
+> Always, always, when modifying or creating new code for the ESMValTool 
+> repositories, work on your *own, local* branch of the ESMValTool. Optimally,
+> you have forked that branch directly from the most up-to-date version of 
+> the "master" branch to avoid conflicts later when you want to merge your
+> code with the "master" branch of the ESMValTool. 
+>
+{: .callout}
+
+Within our python script we have to make sure that we cover three main 
+aspects of the reformatting:
+- We need to be able to locate and read the data to be CMORized
+- We have to CMORize the data (fix the CMOR problems that the ESMValTool
+had so nicely pointed out for us)
+- We need to store the data with the correct filename so that the ESMValTool
+will be able to identify it later
+
+
+
+
+
+
+In a next step we need to create a configuration file for the dataset. This
+is necessary to allow the ESMValTool to retrieve all necessary information 
+about the datasets, and to write the filename of the cmorized variable from 
+this dataset correctly. This configutation file needs to be stored in the 
+following folder: 
 ``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``
-It is imporant to note that the name of the configuration file has to be
+It is imporant to note that the name of the configuration file has to be 
 identical to the name of our dataset. For our example the configuration file
 therefore must be called ``FLUXCOM.yml``, and it can be found here:
 [FLUXCOM.yml]
@@ -413,7 +497,7 @@ Let's have a closer look what that configuration file contains:
 
 ```yaml
 ---
-# Filename
+# Filename 
 filename: 'GPP.ANN.CRUNCEPv6.monthly.*.nc'
 
 # Common global attributes for Cmorizer output
@@ -424,7 +508,7 @@ attributes:
   modeling_realm: reanaly
   project_id: OBS
   source: 'http://www.bgc-jena.mpg.de/geodb/BGI/Home'
-  reference: 'doi:10.17871/FLUXCOM_RS_METEO_CRUNCEPv6_1980_2013_v1'
+  reference: 'fluxcom'
   comment: ''
 
 # Variables to cmorize
@@ -436,15 +520,15 @@ variables:
 The first part of this configuration file defines the filename of the raw
 observations file. The second part defines the common global attributes for
 the cmorizer output, e.g. information that is needed to piece together the
-final observations file name in the correct structure
+final observations file name in the correct structure 
 (see Section `6. Naming convention of the observational data files`).
-Another global attribute is ``reference`` which includes a ``doi`` related to
+Another global attribute is ``reference`` which includes a ``doi`` related to 
 the dataset. Please see the section `adding references
 <https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references>`
-on how to add reference tags to the ``reference`` section in the configuration
+on how to add reference tags to the ``reference`` section in the configuration 
 file. If a single dataset has more than one reference,
 it is possible to add tags as a list e.g. ``reference: ['tag1', 'tag2']``.
-The third part in the configuration file defines the variables that are
+The third part in the configuration file defines the variables that are 
 supposed to be cmorized.
 
 in the directory ``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``. Note

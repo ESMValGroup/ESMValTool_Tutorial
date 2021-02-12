@@ -4,8 +4,9 @@ teaching: TBD
 exercises: TBD
 
 questions:
-- "How to read preprocessor output from a Python diagnsotics?"
-- "How to write a new diagnostic in ESMValTool?"
+- "How do I write a new diagnostic in ESMValTool?"
+- "How do I read preprocessor output in a Python diagnostic?"
+
 
 objectives:
 - "Understanding the interface between the ESMValCore preprocessor and a diagnostic script."

@@ -242,7 +242,6 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >
 > 1. In the previous exercise, we set the `drs` of CMIP5 data to `default`.
 >    Can you explain why?
-
 > 2. Have a look at the directory structure of the data.
 >    There is the folder `Tier1`. What does it mean?
 >

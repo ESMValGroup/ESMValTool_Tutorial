@@ -83,7 +83,7 @@ Episodes are [Markdown](https://en.wikipedia.org/wiki/Markdown) files. If you
 are making a new episode or contributing to existing ones, please make sure the
 content conforms to the [Carpentries lesson formatting][swc-lesson-formatting].
 
-We also, recommend using a linter to check errors in Markdown files. For
+We also recommend using a linter to check errors in Markdown files. For
 example, a
 [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 can be installed as an extension in [Visual Studio

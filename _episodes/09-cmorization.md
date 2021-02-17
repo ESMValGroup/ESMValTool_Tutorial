@@ -534,71 +534,110 @@ detailed information about the necessary downloading and processing steps.
 > {: .solution}
 {: .challenge}
 
+Now that we have made sure, that it is clear where our dataset comes from, and
+how we can obtain it, the next step is to add the python code to actually read
+the data.
 
+As we learned earlier, the DRS of the ESMValTool needs some very specific
+pieces of information to build the name for each data file. Since we are now
+trying to introduce a new dataset to the ESMValTool, we will have to specify
+some things to make sure the dataset name can be correctly created, and
+ultimately the ESMValTool knows how to look for the new dataset.
 
-
-
-In a next step we need to create a configuration file for the dataset. This
-is necessary to allow the ESMValTool to retrieve all necessary information 
-about the datasets, and to write the filename of the cmorized variable from 
-this dataset correctly. This configutation file needs to be stored in the 
+Therefore it is necessary to create a configuration file for the new dataset.
+This configutation file needs to be stored in the 
 following folder: 
-``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``
-It is imporant to note that the name of the configuration file has to be 
-identical to the name of our dataset. For our example the configuration file
-therefore must be called ``FLUXCOM.yml``, and it can be found here:
-[FLUXCOM.yml]
-(https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml)
 
-Let's have a closer look what that configuration file contains:
-
-```yaml
----
-# Filename 
-filename: 'GPP.ANN.CRUNCEPv6.monthly.*.nc'
-
-# Common global attributes for Cmorizer output
-attributes:
-  dataset_id: FLUXCOM
-  version: 'ANN-v1'
-  tier: 3
-  modeling_realm: reanaly
-  project_id: OBS
-  source: 'http://www.bgc-jena.mpg.de/geodb/BGI/Home'
-  reference: 'fluxcom'
-  comment: ''
-
-# Variables to cmorize
-variables:
-  gpp:
-    mip: Lmon
+```bash
+ESMValTool/esmvaltool/cmorizers/obs/cmor_config/
 ```
+It is imporant to note that the name of the configuration file has to be 
+identical to the name of the dataset. For our example the configuration file,
+traditionally written in the ``yaml`` format, therefore must be called 
+``FLUXCOM.yml``.
 
-The first part of this configuration file defines the filename of the raw
-observations file. The second part defines the common global attributes for
-the cmorizer output, e.g. information that is needed to piece together the
-final observations file name in the correct structure 
-(see Section `6. Naming convention of the observational data files`).
-Another global attribute is ``reference`` which includes a ``doi`` related to 
-the dataset. Please see the section `adding references
-<https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references>`
-on how to add reference tags to the ``reference`` section in the configuration 
-file. If a single dataset has more than one reference,
-it is possible to add tags as a list e.g. ``reference: ['tag1', 'tag2']``.
-The third part in the configuration file defines the variables that are 
-supposed to be cmorized.
+Let's have a closer look what that configuration file needs to contain:
+- information about the filenames of the raw observation files (stored in the
+"RAWOBS" folder)
+- information about "global attributes" for the netCDF file that will be
+created (both for the name of the file and the metadata that the file needs to
+contain)
+- information about the variables that need to be cmorized
 
-in the directory ``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``. Note
-that the name of this configuration file has to be identical to the name of
-your data set. It is recommended that you set ``project`` to ``OBS6`` in the
-configuration file. That way, the variables defined in the CMIP6 CMOR table,
-augmented with the custom variables described above, are available to your script.
-
-The actual cmorizing script ``cmorize_obs_mte.py`` consists of a header with
-information on where and how to download the data, and noting the last access
-of the data webpage.
-
-The main body of the CMORizer script must contain a function called
+> ## Let's create the configuration file for the "FLUXCOM" dataset
+>
+> Here is the skeleton of the "FLUXCOM" configuration file as it exists in 
+> the ESMValTool framework. Try to fill in all missing pieces of information
+> for this configuration file that are marked with ``???``.
+>
+> ```yaml
+> ---
+> # Filename 
+> filename: ???
+> 
+> # Common global attributes for Cmorizer output
+> attributes:
+>   dataset_id: ???
+>   version: ???
+>   tier: ???
+>   modeling_realm: ???
+>   project_id: ???
+>   source: ???
+>   reference: ???
+>   comment: ???
+> 
+> # Variables to cmorize
+> variables:
+>   ???:
+>     mip: ???
+> ```
+>
+> > ## Answers
+> >
+> > The configuration file for the "FLUXCOM" dataset with all necessary pieces
+> > of information looks  like this:
+> >
+> > ```yaml
+> > ---
+> > # Filename 
+> > filename: 'GPP.ANN.CRUNCEPv6.monthly.*.nc'
+> > 
+> > # Common global attributes for Cmorizer output
+> > attributes:
+> >   dataset_id: FLUXCOM
+> >   version: 'ANN-v1'
+> >   tier: 3
+> >   modeling_realm: reanaly
+> >   project_id: OBS
+> >   source: 'http://www.bgc-jena.mpg.de/geodb/BGI/Home'
+> >   reference: 'fluxcom'
+> >   comment: ''
+> > 
+> > # Variables to cmorize
+> > variables:
+> >   gpp:
+> >     mip: Lmon
+> > ```
+> > 
+> > The original configuration file for the "FLUXCOM" dataset can be
+> > found here:
+> > [FLUXCOM.yml]
+> > (https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml)
+> > 
+> > Note the attribute "reference" here: it should include a ``doi`` related 
+> > to the dataset. For more information on how to add references to the 
+> > ``reference`` section of the configuration file, see the section in the
+> > documentation about this: [adding references]
+> > (https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references)
+> > 
+> > If a single dataset has more than one reference, it is possible to add 
+> > tags as a list e.g. ``reference: ['tag1', 'tag2']``.
+> {: .solution}
+{: .challenge}
+ 
+Now that we have defined the configuration file for our "FLUXCOM" data, we can
+finally start writing the actual code for the CMORizer script. The main body 
+of the CMORizer script must contain a function called
 
 ```python
 def cmorization(in_dir, out_dir, cfg, config_user):
@@ -607,25 +646,212 @@ def cmorization(in_dir, out_dir, cfg, config_user):
 with this exact call signature. Here, ``in_dir`` corresponds to the input
 directory of the raw files, ``out_dir`` to the output directory of final
 reformatted data set and ``cfg`` to the configuration dictionary given by
-the  ``.yml`` configuration file. The return value of this function is ignored. All
-the work, i.e. loading of the raw files, processing them and saving the final
-output, has to be performed inside its body. To simplify this process, ESMValTool
-provides a set of predefined utilities.py_, which can be imported into your CMORizer
-by
+the  ``.yml`` configuration file. The return value of this function is ignored.
+All the work, i.e. loading of the raw files, processing them and saving the 
+final output, has to be performed inside its body. To simplify this process, 
+ESMValTool provides a set of predefined utilities.py_, which can be imported 
+into your CMORizer by
 
 ```python
 from . import utilities as utils
 ```
 
-Apart from a function to easily save data, this module contains different kinds
-of small fixes to the data attributes, coordinates, and metadata which are
-necessary for the data field to be CMOR-compliant.
+Apart from a function to easily save data, this module contains different 
+kinds of small fixes to the data attributes, coordinates, and metadata which 
+are necessary for the data field to be CMOR-compliant. We will come back to 
+these functionalities in a bit. 
 
 Note that this specific CMORizer script contains several subroutines in order
 to make the code clearer and more readable (we strongly recommend to follow
 that code style). For example, the function ``_get_filepath`` converts the raw
 filepath to the correct one and the function ``_extract_variable`` extracts and
 saves a single variable from the raw data.
+
+After all that theory, let's have a look at the actualy python code of the 
+existing "FLUXCOM" CMORizer script. For now, we only want to read in the data
+and then store it in a new file.
+
+```python
+"""ESMValTool CMORizer for FLUXCOM GPP data.
+
+Tier
+    Tier 3: restricted dataset.
+
+Source
+    http://www.bgc-jena.mpg.de/geodb/BGI/Home
+
+Last access
+    20190727
+
+Download and processing instructions
+    From the website, select FLUXCOM as the data choice and click download.
+    Two files will be displayed. One for Land Carbon Fluxes and one for
+    Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+    CRUNCEP data file has several data files for different variables.
+    The data for GPP generated using the
+    Artificial Neural Network Method will be in files with name:
+    GPP.ANN.CRUNCEPv6.monthly.*.nc
+    A registration is required for downloading the data.
+    Users in the UK with a CEDA-JASMIN account may request access to the jules
+    workspace and access the data.
+    Note : This data may require rechunking of the netcdf files.
+    This constraint will not exist once iris is updated to
+    version 2.3.0 Aug 2019
+"""
+import logging
+import os
+import re
+import numpy as np
+import iris
+from . import utilities as utils
+
+logger = logging.getLogger(__name__)
+
+
+def _get_filepath(in_dir, basename):
+    """Find correct name of file (extend basename with timestamp)."""
+    regex = re.compile(basename)
+
+    all_files = [
+        f for f in os.listdir(in_dir)
+        if os.path.isfile(os.path.join(in_dir, f))
+    ]
+    for filename in all_files:
+        if regex.match(filename):
+            return os.path.join(in_dir, basename)
+    raise OSError(
+        f"Cannot find input file matching pattern  '{basename}' in '{in_dir}'")
+
+
+def _extract_variable(cmor_info, attrs, filepath, out_dir):
+    """Extract variable."""
+    var = cmor_info.short_name
+    logger.info("Var is %s", var)
+    cubes = iris.load(filepath)
+    for cube in cubes:
+        logger.info("Saving file")
+        utils.save_variable(cube,
+                            var,
+                            out_dir,
+                            attrs,
+                            unlimited_dimensions=['time'])
+
+
+def cmorization(in_dir, out_dir, cfg, _):
+    """Cmorization func call."""
+    glob_attrs = cfg['attributes']
+    cmor_table = cfg['cmor_table']
+    filepath = _get_filepath(in_dir, cfg['filename'])
+    logger.info("Found input file '%s'", filepath)
+
+    # Run the cmorization
+    for (var, var_info) in cfg['variables'].items():
+        logger.info("CMORizing variable '%s'", var)
+        glob_attrs['mip'] = var_info['mip']
+        logger.info(var_info['mip'])
+        cmor_info = cmor_table.get_variable(var_info['mip'], var)
+        _extract_variable(cmor_info, glob_attrs, filepath, out_dir)
+```
+
+Let's run this CMORizing script to see if the dataset is read correctly, and
+what kind of file is written out. Tere is a specific command available in the
+ESMValTool to run the CMORizing scripts:
+
+```bash
+cmorize_obs -c <config-user.yml> -o <dataset-name>
+```
+
+The ``config-user-yml`` is the file in which we define the different data 
+paths, e.g. where the ESMValTool would find the "RAWOBS" folder. The 
+``dataset-name`` needs to be idential to the folder name that was created
+to store the raw observation data files, in our case this would be "FLUXCOM".
+The ESMValTool will create a folder with the correct tier information in your
+defined output directory if that tier folder is not already available, and 
+then a folder named after the data set. In this folder the cmorized data set 
+will be stored as a netCDF file. If your run was successful, one or more 
+NetCDF files are produced in your output directory.
+
+> ## Was the CMORization successful so far?!
+>
+> If you check the folders in your output path, you should see the following
+> folder structure:
+> ```bash
+> /Tier3/FLUXCOM/
+> ```
+>
+> Within the "FLUXCOM" folder there should be a NetCDF file with the name:
+> ```bash
+> OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc
+> ``` 
+>
+> The "xxxx" represents the start year of the data period you wanted to 
+> CMORize, and the "yyyy" represents the end year.
+> 
+{: .callout}
+
+Great! 
+So we have produced a NetCDF file with the CMORizer that follows the naming
+convention for ESMValTool datasets. Let's have a look at the NetCDF file as 
+it was written with the very basic CMORizer from above (note, we are only 
+looking at the year 1980 in our example).
+ 
+```bash
+netcdf OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012 {
+dimensions:
+        time = UNLIMITED ; // (12 currently)
+        lat = 360 ;
+        lon = 720 ;
+variables:
+        float GPP(time, lat, lon) ;
+                GPP:_FillValue = 1.e+20f ;
+                GPP:long_name = "GPP" ;
+        double time(time) ;
+                time:axis = "T" ;
+                time:units = "days since 1582-10-15 00:00:00" ;
+                time:standard_name = "time" ;
+                time:calendar = "gregorian" ;
+        double lat(lat) ;
+        double lon(lon) ;
+
+// global attributes:
+                :_NCProperties = "version=2,netcdf=4.7.4,hdf5=1.10.6" ;
+                :created_by = "Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber [uweber@bgc-jena.mpg.de]" ;
+                :flux = "GPP" ;
+                :forcing = "CRUNCEPv6" ;
+                :institution = "MPI-BGC-BGI" ;
+                :invalid_units = "gC m-2 day-1" ;
+                :method = "Artificial Neural Networks" ;
+                :provided_by = "Martin Jung [mjung@bgc-jena.mpg.de] on behalf of FLUXCOM team" ;
+                :reference = "Jung et al. 2016, Nature; Tramontana et al. 2016, Biogeosciences" ;
+                :temporal_resolution = "monthly" ;
+                :title = "GPP based on FLUXCOM RS+METEO with CRUNCEPv6 climate " ;
+                :version = "v1" ;
+                :Conventions = "CF-1.7" ;
+}
+```
+
+The file contains a variable named "GPP" that contains three dimensions:
+"time", "lat", "lon". The units for this variable are not defined yet.
+The ESMValTool did not know how to convert from the
+original units to the units that are defined in the CMOR table for the 
+variable "gpp". The original units are therefore listed in the "global
+attributes" section as ``invalid_units``. The ESMValTool recognized that the
+units given in the original file did not match the units given in the CMOR
+table and therefore put the information about the units in the metadata.
+
+If we test this NetCDF file now with our CMOR checker
+```bash
+esmvaltool run recipe_check_fluxcom.yml --log_level debug
+```
+we will encounter an error again. The dataset is not correctly CMORized, and
+the first thing that the ESMValTool complains about is:
+```bash
+iris.exceptions.UnitConversionError: Cannot convert from unknown units. The 
+"units" attribute may be set directly.
+```
+
+Ok, so let's fix the units of the "GPP" variable in the CMORizer. 
+
 
 .. utilities.py: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/cmorizers/obs/utilities.py
 

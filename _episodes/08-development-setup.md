@@ -1,22 +1,22 @@
 ---
-title: "Development and contributions"
+title: "Development and contribution"
 teaching: 10
 exercises: 20
 questions:
-- "What are the prerequisites for installing ESMValTool from the source code?"
-- "How do I confirm that the installation was successful?"
+- "What is a development installation?"
+- "How can I test new or improved codes?"
 - "How can I incorporate new or improved codes to esmvaltool?"
+
 objectives:
 - "Execute a successful ESMValTool installation from the source code."
 - "Contribute to esmvaltool development."
+
 keypoints:
-- "ESMValTool is installed from source code that lives in the [GitHub
-  repository](https://github.com/ESMValGroup/ESMValTool)"
-- "All the required packages can be installed using conda and the
-  [environment.yml
-  file](https://github.com/ESMValGroup/ESMValTool/blob/master/environment.yml)"
-- "You can find more information about installation in the
-  [documentation](https://esmvaltool.readthedocs.io/en/latest/getting_started/install.html)"
+- "A development installation is needed if you want latest features or to incorporate your codes."
+- "Contributions include adding a new or improved script or helping with a review process."
+- "There are several tools to check te quality of your code."
+- "It is possible to run tests on your machine."
+- "You can build documentations locally."
 ---
 
 So you want to contribute code to ESMValTool. What follows describes a

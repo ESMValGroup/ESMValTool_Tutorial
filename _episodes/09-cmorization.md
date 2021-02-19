@@ -1029,7 +1029,7 @@ To do that there are a few more steps you have to do:
 More information about working with pull requests are available in the ESMValTool
 documentation under [Contributing a review](https://esmvaltool--1920.org.readthedocs.build/en/1920/community/review.html)
 
-## Some last comments
+## Some final comments
 
 Adding a new CMORizer to the ESMValTool is definitely already an advanced task
 when working with the ESMValTool. You have to have a basic understanding of

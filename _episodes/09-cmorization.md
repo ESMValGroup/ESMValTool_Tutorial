@@ -1015,39 +1015,32 @@ ESMValTool output:
 INFO    Run was successful
 ```
 
+## Last steps
 
+Congratulations! You have successfully CMORized a new dataset!
+Since you have gone through all the trouble to reformat the dataset so that
+the ESMValTool can work with it, it would be great if you could provide the
+CMORizer, und ultimately with that the dataset, to the rest of the community.
+To do that there are a few more steps you have to do:
+1. Open a pull request in the ESMValTool repository describing the dataset briefly
+2. Add the info of your dataset to the User Guide so that people know it is available for the ESMValTool [Obtaining input data](https://github.com/ESMValGroup/ESMValTool/blob/master/doc/sphinx/source/input.rst)
+3. Make sure that there is a reference file available for the dataset [BibTeX info file](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references)
 
-## Conclusion
+More information about working with pull requests are available in the ESMValTool
+documentation under [Contributing a review](https://esmvaltool--1920.org.readthedocs.build/en/1920/community/review.html)
 
+## Some last comments
 
+Adding a new CMORizer to the ESMValTool is definitely already an advanced task
+when working with the ESMValTool. You have to have a basic understanding of
+how the ESMValTool works and how it's internal structure looks like. In
+addition, you need to have a basic understanding of NetCDF files and a
+programming language. In our example we used python for the CMORizing script 
+since we advocate for focusing the code development on only a few different
+programming languages. This helps to maintain the code and to ensure the 
+compatibility of the code with possible fundamental changes to the structure
+of the ESMValTool and ESMValCore.
+
+More information about adding observations to the ESMValTool can be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/input.html#observations)
 
-## For development purposes
-
-Here are some of the elements that we can add
-
-> ## Example exercise
->
-> This is just a reminder on how to implement exercises
->
-> > ## Example answer
-> >
-> > And this is where to add the answer.
-> > This box will be collapsed in the page is first loaded.
-> >
-> {: .solution}
-{: .challenge}
-
-```bash
-example command line instruction
-```
-
-```
-example error message
-```
-{: .error}
-
-> ## Example callout box
->
-> This is how to create a callout box
-{: .callout}

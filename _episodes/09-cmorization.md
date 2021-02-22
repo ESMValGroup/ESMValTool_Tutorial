@@ -384,7 +384,7 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 > {: .solution}
 {: .challenge}
 
-## 5. Create a CMORizer for the new dataset
+## Create a CMORizer for the new dataset
 
 Now that we have the data ready, have told the ESMValTool where to look
 for it, and have made sure that our variable of choice is listed either
@@ -400,7 +400,7 @@ reformatting for the dataset.
 > > ## Answers
 > >
 > > ```bash
-> > esmvaltool run recipe_check_fluxnet.yml --log_level debug
+> > esmvaltool run recipe_check_fluxcom.yml --log_level debug
 > > ``` 
 > > 
 > > The ESMValTool should now find your FLUXCOM datafile, and the error

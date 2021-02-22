@@ -386,11 +386,20 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 
 ## Create a CMORizer for the new dataset
 
-Now that we have the data ready, have told the ESMValTool where to look
-for it, and have made sure that our variable of choice is listed either
-on a pre-existing or custom CMOR table, let's test if the data is actually 
-following the necessary CMOR standard already, or if we have to do some
-reformatting for the dataset.
+Now that we have the data ready, our first assumption would be that the data
+is already following the CMOR standard. So we store the file in the "OBS6"
+folder of our data path, and rename it manually to an ESMValTool readable 
+name. For our example of the "FLUXCOM" data that we downloaded (which is
+from the year 2000) the name of the dataset would then be:
+
+```bash
+OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+```
+
+We also have made sure that our variable of choice is listed either
+on a pre-existing or custom CMOR table. So now we are ready to test 
+if the data is actually following the necessary CMOR standard already, 
+or if we have to do some reformatting for the dataset.
 
 > ## Run the test recipe again
 >

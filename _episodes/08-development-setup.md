@@ -152,7 +152,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 > Inspect the output of ``pre-commit`` and fix the errors.
 >
-> > ## Answers
+> > ## Solution
 > >
 > >
 > {: .solution}
@@ -165,6 +165,7 @@ What it hasen’t done is show us how to tell whether our code is getting the ri
 To achieve that, we can run tests using ``pytest`` locally:
 
 > ~~~bash
+> conda activate esmvaltool
 > cd ESMValTool
 > git checkout your_branch_name
 > pytest
@@ -174,6 +175,100 @@ Tests will also be run automatically by [CircleCI](https://circleci.com/), when 
 
 ### Build documentation
 
+Documentations are available on [docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
+The source files are located in ``ESMValTool/doc/sphinx/source/``.
 
+To build documentations locally, we run:
+
+> ~~~bash
+> conda activate esmvaltool
+> cd ESMValTool
+> git checkout your_branch_name
+> python setup.py build_sphinx -Ea
+> ~~~
+
+Similar to codes, documentations should be well written and adhere to standards.
+If documentations are buit properly, the previous command prints a message to the console:
+
+> ~~~bash
+> build succeeded.
+>
+> The HTML pages are in doc/sphinx/build/html.
+> ~~~
+
+The main page of the documentation as been built into ``index.html``
+in ``doc/sphinx/build/html`` directory.
+To preview this page locally, we open the file in a web browser:
+
+> ~~~bash
+> xdg-open doc/sphinx/build/html/index.html
+> ~~~
+
+> ## Creating a documenation
+>
+> Let's checkout our local branch and add the recipe
+> [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
+> to the the ``example`` directory:
+>
+> ~~~bash
+> cd ESMValTool
+> git checkout your_branch_name
+> cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/examples/
+> ~~~
+>
+> Then, we create a documentation file ``recipe_warming_stripes.rst`` for this recipe:
+>
+> ~~~bash
+> nano doc/sphinx/source/recipes/recipe_warming_stripes.rst
+> ~~~
+>
+> Add a reference i.e. ``.. _recipe_warming_stripes:``, a section title
+> and some text about the recipe:
+>
+> ~~~rst
+> .. _recipe_warming_stripes:
+>
+> Reproducing Ed Hawkins' warming stripes visualization
+> ======================================================
+>
+> This recipe produces warming stripes plots.
+> ~~~
+>
+> We can think of this file as one page of a book.
+> Then, we need to decide where this page should be located inside the book.
+> The table of content is defined by ``index.rst``:
+>
+> ~~~bash
+> nano doc/sphinx/source/recipes/index.rst
+> ~~~
+>
+> Add the name of the recipe ``recipe_warming_stripes`` to
+> the section ``Other`` in this file and
+> preview the recipe documentation page locally.
+>
+>> ## Solution
+>>
+>> First, add the name of the recipe ``recipe_warming_stripes`` to
+>> the section ``Other``:
+>>
+>> ~~~rst
+>> Other
+>> ^^^^^
+>> .. toctree::
+>>   :maxdepth: 1
+>>   ...
+>>   ...
+>>   recipe_warming_stripes
+>> ~~~
+>>
+>> Then, build and preview the documentation page:
+>>
+>> ~~~bash
+>> python setup.py build_sphinx -Ea
+>> xdg-open doc/sphinx/build/html/recipes/recipe_warming_stripes.html
+>> ~~~
+>>
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}

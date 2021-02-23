@@ -101,7 +101,7 @@ python setup.py test --installation
 ## Contribution
 
 ESMValTool is an open-source project in ESMValGroup.
-You can contribute to its development by:
+We can contribute to its development by:
 
 - a new or updated recipe script, see lesson on
 [Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %})
@@ -112,9 +112,22 @@ You can contribute to its development by:
 - helping  with reviewing process of pull requests, see documentation on
 [Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
 
-If you would like to add **what is already discussed in an
-[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository,
-you need to create a new branch locally and checkout it. To do this, follow the commands:
+The next sections will explore the ways we can achieve this.
+
+### GitHub workflow
+
+We first discuss our idea in an
+**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
+
+Then, we create a new ``branch`` locally and start developing new codes.
+Once our development is finished, we can initiate a ``pull request``.
+The pull request will then be tested, discussed and merged. This is called "**review process**".
+For a full description of the workflow, please see ESMValTool documentation on
+[Contributing to the community » GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
+
+Using the workflow will take some effort and time to learn.
+However, a few “tools” i.e. command lines gets you a long way,
+and we’ll cover those essentials in this lesson.
 
 ~~~bash
 cd ESMValTool
@@ -123,12 +136,12 @@ git pull
 git checkout -b your_branch_name
 ~~~
 
-## Check code quality
+### Check code quality
 
 
-## Run tests
+### Run tests
 
-## Build documentation
+### Build documentation
 
 
 

@@ -164,8 +164,19 @@ To explore other tools, have a look at ESMValTool documentation on
 > {: .solution}
 {: .challenge}
 
-### Run tests
+### Run unit tests
 
+Previous section introduced some tools to check code style and quality.
+What it hasen’t done is show us how to tell whether our code is getting the right answer.
+To achieve that, we can run tests using ``pytest`` locally:
+
+> ~~~bash
+> cd ESMValTool
+> git checkout your_branch_name
+> pytest
+> ~~~
+
+Tests will also be run automatically by [CircleCI](https://circleci.com/), when you submit a pull request.
 
 ### Build documentation
 

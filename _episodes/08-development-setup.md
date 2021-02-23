@@ -114,20 +114,19 @@ We can contribute to its development by:
 
 The next sections will explore the ways we can achieve this.
 
-### GitHub workflow
+### Review process
 
 We first discuss our idea in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
-
 Then, we create a new ``branch`` locally and start developing new codes.
 Once our development is finished, we can initiate a ``pull request``.
-The pull request will then be tested, discussed and merged. This is called "**review process**".
+For a full description of the GitHub workflow, please see ESMValTool documentation on
+[GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
 
-Using the workflow will take some effort and time to learn.
+The pull request will be tested, discussed and merged. This is called "**review process**".
+The process will take some effort and time to learn.
 However, a few “tools” i.e. command lines gets you a long way,
 and we’ll cover those essentials in this lesson.
-For a full description of the workflow, please see ESMValTool documentation on
-[Contributing to the community » GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
 
 ### Check code quality
 
@@ -165,8 +164,8 @@ To explore other tools, have a look at ESMValTool documentation on
 > {: .solution}
 {: .challenge}
 
-
 ### Run tests
+
 
 ### Build documentation
 

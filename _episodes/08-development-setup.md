@@ -90,13 +90,7 @@ works properly. To do this, run the tool with:
 esmvaltool --help
 ~~~
 
-If everything is installed properly, ESMValTool prints a
-help message to the console. For a more complete installation verification,
-we can run the automated tests:
-
-~~~bash
-python setup.py test --installation
-~~~
+If everything is installed properly, ESMValTool prints a help message to the console.
 
 ## Contribution
 

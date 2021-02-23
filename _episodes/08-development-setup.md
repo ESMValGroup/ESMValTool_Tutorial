@@ -122,21 +122,48 @@ We first discuss our idea in an
 Then, we create a new ``branch`` locally and start developing new codes.
 Once our development is finished, we can initiate a ``pull request``.
 The pull request will then be tested, discussed and merged. This is called "**review process**".
-For a full description of the workflow, please see ESMValTool documentation on
-[Contributing to the community » GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
 
 Using the workflow will take some effort and time to learn.
 However, a few “tools” i.e. command lines gets you a long way,
 and we’ll cover those essentials in this lesson.
-
-~~~bash
-cd ESMValTool
-git checkout master
-git pull
-git checkout -b your_branch_name
-~~~
+For a full description of the workflow, please see ESMValTool documentation on
+[Contributing to the community » GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
 
 ### Check code quality
+
+We aim to adhere to best practices and coding standards. The good news is that there are
+several tools that we can use to check our code against those standards.
+
+As an example, ``Pre-commit`` is a tool that checks your code for any invalid syntax and formatting errors.
+To explore other tools, have a look at ESMValTool documentation on
+[Code style](https://docs.esmvaltool.org/en/latest/community/introduction.html#code-style).
+
+> ## Using Pre-commit
+>
+> Let's checkout our local branch and add the script
+> [warming_stripes.py](../files/warming_stripes.py) to the ``example`` directory.
+>
+> ~~~bash
+> cd ESMValTool
+> git checkout your_branch_name
+> cp path_of_warming_stripes.py esmvaltool/diag_scripts/examples/
+> ~~~
+>
+> By default, ``pre-commit`` only runs on the files that have been changed, and staged in git:
+>
+> ~~~bash
+> git status
+> git add esmvaltool/diag_scripts/examples/warming_stripes.py
+> pre-commit run --files esmvaltool/diag_scripts/examples/warming_stripes.py
+> ~~~
+>
+> Inspect the output of ``pre-commit`` and fix the errors.
+>
+> > ## Answers
+> >
+> >
+> {: .solution}
+{: .challenge}
 
 
 ### Run tests

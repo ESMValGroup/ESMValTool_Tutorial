@@ -74,6 +74,15 @@ The environment is called ``esmvaltool`` by default. Let's activate the environm
 conda activate esmvaltool
 ~~~
 
+> ## environment name
+>
+> If an ``esmvaltool`` environment is already created following the lesson
+> [Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
+> first delet that environment or choose another name for the new environment in this lesson.
+> For more information see
+> [Conda Managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+{: .callout}
+
 ### 3 ESMValTool installation
 
 ESMValTool can be installed in a ``develop`` mode by running:
@@ -82,7 +91,7 @@ ESMValTool can be installed in a ``develop`` mode by running:
 pip install --editable '.[develop]'
 ~~~
 
-This will add the `esmvaltool` directory to the Python path in editable mode and
+This will add the ``esmvaltool`` directory to the Python path in editable mode and
 install the development dependencies. We should check if the installation
 works properly. To do this, run the tool with:
 
@@ -90,7 +99,30 @@ works properly. To do this, run the tool with:
 esmvaltool --help
 ~~~
 
-If everything is installed properly, ESMValTool prints a help message to the console.
+If installation is successful, ESMValTool prints a help message to the console.
+
+> ## Checking the development installation
+>
+> We can use the command ``conda list`` to list installed packages in the ``esmvaltool`` environment.
+> Use this command to check that ESMValTool is installed in a ``develop`` mode.
+> Tips: see the [documentation on conda list](https://docs.conda.io/projects/conda/en/latest/commands/list.html).
+>
+>> ## Solution
+>>
+>> Run:
+>>
+>> ~~~bash
+>> conda list esmvaltool
+>>~~~
+>>
+>> ~~~bash
+>> # Name                    Version                   Build  Channel
+>> esmvaltool                2.1.1                     dev_0    <develop>
+>>~~~
+>>
+>> As can be seen, it is mentioned ``<develop>`` under the ``Channel``.
+> {: .solution}
+{: .challenge}
 
 ## Contribution
 

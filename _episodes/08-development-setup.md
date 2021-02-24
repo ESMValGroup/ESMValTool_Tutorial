@@ -226,7 +226,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >> by one line.
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
 >> We should check our codes regarding the usage of ``nx``.
->>
+>> For now, let's assume that it is added by mistake and remove it.
 > {: .solution}
 {: .challenge}
 
@@ -244,6 +244,43 @@ To achieve that, we can run tests using ``pytest`` locally:
 > ~~~
 
 Tests will also be run automatically by [CircleCI](https://circleci.com/), when you submit a pull request.
+
+> ## Running tests
+>
+> Let's checkout our local branch and add the recipe
+> [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
+> to the the ``example`` directory:
+>
+> ~~~bash
+> cd ESMValTool
+> git checkout your_branch_name
+> cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/examples/
+> ~~~
+>
+> Run ``pytest`` and inspect the results. If a test is failed, try to fix it.
+>
+>> ## Solution
+>>
+>> When ``pytest`` run is complete, you can inspect the test reports
+>> that are printed in the console. Have a look at the second section of the report
+>> ``FAILURES``:
+>>
+>> ~~~ bash
+>> ===================================================================================== FAILURES ======================================================================================
+>> ______________________________________________________________ test_recipe_valid[examples/recipe_warming_stripes.yml] _______________________________________________________________
+>>~~~
+>>
+>> The test message shows that the recipe ``recipe_warming_stripes.yml`` has a problem.
+>> Look for a line that starts with an ``E`` in the rest of the message:
+>>
+>> ~~~ bash
+>>
+>> E           esmvalcore._task.DiagnosticError: Cannot execute script '~/esmvaltool_tutorial/warming_stripes.py' (~/esmvaltool_tutorial/warming_stripes.py): file does not exist.
+>>~~~
+>>
+>> It seems that we need to set a correct path for the diagnostic script ``warming_stripes.py`` in our recipe!
+> {: .solution}
+{: .challenge}
 
 ### Build documentation
 
@@ -277,17 +314,9 @@ To preview this page locally, we open the file in a web browser:
 
 > ## Creating a documenation
 >
-> Let's checkout our local branch and add the recipe
-> [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
-> to the the ``example`` directory:
->
-> ~~~bash
-> cd ESMValTool
-> git checkout your_branch_name
-> cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/examples/
-> ~~~
->
-> Then, we create a documentation file ``recipe_warming_stripes.rst`` for this recipe:
+> In previous exercises, we added the recipe
+> [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml) to ESMValTool.
+> Now, we create a documentation file ``recipe_warming_stripes.rst`` for this recipe:
 >
 > ~~~bash
 > nano doc/sphinx/source/recipes/recipe_warming_stripes.rst

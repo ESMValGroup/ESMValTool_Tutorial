@@ -172,7 +172,8 @@ To explore other tools, have a look at ESMValTool documentation on
 > ## Using pre-commit
 >
 > Let's checkout our local branch and add the script
-> [warming_stripes.py](../files/warming_stripes.py) to the ``example`` directory.
+> [warming_stripes.py](../files/warming_stripes.py) to the
+> ``esmvaltool/diag_scripts/example`` directory.
 >
 > ~~~bash
 > cd ESMValTool
@@ -249,7 +250,7 @@ Tests will also be run automatically by [CircleCI](https://circleci.com/), when 
 >
 > Let's checkout our local branch and add the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
-> to the the ``example`` directory:
+> to the the ``esmvaltool/recipes/example`` directory:
 >
 > ~~~bash
 > cd ESMValTool
@@ -261,16 +262,22 @@ Tests will also be run automatically by [CircleCI](https://circleci.com/), when 
 >
 >> ## Solution
 >>
+>> Run:
+>>
+>> ~~~bash
+>> pytest
+>> ~~~
+>>
 >> When ``pytest`` run is complete, you can inspect the test reports
 >> that are printed in the console. Have a look at the second section of the report
 >> ``FAILURES``:
 >>
 >> ~~~ bash
->> ===================================================================================== FAILURES ======================================================================================
->> ______________________________________________________________ test_recipe_valid[examples/recipe_warming_stripes.yml] _______________________________________________________________
->>~~~
+>> ================================ FAILURES ==========================================
+>> ______________ test_recipe_valid[examples/recipe_warming_stripes.yml] ______________
+>> ~~~
 >>
->> The test message shows that the recipe ``recipe_warming_stripes.yml`` has a problem.
+>> The test message shows that the recipe ``recipe_warming_stripes.yml`` is not a valid recipe.
 >> Look for a line that starts with an ``E`` in the rest of the message:
 >>
 >> ~~~ bash
@@ -323,7 +330,7 @@ To preview this page locally, we open the file in a web browser:
 > ~~~
 >
 > Add a reference i.e. ``.. _recipe_warming_stripes:``, a section title
-> and some text about the recipe:
+> and some text about the recipe like:
 >
 > ~~~rst
 > .. _recipe_warming_stripes:
@@ -334,22 +341,20 @@ To preview this page locally, we open the file in a web browser:
 > This recipe produces warming stripes plots.
 > ~~~
 >
-> We can think of this file as one page of a book.
+> Save and close the file. We can think of this file as one page of a book.
 > Then, we need to decide where this page should be located inside the book.
-> The table of content is defined by ``index.rst``:
+> The table of content is defined by ``index.rst``. Let's have a look at the content:
 >
 > ~~~bash
 > nano doc/sphinx/source/recipes/index.rst
 > ~~~
 >
-> Add the name of the recipe ``recipe_warming_stripes`` to
-> the section ``Other`` in this file and
-> preview the recipe documentation page locally.
+> Add the recipe name i.e. ``recipe_warming_stripes`` to the section ``Other`` in this file
+> and preview the recipe documentation page locally.
 >
 >> ## Solution
 >>
->> First, add the name of the recipe ``recipe_warming_stripes`` to
->> the section ``Other``:
+>> First, we add the recipe name ``recipe_warming_stripes`` to the section ``Other``:
 >>
 >> ~~~rst
 >> Other
@@ -361,7 +366,7 @@ To preview this page locally, we open the file in a web browser:
 >>   recipe_warming_stripes
 >> ~~~
 >>
->> Then, build and preview the documentation page:
+>> Then, we build and preview the documentation page:
 >>
 >> ~~~bash
 >> python setup.py build_sphinx -Ea

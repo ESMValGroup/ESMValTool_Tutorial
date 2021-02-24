@@ -12,11 +12,11 @@ objectives:
 - "Contribute to ESMValTool development."
 
 keypoints:
-- "A development installation is needed if you want to incorporate your codes."
+- "A development installation is needed if you want to incorporate your codes to ESMValTool."
 - "Contributions include adding a new or improved script or helping with a review process."
 - "There are several tools to check the quality of your code."
 - "It is possible to run tests on your machine."
-- "You can build documentations locally."
+- "You can preview documentation pages locally."
 ---
 
 We now know how ESMValTool works, but how do we develop it?
@@ -40,15 +40,18 @@ Let’s get started.
 ### 1 Source code
 
 The ESMValTool source code is available on a public GitHub repository:
-[https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool)
+[https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool).
 To obtain the code, the easiest way is to clone the repository:
 
 ~~~bash
 git clone https://github.com/ESMValGroup/ESMValTool.git
 ~~~
 
-This command will create a folder called ESMValTool containing
-the source code of the tool. To continue the installation, move into the directory
+This command will ask your GitHub username and a personal **token** as password. Please follow instructions on
+[GitHub token authentication requirements](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today) to create a personal access token.
+After the authentication, a folder called ``ESMValTool`` is created in your working directory.
+This folder contains the source code of the tool.
+To continue the installation, we move into the ``ESMValTool`` directory
 and check out the ``master`` branch:
 
 ~~~bash
@@ -59,16 +62,16 @@ git checkout master
 ### 2 ESMValTool dependencies
 
 It is recommended to use conda to manage ESMValTool dependencies. For a minimal
-conda installation, see section **Install Conda**, in lesson
+conda installation, see section **Install Conda** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 To simplify the installation process, an environment file ``environment.yml`` is
-provided in the ESMValTool direcotry. To create an environment run:
+provided in the ESMValTool directory. We create an environment by running:
 
 ~~~bash
 conda env create --file environment.yml
 ~~~
 
-The environment is called ``esmvaltool`` by default. Let's activate the environment:
+The environment is called ``esmvaltool`` by default. Now, we should activate the environment:
 
 ~~~bash
 conda activate esmvaltool
@@ -78,9 +81,9 @@ conda activate esmvaltool
 >
 > If an ``esmvaltool`` environment is already created following the lesson
 > [Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
-> first delet that environment or choose another name for the new environment in this lesson.
+> first delete it or choose another name for the new environment in this lesson.
 > For more information see
-> [Conda Managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+> [conda managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 {: .callout}
 
 ### 3 ESMValTool installation
@@ -100,6 +103,8 @@ esmvaltool --help
 ~~~
 
 If installation is successful, ESMValTool prints a help message to the console.
+For more details about development installation, see ESMValTool documentation on
+[install from source](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source).
 
 > ## Checking the development installation
 >
@@ -135,7 +140,7 @@ We can contribute to its development by:
 [Writing your own diagnostic script]
 - a new or updated cmorizer script, see lesson on
 [CMORization: Using observational datasets]
-- helping  with reviewing process of pull requests, see documentation on
+- helping  with reviewing process of pull requests, see ESMValTool documentation on
 [Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
 
 The next sections will explore the ways we can achieve this.
@@ -152,7 +157,7 @@ For a full description of the GitHub workflow, please see ESMValTool documentati
 The pull request will be tested, discussed and merged. This is called "**review process**".
 The process will take some effort and time to learn.
 However, a few “tools” i.e. command lines gets you a long way,
-and we’ll cover those essentials in this lesson.
+and we’ll cover those essentials in the next sections.
 
 ### Check code quality
 
@@ -217,9 +222,10 @@ To explore other tools, have a look at ESMValTool documentation on
 >> As can be seen above, there are two ``Failed`` check:
 >>
 >> 1. ``docformatter``: it is mentioned that "files were modified by this hook".
->> We run ``git diff`` to see the modifications.
+>> We run ``git diff`` to see the modifications. The syntax ``"""`` at the end of docstring is moved
+>> by one line.
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
->> We should remove this variable from the script.
+>> We should check our codes regarding the usage of ``nx``.
 >>
 > {: .solution}
 {: .challenge}
@@ -243,7 +249,6 @@ Tests will also be run automatically by [CircleCI](https://circleci.com/), when 
 
 Documentations are available on [docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
 The source files are located in ``ESMValTool/doc/sphinx/source/``.
-
 To build documentations locally, we run:
 
 > ~~~bash

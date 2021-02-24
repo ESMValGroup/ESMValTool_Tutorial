@@ -47,8 +47,10 @@ To obtain the code, the easiest way is to clone the repository:
 git clone https://github.com/ESMValGroup/ESMValTool.git
 ~~~
 
-This command will ask your GitHub username and a personal **token** as password. Please follow instructions on
-[GitHub token authentication requirements](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today) to create a personal access token.
+This command will ask your GitHub username and a personal **token** as password.
+Please follow instructions on
+[GitHub token authentication requirements][token-authentication-requirements]
+to create a personal access token.
 After the authentication, a folder called ``ESMValTool`` is created in your working directory.
 This folder contains the source code of the tool.
 To continue the installation, we move into the ``ESMValTool`` directory
@@ -83,7 +85,7 @@ conda activate esmvaltool
 > [Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
 > first delete it or choose another name for the new environment in this lesson.
 > For more information see
-> [conda managing environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+> [conda managing environments][manage-environments].
 {: .callout}
 
 ### 3 ESMValTool installation
@@ -104,13 +106,16 @@ esmvaltool --help
 
 If installation is successful, ESMValTool prints a help message to the console.
 For more details about development installation, see ESMValTool documentation on
-[install from source](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source).
+[install from source][install-from-source].
 
 > ## Checking the development installation
 >
-> We can use the command ``conda list`` to list installed packages in the ``esmvaltool`` environment.
+> We can use the command ``conda list`` to list installed packages in
+> the ``esmvaltool`` environment.
 > Use this command to check that ESMValTool is installed in a ``develop`` mode.
-> Tips: see the [documentation on conda list](https://docs.conda.io/projects/conda/en/latest/commands/list.html).
+>
+> **Tips**: see the
+> [documentation on conda list](https://docs.conda.io/projects/conda/en/latest/commands/list.html).
 >
 >> ## Solution
 >>
@@ -217,14 +222,15 @@ To explore other tools, have a look at ESMValTool documentation on
 >> - hook id: flake8
 >> - exit code: 1
 >>
->> esmvaltool/diag_scripts/examples/warming_stripes.py:20:5: F841 local variable 'nx' is assigned to but never used
+>> esmvaltool/diag_scripts/examples/warming_stripes.py:20:5:
+>> F841 local variable 'nx' is assigned to but never used
 >> ~~~
 >>
 >> As can be seen above, there are two ``Failed`` check:
 >>
 >> 1. ``docformatter``: it is mentioned that "files were modified by this hook".
->> We run ``git diff`` to see the modifications. The syntax ``"""`` at the end of docstring is moved
->> by one line.
+>> We run ``git diff`` to see the modifications.
+>> The syntax ``"""`` at the end of docstring is moved by one line.
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
 >> We should check our codes regarding the usage of ``nx``.
 >> For now, let's assume that it is added by mistake and remove it.
@@ -237,14 +243,15 @@ Previous section introduced some tools to check code style and quality.
 What it hasen’t done is show us how to tell whether our code is getting the right answer.
 To achieve that, we can run tests using ``pytest`` locally:
 
-> ~~~bash
-> conda activate esmvaltool
-> cd ESMValTool
-> git checkout your_branch_name
-> pytest
-> ~~~
+~~~bash
+conda activate esmvaltool
+cd ESMValTool
+git checkout your_branch_name
+pytest
+~~~
 
-Tests will also be run automatically by [CircleCI](https://circleci.com/), when you submit a pull request.
+Tests will also be run automatically by [CircleCI](https://circleci.com/),
+when you submit a pull request.
 
 > ## Running tests
 >
@@ -282,42 +289,46 @@ Tests will also be run automatically by [CircleCI](https://circleci.com/), when 
 >>
 >> ~~~ bash
 >>
->> E           esmvalcore._task.DiagnosticError: Cannot execute script '~/esmvaltool_tutorial/warming_stripes.py' (~/esmvaltool_tutorial/warming_stripes.py): file does not exist.
+>> E           esmvalcore._task.DiagnosticError: Cannot execute script
+>> '~/esmvaltool_tutorial/warming_stripes.py' (~/esmvaltool_tutorial/warming_stripes.py):
+>> file does not exist.
 >>~~~
 >>
->> It seems that we need to set a correct path for the diagnostic script ``warming_stripes.py`` in our recipe!
+>> It seems that we need to set a correct path for the diagnostic script
+>> ``warming_stripes.py`` in our recipe!
 > {: .solution}
 {: .challenge}
 
 ### Build documentation
 
-Documentations are available on [docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
+Documentations are available on
+[docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
 The source files are located in ``ESMValTool/doc/sphinx/source/``.
 To build documentations locally, we run:
 
-> ~~~bash
-> conda activate esmvaltool
-> cd ESMValTool
-> git checkout your_branch_name
-> python setup.py build_sphinx -Ea
-> ~~~
+~~~bash
+conda activate esmvaltool
+cd ESMValTool
+git checkout your_branch_name
+python setup.py build_sphinx -Ea
+~~~
 
 Similar to codes, documentations should be well written and adhere to standards.
 If documentations are buit properly, the previous command prints a message to the console:
 
-> ~~~bash
-> build succeeded.
->
-> The HTML pages are in doc/sphinx/build/html.
-> ~~~
+~~~bash
+build succeeded.
+
+The HTML pages are in doc/sphinx/build/html.
+~~~
 
 The main page of the documentation has been built into ``index.html``
 in ``doc/sphinx/build/html`` directory.
 To preview this page locally, we open the file in a web browser:
 
-> ~~~bash
-> xdg-open doc/sphinx/build/html/index.html
-> ~~~
+~~~bash
+xdg-open doc/sphinx/build/html/index.html
+~~~
 
 > ## Creating a documenation
 >
@@ -332,7 +343,7 @@ To preview this page locally, we open the file in a web browser:
 > Add a reference i.e. ``.. _recipe_warming_stripes:``, a section title
 > and some text about the recipe like:
 >
-> ~~~rst
+> ~~~markdown
 > .. _recipe_warming_stripes:
 >
 > Reproducing Ed Hawkins' warming stripes visualization
@@ -356,7 +367,7 @@ To preview this page locally, we open the file in a web browser:
 >>
 >> First, we add the recipe name ``recipe_warming_stripes`` to the section ``Other``:
 >>
->> ~~~rst
+>> ~~~markdown
 >> Other
 >> ^^^^^
 >> .. toctree::
@@ -377,3 +388,7 @@ To preview this page locally, we open the file in a web browser:
 {: .challenge}
 
 {% include links.md %}
+
+[token-authentication-requirements]: https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today
+[manage-environments]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
+[install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source

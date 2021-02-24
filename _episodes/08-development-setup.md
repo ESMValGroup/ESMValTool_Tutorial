@@ -343,7 +343,7 @@ xdg-open doc/sphinx/build/html/index.html
 > Add a reference i.e. ``.. _recipe_warming_stripes:``, a section title
 > and some text about the recipe like:
 >
-> ~~~markdown
+> ~~~source
 > .. _recipe_warming_stripes:
 >
 > Reproducing Ed Hawkins' warming stripes visualization
@@ -367,7 +367,7 @@ xdg-open doc/sphinx/build/html/index.html
 >>
 >> First, we add the recipe name ``recipe_warming_stripes`` to the section ``Other``:
 >>
->> ~~~markdown
+>> ~~~source
 >> Other
 >> ^^^^^
 >> .. toctree::

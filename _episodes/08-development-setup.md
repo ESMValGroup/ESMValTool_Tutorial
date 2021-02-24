@@ -127,11 +127,12 @@ and we’ll cover those essentials in this lesson.
 We aim to adhere to best practices and coding standards. The good news is that there are
 several tools that we can use to check our code against those standards.
 
-As an example, ``Pre-commit`` is a tool that checks your code for any invalid syntax and formatting errors.
+As an example, ``Pre-commit`` is a tool that checks your code for any invalid syntax
+and formatting errors. It also fixes some of those errors.
 To explore other tools, have a look at ESMValTool documentation on
 [Code style](https://docs.esmvaltool.org/en/latest/community/introduction.html#code-style).
 
-> ## Using Pre-commit
+> ## Using pre-commit
 >
 > Let's checkout our local branch and add the script
 > [warming_stripes.py](../files/warming_stripes.py) to the ``example`` directory.
@@ -142,7 +143,7 @@ To explore other tools, have a look at ESMValTool documentation on
 > cp path_of_warming_stripes.py esmvaltool/diag_scripts/examples/
 > ~~~
 >
-> By default, ``pre-commit`` only runs on the files that have been changed, and staged in git:
+> By default, ``pre-commit`` only runs on the files that have been staged in git:
 >
 > ~~~bash
 > git status
@@ -150,11 +151,44 @@ To explore other tools, have a look at ESMValTool documentation on
 > pre-commit run --files esmvaltool/diag_scripts/examples/warming_stripes.py
 > ~~~
 >
-> Inspect the output of ``pre-commit`` and fix the errors.
+> Inspect the output of ``pre-commit`` and fix the remaining errors.
 >
-> > ## Solution
-> >
-> >
+>> ## Solution
+>>
+>> The output of  ``pre-commit``:
+>>
+>> ~~~ bash
+>> Check for added large files..............................................Passed
+>> Check python ast.........................................................Passed
+>> Check for case conflicts.................................................Passed
+>> Check for merge conflicts................................................Passed
+>> Debug Statements (Python)................................................Passed
+>> Fix End of Files.........................................................Passed
+>> Trim Trailing Whitespace.................................................Passed
+>> yamllint.............................................(no files to check)Skipped
+>> nclcodestyle.........................................(no files to check)Skipped
+>> style-files..........................................(no files to check)Skipped
+>> lintr................................................(no files to check)Skipped
+>> codespell................................................................Passed
+>> isort....................................................................Passed
+>> yapf.....................................................................Passed
+>> docformatter.............................................................Failed
+>> - hook id: docformatter
+>> - files were modified by this hook
+>> flake8...................................................................Failed
+>> - hook id: flake8
+>> - exit code: 1
+>>
+>> esmvaltool/diag_scripts/examples/warming_stripes.py:20:5: F841 local variable 'nx' is assigned to but never used
+>> ~~~
+>>
+>> As can be seen above, there are two ``Failed`` check:
+>>
+>> 1. ``docformatter``: it is mentioned that "files were modified by this hook".
+>> We run ``git diff`` to see the modifications.
+>> 2. ``flake8``: the error message is about an unused local variable ``nx``.
+>> We should remove this variable from the script.
+>>
 > {: .solution}
 {: .challenge}
 
@@ -196,7 +230,7 @@ If documentations are buit properly, the previous command prints a message to th
 > The HTML pages are in doc/sphinx/build/html.
 > ~~~
 
-The main page of the documentation as been built into ``index.html``
+The main page of the documentation has been built into ``index.html``
 in ``doc/sphinx/build/html`` directory.
 To preview this page locally, we open the file in a web browser:
 

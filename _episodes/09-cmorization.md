@@ -553,13 +553,13 @@ some things to make sure the dataset name can be correctly created, and
 ultimately the ESMValTool knows how to look for the new dataset.
 
 Therefore it is necessary to create a configuration file for the new dataset.
-This configutation file needs to be stored in the
+This configuration file needs to be stored in the
 following folder:
 
 ```bash
 ESMValTool/esmvaltool/cmorizers/obs/cmor_config/
 ```
-It is imporant to note that the name of the configuration file has to be
+It is important to note that the name of the configuration file has to be
 identical to the name of the dataset. For our example the configuration file,
 traditionally written in the ``yaml`` format, therefore must be called
 ``FLUXCOM.yml``.

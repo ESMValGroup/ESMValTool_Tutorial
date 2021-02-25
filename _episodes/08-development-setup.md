@@ -316,7 +316,7 @@ python setup.py build_sphinx -Ea
 ~~~
 
 Similar to codes, documentations should be well written and adhere to standards.
-If documentations are buit properly, the previous command prints a message to the console:
+If the documentation is built properly, the previous command prints a message to the console:
 
 ~~~bash
 build succeeded.

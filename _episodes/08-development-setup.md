@@ -20,8 +20,9 @@ keypoints:
 ---
 
 We now know how ESMValTool works, but how do we develop it?
-This lesson helps to run your own codes with ESMValTool.
-It also illustrates how to incorporate your codes into the tool.
+In this lesson you will set up a development installation of ESMValTool, so you can
+make modifications or add new recipes or diagnostic scripts, and contribute them
+back to the community. 
 
 > ## Git knowledge
 >

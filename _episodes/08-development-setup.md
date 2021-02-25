@@ -4,8 +4,8 @@ teaching: 10
 exercises: 20
 questions:
 - "What is a development installation?"
-- "How can I test new or improved codes?"
-- "How can I incorporate new or improved codes to ESMValTool?"
+- "How can I test new or improved code?"
+- "How can I incorporate my contributions into ESMValTool?"
 
 objectives:
 - "Execute a successful ESMValTool installation from the source code."

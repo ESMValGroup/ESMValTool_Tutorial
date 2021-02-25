@@ -153,8 +153,9 @@ The next sections will explore the ways we can achieve this.
 
 ### Review process
 
-We first discuss our idea in an
-**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
+We first discuss our ideas in an
+**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository. This can avoid disappointment at a later stage, for example if more people are doing the same thing. It also gives other
+people an early opportunity to provide input and suggestions, which usually results in more valuable contributions.
 Then, we create a new ``branch`` locally and start developing new codes.
 Once our development is finished, we can initiate a ``pull request``.
 For a full description of the GitHub workflow, please see ESMValTool documentation on

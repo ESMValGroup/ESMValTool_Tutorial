@@ -14,7 +14,7 @@ objectives:
 keypoints:
 - "A development installation is needed if you want to incorporate your codes to ESMValTool."
 - "Contributions include adding a new or improved script or helping with a review process."
-- "There are several tools to check the quality of your code."
+- "There are several tools to help improve the quality of your code."
 - "It is possible to run tests on your machine."
 - "You can preview documentation pages locally."
 ---

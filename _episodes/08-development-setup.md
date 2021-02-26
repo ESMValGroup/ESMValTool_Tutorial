@@ -62,8 +62,21 @@ git clone https://github.com/ESMValGroup/ESMValTool.git
 This command will ask your GitHub username and a personal **token** as password.
 Please follow instructions on
 [GitHub token authentication requirements][token-authentication-requirements]
-to create a personal access token.
-After the authentication, a folder called ``ESMValTool`` is created in your working directory.
+to create a personal access token. After the authentication,
+the output might look like:
+
+~~~
+Cloning into 'ESMValTool'...
+remote: Enumerating objects: 163, done.
+remote: Counting objects: 100% (163/163), done.
+remote: Compressing objects: 100% (125/125), done.
+remote: Total 95049 (delta 84), reused 76 (delta 30), pack-reused 94886
+Receiving objects: 100% (95049/95049), 175.16 MiB | 5.48 MiB/s, done.
+Resolving deltas: 100% (68808/68808), done.
+~~~
+{: .output}
+
+Now, a folder called ``ESMValTool`` has been created in your working directory.
 This folder contains the source code of the tool.
 To continue the installation, we move into the ``ESMValTool`` directory:
 
@@ -72,6 +85,19 @@ cd ESMValTool
 ~~~
 
 Note that the ``master`` branch is checked out by default.
+We can see this if we run:
+
+~~~bash
+git status
+~~~
+
+~~~
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+~~~
+{: .output}
 
 ### 2 ESMValTool dependencies
 

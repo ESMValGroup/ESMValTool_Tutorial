@@ -20,9 +20,20 @@ keypoints:
 ---
 
 We now know how ESMValTool works, but how do we develop it?
-In this lesson you will set up a development installation of ESMValTool, so you can
-make modifications or add new recipes or diagnostic scripts, and contribute them
-back to the community. 
+ESMValTool is an open-source project in ESMValGroup. We can contribute to its development by:
+
+- a new or updated recipe script, see lesson on
+[Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %})
+- a new or updated diagnostics script, see lesson on
+[Writing your own diagnostic script]
+- a new or updated cmorizer script, see lesson on
+[CMORization: Using observational datasets]
+- helping  with reviewing process of pull requests, see ESMValTool documentation on
+[Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
+
+In this lesson, we first show how to set up a development installation of ESMValTool. So, you can
+make modifications. Then, we explain the process of how to contribute your changes or additions
+to the community.
 
 > ## Git knowledge
 >
@@ -54,13 +65,13 @@ Please follow instructions on
 to create a personal access token.
 After the authentication, a folder called ``ESMValTool`` is created in your working directory.
 This folder contains the source code of the tool.
-To continue the installation, we move into the ``ESMValTool`` directory
-and check out the ``master`` branch:
+To continue the installation, we move into the ``ESMValTool`` directory:
 
 ~~~bash
 cd ESMValTool
-git checkout master
 ~~~
+
+Note that the ``master`` branch is checked out by default.
 
 ### 2 ESMValTool dependencies
 
@@ -74,20 +85,21 @@ provided in the ESMValTool directory. We create an environment by running:
 conda env create --file environment.yml
 ~~~
 
-The environment is called ``esmvaltool`` by default. Now, we should activate the environment:
+The environment is called ``esmvaltool`` by default.
+If an ``esmvaltool`` environment is already created following the lesson
+[Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
+we should choose another name for the new environment in this lesson by:
+
+~~~bash
+conda env create -n a_new_name --file environment.yml
+~~~
+
+For more information see [conda managing environments][manage-environments].
+Now, we should activate the environment:
 
 ~~~bash
 conda activate esmvaltool
 ~~~
-
-> ## environment name
->
-> If an ``esmvaltool`` environment is already created following the lesson
-> [Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
-> first delete it or choose another name for the new environment in this lesson.
-> For more information see
-> [conda managing environments][manage-environments].
-{: .callout}
 
 ### 3 ESMValTool installation
 
@@ -137,25 +149,17 @@ For more details about development installation, see ESMValTool documentation on
 
 ## Contribution
 
-ESMValTool is an open-source project in ESMValGroup.
-We can contribute to its development by:
-
-- a new or updated recipe script, see lesson on
-[Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %})
-- a new or updated diagnostics script, see lesson on
-[Writing your own diagnostic script]
-- a new or updated cmorizer script, see lesson on
-[CMORization: Using observational datasets]
-- helping  with reviewing process of pull requests, see ESMValTool documentation on
-[Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
-
-The next sections will explore the ways we can achieve this.
+We have seen how to install ESMValTool in a ``develop`` mode.
+Now, we try to contribute to its development. Let's see how we can achieve this.
 
 ### Review process
 
 We first discuss our ideas in an
-**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository. This can avoid disappointment at a later stage, for example if more people are doing the same thing. It also gives other
-people an early opportunity to provide input and suggestions, which usually results in more valuable contributions.
+**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
+This can avoid disappointment at a later stage, for example, if more people are doing the same thing.
+It also gives other people an early opportunity to provide input and suggestions,
+which results in more valuable contributions.
+
 Then, we create a new ``branch`` locally and start developing new codes.
 Once our development is finished, we can initiate a ``pull request``.
 For a full description of the GitHub workflow, please see ESMValTool documentation on
@@ -166,13 +170,24 @@ The process will take some effort and time to learn.
 However, a few “tools” i.e. command lines gets you a long way,
 and we’ll cover those essentials in the next sections.
 
+**Tips**: we encourage you to keep the pull requests small.
+Reviewing small incremental changes are more efficient.
+
 ### Check code quality
 
-We aim to adhere to best practices and coding standards. The good news is that there are
-several tools that we can use to check our code against those standards.
+We aim to adhere to best practices and coding standards. There are
+several tools that check our code against those standards like:
 
-As an example, ``Pre-commit`` is a tool that checks your code for any invalid syntax
-and formatting errors. It also fixes some of those errors.
+- flake8 for checking against the PEP8 style guide
+- yapf to ensure consistent formatting for the whole project
+- isort to consistently sort the import statements
+- yamllint to ensure there are no syntax errors in our recipes and config files
+- lintr for diagnostic scripts written in R
+- codespell to check grammar
+
+The good news is that ``pre-commit`` has been already installed
+when we chose development installation.
+``pre-commit`` is a command line and runs all of those tools. It also fixes some of those errors.
 To explore other tools, have a look at ESMValTool documentation on
 [Code style](https://docs.esmvaltool.org/en/latest/community/introduction.html#code-style).
 
@@ -243,12 +258,13 @@ To explore other tools, have a look at ESMValTool documentation on
 
 Previous section introduced some tools to check code style and quality.
 What it hasen’t done is show us how to tell whether our code is getting the right answer.
-To achieve that, we can run tests using ``pytest`` locally:
+To achieve that, we need to write and run tests for widely-used functions.
+ESMValTool comes with a lot of tests that are in the folder ``tests``.
+
+To run tests, first we make sure that the working directory is ``ESMValTool``
+and our local branch is checked out. Then, we can run tests using ``pytest`` locally:
 
 ~~~bash
-conda activate esmvaltool
-cd ESMValTool
-git checkout your_branch_name
 pytest
 ~~~
 
@@ -303,15 +319,15 @@ when you submit a pull request.
 
 ### Build documentation
 
+When we add or update a code, we also update its corresponding documentation.
 Documentations are available on
 [docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
 The source files are located in ``ESMValTool/doc/sphinx/source/``.
-To build documentations locally, we run:
+
+To build documentations locally, first we make sure that the working directory is ``ESMValTool``
+and our local branch is checked out. Then, we run:
 
 ~~~bash
-conda activate esmvaltool
-cd ESMValTool
-git checkout your_branch_name
 python setup.py build_sphinx -Ea
 ~~~
 
@@ -345,14 +361,14 @@ xdg-open doc/sphinx/build/html/index.html
 > Add a reference i.e. ``.. _recipe_warming_stripes:``, a section title
 > and some text about the recipe like:
 >
-> ~~~markdown
+> ```
 > .. _recipe_warming_stripes:
 >
 > Reproducing Ed Hawkins' warming stripes visualization
 > ======================================================
 >
 > This recipe produces warming stripes plots.
-> ~~~
+> ```
 >
 > Save and close the file. We can think of this file as one page of a book.
 > Then, we need to decide where this page should be located inside the book.
@@ -369,7 +385,7 @@ xdg-open doc/sphinx/build/html/index.html
 >>
 >> First, we add the recipe name ``recipe_warming_stripes`` to the section ``Other``:
 >>
->> ~~~markdown
+>> ```
 >> Other
 >> ^^^^^
 >> .. toctree::
@@ -377,7 +393,7 @@ xdg-open doc/sphinx/build/html/index.html
 >>   ...
 >>   ...
 >>   recipe_warming_stripes
->> ~~~
+>> ```
 >>
 >> Then, we build and preview the documentation page:
 >>

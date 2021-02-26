@@ -18,15 +18,14 @@ keypoints:
 - "ESMValTool comes with a set of CMORizers readily available, but you can also add your own."
 ---
 
+![Data flow with ESMValTool](../fig/data_flow.png)
+
 ## Introduction
 
 This episode deals with "CMORization". ESMValTool is designed to work with data
 that follow the CMOR standards. Unfortunately, not all datasets follow these
 standards. In order to use such datasets in ESMValTool we first need to reformat
 the data. This process is called "CMORization".
-
-In this episode we assume that you are using a development installation of
-ESMValTool as explained in the [previous episode](/08-development-setup).
 
 > ## What are the CMOR standards?
 >
@@ -46,35 +45,23 @@ CMOR tables. As an example, the CMOR tables for the CMIP6 project can be found
 [here](https://github.com/PCMDI/cmip6-cmor-tables).
 {: .callout}
 
-The Earth System Grid Federation (ESGF) is home to all CMIP data. The data
-hosted there typically (mostly) follow the CMIP standards, and therefore
-ESMValTool should work with these data without problems.
-
-Datasets that are *not* part of one of the CMIP projects often don't follow the
-CMOR standards. In this case, a reformatting script can be used to create a
-CMOR-compliant copy of these datasets. CMORizer scripts for several popular
-datasets are included in ESMValTool, and ESMValTool also provides a convenient
-way to execute them.
-
-Occasionally it happens that there are still minor issues with CMIP datasets. In
-those cases, it is possible to fix those issues in ESMValCore before any further
-processing is done. The same can be done for non-CMIP data. The advantage is
-that you don't need to store an additional, reformatted copy of the data. The
-disadvantage is that these fixes should be implemented inside ESMValCore.
-Development of ESMValCore is is beyond the scope of this tutorial.
-
-The concepts discussed so far are illustrated in the figure below.
-![Data flow with ESMValTool](../fig/data_flow.png)
-*Illustration of the data flow in ESMValTool.*
+ESMValTool offers two ways to CMORize data:
+1. A reformatting script can be used to create a CMOR-compliant copy. CMORizer
+   scripts for several popular datasets are included in ESMValTool, and
+   ESMValTool also provides a convenient way to execute them.
+2. ESMValCore can execute CMOR fixes '[on the
+   fly](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/fixing_data.html#fixing-data)'.
+   The advantage is that you don't need to store an additional, reformatted copy
+   of the data. The disadvantage is that these fixes should be implemented
+   inside ESMValCore, which is beyond the scope of this tutorial.
 
 In this lesson, we will re-implement a CMORizer script for the FLUXCOM dataset
 that contains observations of the Gross Primary Production (GPP), a variable
-that is important for calculating components of the global carbon cycle. We will
-go through all the steps and explain relevant topics as we go. If you prefer to
-implement CMOR fixes, please read the documentation
-[here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/fixing_data.html#fixing-data).
-While fixes are implemented in a different way, the objective is exactly the
-same, and the concepts explained in this episode are still useful.
+that is important for calculating components of the global carbon cycle.
+
+We will assume that you are using a development installation of ESMValTool as
+explained in the [previous episode](/08-development-setup).
+
 
 ## Obtaining the data
 
@@ -86,7 +73,7 @@ button on the "FLUXCOM (RS+METEO) Global Land Carbon Fluxes using CRUNCEP
 climate data". You'll receive an email with the FTP address to access the
 server. Connect to the server, follow the path in your email, and look for the
 file `raw/monthly/GPP.ANN.CRUNCEPv6.monthly.2000.nc`. Download that file and
-save in in a folder called `/RAWOBS/Tier3/`.
+save in in a folder called `/RAWOBS/Tier3/FLUXCOM`.
 
 Note: you'll need a user-friendly ftp client. On Linux, `ncftp` works okay.
 
@@ -119,26 +106,80 @@ Note: you'll need a user-friendly ftp client. On Linux, `ncftp` works okay.
 >
 {: .callout}
 
+## Run the existing CMORizer script
+
+Before we develop our own CMORizer script, let's first see what happens when we
+run the existing one. There is a specific command available in the ESMValTool to
+run the CMORizer scripts:
+
+```bash
+cmorize_obs -c <config-user.yml> -o <dataset-name>
+```
+
+If everything is okay, the output should look something like this:
+
+~~~
+...
+... Starting the CMORization Tool at time: 2021-02-26 14:02:16 UTC
+... ----------------------------------------------------------------------
+... input_dir  = /home/peter/data/RAWOBS
+... output_dir = /home/peter/esmvaltool_output/cmorize_obs_20210226_140216
+... ----------------------------------------------------------------------
+... Running the CMORization scripts.
+... Using cmorizer scripts repository: /home/peter/miniconda3/envs/esmvaltool/lib/python3.8/site-packages/esmvaltool/cmorizers/obs
+... Processing datasets {'Tier3': ['FLUXCOM']}
+... Input data from: /home/peter/data/RAWOBS/Tier3/FLUXCOM
+... Output will be written to: /home/peter/esmvaltool_output/cmorize_obs_20210226_140216/Tier3/FLUXCOM
+... Reformat script: /home/peter/miniconda3/envs/esmvaltool/lib/python3.8/site-packages/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom
+... CMORizing dataset FLUXCOM using Python script /home/peter/miniconda3/envs/esmvaltool/lib/python3.8/site-packages/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+... Found input file '/home/peter/data/RAWOBS/Tier3/FLUXCOM/GPP.ANN.CRUNCEPv6.monthly.*.nc'
+... CMORizing variable 'gpp'
+... Lmon
+... Var is gpp
+... ... UserWarning: Ignoring netCDF variable 'GPP' invalid units 'gC m-2 day-1'
+  warnings.warn(msg)
+... Fixing time...
+... Fixing latitude...
+... Fixing longitude...
+... Flipping dimensional coordinate latitude...
+... Saving file
+... Converting data type of data from 'float64' to 'float32'
+... Saving: /home/peter/esmvaltool_output/cmorize_obs_20210226_140216/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+... Cube has lazy data [lazy is preferred]
+... Ending the CMORization Tool at time: 2021-02-26 14:02:16 UTC
+... Time for running the CMORization scripts was: 0:00:00.605970
+~~~
+{: .output}
+
+So you can see that several fixes are applied, and the CMORized file is written
+to the ESMValTool output directory. In order to use it, we'll have to copy it
+from the output directory to a folder called
+`<path_to_your_data>/OBS/Tier3/FLUXCOM` and make sure the path to ``OBS`` is set
+correctly in our config-user file.
+
+You can also see the path where ESMValTool stores the reformatting script:
+`<path to esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py`. You may
+have a look at this file if you want. The script also uses a configuration file:
+`<path to esmvaltool>/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`.
+
 ## Make a test recipe
 
-Now that we have downloaded the data, our end goal is to run a recipe that can
-load it and work with it. So we will make this recipe and try to run it. It will
-probably fail, but that's okay. As you will see, the error messages will come in
-handy. Moreover, the recipe will serve as a test case. Once we get it to run, we
-know we have completed our task.
+Our end goal is to run a recipe that can load the data and work with it. So we
+will start by making a simple recipe that can serve as a test case. Once we get
+it to run, we know we have completed our task.
 
 > ## Create a test recipe
 >
-> Create a simple recipe called `recipe_check_fluxnet.yml` that loads the
+> Create a simple recipe called `recipe_check_fluxcom.yml` that loads the
 > "FLUXCOM" data. It should include a datasets section with a single entry for
 > the "FLUXCOM" dataset with the correct dataset keys, and a diagnostics section
-> with two variables: gpp and gppStderr. We don't need any preprocessors or
+> with two variables: gpp. We don't need any preprocessors or
 > scripts (set `scripts: null`), but we have to add a documentation section with
 > a description, authors and maintainer, otherwise the recipe will fail.
 >
 > Use the following dataset keys:
 >
-> - project: OBS6
+> - project: OBS
 > - dataset: FLUXCOM
 > - type: reanaly
 > - version: ANN-v1
@@ -166,14 +207,13 @@ know we have completed our task.
 > >     - kalverla_peter
 > >
 > > datasets:
-> >   - {project: OBS6, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, end_year: 2000, type: reanaly, version: ANN-v1}
+> >   - {project: OBS, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, end_year: 2000, type: reanaly, version: ANN-v1}
 > >
 > > diagnostics:
-> >   FLUXCOM:
-> >     description: Check that ESMValTool can load the cmorized FLUXCOM data without errors.
+> >   check_fluxcom:
+> >     description: Check that ESMValTool can load the cmorized fluxnet data without errors.
 > >     variables:
 > >       gpp:
-> >       gppStderr:
 > >     scripts: null
 > >
 > > ```
@@ -189,278 +229,62 @@ Try to run the example recipe with
 esmvaltool run recipe_check_fluxcom.yml --log_level debug
 ```
 
-The `log_level` flag ensures that all relevant information is included in the
-output. We will need this information to find out what needs to be done. Look
-carefully through the log messages. You'll probably find something like
+If everything is okay, the recipe should run without problems.
 
-```
-DEBUG   Retrieving OBS6 configuration
-DEBUG   Skipping non-existent /home/peter/default_inputpath/Tier3/FLUXCOM
-DEBUG   Looking for files matching ['OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gppStderr[_.]*nc'] in []
-ERROR   No input files found for variable {'variable_group': 'gppStderr' ...
-...
-ERROR   Missing data for preprocessor FLUXCOM/gppStderr
-...
-ERROR   Program terminated abnormally, see stack trace below for more information:
-...
-```
-{: .error}
+## Starting from scratch
 
-So the output tells us that it cannot find the data, and also where it has been
-looking. Let's try to understand what's going on.
-
-## Location, location, location
-
-The error messages above tell you that ESMValTool cannot find the data. That
-makes total sense, because we have not yet created our CMORized copy of the
-data. Our data is located in the `RAWOBS` folder, but ESMValTool is looking in
-`OBS6`. So the first thing our CMORizer will need to do is copy the data over
-from one folder to the other. To do end, we need to tell ESMValTool where our
-data may be found.
-
-## Set the correct paths in your user configuration file:
-This information is set in `config-user.yml`. Modify your
-configuration file so that it has the correct paths
-```yaml
-rootpath:
-  OBS6: /path/to/my/obs6/data
-  RAWOBS: /path/to/my/rawobs/data
-```
-
-> ## RAWOBS, OBS, OBS6!?
->
-> ESMValTool uses project IDs to find the data on your hard drive, and also to
-> find more information about the data. The `RAWOBS` and `OBS` projects were
-> created for external data before and after CMORization, respectively. These
-> names can be misleading, though, since not all external datasets are
-> observations.
->
-> Then, in going from CMIP5 to CMIP6, the CMOR standards changed a bit. Some
-> variables are named differently in CMIP5 and CMIP6. This posed a dilemma:
-> should CMORization reformat to the CMIP5 or CMIP6 definition? To solve this,
-> the `OBS6` project was created. So data in the `OBS6` follow the CMIP6
-> standards.
->
-{: .callout}
-
-Looking closer at the path that ESMValTool told us it went looking for the data,
-we see that it has a very specific structure:
-
-`OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gppStderr[_.]*nc`
-
-Note that all components in the filename correspond to one of the dataset keys
-defined in our test recipe. By replacing them with the original tags, we can
-see the general structure for the OBS6 data:
-
-`[project]_[dataset]_[type]_[version]_[mip]_[short_name]_*.nc`
-
-This is the Data Reference Syntax (DRS) for OBS6 data. Each project has its own
-DRS, and some project IDs even have multiple different options. These settings
-can be found in the file
-[config-developer.yml](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/config-developer.yml).
-Luckily, we don't need to worry about that. This file name will be automatically
-correctly created when we run our CMORizer script.
-
-
-## Check if your variable is following the CMOR standard / Check if it's in a CMOR table
-
-The very first step we have to do is to check if your data file follows the CMOR standard.
-Only data files that fully follow this standard can be read by the ESMValTool.
-
-Most variables that we would want to use with the ESMValTool are defined in the Coupled
-Model Intercomparison Project (CMIP) data request and can be found in the
-CMOR tables in the folder
-[cmip6/Tables](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables),
-differentiated according to the "MIP" they belong to. The tables are a
-copy of the [PCMDI](https://github.com/PCMDI) guidelines.
-
-> ## Find the variable "gpp" in a CMOR table
->
-> Check the available CMOR tables to find the variable "gpp" with the following characteristics:
-> - standard_name: ``gross_primary_productivity_of_biomass_expressed_as_carbon``
-> - frequency: ``mon``
-> - modeling_realm: ``land``
->
-> > ## Answers
-> >
-> > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
-> > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
-> > "gpp" can be found in the file
-> > [here](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
-> >
-> {: .solution}
-{: .challenge}
-
-
-If the variable you are interested in is not available in the standard CMOR
-tables, you need to write a custom CMOR table entry for the variable. Examples
-of custom CMOR table entries are for example the standard error of a specific
-variable. For our variable "gpp" there is indeed no CMOR definition for the
-standard error, therefore "gppStderr" was defined in the custom CMOR table
-[here](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/custom),
-as ``CMOR_gppStderr.dat``.
-
-To create a new custom CMOR table you need to follow these
-guidelines:
-
-- Provide the ``variable_entry``;
-- Provide the ``modeling_realm``;
-- Provide the variable attributes, but leave ``standard_name`` blank. Necessary
-  variable attributes are: ``units``, ``cell_methods``, ``cell_measures``,
-  ``long_name``, ``comment``.
-- Provide some additional variable attributes. Necessary additional variable
-  attributes are: ``dimensions``, ``out_name``, ``type``. There are also
-  additional variable attributes that can be defined here (see the already
-  available cmorizers).
-
-It is easiest to start a new custom CMOR table by using an existing custom table
-as a template.
-You can then edit the content and save it as ``CMOR_<short_name>.dat``.
-
-> ## Does the variable "cVegStderr" need a costum CMOR table?
->
-> Check the available CMOR tables to find the variable "cVegStderr" with the
-> following characteristics:
-> - standard_name: ``vegetation_carbon_content``
-> - frequency: ``mon``
-> - modeling_realm: ``land``
->
-> If it is not available, create a custom CMOR table following the template of
-> the CMIP6 CMOR table of "cVeg" and custom CMOR table of "gppStderr".
->
-> > ## Answers
-> >
-> > The first step here is to check if the variable "cVegStderr" is already
-> > listed in a CMOR table. We have the information that the modeling_realm
-> > of the variable is ``land`` and that the frequency is ``mon``. This
-> > means we have to check the CMOR table "Lmon" for an entry. We focus
-> > our search on the CMIP6 tables since these are the most recent tables
-> > available. You can find the lists here:
-> > `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`
-> >
-> > We do not find the variable "cVegStderr" in the "Lmon" table, which
-> > means we will have to write our own custom table for this.
-> > There were two examples given which we could use as templates for the
-> > new custom table that we have to create. These two examples can be
-> > found here: [cVeg](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json)
-> > and [gppStderr](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/CMOR_gppStderr.dat)
-> >
-> > We have to create a new file with the name ``CMOR_cVegStrerr.dat`` in
-> > the custom CMOR table folder (https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/).
-> > The content of the file should then look like this:
-> >
-> > ```
-> > SOURCE: CMIP6
-> > !============
-> > variable_entry:    cVegStderr
-> > !============
-> > modeling_realm:    land
-> > !----------------------------------
-> > ! Variable attributes:
-> > !----------------------------------
-> > standard_name:
-> > units:             kg m-2
-> > cell_methods:      area: mean where land time: mean
-> > cell_measures:     area: areacella
-> > long_name:         Carbon Mass in Vegetation Error
-> > !----------------------------------
-> > ! Additional variable information:
-> > !----------------------------------
-> > dimensions:        longitude latitude time
-> > out_name:          cVegStderr
-> > type:              real
-> > !----------------------------------
-> > !
-> > ```
-> >
-> > Note that there is no entry for ``standard_name``. This is on purpose.
-> > It is a sign for the ESMValTool to not crash although the variable that
-> > we are looking for is ok to have no official CMIP6 ``standard_name``.
-> >
-> {: .solution}
-{: .challenge}
-
-## Create a CMORizer for the new dataset
-
-Now that we have the data ready, our first assumption would be that the data
-is already following the CMOR standard. So we store the file in the "OBS6"
-folder of our data path, and rename it manually to an ESMValTool readable
-name. For our example of the "FLUXCOM" data that we downloaded (which is
-from the year 2000) the name of the dataset would then be:
+Now that you've seen how to use an existing CMORizer script, let's think about
+adding a new one. We will remove the existing CMORizer script, and re-implement
+it from scratch. This exercise allows us to point out all the details of what's
+going on. We'll also remove the CMORized data that we've just created, so our
+test recipe will not be able to use it anymore.
 
 ```bash
-OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+rm <path_to_your_data>/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+rm <path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.nc
+rm <path to esmvaltool>/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml
 ```
 
-We also have made sure that our variable of choice is listed either
-on a pre-existing or custom CMOR table. So now we are ready to test
-if the data is actually following the necessary CMOR standard already,
-or if we have to do some reformatting for the dataset.
+If you now run the test recipe again it should fail, and somewhere in the output you should find something like:
 
-> ## Run the test recipe again
->
-> Run the test recipe again from earlier where you wanted to check if the
-> ESMValTool can already find and read the freshly downloaded FLUXCOM data.
->
-> > ## Answers
-> >
-> > ```bash
-> > esmvaltool run recipe_check_fluxcom.yml --log_level debug
-> > ```
-> >
-> > The ESMValTool should now find your FLUXCOM datafile, and the error
-> > message that the ESMValTool can't find the data should now not be present
-> > anymore. However, there are plenty of other error messages around.
-> > Somewhere within the many messages, you should see this:
-> >
-> > ```bash
-> > ...
-> > esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
-> > Variable GPP units unknown can not be converted to kg m-2 s-1
-> >  lon: standard_name should be longitude, not None
-> >  lat: standard_name should be latitude, not None
-> >  lon longitude coordinate has values < -360 degrees
-> >  lon longitude coordinate has values > 720 degrees
-> >  lat: has values < valid_min = -90.0
-> >  lat: has values > valid_max = 90.0
-> >  GPP: does not match coordinate rank
-> > in cube:
-> > gross_primary_productivity_of_carbon / (unknown) (time: 12; lat: 360; lon: 720)
-> >      Dimension coordinates:
-> >           time                                        x        -         -
-> >           lat                                         -        x         -
-> >           lon                                         -        -         x
-> >      Attributes:
-> >           created_by: Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber [uweber@bgc-jena.mpg...
-> >           flux: GPP
-> >           forcing: CRUNCEPv6
-> >           institution: MPI-BGC-BGI
-> >           invalid_units: gC m-2 day-1
-> >           method: Artificial Neural Networks
-> >           provided_by: Martin Jung [mjung@bgc-jena.mpg.de] on behalf of FLUXCOM team
-> >           reference: Jung et al. 2016, Nature; Tramontana et al. 2016, Biogeosciences
-> >           source_file: /mnt/lustre02/work/bd0854/b309143/Data/Tier3/FLUXCOM/OBS_FLUXCOM_reana...
-> >           temporal_resolution: monthly
-> >           title: GPP based on FLUXCOM RS+METEO with CRUNCEPv6 climate
-> >           version: v1
-> > ...
-> > ```
-> {: .solution}
-{: .challenge}
+~~~
+No input files found for ...
+Looking for files matching ['OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc'] in ['/home/peter/data/OBS/Tier3/FLUXCOM']
+~~~
+{: .error}
 
-The error messages that we see tell us that we do have to reformat the dataset
-slightly to have it follow the CMOR standard. It seems like the variable "gpp"
-does not have the correct unit that is given in the CMOR table where it is
-[defined](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
-It also seems like the "latitude" and "longitude" coordinates have some
-problems. So let's start writing a short python script that will fix these
-problems.
+From this we can see that the first thing our CMORizer should do is to rename
+the file so that it follows the CMOR filename conventions.
 
-The first step now is to create a file in the right folder that will contain
-the short python script. The home of all CMORizer scripts for observations
-and reanalysis datasets is
-[esmvaltool/cmorizers/obs](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/cmorizers/obs).
-Add a file with the name ``cmorize_obs_fluxcom.py`` to this folder.
+## Create a new CMORizer script
+
+The first step now is to create a new file in the right folder that will contain
+our new CMORizer instructions. Create a file called ``cmorize_obs_fluxcom.py``
+
+```bash
+nano <path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+```
+
+and fill it with the following boilerplate code:
+
+```python
+"""ESMValTool CMORizer for FLUXCOM GPP data.
+
+<We will add some useful info here later>
+"""
+import logging
+from . import utilities as utils
+
+logger = logging.getLogger(__name__)
+
+def cmorization(in_dir, out_dir, cfg, _):
+    """Cmorize the dataset."""
+
+    # This is where you'll add the cmorization code
+    # 1. find the input data
+    # 2. apply the necessary fixes
+    # 3. store the data with the correct filename
+```
 
 > ## Note
 >
@@ -470,98 +294,18 @@ Add a file with the name ``cmorize_obs_fluxcom.py`` to this folder.
 >
 {: .callout}
 
-Within our python script we have to make sure that we cover three main
-aspects of the reformatting:
-- We need to be able to locate and read the data to be CMORized
-- We have to CMORize the data (fix the CMOR problems that the ESMValTool
-had so nicely pointed out for us)
-- We need to store the data with the correct filename so that the ESMValTool
-will be able to identify it later
+### 1. Finding the input data
 
-But the very first part of the CMORizing script is a header. The header
-contains information about where to obtain the data, when it was accessed
-the last time, which ESMValTool "tier" it is associated with, and more
-detailed information about the necessary downloading and processing steps.
+Since the original data does not follow CMOR filename conventions, we need to
+tell ESMValTool what the filename for this new dataset looks like. We supply
+this information via a dataset configuration file. It is important to note that
+the name of the configuration file has to be identical to the name of the
+dataset. Thus, we will create a file called
+`<path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`.
 
-> ## Fill out the header for the "FLUXCOM" dataset
->
-> Fill out the information that is necessary in the header of a CMORizing
-> script for the dataset "FLUXCOM". The different parts that need to be
-> present in the header are the following:
-> - caption: " """ESMValTool CMORizer for FLUXCOM GPP data."
-> - Tier
-> - Source
-> - Last access
-> - Download and processing instructions
->
-> > ## Answers
-> >
-> > The header for the "FLUXCOM" dataset could look something like this:
-> >
-> > ```python
-> > """ESMValTool CMORizer for FLUXCOM GPP data.
-> >
-> > Tier
-> >     Tier 3: restricted dataset.
-> >
-> > Source
-> >     http://www.bgc-jena.mpg.de/geodb/BGI/Home
-> >
-> > Last access
-> >     20190727
-> >
-> > Download and processing instructions
-> >     From the website, select FLUXCOM as the data choice and click download.
-> >     Two files will be displayed. One for Land Carbon Fluxes and one for
-> >     Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
-> >     CRUNCEP data file has several data files for different variables.
-> >     The data for GPP generated using the
-> >     Artificial Neural Network Method will be in files with name:
-> >     GPP.ANN.CRUNCEPv6.monthly.\*.nc
-> >     A registration is required for downloading the data.
-> >     Users in the UK with a CEDA-JASMIN account may request access to the jules
-> >     workspace and access the data.
-> >     Note : This data may require rechunking of the netcdf files.
-> >     This constraint will not exist once iris is updated to
-> >     version 2.3.0 Aug 2019
-> > """
-> > ```
-> >
-> > This is the header of the "FLUXCOM" CMORizer that is available with the
-> > ESMValTool already. It is therefore entirely possible that your entries for
-> > the section "Last access" and "Download and processing instructions"
-> > differ from the example here since the entries for these sections are
-> > somewhat subjective.
-> >
-> {: .solution}
-{: .challenge}
-
-Now that we have made sure, that it is clear where our dataset comes from, and
-how we can obtain it, the next step is to add the python code to actually read
-the data.
-
-As we learned earlier, the DRS of the ESMValTool needs some very specific
-pieces of information to build the name for each data file. Since we are now
-trying to introduce a new dataset to the ESMValTool, we will have to specify
-some things to make sure the dataset name can be correctly created, and
-ultimately the ESMValTool knows how to look for the new dataset.
-
-Therefore it is necessary to create a configuration file for the new dataset.
-This configuration file needs to be stored in the
-following folder: ``ESMValTool/esmvaltool/cmorizers/obs/cmor_config/``.
-
-It is important to note that the name of the configuration file has to be
-identical to the name of the dataset. For our example the configuration file,
-traditionally written in the ``yaml`` format, therefore must be called
-``FLUXCOM.yml``.
-
-Let's have a closer look what that configuration file needs to contain:
-- information about the filenames of the raw observation files (stored in the
-"RAWOBS" folder)
-- information about "global attributes" for the netCDF file that will be
-created (both for the name of the file and the metadata that the file needs to
-contain)
-- information about the variables that need to be cmorized
+In addition to the filename information, the configuration file also contains
+information about "global attributes" for the netCDF file that will be
+created and information about the variables that need to be CMORized.
 
 > ## Let's create the configuration file for the "FLUXCOM" dataset
 >
@@ -629,6 +373,140 @@ contain)
 > >
 > {: .solution}
 {: .challenge}
+
+
+### 2. Implementing additional fixes
+
+
+
+### 3. Finalizing the CMORizer
+
+Once everything works as expected, there's a couple of things that we can still do.
+
+- Add header info
+- Make sure the metadata are added to the config file
+- Maybe go through a checklist????
+
+> ## Run the test recipe again
+>
+> Run the test recipe again from earlier where you wanted to check if the
+> ESMValTool can already find and read the freshly downloaded FLUXCOM data.
+>
+> > ## Answers
+> >
+> > ```bash
+> > esmvaltool run recipe_check_fluxcom.yml --log_level debug
+> > ```
+> >
+> > The ESMValTool should now find your FLUXCOM datafile, and the error
+> > message that the ESMValTool can't find the data should now not be present
+> > anymore. However, there are plenty of other error messages around.
+> > Somewhere within the many messages, you should see this:
+> >
+> > ```bash
+> > ...
+> > esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
+> > Variable GPP units unknown can not be converted to kg m-2 s-1
+> >  lon: standard_name should be longitude, not None
+> >  lat: standard_name should be latitude, not None
+> >  lon longitude coordinate has values < -360 degrees
+> >  lon longitude coordinate has values > 720 degrees
+> >  lat: has values < valid_min = -90.0
+> >  lat: has values > valid_max = 90.0
+> >  GPP: does not match coordinate rank
+> > in cube:
+> > gross_primary_productivity_of_carbon / (unknown) (time: 12; lat: 360; lon: 720)
+> >      Dimension coordinates:
+> >           time                                        x        -         -
+> >           lat                                         -        x         -
+> >           lon                                         -        -         x
+> >      Attributes:
+> >           created_by: Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber [uweber@bgc-jena.mpg...
+> >           flux: GPP
+> >           forcing: CRUNCEPv6
+> >           institution: MPI-BGC-BGI
+> >           invalid_units: gC m-2 day-1
+> >           method: Artificial Neural Networks
+> >           provided_by: Martin Jung [mjung@bgc-jena.mpg.de] on behalf of FLUXCOM team
+> >           reference: Jung et al. 2016, Nature; Tramontana et al. 2016, Biogeosciences
+> >           source_file: /mnt/lustre02/work/bd0854/b309143/Data/Tier3/FLUXCOM/OBS_FLUXCOM_reana...
+> >           temporal_resolution: monthly
+> >           title: GPP based on FLUXCOM RS+METEO with CRUNCEPv6 climate
+> >           version: v1
+> > ...
+> > ```
+> {: .solution}
+{: .challenge}
+
+The error messages that we see tell us that we do have to reformat the dataset
+slightly to have it follow the CMOR standard. It seems like the variable "gpp"
+does not have the correct unit that is given in the CMOR table where it is
+[defined](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
+It also seems like the "latitude" and "longitude" coordinates have some
+problems. So let's start writing a short python script that will fix these
+problems.
+
+
+*PK: I'd suggest doing the header last, as it's not needed or relevant in the beginning*.
+But the very first part of the CMORizing script is a header. The header
+contains information about where to obtain the data, when it was accessed
+the last time, which ESMValTool "tier" it is associated with, and more
+detailed information about the necessary downloading and processing steps.
+
+> ## Fill out the header for the "FLUXCOM" dataset
+>
+> Fill out the information that is necessary in the header of a CMORizing
+> script for the dataset "FLUXCOM". The different parts that need to be
+> present in the header are the following:
+> - caption: " """ESMValTool CMORizer for FLUXCOM GPP data."
+> - Tier
+> - Source
+> - Last access
+> - Download and processing instructions
+>
+> > ## Answers
+> >
+> > The header for the "FLUXCOM" dataset could look something like this:
+> >
+> > ```python
+> > """ESMValTool CMORizer for FLUXCOM GPP data.
+> >
+> > Tier
+> >     Tier 3: restricted dataset.
+> >
+> > Source
+> >     http://www.bgc-jena.mpg.de/geodb/BGI/Home
+> >
+> > Last access
+> >     20190727
+> >
+> > Download and processing instructions
+> >     From the website, select FLUXCOM as the data choice and click download.
+> >     Two files will be displayed. One for Land Carbon Fluxes and one for
+> >     Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+> >     CRUNCEP data file has several data files for different variables.
+> >     The data for GPP generated using the
+> >     Artificial Neural Network Method will be in files with name:
+> >     GPP.ANN.CRUNCEPv6.monthly.\*.nc
+> >     A registration is required for downloading the data.
+> >     Users in the UK with a CEDA-JASMIN account may request access to the jules
+> >     workspace and access the data.
+> >     Note : This data may require rechunking of the netcdf files.
+> >     This constraint will not exist once iris is updated to
+> >     version 2.3.0 Aug 2019
+> > """
+> > ```
+> >
+> > This is the header of the "FLUXCOM" CMORizer that is available with the
+> > ESMValTool already. It is therefore entirely possible that your entries for
+> > the section "Last access" and "Download and processing instructions"
+> > differ from the example here since the entries for these sections are
+> > somewhat subjective.
+> >
+> {: .solution}
+{: .challenge}
+
+
 
 Now that we have defined the configuration file for our "FLUXCOM" data, we can
 finally start writing the actual code for the CMORizer script. The main body
@@ -1029,3 +907,152 @@ of the ESMValTool and ESMValCore.
 
 More information about adding observations to the ESMValTool can be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/input.html#observations).
+
+
+
+
+<!--
+> ## RAWOBS, OBS, OBS6, native6!?
+>
+> ESMValTool uses project IDs to find the data on your hard drive, and also to
+> find more information about the data. The `RAWOBS` and `OBS` projects were
+> created for external data before and after CMORization, respectively. These
+> names can be misleading, though, since not all external datasets are
+> observations.
+>
+> Then, in going from CMIP5 to CMIP6, the CMOR standards changed a bit. Some
+> variables are named differently in CMIP5 and CMIP6. This posed a dilemma:
+> should CMORization reformat to the CMIP5 or CMIP6 definition? To solve this,
+> the `OBS6` project was created. So data in the `OBS6` follow the CMIP6
+> standards.
+>
+> `native6` is used to store external datasets for which we have implemented
+> fixes in ESMValCore, so they can be CMORized 'on the fly'.
+>
+{: .callout} -->
+
+
+
+
+
+
+
+
+
+<!-- ## Check if your variable is following the CMOR standard / Check if it's in a CMOR table
+
+The very first step we have to do is to check if your data file follows the CMOR standard.
+Only data files that fully follow this standard can be read by the ESMValTool.
+
+Most variables that we would want to use with the ESMValTool are defined in the Coupled
+Model Intercomparison Project (CMIP) data request and can be found in the
+CMOR tables in the folder
+[cmip6/Tables](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables),
+differentiated according to the "MIP" they belong to. The tables are a
+copy of the [PCMDI](https://github.com/PCMDI) guidelines.
+
+> ## Find the variable "gpp" in a CMOR table
+>
+> Check the available CMOR tables to find the variable "gpp" with the following characteristics:
+> - standard_name: ``gross_primary_productivity_of_biomass_expressed_as_carbon``
+> - frequency: ``mon``
+> - modeling_realm: ``land``
+>
+> > ## Answers
+> >
+> > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
+> > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
+> > "gpp" can be found in the file
+> > [here](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
+> >
+> {: .solution}
+{: .challenge}
+
+
+If the variable you are interested in is not available in the standard CMOR
+tables, you need to write a custom CMOR table entry for the variable. Examples
+of custom CMOR table entries are for example the standard error of a specific
+variable. For our variable "gpp" there is indeed no CMOR definition for the
+standard error, therefore "gppStderr" was defined in the custom CMOR table
+[here](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/custom),
+as ``CMOR_gppStderr.dat``.
+
+To create a new custom CMOR table you need to follow these
+guidelines:
+
+- Provide the ``variable_entry``;
+- Provide the ``modeling_realm``;
+- Provide the variable attributes, but leave ``standard_name`` blank. Necessary
+  variable attributes are: ``units``, ``cell_methods``, ``cell_measures``,
+  ``long_name``, ``comment``.
+- Provide some additional variable attributes. Necessary additional variable
+  attributes are: ``dimensions``, ``out_name``, ``type``. There are also
+  additional variable attributes that can be defined here (see the already
+  available cmorizers).
+
+It is easiest to start a new custom CMOR table by using an existing custom table
+as a template.
+You can then edit the content and save it as ``CMOR_<short_name>.dat``.
+
+> ## Does the variable "cVegStderr" need a costum CMOR table?
+>
+> Check the available CMOR tables to find the variable "cVegStderr" with the
+> following characteristics:
+> - standard_name: ``vegetation_carbon_content``
+> - frequency: ``mon``
+> - modeling_realm: ``land``
+>
+> If it is not available, create a custom CMOR table following the template of
+> the CMIP6 CMOR table of "cVeg" and custom CMOR table of "gppStderr".
+>
+> > ## Answers
+> >
+> > The first step here is to check if the variable "cVegStderr" is already
+> > listed in a CMOR table. We have the information that the modeling_realm
+> > of the variable is ``land`` and that the frequency is ``mon``. This
+> > means we have to check the CMOR table "Lmon" for an entry. We focus
+> > our search on the CMIP6 tables since these are the most recent tables
+> > available. You can find the lists here:
+> > `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`
+> >
+> > We do not find the variable "cVegStderr" in the "Lmon" table, which
+> > means we will have to write our own custom table for this.
+> > There were two examples given which we could use as templates for the
+> > new custom table that we have to create. These two examples can be
+> > found here: [cVeg](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json)
+> > and [gppStderr](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/CMOR_gppStderr.dat)
+> >
+> > We have to create a new file with the name ``CMOR_cVegStrerr.dat`` in
+> > the custom CMOR table folder (https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/).
+> > The content of the file should then look like this:
+> >
+> > ```
+> > SOURCE: CMIP6
+> > !============
+> > variable_entry:    cVegStderr
+> > !============
+> > modeling_realm:    land
+> > !----------------------------------
+> > ! Variable attributes:
+> > !----------------------------------
+> > standard_name:
+> > units:             kg m-2
+> > cell_methods:      area: mean where land time: mean
+> > cell_measures:     area: areacella
+> > long_name:         Carbon Mass in Vegetation Error
+> > !----------------------------------
+> > ! Additional variable information:
+> > !----------------------------------
+> > dimensions:        longitude latitude time
+> > out_name:          cVegStderr
+> > type:              real
+> > !----------------------------------
+> > !
+> > ```
+> >
+> > Note that there is no entry for ``standard_name``. This is on purpose.
+> > It is a sign for the ESMValTool to not crash although the variable that
+> > we are looking for is ok to have no official CMIP6 ``standard_name``.
+> >
+> {: .solution}
+{: .challenge} -->

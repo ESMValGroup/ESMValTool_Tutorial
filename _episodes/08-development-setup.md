@@ -199,6 +199,20 @@ and we’ll cover those essentials in the next sections.
 **Tips**: we encourage you to keep the pull requests small.
 Reviewing small incremental changes are more efficient.
 
+### Background
+
+We saw 'warming stripes' in lesson
+[Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %}).
+Imagine the following task: you want to contribute warming stripes recipe and diagnostics
+to ESMValTool. You have to add the diagnostics
+[warming_stripes.py](../files/warming_stripes.py) and the recipe
+[recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
+to their locations in ESMValTool directory.
+After these changes, you should also check if everthing works fine.
+This is where we take advantage of the tools that are introduced later.
+
+Let’s get started.
+
 ### Check code quality
 
 We aim to adhere to best practices and coding standards. There are
@@ -221,20 +235,20 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 > Let's checkout our local branch and add the script
 > [warming_stripes.py](../files/warming_stripes.py) to the
-> ``esmvaltool/diag_scripts/example`` directory.
+> ``esmvaltool/diag_scripts`` directory.
 >
 > ~~~bash
 > cd ESMValTool
 > git checkout your_branch_name
-> cp path_of_warming_stripes.py esmvaltool/diag_scripts/examples/
+> cp path_of_warming_stripes.py esmvaltool/diag_scripts/
 > ~~~
 >
 > By default, ``pre-commit`` only runs on the files that have been staged in git:
 >
 > ~~~bash
 > git status
-> git add esmvaltool/diag_scripts/examples/warming_stripes.py
-> pre-commit run --files esmvaltool/diag_scripts/examples/warming_stripes.py
+> git add esmvaltool/diag_scripts/warming_stripes.py
+> pre-commit run --files esmvaltool/diag_scripts/warming_stripes.py
 > ~~~
 >
 > Inspect the output of ``pre-commit`` and fix the remaining errors.
@@ -265,7 +279,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >> - hook id: flake8
 >> - exit code: 1
 >>
->> esmvaltool/diag_scripts/examples/warming_stripes.py:20:5:
+>> esmvaltool/diag_scripts/warming_stripes.py:20:5:
 >> F841 local variable 'nx' is assigned to but never used
 >> ~~~
 >>
@@ -301,12 +315,10 @@ when you submit a pull request.
 >
 > Let's checkout our local branch and add the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
-> to the the ``esmvaltool/recipes/example`` directory:
+> to the the ``esmvaltool/recipes`` directory:
 >
 > ~~~bash
-> cd ESMValTool
-> git checkout your_branch_name
-> cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/examples/
+> cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/
 > ~~~
 >
 > Run ``pytest`` and inspect the results. If a test is failed, try to fix it.
@@ -325,7 +337,7 @@ when you submit a pull request.
 >>
 >> ~~~ bash
 >> ================================ FAILURES ==========================================
->> ______________ test_recipe_valid[examples/recipe_warming_stripes.yml] ______________
+>> ______________ test_recipe_valid[recipe_warming_stripes.yml] ______________
 >> ~~~
 >>
 >> The test message shows that the recipe ``recipe_warming_stripes.yml`` is not a valid recipe.
@@ -336,10 +348,20 @@ when you submit a pull request.
 >> E           esmvalcore._task.DiagnosticError: Cannot execute script
 >> '~/esmvaltool_tutorial/warming_stripes.py' (~/esmvaltool_tutorial/warming_stripes.py):
 >> file does not exist.
->>~~~
+>> ~~~
 >>
->> It seems that we need to set a correct path for the diagnostic script
->> ``warming_stripes.py`` in our recipe!
+>> To fix the recipe, we need to edit the path of the diagnostic script
+>> as ``warming_stripes.py``:
+>>
+>> ~~~yml
+>>    scripts:
+>>      warming_stripes_script:
+>>        script: warming_stripes.py
+>> ~~~
+>>
+>> For details, see lesson
+>> [Writing your own diagnostic script].
+>>
 > {: .solution}
 {: .challenge}
 

@@ -182,7 +182,8 @@ Now, we try to contribute to its development. Let's see how we can achieve this.
 
 We first discuss our ideas in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
-This can avoid disappointment at a later stage, for example, if more people are doing the same thing.
+This can avoid disappointment at a later stage, for example,
+if more people are doing the same thing.
 It also gives other people an early opportunity to provide input and suggestions,
 which results in more valuable contributions.
 

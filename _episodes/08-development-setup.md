@@ -143,9 +143,7 @@ works properly. To do this, run the tool with:
 esmvaltool --help
 ~~~
 
-If installation is successful, ESMValTool prints a help message to the console.
-For more details about development installation, see ESMValTool documentation on
-[install from source][install-from-source].
+If the installation is successful, ESMValTool prints a help message to the console.
 
 > ## Checking the development installation
 >

@@ -373,7 +373,7 @@ The ESMValTool documentation is available on
 [docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
 The source files are located in ``ESMValTool/doc/sphinx/source/``.
 
-To build documentations locally, first we make sure that the working directory is ``ESMValTool``
+To build documentation locally, first we make sure that the working directory is ``ESMValTool``
 and our local branch is checked out. Then, we run:
 
 ~~~bash

@@ -219,12 +219,12 @@ Let’s get started.
 We aim to adhere to best practices and coding standards. There are
 several tools that check our code against those standards like:
 
-- flake8 for checking against the PEP8 style guide
-- yapf to ensure consistent formatting for the whole project
-- isort to consistently sort the import statements
-- yamllint to ensure there are no syntax errors in our recipes and config files
-- lintr for diagnostic scripts written in R
-- codespell to check grammar
+- [flake8](https://flake8.pycqa.org/en/latest/#) for checking against the PEP8 style guide
+- [yapf](https://pypi.org/project/yapf/) to ensure consistent formatting for the whole project
+- [isort](https://pypi.org/project/isort/) to consistently sort the import statements
+- [yamllint](https://yamllint.readthedocs.io/en/stable/#) to ensure there are no syntax errors in our recipes and config files
+- [lintr](https://github.com/jimhester/lintr) for diagnostic scripts written in R
+- [codespell](https://pypi.org/project/codespell/) to check grammar
 
 The good news is that ``pre-commit`` has been already installed
 when we chose development installation.

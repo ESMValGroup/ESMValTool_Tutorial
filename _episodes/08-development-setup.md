@@ -197,7 +197,7 @@ The process will take some effort and time to learn.
 However, a few “tools” i.e. command lines gets you a long way,
 and we’ll cover those essentials in the next sections.
 
-**Tips**: we encourage you to keep the pull requests small.
+**Tip**: we encourage you to keep the pull requests small.
 Reviewing small incremental changes are more efficient.
 
 ### Background

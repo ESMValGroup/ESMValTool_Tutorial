@@ -194,7 +194,7 @@ For a full description of the GitHub workflow, please see ESMValTool documentati
 
 The pull request will be tested, discussed and merged. This is called "**review process**".
 The process will take some effort and time to learn.
-However, a few “tools” i.e. command lines gets you a long way,
+However, a few (command line) tools can get you a long way,
 and we’ll cover those essentials in the next sections.
 
 **Tip**: we encourage you to keep the pull requests small.

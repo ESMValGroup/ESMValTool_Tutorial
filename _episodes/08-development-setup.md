@@ -46,7 +46,7 @@ to the community.
 
 We’ll explore how ESMValTool can be installed it in a ``develop`` mode.
 Even if you aren’t collaborating with the community, this installation is needed
-to run your new codes by ESMValTool.
+to run your new codes with ESMValTool.
 Let’s get started.
 
 ### 1 Source code

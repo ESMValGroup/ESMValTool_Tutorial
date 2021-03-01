@@ -153,7 +153,7 @@ For more details about development installation, see ESMValTool documentation on
 > the ``esmvaltool`` environment.
 > Use this command to check that ESMValTool is installed in a ``develop`` mode.
 >
-> **Tips**: see the
+> **Tip**: see the
 > [documentation on conda list](https://docs.conda.io/projects/conda/en/latest/commands/list.html).
 >
 >> ## Solution

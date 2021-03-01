@@ -383,11 +383,12 @@ python setup.py build_sphinx -Ea
 Similar to code, documentation should be well written and adhere to standards.
 If the documentation is built properly, the previous command prints a message to the console:
 
-~~~bash
+~~~
 build succeeded.
 
 The HTML pages are in doc/sphinx/build/html.
 ~~~
+{: .output}
 
 The main page of the documentation has been built into ``index.html``
 in ``doc/sphinx/build/html`` directory.

@@ -361,7 +361,7 @@ when you submit a pull request.
 >> ~~~
 >>
 >> For details, see lesson
->> [Writing your own diagnostic script].
+>> [Writing your own diagnostic script](#).
 >>
 > {: .solution}
 {: .challenge}

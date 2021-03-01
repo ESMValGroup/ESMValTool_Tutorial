@@ -380,7 +380,7 @@ and our local branch is checked out. Then, we run:
 python setup.py build_sphinx -Ea
 ~~~
 
-Similar to codes, documentations should be well written and adhere to standards.
+Similar to code, documentation should be well written and adhere to standards.
 If the documentation is built properly, the previous command prints a message to the console:
 
 ~~~bash

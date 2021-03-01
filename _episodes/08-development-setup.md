@@ -369,7 +369,7 @@ when you submit a pull request.
 ### Build documentation
 
 When we add or update a code, we also update its corresponding documentation.
-Documentations are available on
+The ESMValTool documentation is available on
 [docs.esmvaltool.org](https://docs.esmvaltool.org/en/latest/index.html).
 The source files are located in ``ESMValTool/doc/sphinx/source/``.
 

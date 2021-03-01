@@ -455,6 +455,8 @@ xdg-open doc/sphinx/build/html/index.html
 > {: .solution}
 {: .challenge}
 
+Congratulations! You are now ready to make a pull request.
+
 {% include links.md %}
 
 [token-authentication-requirements]: https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today

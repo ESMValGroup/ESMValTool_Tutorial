@@ -356,12 +356,13 @@ cmorize_obs -c <config-user.yml> -o FLUXCOM
 ### 1. Find the input data
 
 First we'll get the CMORizer script to locate our FLUXCOM data. We can use the
-information from the `in_dir` and `cfg` variables. Add the following snippet to your CMORizer script:
+information from the `in_dir` and `cfg` variables. Add the following snippet to
+your CMORizer script:
 
 ```python
-    # 1. find the input data
-    logger.info("in_dir: '%s'", in_dir)
-    logger.info("cfg: '%s'", cfg)
+# 1. find the input data
+logger.info("in_dir: '%s'", in_dir)
+logger.info("cfg: '%s'", cfg)
 ```
 
 If you run the CMORizer again, it will print out the content of these variables.
@@ -413,9 +414,33 @@ call signature looks like this:
 `utils.save_variables(cube, var, outdir, attrs, **kwargs)`.
 
 We already have the `cube` and the `outdir`. The variable short name (`var`) and
-attributes (`attrs`) are set through the configuration file.
+attributes (`attrs`) are set through the configuration file. So we need to find out what the correct short name and attributes are.
 
+The standard attributes for CMIP variables are defined in the [CMIP
+tables](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
+These tables are differentiated according to the "MIP" they belong to. The
+tables are a copy of the [PCMDI](https://github.com/PCMDI) guidelines.
 
+> ## Find the variable "gpp" in a CMOR table
+>
+> Check the available CMOR tables to find the variable "gpp" with the following characteristics:
+> - standard_name: ``gross_primary_productivity_of_biomass_expressed_as_carbon``
+> - frequency: ``mon``
+> - modeling_realm: ``land``
+>
+> > ## Answers
+> >
+> > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
+> > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
+> > "gpp" can be found in the file
+> > [here](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
+> >
+> {: .solution}
+{: .challenge}
+
+If the variable you are interested in is not available in the standard CMOR
+tables, you could write a custom CMOR table entry for the variable. This,
+however, is beyond the scope of this tutorial.
 
 > ## Fill the configuration file
 >
@@ -472,17 +497,15 @@ However, this makes it possible to add more variables later on.
 
 > ## Was the CMORization successful so far?
 >
-> If you run the CMORizer again, you should see that it creates an output file named
-> ``OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc``.
->
-> The "xxxx" and "yyyy" represent the start and end year of the data.
+> If you run the CMORizer again, you should see that it creates an output file
+> named ``OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc``. The "xxxx" and
+> "yyyy" represent the start and end year of the data.
 >
 {: .callout}
 
-Great!
-So we have produced a NetCDF file with the CMORizer that follows the naming
-convention for ESMValTool datasets. Let's have a look at the NetCDF file as
-it was written with the very basic CMORizer from above.
+Great! So we have produced a NetCDF file with the CMORizer that follows the
+naming convention for ESMValTool datasets. Let's have a look at the NetCDF file
+as it was written with the very basic CMORizer from above.
 
 ```bash
 ncdump -h OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
@@ -491,7 +514,7 @@ ncdump -h OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
 ~~~
 netcdf OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012 {
 dimensions:
-        time = UNLIMITED ; // (12 currently)
+        time = 12 ;
         lat = 360 ;
         lon = 720 ;
 variables:
@@ -524,113 +547,135 @@ variables:
 ~~~
 {: .output}
 
-The file contains a variable named "GPP" that contains three dimensions:
-"time", "lat", "lon". The units for this variable are not defined yet.
-The ESMValTool did not know how to convert from the
-original units to the units that are defined in the CMOR table for the
-variable "gpp". The original units are therefore listed in the "global
-attributes" section as ``invalid_units``. The ESMValTool recognized that the
-units given in the original file did not match the units given in the CMOR
-table and therefore put the information about the units in the metadata.
+The file contains a variable named "GPP" that contains three dimensions: "time",
+"lat", "lon". Notice the strange time units, and the `invalid_units` in the
+global attributes section. Also it seems that there is not information available
+about the lat and lon coordinates. These are just some of the things we'll
+address in the next section.
 
+### 3. Implementing additional fixes
 
 Copy the output of the CMORizer to your folder `<path to your data>/OBS6/Tier3/`
-and change the test recipe to look for OBS6 data instead of OBS (note that we're
-upgrading the CMORizer to newer standards here).
+and change the test recipe to look for OBS6 data instead of OBS (note: we're
+upgrading the CMORizer to newer standards here!).
 
-
-## Possible duplication!
-the following paragraphs are the same as the first challenge in the subsequent section 3.
-
-If we test this NetCDF file now with our CMOR checker
+If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
 esmvaltool run recipe_check_fluxcom.yml --log_level debug
 ```
 
-it should be able to find the correct file. Unfortunately, we're not done yet.
-The first thing that the ESMValTool CMOR checker brings up is:
+it should be able to find the correct file, but it does not succeed yet. The first
+thing that the ESMValTool CMOR checker brings up is:
 
-```bash
+~~~
 iris.exceptions.UnitConversionError: Cannot convert from unknown units. The
 "units" attribute may be set directly.
+~~~
+{: .error}
+
+If you look closely at the error messages, you can see that this error concerns
+the units of the coordinates. ESMValTool tries to fix them automatically,
+but since no units are defined on the coordinates, this fails.
+
+The cmorizer utilities also include a function called `fix_coords`, but before
+we can use it, we'll also need to make sure the coordinates have the correct
+standard name. Add the following code to your cmorizer:
+
+```python
+# Fix/add coordinate information and metadata
+cube.coord('lat').standard_name = 'latitude'
+cube.coord('lon').standard_name = 'longitude'
+utils.fix_coords(cube)
 ```
 
-So now we're ready to start implementing the additional fixes.
+With some additional refactoring, our cmorization function might then look
+something like this:
 
-### 3. Implementing additional fixes
+```python
+def cmorization(in_dir, out_dir, cfg, _):
+    """Cmorize the dataset."""
 
+    # Get general information from the config file
+    attributes = cfg['attributes']
+    variables = cfg['variables']
 
-> ## Run the test recipe again
->
-> Run the test recipe again from earlier where you wanted to check if the
-> ESMValTool can already find and read the freshly downloaded FLUXCOM data.
->
-> > ## Answers
-> >
-> > ```bash
-> > esmvaltool run recipe_check_fluxcom.yml --log_level debug
-> > ```
-> >
-> > The ESMValTool should now find your FLUXCOM datafile, and the error
-> > message that the ESMValTool can't find the data should now not be present
-> > anymore. However, there are plenty of other error messages around.
-> > Somewhere within the many messages, you should see this:
-> >
-> > ```bash
-> > ...
-> > esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
-> > Variable GPP units unknown can not be converted to kg m-2 s-1
-> >  lon: standard_name should be longitude, not None
-> >  lat: standard_name should be latitude, not None
-> >  lon longitude coordinate has values < -360 degrees
-> >  lon longitude coordinate has values > 720 degrees
-> >  lat: has values < valid_min = -90.0
-> >  lat: has values > valid_max = 90.0
-> >  GPP: does not match coordinate rank
-> > in cube:
-> > gross_primary_productivity_of_carbon / (unknown) (time: 12; lat: 360; lon: 720)
-> >      Dimension coordinates:
-> >           time                                        x        -         -
-> >           lat                                         -        x         -
-> >           lon                                         -        -         x
-> >      Attributes:
-> >           created_by: Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber [uweber@bgc-jena.mpg...
-> >           flux: GPP
-> >           forcing: CRUNCEPv6
-> >           institution: MPI-BGC-BGI
-> >           invalid_units: gC m-2 day-1
-> >           method: Artificial Neural Networks
-> >           provided_by: Martin Jung [mjung@bgc-jena.mpg.de] on behalf of FLUXCOM team
-> >           reference: Jung et al. 2016, Nature; Tramontana et al. 2016, Biogeosciences
-> >           source_file: /mnt/lustre02/work/bd0854/b309143/Data/Tier3/FLUXCOM/OBS_FLUXCOM_reana...
-> >           temporal_resolution: monthly
-> >           title: GPP based on FLUXCOM RS+METEO with CRUNCEPv6 climate
-> >           version: v1
-> > ...
-> > ```
-> {: .solution}
-{: .challenge}
+    for short_name, variable_info in variables.items():
+        logger.info("CMORizing variable: %s", short_name)
 
-The error messages that we see tell us that we do have to reformat the dataset
-slightly to have it follow the CMOR standard. It seems like the variable "gpp"
-does not have the correct unit that is given in the CMOR table where it is
-[defined](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
-It also seems like the "latitude" and "longitude" coordinates have some
-problems. So let's start writing a short python script that will fix these
-problems.
+        # 1a. Find the input data (one file for each year)
+        filename_pattern = cfg['filename']
+        matches = Path(in_dir).glob(filename_pattern)
 
+        for match in matches:
+            # 1b. Load the input data
+            input_file = str(match)
+            logger.info("found: %s", input_file)
+            cube = iris.load_cube(input_file)
 
-To simplify this process, ESMValTool provides some convenience functions in
-``utilities.py`` , which we already included in the boilerplate code above.
+            # 2. Apply the necessary fixes
+            # 2a. Fix/add coordinate information and metadata
+            cube.coord('lat').standard_name = 'latitude'
+            cube.coord('lon').standard_name = 'longitude'
+            utils.fix_coords(cube)
 
-Apart from a function to easily save data, this module contains different
-kinds of small fixes to the data attributes, coordinates, and metadata which
-are necessary for the data field to be CMOR-compliant. We will come back to
-these functionalities in a bit.
+            # 3. Save the CMORized data
+            all_attributes = {**attributes, **variable_info}
+            utils.save_variable(cube=cube, var=short_name, outdir=out_dir, attrs=all_attributes)
+```
 
+Have a look at the netCDF file, and confirm that the coordinates now have much
+more metadata added to them. Then, run the test recipe again with the latest
+CMORizer output. The next error is:
 
-### 3. Finalizing the CMORizer
+~~~
+esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
+Variable GPP units unknown can not be converted to kg m-2 s-1 in cube:
+~~~
+{: .error}
+
+Okay, so let's fix the units of the "GPP" variable in the CMORizer. Remember
+that you can find the correct units in the CMOR table. Add the following three
+lines to our CMORizer:
+
+```python
+# 2b. Fix gpp units
+logger.info("Changing units for gpp from gc/m2/day to kg/m2/s")
+cube.data = cube.core_data() / (1000 * 86400)
+cube.units = 'kg m-2 s-1'
+```
+
+If everything is okay, the test recipe should now pass. We're getting there.
+Looking through the output though, there's still a warning.
+
+~~~
+WARNING There were warnings in variable GPP:
+Standard name for GPP changed from None to gross_primary_productivity_of_biomass_expressed_as_carbon
+Long name for GPP changed from GPP to Carbon Mass Flux out of Atmosphere Due to Gross Primary Production on Land [kgC m-2 s-1]
+~~~
+{: .output}
+
+ESMValTool is able to apply automatic fixes here, but if we are running a
+CMORizer script anyway, we might as well fix it immediately.
+
+Add the following snippet:
+
+```python
+# 2c. Fix metadata
+cmor_table = cfg['cmor_table']
+cmor_info = cmor_table.get_variable(variable_info['mip'], short_name)
+utils.fix_var_metadata(cube, cmor_info)
+```
+
+You can see that we're using the CMOR table here. This was passed on by
+ESMValTool as part of the `CFG` input variable. So here we're making sure that
+we're updating the cubes metadata to conform to the CMOR table.
+
+Finally, the test recipe should run without errors or warnings.
+
+## QUESTION: why is there no warning/error about the latitude direction. Should we not have to flip it?
+
+### 4. Finalizing the CMORizer
 
 Once everything works as expected, there's a couple of things that we can still do.
 
@@ -638,6 +683,12 @@ Once everything works as expected, there's a couple of things that we can still 
 - Make sure the metadata are added to the config file
 - Maybe go through a checklist????
 - add an entry to config-references?
+- Add additional cmorizer step:
+
+```python
+# 2d. Update the cubes metadata with all info from the config file
+utils.set_global_atts(cube, attributes)
+```
 
 
 The header contains information about where to obtain the data, when it was
@@ -700,157 +751,16 @@ detailed information about the necessary downloading and processing steps.
 
 
 
-Ok, so let's fix the units of the "GPP" variable in the CMORizer. For that
-we add the following three lines to the code in the section
-``_extract_variable``:
 
-```python
-# convert data from gc/m2/day to kg/m2/s
-cube = cube / (1000 * 86400)
-cube.units = 'kg m-2 s-1'
-```
 
-The whole section should then look like this:
 
-```python
-def _extract_variable(cmor_info, attrs, filepath, out_dir):
-    """Extract variable."""
-    var = cmor_info.short_name
-    logger.info("Var is %s", var)
-    cubes = iris.load(filepath)
-    for cube in cubes:
-        # convert data from gc/m2/day to kg/m2/s
-        cube = cube / (1000 * 86400)
-        cube.units = 'kg m-2 s-1'
 
-        logger.info("Saving file")
-        utils.save_variable(cube,
-                            var,
-                            out_dir,
-                            attrs,
-                            unlimited_dimensions=['time'])
 
-```
 
-If we run the CMORizer script now again with the ``cmorize_obs`` call we
-get a NetCDF file that has fixed units, but has an "unknown" variable name.
 
-```bash
-...
-variables:
-        float unknown(time, lat, lon) ;
-                unknown:_FillValue = 1.e+20f ;
-                unknown:units = "kg m-2 s-1" ;
-        double time(time) ;
-                time:axis = "T" ;
-                time:units = "days since 1582-10-15 00:00:00" ;
-                time:standard_name = "time" ;
-                time:calendar = "gregorian" ;
-        double lat(lat) ;
-        double lon(lon) ;
-...
-```
 
-We will have to do some more code tweaking then. But we also have not fixed
-the problem with the coordinates ``lat`` and ``lon`` yet. There is no "units"
-or "standard_name" given for either of these coordinates which will cause a
-problem for the ESMValTool. Such some smaller formatting problems can occur
-relatively often for coordinates like ``lat``, ``lon`` or ``time``. This means
-that these problems need fixing in many CMORizers.
-> ## Finalizing the "FLUXCOM" CMORizer
->
-> The task is now to work with the functions in the file "utilities.py" to
-> complete the CMORizer for the "FLUXCOM" dataset so that it can be read by
-> the ESMValTool. The definitions of the coordinates and the variable "gpp"
-> should look like the following after the successful CMORization:
->
-> ```bash
-> variables:
->         float gpp(time, lat, lon) ;
->                 gpp:_FillValue = 1.e+20f ;
->                 gpp:standard_name = "gross_primary_productivity_of_carbon" ;
->                 gpp:long_name = "Carbon Mass Flux out of Atmosphere due to Gross Primary Production on Land" ;
->                 gpp:units = "kg m-2 s-1" ;
->         double time(time) ;
->                 time:axis = "T" ;
->                 time:bounds = "time_bnds" ;
->                 time:units = "days since 1950-1-1 00:00:00" ;
->                 time:standard_name = "time" ;
->                 time:calendar = "gregorian" ;
->         double time_bnds(time, bnds) ;
->         double lat(lat) ;
->                 lat:axis = "Y" ;
->                 lat:bounds = "lat_bnds" ;
->                 lat:units = "degrees_north" ;
->                 lat:standard_name = "latitude" ;
->                 lat:long_name = "latitude coordinate" ;
->         double lat_bnds(lat, bnds) ;
->         double lon(lon) ;
->                 lon:axis = "X" ;
->                 lon:bounds = "lon_bnds" ;
->                 lon:units = "degrees_east" ;
->                 lon:standard_name = "longitude" ;
->                 lon:long_name = "longitude coordinate" ;
->         double lon_bnds(lon, bnds) ;
-> ```
->
-> For that to happen, you have to fix the following things:
-> - adding standard names to the dimensions ``lat`` and ``lon``
-> - fix the metadata for the variable "gpp"
-> - change the time units to start in the year 1950
-> - make the coordinates CMOR-compliant
-> - set global attributes for the data file
->
-> > ## Answers
-> >
-> > To fully CMORize the "FLUXCOM" dataset, you need to add the following
-> > lines of code to the ``_extract_variable`` function of your CMORizer
-> > script:
-> >
-> > ```python
-> > def _extract_variable(cmor_info, attrs, filepath, out_dir):
-> >     """Extract variable."""
-> >     var = cmor_info.short_name
-> >     logger.info("Var is %s", var)
-> >     cubes = iris.load(filepath)
-> >     for cube in cubes:
-> >         # convert data from gc/m2/day to kg/m2/s
-> >         cube = cube / (1000 * 86400)
-> >         cube.units = 'kg m-2 s-1'
-> >
-> >         # The following two lines are needed for iris.util.guess_coord_axis
-> >         cube.coord('lat').standard_name = 'latitude'
-> >         cube.coord('lon').standard_name = 'longitude'
-> >         utils.fix_var_metadata(cube, cmor_info)
-> >         utils.convert_timeunits(cube, 1950)
-> >         utils.fix_coords(cube)
-> >         utils.set_global_atts(cube, attrs)
-> >         utils.flip_dim_coord(cube, 'latitude')
-> >         coord = cube.coord('latitude')
-> >         coord.bounds = np.flip(coord.bounds, axis=1)
-> >         logger.info("Saving file")
-> >         utils.save_variable(cube,
-> >                             var,
-> >                             out_dir,
-> >                             attrs,
-> >                             unlimited_dimensions=['time'])
-> >
-> > ```
-> >
-> {: .solution}
-{: .challenge}
 
-So now we can finally run our new CMORizing script to produce an ESMValTool
-readable datafile of the "FLUXCOM" dataset. As already mentioned, the call
-to run a CMORizing script is as follows:
 
-```bash
-cmorize_obs -c <config-user.yml> -o <dataset-name>
-```
-
-If your run was successful, you should have gotten no error message in the
-ESMValTool logging information and one or more NetCDF files should have been
-produced in your output directory.
 
 To make sure that the CMORization has really worked as planned, we run the
 CMOR checker on this newly produced NetCDF file. If the ESMValTool can read
@@ -1019,17 +929,17 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 
 
 
-> > *Suggestion: maybe add the reference under step 3 (additional but not strictly necessary steps)*
+<!-- > > *Suggestion: maybe add the reference under step 3 (additional but not strictly necessary steps)*
 > > Note the attribute "reference" here: it should include a ``doi`` related to
 > > the dataset. For more information on how to add references to the
 > > ``reference`` section of the configuration file, see the section in the
 > > documentation about this: [adding
-> > references](https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references)
+> > references](https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references) -->
 
 
 
 
-
+<!--
 > > ## Answers
 > >
 > > The configuration file for the "FLUXCOM" dataset with all necessary pieces
@@ -1058,4 +968,4 @@ You can then edit the content and save it as ``CMOR_<short_name>.dat``.
 > > ```
 > >
 > {: .solution}
-{: .challenge}
+{: .challenge} -->

@@ -13,8 +13,8 @@ objectives:
 - "Understanding the interface between the ESMValCore preprocessor and a diagnostic script."
 
 keypoints:
-- "ESMValTool providees helper functions to interface a Python diagnostic script with ESMValCore preprocessor output."
-- "Existing diagnostics can be used as templates and modfied to write new diagnostics."
+- "ESMValTool provides helper functions to interface a Python diagnostic script with ESMValCore preprocessor output."
+- "Existing diagnostics can be used as templates and modified to write new diagnostics."
 ---
 
 ## Introduction
@@ -156,7 +156,7 @@ We revisit a recipe we have seen before, [recipe_python.yml](https://github.com/
 > >
 > > The main function is defined in the middle of this script on line 67 and is called 
 >> near the very end on line 105.  
->>The function *run_diagnostic* just above that is what 
+>>The function *run_diagnostic* function where *main* is called is what
 >>is called a context manager provided with ESMValTool and is the 
 >>main entry point for most Python diagnostics. The variable *cfg* is a Python dictionary 
 >>loaded with all the
@@ -183,7 +183,7 @@ the *run* directory. An example path would be */path_to_recipe_output/run/diag_n
 >
 > Can you find one example of the settings.yml file when you run this recipe?
 > Take a look at the *input_files* list in your settings.yml file. Do you see a mention of 
-> a second yml file called *metadat.yml*? 
+> a second yml file called *metadata.yml*? 
 > What information do you think is saved in metadata.yml?
 >
 >
@@ -201,11 +201,13 @@ the *run* directory. An example path would be */path_to_recipe_output/run/diag_n
 
 ## Extracting information needed for analyses
 In the *main* function of the diagnostic, you will see that *input_data* values are  read 
-from the *cfg* Python dictionary. Typically, users will now need to group this input data 
+from the *cfg* Python dictionary (line 70). 
+Typically, users will now need to group this input data 
 according to some criteria such as by model or experiment and select specifics to analyse.
-ESMValTool prvides a whole host of convenience functions that can do this for you. 
+ESMValTool provides a whole host of convenience functions that can do this for you. 
 A list of available functions and their description is provided [here](https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html). In our example, you will see several 
-of these imported right at the beginning of the file and used after input data is read.
+of these imported right at the beginning of the file (lines 8-12) and used after input data 
+is read.
 
 > ## ESMValTool Diagnostic Interface Functions
 >
@@ -215,7 +217,8 @@ of these imported right at the beginning of the file and used after input data i
 > > ## Answer
 > >
 > > If you look carefully, you can see that there is a statement after each use of the 
->> select and group functions that starts with *logger.info* (lines 74, 78 and 83). These lines print output to
+>> select and group functions that starts with *logger.info* (lines 74, 78 and 83). 
+>> These lines print output to
 >> the log files. If you looked at the content of your log files under the run directory, you
 >> should see the selected and grouped output. This is how you access preprocessed
 >> information within your diagnostic.
@@ -223,12 +226,13 @@ of these imported right at the beginning of the file and used after input data i
 > {: .solution}
 {: .challenge}
 
-Finally, after grouping we read individual attributes such as the filename which gives us 
+After grouping we read individual attributes such as the filename which gives us 
 the specific name of the preprocessed data file we want to read and analyse. 
-Following this, we see the call to a function called *compute_diagnostic*. 
+Following this, we see the call to a function called *compute_diagnostic* (line 39). 
 In this example, this is where the analyses on the data is done. 
 If you were writing your own diagnostic, this is the function you would write your 
 own code in.
+
 
 ## Diagnostic Computation
 The *compute_diagnostic* function in this example uses a software called [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read 
@@ -281,7 +285,44 @@ for your own diagnostics are given below.
 {: .solution}
 
 ## Plotting Diagnostic Output
- 
+Often, the end product of a diagnostic script is a plot or figure. ESMValTool makes it 
+possible to produce a wide array of such figures as seen in the [gallery] (https://docs.esmvaltool.org/en/latest/gallery.html). In this example we use Iris cubes for processing the 
+netCDF data. The Iris cube returned from the *compute_diagnostic* 
+function (line 93) is passed to the *plot_diagnostic* function (line 99). You could return 
+an xarray data object for example and pass that on to the plotting function.
+The *plot_diagnostic* function is where you would plug in your plotting routine in this
+example. 
+
+More specifically, the *quickplot* function (line 59) can be replaced with the 
+function of your choice. The lines preceding this function are to save the Iris cube object 
+and to save the Provenance of the file. Again, you may choose your own method of saving
+your diagnostic object. More information on how to record Provenance is available [here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance). 
+
+> ## Passing arguments to the diagnostic from the recipe
+>
+> How can you pass a user defined argument to your diagnostic ? If you 
+wanted to plot a colormesh plot with a particular colormap, how would you do so? 
+>
+> > ## Answer
+> > ```yaml
+> >     script1:
+> >       script: examples/diagnostic.py
+> >        quickplot:
+> >          plot_type: pcolormesh
+> >          cmap: Reds
+>>```
+> > The lines below `script:examples/diagnostic.py` have pairs of arguments and values
+>> that are passed on to the diagnostic script. In the case of the *quickplot* argument, 
+>>we can further pass arguments for *quickplot* such as the type of plot *pcolormesh* 
+>>and the colormap with keyword *cmap* as `cmap:Reds`. In line 59 of the diagnostic, 
+>>we access this argument. Look at other recipes and diagnostics for more examples of
+>> user defined arguments.
+> >
+> {: .solution}
+{: .challenge}
+
+
+
 
 ## Another section
 

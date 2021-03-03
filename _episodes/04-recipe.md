@@ -239,7 +239,7 @@ distinguished in the log messages:
 > > Just after 'creating tasks' and before 'executing tasks', we find the
 > > following line in the output:
 > >
-> > ```sh
+> > ```
 > > INFO    [29586] These tasks will be executed: timeseries/tas_global, timeseries/tas_amsterdam, map/tas, map/script1, timeseries/script1
 > > ```
 > >
@@ -427,7 +427,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > `tas_global`. Both of them operate on the variable `tas` (as indicated by the
 > `short_name`), but they apply different preprocessors. For the diagnostic
 > `map` the variable group itself is named `tas`, and you'll notice that we do
-> not explicitly provide the `short_name`. This is a shorthand build into
+> not explicitly provide the `short_name`. This is a shorthand built into
 > ESMValTool.
 {: .callout}
 

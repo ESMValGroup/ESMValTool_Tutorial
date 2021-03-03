@@ -45,7 +45,7 @@ technical steps, let's talk about what ESMValTool is all about.
 ESMValTool takes care of finding, opening, checking, fixing, concatenating, and
 preprocessing CMIP data and several other supported datasets.
 
-The central componnent of ESMValTool that we will see in this tutorial is the
+The central component of ESMValTool that we will see in this tutorial is the
 **recipe**. Any ESMValTool recipe is basically a set of instructions to reproduce
 a certain result. The basic structure of a recipe is as follows:
 

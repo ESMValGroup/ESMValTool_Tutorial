@@ -10,10 +10,10 @@ questions:
 
 objectives:
 - "Writing a new Python diagnostic"
-- "Understanding the interface between the ESMValCore preprocessor and a diagnostic script."
+- "Understanding the interface between the preprocessor and a diagnostic script."
 
 keypoints:
-- "ESMValTool provides helper functions to interface a Python diagnostic script with ESMValCore preprocessor output."
+- "ESMValTool provides helper functions to interface a Python diagnostic script with preprocessor output."
 - "Existing diagnostics can be used as templates and modified to write new diagnostics."
 ---
 
@@ -29,12 +29,12 @@ to write your own, please install ESMValTool in the development mode on your
 machine using the instructions from [this episode](08-development-setup/index.html).
 
 ## Understanding an existing Python diagnostic
-We revisit a recipe we have seen before, [recipe_python.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml) and the diagnostic script called by this recipe -- [diag_scripts/examples/diagnostic.py](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py). For reference, we have the diagnostic file in the dropdown box below.
 
+We revisit a recipe we have seen before, [recipe_python.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml) and the diagnostic script called by this recipe -- [diag_scripts/examples/diagnostic.py](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py). For reference, we have the diagnostic file in the dropdown box below.
 
 > ## diagnostic.py
 >
->~~~
+>~~~python
 >  1   """Python example diagnostic."""
 >  2   import logging
 >  3   import os
@@ -142,6 +142,7 @@ We revisit a recipe we have seen before, [recipe_python.yml](https://github.com/
 >105           main(config)
 >
 >~~~
+>
 >{: .language-python}
 >
 {:.solution}
@@ -169,26 +170,28 @@ We revisit a recipe we have seen before, [recipe_python.yml](https://github.com/
 {: .challenge}
 
 ## What information do I need for my analyses?
+
 The very first thing passed to the diagnostic via the *cfg* dictionary is a path to a file
 called *settings.yml*.  It is found at the lowest level of your directory structure under
 the *run* directory. An example path would be */path_to_recipe_output/run/diag_name/script_name/settings.yml*.
 
 > ## What is in the settings.yml file?
+
 > The ESMValTool documentation page provides a generic overview of what is in the
 >settings.yml file [here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html).
 >
 {: .callout}
 
-> ## Challenge : digging in deeper to understand the preprocesor-diagnostic interface
+> ## Challenge: digging in deeper to understand the preprocesor-diagnostic interface
 >
 > Can you find one example of the settings.yml file when you run this recipe?
 > Take a look at the *input_files* list in your settings.yml file. Do you see a mention of
 > a second yml file called *metadata.yml*?
 > What information do you think is saved in metadata.yml?
 >
->
-> > ## Answer
-> >Congratulations on finding an example each of the *settings.yml* and *metadata.yml*
+>> ## Answer
+>>
+>>Congratulations on finding an example each of the *settings.yml* and *metadata.yml*
 >>files! You will have noticed that metadata.yml has information on your preprocessed
 >>data. There is one file for each variable and it has detailed information on your data
 >> including project (e.g., CMIP6, OBS), dataset names (e.g., MIROC-6, UKESM-0-1-LL),
@@ -200,6 +203,7 @@ the *run* directory. An example path would be */path_to_recipe_output/run/diag_n
 {: .challenge}
 
 ## Extracting information needed for analyses
+
 In the *main* function of the diagnostic, you will see that *input_data* values are  read
 from the *cfg* Python dictionary (line 70).
 Typically, users will now need to group this input data
@@ -214,9 +218,9 @@ is read.
 > Can you spot the functions used for selecting and grouping data in the example?
 >After running this example, how can you tell what the functions do?
 >
-> > ## Answer
-> >
-> > If you look carefully, you can see that there is a statement after each use of the
+>> ## Answer
+>>
+>> If you look carefully, you can see that there is a statement after each use of the
 >> select and group functions that starts with *logger.info* (lines 74, 78 and 83).
 >> These lines print output to
 >> the log files. If you looked at the content of your log files under the run directory, you
@@ -235,6 +239,7 @@ own code in.
 
 
 ## Diagnostic Computation
+
 The *compute_diagnostic* function in this example uses a software called [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read
 data from a *netCDF* file and perform the simple computation of removing any dimension
 of length one. This is just an illustrative example. Iris reads data into data structures called
@@ -245,7 +250,7 @@ for your own diagnostics are given below.
 
 >## Example using xarray
 >
->~~~
+>~~~python
 >import xarray as xr  #import statement at the beginning of the file
 >
 >
@@ -266,7 +271,7 @@ for your own diagnostics are given below.
 
 >## Example using Scipy's netCDF library
 >
->~~~
+>~~~python
 >from scipy.io import netcdfx #import statement at the beginning of the file
 >
 >
@@ -285,8 +290,9 @@ for your own diagnostics are given below.
 {: .solution}
 
 ## Plotting Diagnostic Output
+
 Often, the end product of a diagnostic script is a plot or figure. ESMValTool makes it
-possible to produce a wide array of such figures as seen in the [gallery] (https://docs.esmvaltool.org/en/latest/gallery.html). In this example we use Iris cubes for processing the
+possible to produce a wide array of such figures as seen in the [gallery](https://docs.esmvaltool.org/en/latest/gallery.html). In this example we use Iris cubes for processing the
 netCDF data. The Iris cube returned from the *compute_diagnostic*
 function (line 93) is passed to the *plot_diagnostic* function (line 99). You could return
 an xarray data object for example and pass that on to the plotting function.

@@ -5,12 +5,11 @@ exercises: TBD
 
 questions:
 - "How do I write a new diagnostic in ESMValTool?"
-- "How do I read preprocessor output in a Python diagnostic?"
-
+- "How do I use the preprocessor output in a Python diagnostic?"
 
 objectives:
-- "Writing a new Python diagnostic"
-- "Understanding the interface between the preprocessor and a diagnostic script."
+- "Write a new Python diagnostic script."
+- "Explain how a diagnostic script reads the preprocessor output."
 
 keypoints:
 - "ESMValTool provides helper functions to interface a Python diagnostic script with preprocessor output."
@@ -21,21 +20,43 @@ keypoints:
 
 The diagnostic script is an important component of ESMValTool where the
 scientific analysis or performance metric is implemented. With ESMValTool, you
-can reuse an existing diagnostic, adapt and existing one for your needs or write
-your own new diagnostic.  Diagnostics can be written in a number of open source
+can adapt an existing diagnostic or write a new script from scratch.
+Diagnostics can be written in a number of open source
 languages such as Python, R, Julia and NCL but we will focus on understanding
-and writing Python diagnostics in this lesson. In order to access existing
-diagnostics or to write your own, please install ESMValTool in the development
-mode on your machine using the instructions from [this
-episode](08-development-setup/index.html).
+and writing Python diagnostics in this lesson.
+There are two approches to run your own diagnostics:
+
+1. using ESMValTool installed in a stable mode
+2. using ESMValTool installed in a editable/development mode
+
+In this lesson, we will explain how to find an existing diagnostic and run it
+using the second approch. For a development installation, see the instructions
+in the lesson
+[Development and contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}).
+Also, we will work with the recipe [recipe_python.yml][recipe] and the diagnostic script
+[diagnostic.py][diagnostic] called by this recipe that we have seen in the
+lesson [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
+
+Let's get started.
 
 ## Understanding an existing Python diagnostic
 
-We revisit a recipe we have seen before,
-[recipe_python.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml)
-and the diagnostic script called by this recipe --
-[diag_scripts/examples/diagnostic.py](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py).
-For reference, we have the diagnostic file in the dropdown box below.
+After development installation, a folder called ``ESMValTool`` has been created
+in your working directory. This folder contains the source code of the tool. We
+can find the recipe ``recipe_python.yml`` and the python script
+``diagnostic.py`` in these directories:
+
+- ~/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml
+- ~/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py
+
+Let's have look into the codes of the ``diagnostic.py``.
+For reference, we show the diagnostic code in the dropdown box below.
+There are four main sections in the script:
+
+- A description i.e. the ``docstring`` (line 1).
+- Import statements for different libraries (line 2-12).
+- Function's defenitions implementing our analysis (line 17-99).
+- A typical python top-level script i.e. ``if __name__ == '__main__'`` (line 102-105).
 
 > ## diagnostic.py
 >
@@ -154,23 +175,28 @@ For reference, we have the diagnostic file in the dropdown box below.
 
 > ## What is the starting point of the diagnostic?
 >
-> Can you spot a function called *main* in the Python code above? How many times
-> is this function mentioned?
->
+> 1. Can you spot a function called ``main`` in the code above?
+> 2. What is its input arguments?
+> 3. How many times is this function mentioned?
 >
 >> ## Answer
 >>
->> The main function is defined in the middle of this script on line 67 and is
->> called near the very end on line 105. The function *run_diagnostic* function
->> where *main* is called is what is called a context manager provided with
->> ESMValTool and is the main entry point for most Python diagnostics. The
->> variable *cfg* is a Python dictionary loaded with all the necessary
->> information needed to run the diagnostic script including location of input
->> data and various settings. In the *main* function, we will next parse this
->> *cfg* variable and extract information as needed to do our analyses.
-> >
+>> 1. The ``main`` function is defined in line 67 as ``main(cfg)``.
+>> 2. The variable ``cfg`` is a Python dictionary holding all the necessary
+>> information needed to run the diagnostic script like the location of input
+>> data and various settings. In the ``main`` function, we will next parse this
+>> ``cfg`` variable and extract information as needed to do our analyses (e.g. in line 70).
+>> 3. The ``main`` function called near the very end on line 105.
 > {: .solution}
 {: .challenge}
+
+> ## The function run_diagnostic
+>
+> The function ``run_diagnostic`` (line 104) is called a context manager
+> provided with ESMValTool and is the main entry point for most Python
+> diagnostics.
+>
+{: .callout}
 
 ## What information do I need for my analyses?
 
@@ -343,3 +369,6 @@ Provenance is available
 {: .challenge}
 
 {% include links.md %}
+
+[recipe]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml
+[diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py

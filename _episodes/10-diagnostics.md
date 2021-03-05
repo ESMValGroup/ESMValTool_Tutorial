@@ -34,8 +34,8 @@ using the second approch. For a development installation, see the instructions
 in the lesson
 [Development and contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}).
 Also, we will work with the recipe [recipe_python.yml][recipe] and the diagnostic script
-[diagnostic.py][diagnostic] called by this recipe that we have seen in the
-lesson [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
+[diagnostic.py][diagnostic] called by this recipe that we have seen in the lesson
+[Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 Let's get started.
 
@@ -46,17 +46,17 @@ in your working directory. This folder contains the source code of the tool. We
 can find the recipe ``recipe_python.yml`` and the python script
 ``diagnostic.py`` in these directories:
 
-- ~/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml
-- ~/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py
+- *path_to_ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
+- *path_to_ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
 
 Let's have look into the codes of the ``diagnostic.py``.
 For reference, we show the diagnostic code in the dropdown box below.
 There are four main sections in the script:
 
 - A description i.e. the ``docstring`` (line 1).
-- Import statements for different libraries (line 2-12).
-- Function's defenitions implementing our analysis (line 17-99).
-- A typical python top-level script i.e. ``if __name__ == '__main__'`` (line 102-105).
+- Import statements (line 2-12).
+- Functions that implement our analysis (line 17-99).
+- A typical python top-level script (line 102-105).
 
 > ## diagnostic.py
 >
@@ -198,37 +198,39 @@ There are four main sections in the script:
 >
 {: .callout}
 
-## What information do I need for my analyses?
+## What information do I need when writing a diagnostic script?
 
-The very first thing passed to the diagnostic via the *cfg* dictionary is a path
-to a file called *settings.yml*.  It is found at the lowest level of your
-directory structure under the *run* directory. An example path would be
-*/path_to_recipe_output/run/diag_name/script_name/settings.yml*.
+In the previous exercise, we have seen that the variable ``cfg`` is the input
+argument of the ``main`` function. The first thing passed to the diagnostic
+via the ``cfg`` dictionary is a path to a file called ``settings.yml``.
+The ESMValTool documentation page provides an overview of what is in this file, see
+[Diagnostic script interfaces][interface].
 
-> ## What is in the settings.yml file?
+> ## Digging deeper into the preprocesor-diagnostic interface
 >
-> The ESMValTool documentation page provides a generic overview of what is in
->the settings.yml file
->[here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html).
+> From the lesson [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}),
+> we saw how to change the configurations before running a recipe.
+> Let's first set the option ``remove_preproc_dir`` to ``false`` in the configuration file,
+> then run the recipe ``recipe_python.yml``:
 >
-{: .callout}
-
-> ## Challenge: digging in deeper to understand the preprocesor-diagnostic interface
+> ~~~bash
+> esmvaltool run recipe_example.yml
+> ~~~
 >
-> Can you find one example of the settings.yml file when you run this recipe?
-> Take a look at the *input_files* list in your settings.yml file. Do you see a
-> mention of a second yml file called *metadata.yml*? What information do you
-> think is saved in metadata.yml?
+> 1. Find one example of the file ``settings.yml`` in the ``run`` directory?
+> 2. Take a look at the ``input_files`` list. It contains pathes to some files
+>    ``metadata.yml``. What information do you think is saved in those files?
 >
 >> ## Answer
 >>
->>Congratulations on finding an example each of the *settings.yml* and
->>*metadata.yml* files! You will have noticed that metadata.yml has information
->>on your preprocessed data. There is one file for each variable and it has
->>detailed information on your data including project (e.g., CMIP6, OBS),
->>dataset names (e.g., MIROC-6, UKESM-0-1-LL), variable attributes (e.g.,
->>standard_name, units), preprocessor applied and time range of the data. You
->>are now ready to access all of this information for your evaluation!
+>> 1. One example of ``settings.yml`` can be found in the directory:
+>> *path_to_recipe_output/run/map/script1/settings.yml*
+>> 2. The ``metadata.yml`` files hold information
+>> about the preprocessed data. There is one file for each variable having
+>> detailed information on your data including project (e.g., CMIP6, OBS),
+>> dataset names (e.g., MIROC-6, UKESM-0-1-LL), variable attributes (e.g.,
+>> standard_name, units), preprocessor applied and time range of the data. You
+>> can use all of these information in your own diagnostics.
 > >
 > >
 > {: .solution}
@@ -372,3 +374,4 @@ Provenance is available
 
 [recipe]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py
+[interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html

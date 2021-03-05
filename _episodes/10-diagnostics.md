@@ -316,7 +316,7 @@ script code][shared].
 After grouping and selecting data, we can read individual attributes such as the
 filename by looping over variables (line 88-92). Following this, we see the use
 of the function ``compute_diagnostic`` (line 93). Let's have a look at the
-defenition of this function in line 39 where the analyses on the data is done.
+definition of this function in line 39 where the analyses on the data is done.
 
 Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
@@ -406,7 +406,7 @@ def compute_diagnostic(filename):
 
 Often, the end product of a diagnostic script is a plot or figure. The Iris cube
 returned from the ``compute_diagnostic`` function (line 93) is passed to the
-``plot_diagnostic`` function (line 99). Let's have a look at the defenition of
+``plot_diagnostic`` function (line 99). Let's have a look at the definition of
 this function in line 48 where we would plug in our plotting routine in the
 diagnostic script.
 
@@ -446,8 +446,6 @@ recipe to the diagnostic.
 >>~~~
 >>
 >> The plot can be found at *path_to_recipe_output/plots/map/script1/png*.
->> Look at other recipes and diagnostics for more examples of user defined
->> arguments.
 > {: .solution}
 {: .challenge}
 
@@ -457,18 +455,27 @@ recipe to the diagnostic.
 > in the [gallery](https://docs.esmvaltool.org/en/latest/gallery.html).
 {: .callout}
 
-### Saving the output
+### Saving the output (FIX ME)
 
 The lines preceding this function are to save the Iris
 cube object. Again, you may choose your
 own method of saving your diagnostic object.
 
-### Recording provenance information
+### Recording provenance
 
- and to save the Provenance of the file. More information on how to record
-Provenance is available
-[here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance).
+When developing a diagnostic script, we should make sure that it records the
+provenance. To do so, we use the function ``get_provenance_record`` (line 97).
+Let's have a look at the definition of this function in line 17 where we
+describe the diagnostic data and plot. Using the dictionary ``record``, it is
+possible to add custom provenance. Provenance is stored in the *W3C PROV XML*
+format and also in an *SVG* file under the ``work`` directory. For more
+information, see [recording provenance][provenance].
 
+## Congratulations!
+
+Now you know the diagnostic script structure and a few functions. There are many
+more functions to be used, but these should be enough to get you started! Look
+at other recipes and diagnostics for more examples.
 {% include links.md %}
 
 [recipe]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml
@@ -476,3 +483,4 @@ Provenance is available
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
 [shared]: https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html
 [netCDF]: https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.netcdf.netcdf_file.html
+[provenance]: https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance

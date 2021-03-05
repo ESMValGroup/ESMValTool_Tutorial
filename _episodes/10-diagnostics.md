@@ -169,8 +169,6 @@ There are four main sections in the script:
 >
 >~~~
 >
->{: .language-python}
->
 {:.solution}
 
 > ## What is the starting point of the diagnostic?
@@ -198,7 +196,7 @@ There are four main sections in the script:
 >
 {: .callout}
 
-## What information do I need when writing a diagnostic script?
+## Preprocesor-diagnostic interface
 
 In the previous exercise, we have seen that the variable ``cfg`` is the input
 argument of the ``main`` function. The first thing passed to the diagnostic
@@ -206,7 +204,7 @@ via the ``cfg`` dictionary is a path to a file called ``settings.yml``.
 The ESMValTool documentation page provides an overview of what is in this file, see
 [Diagnostic script interfaces][interface].
 
-> ## Digging deeper into the preprocesor-diagnostic interface
+> ## What information do I need when writing a diagnostic script?
 >
 > From the lesson [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}),
 > we saw how to change the configurations before running a recipe.
@@ -227,8 +225,8 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 >> *path_to_recipe_output/run/map/script1/settings.yml*
 >> 2. The ``metadata.yml`` files hold information
 >> about the preprocessed data. There is one file for each variable having
->> detailed information on your data including project (e.g., CMIP6, OBS),
->> dataset names (e.g., MIROC-6, UKESM-0-1-LL), variable attributes (e.g.,
+>> detailed information on your data including project (e.g., CMIP6, CMIP5),
+>> dataset names (e.g., BCC-ESM1, CanESM2), variable attributes (e.g.,
 >> standard_name, units), preprocessor applied and time range of the data. You
 >> can use all of these information in your own diagnostics.
 > >
@@ -236,34 +234,84 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 > {: .solution}
 {: .challenge}
 
-## Extracting information needed for analyses
+## Diagnostic shared functions
 
-In the *main* function of the diagnostic, you will see that *input_data* values
-are  read from the *cfg* Python dictionary (line 70). Typically, users will now
-need to group this input data according to some criteria such as by model or
-experiment and select specifics to analyse. ESMValTool provides a whole host of
-convenience functions that can do this for you. A list of available functions
-and their description is provided
-[here](https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html).
-In our example, you will see several of these imported right at the beginning of
-the file (lines 8-12) and used after input data is read.
+Looking at the codes of the ``diagnostic.py``, we see that ``input_data`` is
+read from the ``cfg`` dictionary (line 70). Now we can group the ``input_data``
+according to some criteria such as the model or experiment. To do so,
+ESMValTool provides many functions like ``select_metadata`` (line 73),
+``sorted_metadata`` (line 77), and ``group_metadata`` (line 81). As you can see
+in line 8, these functions are imported from ``esmvaltool.diag_scripts.shared``
+that means these are shared between several diagnostics scripts. A list of
+available functions and their description can be found in [Shared diagnostic
+script code][shared].
 
-> ## ESMValTool Diagnostic Interface Functions
+> ## Extracting information needed for analyses
 >
-> Can you spot the functions used for selecting and grouping data in the
->example? After running this example, how can you tell what the functions do?
+> We have seen the functions used for selecting, sorting and grouping data in the
+> script. What these functions do?
 >
 >> ## Answer
 >>
->> If you look carefully, you can see that there is a statement after each use
->> of the select and group functions that starts with *logger.info* (lines 74,
->> 78 and 83). These lines print output to the log files. If you looked at the
->> content of your log files under the run directory, you should see the
->> selected and grouped output. This is how you access preprocessed information
->> within your diagnostic.
-> >
+>> There is a statement after use of ``select_metadata``, ``sorted_metadata``
+>> and ``group_metadata`` that starts with ``logger.info`` (lines 74, 78 and
+>> 83). These lines print output to the log files. In the previous exercise, we
+>> ran the recipe ``recipe_python.yml``. If you looked at the content of the log
+>> file ``path_to_recipe_output/run/map/script1/log.txt``, you can see the some
+>> information on how each function works, for example:
+>>
+>>```
+>>2021-03-05 13:19:38,184 [34706] INFO     diagnostic,83  Example of how to group and
+>>sort input data by variable groups from the recipe:
+>>{'tas': [{'activity': 'CMIP',
+>>         'alias': 'CMIP6',
+>>         'dataset': 'BCC-ESM1',
+>>         'diagnostic': 'map',
+>>         'end_year': 2000,
+>>         'ensemble': 'r1i1p1f1',
+>>         'exp': 'historical',
+>>         'filename': '~/recipe_python_20210305_131929/preproc/map/tas/CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_2000-2000.nc',
+>>         'frequency': 'mon',
+>>         'grid': 'gn',
+>>         'institute': ['BCC'],
+>>         'long_name': 'Near-Surface Air Temperature',
+>>         'mip': 'Amon',
+>>         'modeling_realm': ['atmos'],
+>>         'preprocessor': 'select_january',
+>>         'project': 'CMIP6',
+>>         'recipe_dataset_index': 0,
+>>         'short_name': 'tas',
+>>         'standard_name': 'air_temperature',
+>>         'start_year': 2000,
+>>         'units': 'K',
+>>         'variable_group': 'tas'},
+>>        {'alias': 'CMIP5',
+>>         'dataset': 'CanESM2',
+>>         'diagnostic': 'map',
+>>         'end_year': 2000,
+>>         'ensemble': 'r1i1p1',
+>>         'exp': 'historical',
+>>         'filename': '~/recipe_python_20210305_131929/preproc/map/tas/CMIP5_CanESM2_Amon_historical_r1i1p1_tas_2000-2000.nc',
+>>         'frequency': 'mon',
+>>         'institute': ['CCCma'],
+>>         'long_name': 'Near-Surface Air Temperature',
+>>         'mip': 'Amon',
+>>         'modeling_realm': ['atmos'],
+>>         'preprocessor': 'select_january',
+>>         'project': 'CMIP5',
+>>         'recipe_dataset_index': 1,
+>>         'short_name': 'tas',
+>>         'standard_name': 'air_temperature',
+>>         'start_year': 2000,
+>>         'units': 'K',
+>>         'variable_group': 'tas'}]}
+>>```
+>>
+>> This is how we can access preprocessed data within our diagnostic.
 > {: .solution}
 {: .challenge}
+
+## Diagnostic Computation
 
 After grouping we read individual attributes such as the filename which gives us
 the specific name of the preprocessed data file we want to read and analyse.
@@ -271,8 +319,6 @@ Following this, we see the call to a function called *compute_diagnostic* (line
 39). In this example, this is where the analyses on the data is done. If you
 were writing your own diagnostic, this is the function you would write your own
 code in.
-
-## Diagnostic Computation
 
 The *compute_diagnostic* function in this example uses a software called
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
@@ -375,3 +421,4 @@ Provenance is available
 [recipe]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
+[shared]: https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html

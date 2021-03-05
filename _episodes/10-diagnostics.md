@@ -316,7 +316,7 @@ script code][shared].
 After grouping and selecting data, we can read individual attributes such as the
 filename by looping over variables (line 88-92). Following this, we see the use
 of the function ``compute_diagnostic`` (line 93). Let's have a look at the
-defenition of this function at line 39 where the analyses on the data is done.
+defenition of this function in line 39 where the analyses on the data is done.
 
 Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
@@ -400,48 +400,74 @@ def compute_diagnostic(filename):
 > {: .solution}
 {: .challenge}
 
-## Plotting Diagnostic Output
+## Diagnostic output
 
-Often, the end product of a diagnostic script is a plot or figure. ESMValTool
-makes it possible to produce a wide array of such figures as seen in the
-[gallery](https://docs.esmvaltool.org/en/latest/gallery.html). In this example
-we use Iris cubes for processing the netCDF data. The Iris cube returned from
-the *compute_diagnostic* function (line 93) is passed to the *plot_diagnostic*
-function (line 99). You could return an xarray data object for example and pass
-that on to the plotting function. The *plot_diagnostic* function is where you
-would plug in your plotting routine in this example.
+### Plotting the output
 
-More specifically, the *quickplot* function (line 59) can be replaced with the
-function of your choice. The lines preceding this function are to save the Iris
-cube object and to save the Provenance of the file. Again, you may choose your
-own method of saving your diagnostic object. More information on how to record
-Provenance is available
-[here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance).
+Often, the end product of a diagnostic script is a plot or figure. The Iris cube
+returned from the ``compute_diagnostic`` function (line 93) is passed to the
+``plot_diagnostic`` function (line 99). Let's have a look at the defenition of
+this function in line 48 where we would plug in our plotting routine in the
+diagnostic script.
 
-> ## Passing arguments to the diagnostic from the recipe
+More specifically, the ``quickplot`` function (line 59) can be replaced with the
+function of our choice. As can be seen, this function uses
+``**cfg['quickplot']`` as an input argument. If you look at the diagnostic
+section in the recipe ``recipe_python.yml``, you see ``quickplot`` is a key
+there:
+
+~~~yaml
+     script1:
+       script: examples/diagnostic.py
+        quickplot:
+          plot_type: pcolormesh
+          cmap: Reds
+~~~
+
+In this way, we can further pass arguments for ``quickplot`` such as the type of
+plot ``pcolormesh`` and the colormap with keyword ``cmap`` as `Reds` from the
+recipe to the diagnostic.
+
+> ## Passing arguments from the recipe to the diagnostic
 >
-> How can you pass a user defined argument to your diagnostic ? If you wanted to
-> plot a colormesh plot with a particular colormap, how would you do so?
+> Change the type of the plot and its colormap and inspect the output figure.
 >
 >> ## Answer
 >>
->> ```yaml
+>> In the recipe ``recipe_python.yml``, you should change ``plot_type`` and ``cmap``.
+>> As an example, we choose ``plot_type: pcolor`` and ``cmap: BuGn``:
+>>
+>> ~~~yaml
 >>     script1:
 >>       script: examples/diagnostic.py
 >>        quickplot:
->>          plot_type: pcolormesh
->>          cmap: Reds
->>```
+>>          plot_type: pcolor
+>>          cmap: BuGn
+>>~~~
 >>
->> The lines below `script:examples/diagnostic.py` have pairs of arguments and
->> values that are passed on to the diagnostic script. In the case of the
->> *quickplot* argument, we can further pass arguments for *quickplot* such as
->> the type of plot *pcolormesh* and the colormap with keyword *cmap* as
->> `cmap:Reds`. In line 59 of the diagnostic, we access this argument. Look at
->> other recipes and diagnostics for more examples of user defined arguments.
->>
+>> The plot can be found at *path_to_recipe_output/plots/map/script1/png*.
+>> Look at other recipes and diagnostics for more examples of user defined
+>> arguments.
 > {: .solution}
 {: .challenge}
+
+> ## ESMValTool gallery
+>
+> ESMValTool makes it possible to produce a wide array of such figures as seen
+> in the [gallery](https://docs.esmvaltool.org/en/latest/gallery.html).
+{: .callout}
+
+### Saving the output
+
+The lines preceding this function are to save the Iris
+cube object. Again, you may choose your
+own method of saving your diagnostic object.
+
+### Recording provenance information
+
+ and to save the Provenance of the file. More information on how to record
+Provenance is available
+[here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance).
 
 {% include links.md %}
 

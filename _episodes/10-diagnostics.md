@@ -311,67 +311,94 @@ script code][shared].
 > {: .solution}
 {: .challenge}
 
-## Diagnostic Computation
+## Diagnostic computation
 
-After grouping we read individual attributes such as the filename which gives us
-the specific name of the preprocessed data file we want to read and analyse.
-Following this, we see the call to a function called *compute_diagnostic* (line
-39). In this example, this is where the analyses on the data is done. If you
-were writing your own diagnostic, this is the function you would write your own
-code in.
+After grouping and selecting data, we can read individual attributes such as the
+filename by looping over variables (line 88-92). Following this, we see the use
+of the function ``compute_diagnostic`` (line 93). Let's have a look at the
+defenition of this function at line 39 where the analyses on the data is done.
 
-The *compute_diagnostic* function in this example uses a software called
+Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
-from a *netCDF* file and perform the simple computation of removing any
-dimension of length one. This is just an illustrative example. Iris reads data
-into data structures called
-[cubes](https://scitools-iris.readthedocs.io/en/latest/userguide/iris_cubes.html).
-The data in these cubes can be modified, combined with other cubes' data or
-plotted. Two other possible ways of reading netcdf files using
-[xarrays](http://xarray.pydata.org/en/stable/)  or [SciPy's netCDF
-library](https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.netcdf.netcdf_file.html)
-for your own diagnostics are given below.
+from a netCDF file and performs a simple computation of averaging over time
+dimension. We can adapt this function adding our own analysis.
+As an example, here we want to calculate maximum of the data as:
 
->## Example using xarray
->
->~~~python
->import xarray as xr  #import statement at the beginning of the file
->
->
->def compute_diagnostic(filename):
->    """Compute an example diagnostic."""
->    logger.debug("Loading %s", filename)
->    ds = xr.open_dataset(filename)
->
->    #do your analyses on the data here
->
->    return ds
->
->~~~
->{: .language-python}
->
-{: .solution}
+~~~python
+def compute_diagnostic(filename):
+    """Compute an example diagnostic."""
+    logger.debug("Loading %s", filename)
+    cube = iris.load_cube(filenam
 
+    logger.debug("Running example computation")
+    cube.collapsed('time', iris.analysis.MEAN)
+    return cube.data.max()
+~~~
 
->## Example using Scipy's netCDF library
+> ## iris cubes
 >
->~~~python
->from scipy.io import netcdfx #import statement at the beginning of the file
+> Iris reads data into data structures called
+> [cubes](https://scitools-iris.readthedocs.io/en/latest/userguide/iris_cubes.html).
+> The data in these cubes can be modified, combined with other cubes' data or
+> plotted.
+{: .callout}
+
+> ## Reading data using xarray
 >
+> Use the [xarrays](http://xarray.pydata.org/en/stable/) to read the data
+> instead of iris.
 >
->def compute_diagnostic(filename):
->    """Compute an example diagnostic."""
->    logger.debug("Loading %s", filename)
->    f = netcdf.netcdf_file(filename,'r')
+>> ## Answer
+>>
+>> First, import [xarray] package at the top of the script as:
+>>
+>>~~~python
+>>import xarray as xr
+>>~~~
+>>
+>> Then, change the ``compute_diagnostic`` as:
+>>
+>>~~~python
+>>def compute_diagnostic(filename):
+>>    """Compute an example diagnostic."""
+>>    logger.debug("Loading %s", filename)
+>>    dataset = xr.open_dataset(filename)
+>>
+>>    #do your analyses on the data here
+>>
+>>    return dataset
+>>~~~
+>>
+> {: .solution}
+{: .challenge}
+
+> ## Reading data using Scipy's netCDF library
 >
->    #do your analyses on the data here
+> Use the [SciPy's netCDF library][netCDF] to read the data instead of iris.
 >
->    return f
->
->~~~
->{: .language-python}
->
-{: .solution}
+>> ## Answer
+>>
+>> First, import [netcdfx] package at the top of the script as:
+>>
+>>~~~python
+>>from scipy.io import netcdfx
+>>~~~
+>>
+>> Then, change the ``compute_diagnostic`` as:
+>>
+>>~~~python
+>>def compute_diagnostic(filename):
+>>    """Compute an example diagnostic."""
+>>    logger.debug("Loading %s", filename)
+>>    netcdf_file = netcdf.netcdf_file(filename,'r')
+>>
+>>    #do your analyses on the data here
+>>
+>>    return netcdf_file
+>>~~~
+>>
+> {: .solution}
+{: .challenge}
 
 ## Plotting Diagnostic Output
 
@@ -422,3 +449,4 @@ Provenance is available
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
 [shared]: https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html
+[netCDF]: https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.netcdf.netcdf_file.html

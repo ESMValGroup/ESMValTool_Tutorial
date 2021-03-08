@@ -12,8 +12,12 @@ objectives:
 - "Explain how a diagnostic script reads the preprocessor output."
 
 keypoints:
-- "ESMValTool provides helper functions to interface a Python diagnostic script with preprocessor output."
-- "Existing diagnostics can be used as templates and modified to write new diagnostics."
+- "ESMValTool provides helper functions to interface a Python diagnostic script
+  with preprocessor output."
+- "Existing diagnostics can be used as templates and modified to write new
+  diagnostics."
+- "Many functions can be imported from ``esmvaltool.diag_scripts.shared`` and
+  used in your own diagnostic script."
 ---
 
 ## Introduction
@@ -468,7 +472,7 @@ There is also the function ``save_figure`` in line 63 to save the plots under
 ``plot`` directory in a ``.png`` format. Again, you may choose your own method
 of saving the output.
 
-### Recording provenance
+### Recording the provenance
 
 When developing a diagnostic script, we should make sure that it records the
 provenance. To do so, we use the function ``get_provenance_record`` (line 99).

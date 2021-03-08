@@ -430,8 +430,8 @@ there:
 ~~~
 
 In this way, we can further pass arguments for ``quickplot`` such as the type of
-plot ``pcolormesh`` and the colormap with keyword ``cmap`` as `Reds` from the
-recipe to the diagnostic.
+plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
+diagnostic.
 
 > ## Passing arguments from the recipe to the diagnostic
 >
@@ -460,11 +460,13 @@ recipe to the diagnostic.
 > in the [gallery](https://docs.esmvaltool.org/en/latest/gallery.html).
 {: .callout}
 
-### Saving the output (FIX ME)
+### Saving the output
 
-The lines preceding this function are to save the Iris
-cube object. Again, you may choose your
-own method of saving your diagnostic object.
+In our example, the function ``save_data`` in line 57 is used to save the Iris
+cube. The saved files can be found under ``work`` directory in a ``.nc`` format.
+There is also the function ``save_figure`` in line 63 to save the plots under
+``plot`` directory in a ``.png`` format. Again, you may choose your own method
+of saving the output.
 
 ### Recording provenance
 
@@ -473,8 +475,8 @@ provenance. To do so, we use the function ``get_provenance_record`` (line 99).
 Let's have a look at the definition of this function in line 21 where we
 describe the diagnostic data and plot. Using the dictionary ``record``, it is
 possible to add custom provenance. Provenance is stored in the *W3C PROV XML*
-format and also in an *SVG* file under the ``work`` directory. For more
-information, see [recording provenance][provenance].
+format and also in an *SVG* file under the ``work`` and ``plot`` directory. For
+more information, see [recording provenance][provenance].
 
 ## Congratulations!
 

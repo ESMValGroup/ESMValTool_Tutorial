@@ -322,19 +322,22 @@ definition of this function in line 43 where the analyses on the data is done.
 
 Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
-from a netCDF file and performs an operation ``squeeze`` to removes any dimension of length one. We can adapt this function to add our own analysis.
-As an example, here we want to calculate maximum of the data as:
+from a netCDF file and performs an operation ``squeeze`` to remove any dimension
+of length one. We can adapt this function to add our own analysis. As an
+example, here we want to calculate the bias toward the averege of the data as:
 
 ~~~python
 def compute_diagnostic(filename):
     """Compute an example diagnostic."""
     logger.debug("Loading %s", filename)
-    cube = iris.load_cube(filenam
+    cube = iris.load_cube(filename)
 
     logger.debug("Running example computation")
     cube = iris.util.squeeze(cube)
-    cube.collapsed('time', iris.analysis.MEAN)
-    return cube.data.max()
+
+    # Calculate a bias using the average of data
+    cube.data = cube.core_data() - cube.data.mean()
+    return cube
 ~~~
 
 > ## iris cubes
@@ -352,7 +355,7 @@ def compute_diagnostic(filename):
 >
 >> ## Answer
 >>
->> First, import [xarray] package at the top of the script as:
+>> First, import ``xarray`` package at the top of the script as:
 >>
 >>~~~python
 >>import xarray as xr
@@ -380,7 +383,7 @@ def compute_diagnostic(filename):
 >
 >> ## Answer
 >>
->> First, import [netcdfx] package at the top of the script as:
+>> First, import ``netcdfx`` package at the top of the script as:
 >>
 >>~~~python
 >>from scipy.io import netcdfx

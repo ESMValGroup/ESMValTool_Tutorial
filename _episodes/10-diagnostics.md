@@ -28,18 +28,15 @@ can adapt an existing diagnostic or write a new script from scratch.
 Diagnostics can be written in a number of open source
 languages such as Python, R, Julia and NCL but we will focus on understanding
 and writing Python diagnostics in this lesson.
-There are two approches to run your own diagnostics:
-
-1. using ESMValTool installed in a stable mode
-2. using ESMValTool installed in a editable/development mode
 
 In this lesson, we will explain how to find an existing diagnostic and run it
-using the second approch. For a development installation, see the instructions
-in the lesson
-[Development and contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}).
-Also, we will work with the recipe [recipe_python.yml][recipe] and the diagnostic script
-[diagnostic.py][diagnostic] called by this recipe that we have seen in the lesson
-[Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
+using ESMValTool installed in a editable/development mode. For a development
+installation, see the instructions in the lesson [Development and
+contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}).
+Also, we will work with the recipe [recipe_python.yml][recipe] and the
+diagnostic script [diagnostic.py][diagnostic] called by this recipe that we have
+seen in the lesson [Running your first recipe]({{ page.root }}{% link
+_episodes/04-recipe.md %}).
 
 Let's get started.
 

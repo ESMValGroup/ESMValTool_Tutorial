@@ -57,7 +57,8 @@ There are four main sections in the script:
 - A description i.e. the ``docstring`` (line 1).
 - Import statements (line 2-16).
 - Functions that implement our analysis (line 21-101).
-- A typical python top-level script (line 102-107).
+- A typical python top-level script i.e. ``if __name__ == '__main__'`` (line
+  102-107).
 
 > ## diagnostic.py
 >

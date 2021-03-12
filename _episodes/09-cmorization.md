@@ -73,7 +73,7 @@ button on the "FLUXCOM (RS+METEO) Global Land Carbon Fluxes using CRUNCEP
 climate data". You'll receive an email with the FTP address to access the
 server. Connect to the server, follow the path in your email, and look for the
 file `raw/monthly/GPP.ANN.CRUNCEPv6.monthly.2000.nc`. Download that file and
-save in in a folder called `/RAWOBS/Tier3/FLUXCOM`.
+save it in a folder called `/RAWOBS/Tier3/FLUXCOM`.
 
 Note: you'll need a user-friendly ftp client. On Linux, `ncftp` works okay.
 
@@ -742,7 +742,7 @@ utils.set_global_atts(cube, attributes)
 - **Add a reference**. Make sure that there is a reference file available for
    the dataset. You can add a [BibTeX info
    file](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references)
-   here.
+   here. You
 
 - **Make a pull request**. Since you have gone through all the trouble to
   reformat the dataset so that the ESMValTool can work with it, it would be

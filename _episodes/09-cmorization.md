@@ -673,34 +673,21 @@ we're updating the cubes metadata to conform to the CMOR table.
 
 Finally, the test recipe should run without errors or warnings.
 
-## QUESTION: why is there no warning/error about the latitude direction. Should we not have to flip it?
-
 ### 4. Finalizing the CMORizer
 
 Once everything works as expected, there's a couple of things that we can still do.
 
-- Add header info
-- Make sure the metadata are added to the config file
-- Maybe go through a checklist????
-- add an entry to config-references?
-- Add additional cmorizer step:
-
-```python
-# 2d. Update the cubes metadata with all info from the config file
-utils.set_global_atts(cube, attributes)
-```
-
-
-The header contains information about where to obtain the data, when it was
-accessed the last time, which ESMValTool "tier" it is associated with, and more
-detailed information about the necessary downloading and processing steps.
+- **Add download instructions**. The header of the CMORizer contains information about
+  where to obtain the data, when it was accessed the last time, which ESMValTool
+  "tier" it is associated with, and more detailed information about the
+  necessary downloading and processing steps.
 
 > ## Fill out the header for the "FLUXCOM" dataset
 >
-> Fill out the information that is necessary in the header of a CMORizing
-> script for the dataset "FLUXCOM". The different parts that need to be
+> Fill out the header of the new CMORizer. The different parts that need to be
 > present in the header are the following:
-> - caption: " """ESMValTool CMORizer for FLUXCOM GPP data."
+>
+> - Caption: the first line of the docstring should summarize what the script does.
 > - Tier
 > - Source
 > - Last access
@@ -738,234 +725,48 @@ detailed information about the necessary downloading and processing steps.
 > >     version 2.3.0 Aug 2019
 > > """
 > > ```
-> >
-> > This is the header of the "FLUXCOM" CMORizer that is available with the
-> > ESMValTool already. It is therefore entirely possible that your entries for
-> > the section "Last access" and "Download and processing instructions"
-> > differ from the example here since the entries for these sections are
-> > somewhat subjective.
-> >
 > {: .solution}
 {: .challenge}
 
 
+- **Complete the metadata in the config file**. We have left a few fields empty
+  in the configuration file, such as 'source'. By filling out these fields we can
+  make sure the relevant metadata is passed on as attributes in the CMORized
+  data. To make this work, add the following line to the CMORizer script:
 
-
-
-
-
-
-
-
-
-
-
-
-
-To make sure that the CMORization has really worked as planned, we run the
-CMOR checker on this newly produced NetCDF file. If the ESMValTool can read
-the data without problems, you should see as one of the last lines of
-ESMValTool output:
-
-```bash
-INFO    Run was successful
+```python
+# 2d. Update the cubes metadata with all info from the config file
+utils.set_global_atts(cube, attributes)
 ```
 
-## Last steps
-
-Congratulations! You have successfully CMORized a new dataset!
-Since you have gone through all the trouble to reformat the dataset so that
-the ESMValTool can work with it, it would be great if you could provide the
-CMORizer, and ultimately with that the dataset, to the rest of the community.
-To do that there are a few more steps you have to do:
-1. Check out the previous episode on [Contributing to ESMValTool](/08-development-setup)
-1. Make sure that you have added the info of your dataset to the User Guide so
-   that people know it is available for the ESMValTool [Obtaining input
-   data](https://github.com/ESMValGroup/ESMValTool/blob/master/doc/sphinx/source/input.rst)
-1. Make sure that there is a reference file available for the dataset [BibTeX
-   info
+- **Add a reference**. Make sure that there is a reference file available for
+   the dataset. You can add a [BibTeX info
    file](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references)
+   here.
+
+- **Make a pull request**. Since you have gone through all the trouble to
+  reformat the dataset so that the ESMValTool can work with it, it would be
+  great if you could provide the CMORizer, and ultimately with that the dataset,
+  to the rest of the community. For more information, see the previous episode
+  on [Contributing to ESMValTool](/08-development-setup).
+
+- **Add documentation**. Make sure that you have added the info of your dataset
+   to the User Guide so that people know it is available for the ESMValTool
+   [Obtaining input
+   data](https://github.com/ESMValGroup/ESMValTool/blob/master/doc/sphinx/source/input.rst).
+
 
 ## Some final comments
 
-Adding a new CMORizer to the ESMValTool is definitely already an advanced task
-when working with the ESMValTool. You need to have a basic understanding of
-how the ESMValTool works and how it's internal structure looks like. In
-addition, you need to have a basic understanding of NetCDF files and a
-programming language. In our example we used python for the CMORizing script
-since we advocate for focusing the code development on only a few different
-programming languages. This helps to maintain the code and to ensure the
-compatibility of the code with possible fundamental changes to the structure
-of the ESMValTool and ESMValCore.
+Congratulations! You have just added support for a new dataset to ESMValTool!
+Adding a new CMORizer is definitely already an advanced task when working with
+the ESMValTool. You need to have a basic understanding of how the ESMValTool
+works and how it's internal structure looks like. In addition, you need to have
+a basic understanding of NetCDF files and a programming language. In our example
+we used python for the CMORizing script since we advocate for focusing the code
+development on only a few different programming languages. This helps to
+maintain the code and to ensure the compatibility of the code with possible
+fundamental changes to the structure of the ESMValTool and ESMValCore.
 
 More information about adding observations to the ESMValTool can be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/input.html#observations).
-
-
-
-
-
-
-
-
-
-<!-- ## Check if your variable is following the CMOR standard / Check if it's in a CMOR table
-
-The very first step we have to do is to check if your data file follows the CMOR standard.
-Only data files that fully follow this standard can be read by the ESMValTool.
-
-Most variables that we would want to use with the ESMValTool are defined in the Coupled
-Model Intercomparison Project (CMIP) data request and can be found in the
-CMOR tables in the folder
-[cmip6/Tables](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables),
-differentiated according to the "MIP" they belong to. The tables are a
-copy of the [PCMDI](https://github.com/PCMDI) guidelines.
-
-> ## Find the variable "gpp" in a CMOR table
->
-> Check the available CMOR tables to find the variable "gpp" with the following characteristics:
-> - standard_name: ``gross_primary_productivity_of_biomass_expressed_as_carbon``
-> - frequency: ``mon``
-> - modeling_realm: ``land``
->
-> > ## Answers
-> >
-> > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
-> > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
-> > "gpp" can be found in the file
-> > [here](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
-> >
-> {: .solution}
-{: .challenge}
-
-
-If the variable you are interested in is not available in the standard CMOR
-tables, you need to write a custom CMOR table entry for the variable. Examples
-of custom CMOR table entries are for example the standard error of a specific
-variable. For our variable "gpp" there is indeed no CMOR definition for the
-standard error, therefore "gppStderr" was defined in the custom CMOR table
-[here](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/custom),
-as ``CMOR_gppStderr.dat``.
-
-To create a new custom CMOR table you need to follow these
-guidelines:
-
-- Provide the ``variable_entry``;
-- Provide the ``modeling_realm``;
-- Provide the variable attributes, but leave ``standard_name`` blank. Necessary
-  variable attributes are: ``units``, ``cell_methods``, ``cell_measures``,
-  ``long_name``, ``comment``.
-- Provide some additional variable attributes. Necessary additional variable
-  attributes are: ``dimensions``, ``out_name``, ``type``. There are also
-  additional variable attributes that can be defined here (see the already
-  available cmorizers).
-
-It is easiest to start a new custom CMOR table by using an existing custom table
-as a template.
-You can then edit the content and save it as ``CMOR_<short_name>.dat``.
-
-> ## Does the variable "cVegStderr" need a costum CMOR table?
->
-> Check the available CMOR tables to find the variable "cVegStderr" with the
-> following characteristics:
-> - standard_name: ``vegetation_carbon_content``
-> - frequency: ``mon``
-> - modeling_realm: ``land``
->
-> If it is not available, create a custom CMOR table following the template of
-> the CMIP6 CMOR table of "cVeg" and custom CMOR table of "gppStderr".
->
-> > ## Answers
-> >
-> > The first step here is to check if the variable "cVegStderr" is already
-> > listed in a CMOR table. We have the information that the modeling_realm
-> > of the variable is ``land`` and that the frequency is ``mon``. This
-> > means we have to check the CMOR table "Lmon" for an entry. We focus
-> > our search on the CMIP6 tables since these are the most recent tables
-> > available. You can find the lists here:
-> > `<https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables>`
-> >
-> > We do not find the variable "cVegStderr" in the "Lmon" table, which
-> > means we will have to write our own custom table for this.
-> > There were two examples given which we could use as templates for the
-> > new custom table that we have to create. These two examples can be
-> > found here: [cVeg](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json)
-> > and [gppStderr](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/CMOR_gppStderr.dat)
-> >
-> > We have to create a new file with the name ``CMOR_cVegStrerr.dat`` in
-> > the custom CMOR table folder (https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/custom/).
-> > The content of the file should then look like this:
-> >
-> > ```
-> > SOURCE: CMIP6
-> > !============
-> > variable_entry:    cVegStderr
-> > !============
-> > modeling_realm:    land
-> > !----------------------------------
-> > ! Variable attributes:
-> > !----------------------------------
-> > standard_name:
-> > units:             kg m-2
-> > cell_methods:      area: mean where land time: mean
-> > cell_measures:     area: areacella
-> > long_name:         Carbon Mass in Vegetation Error
-> > !----------------------------------
-> > ! Additional variable information:
-> > !----------------------------------
-> > dimensions:        longitude latitude time
-> > out_name:          cVegStderr
-> > type:              real
-> > !----------------------------------
-> > !
-> > ```
-> >
-> > Note that there is no entry for ``standard_name``. This is on purpose.
-> > It is a sign for the ESMValTool to not crash although the variable that
-> > we are looking for is ok to have no official CMIP6 ``standard_name``.
-> >
-> {: .solution}
-{: .challenge} -->
-
-
-
-<!-- > > *Suggestion: maybe add the reference under step 3 (additional but not strictly necessary steps)*
-> > Note the attribute "reference" here: it should include a ``doi`` related to
-> > the dataset. For more information on how to add references to the
-> > ``reference`` section of the configuration file, see the section in the
-> > documentation about this: [adding
-> > references](https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references) -->
-
-
-
-
-<!--
-> > ## Answers
-> >
-> > The configuration file for the "FLUXCOM" dataset with all necessary pieces
-> > of information looks  like this:
-> >
-> > ```yaml
-> > ---
-> > # Filename
-> > filename: 'GPP.ANN.CRUNCEPv6.monthly.*.nc'
-> >
-> > # Common global attributes for Cmorizer output
-> > attributes:
-> >   project_id: OBS
-> >   dataset_id: FLUXCOM
-> >   version: 'ANN-v1'
-> >   tier: 3
-> >   modeling_realm: reanaly
-> >   source: 'http://www.bgc-jena.mpg.de/geodb/BGI/Home'
-> >   reference: 'fluxcom'
-> >   comment: ''
-> >
-> > # Variables to cmorize
-> > variables:
-> >   gpp:
-> >     mip: Lmon
-> > ```
-> >
-> {: .solution}
-{: .challenge} -->

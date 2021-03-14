@@ -137,7 +137,7 @@ ssh -X jasmin-sci1
 
 Can you see the following locations:
 ~~~
-ls /group_workspaces/jasmin4/esmeval/obsdata/Tier2
+ls /gws/nopw/j04/esmeval/obsdata-v2/
 ls /badc/cmip5/data/cmip5/output1/MOHC/HadGEM2-ES
 ls /badc/cmip6/data/CMIP6/CMIP/*/*/historical/r1i1p1f?/Omon/[ts]os/gn/latest/*.nc
 ~~~

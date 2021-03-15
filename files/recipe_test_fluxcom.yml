@@ -1,0 +1,19 @@
+documentation:
+
+  description: Test recipe for FLUXCOM data
+
+  authors:
+    - kalverla_peter
+
+  maintainer:
+    - kalverla_peter
+
+datasets:
+  - {project: OBS6, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, end_year: 2000, type: reanaly, version: ANN-v1}
+
+diagnostics:
+  check_fluxcom:
+    description: Check that ESMValTool can load the cmorized fluxnet data without errors.
+    variables:
+      gpp:
+    scripts: null

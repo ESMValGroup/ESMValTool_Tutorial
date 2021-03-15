@@ -462,7 +462,7 @@ however, is beyond the scope of this tutorial.
 > > filename: 'GPP.ANN.CRUNCEPv6.monthly.*.nc'
 > >
 > > attributes:
-> >   project_id: OBS
+> >   project_id: OBS6
 > >   dataset_id: FLUXCOM
 > >   version: 'ANN-v1'
 > >   tier: 3
@@ -508,11 +508,11 @@ naming convention for ESMValTool datasets. Let's have a look at the NetCDF file
 as it was written with the very basic CMORizer from above.
 
 ```bash
-ncdump -h OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
+ncdump -h OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
 ```
 
 ~~~
-netcdf OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012 {
+netcdf OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012 {
 dimensions:
         time = 12 ;
         lat = 360 ;

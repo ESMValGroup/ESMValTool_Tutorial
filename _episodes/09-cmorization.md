@@ -740,9 +740,7 @@ utils.set_global_atts(cube, attributes)
 ```
 
 - **Add a reference**. Make sure that there is a reference file available for
-   the dataset. You can add a [BibTeX info
-   file](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references)
-   here. You
+   the dataset, see the instruction [here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references).
 
 - **Make a pull request**. Since you have gone through all the trouble to
   reformat the dataset so that the ESMValTool can work with it, it would be

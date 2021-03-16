@@ -25,6 +25,31 @@ be found in the
 We will first install Conda, and then ESMValTool. We end this chapter by testing
 that the installation was successful.
 
+
+> ## ESMValTool Installation/Usage  Options - A quick summary
+> Before we begin, here are all the possible ways in which you can use ESMValTool
+> depending on your level of expertise or involvement with ESMvalTool and 
+> associated software such as GitHub and Conda.
+>
+> 1) If you have access to a server where ESMValTool is already installed 
+> as a module, for e.g., the ``CEDA JASMIN`` server, you can simply
+> load the module and start using ESMValTool with the following :
+> ```bash
+> module load esmvaltool
+> ```
+> 2) If you would like to install ESMValTool as a conda package, then this lesson 
+> will tell you how!
+> 
+> 3) If you are already familiar with ESMValTool and would like to start experimenting
+> with existing diagnostics, you can dowload the source code from the ESMvalTool Github
+> page, compile and run as given here (link missing).
+>
+> 4) If you would like to start contributing to ESMvalTool, please see the instructions for 
+> source installation in the lesson [Development and
+> contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}) and 
+> in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
+{: .solution}
+
 > ## Install ESMValTool on Windows
 >
 > ESMValTool does not directly support Windows, but successful usage has been

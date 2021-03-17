@@ -40,10 +40,6 @@ that the installation was successful.
 > 2) If you would like to install ESMValTool as a conda package, then this lesson 
 > will tell you how!
 > 
-> 3) If you are already familiar with ESMValTool and would like to start experimenting
-> with existing diagnostics, you can dowload the source code from the ESMvalTool Github
-> page, compile and run as given here (link missing).
->
 > 4) If you would like to start contributing to ESMvalTool, please see the instructions for 
 > source installation in the lesson [Development and
 > contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}) and 

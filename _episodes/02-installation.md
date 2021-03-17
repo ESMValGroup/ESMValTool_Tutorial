@@ -37,6 +37,8 @@ that the installation was successful.
 > ```bash
 > module load esmvaltool
 > ```
+
+After loading ``esmvaltool``, we can start using ESMValTool. Please see the [next lesson]({{ page.root }}{% link _episodes/03-configuration.md %}). 
 > 2) If you would like to install ESMValTool as a conda package, then this lesson 
 > will tell you how!
 > 

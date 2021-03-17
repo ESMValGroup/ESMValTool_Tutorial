@@ -33,7 +33,7 @@ that the installation was successful.
 >
 > 1) If you have access to a server where ESMValTool is already installed 
 > as a module, for e.g., the ``CEDA JASMIN`` server, you can simply
-> load the module and start using ESMValTool with the following :
+> load the module with the following:
 > ```bash
 > module load esmvaltool
 > ```

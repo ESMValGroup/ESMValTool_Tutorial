@@ -388,7 +388,7 @@ def compute_diagnostic(filename):
 > ## Reading data using the netCDF4 package
 >
 > Yet another option to read the NetCDF file data is to use 
-> the [netCDF-4 Python interface](https://unidata.github.io/netcdf4-python/) to the netCDF C library.
+> the [netCDF-4 Python interface][netCDF] to the netCDF C library.
 >
 >> ## Answer
 >>
@@ -500,5 +500,5 @@ repository for more examples of functions you can use in your diagnostics!
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
 [shared]: https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html
-[netCDF]: https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.io.netcdf.netcdf_file.html
+[netCDF]: https://unidata.github.io/netcdf4-python/
 [provenance]: https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance

@@ -385,17 +385,17 @@ def compute_diagnostic(filename):
 > {: .solution}
 {: .challenge}
 
-> ## Reading data using Scipy's netCDF library
+> ## Reading data using the netCDF4 package
 >
 > Yet another option to read the NetCDF file data is to use 
-> the [SciPy's netCDF library][netCDF].
+> the [netCDF-4 Python interface](https://unidata.github.io/netcdf4-python/) to the netCDF C library.
 >
 >> ## Answer
 >>
->> First, import the ``netcdfx`` package at the top of the script as:
+>> First, import the ``netCDF4`` package at the top of the script as:
 >>
 >>~~~python
->>from scipy.io import netcdfx
+>>import netCDF4
 >>~~~
 >>
 >> Then, change ``compute_diagnostic`` as:
@@ -404,7 +404,7 @@ def compute_diagnostic(filename):
 >>def compute_diagnostic(filename):
 >>    """Compute an example diagnostic."""
 >>    logger.debug("Loading %s", filename)
->>    netcdf_file = netcdf.netcdf_file(filename,'r')
+>>    nc_data = netCDF4.Dataset(filename,'r')
 >>
 >>    #do your analyses on the data here
 >>

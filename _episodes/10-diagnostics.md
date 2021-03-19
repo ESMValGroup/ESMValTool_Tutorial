@@ -184,8 +184,8 @@ There are four main sections in the script:
 >> ## Answer
 >>
 >> 1. The ``main`` function is defined in line 66 as ``main(cfg)``.
->> 2. The input argument to this function is the variable ``cfg``, a Python dictionary t
->> hat holds all the necessary
+>> 2. The input argument to this function is the variable ``cfg``, a Python dictionary
+>> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
 >> in the  ``main`` function and extract information as needed 

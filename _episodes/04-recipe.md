@@ -29,7 +29,7 @@ recipes that are shipped with ESMValTool, type
 esmvaltool recipes list
 ```
 
-We will start by running [examples/recipe_python.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml)
+We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html)
 
 ```
 esmvaltool run examples/recipe_python.yml

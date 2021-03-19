@@ -184,8 +184,8 @@ There are four main sections in the script:
 >> ## Answer
 >>
 >> 1. The ``main`` function is defined in line 66 as ``main(cfg)``.
->> 2. The input argument to this function is the variable ``cfg``, a Python dictionary t
->> hat holds all the necessary
+>> 2. The input argument to this function is the variable ``cfg``, a Python dictionary
+>> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
 >> in the  ``main`` function and extract information as needed 
@@ -251,8 +251,8 @@ ESMValTool provides many functions such as ``select_metadata`` (line 72),
 ``sorted_metadata`` (line 76), and ``group_metadata`` (line 80). As you can see
 in line 8, these functions are imported from ``esmvaltool.diag_scripts.shared``
 that means these are shared across several diagnostics scripts. A list of
-available functions and their description can be found in [Shared diagnostic
-script code][shared].
+available functions and their description can be found in [The ESMValTool Diagnostic API reference][shared].
+
 
 > ## Extracting information needed for analyses
 >

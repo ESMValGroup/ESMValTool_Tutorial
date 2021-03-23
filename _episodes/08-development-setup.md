@@ -25,9 +25,9 @@ ESMValTool is an open-source project in ESMValGroup. We can contribute to its de
 - a new or updated recipe script, see lesson on
 [Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %})
 - a new or updated diagnostics script, see lesson on
-[Writing your own diagnostic script]
+[Writing your own diagnostic script]({{ page.root }}{% link _episodes/10-diagnostics.md %})
 - a new or updated cmorizer script, see lesson on
-[CMORization: Using observational datasets]
+[CMORization: Using observational datasets]({{ page.root }}{% link _episodes/09-cmorization.md %})
 - helping  with reviewing process of pull requests, see ESMValTool documentation on
 [Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
 
@@ -359,7 +359,7 @@ when you submit a pull request.
 >> ~~~
 >>
 >> For details, see lesson
->> [Writing your own diagnostic script](#).
+>> [Writing your own diagnostic script]({{ page.root }}{% link _episodes/10-diagnostics.md %}).
 >>
 > {: .solution}
 {: .challenge}

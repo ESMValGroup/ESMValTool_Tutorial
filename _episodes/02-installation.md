@@ -36,14 +36,12 @@ server, you can simply load the module with the following:
 module load esmvaltool
 ~~~
 After loading ``esmvaltool``, we can start using ESMValTool. Please see the [next lesson]({{ page.root }}{% link _episodes/03-configuration.md %}). 
-2) If you would like to install ESMValTool as a conda package, then this lesson 
- will tell you how!
- 
- 3) If you would like to start experimenting with existing diagnostics or contributing to ESMvalTool, please see the instructions for 
- source installation in the lesson [Development and
- contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}) and 
- in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
-
+2. If you would like to install ESMValTool as a conda package, then this lesson
+will tell you how!
+3. If you would like to start experimenting with existing diagnostics or contributing to ESMvalTool, please see the instructions for 
+source installation in the lesson [Development and
+contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}) and
+in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
 
 > ## Install ESMValTool on Windows
 >

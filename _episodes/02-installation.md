@@ -25,9 +25,9 @@ be found in the
 We will first install Conda, and then ESMValTool. We end this chapter by testing
 that the installation was successful.
 
- Before we begin, here are all the possible ways in which you can use ESMValTool
- depending on your level of expertise or involvement with ESMvalTool and 
- associated software such as GitHub and Conda.
+Before we begin, here are all the possible ways in which you can use ESMValTool
+depending on your level of expertise or involvement with ESMvalTool and 
+associated software such as GitHub and Conda.
 
  1) If you have access to a server where ESMValTool is already installed 
  as a module, for e.g., the [CEDA JASMIN](https://help.jasmin.ac.uk/article/4955-community-software-esmvaltool) 

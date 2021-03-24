@@ -31,9 +31,8 @@ ESMValTool is an open-source project in ESMValGroup. We can contribute to its de
 - helping  with reviewing process of pull requests, see ESMValTool documentation on
 [Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
 
-In this lesson, we first show how to set up a development installation of ESMValTool. So, you can
-make modifications. Then, we explain the process of how to contribute your changes or additions
-to the community.
+In this lesson, we first show how to set up a development installation of ESMValTool so you can
+make changes or additions. We then explain how you can contribute these changes to the community.
 
 > ## Git knowledge
 >
@@ -55,7 +54,10 @@ The ESMValTool source code is available on a public GitHub repository:
 [https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool).
 To obtain the code, there are two options:
 
-1. download the code as a ZIP file from the repository.
+1. download the code from the repository. A ZIP file called
+   ``ESMValTool-master.zip`` is downloaded. To continue the installation, unzip
+   the file, move to the ``ESMValTool-master`` directory and then follow step
+   **2 ESMValTool dependencies**.
 2. clone the repository if you want to contribute to the ESMValTool development:
 
 ~~~bash

@@ -176,6 +176,14 @@ If the installation is successful, ESMValTool prints a help message to the conso
 > {: .solution}
 {: .challenge}
 
+### 4 Updating ESMValTool
+
+The ``master`` branch has the latest features of ESMValTool. Please make sure
+that the source code on your machine is up-to-date. If you obtain the source
+code using git clone as explained in step **1 Source code**, you can run ``git pull``
+to update the source code. Then ESMValTool installation will be updated
+with changes from the ``master`` branch.
+
 ## Contribution
 
 We have seen how to install ESMValTool in a ``develop`` mode.

@@ -56,8 +56,8 @@ To obtain the code, there are two options:
 
 1. download the code from the repository. A ZIP file called
    ``ESMValTool-master.zip`` is downloaded. To continue the installation, unzip
-   the file, move to the ``ESMValTool-master`` directory and then follow step
-   **2 ESMValTool dependencies**.
+   the file, move to the ``ESMValTool-master`` directory and then follow the
+   sequence of steps starting from **2 ESMValTool dependencies**.
 2. clone the repository if you want to contribute to the ESMValTool development:
 
 ~~~bash

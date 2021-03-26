@@ -25,15 +25,14 @@ ESMValTool is an open-source project in ESMValGroup. We can contribute to its de
 - a new or updated recipe script, see lesson on
 [Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %})
 - a new or updated diagnostics script, see lesson on
-[Writing your own diagnostic script]
+[Writing your own diagnostic script]({{ page.root }}{% link _episodes/10-diagnostics.md %})
 - a new or updated cmorizer script, see lesson on
-[CMORization: Using observational datasets]
+[CMORization: Using observational datasets]({{ page.root }}{% link _episodes/09-cmorization.md %})
 - helping  with reviewing process of pull requests, see ESMValTool documentation on
 [Review of pull requests](https://docs.esmvaltool.org/en/latest/community/review.html)
 
-In this lesson, we first show how to set up a development installation of ESMValTool. So, you can
-make modifications. Then, we explain the process of how to contribute your changes or additions
-to the community.
+In this lesson, we first show how to set up a development installation of ESMValTool so you can
+make changes or additions. We then explain how you can contribute these changes to the community.
 
 > ## Git knowledge
 >
@@ -53,7 +52,13 @@ Let’s get started.
 
 The ESMValTool source code is available on a public GitHub repository:
 [https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool).
-To obtain the code, the easiest way is to clone the repository:
+To obtain the code, there are two options:
+
+1. download the code from the repository. A ZIP file called
+   ``ESMValTool-master.zip`` is downloaded. To continue the installation, unzip
+   the file, move to the ``ESMValTool-master`` directory and then follow the
+   sequence of steps starting from **2 ESMValTool dependencies**.
+2. clone the repository if you want to contribute to the ESMValTool development:
 
 ~~~bash
 git clone https://github.com/ESMValGroup/ESMValTool.git
@@ -170,6 +175,14 @@ If the installation is successful, ESMValTool prints a help message to the conso
 >> As can be seen, it is mentioned ``<develop>`` under the ``Channel``.
 > {: .solution}
 {: .challenge}
+
+### 4 Updating ESMValTool
+
+The ``master`` branch has the latest features of ESMValTool. Please make sure
+that the source code on your machine is up-to-date. If you obtain the source
+code using git clone as explained in step **1 Source code**, you can run ``git pull``
+to update the source code. Then ESMValTool installation will be updated
+with changes from the ``master`` branch.
 
 ## Contribution
 
@@ -359,7 +372,7 @@ when you submit a pull request.
 >> ~~~
 >>
 >> For details, see lesson
->> [Writing your own diagnostic script](#).
+>> [Writing your own diagnostic script]({{ page.root }}{% link _episodes/10-diagnostics.md %}).
 >>
 > {: .solution}
 {: .challenge}

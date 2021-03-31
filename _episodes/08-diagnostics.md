@@ -32,7 +32,7 @@ and writing Python diagnostics in this lesson.
 In this lesson, we will explain how to find an existing diagnostic and run it
 using ESMValTool installed in editable/development mode. For a development
 installation, see the instructions in the lesson [Development and
-contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}).
+contribution]({{ page.root }}{% link _episodes/07-development-setup.md %}).
 Also, we will work with the recipe [recipe_python.yml][recipe] and the
 diagnostic script [diagnostic.py][diagnostic] called by this recipe that we have
 seen in the lesson [Running your first recipe]({{ page.root }}{% link

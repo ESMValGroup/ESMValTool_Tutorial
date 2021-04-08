@@ -60,7 +60,7 @@ that contains observations of the Gross Primary Production (GPP), a variable
 that is important for calculating components of the global carbon cycle.
 
 We will assume that you are using a development installation of ESMValTool as
-explained in the [previous episode](/08-development-setup).
+explained in the [Development and Contribution episode](/07-development-setup).
 
 
 ## Obtaining the data
@@ -224,7 +224,7 @@ CMORized, ESMValTool will give a warning or error.
 > >
 > > ```
 > >
-> > To learn more about writing a recipe, please refer to [Writing your own recipe](/05-preprocessor).
+> > To learn more about writing a recipe, please refer to [Writing your own recipe](/06-preprocessor).
 > >
 > {: .solution}
 {: .challenge}
@@ -745,8 +745,8 @@ utils.set_global_atts(cube, attributes)
 - **Make a pull request**. Since you have gone through all the trouble to
   reformat the dataset so that the ESMValTool can work with it, it would be
   great if you could provide the CMORizer, and ultimately with that the dataset,
-  to the rest of the community. For more information, see the previous episode
-  on [Contributing to ESMValTool](/08-development-setup).
+  to the rest of the community. For more information, see the episode
+  on [Development and contribution](/07-development-setup).
 
 - **Add documentation**. Make sure that you have added the info of your dataset
    to the User Guide so that people know it is available for the ESMValTool

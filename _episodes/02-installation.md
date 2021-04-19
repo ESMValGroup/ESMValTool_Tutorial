@@ -40,7 +40,7 @@ After loading ``esmvaltool``, we can start using ESMValTool. Please see the [nex
 will tell you how!
 3. If you would like to start experimenting with existing diagnostics or contributing to ESMvalTool, please see the instructions for 
 source installation in the lesson [Development and
-contribution]({{ page.root }}{% link _episodes/08-development-setup.md %}) and
+contribution]({{ page.root }}{% link _episodes/07-development-setup.md %}) and
 in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
 
 > ## Install ESMValTool on Windows

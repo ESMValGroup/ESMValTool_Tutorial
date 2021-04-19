@@ -46,8 +46,8 @@ preprocessing, and then runs our Python script.
 
 > ## Drawing up a plan
 >
-> In the previous episode, we have seen that ESMValTool executed a number of
-> tasks. Write down which tasks we will need to do in this episode. And what does
+> Previously, we have seen that ESMValTool executed a number of
+> tasks. Write down which tasks we will need to do in this episode. And what do
 > each of these tasks do?
 >
 > > ## Answer
@@ -172,7 +172,7 @@ INFO    Run was successful
 ## Adding a dataset entry
 
 Let's add a datasets section. We will reuse the same datasets that we used in
-the previous episode. The data files are stored in `~/esmvaltool_tutorial/data`.
+previous episodes. The data files are stored in `~/esmvaltool_tutorial/data`.
 
 > ## Filling in the dataset keys
 >

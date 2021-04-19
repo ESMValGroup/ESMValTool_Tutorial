@@ -23,9 +23,9 @@ We now know how ESMValTool works, but how do we develop it?
 ESMValTool is an open-source project in ESMValGroup. We can contribute to its development by:
 
 - a new or updated recipe script, see lesson on
-[Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %})
+[Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %})
 - a new or updated diagnostics script, see lesson on
-[Writing your own diagnostic script]({{ page.root }}{% link _episodes/10-diagnostics.md %})
+[Writing your own diagnostic script]({{ page.root }}{% link _episodes/08-diagnostics.md %})
 - a new or updated cmorizer script, see lesson on
 [CMORization: Using observational datasets]({{ page.root }}{% link _episodes/09-cmorization.md %})
 - helping  with reviewing process of pull requests, see ESMValTool documentation on
@@ -214,7 +214,7 @@ Reviewing small incremental changes are more efficient.
 ### Background
 
 We saw 'warming stripes' in lesson
-[Writing your own recipe]({{ page.root }}{% link _episodes/05-preprocessor.md %}).
+[Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 Imagine the following task: you want to contribute warming stripes recipe and diagnostics
 to ESMValTool. You have to add the diagnostics
 [warming_stripes.py](../files/warming_stripes.py) and the recipe
@@ -372,7 +372,7 @@ when you submit a pull request.
 >> ~~~
 >>
 >> For details, see lesson
->> [Writing your own diagnostic script]({{ page.root }}{% link _episodes/10-diagnostics.md %}).
+>> [Writing your own diagnostic script]({{ page.root }}{% link _episodes/08-diagnostics.md %}).
 >>
 > {: .solution}
 {: .challenge}

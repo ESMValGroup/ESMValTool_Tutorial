@@ -69,6 +69,10 @@ to be suitable for use by ESMValTool.
 
 There are lots of resources available for helping you use ESMValTool.
 
+ESMValTool [Discussions page](https://github.com/ESMValGroup/ESMValTool/discussions).
+is a good place to learn about general issues, or to see if your question has been already addressed.
+If you have a GitHub account, you can also post your questions on the page.
+
 If you get stuck, a great starting point is to create a
 [new issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose).
 

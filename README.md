@@ -28,8 +28,8 @@ Maintainers will do their
 best to help you if you have any questions, concerns, or experience any
 difficulties along the way.
 
-If you work or study in climate-related domains and would be interested in
-getting involved, you can reach us by email.
+If you work or study in climate-related domains and would be interested
+in getting involved, you can reach us by email.
 Please see [information][contact-info] on how to subscribe to user mailing list.
 
 ## Citation

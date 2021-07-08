@@ -240,7 +240,7 @@ To download the data required by this tutorial, run the following command using
 
 ~~~shell
 wget --no-clobber --input-file \
-  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
+  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/main/data/dataset.urls \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
 ~~~
 

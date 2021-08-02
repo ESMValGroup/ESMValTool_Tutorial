@@ -240,7 +240,7 @@ To download the data required by this tutorial, run the following command using
 
 ~~~shell
 wget --no-clobber --input-file \
-  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls \
+  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/main/data/dataset.urls \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
 ~~~
 
@@ -281,4 +281,4 @@ ESMValTool development team.
 
 [cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/
 [theatoga.nc]: http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
-[ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/master/data/dataset.urls
+[ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls

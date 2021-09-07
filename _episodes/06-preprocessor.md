@@ -156,8 +156,14 @@ ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/min
 
 > ## Pro tip: config-references.yml
 >
-> The error message above points to a file named `config-references.yml`. This
-> is where ESMValTool stores all its citation information.
+> The error message above points to a file named
+> [config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/config-references.yml).
+> This is where ESMValTool stores all its citation information. To add yourself
+> as an author, add your name in the form `lastname_firstname` in alphabetical
+> order following the existing entries, under the `# Development team` comment.
+> See the
+> [List of authors](https://docs.esmvaltool.org/en/latest/community/code_documentation.html#list-of-authors)
+> section in the ESMValTool documentation for more information.
 {: .callout}
 
 For now, let's just use one of the existing references. Change the author field to

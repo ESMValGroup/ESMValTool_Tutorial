@@ -3,10 +3,12 @@ name: Test recipes
 on:
   push:
   pull_request:
+  schedule:
+    - cron: '0 4 * * *'
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: "ubuntu-latest"
     steps:
       - uses: actions/checkout@v2
       - name: Cache conda
@@ -19,13 +21,19 @@ jobs:
           key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('files/recipe_example.yml') }}
       - uses: conda-incubator/setup-miniconda@v2
         with:
-          python-version: "3.8"
+          python-version: "3.9"
           miniconda-version: "latest"
-      - name: Install esmvaltool
-        run: conda install -n test -y -c esmvalgroup -c conda-forge esmvaltool-python
+          channels: conda-forge
+      - name: Install mamba
+        shell: bash -l {0}
+        run: conda install mamba
+      - name: Install esmvaltool from conda
+        shell: bash -l {0}
+        run: mamba install -n test -c conda-forge esmvaltool
       - name: Setup config
+        shell: bash -l {0}
         run: |
-          $CONDA/envs/test/bin/esmvaltool config get_config_user
+          esmvaltool config get_config_user
           patch ~/.esmvaltool/config-user.yml << EOF
           44c44
           < #rootpath:

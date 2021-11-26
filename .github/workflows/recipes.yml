@@ -44,10 +44,10 @@ jobs:
       - name: Download dataset files for episodes 4 and 5
         shell: bash -l {0}
         run: |
-          head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --directory-prefix $HOME/climate_data/
+          head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --no-verbose --directory-prefix $HOME/climate_data/
       - name: Run all recipes in files/
         shell: bash -l {0}
         run: |
           mkdir ~/esmvaltool_tutorial
           cp files/warming_stripes.py ~/esmvaltool_tutorial/
-          for file in files/recipe*.yml; do $CONDA/envs/test/bin/esmvaltool run $PWD/$file; done
+          for file in files/recipe_warming_stripes*.yml; do $CONDA/envs/test/bin/esmvaltool run $PWD/$file; done

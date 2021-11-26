@@ -33,21 +33,21 @@ jobs:
       - name: Get config-user file
         shell: bash -l {0}
         run: esmvaltool config get_config_user
-      - name: Cache datasets
-        uses: actions/cache@v1
-        env:
-          # Increase this value to reset cache if data/dataset.urls has not changed
-          CACHE_NUMBER: 0
-        with:
-          path: ~/climate_data
-          key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
-      - name: Download dataset files for episodes 4 and 5
-        shell: bash -l {0}
-        run: |
-          head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --no-verbose --directory-prefix $HOME/climate_data/
-      - name: Run all recipes in files/
+      #- name: Cache datasets
+      #  uses: actions/cache@v1
+      #  env:
+      #    # Increase this value to reset cache if data/dataset.urls has not changed
+      #    CACHE_NUMBER: 0
+      #  with:
+      #    path: ~/climate_data
+      #    key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
+      #- name: Download dataset files for episodes 4 and 5
+      #  shell: bash -l {0}
+      #  run: |
+      #    head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --no-verbose --directory-prefix $HOME/climate_data/
+      - name: Run all warming stripes recipes in files/
         shell: bash -l {0}
         run: |
           mkdir ~/esmvaltool_tutorial
           cp files/warming_stripes.py ~/esmvaltool_tutorial/
-          for file in files/recipe_warming_stripes*.yml; do $CONDA/envs/test/bin/esmvaltool run $PWD/$file; done
+          for file in files/recipe_warming_stripes*.yml; do $CONDA/envs/test/bin/esmvaltool run $PWD/$file --offline=False; done

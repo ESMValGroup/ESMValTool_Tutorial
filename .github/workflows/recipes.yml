@@ -29,7 +29,7 @@ jobs:
         run: conda install mamba
       - name: Install esmvaltool from conda
         shell: bash -l {0}
-        run: mamba install -n test -c conda-forge esmvaltool
+        run: mamba install esmvaltool
       - name: Setup config
         shell: bash -l {0}
         run: |

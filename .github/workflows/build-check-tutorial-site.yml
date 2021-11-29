@@ -2,7 +2,7 @@ name: Jekyll site CI
 
 on:
   push:
-  pull_request:
+  # pull_request:  # turn on when GA tests need to run on PRs too
 
 jobs:
   build:

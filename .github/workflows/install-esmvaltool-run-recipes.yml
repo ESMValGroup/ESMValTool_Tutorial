@@ -1,8 +1,8 @@
-name: Test recipes
+name: Test Tutorial Recipes
 
 on:
   push:
-  pull_request:
+  # pull_request:  # turn on for tests to run on PRs
   schedule:
     - cron: '0 4 * * *'
 
@@ -34,24 +34,6 @@ jobs:
       - name: Get config-user file
         shell: bash -l {0}
         run: esmvaltool config get_config_user
-      #################################
-      # turning off local data caching since we turned on auto ESGF data download
-      #################################
-      #- name: Cache datasets
-      #  uses: actions/cache@v1
-      #  env:
-      #    # Increase this value to reset cache if data/dataset.urls has not changed
-      #    CACHE_NUMBER: 0
-      #  with:
-      #    path: ~/climate_data
-      #    key: ${{ runner.os }}-datasets-${{ env.CACHE_NUMBER }}-${{ hashFiles('data/dataset.urls') }}
-      #- name: Download dataset files for episodes 4 and 5
-      #  shell: bash -l {0}
-      #  run: |
-      #    head -4 data/dataset.urls | grep -v '#' | wget --input-file - --no-clobber --no-verbose --directory-prefix $HOME/climate_data/
-      ######################################
-      # recipe fluxcom is not running since it needs OBS6 data, unavailable for download
-      ######################################
       - name: Run all warming stripes recipes in files/
         shell: bash -l {0}
         run: |

@@ -1,0 +1,42 @@
+name: Test Tutorial Recipes
+
+on:
+  push:
+  # pull_request:  # turn on for tests to run on PRs
+  schedule:
+    - cron: '0 4 * * *'
+
+jobs:
+  install-esmvaltool-and-run-recipes:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Cache conda
+        uses: actions/cache@v1
+        env:
+          # Increase this value to reset cache if files/recipe_example.yml has not changed
+          CACHE_NUMBER: 1
+        with:
+          path: ~/conda_pkgs_dir
+          key: ${{ runner.os }}-conda-${{ env.CACHE_NUMBER }}-${{ hashFiles('files/recipe_example.yml') }}
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: "3.9"
+          miniconda-version: "latest"
+          channels: conda-forge
+      - name: Install mamba
+        shell: bash -l {0}
+        run: conda install mamba
+      - name: Install esmvaltool from conda
+        shell: bash -l {0}
+        run: mamba install esmvaltool
+      # this step is currently unnecessary; might be useful depending on config customizations
+      - name: Get config-user file
+        shell: bash -l {0}
+        run: esmvaltool config get_config_user
+      - name: Run all warming stripes recipes in files/
+        shell: bash -l {0}
+        run: |
+          mkdir ~/esmvaltool_tutorial
+          cp files/warming_stripes.py ~/esmvaltool_tutorial/
+          for file in files/recipe_warming_stripes*.yml; do $CONDA/envs/test/bin/esmvaltool run $PWD/$file --offline=False; done

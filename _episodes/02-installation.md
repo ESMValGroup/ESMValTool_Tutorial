@@ -17,17 +17,17 @@ keypoints:
 
 The instructions help with the installation of ESMValTool on operating systems
 like Linux/MacOSX/Windows.
-We use the [Conda](https://conda.io/projects/conda/en/latest/index.html)
+We use the [Mamba](https://mamba.readthedocs.io/en/latest/index.html)
 package manager to
 install the ESMValTool. Other installation methods are also available; they can
 be found in the
 [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
-We will first install Conda, and then ESMValTool. We end this chapter by testing
+We will first install Mamba, and then ESMValTool. We end this chapter by testing
 that the installation was successful.
 
 Before we begin, here are all the possible ways in which you can use ESMValTool
-depending on your level of expertise or involvement with ESMvalTool and 
-associated software such as GitHub and Conda.
+depending on your level of expertise or involvement with ESMValTool and 
+associated software such as GitHub and Mamba.
 
 1. If you have access to a server where ESMValTool is already installed
 as a module, for e.g., the [CEDA JASMIN](https://help.jasmin.ac.uk/article/4955-community-software-esmvaltool)
@@ -57,45 +57,25 @@ in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installa
 
 ## Install ESMValTool on Linux/MacOSX
 
-### Install Conda
+### Install Mamba
 
-ESMValTool is distributed using [Conda](https://conda.io/).
-Let's check if we already have Conda installed by running:
+ESMValTool is distributed using [Mamba](https://mamba.readthedocs.io/en/latest/index.html)
+To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
-```bash
-conda list
-```
-
-If conda is installed, we will see a list of packages.
-We recommend updating conda before esmvaltool installation. To do so, run:
-
-```bash
-conda update -n base conda
-```
-
-If conda is **not** installed, we can use Miniconda minimal installer for conda.
-We recommend a Python 3 based installer. For more information about installing conda,
-see [the conda installation documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html).
-
-To install conda on ``Linux`` or ``MacOSX``, follow the  instructions below:
-
-1.  Please download Miniconda3 at [the miniconda
-    page](https://docs.conda.io/en/latest/miniconda.html).
-    If you have problems with the 64 bit version in the next step(s)
-    you can alternatively try a 32 bit version.
+1.  Please download the installation file for the latest Mamba version [here](https://github.com/conda-forge/miniforge#mambaforge).
 
 2.  Next, run the installer from the place where you downloaded it:
 
     On ``Linux``:
 
     ```bash
-    bash Miniconda3-latest-Linux-x86_64.sh
+    bash Mambaforge-Linux-x86_64.sh
     ```
 
     On ``MacOSX``:
 
     ```bash
-    bash Miniconda3-latest-MacOSX-x86_64.sh
+    bash Mambaforge-MacOSX-x86_64.sh
     ```
 
 3.  Follow the instructions in the installer. The defaults should normally
@@ -103,12 +83,20 @@ To install conda on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 4.  You will need to restart your terminal for the changes to have effect.
 
-5.  Verify you have a working conda installation by listing all installed
-    packages
+5.  We recommend updating mamba before the esmvaltool installation. To do so, run:
 
     ```bash
-    conda list
+    mamba update --name base mamba
     ```
+
+6.  Verify you have a working mamba installation by: 
+
+    ```bash
+    which mamba
+    ```
+
+For more information about installing mamba,
+see [the mamba installation documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#mamba-installation).
 
 ### Install Julia
 
@@ -196,19 +184,32 @@ available:
 - `esmvaltool-python`
 - `esmvaltool-ncl`
 - `esmvaltool-r`
-- `esmvaltool-julia`
 - `esmvaltool` --> the complete package, i.e. the combination of the above.
 
-For the tutorial, we will use only Python diagnostics. Thus, to install the
-ESMValTool-python package, run
+For the tutorial, we will install the complete package. Thus, to install the
+ESMValTool package, run
 
 ```bash
-conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool-python
+mamba create --name esmvaltool 'python=3.9'
 ```
 
-This will create a new [Conda
+Next, we install many of the required dependencies, including the ESMValCore package
+and Python, R, and NCL interpreters, into this environment by running:
+
+```bash
+mamba env update --name esmvaltool --file environment.yml
+```
+
+On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
+a Mamba environment on MacOSX, use the dedicated environment file:
+
+```bash
+mamba env create --name esmvaltool --file environment_osx.yml
+```
+
+This will create a new [Mamba
 environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-called `esmvaltool`, with the ESMValTool-Python package and all of its dependencies
+called `esmvaltool`, with the ESMValTool package and all of its dependencies
 installed in it.
 
 
@@ -221,19 +222,16 @@ installed in it.
 >         the moment, please try again later or [raise an
 >         issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
 >     -   If `Solving environment` takes more than 10 minutes, you may need to update
->         conda: `conda update -n base conda`
->     -   You can help conda solve the environment by specifying
+>         mamba: `mamba update -n base mamba`
+>     -   You can help mamba solve the environment by specifying
 >         the python version:
 >         ```bash
->         conda create -n esmvaltool -c conda-forge -c esmvalgroup esmvaltool-python python=3.8
+>         mamba create -n esmvaltool esmvaltool python=3.8
 >         ```
 >     -   Note that on ``MacOSX``, ``esmvaltool-python`` and
 >     ``esmvaltool-ncl`` only work with Python 3.7. Use `python=3.7` instead of `python=3.8`.
-> -   If you have an old conda installation you could get a `UnsatisfiableError`
->     message. Please install a newer version of conda and try again
-> -   Downloads fail due to company proxy, see [conda
->     docs](https://docs.anaconda.com/anaconda/user-guide/tasks/proxy/) how to
->     resolve.
+> -   If you have an old mamba installation you could get a `UnsatisfiableError`
+>     message. Please install a newer version of mamba and try again
 >
 {: .callout}
 

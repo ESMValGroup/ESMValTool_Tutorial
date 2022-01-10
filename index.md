@@ -52,7 +52,7 @@ independently.
     developers via the [github issues
     page](https://github.com/ESMValGroup/ESMValTool/issues) or via the
     ESMValTool email list. Please see
-    [information](https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list)
+    [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list)
     on how to subscribe to user mailing list.
 
 4. This tutorial includes several advanced lessons after the conclusion. These

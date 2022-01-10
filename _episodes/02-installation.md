@@ -95,6 +95,8 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
     which mamba
     ```
 
+    This should show the path to your mamba executeable, e.g. `~/mambaforge/bin/mamba`.
+
 For more information about installing mamba,
 see [the mamba installation documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#mamba-installation).
 
@@ -215,23 +217,8 @@ installed in it.
 
 > ## Common issues
 >
-> -   Installation takes a long time
->     -   Downloads and compilations can take several minutes to complete,
->         please be patient.
->     -   You might have bad luck and the dependencies can not be resolved at
->         the moment, please try again later or [raise an
->         issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose)
->     -   If `Solving environment` takes more than 10 minutes, you may need to update
->         mamba: `mamba update -n base mamba`
->     -   You can help mamba solve the environment by specifying
->         the python version:
->         ```bash
->         mamba create -n esmvaltool esmvaltool python=3.8
->         ```
->     -   Note that on ``MacOSX``, ``esmvaltool-python`` and
->     ``esmvaltool-ncl`` only work with Python 3.7. Use `python=3.7` instead of `python=3.8`.
-> -   If you have an old mamba installation you could get a `UnsatisfiableError`
->     message. Please install a newer version of mamba and try again
+> You find a list of common installation problems and their solutions in the 
+> [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#common-installation-problems-and-their-solutions).
 >
 {: .callout}
 
@@ -264,15 +251,15 @@ to display the command line help.
 > > The `esmvaltool --help` command lists `version` as a
 > > command to get the version
 > >
-> > In my case when I run
+> > When you run
 > > ~~~
 > > esmvaltool version
 > > ~~~
 > > {: .bash}
-> > I get that my installed ESMValTool version is
+> > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.0.0
-> > ESMValTool: 2.0.0
+> > ESMValCore: 2.4.0
+> > ESMValTool: 2.4.0
 > > ~~~
 > > {: .output}
 > {: .solution}

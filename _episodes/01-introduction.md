@@ -58,6 +58,7 @@ An example recipe could look like this:
 
 ```yaml
 documentation:
+  title: This is an example recipe.
   description: Example recipe
   authors:
     - lastname_firstname

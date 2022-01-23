@@ -9,7 +9,7 @@ objectives:
 - "Install ESMValTool"
 - "Demonstrate that the installation was successful"
 keypoints:
-- "All the required packages can be installed using conda."
+- "All the required packages can be installed using mamba."
 - "You can find more information about installation in the
 [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html)."
 ---
@@ -31,12 +31,12 @@ associated software such as GitHub and Mamba.
 
 1. If you have access to a server where ESMValTool is already installed
 as a module, for e.g., the [CEDA JASMIN](https://help.jasmin.ac.uk/article/4955-community-software-esmvaltool)
-server, you can simply load the module with the following:
+server, you can simply load the module with the following command:
 ~~~bash
 module load esmvaltool
 ~~~
-After loading ``esmvaltool``, we can start using ESMValTool. Please see the [next lesson]({{ page.root }}{% link _episodes/03-configuration.md %}). 
-2. If you would like to install ESMValTool as a conda package, then this lesson
+After loading ``esmvaltool``, we can start using ESMValTool right away. Please see the [next lesson]({{ page.root }}{% link _episodes/03-configuration.md %}). 
+2. If you would like to install ESMValTool as a mamba package, then this lesson
 will tell you how!
 3. If you would like to start experimenting with existing diagnostics or contributing to ESMvalTool, please see the instructions for 
 source installation in the lesson [Development and
@@ -95,7 +95,7 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
     which mamba
     ```
 
-    This should show the path to your mamba executeable, e.g. `~/mambaforge/bin/mamba`.
+    This should show the path to your mamba executable, e.g. `~/mambaforge/bin/mamba`.
 
 For more information about installing mamba,
 see [the mamba installation documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#mamba-installation).

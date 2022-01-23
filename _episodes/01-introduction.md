@@ -24,7 +24,7 @@ technical steps, let's talk about what ESMValTool is all about.
 
 > ## What is ESMValTool?
 >
-> What do you already know about, or expect from ESMValTool?
+> What do you already know about or expect from ESMValTool?
 >
 > > ## ESMValTool is...
 > >
@@ -87,8 +87,8 @@ diagnostics:
 > be found in the documentation of ESMValTool.
 >
 > > ## Solution
-> > The keys are explained in the ESMValTool documentation, in the section `The
-> recipe format`, under
+> > The keys are explained in the ESMValTool documentation, in the `Recipe 
+>>  section `, under
 > [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-datasets)
 > {: .solution}
 {: .challenge}
@@ -101,8 +101,8 @@ results.
 
 > ## Explore the available recipes
 >
-> Go to the [documentation of esmvaltool](https://docs.esmvaltool.org/) and
-> explore the `available recipes` section. Which recipe(s) would you like to
+> Go to the [ESMValTool Documentation webpage](https://docs.esmvaltool.org/) and
+> explore the `Available recipes` section. Which recipe(s) would you like to
 > try?
 {: .challenge}
 
@@ -113,10 +113,10 @@ software engineers. It is an open source project to which anyone can contribute.
 Many of the interactions take place on GitHub. Here, we briefly introduce you to
 some of the most important pages.
 
-> ## Meet ESMValGroup
+> ## Meet the ESMValGroup
 >
-> Browse to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is
-> our 'organization' GitHub page. Have a look around. How many collaborators are
+> Go to [github.com/ESMValGroup](https://github.com/ESMValGroup). This is
+> the GitHub page of our 'organization'. Have a look around. How many collaborators are
 > there? Do you know any of them?
 >
 > Near the top of the page there are 2 pinned repositories: ESMValTool and

@@ -20,6 +20,15 @@ keypoints:
 
 ## The configuration file
 
+For the purposes of this tutorial, we will create a directory in our home directory
+called `esmvaltool_tutorial` and use that as our working directory. The following steps 
+should do that:
+
+~~~bash
+ mkdir esmvaltool_tutorial
+ cd esmvaltool_tutorial
+~~~
+
 The ``config-user.yml`` configuration file contains all the global level
 information needed by ESMValTool to run.
 This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
@@ -30,11 +39,14 @@ You can get the default configuration file by running:
   esmvaltool config get_config_user --path=<target_dir>
 ~~~
 The default configuration file will be downloaded to the directory specified with 
-the `--path` variable. If this option is not used, the file will be saved to the default 
+the `--path` variable. For instance, you can provide the path to your working directory 
+as the `target_dir`. If this option is not used, the file will be saved to the default 
 location: `~/.esmvaltool/config-user.yml`, where `~` is the
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.esmvaltool` directory in the terminal use
-`ls -la ~`.
+`ls -la ~`. 
+
+
 
 We run a text editor called ``nano`` to have a look inside the configuration file
 and then modify it if needed:

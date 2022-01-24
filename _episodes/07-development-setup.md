@@ -365,7 +365,7 @@ when you submit a pull request.
 >> To fix the recipe, we need to edit the path of the diagnostic script
 >> as ``warming_stripes.py``:
 >>
->> ~~~yml
+>> ~~~yaml
 >>    scripts:
 >>      warming_stripes_script:
 >>        script: warming_stripes.py

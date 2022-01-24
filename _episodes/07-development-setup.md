@@ -365,11 +365,11 @@ when you submit a pull request.
 >> To fix the recipe, we need to edit the path of the diagnostic script
 >> as ``warming_stripes.py``:
 >>
->> ~~~yaml
+>> ```yaml
 >>    scripts:
 >>      warming_stripes_script:
 >>        script: warming_stripes.py
->> ~~~
+>> ```
 >>
 >> For details, see lesson
 >> [Writing your own diagnostic script]({{ page.root }}{% link _episodes/08-diagnostics.md %}).

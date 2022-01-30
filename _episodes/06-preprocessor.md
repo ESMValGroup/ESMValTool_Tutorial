@@ -95,6 +95,7 @@ description.
 ---
 documentation:
   description: Reproducing Ed Hawkins' warming stripes visualization
+  title: This recipe produces warming stripes.
 ```
 
 Notice that `yaml` always requires 2 spaces indentation between the different

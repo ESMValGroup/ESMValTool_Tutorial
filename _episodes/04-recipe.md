@@ -202,14 +202,14 @@ Let's dissect what's happening here.
 > > ## Answers
 > >
 > > 1. The config file should be the one we edited in the previous episode,
-> >    something like `/home/<username>/.esmvaltool/config-user.yml` or `./config-user.yml`.
+> >    something like `/home/<username>/.esmvaltool/config-user.yml` or `~/esmvaltool_tutorial/config-user.yml`.
 > > 1. ESMValTool found the recipe in its installation directory, something like
-> >    `/home/user/username/miniconda3/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
+> >    `/home/users/username/miniconda3/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
 >> or if you are using a pre-installed module on a server, something like `/apps/jasmin/community/esmvaltool/ESMValTool_2.4.0/esmvaltool/recipes/examples/recipe_python.yml`
 > > 1. ESMValTool creates a time-stamped output directory for every run. In this
 > >    case, it should be something like `recipe_python_YYYYMMDD_HHMMSS`. This
 > >    folder is made inside the output directory specified in the previous
-> >    episode: `~/home/<username>/esmvaltool_tutorial/esmvaltool_output`.
+> >    episode: `~/esmvaltool_tutorial/esmvaltool_output`.
 > > 1. There should be four output folders:
 > >    - `plots/`: this is where output figures are stored.
 > >    - `preproc/`: this is where pre-processed data are stored.

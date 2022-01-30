@@ -137,8 +137,8 @@ using the format: YYYYMMDD_HHMMSS.
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
 for input data based on their source. The current categories in the configuration
 file are mentioned below. For example, CMIP is used for a dataset from
-the Climate Model Intercomparison Project whereas OBS is used for an observational 
-dataset.
+the Climate Model Intercomparison Project whereas OBS may be 
+used for an observational dataset.
 More information about the projects used in ESMValTool is available in the 
 [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html).
 When using ESMValTool on your own machine, you can create a directory to download 

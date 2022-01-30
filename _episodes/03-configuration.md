@@ -44,7 +44,10 @@ as the `target_dir`. If this option is not used, the file will be saved to the d
 location: `~/.esmvaltool/config-user.yml`, where `~` is the
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.esmvaltool` directory in the terminal use
-`ls -la ~`. 
+`ls -la ~`. Note that if a configuration file by that name already exists in the default 
+location, the `get_config_user` command will not update the file as ESMValTool will not 
+overwrite the file. You will have to move the file first if you want an updated copy of the 
+user configuration file.
 
 
 

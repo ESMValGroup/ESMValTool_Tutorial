@@ -20,6 +20,15 @@ keypoints:
 
 ## The configuration file
 
+For the purposes of this tutorial, we will create a directory in our home directory
+called `esmvaltool_tutorial` and use that as our working directory. The following steps 
+should do that:
+
+~~~bash
+ mkdir esmvaltool_tutorial
+ cd esmvaltool_tutorial
+~~~
+
 The ``config-user.yml`` configuration file contains all the global level
 information needed by ESMValTool to run.
 This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
@@ -27,13 +36,20 @@ This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
 You can get the default configuration file by running:
 
 ~~~bash
-  esmvaltool config get_config_user
+  esmvaltool config get_config_user --path=<target_dir>
 ~~~
-
-It will save the file to: `~/.esmvaltool/config-user.yml`, where `~` is the
+The default configuration file will be downloaded to the directory specified with 
+the `--path` variable. For instance, you can provide the path to your working directory 
+as the `target_dir`. If this option is not used, the file will be saved to the default 
+location: `~/.esmvaltool/config-user.yml`, where `~` is the
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.esmvaltool` directory in the terminal use
-`ls -la ~`.
+`ls -la ~`. Note that if a configuration file by that name already exists in the default 
+location, the `get_config_user` command will not update the file as ESMValTool will not 
+overwrite the file. You will have to move the file first if you want an updated copy of the 
+user configuration file.
+
+
 
 We run a text editor called ``nano`` to have a look inside the configuration file
 and then modify it if needed:
@@ -67,7 +83,7 @@ The configuration file starts with output settings that
 inform ESMValTool about your preference for output.
 You can turn on or off the setting by ``true`` or ``false``
 values. Most of these settings are fairly self-explanatory.
-For example, `write_plots: true` means that diagnostics create plots.
+
 
 > ## Saving preprocessed data
 >
@@ -101,8 +117,9 @@ using the format: YYYYMMDD_HHMMSS.
 > ## Set the destination directory
 >
 > Let's name our destination directory ``esmvaltool_output`` in the working directory.
-> ESMValTool should write the output to this path.
-> How to modify the `config-user.yml`?
+> ESMValTool should write the output to this path, so make sure you have the disk space
+> to write output to this directory.
+> How do we set this in the `config-user.yml`?
 >
 >> ## Solution
 >>
@@ -120,35 +137,46 @@ using the format: YYYYMMDD_HHMMSS.
 ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
 for input data based on their source. The current categories in the configuration
 file are mentioned below. For example, CMIP is used for a dataset from
-the climate model intercomparison project whereas OBS is used for an observational dataset.
-We can find more information about the projects in the ESMValTool
+the Climate Model Intercomparison Project whereas OBS may be 
+used for an observational dataset.
+More information about the projects used in ESMValTool is available in the 
 [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html).
+When using ESMValTool on your own machine, you can create a directory to download 
+climate model data or observation data sets and let the tool use data from there. 
+It is also possible to ask 
+ESMValTool to download climate model data as needed. This can be done by specifying a 
+download directory and by setting the option to download data as shown below.
+
+```yaml
+# Directory for storing downloaded climate data
+download_dir: ~/climate_data
+offline: false
+```
+If you are working offline or do not want to download the data then set the 
+option above to `true`.
+
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
-For each category, you can define either one path or several paths as a list.
-For example:
+For each category, you can define either one path or several paths as a list. For example:
 
 ```yaml
 rootpath:
   CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
   OBS: ~/obs_inputpath
   RAWOBS: ~/rawobs_inputpath
-  default: ~/default_inputpath
-  CORDEX: ~/default_inputpath
+  default: ~/climate_data
 ```
-
-Site-specific entries for Jasmin and DKRZ are listed at the end of the
-example configuration file.
+These are typically available in the default configuration file you downloaded, so simply 
+removing the machine specific lines should be sufficient to access input data.
 
 > ## Set the correct rootpath
 >
 > In this tutorial, we will work with data from
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
 > and [CMIP6](https://esgf-node.llnl.gov/projects/cmip6).
-> How can we moodify the `rootpath` to make sure the data path is set correctly
-> for both CMIP5 and CMIP6?
->
+> How can we modify the `rootpath` to make sure the data path is set correctly
+> for both CMIP5 and CMIP6? 
 > Note:
-> to get the data, check instruction in
+> to get the data, check the instructions in
 > [Setup]({{ page.root }}{% link setup.md %}).
 >
 >> ## Solution
@@ -156,6 +184,7 @@ example configuration file.
 >> - Are you working on your own local machine?
 >>   You need to add the root path of the folder where the data is available
 >> to the `config-user.yml` file as:
+>>
 >>```yaml
 >>   rootpath:
 >>   ...
@@ -163,23 +192,33 @@ example configuration file.
 >>     CMIP6: ~/esmvaltool_tutorial/data
 >>```
 >>
->> - Are you working with on a computer cluster like Jasmin or DKRZ?
->>   Site-specific path to the data are already listed at the end of the
+>> - Are you working on your local machine and have downloaded data using ESMValTool?
+>> You need to add the root path of the folder where the data has been downloaded to as
+>> specified in the `download_dir`.
+>>
+>> ```yaml
+>> rootpath:
+>> ...
+>>   CMIP5: ~/climate_data
+>>   CMIP6: ~/climate_data
+>>```
+>>
+>> - Are you working on a computer cluster like Jasmin or DKRZ?
+>>   Site-specific path to the data for JASMIN/DKRZ/ETH/IPSL 
+>>   are already listed at the end of the
 >> `config-user.yml` file. You need to uncomment the related lines.
->> For example, on Jasmin:
+>> For example, on JASMIN:
 >>
 >>```yaml
->>   # Site-specific entries: Jasmin
->>   # Uncomment the lines below to locate data on JASMIN
->>   rootpath:
->>     CMIP6: /badc/cmip6/data/CMIP6
->>     CMIP5: /badc/cmip5/data/cmip5/output1
->>   #  CMIP3: /badc/cmip3_drs/data/cmip3/output
->>   #  OBS: /gws/nopw/j04/esmeval/obsdata-v2
->>   #  OBS6: /gws/nopw/j04/esmeval/obsdata-v2
->>   #  obs4mips: /gws/nopw/j04/esmeval/obsdata-v2
->>   #  ana4mips: /gws/nopw/j04/esmeval/obsdata-v2
->>   #  CORDEX: /badc/cordex/data/CORDEX/output
+>>auxiliary_data_dir: /gws/nopw/j04/esmeval/aux_data/AUX
+>>rootpath: 
+>>  CMIP6: /badc/cmip6/data/CMIP6
+>>  CMIP5: /badc/cmip5/data/cmip5/output1
+>>  OBS: /gws/nopw/j04/esmeval/obsdata-v2
+>>  OBS6: /gws/nopw/j04/esmeval/obsdata-v2
+>>  obs4MIPs: /gws/nopw/j04/esmeval/obsdata-v2
+>>  ana4mips: /gws/nopw/j04/esmeval/obsdata-v2
+>>  default: /gws/nopw/j04/esmeval/obsdata-v2
 >>```
 >>
 >> - For more information about setting the rootpath, see also the ESMValTool
@@ -216,8 +255,16 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >>     CMIP5: default
 >>     CMIP6: default
 >>```
->>
->> - Are you working with on a computer cluster like Jasmin or DKRZ?
+>> - Are you asking ESMValTool to download the data for use with your diagnostics?
+>> You need to set the `drs` of the data in the `config-user.yml` file as:
+>> ```yaml
+>>    drs:
+>>      CMIP5: ESGF
+>>      CMIP6: ESGF
+>>      CORDEX: ESGF
+>>      obs4MIPs: ESGF
+>>```
+>> - Are you working on a computer cluster like Jasmin or DKRZ?
 >>   Site-specific `drs` of the data are already listed at the end of the
 >> `config-user.yml` file. You need to uncomment the related lines.
 >> For example, on Jasmin:
@@ -227,12 +274,10 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >>   drs:
 >>     CMIP6: BADC
 >>     CMIP5: BADC
->>   #  CMIP3: BADC
->>   #  CORDEX: BADC
->>   #  OBS: BADC
->>   #  OBS6: BADC
->>   #  obs4mips: BADC
->>   #  ana4mips: BADC
+>>     OBS: default
+>>     OBS6: default
+>>     obs4mips: default
+>>     ana4mips: default
 >>```
 >>
 > {: .solution}
@@ -242,8 +287,8 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >
 > 1. In the previous exercise, we set the `drs` of CMIP5 data to `default`.
 >    Can you explain why?
-> 2. Have a look at the directory structure of the data.
->    There is the folder `Tier1`. What does it mean?
+> 2. Have a look at the directory structure of the `OBS` data.
+>    There is a folder called `Tier1`. What does it mean?
 >
 >> ## Solution
 >>
@@ -254,7 +299,7 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >> 2. Observational data are organized in Tiers depending on their level of
 >>    public availability. Therefore the default directory must be structured
 >>    accordingly with sub-directories `TierX` e.g. Tier1, Tier2 or Tier3, even
->>    when `drs: default`.
+>>    when `drs: default`. More details can be found in the [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#observational-data).
 >>
 > {: .solution}
 {: .challenge}

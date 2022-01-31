@@ -205,6 +205,7 @@ CMORized, ESMValTool will give a warning or error.
 > > documentation:
 > >
 > >   description: Test recipe for FLUXCOM data
+>>    title: This is a test recipe for the FLUXCOM data.
 > >
 > >   authors:
 > >     - kalverla_peter

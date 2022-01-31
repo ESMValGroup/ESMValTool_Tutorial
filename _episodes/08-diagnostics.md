@@ -430,13 +430,13 @@ function of our choice. As can be seen, this function uses
 section in the recipe ``recipe_python.yml``, you see ``quickplot`` is a key
 there:
 
-~~~yaml
+```yaml
      script1:
        script: examples/diagnostic.py
         quickplot:
           plot_type: pcolormesh
           cmap: Reds
-~~~
+```
 
 This way, we can pass arguments such as the type of
 plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the 
@@ -451,13 +451,13 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >> In the recipe ``recipe_python.yml``, you could change ``plot_type`` and ``cmap``.
 >> As an example, we choose ``plot_type: pcolor`` and ``cmap: BuGn``:
 >>
->> ~~~yaml
+>> ```yaml
 >>     script1:
 >>       script: examples/diagnostic.py
 >>        quickplot:
 >>          plot_type: pcolor
 >>          cmap: BuGn
->>~~~
+>>```
 >>
 >> The plot can be found at *path_to_recipe_output/plots/map/script1/png*.
 > {: .solution}

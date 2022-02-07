@@ -22,7 +22,7 @@ keypoints:
 
 One of the key strenghts of ESMValTool is in making complex analyses reusable
 and reproducible. But that doesn't mean everything in ESMValTool needs to be
-complex. Sometimes, the biggest challenge is in making things simpler. You
+complex. Sometimes, the biggest challenge is in keeping things simple. You
 probably know the 'warming stripes' visualization by Professor Ed Hawkins. On
 the site <https://showyourstripes.info> you can find the same visualization for
 many regions in the world.
@@ -46,9 +46,9 @@ preprocessing, and then runs our Python script.
 
 > ## Drawing up a plan
 >
-> Previously, we have seen that ESMValTool executed a number of
-> tasks. Write down which tasks we will need to do in this episode. And what do
-> each of these tasks do?
+> Previously, we saw that running ESMValTool executes a number of
+> tasks. Write down what tasks we will need to execute in this episode and what 
+> each of these tasks does?
 >
 > > ## Answer
 > >
@@ -95,6 +95,8 @@ description.
 ---
 documentation:
   description: Reproducing Ed Hawkins' warming stripes visualization
+  title: Reproducing Ed Hawkins' warming stripes visualization.
+
 ```
 
 Notice that `yaml` always requires 2 spaces indentation between the different
@@ -117,9 +119,8 @@ Error validating data /home/user/esmvaltool_tutorial/recipe_barcodes.yml with sc
 {: .error}
 
 Here, ESMValTool is telling us that it is missing a required field, namely the
-authors. It is good to know that ESMValTool always tries to validate the recipe
-in an early stage. This initial check doesn't catch everything though, so we
-should always stay alert.
+authors. We see that ESMValTool always tries to validate the recipe
+at an early stage. 
 
 Let's add some additional information to the recipe. Open the recipe file again,
 and add an authors section below the description. ESMValTool expects the authors
@@ -139,6 +140,8 @@ below the documentation. The file should now look like:
 ---
 documentation:
   description: Reproducing Ed Hawkins' warming stripes visualization
+  title: Reproducing Ed Hawkins' warming stripes visualization.
+
   authors:
     - doe_john
 diagnostics:
@@ -353,7 +356,7 @@ for each of the modifications we'll make below.
 > > You could have used `extract_point` or `extract_region`. We used
 > > `extract_point`. Here's a copy of the [recipe at this
 > > point](../files/recipe_warming_stripes_local.yml) and this is the difference
-> > with the previous recipe:
+> > from the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes.yml

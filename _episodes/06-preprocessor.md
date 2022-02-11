@@ -174,18 +174,21 @@ For now, let's just use one of the existing references. Change the author field 
 ESMValTool. If you now run the recipe again, you should see the final message
 
 ```
-INFO    Run was successful
+ERROR   No tasks to run!
 ```
 {: .output}
 
+Although there is no actual error in the recipe, ESMValTool assumes you mistakenly 
+left out a variable name to process and alerts you with this error message.
 ## Adding a dataset entry
 
 Let's add a datasets section. We will reuse the same datasets that we used in
-previous episodes. The data files are stored in `~/esmvaltool_tutorial/data`.
+previous episodes. 
 
 > ## Filling in the dataset keys
 >
-> Explore the data directory, and look at the explanation of the dataset entry
+> Use the paths specified in the configuration file to explore the data directory, 
+> and look at the explanation of the dataset entry
 > in the [ESMValTool
 > documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-documentation).
 > For both the datasets, write down the following properties:
@@ -219,18 +222,22 @@ previous episodes. The data files are stored in `~/esmvaltool_tutorial/data`.
 > {: .solution}
 {: .challenge}
 
-We will start with the BCC-ESM1 dataset. Add a datasets section to the recipe,
-listing a single dataset, like so:
+We start with the BCC-ESM1 dataset and add a datasets section to the recipe,
+listing a single dataset, as shown below. Note that key fields such 
+as `mip` or `start_year` are included in the `datasets` section here but are part 
+of the `diagnostic` section in the recipe example seen in [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 ```yaml
 datasets:
   - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 ```
 
-Verify that the recipe still runs. Note that we have not included the short name
-of the variable in this dataset section. This allows us to reuse this dataset
-entry with different variable names later on. This is not really necessary for
-our simple use case, but it is common practice in ESMValTool.
+The recipe should run but produce the same message as in the previous case since we
+still have not included a variable to actually process.  We have not included the 
+short name of the variable in this dataset section because this allows 
+us to reuse this dataset entry with different variable names later on. 
+This is not really necessary for our simple use case, but it is common practice 
+in ESMValTool.
 
 ## Adding the preprocessor section
 

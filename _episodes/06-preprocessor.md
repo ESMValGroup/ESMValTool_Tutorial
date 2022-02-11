@@ -229,8 +229,7 @@ of the `diagnostic` section in the recipe example seen in [Running your first re
 
 ```yaml
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
-ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 ```
 
 The recipe should run but produce the same message as in the previous case since we

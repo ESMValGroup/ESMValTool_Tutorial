@@ -62,7 +62,7 @@ that is important for calculating components of the global carbon cycle.
 See the next section on how to obtain data.
 
 We will assume that you are using a development installation of ESMValTool as
-explained in the [Development and Contribution episode](/07-development-setup).
+explained in the [Development and Contribution episode]({{ page.root }}{% link _episodes/07-development-setup.md %}).
 
 
 ## Obtaining the data
@@ -119,7 +119,7 @@ cmorize_obs -c <config-user.yml> -o <dataset-name>
 ```
 
 The ``config-user.yml`` is the file in which we define the different data
-paths, see the episode on [Configuration](03-configuration).
+paths, see the episode on [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
 In the ``rootpath`` of your ``config-user.yml`, make sure to add the right
 directory for "RAWOBS" data in which you downloaded the FLUXCOM dataset:
 
@@ -243,7 +243,7 @@ CMORized, ESMValTool will give a warning or error.
 > >
 > > ```
 > >
-> > To learn more about writing a recipe, please refer to [Writing your own recipe](/06-preprocessor).
+> > To learn more about writing a recipe, please refer to [Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 > >
 > {: .solution}
 {: .challenge}
@@ -771,7 +771,7 @@ utils.set_global_atts(cube, attributes)
   reformat the dataset so that the ESMValTool can work with it, it would be
   great if you could provide the CMORizer, and ultimately with that the dataset,
   to the rest of the community. For more information, see the episode
-  on [Development and contribution](/07-development-setup).
+  on [Development and contribution]({{ page.root }}{% link _episodes/07-development-setup.md %}).
 
 - **Add documentation**. Make sure that you have added the info of your dataset
    to the User Guide so that people know it is available for the ESMValTool

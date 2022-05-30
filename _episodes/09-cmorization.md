@@ -61,8 +61,8 @@ that contains observations of the Gross Primary Production (GPP), a variable
 that is important for calculating components of the global carbon cycle.
 See the next section on how to obtain data.
 
-We will assume that you are using a development installation of ESMValTool as
-explained in the [Development and Contribution episode]({{ page.root }}{% link _episodes/07-development-setup.md %}).
+As in the previous episode ([Development and Contribution episode]({{ page.root }}{% link _episodes/07-development-setup.md %})),
+we will be using the development installation of ESMValTool.
 
 
 ## Obtaining the data

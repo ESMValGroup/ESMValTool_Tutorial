@@ -288,7 +288,7 @@ The first step now is to create a new file in the right folder that will contain
 our new CMORizer instructions. Create a file called ``cmorize_obs_fluxcom.py``
 
 ```bash
-nano <path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+nano ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
 ```
 
 and fill it with the following boilerplate code:

@@ -192,14 +192,7 @@ For the tutorial, we will install the complete package. Thus, to install the
 ESMValTool package, run
 
 ```bash
-mamba create --name esmvaltool 'python=3.9'
-```
-
-Next, we install many of the required dependencies, including the ESMValCore package
-and Python, R, and NCL interpreters, into this environment by running:
-
-```bash
-mamba env update --name esmvaltool --file environment.yml
+mamba create --name esmvaltool esmvaltool 'python=3.10'
 ```
 
 On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
@@ -258,8 +251,8 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.4.0
-> > ESMValTool: 2.4.0
+> > ESMValCore: 2.5.0
+> > ESMValTool: 2.5.0
 > > ~~~
 > > {: .output}
 > {: .solution}

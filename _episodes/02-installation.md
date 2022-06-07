@@ -196,11 +196,7 @@ mamba create --name esmvaltool esmvaltool 'python=3.10'
 ```
 
 On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
-a Mamba environment on MacOSX, use the dedicated environment file:
-
-```bash
-mamba env create --name esmvaltool --file environment_osx.yml
-```
+a Mamba environment on MacOSX, please refer to specific [information](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#installation-on-macosx).
 
 This will create a new [Mamba
 environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)

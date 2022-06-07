@@ -100,81 +100,6 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 For more information about installing mamba,
 see [the mamba installation documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#mamba-installation).
 
-### Install Julia
-
-Some ESMValTool diagnostics are written in the Julia programming language.
-If you want a full installation of ESMValTool including Julia diagnostics, you need
-to make sure Julia is installed before installing ESMValTool.
-
-In this tutorial, we will not use Julia, but for reference, we have listed the steps
-to install Julia below.
-Complete instructions for installing Julia can be found on the [Julia
-installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
-
-> ## Julia installation instructions
->
-> First, open a bash terminal and create a directory to install Julia in and cd
-> into it
->
-> ```bash
-> mkdir ~/julia
-> cd ~/julia
-> ```
->
-> Next, to download and extract the file `julia-1.0.5-linux-x86_64.tar.gz`, you can use the following commands::
->
-> ```bash
-> wget https://julialang-s3.julialang.org/bin/linux/x64/1.0/julia-1.0.5-linux-x86_64.tar.gz
-> tar -xvzf julia-1.0.5-linux-x86\_64.tar.gz
-> ```
->
-> This will extract the files to a directory named `~/julia/julia-1.0.5`. To run
-> Julia, you need to add the full path of Julia's `bin` folder to PATH environment
-> variable. To do this, you can edit the `~/.bashrc` (or `~/.bash_profile`) file.
-> Open the file in a text editor called ``nano``:
->
-> ```bash
-> nano ~/.bashrc
-> ```
->
-> and add a new line as follows at the
-> bottom of the file:
->
-> ```bash
-> export PATH="$PATH:$HOME/julia/julia-1.0.5/bin"
-> ```
->
-> Finally, for the settings to take effect, either reload your bash profile
->
-> ```bash
-> source ~/.bashrc
-> ```
->
-> (or `source ~/.bash_profile`), or close the bash terminal window and open a new
-> one.
->
-> To check that the Julia executable can be found, run
->
-> ```bash
-> which julia
-> ```
->
-> to display the path to the Julia executable, it should be
->
-> ```
-> ~/julia/julia-1.0.5/bin/julia
-> ```
-> {: .output}
->
-> To test that Julia is installed correctly, run
->
-> ```bash
-> julia
-> ```
->
-> to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
-{: .solution}
-
 ### Install the ESMValTool package
 
 The ESMValTool package contains diagnostics scripts in four languages: R,
@@ -210,6 +135,53 @@ installed in it.
 > [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#common-installation-problems-and-their-solutions).
 >
 {: .callout}
+
+### Install Julia
+
+Some ESMValTool diagnostics are written in the Julia programming language.
+If you want a full installation of ESMValTool including Julia diagnostics, you need
+to make sure Julia is installed before installing ESMValTool.
+
+In this tutorial, we will not use Julia, but for reference, we have listed the steps
+to install Julia below.
+Complete instructions for installing Julia can be found on the [Julia
+installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
+
+> ## Julia installation instructions
+>
+> First, open a bash terminal and activate the newly created `esmvaltool` environment.
+>
+> ```bash
+> conda activate esmvaltool
+> ```
+>
+> Next, to install Julia via `mamba`, you can use the following command:
+>
+> ```bash
+> mamba install julia
+> ```
+> 
+> To check that the Julia executable can be found, run
+>
+> ```bash
+> which julia
+> ```
+>
+> to display the path to the Julia executable, it should be
+>
+> ```
+> ~/mambaforge/envs/esmvaltool/bin/julia
+> ```
+> {: .output}
+>
+> To test that Julia is installed correctly, run
+>
+> ```bash
+> julia
+> ```
+>
+> to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
+{: .solution}
 
 ### Test that the installation was successful
 

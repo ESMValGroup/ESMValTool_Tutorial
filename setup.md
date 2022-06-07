@@ -172,10 +172,10 @@ Please skip this section if you are not going to use DKRZ and go [here](#github-
 If you do not already have an account at the DKRZ, then
 [register](https://luv.dkrz.de/projects/newuser/) as soon as possible. You could
 find a short introduction on how to get started at DKRZ
-[here](https://www.dkrz.de/up/my-dkrz/getting-started/getting-started-at-dkrz).
+[here](https://docs.dkrz.de/doc/getting_started/index.html).
 
-There is also a [user manual](https://www.dkrz.de/up/systems/mistral) for
-Mistral which is DKRZ's current supercomputer.
+There is also a [user manual](https://docs.dkrz.de/doc/levante/index.html) for
+Levante which is DKRZ's current supercomputer.
 
 #### Join a project
 
@@ -191,37 +191,34 @@ resources](https://www.dkrz.de/services/bereitstellung-von-rechenleistung?set_la
 #### Access to data on DKRZ
 
 CMIP5 and CMIP6 data are available in these directories:
-- CMIP5: /mnt/lustre01/work/kd0956/CMIP5/data/cmip5/output1/
-- CMIP6: /mnt/lustre02/work/ik1017/CMIP6/data/CMIP6/CMIP/
+- CMIP5: /work/kd0956/CMIP5/data/cmip5/output1/
+- CMIP6: /work/ik1017/CMIP6/data/CMIP6/CMIP/
 
 #### Test your Setup
 
-Log into Mistral (DKRZ)
+Log into Levante (DKRZ)
 
 ~~~
-ssh -X user-account@mistral.dkrz.de
+ssh -X user-account@levante.dkrz.de
 ~~~
 {: .language-bash}
 
 #### Additional information
 
-Login nodes are for compiling and job submission only! For all other tasks, use
-one of the pre- and post-processing nodes
-~~~
-ssh -X <user-account>@mistralpp.dkrz.de
-~~~
-(see also [this](https://www.dkrz.de/up/systems/mistral/hpc-concepts))
+Login nodes are for compiling and job submission only! For all other tasks, you
+can use the [interactive](https://docs.dkrz.de/doc/levante/running-jobs/partitions-and-limits.html#interactive)
+partition or start an [interactive session](https://docs.dkrz.de/doc/levante/data-processing-on-levante.html#).
 
 Data storage:
-- Personal data: home directory (24GiB)
-- Project data: /work/<project>/<user-account>
-- Temporary data: scratch directory on /scratch/\*/<user-account> is
+- Personal data: home directory (30GiB)
+- Project data: /work/project_id/username
+- Temporary data: scratch directory on /scratch/\*/username is
   automatically deleted after 14 days (15TiB) (Please use this directory for all
   your testing! Do not use the work directory for tests.) (see also
-  [this](https://www.dkrz.de/up/systems/mistral/hpc-concepts))
+  [this](https://docs.dkrz.de/doc/levante/file-systems.html))
 
 Running batch jobs: Info and examples on SLURM job scheduling system at DKRZ can
-be found [here](https://www.dkrz.de/up/systems/mistral/running-job).
+be found [here](https://docs.dkrz.de/doc/levante/running-jobs/index.html).
 
 Congratulations! Please go here [here](#github-account-advanced) next.
 

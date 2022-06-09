@@ -112,9 +112,11 @@ esmvaltool run recipe_warming_stripes.yml
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
 ...
-Error validating data /home/user/esmvaltool_tutorial/recipe_barcodes.yml with schema /home/user/miniconda3/envs/esmvaltool_tutorial/lib/python3.8/site-packages/esmvalcore/recipe_schema.yml
+Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10/site-packages/esmvalcore/recipe_schema.yml
 	documentation.authors: Required field missing
-2020-10-08 15:23:11,162 UTC [19451] INFO    If you suspect this is a bug or need help, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues and attach the run/recipe_*.yml and run/main_log_debug.txt files from the output directory.
+2020-10-08 15:23:11,162 UTC [19451] INFO    If you have a question or need help, please start a new discussion on https://github.com/ESMValGroup/ESMValTool/discussions
+If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
+To make it easier to find out what the problem is, please consider attaching the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 
@@ -153,7 +155,7 @@ This is the minimal recipe layout that is required by ESMValTool. If we now run
 the recipe again, you will probably see the following error:
 
 ```
-ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/miniconda3/envs/esmvaltool_tutorial/python3.8/site-packages/esmvaltool/config-references.yml
+ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/mambaforge/envs/esmvaltool_tutorial/python3.10/site-packages/esmvaltool/config-references.yml
 ```
 {: .error}
 
@@ -290,8 +292,6 @@ preprocessors:
           end_day: 31
         standardize: false
 ```
-
-and verify that the recipe still runs.
 
 ## Completing the diagnostics section
 

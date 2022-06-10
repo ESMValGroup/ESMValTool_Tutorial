@@ -40,8 +40,9 @@ the data. This process is called "CMORization".
 > Concretely, the CMOR standards dictate e.g. the variable names and units,
 coordinate information, how the data should be structured (e.g. 1 variable per
 file), additional metadata requirements, but also file naming conventions a.k.a.
-the data reference syntax (DRS). All this information is stored in so-called
-CMOR tables. As an example, the CMOR tables for the CMIP6 project can be found
+the data reference syntax ([DRS](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html)).
+> All this information is stored in so-called CMOR tables.
+> As an example, the CMOR tables for the CMIP6 project can be found
 [here](https://github.com/PCMDI/cmip6-cmor-tables).
 {: .callout}
 
@@ -58,9 +59,10 @@ ESMValTool offers two ways to CMORize data:
 In this lesson, we will re-implement a CMORizer script for the FLUXCOM dataset
 that contains observations of the Gross Primary Production (GPP), a variable
 that is important for calculating components of the global carbon cycle.
+See the next section on how to obtain data.
 
-We will assume that you are using a development installation of ESMValTool as
-explained in the [Development and Contribution episode](/07-development-setup).
+As in the previous episode ([Development and Contribution episode]({{ page.root }}{% link _episodes/07-development-setup.md %})),
+we will be using the development installation of ESMValTool.
 
 
 ## Obtaining the data
@@ -73,7 +75,7 @@ button on the "FLUXCOM (RS+METEO) Global Land Carbon Fluxes using CRUNCEP
 climate data". You'll receive an email with the FTP address to access the
 server. Connect to the server, follow the path in your email, and look for the
 file `raw/monthly/GPP.ANN.CRUNCEPv6.monthly.2000.nc`. Download that file and
-save it in a folder called `/RAWOBS/Tier3/FLUXCOM`.
+save it in a folder called `~/data/RAWOBS/Tier3/FLUXCOM`.
 
 Note: you'll need a user-friendly ftp client. On Linux, `ncftp` works okay.
 
@@ -116,10 +118,20 @@ run the CMORizer scripts:
 cmorize_obs -c <config-user.yml> -o <dataset-name>
 ```
 
-The ``config-user-yml`` is the file in which we define the different data
-paths, e.g. where the ESMValTool would find the "RAWOBS" folder. The
-``dataset-name`` needs to be identical to the folder name that was created
-to store the raw observation data files, in our case this would be "FLUXCOM".
+The ``config-user.yml`` is the file in which we define the different data
+paths, see the episode on [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
+In the ``rootpath`` of your ``config-user.yml``, make sure to add the right
+directory for "RAWOBS" data in which you downloaded the FLUXCOM dataset:
+
+```yaml
+rootpath:
+  RAWOBS: ~/data/RAWOBS
+```
+
+This enables ESMValTool to find the raw observational datasets stored in the
+"RAWOBS" folder. The ``dataset-name`` needs to be identical to the folder
+name that was created to store the raw observation data files, i.e.
+``RAWOBS/TierX/dataset-name``. In our case this would be "FLUXCOM".
 
 If everything is okay, the output should look something like this:
 
@@ -157,15 +169,21 @@ If everything is okay, the output should look something like this:
 {: .output}
 
 So you can see that several fixes are applied, and the CMORized file is written
-to the ESMValTool output directory. In order to use it, we'll have to copy it
-from the output directory to a folder called
-`<path_to_your_data>/OBS/Tier3/FLUXCOM` and make sure the path to ``OBS`` is set
-correctly in our config-user file.
+to the ESMValTool output directory, i.e.
+`~/esmvaltool_output/cmorize_obs_YYYYMMDD_HHMMSS/TierX/dataset-name/filename.nc`
+In order to use it, we'll have to copy it from the output directory to a folder
+called `~/data/OBS/Tier3/FLUXCOM` and make sure the path to ``OBS`` is set
+correctly in our config-user file:
+
+```yaml
+rootpath:
+  OBS: ~/data/OBS
+```
 
 You can also see the path where ESMValTool stores the reformatting script:
-`<path to esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py`. You may
+`~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py`. You may
 have a look at this file if you want. The script also uses a configuration file:
-`<path to esmvaltool>/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`.
+`~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`.
 
 ## Make a test recipe
 
@@ -225,7 +243,7 @@ CMORized, ESMValTool will give a warning or error.
 > >
 > > ```
 > >
-> > To learn more about writing a recipe, please refer to [Writing your own recipe](/06-preprocessor).
+> > To learn more about writing a recipe, please refer to [Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 > >
 > {: .solution}
 {: .challenge}
@@ -247,9 +265,9 @@ going on. We'll also remove the CMORized data that we've just created, so our
 test recipe will not be able to use it anymore.
 
 ```bash
-rm <path_to_your_data>/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
-rm <path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.nc
-rm <path to esmvaltool>/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml
+rm ~/data/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+rm ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+rm ~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml
 ```
 
 If you now run the test recipe again it should fail, and somewhere in the output
@@ -270,7 +288,7 @@ The first step now is to create a new file in the right folder that will contain
 our new CMORizer instructions. Create a file called ``cmorize_obs_fluxcom.py``
 
 ```bash
-nano <path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+nano ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
 ```
 
 and fill it with the following boilerplate code:
@@ -301,7 +319,7 @@ shortly. When you type the command ``cmorize_obs`` in the terminal, ESMValTool
 will call this function with the settings found in your configuration files.
 
 The ESMValTool CMORizer also needs a dataset configuration file. Create a file
-called `<path_to_esmvaltool>/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`
+called `~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`
 and fill it with the following boilerplate:
 
 ```yaml
@@ -323,7 +341,7 @@ attributes:
 #     mip: ???
 ```
 
- **Note**: the name of this file *must* be identical to dataset name.
+ **Note**: the name of this file *must* be identical to ``dataset-name``.
 
 As you can see, the configuration file contains information about the original
 filename of the dataset, and some additional metadata that you might recognize
@@ -556,9 +574,15 @@ address in the next section.
 
 ### 3. Implementing additional fixes
 
-Copy the output of the CMORizer to your folder `<path to your data>/OBS6/Tier3/`
+Copy the output of the CMORizer to your folder `~/data/OBS6/Tier3/`
 and change the test recipe to look for OBS6 data instead of OBS (note: we're
-upgrading the CMORizer to newer standards here!).
+upgrading the CMORizer to newer standards here!). Make sure the path to ``OBS6``
+is set correctly in our config-user file:
+
+```yaml
+rootpath:
+  OBS6: ~/data/OBS6
+```
 
 If we now run the test recipe on our newly 'CMORized' data,
 
@@ -747,7 +771,7 @@ utils.set_global_atts(cube, attributes)
   reformat the dataset so that the ESMValTool can work with it, it would be
   great if you could provide the CMORizer, and ultimately with that the dataset,
   to the rest of the community. For more information, see the episode
-  on [Development and contribution](/07-development-setup).
+  on [Development and contribution]({{ page.root }}{% link _episodes/07-development-setup.md %}).
 
 - **Add documentation**. Make sure that you have added the info of your dataset
    to the User Guide so that people know it is available for the ESMValTool

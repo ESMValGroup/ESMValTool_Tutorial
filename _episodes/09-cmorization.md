@@ -120,7 +120,7 @@ cmorize_obs -c <config-user.yml> -o <dataset-name>
 
 The ``config-user.yml`` is the file in which we define the different data
 paths, see the episode on [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
-In the ``rootpath`` of your ``config-user.yml`, make sure to add the right
+In the ``rootpath`` of your ``config-user.yml``, make sure to add the right
 directory for "RAWOBS" data in which you downloaded the FLUXCOM dataset:
 
 ```yaml

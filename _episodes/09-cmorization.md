@@ -1,5 +1,5 @@
 ---
-title: "CMORization: adding new datasets to ESMValTool"
+title: "CMORization: adding new datasets to ESMValTool (compatible with ESMValTool v2.5)"
 teaching: 15
 exercises: 45
 

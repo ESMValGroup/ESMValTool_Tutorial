@@ -1,5 +1,5 @@
 ---
-title: "Configuration"
+title: "Configuration (compatible with ESMValTool v2.5)"
 teaching: 10
 exercises: 10
 questions:

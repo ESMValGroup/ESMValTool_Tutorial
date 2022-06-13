@@ -1,5 +1,5 @@
 ---
-title: "Development and contribution"
+title: "Development and contribution (may not be compatible with ESMValTool v2.5)"
 teaching: 10
 exercises: 20
 questions:

@@ -1,5 +1,5 @@
 ---
-title: "Writing your own diagnostic script"
+title: "Writing your own diagnostic script (may not be compatible with ESMValTool v2.5)"
 teaching: 20
 exercises: 30
 

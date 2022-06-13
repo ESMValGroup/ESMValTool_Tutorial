@@ -1,5 +1,5 @@
 ---
-title: "Conclusion of the basic tutorial"
+title: "Conclusion of the basic tutorial (compatible with ESMValTool v2.5)"
 teaching: 10
 exercises: 0
 questions:
@@ -78,7 +78,7 @@ If you get stuck, a great starting point is to create a
 
 There is also an ESMValTool email list.
 Please see
-[information](https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list)
+[information](https://docs.esmvaltool.org/en/latest/introduction.html#support)
 on how to subscribe to user mailing list.
 
 ### What if I find a bug?

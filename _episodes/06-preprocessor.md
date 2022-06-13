@@ -1,5 +1,5 @@
 ---
-title: "Writing your own recipe"
+title: "Writing your own recipe (compatible with ESMValTool v2.5)"
 teaching: 15
 exercises: 30
 questions:

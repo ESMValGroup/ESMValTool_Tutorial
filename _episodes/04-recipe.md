@@ -1,5 +1,5 @@
 ---
-title: "Running your first recipe"
+title: "Running your first recipe (compatible with ESMValTool v2.5)"
 teaching: 15
 exercises: 15
 questions:

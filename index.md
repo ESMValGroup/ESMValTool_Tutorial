@@ -11,8 +11,11 @@ software toolkit that aims to facilitate the diagnosis and evaluation of the
 causes and effects of model biases and inter-model spread within the CMIP model
 ensemble.
 
-This tutorial is structured such that the main body of the tutorial, up to the
-episode 7, can be done in one sitting. From episode 8, each episode is a
+This tutorial is structured into ``basic`` and ``advanced`` topics such that episodes 
+starting from the [Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) up to the episode on [Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/05-conclusions.md %})
+all cover basic topics and can be done in one sitting. 
+
+The advanced topics cover the remaining episodes and each episode is a
 mini-tutorial covering an advanced aspect of working with ESMValTool. These
 mini-tutorials can be appended to the main tutorial or worked through
 independently.

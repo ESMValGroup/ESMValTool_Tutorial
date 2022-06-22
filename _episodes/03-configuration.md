@@ -38,7 +38,6 @@ You can get the default configuration file by running:
 ~~~bash
   esmvaltool config get_config_user --path=<target_dir>
 ~~~
-
 The default configuration file will be downloaded to the directory specified with 
 the `--path` variable. For instance, you can provide the path to your working directory 
 as the `target_dir`. If this option is not used, the file will be saved to the default 

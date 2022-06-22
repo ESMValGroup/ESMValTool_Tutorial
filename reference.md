@@ -5,7 +5,7 @@ layout: reference
 ## Glossary
 
 
-## Refences:
+## References:
 
 [ESMValTool main website](https://www.esmvaltool.org/)
 

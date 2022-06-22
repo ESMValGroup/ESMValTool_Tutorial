@@ -129,7 +129,6 @@ please preview changes on your machine before submitting a
 [pull request][PR]. To do so, you need to install
 the software described below:
 
->>>>>>> main
 ```bash
 # apt (Ubuntu/Devian)
 sudo apt install ruby-dev ruby-bundler

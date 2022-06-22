@@ -1,0 +1,8 @@
+name: esmvaltool_tutorial
+channels:
+  - conda-forge
+dependencies:
+  - python=3
+  - compilers
+  - rb-nokogiri
+  - ruby

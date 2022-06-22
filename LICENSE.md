@@ -5,7 +5,7 @@ root: .
 ---
 ## Instructional Material
 
-All Software Carpentry, Data Carpentry, and Library Carpentry instructional material is
+All ESMValTool instructional material is
 made available under the [Creative Commons Attribution
 license][cc-by-human]. The following is a human-readable summary of
 (and not a substitute for) the [full legal text of the CC BY 4.0
@@ -24,14 +24,14 @@ license terms.
 Under the following terms:
 
 * **Attribution**---You must give appropriate credit (mentioning that
-  your work is derived from work that is Copyright © Software
-  Carpentry and, where practical, linking to
-  http://software-carpentry.org/), provide a [link to the
+  your work is derived from  work that is
+  Copyright © [ESMValTool Development Team][Development_Team],
+  provide a [link to the
   license][cc-by-human], and indicate if changes were made. You may do
   so in any reasonable manner, but not in any way that suggests the
   licensor endorses you or your use.
 
-**No additional restrictions**---You may not apply legal terms or
+* **No additional restrictions**---You may not apply legal terms or
 technological measures that legally restrict others from doing
 anything the license permits.  With the understanding that:
 
@@ -48,36 +48,18 @@ Notices:
 ## Software
 
 Except where otherwise noted, the example programs and other software
-provided by Software Carpentry and Data Carpentry are made available under the
-[OSI][osi]-approved
-[MIT license][mit-license].
+provided by ESMValTool tutorial are made available under the
+[Apache License, version 2.0][Apache-license].
 
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
+## Style
 
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Trademark
-
-"Software Carpentry" and "Data Carpentry" and their respective logos
-are registered trademarks of [Community Initiatives][CI].
+ESMValTool tutorial uses
+the [Carpentries style][style] version [9.5.3][version].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[mit-license]: https://opensource.org/licenses/mit-license.html
-[ci]: http://communityin.org/
-[osi]: https://opensource.org
+[Development_Team]: https://www.esmvaltool.org/team.html
+[Apache-license]: http://www.apache.org/licenses/LICENSE-2.0
+[ESMValTool-ESMValCore-license]: https://docs.esmvaltool.org/en/latest/introduction.html#license
+[style]: https://github.com/carpentries/styles/
+[version]: https://github.com/carpentries/styles/releases/tag/v9.5.3

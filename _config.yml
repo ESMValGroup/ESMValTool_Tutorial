@@ -2,20 +2,21 @@
 # Values for this lesson.
 #------------------------------------------------------------
 
-# Which carpentry is this ("swc", "dc", "lc", or "cp")?
+# Which carpentry is this ("swc", "dc", "lc", "cp")?
 # swc: Software Carpentry
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
-# ea: eScience Academy
-carpentry: "ea"
+# ea: eScience Academy (not implemented)
+# et: ESMValTool Tutorial (to be implemented)
+carpentry: "et"
 
 # Overall title for pages.
-title: "ESMValTool Introduction"
+title: "ESMValTool Tutorial"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
-life_cycle: "pre-alpha"
+life_cycle: "beta"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -30,7 +31,7 @@ kind: "lesson"
 repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: "team@esmvaltool.org" # What should we use here?
+email: "esmvaltool@listserv.dfn.de"
 
 # Sites.
 amy_site: "https://amy.carpentries.org/workshops"

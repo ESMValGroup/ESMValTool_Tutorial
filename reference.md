@@ -13,4 +13,6 @@ layout: reference
 
 [ESMValTool github](https://github.com/ESMValGroup)
 
+[ESMValTool technical paper](https://doi.org/10.5194/gmd-13-1179-2020)
+
 {% include links.md %}

@@ -15,7 +15,7 @@ This tutorial is structured into ``basic`` and ``advanced`` topics such that epi
 starting from the [Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) up to the episode on [Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/05-conclusions.md %})
 all cover basic topics and can be done in one sitting. 
 
-The advanced topics cover the remaining episodes and each episode is a
+The remaining episodes cover the advanced topics and each episode is a
 mini-tutorial covering an advanced aspect of working with ESMValTool. These
 mini-tutorials can be appended to the main tutorial or worked through
 independently.

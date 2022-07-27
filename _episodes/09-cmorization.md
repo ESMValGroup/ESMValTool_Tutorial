@@ -265,8 +265,8 @@ test recipe will not be able to use it anymore.
 
 ```bash
 rm ~/data/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
-rm ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
-rm ~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml
+rm ~/ESMValTool/esmvaltool/cmorizers/data/formatters/datasets/fluxcom.py
+rm ~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml
 ```
 
 If you now run the test recipe again it should fail, and somewhere in the output
@@ -274,7 +274,7 @@ you should find something like:
 
 ~~~
 No input files found for ...
-Looking for files matching ['OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc'] in ['/home/peter/data/OBS/Tier3/FLUXCOM']
+Looked for files matching: /home/peter/data/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc
 ~~~
 {: .error}
 

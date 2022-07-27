@@ -303,7 +303,7 @@ from esmvaltool.cmorizers.data import utilities as utils
 logger = logging.getLogger(__name__)
 
 def cmorization(in_dir, out_dir, cfg, cfg_user, start_date, end_date):
-    """Cmorization func call."""
+    """Cmorize the dataset."""
 
     # This is where you'll add the cmorization code
     # 1. find the input data
@@ -584,7 +584,7 @@ address in the next section.
 
 ### 3. Implementing additional fixes
 
-Copy the output of the CMORizer to your folder `~/data/OBS6/Tier3/`
+Copy the output of the CMORizer to your folder `~/data/OBS6/Tier3/FLUXCOM/`
 and change the test recipe to look for OBS6 data instead of OBS (note: we're
 upgrading the CMORizer to newer standards here!). Make sure the path to ``OBS6``
 is set correctly in our config-user file:
@@ -597,7 +597,7 @@ rootpath:
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_file <config-user.yml> --log_level debug
 ```
 
 it should be able to find the correct file, but it does not succeed yet. The first
@@ -618,7 +618,8 @@ we can use it, we'll also need to make sure the coordinates have the correct
 standard name. Add the following code to your cmorizer:
 
 ```python
-# Fix/add coordinate information and metadata
+# 2. Apply the necessary fixes
+# 2a. Fix/add coordinate information and metadata
 cube.coord('lat').standard_name = 'latitude'
 cube.coord('lon').standard_name = 'longitude'
 utils.fix_coords(cube)
@@ -628,7 +629,7 @@ With some additional refactoring, our cmorization function might then look
 something like this:
 
 ```python
-def cmorization(in_dir, out_dir, cfg, _):
+def cmorization(in_dir, out_dir, cfg, cfg_user, start_date, end_date):
     """Cmorize the dataset."""
 
     # Get general information from the config file
@@ -659,9 +660,10 @@ def cmorization(in_dir, out_dir, cfg, _):
             utils.save_variable(cube=cube, var=short_name, outdir=out_dir, attrs=all_attributes)
 ```
 
-Have a look at the netCDF file, and confirm that the coordinates now have much
-more metadata added to them. Then, run the test recipe again with the latest
-CMORizer output. The next error is:
+Run the CMORizer script once more. Have a look at the netCDF file,
+and confirm that the coordinates now have much more metadata added to them.
+Then, run the test recipe again with the latest CMORizer output.
+The next error is:
 
 ~~~
 esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:

@@ -193,8 +193,8 @@ CMORized, ESMValTool will give a warning or error.
 
 > ## Create a test recipe
 >
-> Create a simple recipe called `recipe_check_fluxcom.yml` that loads the
-> FLUXCOM data. It should include a datasets section with a single entry for
+> Create a simple recipe called [recipe_check_fluxcom.yml](../files/recipe_check_fluxcom.yml)
+> that loads the FLUXCOM data. It should include a datasets section with a single entry for
 > the "FLUXCOM" dataset with the correct dataset keys, and a diagnostics section
 > with two variables: gpp. We don't need any preprocessors or
 > scripts (set `scripts: null`), but we have to add a documentation section with
@@ -788,7 +788,7 @@ utils.set_global_atts(cube, attributes)
 - **Add documentation**. Make sure that you have added the info of your dataset
    to the User Guide so that people know it is available for the ESMValTool
    [Obtaining input
-   data](https://github.com/ESMValGroup/ESMValTool/blob/master/doc/sphinx/source/input.rst).
+   data](https://github.com/ESMValGroup/ESMValTool/blob/main/doc/sphinx/source/input.rst).
 
 
 ## Some final comments

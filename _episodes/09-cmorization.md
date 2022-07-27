@@ -284,10 +284,10 @@ the file so that it follows the CMOR filename conventions.
 ## Create a new CMORizer script and a corresponding config file
 
 The first step now is to create a new file in the right folder that will contain
-our new CMORizer instructions. Create a file called ``cmorize_obs_fluxcom.py``
+our new CMORizer instructions. Create a file called ``fluxcom.py``
 
 ```bash
-nano ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+nano ~/ESMValTool/esmvaltool/cmorizers/data/formatters/datasets/fluxcom.py
 ```
 
 and fill it with the following boilerplate code:
@@ -298,12 +298,12 @@ and fill it with the following boilerplate code:
 <We will add some useful info here later>
 """
 import logging
-from . import utilities as utils
+from esmvaltool.cmorizers.data import utilities as utils
 
 logger = logging.getLogger(__name__)
 
-def cmorization(in_dir, out_dir, cfg, _):
-    """Cmorize the dataset."""
+def cmorization(in_dir, out_dir, cfg, cfg_user, start_date, end_date):
+    """Cmorization func call."""
 
     # This is where you'll add the cmorization code
     # 1. find the input data
@@ -314,11 +314,14 @@ def cmorization(in_dir, out_dir, cfg, _):
 Here, ``in_dir`` corresponds to the input directory of the raw files,
 ``out_dir`` to the output directory of final reformatted data set and ``cfg`` to
 a configuration dictionary given by a configuration file that we will get to
-shortly. When you type the command ``cmorize_obs`` in the terminal, ESMValTool
-will call this function with the settings found in your configuration files.
+shortly. The last three arguments will not be considered in this script but
+can be used in other cases. ``cfg_user`` corresponds to the user configuration
+file, ``start_date`` to the start of the period to format, and ``end_date`` to
+the end of the period to format. When you type the command ``esmvaltool data format``
+in the terminal, ESMValTool will call this function with the settings found in your configuration files.
 
 The ESMValTool CMORizer also needs a dataset configuration file. Create a file
-called `~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`
+called `~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`
 and fill it with the following boilerplate:
 
 ```yaml
@@ -368,7 +371,7 @@ You can try running the CMORizer at this point, and it should work without
 errors. However, it doesn't produce any output yet:
 
 ```bash
-cmorize_obs -c <config-user.yml> -o FLUXCOM
+esmvaltool data format --config_user <config-user.yml> FLUXCOM
 ```
 
 ### 1. Find the input data

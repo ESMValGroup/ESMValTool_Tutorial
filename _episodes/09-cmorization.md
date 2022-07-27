@@ -445,7 +445,7 @@ We already have the `cube` and the `outdir`. The variable short name (`var`) and
 attributes (`attrs`) are set through the configuration file. So we need to find out what the correct short name and attributes are.
 
 The standard attributes for CMIP variables are defined in the [CMIP
-tables](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
+tables](https://github.com/ESMValGroup/ESMValCore/tree/main/esmvalcore/cmor/tables/cmip6/Tables).
 These tables are differentiated according to the "MIP" they belong to. The
 tables are a copy of the [PCMDI](https://github.com/PCMDI) guidelines.
 
@@ -461,7 +461,7 @@ tables are a copy of the [PCMDI](https://github.com/PCMDI) guidelines.
 > > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
 > > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
 > > "gpp" can be found in the file
-> > [here](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
+> > [here](https://github.com/ESMValGroup/ESMValCore/blob/main/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
 > >
 > {: .solution}
 {: .challenge}
@@ -526,8 +526,9 @@ However, this makes it possible to add more variables later on.
 > ## Was the CMORization successful so far?
 >
 > If you run the CMORizer again, you should see that it creates an output file
-> named ``OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc``. The "xxxx" and
-> "yyyy" represent the start and end year of the data.
+> named ``OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc`` stored in your
+> ESMValTool output directory `~/esmvaltool_output/data_formatting_YYYYMMDD_HHMMSS/Tier3/FLUXCOM/`.
+> The "xxxx" and "yyyy" represent the start and end year of the data.
 >
 {: .callout}
 

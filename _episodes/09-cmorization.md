@@ -386,7 +386,14 @@ logger.info("in_dir: '%s'", in_dir)
 logger.info("cfg: '%s'", cfg)
 ```
 
-If you run the CMORizer again, it will print out the content of these variables.
+If you run the CMORizer again, it will print out the content of these variables
+and the output should contain something like this:
+
+~~~
+... in_dir: '/home/peter/data/RAWOBS/Tier3/FLUXCOM'
+... cfg: '{'attributes': {'project_id': 'OBS6', 'comment': ''}, 'cmor_table': <esmvalcore.cmor.table.CMIP6Info object at 0x7fbd0a0f6bf0>}'
+~~~
+{: .output}
 
 > ## Load the data
 >

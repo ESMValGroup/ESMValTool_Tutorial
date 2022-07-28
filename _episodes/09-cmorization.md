@@ -766,6 +766,89 @@ Once everything works as expected, there's a couple of things that we can still 
 {: .challenge}
 
 
+- **Fill the dataset information list** The file [datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/cmorizers/data/datasets.yml)
+  contains the ESMValTool "tier", the data source, the last access time and
+  download instructions for all supported datasets in ESMValTool. You can
+  simply reuse the information written in the header of the CMORizer.
+
+> ## Fill out the FLUXCOM entry in ``datasets.yml``
+>
+> Fill out the FLUXCOM entry in ``datasets.yml``. The different parts that need to be
+> present in the header are the following:
+>
+> - Dataset-name
+> - Tier
+> - Source
+> - Last access
+> - Download and processing instructions
+>
+> > ## Answers
+> >
+> > The entry for the "FLUXCOM" dataset should look like:
+> >
+> > ```yaml
+> > FLUXCOM:
+> >   tier: 3
+> >   source: http://www.bgc-jena.mpg.de/geodb/BGI/Home
+> >   last_access: 2019-07-27
+> >   info: |
+> >     From the website, select FLUXCOM as the data choice and click download.
+> >     Two files will be displayed. One for Land Carbon Fluxes and one for
+> >     Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+> >     CRUNCEP data file has several data files for different variables.
+> >     The data for GPP generated using the
+> >     Artificial Neural Network Method will be in files with name:
+> >     GPP.ANN.CRUNCEPv6.monthly.*.nc
+> >     A registration is required for downloading the data.
+> >     Users in the UK with a CEDA-JASMIN account may request access to the jules
+> >     workspace and access the data.
+> >     Note : This data may require rechunking of the netcdf files.
+> >     This constraint will not exist once iris is updated to
+> >     version 2.3.0 Aug 2019
+> > ```
+> {: .solution}
+{: .challenge}
+
+Once the ``datasets.yml`` file is filled, you can check that ESMValTool can
+display information about the added dataset with:
+
+```bash
+esmvaltool data info FLUXCOM
+```
+
+If everything is okay, the output should look something like this:
+
+~~~
+ $ esmvaltool data info FLUXCOM
+FLUXCOM
+
+Tier: 3
+Source: http://www.bgc-jena.mpg.de/geodb/BGI/Home
+Automatic download: No
+
+From the website, select FLUXCOM as the data choice and click download.
+Two files will be displayed. One for Land Carbon Fluxes and one for
+Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+CRUNCEP data file has several data files for different variables.
+The data for GPP generated using the
+Artificial Neural Network Method will be in files with name:
+GPP.ANN.CRUNCEPv6.monthly.*.nc
+A registration is required for downloading the data.
+Users in the UK with a CEDA-JASMIN account may request access to the jules
+workspace and access the data.
+Note : This data may require rechunking of the netcdf files.
+This constraint will not exist once iris is updated to
+version 2.3.0 Aug 2019
+~~~
+{: .output}
+
+Note that ``Automatic download: No`` means that no automatic downloading script
+is available in ESMValTool for this dataset. The implementation of such a
+script is beyond the scope of this tutorial. To find out which datasets come
+with an automatic download script, you can run: ``esmvaltool data list`` to
+list all datasets supported in ESMValTool. More information about the usage
+of automatic downloading scripts can be find in the [User Guide](https://docs.esmvaltool.org/en/latest/develop/dataset.html#downloader-script-optional).
+
 - **Complete the metadata in the config file**. We have left a few fields empty
   in the configuration file, such as 'source'. By filling out these fields we can
   make sure the relevant metadata is passed on as attributes in the CMORized

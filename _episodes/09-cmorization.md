@@ -766,7 +766,7 @@ Once everything works as expected, there's a couple of things that we can still 
 {: .challenge}
 
 
-- **Fill the dataset information list** The file [datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/cmorizers/data/datasets.yml)
+- **Fill the dataset information list**. The file [datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/cmorizers/data/datasets.yml)
   contains the ESMValTool "tier", the data source, the last access time and
   download instructions for all supported datasets in ESMValTool. You can
   simply reuse the information written in the header of the CMORizer.

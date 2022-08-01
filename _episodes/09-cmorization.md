@@ -774,7 +774,7 @@ Once everything works as expected, there's a couple of things that we can still 
 > ## Fill out the FLUXCOM entry in ``datasets.yml``
 >
 > Fill out the FLUXCOM entry in ``datasets.yml``. The different parts that need to be
-> present in the header are the following:
+> present in the entry are the following:
 >
 > - Dataset-name
 > - Tier

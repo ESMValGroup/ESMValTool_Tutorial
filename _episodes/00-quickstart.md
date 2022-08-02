@@ -87,9 +87,9 @@ esmvaltool run recipe_radiation_budget.yml
 If everything has been set up correctly, the last line of code should look
 something like this: 
 
-~~~output
+```yaml
 2022-08-02 14:00:58,128 UTC [93691] INFO    Run was successful
-~~~
+```
 
 To view the file used in this example:
 

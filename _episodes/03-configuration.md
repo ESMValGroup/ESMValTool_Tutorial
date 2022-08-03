@@ -140,7 +140,8 @@ file are mentioned below. For example, CMIP is used for a dataset from
 the Climate Model Intercomparison Project whereas OBS may be 
 used for an observational dataset.
 More information about the projects used in ESMValTool is available in the 
-[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html).
+[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+quickstart/find_data.html).
 When using ESMValTool on your own machine, you can create a directory to download 
 climate model data or observation data sets and let the tool use data from there. 
 It is also possible to ask 
@@ -222,7 +223,8 @@ removing the machine specific lines should be sufficient to access input data.
 >>```
 >>
 >> - For more information about setting the rootpath, see also the ESMValTool
->> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html).
+>> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+quickstart/find_data.html).
 > {: .solution}
 {: .challenge}
 
@@ -236,7 +238,8 @@ The ``drs`` setting describes the file structure for several projects (e.g.
 CMIP6, CMIP5, obs4mips, OBS6, OBS) on several key machines
 (e.g. BADC, CP4CDS, DKRZ, ETHZ, SMHI, BSC). For more
 information about ``drs``, you can visit the ESMValTool documentation on
-[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#cmor-drs).
+[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/esmvalcore/
+en/latest/quickstart/find_data.html#cmor-drs).
 
 > ## Set the correct drs
 >
@@ -299,7 +302,9 @@ information about ``drs``, you can visit the ESMValTool documentation on
 >> 2. Observational data are organized in Tiers depending on their level of
 >>    public availability. Therefore the default directory must be structured
 >>    accordingly with sub-directories `TierX` e.g. Tier1, Tier2 or Tier3, even
->>    when `drs: default`. More details can be found in the [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html#observational-data).
+>>    when `drs: default`. More details can be found in the 
+[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+quickstart/find_data.html#observational-data).
 >>
 > {: .solution}
 {: .challenge}
@@ -319,7 +324,8 @@ if you want to feed some additional data (e.g. shape files) to your recipe.
 > auxiliary_data_dir: ~/auxiliary_data
 > ```
 > See more information in ESMValTool
-[document](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html?highlight=auxiliary_data#user-configuration-file).
+[document](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart
+/configure.html?highlight=auxiliary_data#user-configuration-file).
 {: .callout}
 
 > ## Number of parallel tasks

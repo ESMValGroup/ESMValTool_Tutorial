@@ -90,7 +90,8 @@ diagnostics:
 > > ## Solution
 > > The keys are explained in the ESMValTool documentation, in the `Recipe 
 > >  section `, under
-> [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-datasets)
+> [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/
+overview.html#recipe-section-datasets)
 > {: .solution}
 {: .challenge}
 

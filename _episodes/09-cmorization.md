@@ -594,7 +594,7 @@ it should be able to find the correct file, but it does not succeed yet. The fir
 thing that the ESMValTool CMOR checker brings up is:
 
 ~~~
-iris.exceptions.UnitConversionError: Cannot convert from unknown units. The\
+iris.exceptions.UnitConversionError: Cannot convert from unknown units. The
 "units" attribute may be set directly.
 ~~~
 {: .error}

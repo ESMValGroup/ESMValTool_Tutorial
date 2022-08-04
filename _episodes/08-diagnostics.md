@@ -251,7 +251,8 @@ ESMValTool provides many functions such as ``select_metadata`` (line 72),
 ``sorted_metadata`` (line 76), and ``group_metadata`` (line 80). As you can see
 in line 8, these functions are imported from ``esmvaltool.diag_scripts.shared``
 that means these are shared across several diagnostics scripts. A list of
-available functions and their description can be found in [The ESMValTool Diagnostic API reference][shared].
+available functions and their description can be found in 
+[The ESMValTool Diagnostic API reference][shared].
 
 
 > ## Extracting information needed for analyses

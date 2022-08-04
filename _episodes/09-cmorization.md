@@ -594,7 +594,7 @@ it should be able to find the correct file, but it does not succeed yet. The fir
 thing that the ESMValTool CMOR checker brings up is:
 
 ~~~
-iris.exceptions.UnitConversionError: Cannot convert from unknown units. The
+iris.exceptions.UnitConversionError: Cannot convert from unknown units. The\
 "units" attribute may be set directly.
 ~~~
 {: .error}
@@ -765,7 +765,8 @@ utils.set_global_atts(cube, attributes)
 ```
 
 - **Add a reference**. Make sure that there is a reference file available for
-   the dataset, see the instruction [here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references).
+   the dataset, see the instruction [here](https://docs.esmvaltool.org/en
+/latest/community/diagnostic.html#adding-references).
 
 - **Make a pull request**. Since you have gone through all the trouble to
   reformat the dataset so that the ESMValTool can work with it, it would be

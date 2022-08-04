@@ -471,6 +471,6 @@ Congratulations! You are now ready to make a pull request.
 
 {% include links.md %}
 
-[token-authentication-requirements]: https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today
-[manage-environments]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-[install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source
+
+
+

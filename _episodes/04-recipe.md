@@ -22,14 +22,16 @@ run your first recipe, look at the recipe output, and make small modifications.
 
 ## Running an existing recipe
 
-The recipe format has briefly been introduced in the [Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) episode. To see all the
-recipes that are shipped with ESMValTool, type
+The recipe format has briefly been introduced in the 
+[Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) episode.
+ To see all the recipes that are shipped with ESMValTool, type
 
 ```bash
 esmvaltool recipes list
 ```
 
-We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html)
+We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.
+org/en/latest/recipes/recipe_examples.html)
 
 ```
 esmvaltool run examples/recipe_python.yml
@@ -202,10 +204,13 @@ Let's dissect what's happening here.
 > > ## Answers
 > >
 > > 1. The config file should be the one we edited in the previous episode,
-> >    something like `/home/<username>/.esmvaltool/config-user.yml` or `~/esmvaltool_tutorial/config-user.yml`.
+> >    something like `/home/<username>/.esmvaltool/config-user.yml` or
+ `~/esmvaltool_tutorial/config-user.yml`.
 > > 1. ESMValTool found the recipe in its installation directory, something like
 > >    `/home/users/username/miniconda3/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
->> or if you are using a pre-installed module on a server, something like `/apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/recipes/examples/recipe_python.yml`
+>> or if you are using a pre-installed module on a server, something like
+ `/apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/recipes
+/examples/recipe_python.yml`
 > > 1. ESMValTool creates a time-stamped output directory for every run. In this
 > >    case, it should be something like `recipe_python_YYYYMMDD_HHMMSS`. This
 > >    folder is made inside the output directory specified in the previous
@@ -478,11 +483,12 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 
 > ## Pro tip: diagnostic logs
 >
-> When you run ESMValTool, any log messages from the diagnostic script are not printed on the terminal.
+> When you run ESMValTool, any log messages from the diagnostic script are not 
+> printed on the terminal.
 > But they are written to the `log.txt` files in the folder `/run/<diag_name>/log.txt`.
 >
-> ESMValTool *does* print a command that can be used to re-run a diagnostic script. When you use this
-> the output *will* be printed to the command line.
+> ESMValTool *does* print a command that can be used to re-run a diagnostic 
+> script. When you use this the output *will* be printed to the command line.
 {: .callout}
 
 ## Modifying the example recipe

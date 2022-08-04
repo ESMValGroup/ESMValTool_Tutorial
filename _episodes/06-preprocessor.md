@@ -117,11 +117,17 @@ esmvaltool run recipe_warming_stripes.yml
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
 ...
-Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10/site-packages/esmvalcore/recipe_schema.yml
+Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml
+       with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10
+       /site-packages/esmvalcore/recipe_schema.yml
 	documentation.authors: Required field missing
-2020-10-08 15:23:11,162 UTC [19451] INFO    If you have a question or need help, please start a new discussion on https://github.com/ESMValGroup/ESMValTool/discussions
-If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
-To make it easier to find out what the problem is, please consider attaching the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+2020-10-08 15:23:11,162 UTC [19451] INFO    If you have a question or need help,
+	    please start a new discussion on https://github.com/ESMValGroup/
+	    ESMValTool/discussions
+If you suspect this is a bug, please open an issue on 
+   https://github.com/ESMValGroup/ESMValTool/issues
+To make it easier to find out what the problem is, please consider attaching 
+   the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 
@@ -160,7 +166,9 @@ This is the minimal recipe layout that is required by ESMValTool. If we now run
 the recipe again, you will probably see the following error:
 
 ```
-ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/mambaforge/envs/esmvaltool_tutorial/python3.10/site-packages/esmvaltool/config-references.yml
+ValueError: Tag 'doe_john' does not exist in section 'authors' of 
+	    /home/user/mambaforge/envs/esmvaltool_tutorial/python3.10/
+	    site-packages/esmvaltool/config-references.yml
 ```
 {: .error}
 
@@ -240,7 +248,8 @@ of the `diagnostic` section in the recipe example seen in
 
 ```yaml
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: 
+  r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 ```
 
 The recipe should run but produce the same message as in the previous case since we
@@ -380,7 +389,8 @@ for each of the modifications we'll make below.
 > > --- recipe_warming_stripes.yml
 > > +++ recipe_warming_stripes_local.yml
 > > @@ -10,9 +10,11 @@
-> >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+    ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 > >
 > >  preprocessors:
 > > -  global_anomalies:
@@ -429,8 +439,10 @@ for each of the modifications we'll make below.
 > >      - righi_mattia
 > >
 > >  datasets:
-> > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
-> > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn}
+> > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> > -  	 ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> > +    ensemble: r1i1p1f1, grid: gn}
 > >
 > >  preprocessors:
 > >    anomalies_amsterdam:

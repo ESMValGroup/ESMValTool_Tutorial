@@ -12,7 +12,10 @@ causes and effects of model biases and inter-model spread within the CMIP model
 ensemble.
 
 This tutorial is structured into ``basic`` and ``advanced`` topics such that episodes 
-starting from the [Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) up to the episode on [Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/05-conclusions.md %})
+starting from the 
+[Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) up to 
+the episode on 
+[Conclusion of the basic tutorial]({{ page.root }}{% link _episodes/05-conclusions.md %})
 all cover basic topics and can be done in one sitting. 
 
 The remaining episodes cover the advanced topics and each episode is a

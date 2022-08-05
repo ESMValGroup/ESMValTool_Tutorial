@@ -1,10 +1,8 @@
 # ESMValTool Tutorial
 
 [![Join the chat at
-https://gitter.im/ESMValGroup/Tutorial](https://badges.gitter.im/
-ESMValGroup/Tutorial.svg)](https://gitter.im/ESMValGroup/Tutorial?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3974592.svg)](https://doi.
-org/10.5281/zenodo.3974592)
+https://gitter.im/ESMValGroup/Tutorial](https://badges.gitter.im/ESMValGroup/Tutorial.svg)](https://gitter.im/ESMValGroup/Tutorial?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3974592.svg)](https://doi.org/10.5281/zenodo.3974592)
 
 
 [ESMValTool Tutorial][tutorial-site] is an open-source project in

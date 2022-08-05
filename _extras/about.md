@@ -73,7 +73,8 @@ Please cite ESMValTool paper as:
   author = {Mattia Righi and Bouwe Andela and Veronika Eyring and Axel Lauer and Valeriu Predoi
   and Manuel Schlund and Javier Vegas-Regidor and Lisa Bock and Bj\"{o}rn Br\"{o}tz and
   Lee de Mora and Faruk Diblen and Laura Dreyer and Niels Drost and Paul Earnshaw and
-  Birgit Hassler and Nikolay Koldunov and Bill Little and Saskia Loosveldt Tomas and Klaus Zimmermann},
+  Birgit Hassler and Nikolay Koldunov and Bill Little and Saskia Loosveldt 
+Tomas and Klaus Zimmermann},
   title = {Earth System Model Evaluation Tool ({ESMValTool}) v2.0 {\textendash} technical overview},
   journal = {Geoscientific Model Development}
 }

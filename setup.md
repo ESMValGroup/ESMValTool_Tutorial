@@ -49,7 +49,8 @@ Intercomparison Project
 (CMIP)](https://en.wikipedia.org/wiki/Coupled_Model_Intercomparison_Project) is
 locally stored on disk and accessible directly by the tool. Similarly,
 observational data would also be available at these sites.
-The ESGF also hosts observations for Model Intercomparison Projects (obs4MIPs) and reanalyses data (ana4MIPs).
+The ESGF also hosts observations for Model Intercomparison Projects (obs4MIPs)
+ and reanalyses data (ana4MIPs).
 
 Here are a few options for compute clusters with ESGF nodes:
 
@@ -69,7 +70,8 @@ and the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
 
 - List of all [ESGF nodes](https://esgf.llnl.gov/nodes.html).
 
-- A good [tutorial](https://esgf.github.io/esgf-user-support/user_guide.html#data-search-and-download)
+- A good 
+[tutorial](https://esgf.github.io/esgf-user-support/user_guide.html#data-search-and-download)
 on how to search and download CMIP data from ESGF nodes.
 
 - [Exploring climate model data](https://climate4impact.eu/impactportal/data/esgfsearch.jsp)
@@ -206,8 +208,11 @@ ssh -X user-account@levante.dkrz.de
 #### Additional information
 
 Login nodes are for compiling and job submission only! For all other tasks, you
-can use the [interactive](https://docs.dkrz.de/doc/levante/running-jobs/partitions-and-limits.html#interactive)
-partition or start an [interactive session](https://docs.dkrz.de/doc/levante/data-processing-on-levante.html#).
+can use the 
+[interactive](https://docs.dkrz.de/doc/levante/running-jobs/
+partitions-and-limits.html#interactive)
+partition or start an 
+[interactive session](https://docs.dkrz.de/doc/levante/data-processing-on-levante.html#).
 
 Data storage:
 - Personal data: home directory (30GiB)
@@ -276,6 +281,6 @@ ESMValTool development team.
 
 {% include links.md %}
 
-[cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/
-[theatoga.nc]: http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
-[ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
+
+
+

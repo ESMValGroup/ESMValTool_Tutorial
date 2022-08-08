@@ -1,7 +1,7 @@
 # ESMValTool Tutorial
 
 [![Join the chat at https://gitter.im/ESMValGroup/Tutorial](
-https://badges.gitter.im/ESMValGroup/Tutorial.svg)][gitter]
+https://badges.gitter.im/ESMValGroup/Tutorial.svg)]([gitter])
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3974592.svg)](
 https://doi.org/10.5281/zenodo.3974592)
 

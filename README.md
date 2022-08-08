@@ -2,7 +2,7 @@
 
 [![Join the chat at
 https://gitter.im/ESMValGroup/Tutorial][gitter-badge]][gitter]
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3974592.svg)][zenodo]
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3974592.svg)]([zenodo])
 
 
 [ESMValTool Tutorial][tutorial-site] is an open-source project in

@@ -470,7 +470,3 @@ xdg-open doc/sphinx/build/html/index.html
 Congratulations! You are now ready to make a pull request.
 
 {% include links.md %}
-
-
-
-

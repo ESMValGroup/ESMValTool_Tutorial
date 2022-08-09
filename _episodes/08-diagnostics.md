@@ -498,8 +498,3 @@ You now know the basic diagnostic script structure and some available tools for 
 together your own diagnostics. Have a look at existing recipes and diagnostics in the 
 repository for more examples of functions you can use in your diagnostics!
 {% include links.md %}
-
-
-
-
-

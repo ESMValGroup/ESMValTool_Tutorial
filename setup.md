@@ -280,7 +280,3 @@ This is an advanced feature of GitHub, and will generally be performed by the
 ESMValTool development team.
 
 {% include links.md %}
-
-
-
-

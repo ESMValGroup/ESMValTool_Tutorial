@@ -16,8 +16,6 @@
 [ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
 [email]: mailto:team@carpentries.org
 [github-importer]: https://import.github.com/
-[gitter-badge]: https://badges.gitter.im/ESMValGroup/Tutorial.svg
-[gitter]: https://gitter.im/ESMValGroup/Tutorial?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 [importer]: https://github.com/new/import
 [install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
@@ -61,5 +59,3 @@
 [training]: https://carpentries.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
-[zenodo-badge]: https://zenodo.org/badge/DOI/10.5281/zenodo.3974592.svg
-[zenodo]: https://doi.org/10.5281/zenodo.3974592

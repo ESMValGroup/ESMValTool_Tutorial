@@ -121,7 +121,7 @@ Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml
        with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10
        /site-packages/esmvalcore/recipe_schema.yml
 	documentation.authors: Required field missing
-2020-10-08 15:23:11,162 UTC [19451] INFO    If you have a question or need help,
+YYYY-MM-DD HH:mm:SS,NNN UTC [19451] INFO    If you have a question or need help,
 	    please start a new discussion on https://github.com/ESMValGroup/
 	    ESMValTool/discussions
 If you suspect this is a bug, please open an issue on 

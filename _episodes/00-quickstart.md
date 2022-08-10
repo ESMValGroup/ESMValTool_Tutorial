@@ -73,7 +73,7 @@ keypoints:
 >     ana4mips: default
 >   ```
 >
-> - Make sure to find offline and change it to true as well as setting max_parallel_tasks to 1
+> - Make sure to find offline and change it to true as well as setting max_parallel_tasks to 1.
 {: .challenge}
 
 
@@ -88,7 +88,7 @@ keypoints:
 >   something like this: 
 >
 >    ```yaml
->    YYYY-MM-DD HH:MM:SS, NNN UTC [93691] INFO    Run was successful
+>    YYYY-MM-DD HH:mm:SS, NNN UTC [93691] INFO    Run was successful
 >    ```
 >
 > - To view the file used in this example:

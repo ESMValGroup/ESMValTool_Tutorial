@@ -3,101 +3,109 @@ title: "Quickstart Guide"
 teaching: 5
 exercises: 10
 questions:
-- How do I set up with ESMValTool quickly?
+
+- "How do I activate the ESMValTool environment?"
+- "How do I configure the ESMValTool?"
+- "How do I run a recipe?"
 
 objectives:
-- Set up the ESMValTool
-- Successfully run a recipe
+
+- "Activate the ESMValTool environment"
+- "Configure the ESMValTool"
+- "Successfully run a recipe"
 
 keypoints:
-- The enviroment has to be loaded before the ESMValTool can be used.
-- The config file has to be set up.
-- The recipe will say 'run was successful' if ran properly.
+- "See the installation guide for activating the ESMValtool environment."
+- "The config file has to be set up, uncommenting the environment you use."
+- "The command for running a recipe is `esmvaltool run`."
 ---
 
-## Installing and getting started with the ESMValTool
+> ## Installing and getting started with the ESMValTool
+>
+> To install the ESMValTool please see 
+> [here](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#)
+{: .callout}
 
-To install the ESMValTool please see 
-[here](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#)
+> ## Configuring ESMValtool
+>
+> With ESMValTool installed, we can now set up our configuration file (which 
+> tells ESMValTool how to run, where to get data from, and where to output it).
+>
+> You can find out more about this in the 
+> [documention](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html).
+>
+>
+> - Ensure you are in the directory you want to get started in:
+>
+>   ~~~bash
+>    esmvaltool config get_config_user
+>    ~~~
+> - Open the config-user.yml file in a text editor:
+>
+>   ~~~bash
+>   ~/.esmvaltool/config-user.yml 
+>   ~~~
+> - To set up the config-user.yml file, uncomment the lines relating to the
+> host you are using to run the ESMValTool. For example if you were using 
+> Jasmin you should uncomment:
+>
+>   ```yaml
+>   # Site-specific entries: Jasmin
+>   # Uncomment the lines below to locate data on JASMIN
+>   auxiliary_data_dir: /gws/nopw/j04/esmeval/aux_data/AUX
+>   rootpath:
+>     CMIP6: /badc/cmip6/data/CMIP6
+>     CMIP5: /badc/cmip5/data/cmip5/output1
+>     CMIP3: /badc/cmip3_drs/data/cmip3/output
+>     OBS: /gws/nopw/j04/esmeval/obsdata-v2
+>     OBS6: /gws/nopw/j04/esmeval/obsdata-v2
+>     obs4MIPs: /gws/nopw/j04/esmeval/obsdata-v2
+>     ana4mips: /gws/nopw/j04/esmeval/obsdata-v2
+>     CORDEX: /badc/cordex/data/CORDEX/output
+>   drs:
+>     CMIP6: BADC
+>     CMIP5: BADC
+>     CMIP3: BADC
+>     CORDEX: BADC
+>     OBS: default
+>     OBS6: default
+>     obs4MIPs: default
+>     ana4mips: default
+>   ```
+>
+> - Make sure to find offline and change it to true as well as setting max_parallel_tasks to 1
+{: .challenge}
 
 
-## Configuring ESMValtool
+> ## Running a Recipe
+> 
+> - To run a recipe:
+> 
+>   ~~~bash
+>   esmvaltool run examples/recipe_python.yml 
+>   ~~~
+> - If everything has been set up correctly, the last line of code should look
+>   something like this: 
+>
+>    ```yaml
+>    YYYY-MM-DD HH:MM:SS, NNN UTC [93691] INFO    Run was successful
+>    ```
+>
+> - To view the file used in this example:
+>
+>   ~~~bash
+>    esmvaltool recipes get examples/recipe_python.yml 
+>   ~~~
+> 
+> - Then open `recipe_python.yml` in a text editor.
+>
+> - You can find out more about this recipe in the 
+>   [documentation](https://docs.esmvaltool.org/en/latest/recipes/recipe_examples
+.html).
+{: .challenge}
 
-With ESMValTool installed, we can now set up our configuration file (which tells
-ESMValTool how to run, where to get data from, and where to output it).
-
-You can find out more about this in the 
-[documention](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html).
-
-In this example, visual studio code is used as the default text editor, so when 
-'code' is shown on the command line instructions, replace it with syntax for 
-initialising your favourite text editor.
-
-1. Ensure you are in the directory you want to get started in:
-
-~~~bash
-esmvaltool config get_config_user
-~~~
-2. Open the config-user.yml file:
-
-~~~bash
-code ~/.esmvaltool/config-user.yml 
-~~~
-3. To set up the config-user.yml file, change the following lines to:
-
-```yaml
- output_dir: ~/pathtoyourworkingdir/esmvaltool_output 
- download_dir: /anypathyoulike/<download folder> 
- auxiliary_data: /anypathyoulike/auxiliary_data 
- max_parallel_tasks: 1 
- offline: true 
- rootpath: 
-   default: /anypathyoulike/<download folder> 
-   CMIP5: /<defaultpathabove>/CMIP5 
-   CMIP6: /<defaultpathabove>/CMIP6 
- drs: 
-   CMIP5: default 
-   CMIP6: default
-```
-
-   Here is an example of what it could look like:
-```yaml
- output_dir: /home/h02/tgeddes/Esmvaltool/esmvaltool_output
- download_dir: /home/h02/tgeddes/Esmvaltool/download_data
- auxiliary_data_dir: /home/h02/tgeddes/Esmvaltool/auxiliary_data
- max_parallel_tasks: 1
- offline: true
- rootpath:
-   default: /project/cma/esmvaltool/obs
-   CMIP5: /project/cma/esmvaltool/cmip5/output1
-   CMIP6: /project/cma/esmvaltool/CMIP6
-   OBS: /project/cma/esmvaltool/obs
- drs:
-   CMIP5: BADC
-   CMIP6: BADC
-```
-
-## Running a Recipe
-
-To run a recipe:
-
-~~~bash
-esmvaltool run recipe_radiation_budget.yml
-~~~
-If everything has been set up correctly, the last line of code should look
-something like this: 
-
-```yaml
-2022-08-02 14:00:58,128 UTC [93691] INFO    Run was successful
-```
-
-To view the file used in this example:
-
-~~~bash
- esmvaltool recipes get recipe_radiation_budget.yml
- code recipe_radiation_budget.yml 
-~~~
-
-You can find out more about this recipe in the 
-[documentation](https://docs.esmvaltool.org/en/latest/recipes/recipe_radiation_budget.html).
-
+> ## Outputs of a Recipie
+>
+> The outputs of a recipe can be found in the output_dir specified in the 
+> config file. 
+{: .callout}

@@ -1,10 +1,12 @@
 {% include base_path.html %}
+[activate-environment]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#pre-installed-versions-on-hpc-clusters-other-servers
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
+[configure-documentation]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
 [cran-checkpoint]: https://cran.r-project.org/package=checkpoint
@@ -12,6 +14,7 @@
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
 [email]: mailto:team@carpentries.org
+[example-recipe]: https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
@@ -23,9 +26,12 @@
 [lc-lessons]: https://librarycarpentry.org/lessons/
 [lesson-aio]: {{ relative_root_path }}{% link aio.md %}
 [lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
+[lesson-configuration]: {{ relative_root_path }}{% link _episodes/03-configuration.md %}
 [lesson-example]: https://carpentries.github.io/lesson-example/
+[lesson-installation]: {{ relative_root_path }}{% link _episodes/02-installation.md %}
 [lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
+[lesson-recipe]: {{ relative_root_path }}{% link _episodes/04-recipe.md %}
 [lesson-reference]: {{ relative_root_path }}{% link reference.md %}
 [lesson-setup]: {{ relative_root_path }}{% link setup.md %}
 [mit-license]: https://opensource.org/licenses/mit-license.html

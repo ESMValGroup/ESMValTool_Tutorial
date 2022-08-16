@@ -143,7 +143,6 @@ If everything is okay, the output should look something like this:
 ... output_dir = /home/peter/esmvaltool_output/data_formatting_20220726_140216
 ... ----------------------------------------------------------------------
 ... Running the CMORization scripts.
-... Using cmorizer scripts repository: /home/peter/miniconda3/envs/esmvaltool/lib/python3.8/site-packages/esmvaltool/cmorizers/obs
 ... Processing datasets ['FLUXCOM']
 ... Input data from: /home/peter/data/RAWOBS/Tier3/FLUXCOM
 ... Output will be written to: /home/peter/esmvaltool_output/data_formatting_20220726_140216/Tier3/FLUXCOM

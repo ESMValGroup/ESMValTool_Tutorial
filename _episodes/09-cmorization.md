@@ -243,7 +243,7 @@ CMORized, ESMValTool will give a warning or error.
 > >
 > > datasets:
 > >   - {project: OBS, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, 
-      end_year: 2000, type: reanaly, version: ANN-v1}
+> >      end_year: 2000, type: reanaly, version: ANN-v1}
 > >
 > > diagnostics:
 > >   check_fluxcom:

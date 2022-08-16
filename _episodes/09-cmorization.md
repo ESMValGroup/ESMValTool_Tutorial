@@ -597,7 +597,7 @@ rootpath:
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_file <config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
 ```
 
 it should be able to find the correct file, but it does not succeed yet. The first

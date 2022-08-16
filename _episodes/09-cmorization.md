@@ -115,7 +115,7 @@ run the existing one. There is a specific command available in the ESMValTool to
 run the CMORizer scripts:
 
 ```bash
-esmvaltool data format --config_file <config-user.yml>  <dataset-name>
+esmvaltool data format --config_file <path to config-user.yml>  <dataset-name>
 ```
 
 The ``config-user.yml`` is the file in which we define the different data

@@ -31,6 +31,7 @@ keypoints:
 >
 > This quickstart guide is compatible with ESMValTool v2.6.0.
  {: .callout}
+
 > ## What is the purpose of the quickstart guide?
 >
 > The purpose of the quickstart guide is to enable a user of ESMValTool to run

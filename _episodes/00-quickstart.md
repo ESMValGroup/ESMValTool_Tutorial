@@ -18,8 +18,8 @@ objectives:
 
 keypoints:
 
-- "The purpose of the quickstart guide is to enable the user to run the 
-  ESMValTool as quickly as possible"
+- "The purpose of the quickstart guide is to enable a user of ESMValTool
+  to run ESMValTool as quickly as possible"
 - "Use the `module load` command to activate the ESMValTool environment, 
   see the installation guide for more details, use `esmvaltool -- --help` to 
   test the ESMValTool environment"

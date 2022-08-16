@@ -10,6 +10,7 @@ questions:
 - "How do I run a recipe?"
 
 objectives:
+
 - "Understand the purpose of the quickstart guide"
 - "Activate and test the ESMValTool environment"
 - "Configure ESMValTool"

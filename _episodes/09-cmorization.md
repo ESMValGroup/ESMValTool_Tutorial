@@ -250,7 +250,7 @@ CMORized, ESMValTool will give a warning or error.
 Try to run the example recipe with
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_file <config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
 ```
 
 If everything is okay, the recipe should run without problems.

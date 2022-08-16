@@ -79,8 +79,8 @@ keypoints:
 >   ~~~
 >   {: .language-bash}
 >
-> - If everything has been set up correctly, the last line of code should look
->   something like this: 
+> - Wait for the recipe to complete. If the recipe completes successfully, the
+>   last line printed to screen at the end of the log will look something like: 
 >
 >    ~~~
 >    YYYY-MM-DD HH:mm:SS, NNN UTC [NNNNN] INFO    Run was successful

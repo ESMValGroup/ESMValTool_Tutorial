@@ -64,8 +64,8 @@ documentation:
     - lastname_firstname
 
 datasets:
-  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble:
- r1i1p1, start_year: 1960, end_year: 2005}
+  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, 
+     ensemble: r1i1p1, start_year: 1960, end_year: 2005}
 
 preprocessors:
   global_mean:

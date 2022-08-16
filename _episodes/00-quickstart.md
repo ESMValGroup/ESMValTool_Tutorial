@@ -29,7 +29,7 @@ keypoints:
 ---
 > ## What is the purpose of the quickstart guide?
 >
-> The purpose of the quickstart guide is to enable the user to run the 
+> The purpose of the quickstart guide is to enable a user of ESMValTool to run
 > ESMValTool as quickly as possible by making the bare minimum number of 
 > changes.
 {: .discussion}

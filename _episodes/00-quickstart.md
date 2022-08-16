@@ -87,8 +87,9 @@ keypoints:
 >    ~~~
 >    {: .language-bash}
 >
-> - View the output of the recipie in the HTML file (the location of this file 
->   is printed to screen near the end of the log):
+> - View the output of the recipe by opening the HTML file produced by 
+>   ESMValTool (the location of this file is printed to screen near the end of
+>   the log):
 >
 >   ~~~
 >   YYYY-MM-DD HH:mm:SS, NNN UTC [NNNNN] INFO    Wrote recipe output to:

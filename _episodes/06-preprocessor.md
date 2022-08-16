@@ -248,8 +248,8 @@ of the `diagnostic` section in the recipe example seen in
 
 ```yaml
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: 
-  r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+     ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 ```
 
 The recipe should run but produce the same message as in the previous case since we
@@ -390,7 +390,7 @@ for each of the modifications we'll make below.
 > > +++ recipe_warming_stripes_local.yml
 > > @@ -10,9 +10,11 @@
 > >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
-    ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> >       ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 > >
 > >  preprocessors:
 > > -  global_anomalies:
@@ -440,9 +440,9 @@ for each of the modifications we'll make below.
 > >
 > >  datasets:
 > > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
-> > -  	 ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> > -  	  ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 > > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
-> > +    ensemble: r1i1p1f1, grid: gn}
+> > +     ensemble: r1i1p1f1, grid: gn}
 > >
 > >  preprocessors:
 > >    anomalies_amsterdam:

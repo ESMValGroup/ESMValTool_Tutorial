@@ -97,7 +97,7 @@ keypoints:
 >   ~~~
 >   {: .language-bash}
 >
-> - For more details about running recipes see 
+> - For more details about running recipes see the
 >   [Running your first recipe][lesson-recipe] episode in this tutorial.
 {: .challenge}
 

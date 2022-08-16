@@ -1,5 +1,5 @@
 ---
-title: "Quickstart Guide"
+title: "Quickstart guide"
 teaching: 1
 exercises: 10
 questions:

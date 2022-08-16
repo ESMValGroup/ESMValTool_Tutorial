@@ -62,8 +62,8 @@ keypoints:
 >     ~~~
 >     {: .language-bash}
 > 
-> - Edit the ESMValTool user configuration file to uncomment the lines relating
->   to the host you are using to run ESMValTool.
+> - Edit the ESMValTool user configuration file using your favourite text editor 
+>   to uncomment the lines relating to the site where ESMValTool will be run.
 >
 > - For more details about the ESMValTool user configuration file see the
 >   [Configuration][lesson-configuration] episode in this tutorial.

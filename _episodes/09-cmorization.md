@@ -848,7 +848,8 @@ is available in ESMValTool for this dataset. The implementation of such a
 script is beyond the scope of this tutorial. To find out which datasets come
 with an automatic download script, you can run: ``esmvaltool data list`` to
 list all datasets supported in ESMValTool. More information about the usage
-of automatic downloading scripts can be find in the [User Guide](https://docs.esmvaltool.org/en/latest/develop/dataset.html#downloader-script-optional).
+of automatic downloading scripts can be found in the 
+[User Guide](https://docs.esmvaltool.org/en/latest/develop/dataset.html#downloader-script-optional).
 
 - **Complete the metadata in the config file**. We have left a few fields empty
   in the configuration file, such as 'source'. By filling out these fields we can

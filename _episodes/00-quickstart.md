@@ -37,8 +37,9 @@ keypoints:
 > ## How do I activate and test the ESMValTool environment?
 >
 > - For this quickstart guide, an assumption is made that ESMValTool has 
->   already been installed. If this is not the case, see the 
->   [Installation][lesson-installation] episode in this tutorial.
+>   already been installed at the site where ESMValTool will be run. If this is
+>   not the case, see the [Installation][lesson-installation] episode in this
+>   tutorial.
 > 
 > - Activate the ESMValTool environment by following the instruction at
 >   [ESMValTool: Pre-installed versions on HPC clusters / other 

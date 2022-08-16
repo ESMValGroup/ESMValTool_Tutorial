@@ -41,7 +41,7 @@ keypoints:
 >   not the case, see the [Installation][lesson-installation] episode in this
 >   tutorial.
 > 
-> - Activate the ESMValTool environment by following the instruction at
+> - Activate the ESMValTool environment by following the instructions at
 >   [ESMValTool: Pre-installed versions on HPC clusters / other 
 >   servers][activate-environment].
 >

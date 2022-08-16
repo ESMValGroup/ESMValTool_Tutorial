@@ -151,27 +151,27 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >20        - ukesm
 >21
 >22    datasets:
->23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: 
->24         r1i1p1, start_year: 1859, end_year: 2005}
->24
->25    preprocessors:
->26      prep_timeseries:  # For 0D fields
->27        annual_statistics:
->28          operator: mean
->29
->30    diagnostics:
->31      # --------------------------------------------------
->32      # Time series diagnostics
->33      # --------------------------------------------------
->34      diag_timeseries_temperature:
->35        description: simple_time_series
->36        variables:
->37          timeseries_variable:
->38            short_name: thetaoga
->39            preprocessor: prep_timeseries
->40        scripts:
->41          timeseries_diag:
->42            script: ocean/diagnostic_timeseries.py
+>23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, 
+>24         ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+>25
+>26    preprocessors:
+>27      prep_timeseries:  # For 0D fields
+>28        annual_statistics:
+>29          operator: mean
+>30
+>31    diagnostics:
+>32      # --------------------------------------------------
+>33      # Time series diagnostics
+>34      # --------------------------------------------------
+>35      diag_timeseries_temperature:
+>36        description: simple_time_series
+>37        variables:
+>38          timeseries_variable:
+>39            short_name: thetaoga
+>40            preprocessor: prep_timeseries
+>41        scripts:
+>42          timeseries_diag:
+>43            script: ocean/diagnostic_timeseries.py
 >```
 {: .solution}
 

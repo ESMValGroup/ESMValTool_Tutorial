@@ -27,6 +27,7 @@
 [lesson-configuration]: {{ relative_root_path }}{% link _episodes/03-configuration.md %}
 [lesson-example]: https://carpentries.github.io/lesson-example/
 [lesson-installation]: {{ relative_root_path }}{% link _episodes/02-installation.md %}
+[lesson-introduction]: {{ relative_root_path }}{% link _episodes/00-introduction.md %}
 [lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
 [lesson-recipe]: {{ relative_root_path }}{% link _episodes/04-recipe.md %}

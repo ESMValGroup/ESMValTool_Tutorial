@@ -2,10 +2,10 @@ documentation:
 
   description: Test recipe for FLUXCOM data
 
+  title: This is a test recipe for the FLUXCOM data.
+
   authors:
     - kalverla_peter
-
-  title: Test recipe fluxcom.
 
   maintainer:
     - kalverla_peter

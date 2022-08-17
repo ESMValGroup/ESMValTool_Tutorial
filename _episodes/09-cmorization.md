@@ -119,7 +119,7 @@ run the existing one. There is a specific command available in the ESMValTool to
 run the CMORizer scripts:
 
 ```bash
-cmorize_obs -c <config-user.yml> -o <dataset-name>
+esmvaltool data format --config_file <path to config-user.yml>  <dataset-name>
 ```
 
 The ``config-user.yml`` is the file in which we define the different data
@@ -141,46 +141,43 @@ If everything is okay, the output should look something like this:
 
 ~~~
 ...
-... Starting the CMORization Tool at time: 2021-02-26 14:02:16 UTC
+... Starting the CMORization Tool at time: 2022-07-26 14:02:16 UTC
 ... ----------------------------------------------------------------------
 ... input_dir  = /home/peter/data/RAWOBS
-... output_dir = /home/peter/esmvaltool_output/cmorize_obs_20210226_140216
+... output_dir = /home/peter/esmvaltool_output/data_formatting_20220726_140216
 ... ----------------------------------------------------------------------
 ... Running the CMORization scripts.
-... Using cmorizer scripts repository: /home/peter/miniconda3/envs/esmvaltool/
-    lib/python3.8/site-packages/esmvaltool/cmorizers/obs
-... Processing datasets {'Tier3': ['FLUXCOM']}
+... Processing datasets ['FLUXCOM']
 ... Input data from: /home/peter/data/RAWOBS/Tier3/FLUXCOM
 ... Output will be written to: /home/peter/esmvaltool_output/
-    cmorize_obs_20210226_140216/Tier3/FLUXCOM
-... Reformat script: /home/peter/miniconda3/envs/esmvaltool/lib/python3.8/
-    site-packages/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom
-... CMORizing dataset FLUXCOM using Python script /home/peter/miniconda3/envs/
-    esmvaltool/lib/python3.8/site-packages/esmvaltool/cmorizers/obs/
-    cmorize_obs_fluxcom.py
+      data_formatting_20220726_140216/Tier3/FLUXCOM
+... Reformat script: /home/peter/mambaforge/envs/esmvaltool/lib/python3.9/
+      site-packages/esmvaltool/cmorizers/data/formatters/datasets/fluxcom
+... CMORizing dataset FLUXCOM using Python script /home/peter/mambaforge/envs/
+      esmvaltool/lib/python3.9/site-packages/esmvaltool/cmorizers/data/formatters/
+      datasets/fluxcom.py
 ... Found input file '/home/peter/data/RAWOBS/Tier3/FLUXCOM/GPP.ANN.CRUNCEPv6.monthly.*.nc'
 ... CMORizing variable 'gpp'
 ... Lmon
 ... Var is gpp
 ... ... UserWarning: Ignoring netCDF variable 'GPP' invalid units 'gC m-2 day-1'
-  warnings.warn(msg)
+
 ... Fixing time...
 ... Fixing latitude...
 ... Fixing longitude...
 ... Flipping dimensional coordinate latitude...
 ... Saving file
-... Converting data type of data from 'float64' to 'float32'
-... Saving: /home/peter/esmvaltool_output/cmorize_obs_20210226_140216/Tier3/
-    FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+... Saving: /home/peter/esmvaltool_output/data_formatting_20220726_140216/Tier3/
+      FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
 ... Cube has lazy data [lazy is preferred]
-... Ending the CMORization Tool at time: 2021-02-26 14:02:16 UTC
-... Time for running the CMORization scripts was: 0:00:00.605970
+... CMORization of dataset FLUXCOM finished!
+... Formatting successful for dataset FLUXCOM
 ~~~
 {: .output}
 
 So you can see that several fixes are applied, and the CMORized file is written
 to the ESMValTool output directory, i.e.
-`~/esmvaltool_output/cmorize_obs_YYYYMMDD_HHMMSS/TierX/dataset-name/filename.nc`
+`~/esmvaltool_output/data_formatting_YYYYMMDD_HHMMSS/TierX/dataset-name/filename.nc`
 In order to use it, we'll have to copy it from the output directory to a folder
 called `~/data/OBS/Tier3/FLUXCOM` and make sure the path to ``OBS`` is set
 correctly in our config-user file:
@@ -191,9 +188,9 @@ rootpath:
 ```
 
 You can also see the path where ESMValTool stores the reformatting script:
-`~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py`. You may
+`~/ESMValTool/esmvaltool/data/formatters/datasets/fluxcom.py`. You may
 have a look at this file if you want. The script also uses a configuration file:
-`~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`.
+`~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`.
 
 ## Make a test recipe
 
@@ -204,8 +201,8 @@ CMORized, ESMValTool will give a warning or error.
 
 > ## Create a test recipe
 >
-> Create a simple recipe called `recipe_check_fluxcom.yml` that loads the
-> FLUXCOM data. It should include a datasets section with a single entry for
+> Create a simple recipe called [recipe_check_fluxcom.yml](../files/recipe_check_fluxcom.yml)
+> that loads the FLUXCOM data. It should include a datasets section with a single entry for
 > the "FLUXCOM" dataset with the correct dataset keys, and a diagnostics section
 > with two variables: gpp. We don't need any preprocessors or
 > scripts (set `scripts: null`), but we have to add a documentation section with
@@ -233,7 +230,7 @@ CMORized, ESMValTool will give a warning or error.
 > > documentation:
 > >
 > >   description: Test recipe for FLUXCOM data
->>    title: This is a test recipe for the FLUXCOM data.
+> >   title: This is a test recipe for the FLUXCOM data.
 > >
 > >   authors:
 > >     - kalverla_peter
@@ -263,7 +260,7 @@ CMORized, ESMValTool will give a warning or error.
 Try to run the example recipe with
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
 ```
 
 If everything is okay, the recipe should run without problems.
@@ -278,8 +275,8 @@ test recipe will not be able to use it anymore.
 
 ```bash
 rm ~/data/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
-rm ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
-rm ~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml
+rm ~/ESMValTool/esmvaltool/cmorizers/data/formatters/datasets/fluxcom.py
+rm ~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml
 ```
 
 If you now run the test recipe again it should fail, and somewhere in the output
@@ -287,8 +284,8 @@ you should find something like:
 
 ~~~
 No input files found for ...
-Looking for files matching ['OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc'] in 
-	['/home/peter/data/OBS/Tier3/FLUXCOM']
+Looked for files matching: /home/peter/data/OBS/Tier3/
+FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc
 ~~~
 {: .error}
 
@@ -298,10 +295,10 @@ the file so that it follows the CMOR filename conventions.
 ## Create a new CMORizer script and a corresponding config file
 
 The first step now is to create a new file in the right folder that will contain
-our new CMORizer instructions. Create a file called ``cmorize_obs_fluxcom.py``
+our new CMORizer instructions. Create a file called ``fluxcom.py``
 
 ```bash
-nano ~/ESMValTool/esmvaltool/cmorizers/obs/cmorize_obs_fluxcom.py
+nano ~/ESMValTool/esmvaltool/cmorizers/data/formatters/datasets/fluxcom.py
 ```
 
 and fill it with the following boilerplate code:
@@ -312,11 +309,11 @@ and fill it with the following boilerplate code:
 <We will add some useful info here later>
 """
 import logging
-from . import utilities as utils
+from esmvaltool.cmorizers.data import utilities as utils
 
 logger = logging.getLogger(__name__)
 
-def cmorization(in_dir, out_dir, cfg, _):
+def cmorization(in_dir, out_dir, cfg, cfg_user, start_date, end_date):
     """Cmorize the dataset."""
 
     # This is where you'll add the cmorization code
@@ -328,11 +325,14 @@ def cmorization(in_dir, out_dir, cfg, _):
 Here, ``in_dir`` corresponds to the input directory of the raw files,
 ``out_dir`` to the output directory of final reformatted data set and ``cfg`` to
 a configuration dictionary given by a configuration file that we will get to
-shortly. When you type the command ``cmorize_obs`` in the terminal, ESMValTool
-will call this function with the settings found in your configuration files.
+shortly. The last three arguments will not be considered in this script but
+can be used in other cases. ``cfg_user`` corresponds to the user configuration
+file, ``start_date`` to the start of the period to format, and ``end_date`` to
+the end of the period to format. When you type the command ``esmvaltool data format``
+in the terminal, ESMValTool will call this function with the settings found in your configuration files.
 
 The ESMValTool CMORizer also needs a dataset configuration file. Create a file
-called `~/ESMValTool/esmvaltool/cmorizers/obs/cmor_config/FLUXCOM.yml`
+called `~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`
 and fill it with the following boilerplate:
 
 ```yaml
@@ -382,7 +382,7 @@ You can try running the CMORizer at this point, and it should work without
 errors. However, it doesn't produce any output yet:
 
 ```bash
-cmorize_obs -c <config-user.yml> -o FLUXCOM
+esmvaltool data format --config_user <path to config-user.yml> FLUXCOM
 ```
 
 ### 1. Find the input data
@@ -397,7 +397,14 @@ logger.info("in_dir: '%s'", in_dir)
 logger.info("cfg: '%s'", cfg)
 ```
 
-If you run the CMORizer again, it will print out the content of these variables.
+If you run the CMORizer again, it will print out the content of these variables
+and the output should contain something like this:
+
+~~~
+... in_dir: '/home/peter/data/RAWOBS/Tier3/FLUXCOM'
+... cfg: '{'attributes': {'project_id': 'OBS6', 'comment': ''}, 'cmor_table': <esmvalcore.cmor.table.CMIP6Info object at 0x7fbd0a0f6bf0>}'
+~~~
+{: .output}
 
 > ## Load the data
 >
@@ -450,7 +457,7 @@ attributes (`attrs`) are set through the configuration file. So we need to find
  out what the correct short name and attributes are.
 
 The standard attributes for CMIP variables are defined in the [CMIP
-tables](https://github.com/ESMValGroup/ESMValCore/tree/master/esmvalcore/cmor/tables/cmip6/Tables).
+tables](https://github.com/ESMValGroup/ESMValCore/tree/main/esmvalcore/cmor/tables/cmip6/Tables).
 These tables are differentiated according to the "MIP" they belong to. The
 tables are a copy of the [PCMDI](https://github.com/PCMDI) guidelines.
 
@@ -466,7 +473,7 @@ tables are a copy of the [PCMDI](https://github.com/PCMDI) guidelines.
 > > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
 > > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
 > > "gpp" can be found in the file
-> > [here](https://github.com/ESMValGroup/ESMValCore/blob/master/esmvalcore/
+> > [here](https://github.com/ESMValGroup/ESMValCore/blob/main/esmvalcore/
 cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
 > >
 > {: .solution}
@@ -532,8 +539,9 @@ However, this makes it possible to add more variables later on.
 > ## Was the CMORization successful so far?
 >
 > If you run the CMORizer again, you should see that it creates an output file
-> named ``OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc``. The "xxxx" and
-> "yyyy" represent the start and end year of the data.
+> named ``OBS6_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_xxxx01-xxxx12.nc`` stored in your
+> ESMValTool output directory `~/esmvaltool_output/data_formatting_YYYYMMDD_HHMMSS/Tier3/FLUXCOM/`.
+> The "xxxx" and "yyyy" represent the start and end year of the data.
 >
 {: .callout}
 
@@ -590,7 +598,7 @@ address in the next section.
 
 ### 3. Implementing additional fixes
 
-Copy the output of the CMORizer to your folder `~/data/OBS6/Tier3/`
+Copy the output of the CMORizer to your folder `~/data/OBS6/Tier3/FLUXCOM/`
 and change the test recipe to look for OBS6 data instead of OBS (note: we're
 upgrading the CMORizer to newer standards here!). Make sure the path to ``OBS6``
 is set correctly in our config-user file:
@@ -603,7 +611,7 @@ rootpath:
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
 ```
 
 it should be able to find the correct file, but it does not succeed yet. The first
@@ -624,7 +632,8 @@ we can use it, we'll also need to make sure the coordinates have the correct
 standard name. Add the following code to your cmorizer:
 
 ```python
-# Fix/add coordinate information and metadata
+# 2. Apply the necessary fixes
+# 2a. Fix/add coordinate information and metadata
 cube.coord('lat').standard_name = 'latitude'
 cube.coord('lon').standard_name = 'longitude'
 utils.fix_coords(cube)
@@ -634,7 +643,7 @@ With some additional refactoring, our cmorization function might then look
 something like this:
 
 ```python
-def cmorization(in_dir, out_dir, cfg, _):
+def cmorization(in_dir, out_dir, cfg, cfg_user, start_date, end_date):
     """Cmorize the dataset."""
 
     # Get general information from the config file
@@ -665,9 +674,10 @@ def cmorization(in_dir, out_dir, cfg, _):
             utils.save_variable(cube=cube, var=short_name, outdir=out_dir, attrs=all_attributes)
 ```
 
-Have a look at the netCDF file, and confirm that the coordinates now have much
-more metadata added to them. Then, run the test recipe again with the latest
-CMORizer output. The next error is:
+Run the CMORizer script once more. Have a look at the netCDF file,
+and confirm that the coordinates now have much more metadata added to them.
+Then, run the test recipe again with the latest CMORizer output.
+The next error is:
 
 ~~~
 esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
@@ -771,6 +781,91 @@ Once everything works as expected, there's a couple of things that we can still 
 {: .challenge}
 
 
+- **Fill the dataset information list**. The file 
+[datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/cmorizers/data/datasets.yml)
+  contains the ESMValTool "tier", the data source, the last access time and
+  download instructions for all supported datasets in ESMValTool. You can
+  simply reuse the information written in the header of the CMORizer.
+
+> ## Fill out the FLUXCOM entry in ``datasets.yml``
+>
+> Fill out the FLUXCOM entry in ``datasets.yml``. The different parts that need to be
+> present in the entry are the following:
+>
+> - Dataset-name
+> - Tier
+> - Source
+> - Last access
+> - Download and processing instructions
+>
+> > ## Answers
+> >
+> > The entry for the "FLUXCOM" dataset should look like:
+> >
+> > ```yaml
+> > FLUXCOM:
+> >   tier: 3
+> >   source: http://www.bgc-jena.mpg.de/geodb/BGI/Home
+> >   last_access: 2019-07-27
+> >   info: |
+> >     From the website, select FLUXCOM as the data choice and click download.
+> >     Two files will be displayed. One for Land Carbon Fluxes and one for
+> >     Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+> >     CRUNCEP data file has several data files for different variables.
+> >     The data for GPP generated using the
+> >     Artificial Neural Network Method will be in files with name:
+> >     GPP.ANN.CRUNCEPv6.monthly.*.nc
+> >     A registration is required for downloading the data.
+> >     Users in the UK with a CEDA-JASMIN account may request access to the jules
+> >     workspace and access the data.
+> >     Note : This data may require rechunking of the netcdf files.
+> >     This constraint will not exist once iris is updated to
+> >     version 2.3.0 Aug 2019
+> > ```
+> {: .solution}
+{: .challenge}
+
+Once the ``datasets.yml`` file is filled, you can check that ESMValTool can
+display information about the added dataset with:
+
+```bash
+esmvaltool data info FLUXCOM
+```
+
+If everything is okay, the output should look something like this:
+
+~~~
+ $ esmvaltool data info FLUXCOM
+FLUXCOM
+
+Tier: 3
+Source: http://www.bgc-jena.mpg.de/geodb/BGI/Home
+Automatic download: No
+
+From the website, select FLUXCOM as the data choice and click download.
+Two files will be displayed. One for Land Carbon Fluxes and one for
+Land Energy fluxes. The Land Carbon Flux file (RS + METEO) using
+CRUNCEP data file has several data files for different variables.
+The data for GPP generated using the
+Artificial Neural Network Method will be in files with name:
+GPP.ANN.CRUNCEPv6.monthly.*.nc
+A registration is required for downloading the data.
+Users in the UK with a CEDA-JASMIN account may request access to the jules
+workspace and access the data.
+Note : This data may require rechunking of the netcdf files.
+This constraint will not exist once iris is updated to
+version 2.3.0 Aug 2019
+~~~
+{: .output}
+
+Note that ``Automatic download: No`` means that no automatic downloading script
+is available in ESMValTool for this dataset. The implementation of such a
+script is beyond the scope of this tutorial. To find out which datasets come
+with an automatic download script, you can run: ``esmvaltool data list`` to
+list all datasets supported in ESMValTool. More information about the usage
+of automatic downloading scripts can be found in the 
+[User Guide](https://docs.esmvaltool.org/en/latest/develop/dataset.html#downloader-script-optional).
+
 - **Complete the metadata in the config file**. We have left a few fields empty
   in the configuration file, such as 'source'. By filling out these fields we can
   make sure the relevant metadata is passed on as attributes in the CMORized
@@ -794,7 +889,7 @@ utils.set_global_atts(cube, attributes)
 - **Add documentation**. Make sure that you have added the info of your dataset
    to the User Guide so that people know it is available for the ESMValTool
    [Obtaining input
-   data](https://github.com/ESMValGroup/ESMValTool/blob/master/doc/sphinx/source/input.rst).
+   data](https://github.com/ESMValGroup/ESMValTool/blob/main/doc/sphinx/source/input.rst).
 
 
 ## Some final comments

@@ -81,7 +81,7 @@ Let's dissect what's happening here.
 > >    something like `/home/<username>/.esmvaltool/config-user.yml` or
  `~/esmvaltool_tutorial/config-user.yml`.
 > > 1. ESMValTool found the recipe in its installation directory, something like
-> >    `/home/users/username/miniconda3/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
+> >    `/home/users/username/mambaforge/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
 >> or if you are using a pre-installed module on a server, something like
  `/apps/jasmin/community/esmvaltool/ESMValTool_<version>/esmvaltool/recipes
 /examples/recipe_python.yml`, where `<version>` is the latest release.

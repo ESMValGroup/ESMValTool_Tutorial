@@ -122,12 +122,12 @@ Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml
         /site-packages/esmvalcore/recipe_schema.yml
             documentation.authors: Required field missing
 YYYY-MM-DD HH:mm:SS,NNN UTC [19451] INFO    If you have a question or need help,
-	    please start a new discussion on https://github.com/ESMValGroup/
-	    ESMValTool/discussions
-If you suspect this is a bug, please open an issue on 
-   https://github.com/ESMValGroup/ESMValTool/issues
-To make it easier to find out what the problem is, please consider attaching 
-   the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+    please start a new discussion on https://github.com/ESMValGroup/
+    ESMValTool/discussions
+If you suspect this is a bug, please open an issue on
+    https://github.com/ESMValGroup/ESMValTool/issues
+To make it easier to find out what the problem is, please consider attaching
+    the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 

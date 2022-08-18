@@ -12,7 +12,7 @@
 [cran-knitr]: https://cran.r-project.org/package=knitr
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
-[diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py
+[diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/diag_scripts/examples/diagnostic.py
 [ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
 [email]: mailto:team@carpentries.org
 [github-importer]: https://import.github.com/

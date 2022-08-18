@@ -285,7 +285,7 @@ you should find something like:
 ~~~
 No input files found for ...
 Looked for files matching: /home/peter/data/OBS/Tier3/
-FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc
+      FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc
 ~~~
 {: .error}
 

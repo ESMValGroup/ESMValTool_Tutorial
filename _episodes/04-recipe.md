@@ -24,7 +24,7 @@ run your first recipe, look at the recipe output, and make small modifications.
 
 The recipe format has briefly been introduced in the 
 [Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) episode.
- To see all the recipes that are shipped with ESMValTool, type
+To see all the recipes that are shipped with ESMValTool, type
 
 ```bash
 esmvaltool recipes list

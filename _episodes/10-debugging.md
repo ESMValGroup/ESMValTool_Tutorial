@@ -307,8 +307,8 @@ Alternatively, the script path can be an absolute path. To examine this, we can
  download the script from the ``ESMValTool`` repository:
 
 ```bash
-wget https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/\
-ocean/diagnostic_timeseries.py
+wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool/main/esmvaltool/\
+diag_scripts/ocean/diagnostic_timeseries.py
 ```
 
 One way to get the absolute path is to run:

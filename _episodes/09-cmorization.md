@@ -329,7 +329,8 @@ shortly. The last three arguments will not be considered in this script but
 can be used in other cases. ``cfg_user`` corresponds to the user configuration
 file, ``start_date`` to the start of the period to format, and ``end_date`` to
 the end of the period to format. When you type the command ``esmvaltool data format``
-in the terminal, ESMValTool will call this function with the settings found in your configuration files.
+in the terminal, ESMValTool will call this function with the settings found in 
+your configuration files.
 
 The ESMValTool CMORizer also needs a dataset configuration file. Create a file
 called `~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`
@@ -402,7 +403,8 @@ and the output should contain something like this:
 
 ~~~
 ... in_dir: '/home/peter/data/RAWOBS/Tier3/FLUXCOM'
-... cfg: '{'attributes': {'project_id': 'OBS6', 'comment': ''}, 'cmor_table': <esmvalcore.cmor.table.CMIP6Info object at 0x7fbd0a0f6bf0>}'
+... cfg: '{'attributes': {'project_id': 'OBS6', 'comment': ''}, 
+    'cmor_table': <esmvalcore.cmor.table.CMIP6Info object at 0x7fbd0a0f6bf0>}'
 ~~~
 {: .output}
 
@@ -782,7 +784,8 @@ Once everything works as expected, there's a couple of things that we can still 
 
 
 - **Fill the dataset information list**. The file 
-[datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/cmorizers/data/datasets.yml)
+[datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/
+cmorizers/data/datasets.yml)
   contains the ESMValTool "tier", the data source, the last access time and
   download instructions for all supported datasets in ESMValTool. You can
   simply reuse the information written in the header of the CMORizer.

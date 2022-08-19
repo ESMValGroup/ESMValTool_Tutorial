@@ -233,7 +233,8 @@ several tools that check our code against those standards like:
 - [flake8](https://flake8.pycqa.org/en/latest/#) for checking against the PEP8 style guide
 - [yapf](https://pypi.org/project/yapf/) to ensure consistent formatting for the whole project
 - [isort](https://pypi.org/project/isort/) to consistently sort the import statements
-- [yamllint](https://yamllint.readthedocs.io/en/stable/#) to ensure there are no syntax errors in our recipes and config files
+- [yamllint](https://yamllint.readthedocs.io/en/stable/#) to ensure there are 
+no syntax errors in our recipes and config files
 - [lintr](https://github.com/jimhester/lintr) for diagnostic scripts written in R
 - [codespell](https://pypi.org/project/codespell/) to check grammar
 
@@ -469,7 +470,3 @@ xdg-open doc/sphinx/build/html/index.html
 Congratulations! You are now ready to make a pull request.
 
 {% include links.md %}
-
-[token-authentication-requirements]: https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today
-[manage-environments]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
-[install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source

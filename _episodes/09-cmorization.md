@@ -40,7 +40,8 @@ the data. This process is called "CMORization".
 > Concretely, the CMOR standards dictate e.g. the variable names and units,
 coordinate information, how the data should be structured (e.g. 1 variable per
 file), additional metadata requirements, but also file naming conventions a.k.a.
-the data reference syntax ([DRS](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html)).
+the data reference syntax 
+([DRS](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html)).
 > All this information is stored in so-called CMOR tables.
 > As an example, the CMOR tables for the CMIP6 project can be found
 [here](https://github.com/PCMDI/cmip6-cmor-tables).
@@ -51,7 +52,8 @@ ESMValTool offers two ways to CMORize data:
    scripts for several popular datasets are included in ESMValTool, and
    ESMValTool also provides a convenient way to execute them.
 2. ESMValCore can execute CMOR fixes '[on the
-   fly](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/fixing_data.html#fixing-data)'.
+   fly](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/develop/
+fixing_data.html#fixing-data)'.
    The advantage is that you don't need to store an additional, reformatted copy
    of the data. The disadvantage is that these fixes should be implemented
    inside ESMValCore, which is beyond the scope of this tutorial.
@@ -61,7 +63,9 @@ that contains observations of the Gross Primary Production (GPP), a variable
 that is important for calculating components of the global carbon cycle.
 See the next section on how to obtain data.
 
-As in the previous episode ([Development and Contribution episode]({{ page.root }}{% link _episodes/07-development-setup.md %})),
+As in the previous episode 
+([Development and Contribution episode]({{ page.root }}{% link
+ _episodes/07-development-setup.md %})),
 we will be using the development installation of ESMValTool.
 
 
@@ -145,9 +149,13 @@ If everything is okay, the output should look something like this:
 ... Running the CMORization scripts.
 ... Processing datasets ['FLUXCOM']
 ... Input data from: /home/peter/data/RAWOBS/Tier3/FLUXCOM
-... Output will be written to: /home/peter/esmvaltool_output/data_formatting_20220726_140216/Tier3/FLUXCOM
-... Reformat script: /home/peter/mambaforge/envs/esmvaltool/lib/python3.9/site-packages/esmvaltool/cmorizers/data/formatters/datasets/fluxcom
-... CMORizing dataset FLUXCOM using Python script /home/peter/mambaforge/envs/esmvaltool/lib/python3.9/site-packages/esmvaltool/cmorizers/data/formatters/datasets/fluxcom.py
+... Output will be written to: /home/peter/esmvaltool_output/
+      data_formatting_20220726_140216/Tier3/FLUXCOM
+... Reformat script: /home/peter/mambaforge/envs/esmvaltool/lib/python3.9/
+      site-packages/esmvaltool/cmorizers/data/formatters/datasets/fluxcom
+... CMORizing dataset FLUXCOM using Python script /home/peter/mambaforge/envs/
+      esmvaltool/lib/python3.9/site-packages/esmvaltool/cmorizers/data/formatters/
+      datasets/fluxcom.py
 ... Found input file '/home/peter/data/RAWOBS/Tier3/FLUXCOM/GPP.ANN.CRUNCEPv6.monthly.*.nc'
 ... CMORizing variable 'gpp'
 ... Lmon
@@ -159,7 +167,8 @@ If everything is okay, the output should look something like this:
 ... Fixing longitude...
 ... Flipping dimensional coordinate latitude...
 ... Saving file
-... Saving: /home/peter/esmvaltool_output/data_formatting_20220726_140216/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+... Saving: /home/peter/esmvaltool_output/data_formatting_20220726_140216/Tier3/
+      FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
 ... Cube has lazy data [lazy is preferred]
 ... CMORization of dataset FLUXCOM finished!
 ... Formatting successful for dataset FLUXCOM
@@ -230,7 +239,8 @@ CMORized, ESMValTool will give a warning or error.
 > >     - kalverla_peter
 > >
 > > datasets:
-> >   - {project: OBS, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, end_year: 2000, type: reanaly, version: ANN-v1}
+> >   - {project: OBS, dataset: FLUXCOM, mip: Lmon, tier: 3, start_year: 2000, 
+> >      end_year: 2000, type: reanaly, version: ANN-v1}
 > >
 > > diagnostics:
 > >   check_fluxcom:
@@ -241,7 +251,8 @@ CMORized, ESMValTool will give a warning or error.
 > >
 > > ```
 > >
-> > To learn more about writing a recipe, please refer to [Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
+> > To learn more about writing a recipe, please refer to 
+[Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 > >
 > {: .solution}
 {: .challenge}
@@ -273,7 +284,8 @@ you should find something like:
 
 ~~~
 No input files found for ...
-Looked for files matching: /home/peter/data/OBS/Tier3/FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc
+Looked for files matching: /home/peter/data/OBS/Tier3/
+      FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp[_.]*nc
 ~~~
 {: .error}
 
@@ -317,7 +329,8 @@ shortly. The last three arguments will not be considered in this script but
 can be used in other cases. ``cfg_user`` corresponds to the user configuration
 file, ``start_date`` to the start of the period to format, and ``end_date`` to
 the end of the period to format. When you type the command ``esmvaltool data format``
-in the terminal, ESMValTool will call this function with the settings found in your configuration files.
+in the terminal, ESMValTool will call this function with the settings found in 
+your configuration files.
 
 The ESMValTool CMORizer also needs a dataset configuration file. Create a file
 called `~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`
@@ -390,7 +403,8 @@ and the output should contain something like this:
 
 ~~~
 ... in_dir: '/home/peter/data/RAWOBS/Tier3/FLUXCOM'
-... cfg: '{'attributes': {'project_id': 'OBS6', 'comment': ''}, 'cmor_table': <esmvalcore.cmor.table.CMIP6Info object at 0x7fbd0a0f6bf0>}'
+... cfg: '{'attributes': {'project_id': 'OBS6', 'comment': ''}, 
+    'cmor_table': <esmvalcore.cmor.table.CMIP6Info object at 0x7fbd0a0f6bf0>}'
 ~~~
 {: .output}
 
@@ -441,7 +455,8 @@ call signature looks like this:
 `utils.save_variables(cube, var, outdir, attrs, **kwargs)`.
 
 We already have the `cube` and the `outdir`. The variable short name (`var`) and
-attributes (`attrs`) are set through the configuration file. So we need to find out what the correct short name and attributes are.
+attributes (`attrs`) are set through the configuration file. So we need to find
+ out what the correct short name and attributes are.
 
 The standard attributes for CMIP variables are defined in the [CMIP
 tables](https://github.com/ESMValGroup/ESMValCore/tree/main/esmvalcore/cmor/tables/cmip6/Tables).
@@ -460,7 +475,8 @@ tables are a copy of the [PCMDI](https://github.com/PCMDI) guidelines.
 > > The variable "gpp" belongs to the land variables. The temporal resolution that we are looking
 > > for is "monthly". This information points to the "Lmon" CMIP table. And indeed, the variable
 > > "gpp" can be found in the file
-> > [here](https://github.com/ESMValGroup/ESMValCore/blob/main/esmvalcore/cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
+> > [here](https://github.com/ESMValGroup/ESMValCore/blob/main/esmvalcore/
+cmor/tables/cmip6/Tables/CMIP6_Lmon.json).
 > >
 > {: .solution}
 {: .challenge}
@@ -559,7 +575,8 @@ variables:
 
 // global attributes:
                 :_NCProperties = "version=2,netcdf=4.7.4,hdf5=1.10.6" ;
-                :created_by = "Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber [uweber@bgc-jena.mpg.de]" ;
+                :created_by = "Fabian Gans [fgans@bgc-jena.mpg.de], Ulrich Weber
+		  [uweber@bgc-jena.mpg.de]" ;
                 :flux = "GPP" ;
                 :forcing = "CRUNCEPv6" ;
                 :institution = "MPI-BGC-BGI" ;
@@ -687,7 +704,8 @@ Looking through the output though, there's still a warning.
 ~~~
 WARNING There were warnings in variable GPP:
 Standard name for GPP changed from None to gross_primary_productivity_of_biomass_expressed_as_carbon
-Long name for GPP changed from GPP to Carbon Mass Flux out of Atmosphere Due to Gross Primary Production on Land [kgC m-2 s-1]
+Long name for GPP changed from GPP to Carbon Mass Flux out of Atmosphere Due to
+      Gross Primary Production on Land [kgC m-2 s-1]
 ~~~
 {: .output}
 
@@ -766,7 +784,8 @@ Once everything works as expected, there's a couple of things that we can still 
 
 
 - **Fill the dataset information list**. The file 
-[datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/cmorizers/data/datasets.yml)
+[datasets.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/
+cmorizers/data/datasets.yml)
   contains the ESMValTool "tier", the data source, the last access time and
   download instructions for all supported datasets in ESMValTool. You can
   simply reuse the information written in the header of the CMORizer.
@@ -861,7 +880,8 @@ utils.set_global_atts(cube, attributes)
 ```
 
 - **Add a reference**. Make sure that there is a reference file available for
-   the dataset, see the instruction [here](https://docs.esmvaltool.org/en/latest/community/diagnostic.html#adding-references).
+   the dataset, see the instruction [here](https://docs.esmvaltool.org/en
+/latest/community/diagnostic.html#adding-references).
 
 - **Make a pull request**. Since you have gone through all the trouble to
   reformat the dataset so that the ESMValTool can work with it, it would be

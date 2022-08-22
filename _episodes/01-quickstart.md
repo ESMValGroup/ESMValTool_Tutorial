@@ -60,15 +60,15 @@ keypoints:
 
 > ## How do I configure ESMValTool?
 >
-> - Create the ESMValTool user configuration file (the file is written to the 
->   default directory `~/.esmvaltool`):
+> - Create the ESMValTool user configuration file (the file is written by 
+>   default to `~/.esmvaltool/config-user.yml`):
 >
 >     ~~~
 >     esmvaltool config get_config_user
 >     ~~~
 >     {: .language-bash}
 > 
-> - Edit the ESMValTool user configuration file using your favourite text editor 
+> - Edit the ESMValTool user configuration file using your favourite text editor
 >   to uncomment the lines relating to the site where ESMValTool will be run.
 >
 > - For more details about the ESMValTool user configuration file see the

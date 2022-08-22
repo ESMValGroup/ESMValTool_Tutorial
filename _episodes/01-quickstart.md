@@ -1,7 +1,7 @@
 ---
 title: "Quickstart guide"
-teaching: 1
-exercises: 10
+teaching: 2
+exercises: 8
 questions:
 
 - "What is the purpose of the quickstart guide?"

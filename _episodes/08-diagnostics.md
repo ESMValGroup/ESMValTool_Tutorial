@@ -251,7 +251,8 @@ ESMValTool provides many functions such as ``select_metadata`` (line 72),
 ``sorted_metadata`` (line 76), and ``group_metadata`` (line 80). As you can see
 in line 8, these functions are imported from ``esmvaltool.diag_scripts.shared``
 that means these are shared across several diagnostics scripts. A list of
-available functions and their description can be found in [The ESMValTool Diagnostic API reference][shared].
+available functions and their description can be found in 
+[The ESMValTool Diagnostic API reference][shared].
 
 
 > ## Extracting information needed for analyses
@@ -278,7 +279,8 @@ available functions and their description can be found in [The ESMValTool Diagno
 >>         'end_year': 2000,
 >>         'ensemble': 'r1i1p1f1',
 >>         'exp': 'historical',
->>         'filename': '~/recipe_python_20210305_131929/preproc/map/tas/CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_2000-2000.nc',
+>>         'filename': '~/recipe_python_20210305_131929/preproc/map/tas/
+	   	       CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_2000-2000.nc',
 >>         'frequency': 'mon',
 >>         'grid': 'gn',
 >>         'institute': ['BCC'],
@@ -299,7 +301,8 @@ available functions and their description can be found in [The ESMValTool Diagno
 >>         'end_year': 2000,
 >>         'ensemble': 'r1i1p1',
 >>         'exp': 'historical',
->>         'filename': '~/recipe_python_20210305_131929/preproc/map/tas/CMIP5_CanESM2_Amon_historical_r1i1p1_tas_2000-2000.nc',
+>>         'filename': '~/recipe_python_20210305_131929/preproc/map/tas/
+	   	       CMIP5_CanESM2_Amon_historical_r1i1p1_tas_2000-2000.nc',
 >>         'frequency': 'mon',
 >>         'institute': ['CCCma'],
 >>         'long_name': 'Near-Surface Air Temperature',
@@ -495,10 +498,3 @@ You now know the basic diagnostic script structure and some available tools for 
 together your own diagnostics. Have a look at existing recipes and diagnostics in the 
 repository for more examples of functions you can use in your diagnostics!
 {% include links.md %}
-
-[recipe]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/recipes/examples/recipe_python.yml
-[diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/examples/diagnostic.py
-[interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
-[shared]: https://docs.esmvaltool.org/en/latest/api/esmvaltool.diag_scripts.shared.html
-[netCDF]: https://unidata.github.io/netcdf4-python/
-[provenance]: https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance

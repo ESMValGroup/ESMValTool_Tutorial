@@ -36,7 +36,8 @@ ESMValTool. We have prepared a small Python script that takes a NetCDF file with
 timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
-You can find the diagnostic script that we will use [here (`warming_stripes.py`)](../files/warming_stripes.py).
+You can find the diagnostic script that we will use 
+[here (`warming_stripes.py`)](../files/warming_stripes.py).
 
 Download the file and store it in your working directory. If you want, you may
 also have a look at the contents, but it is not necessary to follow along.
@@ -73,10 +74,14 @@ Remember the basic structure of a recipe, and notice that each of them is
 extensively described in the documentation under the header ["The recipe
 format"](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html):
 
-- [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-documentation)
-- [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-datasets)
-- [preprocessors](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-preprocessors)
-- [diagnostics](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics)
+- [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+recipe/overview.html#recipe-section-documentation)
+- [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/
+overview.html#recipe-section-datasets)
+- [preprocessors](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+recipe/overview.html#recipe-section-preprocessors)
+- [diagnostics](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+recipe/overview.html#recipe-section-diagnostics)
 
 This is the first place to look for help if you get stuck.
 
@@ -112,11 +117,17 @@ esmvaltool run recipe_warming_stripes.yml
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
 ...
-Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10/site-packages/esmvalcore/recipe_schema.yml
-	documentation.authors: Required field missing
-2020-10-08 15:23:11,162 UTC [19451] INFO    If you have a question or need help, please start a new discussion on https://github.com/ESMValGroup/ESMValTool/discussions
-If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
-To make it easier to find out what the problem is, please consider attaching the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml
+        with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10
+        /site-packages/esmvalcore/recipe_schema.yml
+            documentation.authors: Required field missing
+YYYY-MM-DD HH:mm:SS,NNN UTC [19451] INFO    If you have a question or need help,
+    please start a new discussion on https://github.com/ESMValGroup/
+    ESMValTool/discussions
+If you suspect this is a bug, please open an issue on
+    https://github.com/ESMValGroup/ESMValTool/issues
+To make it easier to find out what the problem is, please consider attaching
+    the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 
@@ -155,19 +166,23 @@ This is the minimal recipe layout that is required by ESMValTool. If we now run
 the recipe again, you will probably see the following error:
 
 ```
-ValueError: Tag 'doe_john' does not exist in section 'authors' of /home/user/mambaforge/envs/esmvaltool_tutorial/python3.10/site-packages/esmvaltool/config-references.yml
+ValueError: Tag 'doe_john' does not exist in section 'authors' of 
+	    /home/user/mambaforge/envs/esmvaltool_tutorial/python3.10/
+	    site-packages/esmvaltool/config-references.yml
 ```
 {: .error}
 
 > ## Pro tip: config-references.yml
 >
 > The error message above points to a file named
-> [config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/config-references.yml).
+> [config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/main
+/esmvaltool/config-references.yml).
 > This is where ESMValTool stores all its citation information. To add yourself
 > as an author, add your name in the form `lastname_firstname` in alphabetical
 > order following the existing entries, under the `# Development team` comment.
 > See the
-> [List of authors](https://docs.esmvaltool.org/en/latest/community/code_documentation.html#list-of-authors)
+> [List of authors](https://docs.esmvaltool.org/en/latest/community/
+code_documentation.html#list-of-authors)
 > section in the ESMValTool documentation for more information.
 {: .callout}
 
@@ -192,7 +207,8 @@ previous episodes.
 > Use the paths specified in the configuration file to explore the data directory, 
 > and look at the explanation of the dataset entry
 > in the [ESMValTool
-> documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-documentation).
+> documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
+recipe/overview.html#recipe-section-documentation).
 > For both the datasets, write down the following properties:
 >
 > - project
@@ -227,11 +243,13 @@ previous episodes.
 We start with the BCC-ESM1 dataset and add a datasets section to the recipe,
 listing a single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
-of the `diagnostic` section in the recipe example seen in [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
+of the `diagnostic` section in the recipe example seen in 
+[Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 ```yaml
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+     ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 ```
 
 The recipe should run but produce the same message as in the previous case since we
@@ -249,7 +267,8 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > ## Defining the preprocessor
 >
 > Have a look at the available preprocessors in the
-> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html).
+> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest
+/recipe/preprocessor.html).
 > Write down
 >
 > - Which preprocessor functions do you think we should use?
@@ -266,7 +285,8 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > case we want to compute the `mean`).
 > >
 > > The default order in which these preprocessors are applied can be seen
-> > [here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/api/esmvalcore.preprocessor.html#preprocessor-functions):
+> > [here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/api/
+esmvalcore.preprocessor.html#preprocessor-functions):
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
 > > can use the `custom_order` preprocessor. We will keep it like this.
 > >
@@ -369,7 +389,8 @@ for each of the modifications we'll make below.
 > > --- recipe_warming_stripes.yml
 > > +++ recipe_warming_stripes_local.yml
 > > @@ -10,9 +10,11 @@
-> >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> >       ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 > >
 > >  preprocessors:
 > > -  global_anomalies:
@@ -418,8 +439,10 @@ for each of the modifications we'll make below.
 > >      - righi_mattia
 > >
 > >  datasets:
-> > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
-> > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn}
+> > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> > -  	  ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+> > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> > +     ensemble: r1i1p1f1, grid: gn}
 > >
 > >  preprocessors:
 > >    anomalies_amsterdam:

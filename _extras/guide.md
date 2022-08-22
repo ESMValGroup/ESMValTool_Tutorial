@@ -13,7 +13,8 @@ your cohort may need extra time, any changes you want to make or
 additional examples you would like to include. 
 
 If you want to add to or adapt the material, you can create your own copy to 
-modify by forking the repository. See here for a guide  on [how to fork a repository](https://docs.github.com/en/enterprise/2.13/user/articles/fork-a-repo).
+modify by forking the repository. See here for a guide  on 
+[how to fork a repository](https://docs.github.com/en/enterprise/2.13/user/articles/fork-a-repo).
 
 Please use our guide for [Contributing](CONTRIBUTING.md) when creating your 
 own material just in case you would like to add to the current 
@@ -21,7 +22,7 @@ repository in the future.
 
 Once you are satisified with the material you would like to use and have 
 an estimate of the time required, please proceed with meeting logistics.
- 
+
 ## Meeting Logistics
 
 Decide if the tutorial will be held on site or online. If on site, make 

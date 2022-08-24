@@ -21,7 +21,7 @@ keypoints:
 - "The purpose of the quickstart guide is to enable a user of ESMValTool
   to run ESMValTool as quickly as possible"
 - "Use the `module load` command to load the ESMValTool environment 
-  (see the installation guide for more details) and use `esmvaltool -- --help` to 
+  (see the installation guide for more details) and use `esmvaltool --help` to 
   check the ESMValTool environment"
 - "Use `esmvaltool config get_config_user` to create the ESMValTool user 
   configuration file"
@@ -53,7 +53,7 @@ keypoints:
 > - Check the ESMValTool environment by accessing the help for ESMValTool:
 >
 >     ~~~
->     esmvaltool -- --help
+>     esmvaltool --help
 >     ~~~
 >     {: .language-bash}
 {: .challenge}

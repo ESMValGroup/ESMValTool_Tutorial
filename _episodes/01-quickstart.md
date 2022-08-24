@@ -5,14 +5,14 @@ exercises: 8
 questions:
 
 - "What is the purpose of the quickstart guide?"
-- "How do I activate and test the ESMValTool environment?"
+- "How do I load and check the ESMValTool environment?"
 - "How do I configure ESMValTool?"
 - "How do I run a recipe?"
 
 objectives:
 
 - "Understand the purpose of the quickstart guide"
-- "Activate and test the ESMValTool environment"
+- "Load and check the ESMValTool environment"
 - "Configure ESMValTool"
 - "Run a recipe"
 
@@ -20,9 +20,9 @@ keypoints:
 
 - "The purpose of the quickstart guide is to enable a user of ESMValTool
   to run ESMValTool as quickly as possible"
-- "Use the `module load` command to activate the ESMValTool environment 
+- "Use the `module load` command to load the ESMValTool environment 
   (see the installation guide for more details) and use `esmvaltool -- --help` to 
-  test the ESMValTool environment"
+  check the ESMValTool environment"
 - "Use `esmvaltool config get_config_user` to create the ESMValTool user 
   configuration file"
 - "Use `esmvaltool run <recipe>.yml` to run a recipe"
@@ -46,11 +46,11 @@ keypoints:
 >   not the case, see the [Installation][lesson-installation] episode in this
 >   tutorial.
 > 
-> - Activate the ESMValTool environment by following the instructions at
+> - Load the ESMValTool environment by following the instructions at
 >   [ESMValTool: Pre-installed versions on HPC clusters / other 
 >   servers][activate-environment].
 >
-> - Test the ESMValTool environment by accessing the help for ESMValTool:
+> - Check the ESMValTool environment by accessing the help for ESMValTool:
 >
 >     ~~~
 >     esmvaltool -- --help

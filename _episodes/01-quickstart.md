@@ -35,7 +35,7 @@ keypoints:
 >   changes.
 {: .discussion}
 
-> ## How do I activate and test the ESMValTool environment?
+> ## How do I load and check the ESMValTool environment?
 >
 > - For this quickstart guide, an assumption is made that ESMValTool has 
 >   already been installed at the site where ESMValTool will be run. If this is

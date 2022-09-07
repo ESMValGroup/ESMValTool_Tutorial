@@ -79,7 +79,7 @@ If you get stuck, a great starting point is to create a
 
 There is also an ESMValTool email list.
 Please see
-[information](https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list)
+[information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list)
 on how to subscribe to user mailing list.
 
 ### What if I find a bug?

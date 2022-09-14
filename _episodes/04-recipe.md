@@ -437,3 +437,5 @@ ESMValTool.
 > >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

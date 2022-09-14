@@ -383,7 +383,7 @@ You can try running the CMORizer at this point, and it should work without
 errors. However, it doesn't produce any output yet:
 
 ```bash
-esmvaltool data format --config_user <path to config-user.yml> FLUXCOM
+esmvaltool data format --config_file <path to config-user.yml> FLUXCOM
 ```
 
 ### 1. Find the input data

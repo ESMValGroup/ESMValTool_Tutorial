@@ -19,7 +19,8 @@ objectives:
 keypoints:
 
 - "The purpose of the quickstart guide is to enable a user of ESMValTool
-  to run ESMValTool as quickly as possible"
+  to run ESMValTool as quickly as possible without having to go through the  
+  whole tutorial"
 - "Use the `module load` command to load the ESMValTool environment, 
   see the [installation]({{ page.root }}{% link _episodes/02-installation.md %}) 
   episode for more details and use `esmvaltool --help` to check the ESMValTool 

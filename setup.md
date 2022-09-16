@@ -126,7 +126,7 @@ via [the CEDA catalogue page](https://catalogue.ceda.ac.uk/).
 Log into jasmin-login:
 
 ~~~
-ssh -X JASMIN-USERNAME@jasmin-login1.ceda.ac.uk
+ssh -X JASMIN-USERNAME@login1.jasmin.ac.uk
 ~~~
 {: .language-bash}
 

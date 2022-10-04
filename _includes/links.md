@@ -1,4 +1,5 @@
 {% include base_path.html %}
+[activate-environment]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#pre-installed-versions-on-hpc-clusters-other-servers
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
@@ -28,9 +29,13 @@
 [lc-lessons]: https://librarycarpentry.org/lessons/
 [lesson-aio]: {{ relative_root_path }}{% link aio.md %}
 [lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
+[lesson-configuration]: {{ relative_root_path }}{% link _episodes/03-configuration.md %}
 [lesson-example]: https://carpentries.github.io/lesson-example/
+[lesson-installation]: {{ relative_root_path }}{% link _episodes/02-installation.md %}
+[lesson-introduction]: {{ relative_root_path }}{% link _episodes/00-introduction.md %}
 [lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
+[lesson-recipe]: {{ relative_root_path }}{% link _episodes/04-recipe.md %}
 [lesson-reference]: {{ relative_root_path }}{% link reference.md %}
 [lesson-setup]: {{ relative_root_path }}{% link setup.md %}
 [manage-environments]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html

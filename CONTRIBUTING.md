@@ -182,4 +182,4 @@ Please see [information][contact-info] on how to subscribe to user mailing list.
 [swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
-[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list
+[contact-info]: https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list

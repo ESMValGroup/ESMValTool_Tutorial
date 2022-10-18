@@ -94,8 +94,8 @@ community helps you figure out what went wrong.
 
 > ## Different log files
 >
-> In the ``run`` directory, there are two log files ``main_log_debug.txt`` and ``main_log.txt``.
-What are their differences?
+> In the ``run`` directory, there are two log files ``main_log_debug.txt`` and
+``main_log.txt``. What are their differences?
 >
 >> ## Solution
 >>
@@ -264,11 +264,13 @@ Then, we save the file and run the recipe:
 ~~~
 
 ~~~
-ValueError: Tag 'tutorial' does not exist in section 'projects' of esmvaltool/config-references.yml
-2020-06-29 18:09:56,641 UTC [46055] INFO
-If you have a question or need help, please start a new discussion on https://github.com/ESMValGroup/ESMValTool/discussions
-If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
-To make it easier to find out what the problem is, please consider attaching the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+ValueError: Tag 'tutorial' does not exist in section 'projects' of
+esmvaltool/config-references.yml 2020-06-29 18:09:56,641 UTC [46055] INFO If you
+have a question or need help, please start a new discussion on
+https://github.com/ESMValGroup/ESMValTool/discussions If you suspect this is a
+bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues To
+make it easier to find out what the problem is, please consider attaching the
+files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ~~~
 {: .error}
 
@@ -286,8 +288,8 @@ tree/master/esmvaltool/references) directory.
 > ## ESMValTool can’t locate the data
 >
 > You are assisting a colleague with ESMValTool. The colleague replaces the
-> ``CanESM2`` entry in ``dataset: CanESM2, project: CMIP5`` to ``ACCESS1-3`` and runs the recipe. However, ESMValTool
-> encounters an error like:
+> ``CanESM2`` entry in ``dataset: CanESM2, project: CMIP5`` to ``ACCESS1-3`` and
+> runs the recipe. However, ESMValTool encounters an error like:
 >
 > ~~~bash
 >ERROR   No input files found for variable {'short_name': 'tas', 'mip': 'Amon',
@@ -358,11 +360,16 @@ scripts:
 ~~~
 
 ~~~
-esmvalcore._task.DiagnosticError: Cannot execute script 'diag_scripts/ocean/diagnostic_timeseries.py' (~/mambaforge/envs/esmvaltool2.6/lib/python3.10/site-packages/esmvaltool/diag_scripts/diag_scripts/ocean/diagnostic_timeseries.py): file does not exist.
-2022-10-18 11:42:34,136 UTC [39323] INFO
-If you have a question or need help, please start a new discussion on https://github.com/ESMValGroup/ESMValTool/discussions
-If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
-To make it easier to find out what the problem is, please consider attaching the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+esmvalcore._task.DiagnosticError: Cannot execute script
+'diag_scripts/ocean/diagnostic_timeseries.py'
+(~/mambaforge/envs/esmvaltool2.6/lib/python3.10/site-packages/esmvaltool/
+diag_scripts/diag_scripts/ocean/diagnostic_timeseries.py):
+file does not exist. 2022-10-18 11:42:34,136 UTC [39323] INFO If you have a
+question or need help, please start a new discussion on
+https://github.com/ESMValGroup/ESMValTool/discussions If you suspect this is a
+bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues To
+make it easier to find out what the problem is, please consider attaching the
+files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ~~~
 {: .error}
 

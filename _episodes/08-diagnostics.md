@@ -224,8 +224,9 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 > ~~~
 >
 > 1. Find one example of the file ``settings.yml`` in the ``run`` directory?
-> 2. Take a look at the ``input_files`` list. It contains pathes to some files
->    ``metadata.yml``. What information do you think is saved in those files?
+> 2. Open the file ``settings.yml`` and look at the ``input_files`` list.
+>    It contains paths to some files ``metadata.yml``. What information do you
+>    think is saved in those files?
 >
 >> ## Answer
 >>

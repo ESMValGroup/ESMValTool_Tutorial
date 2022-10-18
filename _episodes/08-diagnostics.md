@@ -220,7 +220,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 > then run the recipe ``recipe_python.yml``:
 >
 > ~~~bash
-> esmvaltool run examples/recipe_example.yml
+> esmvaltool run examples/recipe_python.yml
 > ~~~
 >
 > 1. Find one example of the file ``settings.yml`` in the ``run`` directory?

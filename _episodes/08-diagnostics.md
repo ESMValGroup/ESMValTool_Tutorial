@@ -188,10 +188,10 @@ There are four main sections in the script:
 >> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
->> in the  ``main`` function and extract information as needed 
+>> in the  ``main`` function and extract information as needed
 >> to do our analyses (e.g. in line 69).
 >> 3. The ``main`` function is called near the very end on line 107. So, it is mentioned
->> twice in our code - once where it is called by the top-level Python script and 
+>> twice in our code - once where it is called by the top-level Python script and
 >> second where it is defined.
 > {: .solution}
 {: .challenge}
@@ -220,7 +220,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 > then run the recipe ``recipe_python.yml``:
 >
 > ~~~bash
-> esmvaltool run recipe_example.yml
+> esmvaltool run examples/recipe_example.yml
 > ~~~
 >
 > 1. Find one example of the file ``settings.yml`` in the ``run`` directory?
@@ -251,7 +251,7 @@ ESMValTool provides many functions such as ``select_metadata`` (line 72),
 ``sorted_metadata`` (line 76), and ``group_metadata`` (line 80). As you can see
 in line 8, these functions are imported from ``esmvaltool.diag_scripts.shared``
 that means these are shared across several diagnostics scripts. A list of
-available functions and their description can be found in 
+available functions and their description can be found in
 [The ESMValTool Diagnostic API reference][shared].
 
 
@@ -324,9 +324,9 @@ available functions and their description can be found in
 
 ## Diagnostic computation
 
-After grouping and selecting data, we can read individual attributes (such as filename) 
-of each item. Here we have grouped the input data  by ``variables`` 
-so we loop over the variables (line 89-93). Following this, is a call to the 
+After grouping and selecting data, we can read individual attributes (such as filename)
+of each item. Here we have grouped the input data  by ``variables``
+so we loop over the variables (line 89-93). Following this, is a call to the
 function ``compute_diagnostic`` (line 94). Let's have a look at the
 definition of this function in line 43 where the actual analysis on the data is done.
 
@@ -335,7 +335,7 @@ Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
 from a netCDF file and performs an operation ``squeeze`` to remove any dimensions
 of length one. We can adapt this function to add our own analysis. As an
-example, here we calculate the bias using the average of the data using Iris cubes. 
+example, here we calculate the bias using the average of the data using Iris cubes.
 
 ~~~python
 def compute_diagnostic(filename):
@@ -390,7 +390,7 @@ def compute_diagnostic(filename):
 
 > ## Reading data using the netCDF4 package
 >
-> Yet another option to read the NetCDF file data is to use 
+> Yet another option to read the NetCDF file data is to use
 > the [netCDF-4 Python interface][netCDF] to the netCDF C library.
 >
 >> ## Answer
@@ -442,7 +442,7 @@ there:
 ```
 
 This way, we can pass arguments such as the type of
-plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the 
+plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 ``quickplot``  function in the diagnostic.
 
 > ## Passing arguments from the recipe to the diagnostic
@@ -476,10 +476,10 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 
 In our example, the function ``save_data`` in line 57 is used to save the Iris
 cube. The saved files can be found under the ``work`` directory in a ``.nc`` format.
-There is also the function ``save_figure`` in line 63 to save the plots under the 
-``plot`` directory in a ``.png`` format (or preferred format specified in your 
+There is also the function ``save_figure`` in line 63 to save the plots under the
+``plot`` directory in a ``.png`` format (or preferred format specified in your
 configuration settings). Again, you may choose your own method
-of saving the output. 
+of saving the output.
 
 ### Recording the provenance
 
@@ -487,14 +487,14 @@ When developing a diagnostic script, it is good practice to record
 provenance. To do so, we use the function ``get_provenance_record`` (line 99).
 Let us have a look at the definition of this function in line 21 where we
 describe the diagnostic data and plot. Using the dictionary ``record``, it is
-possible to add custom provenance to our diagnostics output. 
+possible to add custom provenance to our diagnostics output.
 Provenance is stored in the *W3C PROV XML*
 format and also in an *SVG* file under the ``work`` and ``plot`` directory. For
 more information, see [recording provenance][provenance].
 
 ## Congratulations!
 
-You now know the basic diagnostic script structure and some available tools for putting 
-together your own diagnostics. Have a look at existing recipes and diagnostics in the 
+You now know the basic diagnostic script structure and some available tools for putting
+together your own diagnostics. Have a look at existing recipes and diagnostics in the
 repository for more examples of functions you can use in your diagnostics!
 {% include links.md %}

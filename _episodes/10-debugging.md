@@ -239,23 +239,23 @@ area manipulation, land-sea masking, variable derivation, etc. Let's add the
 preprocessor ``extract_region`` to a new section ``annual_mean_regional``:
 
 ```yaml
-25    preprocessors:
-26      annual_mean_regional:
-27        annual_statistics:
-28          operator: mean
-29        extract_region:
-30          start_longitude: -10
-31          end_longitude: 40
-32          start_latitude: 27
-33          end_latitude: 70
+preprocessors:
+  annual_mean_regional:
+    annual_statistics:
+      operator: mean
+    extract_region:
+      start_longitude: -10
+      end_longitude: 40
+      start_latitude: 27
+      end_latitude: 70
 ```
 
 Also, we change the ``projects`` value ``esmval`` to ``tutorial``:
 
 ```yaml
-19      projects:
-20        - tutorial
-21        - c3s-magic
+projects:
+  - tutorial
+  - c3s-magic
 ```
 
 Then, we save the file and run the recipe:

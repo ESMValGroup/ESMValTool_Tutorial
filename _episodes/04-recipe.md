@@ -2,7 +2,7 @@
 title: "Running your first recipe"
 teaching: 15
 exercises: 15
-compatibility: ESMValTool v.2.6.0
+compatibility: ESMValTool v.2.6
 
 questions:
 - "How to run a recipe?"

@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v.2.5.0
+compatibility: ESMValTool v.2.5
 
 questions:
 - "What is a development installation?"

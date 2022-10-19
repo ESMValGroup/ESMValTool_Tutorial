@@ -211,7 +211,7 @@ There are four main sections in the script:
 ## Preprocessor-diagnostic interface
 
 In the previous exercise, we have seen that the variable ``cfg`` is the input
-argument of the ``main`` function. The first thing passed to the diagnostic
+argument of the ``main`` function. The first argument passed to the diagnostic
 via the ``cfg`` dictionary is a path to a file called ``settings.yml``.
 The ESMValTool documentation page provides an overview of what is in this file, see
 [Diagnostic script interfaces][interface].

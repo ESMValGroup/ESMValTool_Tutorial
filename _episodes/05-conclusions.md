@@ -1,7 +1,9 @@
 ---
-title: "Conclusion of the basic tutorial (compatible with ESMValTool v2.5)"
+title: "Conclusion of the basic tutorial"
 teaching: 10
 exercises: 0
+compatibility: v.2.6.0
+
 questions:
 - "What do I do now?"
 - "Where can I get help?"

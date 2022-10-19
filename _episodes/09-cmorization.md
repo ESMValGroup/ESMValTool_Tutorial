@@ -1,7 +1,8 @@
 ---
-title: "CMORization: adding new datasets to ESMValTool (compatible with ESMValTool v2.5)"
+title: "CMORization: adding new datasets to ESMValTool"
 teaching: 15
 exercises: 45
+compatibility: v.2.5.0
 
 questions:
 - "CMORization: what is it and why do we need it?"

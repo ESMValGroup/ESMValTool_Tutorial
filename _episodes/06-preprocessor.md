@@ -1,7 +1,9 @@
 ---
-title: "Writing your own recipe (compatible with ESMValTool v2.5)"
+title: "Writing your own recipe"
 teaching: 15
 exercises: 30
+compatibility: v.2.6.0
+
 questions:
 - "How do I create a new recipe?"
 - "Can I use different preprocessors for different variables?"

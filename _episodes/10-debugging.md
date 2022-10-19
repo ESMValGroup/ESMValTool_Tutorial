@@ -2,6 +2,8 @@
 title: "Debugging"
 teaching: 30
 exercises: 15
+compatibility: v.2.4.0
+
 questions:
 - "How can I handle errors/warnings?"
 objectives:

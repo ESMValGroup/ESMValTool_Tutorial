@@ -2,6 +2,8 @@
 title: "Quickstart guide"
 teaching: 2
 exercises: 8
+compatibility: v.2.6.0
+
 questions:
 
 - "What is the purpose of the quickstart guide?"

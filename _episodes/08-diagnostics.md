@@ -493,7 +493,7 @@ provenance. To do so, we use the function ``get_provenance_record`` (line 99).
 Let us have a look at the definition of this function in line 21 where we
 describe the diagnostic data and plot. Using the dictionary ``record``, it is
 possible to add custom provenance to our diagnostics output.
-Provenance is stored in the *W3C PROV XML*
+Provenance is stored in the *[W3C PROV XML](https://www.w3.org/TR/prov-xml/)*
 format and also in an *SVG* file under the ``work`` and ``plot`` directory. For
 more information, see [recording provenance][provenance].
 

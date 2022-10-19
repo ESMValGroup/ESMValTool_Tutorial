@@ -2,7 +2,7 @@
 title: "Writing your own diagnostic script"
 teaching: 20
 exercises: 30
-compatibility: v.2.4.0
+compatibility: ESMValTool v.2.4.0
 
 questions:
 - "How do I write a new diagnostic in ESMValTool?"

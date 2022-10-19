@@ -2,7 +2,7 @@
 title: "Quickstart guide"
 teaching: 2
 exercises: 8
-compatibility: v.2.6.0
+compatibility: ESMValTool v.2.6.0
 
 questions:
 

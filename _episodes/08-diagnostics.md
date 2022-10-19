@@ -42,13 +42,17 @@ Let's get started!
 
 ## Understanding an existing Python diagnostic
 
-After a development mode installation, a folder called ``ESMValTool`` is created
-in your working directory. This folder contains the source code of the tool. We
-can find the recipe ``recipe_python.yml`` and the python script
-``diagnostic.py`` in these directories:
+If you clone the ESMValTool repository, a folder called ``ESMValTool`` is
+created in your home/working directory, see the instructions in the lesson
+[Development and contribution]({{ page.root }}{% link
+_episodes/07-development-setup.md %}).
 
-- *path_to_ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
-- *path_to_ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
+The folder ``ESMValTool`` contains the source code of the tool. We can find the
+recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
+directories:
+
+- *~/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
+- *~/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
 
 Let's have look at the code in  ``diagnostic.py``.
 For reference, we show the diagnostic code in the dropdown box below.

@@ -270,9 +270,9 @@ available functions and their description can be found in
 >> There is a statement after use of ``select_metadata``, ``sorted_metadata``
 >> and ``group_metadata`` that starts with ``logger.info`` (lines 73, 77 and
 >> 83). These lines print output to the log files. In the previous exercise, we
->> ran the recipe ``recipe_python.yml``. If you look at the log
->> file ``path_to_recipe_output/run/map/script1/log.txt``, you can see the output
->> from each of these functions, for example:
+>> ran the recipe ``recipe_python.yml``. If you look at the log file
+>> ``recipe_python_#_#/run/map/script1/log.txt`` in ``esmvaltool_output``
+>> directory, you can see the output from each of these functions, for example:
 >>
 >>```
 >>2021-03-05 13:19:38,184 [34706] INFO     diagnostic,83  Example of how to group and

@@ -208,7 +208,7 @@ There are four main sections in the script:
 >
 {: .callout}
 
-## Preprocesor-diagnostic interface
+## Preprocessor-diagnostic interface
 
 In the previous exercise, we have seen that the variable ``cfg`` is the input
 argument of the ``main`` function. The first thing passed to the diagnostic

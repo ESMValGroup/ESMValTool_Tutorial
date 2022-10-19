@@ -64,7 +64,8 @@ documentation:
     - lastname_firstname
 
 datasets:
-  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, ensemble: r1i1p1, start_year: 1960, end_year: 2005}
+  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, 
+     ensemble: r1i1p1, start_year: 1960, end_year: 2005}
 
 preprocessors:
   global_mean:
@@ -88,8 +89,9 @@ diagnostics:
 >
 > > ## Solution
 > > The keys are explained in the ESMValTool documentation, in the `Recipe 
->>  section `, under
-> [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-datasets)
+> >  section `, under
+> [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/
+overview.html#recipe-section-datasets)
 > {: .solution}
 {: .challenge}
 

@@ -22,14 +22,16 @@ run your first recipe, look at the recipe output, and make small modifications.
 
 ## Running an existing recipe
 
-The recipe format has briefly been introduced in the [Introduction]({{ page.root }}{% link _episodes/01-introduction.md %}) episode. To see all the
+The recipe format has briefly been introduced in the 
+[Introduction][lesson-introduction] episode. To see all the
 recipes that are shipped with ESMValTool, type
 
 ```bash
 esmvaltool recipes list
 ```
 
-We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html)
+We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.
+org/en/latest/recipes/recipe_examples.html)
 
 ```
 esmvaltool run examples/recipe_python.yml
@@ -47,133 +49,7 @@ output to the command line. The final message should be "Run was successful".
 The exact output varies depending on your machine, but it should look something
 like the example output below.
 
-> ## Example output
->
-> ```
->2022-01-24 17:31:48,745 UTC [190720] INFO    
->______________________________________________________________________
->          _____ ____  __  ____     __    _ _____           _
->         | ____/ ___||  \/  \ \   / /_ _| |_   _|__   ___ | |
->         |  _| \___ \| |\/| |\ \ / / _` | | | |/ _ \ / _ \| |
->         | |___ ___) | |  | | \ V / (_| | | | | (_) | (_) | |
->         |_____|____/|_|  |_|  \_/ \__,_|_| |_|\___/ \___/|_|
->______________________________________________________________________
->
->ESMValTool - Earth System Model Evaluation Tool.
->
->http://www.esmvaltool.org
->
->  CORE DEVELOPMENT TEAM AND CONTACTS:
->  Birgit Hassler (Co-PI; DLR, Germany - birgit.hassler@dlr.de)
->  Alistair Sellar (Co-PI; Met Office, UK - alistair.sellar@metoffice.gov.uk)
->  Bouwe Andela (Netherlands eScience Center, The Netherlands - b.andela@esciencecenter.nl)
->  Lee de Mora (PML, UK - ledm@pml.ac.uk)
->  Niels Drost (Netherlands eScience Center, The Netherlands - n.drost@esciencecenter.nl)
->  Veronika Eyring (DLR, Germany - veronika.eyring@dlr.de)
->  Bettina Gier (UBremen, Germany - gier@uni-bremen.de)
->  Remi Kazeroni (DLR, Germany - remi.kazeroni@dlr.de)
->  Nikolay Koldunov (AWI, Germany - nikolay.koldunov@awi.de)
->  Axel Lauer (DLR, Germany - axel.lauer@dlr.de)
->  Saskia Loosveldt-Tomas (BSC, Spain - saskia.loosveldt@bsc.es)
->  Ruth Lorenz (ETH Zurich, Switzerland - ruth.lorenz@env.ethz.ch)
->  Benjamin Mueller (LMU, Germany - b.mueller@iggf.geo.uni-muenchen.de)
->  Valeriu Predoi (URead, UK - valeriu.predoi@ncas.ac.uk)
->  Mattia Righi (DLR, Germany - mattia.righi@dlr.de)
->  Manuel Schlund (DLR, Germany - manuel.schlund@dlr.de)
->  Breixo Solino Fernandez (DLR, Germany - breixo.solinofernandez@dlr.de)
->  Javier Vegas-Regidor (BSC, Spain - javier.vegas@bsc.es)
->  Klaus Zimmermann (SMHI, Sweden - klaus.zimmermann@smhi.se)
->
->For further help, please read the documentation at
->http://docs.esmvaltool.org. Have fun!
->
->2022-04-24 17:31:48,745 UTC [190720] INFO    Package versions
->2022-04-24 17:31:48,746 UTC [190720] INFO    ----------------
->2022-04-24 17:31:48,746 UTC [190720] INFO    ESMValCore: 2.5.0
->2022-04-24 17:31:48,746 UTC [190720] INFO    ESMValTool: 2.5.0
->2022-04-24 17:31:48,746 UTC [190720] INFO    ----------------
->2022-04-24 17:31:48,746 UTC [190720] INFO    Using config file /home/users/username/esmvaltool-tutorial/config-user.yml
->2022-04-24 17:31:48,746 UTC [190720] INFO    Writing program log files to:
->/home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/main_log.txt
->/home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/main_log_debug.txt
->2022-04-24 17:31:48,747 UTC [190720] INFO    Starting the Earth System Model Evaluation Tool at time: 2022-04-24 17:31:48 UTC
->2022-04-24 17:31:48,747 UTC [190720] INFO    ----------------------------------------------------------------------
->2022-04-24 17:31:48,747 UTC [190720] INFO    RECIPE   = /apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/recipes/examples/recipe_python.yml
->2022-04-24 17:31:48,747 UTC [190720] INFO    RUNDIR     = /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run
->2022-04-24 17:31:48,747 UTC [190720] INFO    WORKDIR    = /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/work
->2022-04-24 17:31:48,747 UTC [190720] INFO    PREPROCDIR = /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/preproc
->2022-04-24 17:31:48,747 UTC [190720] INFO    PLOTDIR    = /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/plots
->2022-04-24 17:31:48,747 UTC [190720] INFO    ----------------------------------------------------------------------
->2022-04-24 17:31:48,747 UTC [190720] INFO    Running tasks using at most 24 processes
->2022-04-24 17:31:48,747 UTC [190720] INFO    If your system hangs during execution, it may not have enough memory for keeping this number of tasks in memory.
->2022-04-24 17:31:48,747 UTC [190720] INFO    If you experience memory problems, try reducing 'max_parallel_tasks' in your user configuration file.
->2022-04-24 17:31:48,805 UTC [190720] INFO    Creating tasks from recipe
->2022-04-24 17:31:48,805 UTC [190720] INFO    Creating tasks for diagnostic map
->2022-04-24 17:31:48,805 UTC [190720] INFO    Creating preprocessor task map/tas
->2022-04-24 17:31:48,805 UTC [190720] INFO    Creating preprocessor 'select_january' task for variable 'tas'
->2022-04-24 17:31:48,835 UTC [190720] INFO    Found input files for CMIP6
->2022-04-24 17:31:48,900 UTC [190720] INFO    Found input files for CMIP5
->2022-04-24 17:31:48,961 UTC [190720] INFO    PreprocessingTask map/tas created.
->2022-04-24 17:31:48,961 UTC [190720] INFO    Creating diagnostic task map/script1
->2022-04-24 17:31:48,962 UTC [190720] INFO    Creating tasks for diagnostic timeseries
->2022-04-24 17:31:48,962 UTC [190720] INFO    Creating preprocessor task timeseries/tas_amsterdam
->2022-04-24 17:31:48,963 UTC [190720] INFO    Creating preprocessor 'annual_mean_amsterdam' task for variable 'tas'
->2022-04-24 17:31:48,969 UTC [190720] INFO    Found input files for CMIP6
->2022-04-24 17:31:49,019 UTC [190720] INFO    Found input files for CMIP5
->2022-04-24 17:31:49,063 UTC [190720] INFO    PreprocessingTask timeseries/tas_amsterdam created.
->2022-04-24 17:31:49,064 UTC [190720] INFO    Creating preprocessor task timeseries/tas_global
->2022-04-24 17:31:49,064 UTC [190720] INFO    Creating preprocessor 'annual_mean_global' task for variable 'tas'
->2022-04-24 17:31:49,065 UTC [190720] WARNING Missing data for fx variable 'areacella' of dataset CMIP6
->2022-04-24 17:31:49,071 UTC [190720] INFO    Found input files for CMIP6
->2022-04-24 17:31:49,138 UTC [190720] INFO    Found input files for CMIP5
->2022-04-24 17:31:49,183 UTC [190720] INFO    PreprocessingTask timeseries/tas_global created.
->2022-04-24 17:31:49,183 UTC [190720] INFO    Creating diagnostic task timeseries/script1
->2022-04-24 17:31:49,184 UTC [190720] INFO    These tasks will be executed: map/script1, map/tas, timeseries/tas_amsterdam, timeseries/script1, timeseries/tas_global
->2022-04-24 17:31:49,195 UTC [190720] INFO    Running 5 tasks using 5 processes
->2022-04-24 17:31:49,239 UTC [190776] INFO    Starting task map/tas in process [190776]
->2022-04-24 17:31:49,240 UTC [190777] INFO    Starting task timeseries/tas_amsterdam in process [190777]
->2022-04-24 17:31:49,240 UTC [190778] INFO    Starting task timeseries/tas_global in process [190778]
->2022-04-24 17:31:49,335 UTC [190720] INFO    Progress: 3 tasks running, 2 tasks waiting for ancestors, 0/5 done
->2022-04-24 17:31:55,735 UTC [190776] INFO    Successfully completed task map/tas (priority 0) in 0:00:06.494906
->2022-04-24 17:31:55,847 UTC [190720] INFO    Progress: 2 tasks running, 2 tasks waiting for ancestors, 1/5 done
->2022-04-24 17:31:55,852 UTC [190779] INFO    Starting task map/script1 in process [190779]
->2022-04-24 17:31:55,861 UTC [190779] INFO    Running command ['/apps/jasmin/community/esmvaltool/miniconda3/envs/esmvaltool/bin/python', '/apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/diag_scripts/examples/diagnostic.py', '/home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/map/script1/settings.yml']
->2022-04-24 17:31:55,862 UTC [190779] INFO    Writing output to /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/work/map/script1
->2022-04-24 17:31:55,862 UTC [190779] INFO    Writing plots to /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/plots/map/script1
->2022-04-24 17:31:55,862 UTC [190779] INFO    Writing log to /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/map/script1/log.txt
->2022-04-24 17:31:55,862 UTC [190779] INFO    To re-run this diagnostic script, run:
->cd /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/map/script1; MPLBACKEND="Agg" /apps/jasmin/community/esmvaltool/miniconda3/envs/esmvaltool/bin/python /apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/diag_scripts/examples/diagnostic.py /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/map/script1/settings.yml
->2022-04-24 17:31:55,947 UTC [190720] INFO    Progress: 3 tasks running, 1 tasks waiting for ancestors, 1/5 done
->2022-04-24 17:31:58,538 UTC [190777] INFO    Generated PreprocessorFile: /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/preproc/timeseries/tas_amsterdam/MultiModelMean_Amon_tas_1850-2000.nc
->2022-04-24 17:31:58,762 UTC [190777] INFO    Successfully completed task timeseries/tas_amsterdam (priority 2) in 0:00:09.521837
->2022-04-24 17:31:58,953 UTC [190720] INFO    Progress: 2 tasks running, 1 tasks waiting for ancestors, 2/5 done
->2022-04-24 17:31:59,700 UTC [190778] INFO    Successfully completed task timeseries/tas_global (priority 3) in 0:00:10.459256
->2022-04-24 17:31:59,855 UTC [190720] INFO    Progress: 1 tasks running, 1 tasks waiting for ancestors, 3/5 done
->2022-04-24 17:31:59,863 UTC [190780] INFO    Starting task timeseries/script1 in process [190780]
->2022-04-24 17:31:59,871 UTC [190780] INFO    Running command ['/apps/jasmin/community/esmvaltool/miniconda3/envs/esmvaltool/bin/python', '/apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/diag_scripts/examples/diagnostic.py', '/home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/timeseries/script1/settings.yml']
->2022-04-24 17:31:59,872 UTC [190780] INFO    Writing output to /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/work/timeseries/script1
->2022-04-24 17:31:59,872 UTC [190780] INFO    Writing plots to /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/plots/timeseries/script1
->2022-04-24 17:31:59,872 UTC [190780] INFO    Writing log to /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/timeseries/script1/log.txt
->2022-04-24 17:31:59,872 UTC [190780] INFO    To re-run this diagnostic script, run:
->cd /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/timeseries/script1; MPLBACKEND="Agg" /apps/jasmin/community/esmvaltool/miniconda3/envs/esmvaltool/bin/python /apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/diag_scripts/examples/diagnostic.py /home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/run/timeseries/script1/settings.yml
->2022-04-24 17:31:59,956 UTC [190720] INFO    Progress: 2 tasks running, 0 tasks waiting for ancestors, 3/5 done
->2022-04-24 17:32:01,586 UTC [190779] INFO    Successfully completed task map/script1 (priority 1) in 0:00:05.733018
->2022-04-24 17:32:01,760 UTC [190720] INFO    Progress: 1 tasks running, 0 tasks waiting for ancestors, 4/5 done
->2022-04-24 17:32:06,079 UTC [190780] INFO    Maximum memory used (estimate): 0.2 GB
->2022-04-24 17:32:06,081 UTC [190780] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
->2022-04-24 17:32:06,760 UTC [190780] INFO    Successfully completed task timeseries/script1 (priority 4) in 0:00:06.896972
->2022-04-24 17:32:06,771 UTC [190720] INFO    Progress: 0 tasks running, 0 tasks waiting for ancestors, 5/5 done
->2022-04-24 17:32:06,771 UTC [190720] INFO    Successfully completed all tasks.
->2022-04-24 17:32:07,764 UTC [190720] INFO    Wrote recipe output to:
->file:///home/users/username/esmvaltool-tutorial/esmvaltool_output/recipe_python_20220424_173145/index.html
->2022-04-24 17:32:07,764 UTC [190720] INFO    Ending the Earth System Model Evaluation Tool at time: 2022-04-24 17:32:07 UTC
->2022-04-24 17:32:07,764 UTC [190720] INFO    Time for running the recipe was: 0:00:19.017514
->2022-04-24 17:32:08,702 UTC [190720] INFO    Maximum memory used (estimate): 1.3 GB
->2022-04-24 17:32:08,703 UTC [190720] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
->2022-04-24 17:32:08,704 UTC [190720] INFO    Run was successful
-> ```
->
-{: .solution}
+{% include example_output.txt %}
 
 > ## Pro tip: ESMValTool search paths
 >
@@ -202,10 +78,13 @@ Let's dissect what's happening here.
 > > ## Answers
 > >
 > > 1. The config file should be the one we edited in the previous episode,
-> >    something like `/home/<username>/.esmvaltool/config-user.yml` or `~/esmvaltool_tutorial/config-user.yml`.
+> >    something like `/home/<username>/.esmvaltool/config-user.yml` or
+ `~/esmvaltool_tutorial/config-user.yml`.
 > > 1. ESMValTool found the recipe in its installation directory, something like
-> >    `/home/users/username/miniconda3/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
->> or if you are using a pre-installed module on a server, something like `/apps/jasmin/community/esmvaltool/ESMValTool_2.5.0/esmvaltool/recipes/examples/recipe_python.yml`
+> >    `/home/users/username/mambaforge/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
+>> or if you are using a pre-installed module on a server, something like
+ `/apps/jasmin/community/esmvaltool/ESMValTool_<version>/esmvaltool/recipes
+/examples/recipe_python.yml`, where `<version>` is the latest release.
 > > 1. ESMValTool creates a time-stamped output directory for every run. In this
 > >    case, it should be something like `recipe_python_YYYYMMDD_HHMMSS`. This
 > >    folder is made inside the output directory specified in the previous
@@ -249,7 +128,8 @@ distinguished in the log messages:
 > > following line in the output:
 > >
 > > ```
-> >[190720] INFO    These tasks will be executed: map/script1, map/tas, timeseries/tas_amsterdam, timeseries/script1, timeseries/tas_global
+> >[190720] INFO    These tasks will be executed: map/script1, map/tas, timeseries/tas_amsterdam,
+   timeseries/script1, timeseries/tas_global
 > > ```
 > >
 > > So there are three tasks related to timeseries: global temperature,
@@ -478,11 +358,12 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 
 > ## Pro tip: diagnostic logs
 >
-> When you run ESMValTool, any log messages from the diagnostic script are not printed on the terminal.
+> When you run ESMValTool, any log messages from the diagnostic script are not 
+> printed on the terminal.
 > But they are written to the `log.txt` files in the folder `/run/<diag_name>/log.txt`.
 >
-> ESMValTool *does* print a command that can be used to re-run a diagnostic script. When you use this
-> the output *will* be printed to the command line.
+> ESMValTool *does* print a command that can be used to re-run a diagnostic 
+> script. When you use this the output *will* be printed to the command line.
 {: .callout}
 
 ## Modifying the example recipe
@@ -556,3 +437,5 @@ ESMValTool.
 > >
 > {: .solution}
 {: .challenge}
+
+{% include links.md %}

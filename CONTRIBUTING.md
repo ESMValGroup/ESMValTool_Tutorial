@@ -51,6 +51,12 @@ There are many ways to contribute:
   [maintainers][tutorial-maintainers] have final say over what gets merged into
   the tutorial.
 
+* Information on how to write a software carpentry lesson,
+  can be found [here](https://carpentries.github.io/lesson-example/).
+
+* Guidelines on how to develop a software carpentry style curriculum
+  can be found [here](https://carpentries.github.io/curriculum-development/).
+
 ## Tutorial guidelines
 
 This section demonstrates all the instructions for developing a lesson in the
@@ -176,4 +182,4 @@ Please see [information][contact-info] on how to subscribe to user mailing list.
 [swc-lesson-organization]: https://carpentries.github.io/lesson-example/03-organization/index.html
 [swc-lesson-formatting]: https://carpentries.github.io/lesson-example/04-formatting/index.html
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
-[contact-info]: https://docs.esmvaltool.org/en/latest/community/contact.html#user-mailing-list
+[contact-info]: https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list

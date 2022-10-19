@@ -30,15 +30,18 @@ depending on your level of expertise or involvement with ESMValTool and
 associated software such as GitHub and Mamba.
 
 1. If you have access to a server where ESMValTool is already installed
-as a module, for e.g., the [CEDA JASMIN](https://help.jasmin.ac.uk/article/4955-community-software-esmvaltool)
+as a module, for e.g., the [CEDA JASMIN](https://help.jasmin.ac.uk/article
+/4955-community-software-esmvaltool)
 server, you can simply load the module with the following command:
 ~~~bash
 module load esmvaltool
 ~~~
-After loading ``esmvaltool``, we can start using ESMValTool right away. Please see the [next lesson]({{ page.root }}{% link _episodes/03-configuration.md %}). 
+After loading ``esmvaltool``, we can start using ESMValTool right away. Please
+ see the [next lesson]({{ page.root }}{% link _episodes/03-configuration.md %}). 
 2. If you would like to install ESMValTool as a mamba package, then this lesson
 will tell you how!
-3. If you would like to start experimenting with existing diagnostics or contributing to ESMvalTool, please see the instructions for 
+3. If you would like to start experimenting with existing diagnostics or 
+contributing to ESMvalTool, please see the instructions for 
 source installation in the lesson [Development and
 contribution]({{ page.root }}{% link _episodes/07-development-setup.md %}) and
 in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html).
@@ -62,7 +65,8 @@ in the [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installa
 ESMValTool is distributed using [Mamba](https://mamba.readthedocs.io/en/latest/index.html).
 To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
-1.  Please download the installation file for the latest Mamba version [here](https://github.com/conda-forge/miniforge#mambaforge).
+1.  Please download the installation file for the latest Mamba version 
+[here](https://github.com/conda-forge/miniforge#mambaforge).
 
 2.  Next, run the installer from the place where you downloaded it:
 
@@ -98,7 +102,8 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
     This should show the path to your mamba executable, e.g. `~/mambaforge/bin/mamba`.
 
 For more information about installing mamba,
-see [the mamba installation documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#mamba-installation).
+see [the mamba installation documentation](https://docs.esmvaltool.org/en
+/latest/quickstart/installation.html#mamba-installation).
 
 ### Install the ESMValTool package
 
@@ -121,10 +126,13 @@ mamba create --name esmvaltool esmvaltool 'python=3.10'
 ```
 
 On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
-a Mamba environment on MacOSX, please refer to specific [information](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#installation-on-macosx).
+a Mamba environment on MacOSX, please refer to specific [information](https://
+docs.esmvaltool.org/en/latest/quickstart/installation.html#installation-on-
+macosx).
 
 This will create a new [Mamba
-environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
+environment](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks
+/manage-environments.html)
 called `esmvaltool`, with the ESMValTool package and all of its dependencies
 installed in it.
 
@@ -132,7 +140,8 @@ installed in it.
 > ## Common issues
 >
 > You find a list of common installation problems and their solutions in the 
-> [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#common-installation-problems-and-their-solutions).
+> [documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation
+.html#common-installation-problems-and-their-solutions).
 >
 {: .callout}
 
@@ -219,8 +228,8 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.5.0
-> > ESMValTool: 2.5.0
+> > ESMValCore: 2.6.0
+> > ESMValTool: 2.6.0
 > > ~~~
 > > {: .output}
 > {: .solution}

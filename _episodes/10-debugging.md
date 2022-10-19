@@ -62,7 +62,8 @@ Let's change the working directory to the folder ``run`` and list its files:
 ~~~
 
 ~~~
-diag_timeseries_temperature  main_log_debug.txt   main_log.txt  recipe_example.yml   resource_usage.txt
+diag_timeseries_temperature  main_log_debug.txt   main_log.txt  
+    recipe_example.yml   resource_usage.txt
 ~~~
 {: .output}
 
@@ -150,33 +151,35 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >20        - ukesm
 >21
 >22    datasets:
->23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, ensemble: r1i1p1, start_year: 1859, end_year: 2005}
->24
->25    preprocessors:
->26      prep_timeseries:  # For 0D fields
->27        annual_statistics:
->28          operator: mean
->29
->30    diagnostics:
->31      # --------------------------------------------------
->32      # Time series diagnostics
->33      # --------------------------------------------------
->34      diag_timeseries_temperature:
->35        description: simple_time_series
->36        variables:
->37          timeseries_variable:
->38            short_name: thetaoga
->39            preprocessor: prep_timeseries
->40        scripts:
->41          timeseries_diag:
->42            script: ocean/diagnostic_timeseries.py
+>23      - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Omon, 
+>24         ensemble: r1i1p1, start_year: 1859, end_year: 2005}
+>25
+>26    preprocessors:
+>27      prep_timeseries:  # For 0D fields
+>28        annual_statistics:
+>29          operator: mean
+>30
+>31    diagnostics:
+>32      # --------------------------------------------------
+>33      # Time series diagnostics
+>34      # --------------------------------------------------
+>35      diag_timeseries_temperature:
+>36        description: simple_time_series
+>37        variables:
+>38          timeseries_variable:
+>39            short_name: thetaoga
+>40            preprocessor: prep_timeseries
+>41        scripts:
+>42          timeseries_diag:
+>43            script: ocean/diagnostic_timeseries.py
 >```
 {: .solution}
 
 ## Keys and values in recipe settings
 
 The [ESMValTool
-pre-processors](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/preprocessor.html?highlight=preprocessor)
+pre-processors](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+recipe/preprocessor.html?highlight=preprocessor)
 cover a broad range of operations on the input data, like time manipulation,
 area manipulation, land-sea masking, variable derivation, etc. Let's add the
 preprocessor ``extract_region`` to the section ``prep_timeseries``:
@@ -218,9 +221,11 @@ The values for the keys ``author``, ``maintainer``, ``projects`` and
 
 - A list of ESMValTool
 author, maintainer, and projects can be found in the
-[config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/config-references.yml).
+[config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/master/
+esmvaltool/config-references.yml).
 - ESMValTool references in `BibTeX` format can be found in the
-[ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/tree/master/esmvaltool/references) directory.
+[ESMValTool/esmvaltool/references](https://github.com/ESMValGroup/ESMValTool/
+tree/master/esmvaltool/references) directory.
 
 > ## ESMValTool can’t locate the data
 >
@@ -287,18 +292,23 @@ Let's see what happens if we can change the script path as:
 ~~~
 
 ~~~
-esmvalcore._task.DiagnosticError: Cannot execute script 'diag_scripts/examples/diagnostic.py' (esmvaltool/diag_scripts/diag_scripts/examples/diagnostic.py): file does not exist.
-2020-06-29 20:39:31,669 UTC [53008] INFO    If you suspect this is a bug or need help, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues and attach the run/recipe_*.yml and run/main_log_debug.txt files from the output directory.
+esmvalcore._task.DiagnosticError: Cannot execute script 'diag_scripts/examples/diagnostic.py'
+ (esmvaltool/diag_scripts/diag_scripts/examples/diagnostic.py): file does not exist.
+2020-06-29 20:39:31,669 UTC [53008] INFO    If you suspect this is a bug or need
+ help, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues 
+and attach the run/recipe_*.yml and run/main_log_debug.txt files from the output directory.
 ~~~
 {: .error}
 
 The script path should be relative to ``diag_scripts`` directory. It means that
 the script ``diagnostic_timeseries.py`` is located in
 ``<path_to_esmvaltool>/diag_scripts/ocean/``.
-Alternatively, the script path can be an absolute path. To examine this, we can download the script from the ``ESMValTool`` repository:
+Alternatively, the script path can be an absolute path. To examine this, we can
+ download the script from the ``ESMValTool`` repository:
 
 ```bash
-wget https://github.com/ESMValGroup/ESMValTool/blob/master/esmvaltool/diag_scripts/ocean/diagnostic_timeseries.py
+wget https://raw.githubusercontent.com/ESMValGroup/ESMValTool/main/esmvaltool/\
+diag_scripts/ocean/diagnostic_timeseries.py
 ```
 
 One way to get the absolute path is to run:
@@ -319,7 +329,9 @@ Then we can update the script path and run the recipe:
   esmvaltool run recipe_example.yml
 ~~~
 
-Now examine `./esmvaltool_output/recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/` to see if it worked!
+Now examine 
+`./esmvaltool_output/recipe_example_#_#/run/diag_timeseries_temperature/timeseries_diag/`
+ to see if it worked!
 
 > ## Available recipe and diagnostic scripts
 >

@@ -70,7 +70,8 @@ to be suitable for use by ESMValTool.
 There are lots of resources available for helping you use ESMValTool.
 
 The ESMValTool [Discussions page](https://github.com/ESMValGroup/ESMValTool/discussions)
-is a good place to learn about general issues, or to see if your question has been already addressed.
+is a good place to learn about general issues, or to see if your question has
+ been already addressed.
 If you have a GitHub account, you can also post your questions on the page.
 
 If you get stuck, a great starting point is to create a
@@ -78,7 +79,9 @@ If you get stuck, a great starting point is to create a
 
 There is also an ESMValTool email list.
 Please see
-[information](https://docs.esmvaltool.org/en/latest/introduction.html#support)
+
+[information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list)
+
 on how to subscribe to user mailing list.
 
 ### What if I find a bug?

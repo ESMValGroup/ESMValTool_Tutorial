@@ -89,7 +89,7 @@ To continue the installation, we move into the ``ESMValTool`` directory:
 cd ESMValTool
 ~~~
 
-Note that the ``master`` branch is checked out by default.
+Note that the ``main`` branch is checked out by default.
 We can see this if we run:
 
 ~~~bash
@@ -98,7 +98,7 @@ git status
 
 ~~~
 On branch master
-Your branch is up to date with 'origin/master'.
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ~~~

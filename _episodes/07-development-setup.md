@@ -106,14 +106,23 @@ nothing to commit, working tree clean
 
 ### 2 ESMValTool dependencies
 
+ESMValTool now uses `mamba` instead of `conda` for the recommended installation.
 It is recommended to use conda to manage ESMValTool dependencies. For a minimal
-conda installation, see section **Install Conda** in lesson
+mamba  installation, see section **Install Mamba** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
+
+It is good practice to update the version of mamba on your machine before setting up 
+ESMValTool. This can be done as follows:
+
+~~~bash
+mamba update --name base  mamba
+~~~ 
+
 To simplify the installation process, an environment file ``environment.yml`` is
 provided in the ESMValTool directory. We create an environment by running:
 
 ~~~bash
-conda env create --file environment.yml
+mamba create --name esmvaltool esmvaltool 'python=3.10'
 ~~~
 
 The environment is called ``esmvaltool`` by default.
@@ -122,9 +131,10 @@ If an ``esmvaltool`` environment is already created following the lesson
 we should choose another name for the new environment in this lesson by:
 
 ~~~bash
-conda env create -n a_new_name --file environment.yml
+mamba create --name a_new_name 'python=3.10'
 ~~~
-
+This will create a new conda environment and install ESMValTool into it with a 
+single command.
 For more information see [conda managing environments][manage-environments].
 Now, we should activate the environment:
 

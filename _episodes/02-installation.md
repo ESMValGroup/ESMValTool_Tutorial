@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v.2.6
+compatibility: ESMValTool v2.6.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"

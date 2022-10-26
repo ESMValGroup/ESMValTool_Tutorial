@@ -2,7 +2,7 @@
 title: "Quickstart guide"
 teaching: 2
 exercises: 8
-compatibility: ESMValTool v.2.6
+compatibility: ESMValTool v2.6.0
 
 questions:
 
@@ -33,7 +33,7 @@ keypoints:
 ---
 
 
- {: .callout}
+- {: .callout}
 
 > ## What is the purpose of the quickstart guide?
 >

@@ -2,7 +2,7 @@
 title: "Writing your own recipe"
 teaching: 15
 exercises: 30
-compatibility: ESMValTool v.2.6
+compatibility: ESMValTool v2.6.0
 
 questions:
 - "How do I create a new recipe?"

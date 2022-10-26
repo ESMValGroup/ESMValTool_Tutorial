@@ -2,7 +2,7 @@
 title: "Configuration"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v.2.6
+compatibility: ESMValTool v2.6.0
 
 questions:
 - What is the user configuration file and how should I use it?

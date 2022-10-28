@@ -28,6 +28,8 @@
 {% assign exercise_time = page.exercises %}
 {% endif %}
 
+{% assign compatibility = page.compatibility %}
+
 {% if page.questions == nil %}
 {% assign episode_questions = include.episode_questions %}
 {% else %}
@@ -49,6 +51,8 @@
       <strong>Teaching:</strong> {{ teaching_time }} min
       <br/>
       <strong>Exercises:</strong> {{ exercise_time }} min
+      <br/>
+      <strong>Compatibility:</strong> {{ compatibility }}
     </div>
     <div class="col-md-9">
       <strong>Questions</strong>

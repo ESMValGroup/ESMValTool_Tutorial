@@ -2,6 +2,8 @@
 title: "Quickstart guide"
 teaching: 2
 exercises: 8
+compatibility: ESMValTool v2.6.0
+
 questions:
 
 - "What is the purpose of the quickstart guide?"
@@ -29,9 +31,9 @@ keypoints:
   configuration file"
 - "Use `esmvaltool run <recipe>.yml` to run a recipe"
 ---
->
-> This quickstart guide is compatible with ESMValTool v2.6.0.
- {: .callout}
+
+
+- {: .callout}
 
 > ## What is the purpose of the quickstart guide?
 >

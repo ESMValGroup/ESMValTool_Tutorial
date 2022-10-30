@@ -2,6 +2,8 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
+compatibility: ESMValTool v2.5.0
+
 questions:
 - "What is a development installation?"
 - "How can I test new or improved code?"

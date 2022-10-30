@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.5.0
+compatibility: ESMValTool v2.7.0
 
 questions:
 - "What is a development installation?"
@@ -56,11 +56,11 @@ The ESMValTool source code is available on a public GitHub repository:
 [https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool).
 To obtain the code, there are two options:
 
-1. download the code from the repository. A ZIP file called
+1. Download the code from the repository. A ZIP file called
    ``ESMValTool-master.zip`` is downloaded. To continue the installation, unzip
    the file, move to the ``ESMValTool-master`` directory and then follow the
-   sequence of steps starting from **2 ESMValTool dependencies**.
-2. clone the repository if you want to contribute to the ESMValTool development:
+   sequence of steps starting from the section on **ESMValTool dependencies**.below.
+2. Clone the repository if you want to contribute to the ESMValTool development:
 
 ~~~bash
 git clone https://github.com/ESMValGroup/ESMValTool.git
@@ -180,42 +180,49 @@ If the installation is successful, ESMValTool prints a help message to the conso
 >>~~~
 >>
 >> ~~~bash
->> # Name                    Version                   Build  Channel
->> esmvaltool                2.1.1                     dev_0    <develop>
+>> # Name                    Version                   Build                    Channel
+>> esmvaltool                2.7.0                  pyhd8ed1ab_0           <conda-forge>
 >>~~~
 >>
->> As can be seen, it is mentioned ``<develop>`` under the ``Channel``.
+>>
 > {: .solution}
 {: .challenge}
 
 ### 4 Updating ESMValTool
 
-The ``master`` branch has the latest features of ESMValTool. Please make sure
+The ``main`` branch has the latest features of ESMValTool. Please make sure
 that the source code on your machine is up-to-date. If you obtain the source
 code using git clone as explained in step **1 Source code**, you can run ``git pull``
 to update the source code. Then ESMValTool installation will be updated
-with changes from the ``master`` branch.
+with changes from the ``main`` branch.
 
 ## Contribution
 
-We have seen how to install ESMValTool in a ``develop`` mode.
-Now, we try to contribute to its development. Let's see how we can achieve this.
-
-### Review process
-
-We first discuss our ideas in an
-**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
-This can avoid disappointment at a later stage, for example,
+We have seen how to install ESMValTool in ``develop`` mode.
+Now, we are ready  to contribute to its development. Let's see how we this can be 
+achieved.
+A new idea for a diagnostic or recipe should first be discussed in an
+**[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in the 
+ESMValTool repository.
+This can help to avoid any conflict at a later stage, for example
 if more people are doing the same thing.
 It also gives other people an early opportunity to provide input and suggestions,
 which results in more valuable contributions.
 
-Then, we create a new ``branch`` locally and start developing new codes.
-Once our development is finished, we can initiate a ``pull request``.
-For a full description of the GitHub workflow, please see ESMValTool documentation on
-[GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
+Then, a new ``branch`` can be created locally for writing new code.
+Once the development of the new contribution is finished, we can 
+initiate a ``pull request``.
+For more extensive documentation on contributing code, 
+including a section on the 
+[GitHubWorkflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow), please see the 
+[Contributing code and documentation](https://docs.esmvaltool.org/en/latest/community/code_documentation.html) section 
+in the ESMValtool documentation.
 
-The pull request will be tested, discussed and merged. This is called "**review process**".
+### Review process
+
+
+The pull request will be tested, discussed and merged as part of the 
+"**review process**".
 The process will take some effort and time to learn.
 However, a few (command line) tools can get you a long way,
 and we’ll cover those essentials in the next sections.

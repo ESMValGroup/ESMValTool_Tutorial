@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.7.0
+compatibility: ESMValTool v2.6.0
 
 questions:
 - "What is a development installation?"
@@ -181,7 +181,7 @@ If the installation is successful, ESMValTool prints a help message to the conso
 >>
 >> ~~~bash
 >> # Name                    Version                   Build                    Channel
->> esmvaltool                2.7.0                  pyhd8ed1ab_0           <conda-forge>
+>> esmvaltool                2.6.0                      pypi_0                  pypi
 >>~~~
 >>
 >>
@@ -230,9 +230,9 @@ and we’ll cover those essentials in the next sections.
 **Tip**: we encourage you to keep the pull requests small.
 Reviewing small incremental changes are more efficient.
 
-### Background
+### Working example
 
-We saw 'warming stripes' in lesson
+We saw the 'warming stripes' diagnostic in lesson
 [Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 Imagine the following task: you want to contribute warming stripes recipe and diagnostics
 to ESMValTool. You have to add the diagnostics
@@ -242,7 +242,9 @@ to their locations in ESMValTool directory.
 After these changes, you should also check if everthing works fine.
 This is where we take advantage of the tools that are introduced later.
 
-Let’s get started.
+Let’s get started. Note that since this is an exercise to get familiar with the 
+development and contribution process, we will not create a GitHub issue at this time 
+but proceed as though it has been done.
 
 ### Check code quality
 
@@ -271,7 +273,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 > ~~~bash
 > cd ESMValTool
-> git checkout your_branch_name
+> git checkout -b your_branch_name
 > cp path_of_warming_stripes.py esmvaltool/diag_scripts/
 > ~~~
 >
@@ -287,7 +289,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 >> ## Solution
 >>
->> The output of  ``pre-commit``:
+>> The tail end of the output of  ``pre-commit``:
 >>
 >> ~~~ bash
 >> Check for added large files..............................................Passed
@@ -318,11 +320,19 @@ To explore other tools, have a look at ESMValTool documentation on
 >> As can be seen above, there are two ``Failed`` check:
 >>
 >> 1. ``docformatter``: it is mentioned that "files were modified by this hook".
->> We run ``git diff`` to see the modifications.
->> The syntax ``"""`` at the end of docstring is moved by one line.
+>> We run ``git diff`` to see the modifications. The output includes the following:
+>> 
+>> ~~~bash
+>> +in the form of the popular warming stripes figure by Ed Hawkins."""
+>> ~~~
+>> 
+>> The syntax ``"""`` at the end of docstring is moved by one line. 
+Shifting it to the next line should fix this error.
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
 >> We should check our codes regarding the usage of ``nx``.
->> For now, let's assume that it is added by mistake and remove it.
+>> For now, let's assume that it is added by mistake and remove it. Note that you 
+>> have to run `git add` again to re-stage the file and check if `pre-commit` 
+>>now passes all checks.
 > {: .solution}
 {: .challenge}
 

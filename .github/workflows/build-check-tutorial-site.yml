@@ -13,7 +13,6 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: 3.1
-        bundler-cache: true
     - name: Ruby deps
       run: gem install json kramdown jekyll bundler
     - name: Setup Python
@@ -24,8 +23,8 @@ jobs:
       run: pip install pyyaml
     - name: Nokogiri deps
       run: sudo apt install -y pkg-config libxml2-dev libxslt-dev
-    # - name: Site deps
-    #   run: bundle install
+    - name: Site deps
+      run: bundle install
     - name: Build site
       run: bundle exec jekyll build
     - name: Check all lessons

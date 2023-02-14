@@ -374,7 +374,7 @@ Let's make a small modification to the example recipe. Notice that now that
 you have copied and edited the recipe, you can use
 
 ```
-esmvaltool run recipe_example.yml
+esmvaltool run recipe_python.yml
 ```
 
 to refer to your local file rather than the default version shipped with

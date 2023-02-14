@@ -244,8 +244,8 @@ recipe/overview.html#recipe-section-documentation).
 
 We start with the BCC-ESM1 dataset and add a datasets section to the recipe,
 listing a single dataset, as shown below. Note that key fields such 
-as `mip` or `start_year` are included in the `datasets` section here but are part 
-of the `diagnostic` section in the recipe example seen in 
+as `mip` or `start_year` are included in the `datasets` section here but are not
+part of the `diagnostic` section in the recipe example seen in 
 [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 ```yaml

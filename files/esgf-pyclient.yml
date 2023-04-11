@@ -1,4 +1,4 @@
-# If you're using ESMValTool 2.4.0 to 2.7.0, you can copy this file to
+# If you're using ESMValTool 2.6.0 or 2.7.0, you can copy this file to
 # ~/.esmvaltool/esgf-pyclient.yml to use the current URL for the CEDA ESGF
 # index node. See
 # https://docs.esmvaltool.org/projects/ESMValCore/en/v2.7.0/quickstart/configure.html#configuration-file

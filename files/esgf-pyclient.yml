@@ -1,0 +1,15 @@
+# If you're using ESMValTool 2.4.0 to 2.7.0, you can copy this file to
+# ~/.esmvaltool/esgf-pyclient.yml to use the current URL for the CEDA ESGF
+# index node. See
+# https://docs.esmvaltool.org/projects/ESMValCore/en/v2.7.0/quickstart/configure.html#configuration-file
+# for more information on the use of this file.
+search_connection:
+  urls:
+    - 'https://esgf.ceda.ac.uk/esg-search'
+    - 'https://esgf-node.llnl.gov/esg-search'
+    - 'https://esgf-data.dkrz.de/esg-search'
+    - 'https://esgf-node.ipsl.upmc.fr/esg-search'
+    - 'https://esg-dn1.nsc.liu.se/esg-search'
+    - 'https://esgf.nci.org.au/esg-search'
+    - 'https://esgf.nccs.nasa.gov/esg-search'
+    - 'https://esgdata.gfdl.noaa.gov/esg-search'

@@ -235,7 +235,7 @@ local machine and go [here](#github-account-advanced).
 If you are planning on running ESMValTool on your own machine, please make sure
 that you are able to download CMIP data and that you have several GB of space
 available to install conda and ESMValTool, but also enough to make a copy of some
-data (~2Gb).
+data (~125MB).
 
 To download the data required by this tutorial, run the following command using
 [wget](https://en.wikipedia.org/wiki/Wget):
@@ -245,6 +245,9 @@ wget --no-clobber --input-file \
   https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/main/data/dataset.urls \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
 ~~~
+You can also use ESMValTool to automatically download data needed for test recipes. 
+Please see the [Configuration][lesson-configuration] episode or the [(documentation
+pages)](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#user-configuration-file) for more information.
 
 
 ## GitHub account (Advanced)

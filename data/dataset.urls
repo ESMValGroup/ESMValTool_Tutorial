@@ -1,4 +1,6 @@
 # Dataset urls required fo tutorial, described at https://esmvalgroup.github.io/ESMValTool_Tutorial/setup.html#using-your-own-machine
 # For episodes 4 and 5
+http://esgf2.dkrz.de/thredds/fileServer/lta_dataroot/cmip5/output1/BCC/bcc-csm1-1/historical/mon/atmos/Amon/r1i1p1/v1/tas/tas_Amon_bcc-csm1-1_historical_r1i1p1_185001-201212.nc
+http://esgf2.dkrz.de/thredds/fileServer/lta_dataroot/cmip5/output1/BCC/bcc-csm1-1/historical/fx/atmos/fx/r0i0p0/v1/areacella/areacella_fx_bcc-csm1-1_historical_r0i0p0.nc
 http://esgf3.dkrz.de/thredds/fileServer/cmip6/CMIP/BCC/BCC-ESM1/historical/r1i1p1f1/Amon/tas/gn/v20181214/tas_Amon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412.nc
-http://esgf2.dkrz.de/thredds/fileServer/lta_dataroot/cmip5/output1/CCCma/CanESM2/historical/mon/atmos/Amon/r1i1p1/v20120718/tas/tas_Amon_CanESM2_historical_r1i1p1_185001-200512.nc
+http://esgf3.dkrz.de/thredds/fileServer/cmip6/CMIP/BCC/BCC-ESM1/1pctCO2/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-ESM1_1pctCO2_r1i1p1f1_gn.nc

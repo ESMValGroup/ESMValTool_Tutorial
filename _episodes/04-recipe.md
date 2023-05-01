@@ -291,6 +291,8 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > 1. What does the preprocessor called `annual_mean_global` do?
 > 1. Which script is applied for the diagnostic called `map`?
 > 1. Can you link specific lines in the recipe to the tasks that we saw before?
+> 1. How is the location of the city specified?
+> 1. How is the temporal range of the data specified?
 >
 > > ## Answers
 > >
@@ -319,6 +321,15 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >        `examples/diagnostic.py` to the preprocessed data
 > >        (`timeseries/tas_global` and `timeseries/tas_amsterdam`).
 > >
+>>
+>>  1. The `extract_location` preprocessor is used to get data for a specific location
+>>      here. ESMValTool interpolates to the location based on the chosen scheme.
+>>      Can you tell the scheme used here? For more ways to extract areas, see the
+>>      [Area operations][preproc-area-manipulation] page.
+>>  1. The `timerange` tag is used to extract data from a specific time period here.
+>>      The start time is `01/01/2000` and the span of time to calculate means is 
+>>      `1 Month` given by `P1M`. For more options on how to specify time ranges,
+>>      see the [timerange documentation][timeranges].
 > {: .solution}
 {: .challenge}
 
@@ -395,14 +406,14 @@ ESMValTool.
 >
 > > ## Solution
 > >
-> > In principle, you only have to modify the latitude and longitude coordinates
+> > In principle, you only have to modify the location
 > > in the preprocessor called `annual_mean_amsterdam`. However, it is good
 > > practice to also replace all instances of `amsterdam` with the correct name
 > > of your location. Otherwise the log messages and output will be confusing.
 > > You are free to modify the names of preprocessors or diagnostics.
 > >
 > > In the `diff` file below you will see the changes we have made to the file.
-> > The top 2 lines are the filenames and the lines like `@@ -31,10 +31,10 @@`
+> > The top 2 lines are the filenames and the lines like `@@ -39,9 +39,9 @@`
 > > represent the line numbers in the original and modified file, respectively.
 > > For more info on this format, see
 > > [here](https://en.wikipedia.org/wiki/Diff#Unified_format).

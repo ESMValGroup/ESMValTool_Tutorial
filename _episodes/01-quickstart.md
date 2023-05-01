@@ -2,7 +2,7 @@
 title: "Quickstart guide"
 teaching: 2
 exercises: 8
-compatibility: ESMValTool v2.6.0
+compatibility: ESMValTool v2.8.0
 
 questions:
 
@@ -24,7 +24,7 @@ keypoints:
   to run ESMValTool as quickly as possible without having to go through the  
   whole tutorial"
 - "Use the `module load` command to load the ESMValTool environment, 
-  see the [installation]({{ page.root }}{% link _episodes/02-installation.md %}) 
+  see the [Installation](https://esmvalgroup.github.io/ESMValTool_Tutorial/02-installation/index.html)
   episode for more details and use `esmvaltool --help` to check the ESMValTool 
   environment"
 - "Use `esmvaltool config get_config_user` to create the ESMValTool user 

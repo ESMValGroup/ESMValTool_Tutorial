@@ -82,10 +82,12 @@ Let's dissect what's happening here.
 > > 1. The config file should be the one we edited in the previous episode,
 > >    something like `/home/<username>/.esmvaltool/config-user.yml` or
  `~/esmvaltool_tutorial/config-user.yml`.
-> > 1. ESMValTool found the recipe in its installation directory, something like
+> > 1. ESMValTool found the recipe in its installation directory, 
+>> something like
 > >    `/home/users/username/mambaforge/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
 >> or if you are using a pre-installed module on a server, something like
- `/apps/jasmin/community/esmvaltool/ESMValTool_<version>/esmvaltool/recipes/examples/recipe_python.yml`, where `<version>` is the latest release.
+>> `/apps/jasmin/community/esmvaltool/ESMValTool_<version>/esmvaltool/recipes/examples/recipe_python.yml`, 
+>> where `<version>` is the latest release.
 > > 1. ESMValTool creates a time-stamped output directory for every run. In this
 > >    case, it should be something like `recipe_python_YYYYMMDD_HHMMSS`. This
 > >    folder is made inside the output directory specified in the previous
@@ -129,7 +131,8 @@ distinguished in the log messages:
 > > following line in the output:
 > >
 > > ```
-> >[18776] INFO    These tasks will be executed: map/tas, timeseries/tas_global, timeseries/script1, map/script1, timeseries/tas_amsterdam
+> >[18776] INFO    These tasks will be executed: map/tas, timeseries/tas_global, 
+>>timeseries/script1, map/script1, timeseries/tas_amsterdam
 > > ```
 > >
 > > So there are three tasks related to timeseries: global temperature,

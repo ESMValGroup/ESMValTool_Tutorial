@@ -246,8 +246,8 @@ wget --no-clobber --input-file \
   --directory-prefix $HOME/esmvaltool_tutorial/data/
 ~~~
 You can also use ESMValTool to automatically download data needed for test recipes. 
-Please see the [Configuration][lesson-configuration] episode or the [documentation
-pages](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#user-configuration-file) for more information.
+Please see the [Configuration][lesson-configuration] episode 
+or the [configuration file documentation][config-file] for more information.
 
 
 ## GitHub account (Advanced)

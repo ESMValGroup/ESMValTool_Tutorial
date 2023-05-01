@@ -86,7 +86,8 @@ Let's dissect what's happening here.
 >> something like
 > >    `/home/users/username/mambaforge/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
 >> or if you are using a pre-installed module on a server, something like
->> `/apps/jasmin/community/esmvaltool/ESMValTool_<version>/esmvaltool/recipes/examples/recipe_python.yml`, 
+>> `/apps/jasmin/community/esmvaltool/ESMValTool_<version>
+>>/esmvaltool/recipes/examples/recipe_python.yml`, 
 >> where `<version>` is the latest release.
 > > 1. ESMValTool creates a time-stamped output directory for every run. In this
 > >    case, it should be something like `recipe_python_YYYYMMDD_HHMMSS`. This

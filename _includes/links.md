@@ -7,6 +7,7 @@
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
+[config-file]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
 [cran-checkpoint]: https://cran.r-project.org/package=checkpoint
@@ -46,6 +47,7 @@
 [osi]: https://opensource.org
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
+[preproc-area-manipulation]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/preprocessor.html#area-operations
 [provenance]: https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.python.org/pypi/PyYAML
@@ -62,5 +64,6 @@
 [theatoga.nc]: http://esgf-data1.ceda.ac.uk/thredds/fileServer/esg_dataroot/cmip5/output1/MOHC/HadGEM2-ES/historical/mon/ocean/Omon/r1i1p1/v20110916/thetaoga/thetaoga_Omon_HadGEM2-ES_historical_r1i1p1_185912-200512.nc
 [token-authentication-requirements]: https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/#what-you-need-to-do-today
 [training]: https://carpentries.github.io/instructor-training/
+[timeranges]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#time-ranges
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/

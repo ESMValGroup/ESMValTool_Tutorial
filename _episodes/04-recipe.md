@@ -2,7 +2,7 @@
 title: "Running your first recipe"
 teaching: 15
 exercises: 15
-compatibility: ESMValTool v2.6.0
+compatibility: ESMValTool v2.8.0
 
 questions:
 - "How to run a recipe?"
@@ -82,11 +82,13 @@ Let's dissect what's happening here.
 > > 1. The config file should be the one we edited in the previous episode,
 > >    something like `/home/<username>/.esmvaltool/config-user.yml` or
  `~/esmvaltool_tutorial/config-user.yml`.
-> > 1. ESMValTool found the recipe in its installation directory, something like
+> > 1. ESMValTool found the recipe in its installation directory, 
+>> something like
 > >    `/home/users/username/mambaforge/envs/esmvaltool/bin/esmvaltool/recipes/examples/`
 >> or if you are using a pre-installed module on a server, something like
- `/apps/jasmin/community/esmvaltool/ESMValTool_<version>/esmvaltool/recipes
-/examples/recipe_python.yml`, where `<version>` is the latest release.
+>> `/apps/jasmin/community/esmvaltool/ESMValTool_<version>
+>>/esmvaltool/recipes/examples/recipe_python.yml`, 
+>> where `<version>` is the latest release.
 > > 1. ESMValTool creates a time-stamped output directory for every run. In this
 > >    case, it should be something like `recipe_python_YYYYMMDD_HHMMSS`. This
 > >    folder is made inside the output directory specified in the previous
@@ -126,12 +128,12 @@ distinguished in the log messages:
 >
 > > ## Answer
 > >
-> > Just after 'creating tasks' and before 'executing tasks', we find the
+> > Just after all the 'creating tasks' and before 'executing tasks', we find the
 > > following line in the output:
 > >
 > > ```
-> >[190720] INFO    These tasks will be executed: map/script1, map/tas, timeseries/tas_amsterdam,
-   timeseries/script1, timeseries/tas_global
+> >[18776] INFO    These tasks will be executed: map/tas, timeseries/tas_global, 
+>>timeseries/script1, map/script1, timeseries/tas_amsterdam
 > > ```
 > >
 > > So there are three tasks related to timeseries: global temperature,
@@ -163,106 +165,115 @@ For reference, you can also view the recipe by unfolding the box below.
 > ## recipe_python.yml
 >
 > ```yaml
-> # ESMValTool
-> # recipe_python.yml
-> ---
-> documentation:
->   description: |
->     Example recipe that plots a map and timeseries of temperature.
+># ESMValTool
+># recipe_python.yml
+>#
+># See https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html
+># for a description of this recipe.
+>#
+># See https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html
+># for a description of the recipe format.
+>---
+>documentation:
+>  description: |
+>    Example recipe that plots a map and timeseries of temperature.
 >
->   title: Recipe that runs an example diagnostic written in Python.
+>  title: Recipe that runs an example diagnostic written in Python.
 >
->   authors:
->     - andela_bouwe
->     - righi_mattia
+>  authors:
+>    - andela_bouwe
+>    - righi_mattia
 >
->   maintainer:
->     - schlund_manuel
+>  maintainer:
+>    - schlund_manuel
 >
->   references:
->     - acknow_project
+>  references:
+>    - acknow_project
 >
->   projects:
->     - esmval
->     - c3s-magic
+>  projects:
+>    - esmval
+>    - c3s-magic
 >
-> datasets:
->   - {dataset: BCC-ESM1, project: CMIP6, exp: historical, ensemble: r1i1p1f1, grid: gn}
->   - {dataset: CanESM2, project: CMIP5, exp: historical, ensemble: r1i1p1}
+>datasets:
+>  - {dataset: BCC-ESM1, project: CMIP6, exp: historical, ensemble: r1i1p1f1, grid: gn}
+>  - {dataset: bcc-csm1-1, project: CMIP5, exp: historical, ensemble: r1i1p1}
 >
-> preprocessors:
+>preprocessors:
+>  # See https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html
+>  # for a description of the preprocessor functions.
 >
->   select_january:
->     extract_month:
->       month: 1
+>  to_degrees_c:
+>    convert_units:
+>      units: degrees_C
 >
->   annual_mean_amsterdam:
->     extract_point:
->       latitude: 52.379189
->       longitude: 4.899431
->       scheme: linear
->     annual_statistics:
->       operator: mean
->     multi_model_statistics:
->       statistics:
->         - mean
->       span: overlap
+>  annual_mean_amsterdam:
+>    extract_location:
+>      location: Amsterdam
+>      scheme: linear
+>    annual_statistics:
+>      operator: mean
+>    multi_model_statistics:
+>      statistics:
+>        - mean
+>      span: overlap
+>    convert_units:
+>      units: degrees_C
 >
->   annual_mean_global:
->     area_statistics:
->       operator: mean
->       fx_variables:
->         areacella:
->     annual_statistics:
->       operator: mean
+>  annual_mean_global:
+>    area_statistics:
+>      operator: mean
+>    annual_statistics:
+>      operator: mean
+>    convert_units:
+>      units: degrees_C
 >
-> diagnostics:
+>diagnostics:
 >
->   map:
->     description: Global map of temperature in January 2000.
->     themes:
->       - phys
->     realms:
->       - atmos
->     variables:
->       tas:
->         mip: Amon
->         preprocessor: select_january
->         start_year: 2000
->         end_year: 2000
->     scripts:
->       script1:
->         script: examples/diagnostic.py
->         write_netcdf: true
->         output_file_type: pdf
->         quickplot:
->           plot_type: pcolormesh
->           cmap: Reds
+>  map:
+>    description: Global map of temperature in January 2000.
+>    themes:
+>      - phys
+>    realms:
+>      - atmos
+>    variables:
+>      tas:
+>        mip: Amon
+>        preprocessor: to_degrees_c
+>        timerange: 2000/P1M
+>        caption: |
+>          Global map of {long_name} in January 2000 according to {dataset}.
+>    scripts:
+>      script1:
+>        script: examples/diagnostic.py
+>        quickplot:
+>          plot_type: pcolormesh
+>          cmap: Reds
 >
->   timeseries:
->     description: Annual mean temperature in Amsterdam and global mean since 1850.
->     themes:
->       - phys
->     realms:
->       - atmos
->     variables:
->       tas_amsterdam:
->         short_name: tas
->         mip: Amon
->         preprocessor: annual_mean_amsterdam
->         start_year: 1850
->         end_year: 2000
->       tas_global:
->         short_name: tas
->         mip: Amon
->         preprocessor: annual_mean_global
->         start_year: 1850
->         end_year: 2000
->     scripts:
->       script1:
->         script: examples/diagnostic.py
->         quickplot:
->           plot_type: plot
+>  timeseries:
+>    description: Annual mean temperature in Amsterdam and global mean since 1850.
+>    themes:
+>      - phys
+>    realms:
+>      - atmos
+>    variables:
+>      tas_amsterdam:
+>        short_name: tas
+>        mip: Amon
+>        preprocessor: annual_mean_amsterdam
+>        timerange: 1850/2000
+>        caption: Annual mean {long_name} in Amsterdam according to {dataset}.
+>      tas_global:
+>        short_name: tas
+>        mip: Amon
+>        preprocessor: annual_mean_global
+>        timerange: 1850/2000
+>        caption: Annual global mean {long_name} according to {dataset}.
+>    scripts:
+>      script1:
+>        script: examples/diagnostic.py
+>        quickplot:
+>          plot_type: plot
+>
 > ```
 >
 {: .solution}
@@ -284,14 +295,16 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > 1. What does the preprocessor called `annual_mean_global` do?
 > 1. Which script is applied for the diagnostic called `map`?
 > 1. Can you link specific lines in the recipe to the tasks that we saw before?
+> 1. How is the location of the city specified?
+> 1. How is the temporal range of the data specified?
 >
 > > ## Answers
 > >
 > >   1. The example recipe is written by Bouwe Andela and Mattia Righi.
-> >   1. Manual Schlund is listed as the maintainer of this recipe.
+> >   1. Manuel Schlund is listed as the maintainer of this recipe.
 > >   1. Two datasets are analysed:
 > >      - CMIP6 data from the model BCC-ESM1
-> >      - CMIP5 data from the model CANESM2
+> >      - CMIP5 data from the model bcc-csm1-1
 > >   1. The preprocessor `annual_mean_global` computes an area mean as well as
 > >      annual means
 > >   1. The diagnostic called `map` executes a script referred to as `script1`.
@@ -299,7 +312,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >   1. There are two diagnostics: `map` and `timeseries`. Under the diagnostic
 > >      `map` we find two tasks:
 > >      - a preprocessor task called `tas`, applying the preprocessor called
-> >        `select_january` to the variable `tas`.
+> >        `to_degrees_c` to the variable `tas`.
 > >      - a diagnostic task called `script1`, applying the script
 > >        `examples/diagnostic.py` to the preprocessed data (`map/tas`).
 > >
@@ -312,6 +325,15 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >        `examples/diagnostic.py` to the preprocessed data
 > >        (`timeseries/tas_global` and `timeseries/tas_amsterdam`).
 > >
+>>
+>>  1. The `extract_location` preprocessor is used to get data for a specific location
+>>      here. ESMValTool interpolates to the location based on the chosen scheme.
+>>      Can you tell the scheme used here? For more ways to extract areas, see the
+>>      [Area operations][preproc-area-manipulation] page.
+>>  1. The `timerange` tag is used to extract data from a specific time period here.
+>>      The start time is `01/01/2000` and the span of time to calculate means is 
+>>      `1 Month` given by `P1M`. For more options on how to specify time ranges,
+>>      see the [timerange documentation][timeranges].
 > {: .solution}
 {: .challenge}
 
@@ -335,14 +357,16 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > > ## Answer
 > >
 > > - **map/tas**: creates `/preproc/map/tas`, which contains preprocessed data
-> >   for each of the input datasets, and a file called `metadata.yml`
-> >   describing the contents of these datasets.
+> >   for each of the input datasets, a file called `metadata.yml`
+> >   describing the contents of these datasets and provenance information in the 
+>>    form of `.xml` files.
 > > - **timeseries/tas_global**: creates `/preproc/timeseries/tas_global`, which
-> >   contains preprocessed data for each of the input datasets, and
-> >   `metadata.yml`.
+> >   contains preprocessed data for each of the input datasets, a
+> >   `metadata.yml` file and provenance information in the 
+>>    form of `.xml` files.
 > > - **timeseries/tas_amsterdam**: creates `/preproc/timeseries/tas_amsterdam`,
 > >   which contains preprocessed data for each of the input datasets, plus a
-> >   combined `MultiModelMean`, and `metadata.yml`.
+> >   combined `MultiModelMean`, a `metadata.yml` file and provenance files.
 > > - **map/script1**: creates `/run/map/script1` with general information and a
 > >   log of the diagnostic script run. It also creates `/plots/map/script1` and
 > >   `/work/map/script1`, which contain output figures and output datasets,
@@ -386,55 +410,54 @@ ESMValTool.
 >
 > > ## Solution
 > >
-> > In principle, you only have to modify the latitude and longitude coordinates
+> > In principle, you only have to modify the location
 > > in the preprocessor called `annual_mean_amsterdam`. However, it is good
 > > practice to also replace all instances of `amsterdam` with the correct name
 > > of your location. Otherwise the log messages and output will be confusing.
 > > You are free to modify the names of preprocessors or diagnostics.
 > >
 > > In the `diff` file below you will see the changes we have made to the file.
-> > The top 2 lines are the filenames and the lines like `@@ -31,10 +31,10 @@`
+> > The top 2 lines are the filenames and the lines like `@@ -39,9 +39,9 @@`
 > > represent the line numbers in the original and modified file, respectively.
 > > For more info on this format, see
 > > [here](https://en.wikipedia.org/wiki/Diff#Unified_format).
 > >
 > > ```diff
-> > --- recipe_python.yml
-> > +++ recipe_python_london.yml
-> > @@ -31,10 +31,10 @@
-> >      extract_month:
-> >        month: 1
-> >
-> > -  annual_mean_amsterdam:
-> > +  annual_mean_london:
-> >      extract_point:
-> > -      latitude: 52.379189
-> > -      longitude: 4.899431
-> > +      latitude: 51.5074
-> > +      longitude: 0.1278
-> >        scheme: linear
-> >      annual_statistics:
-> >        operator: mean
-> > @@ -73,16 +73,16 @@
-> >            cmap: Reds
-> >
-> >    timeseries:
-> > -    description: Annual mean temperature in Amsterdam and global mean since 1850.
-> > +    description: Annual mean temperature in London and global mean since 1850.
-> >      themes:
-> >        - phys
-> >      realms:
-> >        - atmos
-> >      variables:
-> > -      tas_amsterdam:
-> > +      tas_london:
-> >          short_name: tas
-> >          mip: Amon
-> > -        preprocessor: annual_mean_amsterdam
-> > +        preprocessor: annual_mean_london
-> >          start_year: 1850
-> >          end_year: 2000
-> >        tas_global:
+>>--- recipe_python.yml	
+>>+++ recipe_python_london.yml	
+>>@@ -39,9 +39,9 @@
+>>     convert_units:
+>>       units: degrees_C
+>> 
+>>-  annual_mean_amsterdam:
+>>+  annual_mean_london:
+>>     extract_location:
+>>-      location: Amsterdam
+>>+      location: London
+>>       scheme: linear
+>>     annual_statistics:
+>>       operator: mean
+>>@@ -83,7 +83,7 @@
+>>           cmap: Reds
+>> 
+>>   timeseries:
+>>-    description: Annual mean temperature in Amsterdam and global mean since 1850.
+>>+    description: Annual mean temperature in London and global mean since 1850.
+>>     themes:
+>>       - phys
+>>     realms:
+>>@@ -92,9 +92,9 @@
+>>       tas_amsterdam:
+>>         short_name: tas
+>>         mip: Amon
+>>-        preprocessor: annual_mean_amsterdam
+>>+        preprocessor: annual_mean_london
+>>         timerange: 1850/2000
+>>-        caption: Annual mean {long_name} in Amsterdam according to {dataset}.
+>>+        caption: Annual mean {long_name} in London according to {dataset}.
+>>       tas_global:
+>>         short_name: tas
+>>         mip: Amon
 > > ```
 > >
 > {: .solution}

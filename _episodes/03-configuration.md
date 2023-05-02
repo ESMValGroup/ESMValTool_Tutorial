@@ -2,7 +2,7 @@
 title: "Configuration"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.6.0
+compatibility: ESMValTool v2.8.0
 
 questions:
 - What is the user configuration file and how should I use it?
@@ -153,10 +153,11 @@ download directory and by setting the option to download data as shown below.
 ```yaml
 # Directory for storing downloaded climate data
 download_dir: ~/climate_data
-offline: false
+search_esgf: always
 ```
 If you are working offline or do not want to download the data then set the 
-option above to `true`.
+option above to `never`. If you want to download data only when the necessary files 
+are missing at the usual location, you can set the option to `when_missing`.
 
 The ``rootpath`` specifies the directories where ESMValTool will look for input data.
 For each category, you can define either one path or several paths as a list. For example:

@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.6.0
+compatibility: ESMValTool v2.8.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"
@@ -123,7 +123,7 @@ For the tutorial, we will install the complete package. Thus, to install the
 ESMValTool package, run
 
 ```bash
-mamba create --name esmvaltool esmvaltool 'python=3.10'
+mamba create --name esmvaltool esmvaltool 
 ```
 
 On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
@@ -229,10 +229,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.6.0
-> > ESMValTool: 2.6.0
+> > ESMValCore: 2.8.0
+> > ESMValTool: 2.8.0
 > > ~~~
 > > {: .output}
+> Note that on HPC servers such as JASMIN, sometimes a more recent development 
+> version may be displayed for ESMValTool, for e.g. 
+> `ESMValTool: 2.9.0.dev4+g6948d5512`
 > {: .solution}
 {: .challenge}
 

@@ -241,7 +241,7 @@ You can use ESMValTool to automatically download data needed for test recipes.
 Please see the [Configuration][lesson-configuration] episode 
 or the [configuration file documentation][config-file] for more information.
 This the recommended option as it has the advantage that data is 
-stored in subdirectories, and features  such as wildcards and recording 
+stored in subdirectories, and features such as wildcards and recording 
 the version of the data will work automatically.
 
 Alternatively, you can run the following command using

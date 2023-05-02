@@ -362,7 +362,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 >>    form of `.xml` files.
 > > - **timeseries/tas_global**: creates `/preproc/timeseries/tas_global`, which
 > >   contains preprocessed data for each of the input datasets, a
-> >    `metadata.yml` file and provenance information in the 
+> >   `metadata.yml` file and provenance information in the 
 >>    form of `.xml` files.
 > > - **timeseries/tas_amsterdam**: creates `/preproc/timeseries/tas_amsterdam`,
 > >   which contains preprocessed data for each of the input datasets, plus a

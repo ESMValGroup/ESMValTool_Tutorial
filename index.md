@@ -68,7 +68,7 @@ independently.
 > - [Documentation](https://docs.esmvaltool.org)
 > - [ESMValTool home page](https://www.esmvaltool.org/)
 > - [Discussions page](https://github.com/ESMValGroup/ESMValTool/discussions)
-> - [Papers](https://www.esmvaltool.org/references.html)
+> - [Papers](https://esmvaltool.org/references/)
 > - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)
 > - [ESMValCore Source code](https://github.com/ESMValGroup/ESMValCore)
 > - [ESMValTool Citation info](https://esmvalgroup.github.io/ESMValTool_Tutorial/about/index.html)

@@ -33,8 +33,6 @@ keypoints:
 ---
 
 
-- {: .callout}
-
 > ## What is the purpose of the quickstart guide?
 >
 > - The purpose of the quickstart guide is to enable a user of ESMValTool to

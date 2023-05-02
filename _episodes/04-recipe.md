@@ -362,11 +362,11 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 >>    form of `.xml` files.
 > > - **timeseries/tas_global**: creates `/preproc/timeseries/tas_global`, which
 > >   contains preprocessed data for each of the input datasets, a
-> >   `metadata.yml` file and provenance information in the 
+> >    `metadata.yml` file and provenance information in the 
 >>    form of `.xml` files.
 > > - **timeseries/tas_amsterdam**: creates `/preproc/timeseries/tas_amsterdam`,
 > >   which contains preprocessed data for each of the input datasets, plus a
-> >   combined `MultiModelMean`, a`metadata.yml` file and provenance files.
+> >   combined `MultiModelMean`, a `metadata.yml` file and provenance files.
 > > - **map/script1**: creates `/run/map/script1` with general information and a
 > >   log of the diagnostic script run. It also creates `/plots/map/script1` and
 > >   `/work/map/script1`, which contain output figures and output datasets,

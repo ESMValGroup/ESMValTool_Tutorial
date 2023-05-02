@@ -229,10 +229,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.6.0
-> > ESMValTool: 2.6.0
+> > ESMValCore: 2.8.0
+> > ESMValTool: 2.8.0
 > > ~~~
 > > {: .output}
+> Note that on HPC servers such as JASMIN, sometimes a more recent development 
+> version may be displayed for ESMValTool, for e.g. 
+> `ESMValTool: 2.9.0.dev4+g6948d5512`
 > {: .solution}
 {: .challenge}
 

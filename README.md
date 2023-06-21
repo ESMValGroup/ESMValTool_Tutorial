@@ -41,7 +41,7 @@ To cite this tutorial, please use the information available at
 
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
-[tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
-[tutorial-site]: https://esmvalgroup.github.io/ESMValTool_Tutorial
+[tutorial-repo]: https://tutorial.esmvaltool.org/
+[tutorial-site]: https://tutorial.esmvaltool.org/
 [user-engagement]: https://github.com/orgs/ESMValGroup/teams/userengagementteam
 [contact-info]: https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list

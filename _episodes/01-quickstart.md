@@ -24,7 +24,7 @@ keypoints:
   to run ESMValTool as quickly as possible without having to go through the  
   whole tutorial"
 - "Use the `module load` command to load the ESMValTool environment, 
-  see the [Installation](https://esmvalgroup.github.io/ESMValTool_Tutorial/02-installation/index.html)
+  see the [Installation][lesson-installation]
   episode for more details and use `esmvaltool --help` to check the ESMValTool 
   environment"
 - "Use `esmvaltool config get_config_user` to create the ESMValTool user 

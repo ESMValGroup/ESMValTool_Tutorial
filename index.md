@@ -71,7 +71,7 @@ independently.
 > - [Papers](https://esmvaltool.org/references/)
 > - [ESMValTool Source code](https://github.com/ESMValGroup/ESMValTool)
 > - [ESMValCore Source code](https://github.com/ESMValGroup/ESMValCore)
-> - [ESMValTool Citation info](https://esmvalgroup.github.io/ESMValTool_Tutorial/about/index.html)
+> - [ESMValTool Citation info](https://tutorial.esmvaltool.org/about/index.html)
 >
 {: .callout}
 

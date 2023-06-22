@@ -171,8 +171,8 @@ Please see [information][contact-info] on how to subscribe to user mailing list.
 
 [ESMValTool-site]: https://www.esmvaltool.org/
 [ESMValTool-doc]: https://esmvaltool.readthedocs.io/en/latest/
-[tutorial-repo]: https://esmvalgroup.github.io/ESMValTool_Tutorial/
-[tutorial-site]: https://esmvalgroup.github.io/ESMValTool_Tutorial
+[tutorial-repo]: https://tutorial.esmvaltool.org/
+[tutorial-site]: https://tutorial.esmvaltool.org/
 [tutorial-maintainers]: https://github.com/ESMValGroup/ESMValTool_Tutorial#maintainers
 [github]: https://github.com
 [issues]: https://github.com/ESMValGroup/ESMValTool_Tutorial/issues

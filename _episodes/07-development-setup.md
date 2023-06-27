@@ -186,7 +186,6 @@ If the installation is successful, ESMValTool prints a help message to the conso
 >> esmvaltool                2.10.0.dev3+g2dbc2cfcc    pypi_0   pypi
 >>~~~
 >>
->> As can be seen, it is mentioned ``pypi`` under the ``Channel`` for ``develop`` mode.
 > {: .solution}
 {: .challenge}
 
@@ -201,10 +200,8 @@ with changes from the ``main`` branch.
 ## Contribution
 
 We have seen how to install ESMValTool in a ``develop`` mode.
-Now, we try to contribute to its development. Let's see how we can achieve this.
-
-### Review process
-
+Now, we try to contribute to its development.
+Let's see how we this can be achieved.
 We first discuss our ideas in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
 This can avoid disappointment at a later stage, for example,
@@ -213,11 +210,22 @@ It also gives other people an early opportunity to provide input and suggestions
 which results in more valuable contributions.
 
 Then, we create a new ``branch`` locally and start developing new codes.
-Once our development is finished, we can initiate a ``pull request``.
-For a full description of the GitHub workflow, please see ESMValTool documentation on
-[GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
+To create a new branch:
+~~~bash
+git checkout -b your_branch_name
+~~~
 
-The pull request will be tested, discussed and merged. This is called "**review process**".
+Once our development is finished, we can initiate a ``pull request``.
+To this end, we encourage you to join the ESMValTool development team.
+
+For more extensive documentation on contributing code, 
+including a section on the 
+[GitHubWorkflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow),
+please see the [Contributing code and documentation](https://docs.esmvaltool.org/en/latest/community/code_documentation.html) section in the ESMValtool documentation.
+
+### Review process
+
+The pull request will be tested, discussed and merged as part of the "**review process**".
 The process will take some effort and time to learn.
 However, a few (command line) tools can get you a long way,
 and we’ll cover those essentials in the next sections.
@@ -225,9 +233,9 @@ and we’ll cover those essentials in the next sections.
 **Tip**: we encourage you to keep the pull requests small.
 Reviewing small incremental changes are more efficient.
 
-### Background
+### Working example
 
-We saw 'warming stripes' in lesson
+We saw the 'warming stripes' diagnostic in lesson
 [Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 Imagine the following task: you want to contribute warming stripes recipe and diagnostics
 to ESMValTool. You have to add the diagnostics
@@ -237,7 +245,9 @@ to their locations in ESMValTool directory.
 After these changes, you should also check if everthing works fine.
 This is where we take advantage of the tools that are introduced later.
 
-Let’s get started.
+Let’s get started. Note that since this is an exercise to get familiar with the 
+development and contribution process, we will not create a GitHub issue at this time 
+but proceed as though it has been done.
 
 ### Check code quality
 
@@ -266,7 +276,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 > ~~~bash
 > cd ESMValTool
-> git checkout your_branch_name
+> git checkout -b your_branch_name
 > cp path_of_warming_stripes.py esmvaltool/diag_scripts/
 > ~~~
 >
@@ -282,7 +292,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 >> ## Solution
 >>
->> The output of  ``pre-commit``:
+>> The tail of the output of  ``pre-commit``:
 >>
 >> ~~~ bash
 >> Check for added large files..............................................Passed
@@ -314,17 +324,25 @@ To explore other tools, have a look at ESMValTool documentation on
 >>
 >> 1. ``docformatter``: it is mentioned that "files were modified by this hook".
 >> We run ``git diff`` to see the modifications.
->> The syntax ``"""`` at the end of docstring is moved by one line.
+>> The output includes the following:
+>> ~~~bash
+>> +in the form of the popular warming stripes figure by Ed Hawkins."""
+>> ~~~
+>> 
+>> The syntax ``"""`` at the end of docstring is moved by one line. 
+Shifting it to the next line should fix this error.
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
 >> We should check our codes regarding the usage of ``nx``.
 >> For now, let's assume that it is added by mistake and remove it.
+>> Note that you have to run `git add` again to re-stage the file.
+>> Then rerun pre-commit and check that it passes.
 > {: .solution}
 {: .challenge}
 
 ### Run unit tests
 
 Previous section introduced some tools to check code style and quality.
-What it hasn’t done is show us how to tell whether our code is getting the right answer.
+What it has not done is show us how to tell whether our code is getting the right answer.
 To achieve that, we need to write and run tests for widely-used functions.
 ESMValTool comes with a lot of tests that are in the folder ``tests``.
 
@@ -340,7 +358,7 @@ when you submit a pull request.
 
 > ## Running tests
 >
-> Let's checkout our local branch and add the recipe
+> Make sure our local branch is checked out and add the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
 > to the the ``esmvaltool/recipes`` directory:
 >
@@ -348,7 +366,8 @@ when you submit a pull request.
 > cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/
 > ~~~
 >
-> Run ``pytest`` and inspect the results. If a test is failed, try to fix it.
+> Run ``pytest`` and inspect the results, this might take a few minutes.
+> If a test is failed, try to fix it.
 >
 >> ## Solution
 >>
@@ -403,7 +422,7 @@ To build documentation locally, first we make sure that the working directory is
 and our local branch is checked out. Then, we run:
 
 ~~~bash
-python setup.py build_sphinx -Ea
+sphinx-build -Ea doc/sphinx/source/ doc/sphinx/build/
 ~~~
 
 Similar to code, documentation should be well written and adhere to standards.
@@ -412,12 +431,12 @@ If the documentation is built properly, the previous command prints a message to
 ~~~
 build succeeded.
 
-The HTML pages are in doc/sphinx/build/html.
+The HTML pages are in doc/sphinx/build.
 ~~~
 {: .output}
 
 The main page of the documentation has been built into ``index.html``
-in ``doc/sphinx/build/html`` directory.
+in ``doc/sphinx/build/`` directory.
 To preview this page locally, we open the file in a web browser:
 
 ~~~bash
@@ -474,7 +493,7 @@ xdg-open doc/sphinx/build/html/index.html
 >> Then, we build and preview the documentation page:
 >>
 >> ~~~bash
->> python setup.py build_sphinx -Ea
+>> sphinx-build -Ea doc/sphinx/source/ doc/sphinx/build/
 >> xdg-open doc/sphinx/build/html/recipes/recipe_warming_stripes.html
 >> ~~~
 >>

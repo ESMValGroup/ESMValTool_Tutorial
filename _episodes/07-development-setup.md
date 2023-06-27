@@ -57,8 +57,8 @@ The ESMValTool source code is available on a public GitHub repository:
 To obtain the code, there are two options:
 
 1. download the code from the repository. A ZIP file called
-   ``ESMValTool-master.zip`` is downloaded. To continue the installation, unzip
-   the file, move to the ``ESMValTool-master`` directory and then follow the
+   ``ESMValTool-main.zip`` is downloaded. To continue the installation, unzip
+   the file, move to the ``ESMValTool-main`` directory and then follow the
    sequence of steps starting from **2 ESMValTool dependencies**.
 2. clone the repository if you want to contribute to the ESMValTool development:
 
@@ -91,7 +91,7 @@ To continue the installation, we move into the ``ESMValTool`` directory:
 cd ESMValTool
 ~~~
 
-Note that the ``master`` branch is checked out by default.
+Note that the ``main`` branch is checked out by default.
 We can see this if we run:
 
 ~~~bash
@@ -99,8 +99,8 @@ git status
 ~~~
 
 ~~~
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ~~~
@@ -180,11 +180,11 @@ If the installation is successful, ESMValTool prints a help message to the conso
 
 ### 4 Updating ESMValTool
 
-The ``master`` branch has the latest features of ESMValTool. Please make sure
+The ``main`` branch has the latest features of ESMValTool. Please make sure
 that the source code on your machine is up-to-date. If you obtain the source
 code using git clone as explained in step **1 Source code**, you can run ``git pull``
 to update the source code. Then ESMValTool installation will be updated
-with changes from the ``master`` branch.
+with changes from the ``main`` branch.
 
 ## Contribution
 

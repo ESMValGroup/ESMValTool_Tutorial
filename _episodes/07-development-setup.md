@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.5.0
+compatibility: ESMValTool v2.9.0
 
 questions:
 - "What is a development installation?"
@@ -56,11 +56,12 @@ The ESMValTool source code is available on a public GitHub repository:
 [https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool).
 To obtain the code, there are two options:
 
-1. download the code from the repository. A ZIP file called
+1. Download the code from the repository. A ZIP file called
    ``ESMValTool-main.zip`` is downloaded. To continue the installation, unzip
    the file, move to the ``ESMValTool-main`` directory and then follow the
-   sequence of steps starting from **2 ESMValTool dependencies**.
-2. clone the repository if you want to contribute to the ESMValTool development:
+   sequence of steps starting from the section on
+   **ESMValTool dependencies** below.
+2. Clone the repository if you want to contribute to the ESMValTool development:
 
 ~~~bash
 git clone https://github.com/ESMValGroup/ESMValTool.git
@@ -108,14 +109,23 @@ nothing to commit, working tree clean
 
 ### 2 ESMValTool dependencies
 
+ESMValTool now uses `mamba` instead of `conda` for the recommended installation.
 It is recommended to use conda to manage ESMValTool dependencies. For a minimal
-conda installation, see section **Install Conda** in lesson
+mamba installation, see section **Install Mamba** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
+
+It is good practice to update the version of mamba on your machine before setting up 
+ESMValTool. This can be done as follows:
+
+~~~bash
+mamba update --name base  mamba
+~~~
+
 To simplify the installation process, an environment file ``environment.yml`` is
 provided in the ESMValTool directory. We create an environment by running:
 
 ~~~bash
-conda env create --file environment.yml
+mamba env create --name esmvaltool --file environment.yml
 ~~~
 
 The environment is called ``esmvaltool`` by default.
@@ -124,8 +134,10 @@ If an ``esmvaltool`` environment is already created following the lesson
 we should choose another name for the new environment in this lesson by:
 
 ~~~bash
-conda env create -n a_new_name --file environment.yml
+mamba env create --name a_new_name --file environment.yml
 ~~~
+This will create a new conda environment and install ESMValTool into it with a 
+single command.
 
 For more information see [conda managing environments][manage-environments].
 Now, we should activate the environment:

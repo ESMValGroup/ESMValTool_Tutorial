@@ -166,7 +166,7 @@ If the installation is successful, ESMValTool prints a help message to the conso
 
 > ## Checking the development installation
 >
-> We can use the command ``conda list`` to list installed packages in
+> We can use the command ``mamba list`` to list installed packages in
 > the ``esmvaltool`` environment.
 > Use this command to check that ESMValTool is installed in a ``develop`` mode.
 >
@@ -178,15 +178,15 @@ If the installation is successful, ESMValTool prints a help message to the conso
 >> Run:
 >>
 >> ~~~bash
->> conda list esmvaltool
+>> mamba list esmvaltool
 >>~~~
 >>
 >> ~~~bash
 >> # Name                    Version                   Build  Channel
->> esmvaltool                2.1.1                     dev_0    <develop>
+>> esmvaltool                2.10.0.dev3+g2dbc2cfcc    pypi_0   pypi
 >>~~~
 >>
->> As can be seen, it is mentioned ``<develop>`` under the ``Channel``.
+>> As can be seen, it is mentioned ``pypi`` under the ``Channel`` for ``develop`` mode.
 > {: .solution}
 {: .challenge}
 

@@ -2,7 +2,7 @@
 title: "Writing your own diagnostic script"
 teaching: 20
 exercises: 30
-compatibility: ESMValTool v2.7.0
+compatibility: ESMValTool v2.9.0
 
 questions:
 - "How do I write a new diagnostic in ESMValTool?"
@@ -90,92 +90,92 @@ There are four main sections in the script:
 > 20:
 > 21:  def get_provenance_record(attributes, ancestor_files):
 > 22:      """Create a provenance record describing the diagnostic data and plot."""
-> 23:      caption = ("Average {long_name} between {start_year} and {end_year} "
-> 24:                 "according to {dataset}.".format(**attributes))
-> 25:
-> 26:      record = {
-> 27:          'caption': caption,
-> 28:          'statistics': ['mean'],
-> 29:          'domains': ['global'],
-> 30:          'plot_types': ['zonal'],
-> 31:          'authors': [
-> 32:              'andela_bouwe',
-> 33:              'righi_mattia',
-> 34:          ],
-> 35:          'references': [
-> 36:              'acknow_project',
-> 37:          ],
-> 38:          'ancestors': ancestor_files,
-> 39:      }
-> 40:      return record
+> 23:      caption = caption = attributes['caption'].format(**attributes)
+> 24:
+> 25:      record = {
+> 26:          'caption': caption,
+> 27:          'statistics': ['mean'],
+> 28:          'domains': ['global'],
+> 29:          'plot_types': ['zonal'],
+> 30:          'authors': [
+> 31:              'andela_bouwe',
+> 32:              'righi_mattia',
+> 33:          ],
+> 34:          'references': [
+> 35:              'acknow_project',
+> 36:          ],
+> 37:          'ancestors': ancestor_files,
+> 38:      }
+> 39:      return record
+> 40:
 > 41:
-> 42:
-> 43:  def compute_diagnostic(filename):
-> 44:      """Compute an example diagnostic."""
-> 45:      logger.debug("Loading %s", filename)
-> 46:      cube = iris.load_cube(filename)
-> 47:
-> 48:      logger.debug("Running example computation")
-> 49:      cube = iris.util.squeeze(cube)
-> 50:      return cube
+> 42:  def compute_diagnostic(filename):
+> 43:      """Compute an example diagnostic."""
+> 44:      logger.debug("Loading %s", filename)
+> 45:      cube = iris.load_cube(filename)
+> 46:
+> 47:      logger.debug("Running example computation")
+> 48:      cube = iris.util.squeeze(cube)
+> 49:      return cube
+> 50:
 > 51:
-> 52:
-> 53:  def plot_diagnostic(cube, basename, provenance_record, cfg):
-> 54:      """Create diagnostic data and plot it."""
-> 55:
-> 56:      # Save the data used for the plot
-> 57:      save_data(basename, provenance_record, cfg, cube)
-> 58:
-> 59:      if cfg.get('quickplot'):
-> 60:          # Create the plot
-> 61:          quickplot(cube, **cfg['quickplot'])
-> 62:          # And save the plot
-> 63:          save_figure(basename, provenance_record, cfg)
+> 52:  def plot_diagnostic(cube, basename, provenance_record, cfg):
+> 53:      """Create diagnostic data and plot it."""
+> 54:
+> 55:      # Save the data used for the plot
+> 56:      save_data(basename, provenance_record, cfg, cube)
+> 57:
+> 58:      if cfg.get('quickplot'):
+> 59:          # Create the plot
+> 60:          quickplot(cube, **cfg['quickplot'])
+> 61:          # And save the plot
+> 62:          save_figure(basename, provenance_record, cfg)
+> 63:
 > 64:
-> 65:
-> 66:  def main(cfg):
-> 67:      """Compute the time average for each input dataset."""
-> 68:      # Get a description of the preprocessed data that we will use as input.
-> 69:      input_data = cfg['input_data'].values()
-> 70:
-> 71:      # Demonstrate use of metadata access convenience functions.
-> 72:      selection = select_metadata(input_data, short_name='tas', project='CMIP5')
-> 73:      logger.info("Example of how to select only CMIP5 temperature data:\n%s",
-> 74:                  pformat(selection))
-> 75:
-> 76:      selection = sorted_metadata(selection, sort='dataset')
-> 77:      logger.info("Example of how to sort this selection by dataset:\n%s",
-> 78:                  pformat(selection))
-> 79:
-> 80:      grouped_input_data = group_metadata(input_data,
-> 81:                                          'variable_group',
-> 82:                                          sort='dataset')
-> 83:      logger.info(
-> 84:          "Example of how to group and sort input data by variable groups from "
-> 85:          "the recipe:\n%s", pformat(grouped_input_data))
-> 86:
-> 87:      # Example of how to loop over variables/datasets in alphabetical order
-> 88:      groups = group_metadata(input_data, 'variable_group', sort='dataset')
-> 89:      for group_name in groups:
-> 90:          logger.info("Processing variable %s", group_name)
-> 91:          for attributes in groups[group_name]:
-> 92:              logger.info("Processing dataset %s", attributes['dataset'])
-> 93:              input_file = attributes['filename']
-> 94:              cube = compute_diagnostic(input_file)
-> 95:
-> 96:              output_basename = Path(input_file).stem
-> 97:              if group_name != attributes['short_name']:
-> 98:                  output_basename = group_name + '_' + output_basename
-> 99:              provenance_record = get_provenance_record(
->100:                  attributes, ancestor_files=[input_file])
->101:              plot_diagnostic(cube, output_basename, provenance_record, cfg)
->102:
+> 65:  def main(cfg):
+> 66:      """Compute the time average for each input dataset."""
+> 67:      # Get a description of the preprocessed data that we will use as input.
+> 68:      input_data = cfg['input_data'].values()
+> 69:
+> 70:      # Demonstrate use of metadata access convenience functions.
+> 71:      selection = select_metadata(input_data, short_name='tas', project='CMIP5')
+> 72:      logger.info("Example of how to select only CMIP5 temperature data:\n%s",
+> 73:                  pformat(selection))
+> 74:
+> 75:      selection = sorted_metadata(selection, sort='dataset')
+> 76:      logger.info("Example of how to sort this selection by dataset:\n%s",
+> 77:                  pformat(selection))
+> 78:
+> 79:      grouped_input_data = group_metadata(input_data,
+> 80:                                          'variable_group',
+> 81:                                          sort='dataset')
+> 82:      logger.info(
+> 83:          "Example of how to group and sort input data by variable groups from "
+> 84:          "the recipe:\n%s", pformat(grouped_input_data))
+> 85:
+> 86:      # Example of how to loop over variables/datasets in alphabetical order
+> 87:      groups = group_metadata(input_data, 'variable_group', sort='dataset')
+> 88:      for group_name in groups:
+> 89:          logger.info("Processing variable %s", group_name)
+> 90:          for attributes in groups[group_name]:
+> 91:              logger.info("Processing dataset %s", attributes['dataset'])
+> 92:              input_file = attributes['filename']
+> 93:              cube = compute_diagnostic(input_file)
+> 94:
+> 95:              output_basename = Path(input_file).stem
+> 96:              if group_name != attributes['short_name']:
+> 97:                  output_basename = group_name + '_' + output_basename
+> 98:              if "caption" not in attributes:
+> 99:                  attributes['caption'] = input_file
+>100:              provenance_record = get_provenance_record(
+>101:                  attributes, ancestor_files=[input_file])
+>102:              plot_diagnostic(cube, output_basename, provenance_record, cfg)
 >103:
->104:  if __name__ == '__main__':
->105:
->106:      with run_diagnostic() as config:
->107:          main(config)
->108:
+>104:
+>105:  if __name__ == '__main__':
+>106:
+>107:      with run_diagnostic() as config:
+>108:          main(config)
 >~~~
 >
 {:.solution}

@@ -220,7 +220,8 @@ To this end, we encourage you to join the ESMValTool development team.
 
 For more extensive documentation on contributing code, including a section on the 
 [GitHubWorkflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow),
-please see the [Contributing code and documentation](https://docs.esmvaltool.org/en/latest/community/code_documentation.html)
+please see the 
+[Contributing code and documentation](https://docs.esmvaltool.org/en/latest/community/code_documentation.html)
 section in the ESMValtool documentation.
 
 ### Review process

@@ -22,7 +22,7 @@ keypoints:
 
 ## Introduction
 
-One of the key strenghts of ESMValTool is in making complex analyses reusable
+One of the key strengths of ESMValTool is in making complex analyses reusable
 and reproducible. But that doesn't mean everything in ESMValTool needs to be
 complex. Sometimes, the biggest challenge is in keeping things simple. You
 probably know the 'warming stripes' visualization by Professor Ed Hawkins. On
@@ -38,14 +38,14 @@ ESMValTool. We have prepared a small Python script that takes a NetCDF file with
 timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
-You can find the diagnostic script that we will use 
-[here (`warming_stripes.py`)](../files/warming_stripes.py).
+The diagnostic script that we will use is called `warming_stripes.py` and
+can be downloaded [here](../files/warming_stripes.py).
 
 Download the file and store it in your working directory. If you want, you may
 also have a look at the contents, but it is not necessary to follow along.
 
 We will write an ESMValTool recipe that takes some data, performs the necessary
-preprocessing, and then runs our Python script.
+preprocessing, and then runs this Python script.
 
 > ## Drawing up a plan
 >
@@ -55,7 +55,7 @@ preprocessing, and then runs our Python script.
 >
 > > ## Answer
 > >
-> > In this episode, we will need to do 2 tasks:
+> > In this episode, we will need to do the following two tasks:
 > >
 > > - A preprocessing task that converts the gridded temperature data to a timeseries
 > >   of global temperature anomalies
@@ -73,17 +73,18 @@ start from scratch. This forces us to think about all the steps. We will deal
 with common errors as they occur throughout the development.
 
 Remember the basic structure of a recipe, and notice that each of them is
-extensively described in the documentation under the header ["The recipe
-format"](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html):
+extensively described in the documentation under the header
+ ["The recipe
+format"](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html){:target="_blank"}:
 
 - [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-documentation)
+recipe/overview.html#recipe-section-documentation){:target="_blank"}
 - [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/
-overview.html#recipe-section-datasets)
+overview.html#recipe-section-datasets){:target="_blank"}
 - [preprocessors](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-preprocessors)
+recipe/overview.html#recipe-section-preprocessors){:target="_blank"}
 - [diagnostics](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-diagnostics)
+recipe/overview.html#recipe-section-diagnostics){:target="_blank"}
 
 This is the first place to look for help if you get stuck.
 
@@ -201,8 +202,8 @@ Although there is no actual error in the recipe, ESMValTool assumes you mistaken
 left out a variable name to process and alerts you with this error message.
 ## Adding a dataset entry
 
-Let's add a datasets section. We will reuse the same datasets that we used in
-previous episodes. 
+Let's add a datasets section.
+
 
 > ## Filling in the dataset keys
 >
@@ -210,7 +211,7 @@ previous episodes.
 > and look at the explanation of the dataset entry
 > in the [ESMValTool
 > documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-documentation).
+recipe/overview.html#recipe-section-documentation){:target="_blank"}.
 > For both the datasets, write down the following properties:
 >
 > - project
@@ -229,7 +230,7 @@ recipe/overview.html#recipe-section-documentation).
 > > | project | CMIP6 | CMIP5 |
 > > | short name | tas | tas |
 > > | CMIP table | Amon | Amon |
-> > | dataset | BCC-ESM1 | CanESM2 |
+> > | dataset | BCC-ESM1 | bcc-csm1-1|
 > > | experiment | historical | historical |
 > > | ensemble | r1i1p1f1 | r1i1p1 |
 > > | grid | gn (native grid) | N/A |
@@ -249,9 +250,23 @@ of the `diagnostic` section in the recipe example seen in
 [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 ```yaml
+# ESMValTool
+# recipe_warming_stripes.yml
+---
+documentation:
+  description: Reproducing Ed Hawkins' warming stripes visualization
+  title: Reproducing Ed Hawkins' warming stripes visualization.
+
+  authors:
+    - doe_john
 datasets:
   - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
      ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+
+diagnostics:
+  dummy_diagnostic_1:
+    scripts: null
+
 ```
 
 The recipe should run but produce the same message as in the previous case since we

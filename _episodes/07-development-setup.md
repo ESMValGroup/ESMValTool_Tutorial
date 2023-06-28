@@ -242,7 +242,7 @@ to ESMValTool. You have to add the diagnostics
 [warming_stripes.py](../files/warming_stripes.py) and the recipe
 [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
 to their locations in ESMValTool directory.
-After these changes, you should also check if everthing works fine.
+After these changes, you should also check if everything works fine.
 This is where we take advantage of the tools that are introduced later.
 
 Let’s get started. Note that since this is an exercise to get familiar with the 
@@ -360,7 +360,7 @@ when you submit a pull request.
 >
 > Make sure our local branch is checked out and add the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
-> to the the ``esmvaltool/recipes`` directory:
+> to the ``esmvaltool/recipes`` directory:
 >
 > ~~~bash
 > cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/
@@ -443,7 +443,7 @@ To preview this page locally, we open the file in a web browser:
 xdg-open doc/sphinx/build/html/index.html
 ~~~
 
-> ## Creating a documenation
+> ## Creating a documentation
 >
 > In previous exercises, we added the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml) to ESMValTool.

@@ -400,7 +400,9 @@ def compute_diagnostic(filename):
 >>    return dataset
 >>~~~
 >>
->> Caution: If you read data using xarray keep in mind to change accordingly the other functions which are dealing now with Iris cubes.
+>> Caution: If you read data using xarray keep in mind to change accordingly
+>> the other functions in the diagnostic which are dealing at the moment with
+>> Iris cubes.
 >>
 > {: .solution}
 {: .challenge}
@@ -431,7 +433,9 @@ def compute_diagnostic(filename):
 >>    return nc_data
 >>~~~
 >>
->> Caution: If you read data using netCDF4 keep in mind to change accordingly the other functions which are dealing now with Iris cubes.
+>> Caution: If you read data using netCDF4 keep in mind to change accordingly
+>> the other functions in the diagnostic which are dealing at the moment with
+>> Iris cubes.
 >>
 > {: .solution}
 {: .challenge}

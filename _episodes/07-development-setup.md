@@ -218,10 +218,10 @@ git checkout -b your_branch_name
 Once our development is finished, we can initiate a ``pull request``.
 To this end, we encourage you to join the ESMValTool development team.
 
-For more extensive documentation on contributing code, 
-including a section on the 
+For more extensive documentation on contributing code, including a section on the 
 [GitHubWorkflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow),
-please see the [Contributing code and documentation](https://docs.esmvaltool.org/en/latest/community/code_documentation.html) section in the ESMValtool documentation.
+please see the [Contributing code and documentation](https://docs.esmvaltool.org/en/latest/community/code_documentation.html)
+section in the ESMValtool documentation.
 
 ### Review process
 

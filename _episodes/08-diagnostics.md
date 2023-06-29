@@ -362,7 +362,7 @@ def compute_diagnostic(filename):
     cube = iris.util.squeeze(cube)
 
     # Calculate a bias using the average of data
-    cube.data = cube.core_data() - cube.data.mean()
+    cube.data = cube.core_data() - cube.core_data.mean()
     return cube
 ~~~
 

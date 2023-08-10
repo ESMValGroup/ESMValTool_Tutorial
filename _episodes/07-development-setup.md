@@ -70,8 +70,10 @@ git clone https://github.com/ESMValGroup/ESMValTool.git
 This command will ask your GitHub username and a personal **token** as password.
 Please follow instructions on
 [GitHub token authentication requirements][token-authentication-requirements]
-to create a personal access token. After the authentication,
-the output might look like:
+to create a personal access token.
+Alternatively, you could [generate a new SSH key][generate-ssh-key] and
+[add it to your GitHub account][add-ssh-key].
+After the authentication, the output might look like:
 
 ~~~
 Cloning into 'ESMValTool'...

@@ -1,5 +1,6 @@
 {% include base_path.html %}
 [activate-environment]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#pre-installed-versions-on-hpc-clusters-other-servers
+[add-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
@@ -17,6 +18,7 @@
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/diag_scripts/examples/diagnostic.py
 [ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
 [email]: mailto:team@carpentries.org
+[generate-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
 [install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source

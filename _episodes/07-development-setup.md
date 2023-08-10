@@ -443,7 +443,7 @@ in ``doc/sphinx/build/`` directory.
 To preview this page locally, we open the file in a web browser:
 
 ~~~bash
-xdg-open doc/sphinx/build/html/index.html
+xdg-open doc/sphinx/build/index.html
 ~~~
 
 > ## Creating a documentation
@@ -469,6 +469,8 @@ xdg-open doc/sphinx/build/html/index.html
 > ```
 >
 > Save and close the file. We can think of this file as one page of a book.
+> Examples of documentation pages can be found in the folder
+> ``ESMValTool/doc/sphinx/source/recipes``.
 > Then, we need to decide where this page should be located inside the book.
 > The table of content is defined by ``index.rst``. Let's have a look at the content:
 >
@@ -497,7 +499,7 @@ xdg-open doc/sphinx/build/html/index.html
 >>
 >> ~~~bash
 >> sphinx-build -Ea doc/sphinx/source/ doc/sphinx/build/
->> xdg-open doc/sphinx/build/html/recipes/recipe_warming_stripes.html
+>> xdg-open doc/sphinx/build/recipes/recipe_warming_stripes.html
 >> ~~~
 >>
 > {: .solution}

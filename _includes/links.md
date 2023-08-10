@@ -7,6 +7,7 @@
 [cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[code-documentation]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [config-file]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html
 [contrib-covenant]: https://contributor-covenant.org/

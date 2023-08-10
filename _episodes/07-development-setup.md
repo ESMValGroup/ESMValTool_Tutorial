@@ -114,11 +114,11 @@ It is recommended to use conda to manage ESMValTool dependencies. For a minimal
 mamba installation, see section **Install Mamba** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 
-It is good practice to update the version of mamba on your machine before setting up 
-ESMValTool. This can be done as follows:
+It is good practice to update the version of mamba and conda on your machine before
+setting up ESMValTool. This can be done as follows:
 
 ~~~bash
-mamba update --name base  mamba
+mamba update --name base mamba conda
 ~~~
 
 To simplify the installation process, an environment file ``environment.yml`` is

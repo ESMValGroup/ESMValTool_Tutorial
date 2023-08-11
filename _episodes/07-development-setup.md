@@ -112,8 +112,7 @@ nothing to commit, working tree clean
 ### 2 ESMValTool dependencies
 
 ESMValTool now uses `mamba` instead of `conda` for the recommended installation.
-It is recommended to use conda to manage ESMValTool dependencies. For a minimal
-mamba installation, see section **Install Mamba** in lesson
+For a minimal mamba installation, see section **Install Mamba** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 
 It is good practice to update the version of mamba and conda on your machine before
@@ -202,8 +201,7 @@ with changes from the ``main`` branch.
 ## Contribution
 
 We have seen how to install ESMValTool in a ``develop`` mode.
-Now, we try to contribute to its development.
-Let's see how we this can be achieved.
+Now, we try to contribute to its development. Let's see how we this can be achieved.
 We first discuss our ideas in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
 This can avoid disappointment at a later stage, for example,

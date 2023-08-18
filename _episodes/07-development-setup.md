@@ -137,8 +137,8 @@ we should choose another name for the new environment in this lesson by:
 ~~~bash
 mamba env create --name a_new_name --file environment.yml
 ~~~
-This will create a new conda environment and install ESMValTool (with all dependencies that are needed for development purposes) into it with a 
-single command.
+This will create a new conda environment and install ESMValTool (with all
+dependencies that are needed for development purposes) into it with a single command.
 
 For more information see [conda managing environments][manage-environments].
 

@@ -141,11 +141,14 @@ This will create a new conda environment and install ESMValTool into it with a
 single command.
 
 For more information see [conda managing environments][manage-environments].
+
 Now, we should activate the environment:
 
 ~~~bash
 conda activate esmvaltool
 ~~~
+where ``esmvaltool`` is the name of the environment (replace by ``a_new_name``
+in case another environment name was used).
 
 ### 3 ESMValTool installation
 
@@ -331,7 +334,8 @@ To explore other tools, have a look at ESMValTool documentation on
 >> ~~~
 >> 
 >> The syntax ``"""`` at the end of docstring is moved by one line. 
-Shifting it to the next line should fix this error.
+>> Shifting it to the next line should fix this error.
+>> 
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
 >> We should check our codes regarding the usage of ``nx``.
 >> For now, let's assume that it is added by mistake and remove it.

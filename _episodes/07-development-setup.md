@@ -333,7 +333,6 @@ To explore other tools, have a look at ESMValTool documentation on
 >> ~~~bash
 >> +in the form of the popular warming stripes figure by Ed Hawkins."""
 >> ~~~
->> 
 >> The syntax ``"""`` at the end of docstring is moved by one line. 
 >> Shifting it to the next line should fix this error.
 >> 

@@ -217,6 +217,7 @@ To create a new branch:
 ~~~bash
 git checkout -b your_branch_name
 ~~~
+If needed, a link to a git tutorial can be found in [Setup]({{ page.root }}{% link setup.md %}). 
 
 Once our development is finished, we can initiate a ``pull request``.
 To this end, we encourage you to join the ESMValTool development team.
@@ -280,7 +281,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 > ~~~bash
 > cd ESMValTool
-> git checkout -b your_branch_name
+> git checkout your_branch_name
 > cp path_of_warming_stripes.py esmvaltool/diag_scripts/
 > ~~~
 >

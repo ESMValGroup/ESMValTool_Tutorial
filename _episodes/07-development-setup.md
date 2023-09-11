@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.5.0
+compatibility: ESMValTool v2.9.0
 
 questions:
 - "What is a development installation?"
@@ -56,11 +56,12 @@ The ESMValTool source code is available on a public GitHub repository:
 [https://github.com/ESMValGroup/ESMValTool](https://github.com/ESMValGroup/ESMValTool).
 To obtain the code, there are two options:
 
-1. download the code from the repository. A ZIP file called
-   ``ESMValTool-master.zip`` is downloaded. To continue the installation, unzip
-   the file, move to the ``ESMValTool-master`` directory and then follow the
-   sequence of steps starting from **2 ESMValTool dependencies**.
-2. clone the repository if you want to contribute to the ESMValTool development:
+1. Download the code from the repository. A ZIP file called
+   ``ESMValTool-main.zip`` is downloaded. To continue the installation, unzip
+   the file, move to the ``ESMValTool-main`` directory and then follow the
+   sequence of steps starting from the section on
+   **ESMValTool dependencies** below.
+2. Clone the repository if you want to contribute to the ESMValTool development:
 
 ~~~bash
 git clone https://github.com/ESMValGroup/ESMValTool.git
@@ -69,8 +70,10 @@ git clone https://github.com/ESMValGroup/ESMValTool.git
 This command will ask your GitHub username and a personal **token** as password.
 Please follow instructions on
 [GitHub token authentication requirements][token-authentication-requirements]
-to create a personal access token. After the authentication,
-the output might look like:
+to create a personal access token.
+Alternatively, you could [generate a new SSH key][generate-ssh-key] and
+[add it to your GitHub account][add-ssh-key].
+After the authentication, the output might look like:
 
 ~~~
 Cloning into 'ESMValTool'...
@@ -91,7 +94,7 @@ To continue the installation, we move into the ``ESMValTool`` directory:
 cd ESMValTool
 ~~~
 
-Note that the ``master`` branch is checked out by default.
+Note that the ``main`` branch is checked out by default.
 We can see this if we run:
 
 ~~~bash
@@ -99,8 +102,8 @@ git status
 ~~~
 
 ~~~
-On branch master
-Your branch is up to date with 'origin/master'.
+On branch main
+Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
 ~~~
@@ -108,14 +111,22 @@ nothing to commit, working tree clean
 
 ### 2 ESMValTool dependencies
 
-It is recommended to use conda to manage ESMValTool dependencies. For a minimal
-conda installation, see section **Install Conda** in lesson
+ESMValTool now uses `mamba` instead of `conda` for the recommended installation.
+For a minimal mamba installation, see section **Install Mamba** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
+
+It is good practice to update the version of mamba and conda on your machine before
+setting up ESMValTool. This can be done as follows:
+
+~~~bash
+mamba update --name base mamba conda
+~~~
+
 To simplify the installation process, an environment file ``environment.yml`` is
 provided in the ESMValTool directory. We create an environment by running:
 
 ~~~bash
-conda env create --file environment.yml
+mamba env create --name esmvaltool --file environment.yml
 ~~~
 
 The environment is called ``esmvaltool`` by default.
@@ -124,15 +135,20 @@ If an ``esmvaltool`` environment is already created following the lesson
 we should choose another name for the new environment in this lesson by:
 
 ~~~bash
-conda env create -n a_new_name --file environment.yml
+mamba env create --name a_new_name --file environment.yml
 ~~~
+This will create a new conda environment and install ESMValTool (with all
+dependencies that are needed for development purposes) into it with a single command.
 
 For more information see [conda managing environments][manage-environments].
+
 Now, we should activate the environment:
 
 ~~~bash
 conda activate esmvaltool
 ~~~
+where ``esmvaltool`` is the name of the environment (replace by ``a_new_name``
+in case another environment name was used).
 
 ### 3 ESMValTool installation
 
@@ -154,7 +170,7 @@ If the installation is successful, ESMValTool prints a help message to the conso
 
 > ## Checking the development installation
 >
-> We can use the command ``conda list`` to list installed packages in
+> We can use the command ``mamba list`` to list installed packages in
 > the ``esmvaltool`` environment.
 > Use this command to check that ESMValTool is installed in a ``develop`` mode.
 >
@@ -166,33 +182,29 @@ If the installation is successful, ESMValTool prints a help message to the conso
 >> Run:
 >>
 >> ~~~bash
->> conda list esmvaltool
+>> mamba list esmvaltool
 >>~~~
 >>
 >> ~~~bash
 >> # Name                    Version                   Build  Channel
->> esmvaltool                2.1.1                     dev_0    <develop>
+>> esmvaltool                2.10.0.dev3+g2dbc2cfcc    pypi_0   pypi
 >>~~~
 >>
->> As can be seen, it is mentioned ``<develop>`` under the ``Channel``.
 > {: .solution}
 {: .challenge}
 
 ### 4 Updating ESMValTool
 
-The ``master`` branch has the latest features of ESMValTool. Please make sure
+The ``main`` branch has the latest features of ESMValTool. Please make sure
 that the source code on your machine is up-to-date. If you obtain the source
 code using git clone as explained in step **1 Source code**, you can run ``git pull``
 to update the source code. Then ESMValTool installation will be updated
-with changes from the ``master`` branch.
+with changes from the ``main`` branch.
 
 ## Contribution
 
 We have seen how to install ESMValTool in a ``develop`` mode.
-Now, we try to contribute to its development. Let's see how we can achieve this.
-
-### Review process
-
+Now, we try to contribute to its development. Let's see how we this can be achieved.
 We first discuss our ideas in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
 This can avoid disappointment at a later stage, for example,
@@ -201,11 +213,24 @@ It also gives other people an early opportunity to provide input and suggestions
 which results in more valuable contributions.
 
 Then, we create a new ``branch`` locally and start developing new codes.
-Once our development is finished, we can initiate a ``pull request``.
-For a full description of the GitHub workflow, please see ESMValTool documentation on
-[GitHub Workflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow).
+To create a new branch:
+~~~bash
+git checkout -b your_branch_name
+~~~
+If needed, a link to a git tutorial can be found in [Setup]({{ page.root }}{% link setup.md %}). 
 
-The pull request will be tested, discussed and merged. This is called "**review process**".
+Once our development is finished, we can initiate a ``pull request``.
+To this end, we encourage you to join the ESMValTool development team.
+
+For more extensive documentation on contributing code, including a section on the 
+[GitHubWorkflow](https://docs.esmvaltool.org/en/latest/community/repository.html#github-workflow),
+please see the 
+[Contributing code and documentation][code-documentation]
+section in the ESMValtool documentation.
+
+### Review process
+
+The pull request will be tested, discussed and merged as part of the "**review process**".
 The process will take some effort and time to learn.
 However, a few (command line) tools can get you a long way,
 and we’ll cover those essentials in the next sections.
@@ -213,19 +238,21 @@ and we’ll cover those essentials in the next sections.
 **Tip**: we encourage you to keep the pull requests small.
 Reviewing small incremental changes are more efficient.
 
-### Background
+### Working example
 
-We saw 'warming stripes' in lesson
+We saw the 'warming stripes' diagnostic in lesson
 [Writing your own recipe]({{ page.root }}{% link _episodes/06-preprocessor.md %}).
 Imagine the following task: you want to contribute warming stripes recipe and diagnostics
 to ESMValTool. You have to add the diagnostics
 [warming_stripes.py](../files/warming_stripes.py) and the recipe
 [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
 to their locations in ESMValTool directory.
-After these changes, you should also check if everthing works fine.
+After these changes, you should also check if everything works fine.
 This is where we take advantage of the tools that are introduced later.
 
-Let’s get started.
+Let’s get started. Note that since this is an exercise to get familiar with the 
+development and contribution process, we will not create a GitHub issue at this time 
+but proceed as though it has been done.
 
 ### Check code quality
 
@@ -270,7 +297,7 @@ To explore other tools, have a look at ESMValTool documentation on
 >
 >> ## Solution
 >>
->> The output of  ``pre-commit``:
+>> The tail of the output of  ``pre-commit``:
 >>
 >> ~~~ bash
 >> Check for added large files..............................................Passed
@@ -302,17 +329,25 @@ To explore other tools, have a look at ESMValTool documentation on
 >>
 >> 1. ``docformatter``: it is mentioned that "files were modified by this hook".
 >> We run ``git diff`` to see the modifications.
->> The syntax ``"""`` at the end of docstring is moved by one line.
+>> The output includes the following:
+>> ~~~bash
+>> +in the form of the popular warming stripes figure by Ed Hawkins."""
+>> ~~~
+>> The syntax ``"""`` at the end of docstring is moved by one line. 
+>> Shifting it to the next line should fix this error.
+>> 
 >> 2. ``flake8``: the error message is about an unused local variable ``nx``.
 >> We should check our codes regarding the usage of ``nx``.
 >> For now, let's assume that it is added by mistake and remove it.
+>> Note that you have to run `git add` again to re-stage the file.
+>> Then rerun pre-commit and check that it passes.
 > {: .solution}
 {: .challenge}
 
 ### Run unit tests
 
 Previous section introduced some tools to check code style and quality.
-What it hasn’t done is show us how to tell whether our code is getting the right answer.
+What it has not done is show us how to tell whether our code is getting the right answer.
 To achieve that, we need to write and run tests for widely-used functions.
 ESMValTool comes with a lot of tests that are in the folder ``tests``.
 
@@ -328,15 +363,16 @@ when you submit a pull request.
 
 > ## Running tests
 >
-> Let's checkout our local branch and add the recipe
+> Make sure our local branch is checked out and add the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml)
-> to the the ``esmvaltool/recipes`` directory:
+> to the ``esmvaltool/recipes`` directory:
 >
 > ~~~bash
 > cp path_of_recipe_warming_stripes.yml esmvaltool/recipes/
 > ~~~
 >
-> Run ``pytest`` and inspect the results. If a test is failed, try to fix it.
+> Run ``pytest`` and inspect the results, this might take a few minutes.
+> If a test is failed, try to fix it.
 >
 >> ## Solution
 >>
@@ -391,7 +427,7 @@ To build documentation locally, first we make sure that the working directory is
 and our local branch is checked out. Then, we run:
 
 ~~~bash
-python setup.py build_sphinx -Ea
+sphinx-build -Ea doc/sphinx/source/ doc/sphinx/build/
 ~~~
 
 Similar to code, documentation should be well written and adhere to standards.
@@ -400,19 +436,19 @@ If the documentation is built properly, the previous command prints a message to
 ~~~
 build succeeded.
 
-The HTML pages are in doc/sphinx/build/html.
+The HTML pages are in doc/sphinx/build.
 ~~~
 {: .output}
 
 The main page of the documentation has been built into ``index.html``
-in ``doc/sphinx/build/html`` directory.
+in ``doc/sphinx/build/`` directory.
 To preview this page locally, we open the file in a web browser:
 
 ~~~bash
-xdg-open doc/sphinx/build/html/index.html
+xdg-open doc/sphinx/build/index.html
 ~~~
 
-> ## Creating a documenation
+> ## Creating a documentation
 >
 > In previous exercises, we added the recipe
 > [recipe_warming_stripes.yml](../files/recipe_warming_stripes.yml) to ESMValTool.
@@ -435,6 +471,8 @@ xdg-open doc/sphinx/build/html/index.html
 > ```
 >
 > Save and close the file. We can think of this file as one page of a book.
+> Examples of documentation pages can be found in the folder
+> ``ESMValTool/doc/sphinx/source/recipes``.
 > Then, we need to decide where this page should be located inside the book.
 > The table of content is defined by ``index.rst``. Let's have a look at the content:
 >
@@ -462,8 +500,8 @@ xdg-open doc/sphinx/build/html/index.html
 >> Then, we build and preview the documentation page:
 >>
 >> ~~~bash
->> python setup.py build_sphinx -Ea
->> xdg-open doc/sphinx/build/html/recipes/recipe_warming_stripes.html
+>> sphinx-build -Ea doc/sphinx/source/ doc/sphinx/build/
+>> xdg-open doc/sphinx/build/recipes/recipe_warming_stripes.html
 >> ~~~
 >>
 > {: .solution}

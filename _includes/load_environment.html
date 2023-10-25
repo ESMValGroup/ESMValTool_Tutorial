@@ -1,12 +1,15 @@
-<div id="demo"></div>
-<script src="../assets/js/asciinema-player.min.js"></script>
-<script>
+<blockquote class="solution">
+  <h2 id="example-video">Example video</h2>
+
+  <div id="demo"></div>
+  <script src="../assets/js/asciinema-player.min.js"></script>
+  <script>
   AsciinemaPlayer.create(
-    '../load_environment.cast',
+    '../fig/load_environment.cast',
     document.getElementById('demo'), {
       rows: 24,
       cols: 110,
-      autoPlay: true,
+      autoPlay: false,
       speed: 2,
       fit: false,
       terminalFontSize: "12px",
@@ -14,3 +17,4 @@
       loop: true,
   });
 </script>
+</blockquote>

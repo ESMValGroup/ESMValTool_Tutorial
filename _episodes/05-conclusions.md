@@ -69,24 +69,22 @@ to be suitable for use by ESMValTool.
 
 ### Where can I get more help?
 
-There are lots of resources available for helping you use ESMValTool.
+There are lots of resources available to assist you in using ESMValTool.
 
 The ESMValTool [Discussions page](https://github.com/ESMValGroup/ESMValTool/discussions)
-is a good place to learn about general issues, or to see if your question has
- been already addressed.
-If you have a GitHub account, you can also post your questions on the page.
+is a good place to find information on general issues, or check if your question has already been addressed.
+If you have a GitHub account, you can also post your questions there.
 
-If you get stuck, a great starting point is to look at issues page [issue page](https://github.com/ESMValGroup/ESMValTool/issues) to check whether your issues have been created or not. If they have been created before,suggestions that come from developers can help you to solve the issues you encountered.
+If you encounter difficulties, a great starting point is to visit issues page [issue page](https://github.com/ESMValGroup/ESMValTool/issues) to check whether your issues have been created or not. If they have been created before,suggestions provided by developers can help you to solve the issues you encountered.
 Note that you will need a GitHub account for this.
 
-There is also an ESMValTool email list.
-Please see [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list) on how to subscribe to user mailing list.
+Additionally, there is an ESMValTool email list.
+Please see [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list) on how to subscribe to the user mailing list.
 
 ### What if I find a bug?
 
-If you find a bug, please report it back to the ESMValTool team.
-This will help us fix it, so that you can continue working,
-but also it means that ESMValTool will be more stable for everyone else as well.
+If you find a bug, please report it to the ESMValTool team.
+This will help us fix issues, ensuring not only your interrupted workflow but also contributing to the overall stability of ESMValTool for all users.
 
 To report a bug, please create a new issue using the
 [issue page](https://github.com/ESMValGroup/ESMValTool/issues).

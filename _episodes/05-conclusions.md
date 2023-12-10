@@ -76,16 +76,11 @@ is a good place to learn about general issues, or to see if your question has
  been already addressed.
 If you have a GitHub account, you can also post your questions on the page.
 
-If you get stuck, a great starting point is to create a
-[new issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose). Note 
-that you will need a GitHub account for this.
+If you get stuck, a great starting point is to look at issues page [issue page](https://github.com/ESMValGroup/ESMValTool/issues) to check whether your issues have been created or not. If they have been created before,suggestions that come from developers can help you to solve the issues you encountered.
+Note that you will need a GitHub account for this.
 
 There is also an ESMValTool email list.
-Please see
-
-[information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list)
-
-on how to subscribe to user mailing list.
+Please see [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list) on how to subscribe to user mailing list.
 
 ### What if I find a bug?
 
@@ -94,7 +89,7 @@ This will help us fix it, so that you can continue working,
 but also it means that ESMValTool will be more stable for everyone else as well.
 
 To report a bug, please create a new issue using the
-[new issue page](https://github.com/ESMValGroup/ESMValTool/issues/new/choose).
+[issue page](https://github.com/ESMValGroup/ESMValTool/issues).
 
 In your bug report, please describe the problem as clearly and as completely as possible.
 You may need to include a recipe or the output log as well.

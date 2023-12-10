@@ -72,19 +72,25 @@ to be suitable for use by ESMValTool.
 There are lots of resources available to assist you in using ESMValTool.
 
 The ESMValTool [Discussions page](https://github.com/ESMValGroup/ESMValTool/discussions)
-is a good place to find information on general issues, or check if your question has already been addressed.
+is a good place to find information on general issues, or check
+ if your question has already been addressed.
 If you have a GitHub account, you can also post your questions there.
 
-If you encounter difficulties, a great starting point is to visit issues page [issue page](https://github.com/ESMValGroup/ESMValTool/issues) to check whether your issues have already been reported or not. If they have been reported before, suggestions provided by developers can help you to solve the issues you encountered.
+If you encounter difficulties, a great starting point is to visit issues page
+ [issue page](https://github.com/ESMValGroup/ESMValTool/issues) to check 
+whether your issues have already been reported or not. If they have been reported before,
+ suggestions provided by developers can help you to solve the issues you encountered.
 Note that you will need a GitHub account for this.
 
 Additionally, there is an ESMValTool email list.
-Please see [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list) on how to subscribe to the user mailing list.
+Please see
+ [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list) on how to subscribe to the user mailing list.
 
 ### What if I find a bug?
 
 If you find a bug, please report it to the ESMValTool team.
-This will help us fix issues, ensuring not only your uninterrupted workflow but also contributing to the overall stability of ESMValTool for all users.
+This will help us fix issues, ensuring not only your uninterrupted workflow
+ but also contributing to the overall stability of ESMValTool for all users.
 
 To report a bug, please create a new issue using the
 [issue page](https://github.com/ESMValGroup/ESMValTool/issues).

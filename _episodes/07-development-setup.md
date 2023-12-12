@@ -236,7 +236,7 @@ However, a few (command line) tools can get you a long way,
 and we’ll cover those essentials in the next sections.
 
 **Tip**: we encourage you to keep the pull requests small.
-Reviewing small incremental changes is more efficient.
+eviewing small incremental changes is more efficient.
 
 ### Working example
 

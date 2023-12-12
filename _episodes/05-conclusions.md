@@ -73,12 +73,16 @@ There are lots of resources available for helping you use ESMValTool.
 The ESMValTool [Discussions page](https://github.com/ESMValGroup/ESMValTool/discussions)
 is a good place to learn about general issues, or to see if your question has
  been already addressed.
-If you have a GitHub account, you can check previously created [issues](https://github.com/ESMValGroup/ESMValTool/issues) or create a [new issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose) yourself.
+If you have a GitHub account, you can check previously created
+ [issues](https://github.com/ESMValGroup/ESMValTool/issues) or create a
+ [new issue](https://github.com/ESMValGroup/ESMValTool/issues/new/choose) yourself.
 
 Note that you will need a GitHub account for this.
 
 There is also an ESMValTool email list.
-Please see [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list) on how to subscribe to user mailing list.
+Please see
+ [information](https://docs.esmvaltool.org/en/latest/introduction.html#user-mailing-list)
+ on how to subscribe to user mailing list.
 
 ### What if I find a bug?
 

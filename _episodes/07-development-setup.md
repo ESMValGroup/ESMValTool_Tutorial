@@ -204,7 +204,7 @@ with changes from the ``main`` branch.
 ## Contribution
 
 We have seen how to install ESMValTool in a ``develop`` mode.
-Now, we try to contribute to its development. Let's see this can be achieved.
+Now, we try to contribute to its development. Let's see how this can be achieved.
 We first discuss our ideas in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
 This can avoid disappointment at a later stage, for example,

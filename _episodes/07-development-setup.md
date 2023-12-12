@@ -347,7 +347,7 @@ To explore other tools, have a look at ESMValTool documentation on
 ### Run unit tests
 
 Previous section introduced some tools to check code style and quality.
-What it has not done is show us how to tell whether our code is getting the right answer.
+There is lack of mechanism to determine whether or not our code is getting the right answer.
 To achieve that, we need to write and run tests for widely-used functions.
 ESMValTool comes with a lot of tests that are in the folder ``tests``.
 

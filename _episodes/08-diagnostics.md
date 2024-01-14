@@ -349,7 +349,7 @@ Note that output from the ESMValCore preprocessor is in the form of NetCDF files
 Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
 from a netCDF file and performs an operation ``squeeze`` to remove any dimensions
-of length one. We can adapt this function to add our own analysis. For example,
+of length one. We can adapt this function to add our own analysis. As an example,
 here we calculate the bias using the average of the data using Iris cubes.
 
 ~~~python

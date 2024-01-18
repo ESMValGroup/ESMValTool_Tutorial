@@ -204,7 +204,7 @@ with changes from the ``main`` branch.
 ## Contribution
 
 We have seen how to install ESMValTool in a ``develop`` mode.
-Now, we try to contribute to its development. Let's see how we this can be achieved.
+Now, we try to contribute to its development. Let's see how this can be achieved.
 We first discuss our ideas in an
 **[issue](https://github.com/ESMValGroup/ESMValTool/issues)** in ESMValTool repository.
 This can avoid disappointment at a later stage, for example,
@@ -236,7 +236,7 @@ However, a few (command line) tools can get you a long way,
 and we’ll cover those essentials in the next sections.
 
 **Tip**: we encourage you to keep the pull requests small.
-Reviewing small incremental changes are more efficient.
+Reviewing small incremental changes is more efficient.
 
 ### Working example
 
@@ -347,7 +347,7 @@ To explore other tools, have a look at ESMValTool documentation on
 ### Run unit tests
 
 Previous section introduced some tools to check code style and quality.
-What it has not done is show us how to tell whether our code is getting the right answer.
+There is lack of mechanism to determine whether or not our code is getting the right answer.
 To achieve that, we need to write and run tests for widely-used functions.
 ESMValTool comes with a lot of tests that are in the folder ``tests``.
 

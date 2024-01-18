@@ -340,17 +340,17 @@ available functions and their description can be found in
 ## Diagnostic computation
 
 After grouping and selecting data, we can read individual attributes (such as filename)
-of each item. Here we have grouped the input data  by ``variables``
-so we loop over the variables (line 88). Following this, is a call to the
-function ``compute_diagnostic`` (line 93). Let's have a look at the
-definition of this function in line 42 where the actual analysis on the data is done.
+of each item. Here, we have grouped the input data  by ``variables``, 
+so we loop over the variables (line 88). Following this is a call to the
+function ``compute_diagnostic`` (line 93). Let's look at the
+definition of this function in line 42, where the actual analysis of the data is done.
 
 Note that output from the ESMValCore preprocessor is in the form of NetCDF files.
 Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
 from a netCDF file and performs an operation ``squeeze`` to remove any dimensions
-of length one. We can adapt this function to add our own analysis. As an
-example, here we calculate the bias using the average of the data using Iris cubes.
+of length one. We can adapt this function to add our own analysis. As an example,
+here we calculate the bias using the average of the data using Iris cubes.
 
 ~~~python
 def compute_diagnostic(filename):

@@ -14,10 +14,10 @@ keypoints:
 ---
 
 Every user encounters errors. Once you know why you get certain types of errors,
-they become much easier to fix. The good news is, ESMValTool creates a record of
+they become much easier to fix. The good news is that ESMValTool creates a record of
 the output messages and stores them in log files. They can be used for debugging
-or monitoring the process. This lesson helps to understand what the different
-types of errors are and when you are likely to encounter them.
+or monitoring the process. This lesson helps you understand the different
+types of errors and when you are likely to encounter them.
 
 ## Log files
 
@@ -326,7 +326,7 @@ save the pre-processed data. More information about this setting can be found at
 
 > ## save_intermediary_cubes
 >
-> Note that this setting should be only used for debugging, as it significantly
+> Note that this setting should only be used for debugging, as it significantly
 > slows down the recipe and increases disk usage because a lot of output files
 > need to be stored.
 {: .callout}
@@ -434,7 +434,7 @@ How to re-run the diagnostic script?
 > If you run out of memory, try setting ``max_parallel_tasks`` to 1 in the
 > configuration file. Then, check the amount of memory you need for that by
 > inspecting the file ``run/resource_usage.txt`` in the output directory. Using
-> the number there you can increase the number of parallel tasks again to a
+> the number, there you can increase the number of parallel tasks again to a
 > reasonable number for the amount of memory available in your system.
 {: .callout}
 

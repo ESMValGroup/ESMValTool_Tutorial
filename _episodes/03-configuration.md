@@ -60,6 +60,8 @@ and then modify it if needed:
   nano ~/.esmvaltool/config-user.yml
 ~~~
 
+Any other editor can be used, e.g.vim.
+
 This file contains the information for:
 
 - Output settings

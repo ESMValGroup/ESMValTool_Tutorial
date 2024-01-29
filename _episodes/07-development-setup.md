@@ -111,7 +111,10 @@ nothing to commit, working tree clean
 
 ### 2 ESMValTool dependencies
 
-Please don’t forget if an esmvaltool environment is already created following the lesson [Installation]({{ page.root }}{% link _episodes/02-installation.md %})., we should choose another name for the new environment in this lesson.
+Please don’t forget if an esmvaltool environment is already created
+following the lesson
+[Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
+we should choose another name for the new environment in this lesson.
 
 ESMValTool now uses `mamba` instead of `conda` for the recommended installation.
 For a minimal mamba installation, see section **Install Mamba** in lesson

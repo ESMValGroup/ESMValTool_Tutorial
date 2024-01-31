@@ -126,13 +126,13 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 
 >## See the recipe_python.yml
 >
-> ```yaml
+```yaml
 # ESMValTool
 # recipe_python.yml
-#
+
 # See https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html
 # for a description of this recipe.
-#
+
 # See https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html
 # for a description of the recipe format.
 ---

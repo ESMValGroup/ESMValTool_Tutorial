@@ -124,7 +124,7 @@ Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
 and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .callout}
 
-> ## See the recipe_python.yml
+>## See the recipe_python.yml
 >
 ```yaml
 # ESMValTool
@@ -236,6 +236,7 @@ diagnostics:
         quickplot:
           plot_type: plot
 ```
+
 {: .solution}
 
 

@@ -235,6 +235,7 @@ diagnostics:
         script: examples/diagnostic.py
         quickplot:
           plot_type: plot
+```
 {: .solution}
 
 

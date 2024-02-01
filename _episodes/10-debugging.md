@@ -159,7 +159,7 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 > datasets:
 >   - {dataset: BCC-ESM1, project: CMIP6, exp: historical, ensemble: r1i1p1f1, grid: gn}
 >   - {dataset: bcc-csm1-1, version: v1, project: CMIP5, exp: historical, ensemble: r1i1p1}
-
+>
 > preprocessors:
 > # See https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html
 > # for a description of the preprocessor functions.

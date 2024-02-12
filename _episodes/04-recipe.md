@@ -49,7 +49,7 @@ esmvaltool run --config_file ./config-user.yml examples/recipe_python.yml
 If everything is okay, you should see that ESMValTool is printing a lot of
 output to the command line. The final message should be "Run was successful".
 The exact output varies depending on your machine, but it should look something
-like the example output below.
+like the example log output on terminal below.
 
 {% include example_output.txt %}
 

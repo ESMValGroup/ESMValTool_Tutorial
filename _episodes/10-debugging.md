@@ -130,6 +130,12 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 > # ESMValTool
 > # recipe_python.yml
 > ---
+> # See https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html
+> # for a description of this recipe.
+>
+> # See https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html
+> # for a description of the recipe format.
+> ---
 > documentation:
 >   description: |
 >     Example recipe that plots a map and timeseries of temperature.
@@ -152,18 +158,19 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >
 > datasets:
 >   - {dataset: BCC-ESM1, project: CMIP6, exp: historical, ensemble: r1i1p1f1, grid: gn}
->   - {dataset: CanESM2, project: CMIP5, exp: historical, ensemble: r1i1p1}
+>   - {dataset: bcc-csm1-1, version: v1, project: CMIP5, exp: historical, ensemble: r1i1p1}
 >
 > preprocessors:
+> # See https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html
+> # for a description of the preprocessor functions.
 >
->   select_january:
->     extract_month:
->       month: 1
+>   to_degrees_c:
+>     convert_units:
+>       units: degrees_C
 >
 >   annual_mean_amsterdam:
->     extract_point:
->       latitude: 52.379189
->       longitude: 4.899431
+>     extract_location:
+>       location: Amsterdam
 >       scheme: linear
 >     annual_statistics:
 >       operator: mean
@@ -171,14 +178,16 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >       statistics:
 >         - mean
 >       span: overlap
+>     convert_units:
+>       units: degrees_C
 >
 >   annual_mean_global:
 >     area_statistics:
 >       operator: mean
->       fx_variables:
->         areacella:
 >     annual_statistics:
 >       operator: mean
+>     convert_units:
+>       units: degrees_C
 >
 > diagnostics:
 >
@@ -191,14 +200,13 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >     variables:
 >       tas:
 >         mip: Amon
->         preprocessor: select_january
->         start_year: 2000
->         end_year: 2000
+>         preprocessor: to_degrees_c
+>         timerange: 2000/P1M
+>         caption: |
+>           Global map of {long_name} in January 2000 according to {dataset}.
 >     scripts:
 >       script1:
 >         script: examples/diagnostic.py
->         write_netcdf: true
->         output_file_type: pdf
 >         quickplot:
 >           plot_type: pcolormesh
 >           cmap: Reds
@@ -214,14 +222,14 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 >         short_name: tas
 >         mip: Amon
 >         preprocessor: annual_mean_amsterdam
->         start_year: 1850
->         end_year: 2000
+>         timerange: 1850/2000
+>         caption: Annual mean {long_name} in Amsterdam according to {dataset}.
 >       tas_global:
 >         short_name: tas
 >         mip: Amon
 >         preprocessor: annual_mean_global
->         start_year: 1850
->         end_year: 2000
+>         timerange: 1850/2000
+>         caption: Annual global mean {long_name} according to {dataset}.
 >     scripts:
 >       script1:
 >         script: examples/diagnostic.py
@@ -230,6 +238,7 @@ and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 > ```
 >
 {: .solution}
+
 
 ## Keys and values in recipe settings
 

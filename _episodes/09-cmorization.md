@@ -123,6 +123,12 @@ run the CMORizer scripts:
 esmvaltool data format --config_file <path to config-user.yml>  <dataset-name>
 ```
 
+The options `--start` and `--end` can be added to command above to restrict the
+formatting of raw data to a time range. They will be ignored if a specific
+dataset does not support (i.e. because it is provided as a single file).
+Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The same way is also applicable for 
+the option `esmvaltool data download`.
+
 The ``config-user.yml`` is the file in which we define the different data
 paths, see the episode on [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
 In the ``rootpath`` of your ``config-user.yml``, make sure to add the right
@@ -192,6 +198,12 @@ You can also see the path where ESMValTool stores the reformatting script:
 `~/ESMValTool/esmvaltool/data/formatters/datasets/fluxcom.py`. You may
 have a look at this file if you want. The script also uses a configuration file:
 `~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`.
+
+To get help on CMORizer commands, run the tool with:
+
+```bash
+esmvaltool data --help
+```
 
 ## Make a test recipe
 

@@ -34,6 +34,8 @@ ESMValTool code.
 - git:
   [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
 
+![Data flow with ESMValTool](../fig/flowchart_setup.png)
+
 ### Using your own machine
 
 Please skip this section if you are not going to use ESMValTool on your

@@ -75,7 +75,7 @@ with common errors as they occur throughout the development.
 Remember the basic structure of a recipe, and notice that each of them is
 extensively described in the documentation under the header
  ["The recipe
-format"](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html){:target="_blank"}:
+format"][recipe-overview]{:target="_blank"}:
 
 - [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
 recipe/overview.html#recipe-section-documentation){:target="_blank"}
@@ -276,6 +276,26 @@ us to reuse this dataset entry with different variable names later on.
 This is not really necessary for our simple use case, but it is common practice 
 in ESMValTool.
 
+
+> ## Pro-tip:  Automatically populating a recipe with all available datasets
+>
+> You can select all available models for processing using 
+> `glob`  patterns or wildcards.  An example `datasets` section that uses all 
+> available CMIP6 models and ensemble members for the `historical` experiment
+> will look like this:
+> ```yaml```
+>datasets:
+>  - project: CMIP6
+>    exp: historical
+>    dataset: '*'
+>    institute: '*'
+>    ensemble: '*'
+>    grid: '*'
+> Note that you will have to set the `search_esgf` option in the `config_file to 
+> `always` so that you can download data from ESGF nodes as  needed.
+{: .callout}
+
+
 ## Adding the preprocessor section
 
 Above, we already described the preprocessing task that needs to convert the
@@ -311,7 +331,8 @@ esmvalcore.preprocessor.html#preprocessor-functions):
 > {: .solution}
 {: .challenge}
 
-Add the following block to your recipe file:
+Add the following block to your recipe file between the `datasets` and `diagnostics` 
+block:
 
 ```yaml
 preprocessors:
@@ -332,8 +353,8 @@ preprocessors:
 
 ## Completing the diagnostics section
 
-Now we are ready to finish our diagnostics section. Remember that we want to
-make two tasks: a preprocessor task, and a diagnostic task. To illustrate that
+We are now ready to finish our diagnostics section. Remember that we want to
+create two tasks: a preprocessor task, and a diagnostic task. To illustrate that
 we can also pass settings to the diagnostic script, we add the option to specify
 a custom colormap.
 
@@ -374,30 +395,64 @@ a custom colormap.
 > {: .solution}
 {: .challenge}
 
-Now you should be able to run the recipe to get your own warming stripes.
+You should now be able to run the recipe to get your own warming stripes.
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
 own diagnostic scripts and want to add them to the ESMValTool repositories, this
-will be required. However, writing your own diagnostic script is beyond the
-scope of the basic tutorial.
+will be required. Writing your own diagnostic script is discussed in a 
+[later episode]({{ page.root }}{% link _episodes/08-diagnostics.md %}).
 
 ## Bonus exercises
 
-Below are a couple of exercise to practice modifying the recipe. For your
+Below are a few exercises to practice modifying an ESMValTool recipe. For your
 reference, here's a copy of the [recipe at this
 point](../files/recipe_warming_stripes.yml). This will be the point of departure
 for each of the modifications we'll make below.
 
-> ## Specific location
+> ## Multiple ensemble members
 >
-> On showyourstripes.org, you can download stripes for specific locations. We
-> will reproduce this possibility. Look at the available preprocessors in the
-> documentation, and replace the global mean with a suitable alternative.
+> You can choose data from multiple ensemble members for a model in a single line
+>
+>> ## Solution
+>>
+>> The `dataset` section allows you to choose more than one ensemble member
+>> Here's a copy of the changed 
+>> [recipe](../files/recipe_warming_stripes_multiple_ensemble_members.yml) 
+>>to do that.
+>> Changes made are shown in the diff output below:
+>>
+>> --- recipe_warming_stripes.yml
+>> +++ recipe_warming_stripes_multiple_ensemble_members.yml
+>> @@ -8,7 +8,7 @@
+>>      - righi_mattia
+>> 
+>>  datasets:
+>> -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+>> +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: "r(1:2)i1p1f1", grid: gn, start_year: 1850, end_year: 2014}
+>> 
+>>  preprocessors:
+>>    global_anomalies:
+>>
+>>
+>> Pro-tip: Check out the section on a different way to use multiple ensemble 
+>> members or even multiple experiments at  
+>> [Concatenating data corresponding to multiple facets][datasets-overview].
+>>
+> {: .solution}
+{:.challenge}
+
+
+> ## Specific location selection
+>
+> On showyourstripes.org, you can download stripes for specific locations. Here we 
+> show how this can be done with ESMValTool. 
+> Instead of the global mean, we can pick a location to plot the stripes for. 
+> Can you find a suitable preprocessor to do this?
 >
 > > ## Solution
 > >
-> > You could have used `extract_point` or `extract_region`. We used
+> > You can use `extract_point` or `extract_region` to select a location. We used
 > > `extract_point`. Here's a copy of the [recipe at this
 > > point](../files/recipe_warming_stripes_local.yml) and this is the difference
 > > from the previous recipe:
@@ -576,3 +631,5 @@ for each of the modifications we'll make below.
 > >
 > {: .solution}
 {:.challenge}
+
+{% include links.md %}

@@ -368,7 +368,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >   which contains preprocessed data for each of the input datasets, plus a
 > >   combined `MultiModelMean`, a `metadata.yml` file and provenance files.
 > > - **map/script1**: creates `/run/map/script1` with general information and a
-> >   log of the diagnostic script run. It also creates `/plots/map/script1/png` and
+> >   log of the diagnostic script run. It also creates `/plots/map/script1/` and
 > >   `/work/map/script1`, which contain output figures and output datasets,
 > >   respectively. For each output file, there is also corresponding provenance
 > >   information in the form of `.xml`, `.bibtex` and `.txt` files.

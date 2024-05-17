@@ -34,6 +34,34 @@ ESMValTool code.
 - git:
   [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
 
+![Data flow with ESMValTool](../fig/flowchart_setup.png)
+
+### Using your own machine
+
+Please skip this section if you are not going to use ESMValTool on your
+local machine and go [here](#github-account-advanced).
+
+If you are planning on running ESMValTool on your own machine, please make sure
+that you are able to download CMIP data and that you have a few GB of space
+available to install conda and ESMValTool, but also enough to make a copy of some
+data (~125MB) needed for this tutorial.
+
+You can use ESMValTool to automatically download data needed for test recipes.
+Please see the [Configuration][lesson-configuration] episode
+or the [configuration file documentation][config-file] for more information.
+This the recommended option as it has the advantage that data is
+stored in subdirectories, and features such as wildcards and recording
+the version of the data will work automatically.
+
+Alternatively, you can run the following command using
+[wget](https://en.wikipedia.org/wiki/Wget):
+
+~~~shell
+wget --no-clobber --input-file \
+  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/main/data/dataset.urls \
+  --directory-prefix $HOME/esmvaltool_tutorial/data/
+~~~
+
 
 ## Access to CMIP and Observational data and a suitable compute cluster
 
@@ -226,33 +254,6 @@ Running batch jobs: Info and examples on SLURM job scheduling system at DKRZ can
 be found [here](https://docs.dkrz.de/doc/levante/running-jobs/index.html).
 
 Congratulations! Please go here [here](#github-account-advanced) next.
-
-### Using your own machine
-
-Please skip this section if you are not going to use ESMValTool on your
-local machine and go [here](#github-account-advanced).
-
-If you are planning on running ESMValTool on your own machine, please make sure
-that you are able to download CMIP data and that you have a few GB of space
-available to install conda and ESMValTool, but also enough to make a copy of some
-data (~125MB) needed for this tutorial.
-
-You can use ESMValTool to automatically download data needed for test recipes. 
-Please see the [Configuration][lesson-configuration] episode 
-or the [configuration file documentation][config-file] for more information.
-This the recommended option as it has the advantage that data is 
-stored in subdirectories, and features such as wildcards and recording 
-the version of the data will work automatically.
-
-Alternatively, you can run the following command using
-[wget](https://en.wikipedia.org/wiki/Wget):
-
-~~~shell
-wget --no-clobber --input-file \
-  https://github.com/ESMValGroup/ESMValTool_Tutorial/raw/main/data/dataset.urls \
-  --directory-prefix $HOME/esmvaltool_tutorial/data/
-~~~
-
 
 ## GitHub account (Advanced)
 

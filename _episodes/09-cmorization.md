@@ -40,11 +40,11 @@ the data. This process is called "CMORization".
 >
 > Concretely, the CMOR standards dictate e.g. the variable names and units,
 coordinate information, how the data should be structured (e.g. 1 variable per
-file), additional metadata requirements, but also file naming conventions a.k.a.
+file), additional metadata requirements, and file naming conventions a.k.a.
 the data reference syntax 
 ([DRS](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html)).
 > All this information is stored in so-called CMOR tables.
-> As an example, the CMOR tables for the CMIP6 project can be found
+> For example, the CMOR tables for the CMIP6 project can be found
 [here](https://github.com/PCMDI/cmip6-cmor-tables).
 {: .callout}
 
@@ -105,11 +105,11 @@ Note: you'll need a user-friendly ftp client. On Linux, `ncftp` works okay.
 > - **Tier3**: datasets with access restrictions (most of these datasets will also
 >   need some kind of cmorization)
 >
-> These access restrictions are also the reason why the ESMValTool developers
+> These access restrictions are also why the ESMValTool developers
 > cannot distribute copies or automate downloading of all observations and
-> reanalysis data used in the recipes. As a compromise we provide the
+> reanalysis data used in the recipes. As a compromise, we provide the
 > CMORization scripts so that each user can CMORize their own copy of the access
-> restricted datasets if they need them.
+> restricted datasets if needed.
 >
 {: .callout}
 

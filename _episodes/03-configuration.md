@@ -2,7 +2,7 @@
 title: "Configuration"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.8.0
+compatibility: ESMValTool v2.10.0
 
 questions:
 - What is the user configuration file and how should I use it?
@@ -59,6 +59,8 @@ and then modify it if needed:
 ~~~bash
   nano ~/.esmvaltool/config-user.yml
 ~~~
+
+Any other editor can be used, e.g.vim.
 
 This file contains the information for:
 

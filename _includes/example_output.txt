@@ -1,8 +1,8 @@
 > ## Example output
 >
-> ```
+>```
 >
->2023-05-01 20:59:33,345 UTC [18776] INFO    
+>2024-05-15 07:04:08,041 UTC [134535] INFO    
 >______________________________________________________________________
 >          _____ ____  __  ____     __    _ _____           _
 >         | ____/ ___||  \/  \ \   / /_ _| |_   _|__   ___ | |
@@ -10,7 +10,6 @@
 >         | |___ ___) | |  | | \ V / (_| | | | | (_) | (_) | |
 >         |_____|____/|_|  |_|  \_/ \__,_|_| |_|\___/ \___/|_|
 >______________________________________________________________________
->
 >
 >ESMValTool - Earth System Model Evaluation Tool.
 >
@@ -40,124 +39,195 @@
 >For further help, please read the documentation at
 >http://docs.esmvaltool.org. Have fun!
 >
->2023-05-01 20:59:33,345 UTC [18776] INFO    Package versions
->2023-05-01 20:59:33,345 UTC [18776] INFO    ----------------
->2023-05-01 20:59:33,345 UTC [18776] INFO    ESMValCore: 2.8.0
->2023-05-01 20:59:33,346 UTC [18776] INFO    ESMValTool: 2.9.0.dev4+g6948d5512
->2023-05-01 20:59:33,346 UTC [18776] INFO    ----------------
->2023-05-01 20:59:33,346 UTC [18776] INFO    Using config file /home/users/username/esmvaltool_tutorial/config-user.yml
->2023-05-01 20:59:33,346 UTC [18776] INFO    Writing program log files to:
->/home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/main_log.txt
->/home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/main_log_debug.txt
->2023-05-01 20:59:35,209 UTC [18776] INFO    Starting the Earth System Model Evaluation Tool at time: 2023-05-01 20:59:35 UTC
->2023-05-01 20:59:35,210 UTC [18776] INFO    ----------------------------------------------------------------------
->2023-05-01 20:59:35,210 UTC [18776] INFO    RECIPE   = /apps/jasmin/community/esmvaltool/ESMValTool_2.8.0/esmvaltool/recipes/examples/recipe_python.yml
->2023-05-01 20:59:35,210 UTC [18776] INFO    RUNDIR     = /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run
->2023-05-01 20:59:35,211 UTC [18776] INFO    WORKDIR    = /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/work
->2023-05-01 20:59:35,211 UTC [18776] INFO    PREPROCDIR = /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/preproc
->2023-05-01 20:59:35,211 UTC [18776] INFO    PLOTDIR    = /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/plots
->2023-05-01 20:59:35,211 UTC [18776] INFO    ----------------------------------------------------------------------
->2023-05-01 20:59:35,211 UTC [18776] INFO    Running tasks using at most 8 processes
->2023-05-01 20:59:35,211 UTC [18776] INFO    If your system hangs during execution, it may not have enough memory for keeping this number of tasks in memory.
->2023-05-01 20:59:35,211 UTC [18776] INFO    If you experience memory problems, try reducing 'max_parallel_tasks' in your user configuration file.
->2023-05-01 20:59:35,485 UTC [18776] INFO    For Dataset: tas, Amon, CMIP6, BCC-ESM1, historical, r1i1p1f1, gn, supplementaries: areacella, *, *, *, *: ignoring supplementary variable 'areacella', unable to expand wildcards 'mip', 'exp', 'ensemble', 'activity', 'institute'.
->2023-05-01 20:59:35,542 UTC [18776] INFO    Creating tasks from recipe
->2023-05-01 20:59:35,542 UTC [18776] INFO    Creating tasks for diagnostic map
->2023-05-01 20:59:35,542 UTC [18776] INFO    Creating diagnostic task map/script1
->2023-05-01 20:59:35,544 UTC [18776] INFO    Creating preprocessor task map/tas
->2023-05-01 20:59:35,544 UTC [18776] INFO    Creating preprocessor 'to_degrees_c' task for variable 'tas'
->2023-05-01 20:59:35,565 UTC [18776] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, CMIP, historical, r1i1p1f1, gn, v20181214
->2023-05-01 20:59:35,571 UTC [18776] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, v1
->2023-05-01 20:59:35,573 UTC [18776] INFO    PreprocessingTask map/tas created.
->2023-05-01 20:59:35,574 UTC [18776] INFO    Creating tasks for diagnostic timeseries
->2023-05-01 20:59:35,574 UTC [18776] INFO    Creating diagnostic task timeseries/script1
->2023-05-01 20:59:35,574 UTC [18776] INFO    Creating preprocessor task timeseries/tas_amsterdam
->2023-05-01 20:59:35,574 UTC [18776] INFO    Creating preprocessor 'annual_mean_amsterdam' task for variable 'tas_amsterdam'
->2023-05-01 20:59:35,583 UTC [18776] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, CMIP, historical, r1i1p1f1, gn, v20181214
->2023-05-01 20:59:35,586 UTC [18776] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, v1
->2023-05-01 20:59:35,588 UTC [18776] INFO    PreprocessingTask timeseries/tas_amsterdam created.
->2023-05-01 20:59:35,589 UTC [18776] INFO    Creating preprocessor task timeseries/tas_global
->2023-05-01 20:59:35,589 UTC [18776] INFO    Creating preprocessor 'annual_mean_global' task for variable 'tas_global'
->2023-05-01 20:59:35,589 UTC [18776] WARNING Preprocessor function area_statistics works best when at least one supplementary variable of ['areacella', 'areacello'] is defined in the recipe for Dataset:
->{'diagnostic': 'timeseries',
-> 'variable_group': 'tas_global',
-> 'dataset': 'BCC-ESM1',
-> 'project': 'CMIP6',
-> 'mip': 'Amon',
-> 'short_name': 'tas',
-> 'activity': 'CMIP',
-> 'alias': 'CMIP6',
-> 'caption': 'Annual global mean {long_name} according to {dataset}.',
-> 'ensemble': 'r1i1p1f1',
-> 'exp': 'historical',
-> 'frequency': 'mon',
-> 'grid': 'gn',
-> 'institute': ['BCC'],
-> 'long_name': 'Near-Surface Air Temperature',
-> 'modeling_realm': ['atmos'],
-> 'original_short_name': 'tas',
-> 'preprocessor': 'annual_mean_global',
-> 'recipe_dataset_index': 0,
-> 'standard_name': 'air_temperature',
-> 'timerange': '1850/2000',
-> 'units': 'K'}
->session: 'recipe_python_20230501_205933'.
->2023-05-01 20:59:35,598 UTC [18776] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, CMIP, historical, r1i1p1f1, gn, v20181214
->2023-05-01 20:59:35,603 UTC [18776] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, v1, supplementaries: areacella, fx, 1pctCO2, r0i0p0
->2023-05-01 20:59:35,604 UTC [18776] INFO    PreprocessingTask timeseries/tas_global created.
->2023-05-01 20:59:35,605 UTC [18776] INFO    These tasks will be executed: map/tas, timeseries/tas_global, timeseries/script1, map/script1, timeseries/tas_amsterdam
->2023-05-01 20:59:35,623 UTC [18776] INFO    Wrote recipe with version numbers and wildcards to:
->file:///home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/recipe_python_filled.yml
->2023-05-01 20:59:35,623 UTC [18776] INFO    Running 5 tasks using 5 processes
->2023-05-01 20:59:35,682 UTC [18794] INFO    Starting task map/tas in process [18794]
->2023-05-01 20:59:35,682 UTC [18795] INFO    Starting task timeseries/tas_amsterdam in process [18795]
->2023-05-01 20:59:35,684 UTC [18796] INFO    Starting task timeseries/tas_global in process [18796]
->2023-05-01 20:59:35,772 UTC [18776] INFO    Progress: 3 tasks running, 2 tasks waiting for ancestors, 0/5 done
->2023-05-01 20:59:36,762 UTC [18795] INFO    Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
->2023-05-01 20:59:37,685 UTC [18794] INFO    Successfully completed task map/tas (priority 1) in 0:00:02.002836
->2023-05-01 20:59:37,880 UTC [18776] INFO    Progress: 2 tasks running, 2 tasks waiting for ancestors, 1/5 done
->2023-05-01 20:59:37,892 UTC [18797] INFO    Starting task map/script1 in process [18797]
->2023-05-01 20:59:37,903 UTC [18797] INFO    Running command ['/apps/jasmin/community/esmvaltool/miniconda3_py310_23.1.0/envs/esmvaltool/bin/python', '/apps/jasmin/community/esmvaltool/ESMValTool_2.8.0/esmvaltool/diag_scripts/examples/diagnostic.py', '/home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/map/script1/settings.yml']
->2023-05-01 20:59:37,904 UTC [18797] INFO    Writing output to /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/work/map/script1
->2023-05-01 20:59:37,904 UTC [18797] INFO    Writing plots to /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/plots/map/script1
->2023-05-01 20:59:37,904 UTC [18797] INFO    Writing log to /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/map/script1/log.txt
->2023-05-01 20:59:37,904 UTC [18797] INFO    To re-run this diagnostic script, run:
->cd /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/map/script1; MPLBACKEND="Agg" /apps/jasmin/community/esmvaltool/miniconda3_py310_23.1.0/envs/esmvaltool/bin/python /apps/jasmin/community/esmvaltool/ESMValTool_2.8.0/esmvaltool/diag_scripts/examples/diagnostic.py /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/map/script1/settings.yml
->2023-05-01 20:59:37,980 UTC [18776] INFO    Progress: 3 tasks running, 1 tasks waiting for ancestors, 1/5 done
->2023-05-01 20:59:38,992 UTC [18795] INFO    Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
->2023-05-01 20:59:40,791 UTC [18795] INFO    Generated PreprocessorFile: /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/preproc/timeseries/tas_amsterdam/MultiModelMean_historical_Amon_tas_1850-2000.nc
->2023-05-01 20:59:41,059 UTC [18795] INFO    Successfully completed task timeseries/tas_amsterdam (priority 3) in 0:00:05.375697
->2023-05-01 20:59:41,189 UTC [18776] INFO    Progress: 2 tasks running, 1 tasks waiting for ancestors, 2/5 done
->2023-05-01 20:59:41,417 UTC [18796] INFO    Successfully completed task timeseries/tas_global (priority 4) in 0:00:05.732484
->2023-05-01 20:59:41,590 UTC [18776] INFO    Progress: 1 tasks running, 1 tasks waiting for ancestors, 3/5 done
->2023-05-01 20:59:41,602 UTC [18798] INFO    Starting task timeseries/script1 in process [18798]
->2023-05-01 20:59:41,611 UTC [18798] INFO    Running command ['/apps/jasmin/community/esmvaltool/miniconda3_py310_23.1.0/envs/esmvaltool/bin/python', '/apps/jasmin/community/esmvaltool/ESMValTool_2.8.0/esmvaltool/diag_scripts/examples/diagnostic.py', '/home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/timeseries/script1/settings.yml']
->2023-05-01 20:59:41,612 UTC [18798] INFO    Writing output to /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/work/timeseries/script1
->2023-05-01 20:59:41,612 UTC [18798] INFO    Writing plots to /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/plots/timeseries/script1
->2023-05-01 20:59:41,612 UTC [18798] INFO    Writing log to /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/timeseries/script1/log.txt
->2023-05-01 20:59:41,612 UTC [18798] INFO    To re-run this diagnostic script, run:
->cd /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/timeseries/script1; MPLBACKEND="Agg" /apps/jasmin/community/esmvaltool/miniconda3_py310_23.1.0/envs/esmvaltool/bin/python /apps/jasmin/community/esmvaltool/ESMValTool_2.8.0/esmvaltool/diag_scripts/examples/diagnostic.py /home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/timeseries/script1/settings.yml
->2023-05-01 20:59:41,691 UTC [18776] INFO    Progress: 2 tasks running, 0 tasks waiting for ancestors, 3/5 done
->2023-05-01 20:59:46,069 UTC [18797] INFO    Maximum memory used (estimate): 0.3 GB
->2023-05-01 20:59:46,072 UTC [18797] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
->2023-05-01 20:59:47,192 UTC [18797] INFO    Successfully completed task map/script1 (priority 0) in 0:00:09.298761
->2023-05-01 20:59:47,306 UTC [18776] INFO    Progress: 1 tasks running, 0 tasks waiting for ancestors, 4/5 done
->2023-05-01 20:59:49,777 UTC [18798] INFO    Maximum memory used (estimate): 0.3 GB
->2023-05-01 20:59:49,780 UTC [18798] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
->2023-05-01 20:59:50,866 UTC [18798] INFO    Successfully completed task timeseries/script1 (priority 2) in 0:00:09.263219
->2023-05-01 20:59:50,914 UTC [18776] INFO    Progress: 0 tasks running, 0 tasks waiting for ancestors, 5/5 done
->2023-05-01 20:59:50,914 UTC [18776] INFO    Successfully completed all tasks.
->2023-05-01 20:59:50,959 UTC [18776] INFO    Wrote recipe with version numbers and wildcards to:
->file:///home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/run/recipe_python_filled.yml
->2023-05-01 20:59:51,233 UTC [18776] INFO    Wrote recipe output to:
->file:///home/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20230501_205933/index.html
->2023-05-01 20:59:51,233 UTC [18776] INFO    Ending the Earth System Model Evaluation Tool at time: 2023-05-01 20:59:51 UTC
->2023-05-01 20:59:51,233 UTC [18776] INFO    Time for running the recipe was: 0:00:16.023887
->2023-05-01 20:59:51,787 UTC [18776] INFO    Maximum memory used (estimate): 1.7 GB
->2023-05-01 20:59:51,788 UTC [18776] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
->2023-05-01 20:59:51,790 UTC [18776] INFO    Removing `preproc` directory containing preprocessed data
->2023-05-01 20:59:51,790 UTC [18776] INFO    If this data is further needed, then set `remove_preproc_dir` to `false` in your user configuration file
->2023-05-01 20:59:51,827 UTC [18776] INFO    Run was successful
+>2024-05-15 07:04:08,044 UTC [134535] INFO    Package versions
+>2024-05-15 07:04:08,044 UTC [134535] INFO    ----------------
+>2024-05-15 07:04:08,044 UTC [134535] INFO    ESMValCore: 2.10.0
+>2024-05-15 07:04:08,044 UTC [134535] INFO    ESMValTool: 2.10.0
+>2024-05-15 07:04:08,044 UTC [134535] INFO    ----------------
+>2024-05-15 07:04:08,044 UTC [134535] INFO    Using config file /pfs/lustrep1/users/username/esmvaltool_tutorial/config-user.yml
+>2024-05-15 07:04:08,044 UTC [134535] INFO    Writing program log files to:
+>/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/main_log.txt
+>/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/main_log_debug.txt
+>2024-05-15 07:04:08,503 UTC [134535] INFO    Using default ESGF configuration, configuration file /users/username/.esmvaltool/esgf-pyclient.yml not present.
+>2024-05-15 07:04:08,504 UTC [134535] WARNING 
+>ESGF credentials missing, only data that is accessible without
+>logging in will be available.
+>
+>See https://esgf.github.io/esgf-user-support/user_guide.html
+>for instructions on how to create an account if you do not have
+>one yet.
+>
+>Next, configure your system so esmvaltool can use your
+>credentials. This can be done using the keyring package, or
+>you can just enter them in /users/username/.esmvaltool/esgf-pyclient.yml.
+>
+>keyring
+>=======
+>First install the keyring package (requires a supported
+>backend, see https://pypi.org/project/keyring/):
+>$ pip install keyring
+>
+>Next, set your username and password by running the commands:
+>$ keyring set ESGF hostname
+>$ keyring set ESGF username
+>$ keyring set ESGF password
+>
+>To check that you entered your credentials correctly, run:
+>$ keyring get ESGF hostname
+>$ keyring get ESGF username
+>$ keyring get ESGF password
+>
+>configuration file
+>==================
+>You can store the hostname, username, and password or your OpenID
+>account in a plain text in the file /users/username/.esmvaltool/esgf-pyclient.yml like this:
+>
+>logon:
+>  hostname: "your-hostname"
+>  username: "your-username"
+>  password: "your-password"
+>
+>or your can configure an interactive log in:
+>
+>logon:
+>  interactive: true
+>
+>Note that storing your password in plain text in the configuration
+>file is less secure. On shared systems, make sure the permissions
+>of the file are set so only you can read it, i.e.
+>
+>$ ls -l /users/username/.esmvaltool/esgf-pyclient.yml
+>
+>shows permissions -rw-------.
+>
+>
+>2024-05-15 07:04:09,067 UTC [134535] INFO    Starting the Earth System Model Evaluation Tool at time: 2024-05-15 07:04:09 UTC
+>2024-05-15 07:04:09,068 UTC [134535] INFO    ----------------------------------------------------------------------
+>2024-05-15 07:04:09,068 UTC [134535] INFO    RECIPE   = /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/esmvaltool/recipes/examples/recipe_python.yml
+>2024-05-15 07:04:09,068 UTC [134535] INFO    RUNDIR     = /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run
+>2024-05-15 07:04:09,069 UTC [134535] INFO    WORKDIR    = /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/work
+>2024-05-15 07:04:09,069 UTC [134535] INFO    PREPROCDIR = /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/preproc
+>2024-05-15 07:04:09,069 UTC [134535] INFO    PLOTDIR    = /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/plots
+>2024-05-15 07:04:09,069 UTC [134535] INFO    ----------------------------------------------------------------------
+>2024-05-15 07:04:09,069 UTC [134535] INFO    Running tasks using at most 256 processes
+>2024-05-15 07:04:09,069 UTC [134535] INFO    If your system hangs during execution, it may not have enough memory for keeping this number of tasks in memory.
+>2024-05-15 07:04:09,070 UTC [134535] INFO    If you experience memory problems, try reducing 'max_parallel_tasks' in your user configuration file.
+>2024-05-15 07:04:09,070 UTC [134535] WARNING Using the Dask basic scheduler. This may lead to slow computations and out-of-memory errors. Note that the basic scheduler may still be the best choice for preprocessor functions that are not lazy. In that case, you can safely ignore this warning. See https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-distributed-configuration for more information. 
+>2024-05-15 07:04:09,113 UTC [134535] WARNING 'default' rootpaths '/users/username/climate_data' set in config-user.yml do not exist
+>2024-05-15 07:04:10,648 UTC [134535] INFO    Creating tasks from recipe
+>2024-05-15 07:04:10,648 UTC [134535] INFO    Creating tasks for diagnostic map
+>2024-05-15 07:04:10,648 UTC [134535] INFO    Creating diagnostic task map/script1
+>2024-05-15 07:04:10,649 UTC [134535] INFO    Creating preprocessor task map/tas
+>2024-05-15 07:04:10,649 UTC [134535] INFO    Creating preprocessor 'to_degrees_c' task for variable 'tas'
+>2024-05-15 07:04:11,066 UTC [134535] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, CMIP, historical, r1i1p1f1, gn, v20181214
+>2024-05-15 07:04:11,405 UTC [134535] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, v1
+>2024-05-15 07:04:11,406 UTC [134535] INFO    PreprocessingTask map/tas created.
+>2024-05-15 07:04:11,406 UTC [134535] INFO    Creating tasks for diagnostic timeseries
+>2024-05-15 07:04:11,406 UTC [134535] INFO    Creating diagnostic task timeseries/script1
+>2024-05-15 07:04:11,406 UTC [134535] INFO    Creating preprocessor task timeseries/tas_amsterdam
+>2024-05-15 07:04:11,406 UTC [134535] INFO    Creating preprocessor 'annual_mean_amsterdam' task for variable 'tas_amsterdam'
+>2024-05-15 07:04:11,428 UTC [134535] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, CMIP, historical, r1i1p1f1, gn, v20181214
+>2024-05-15 07:04:11,452 UTC [134535] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, v1
+>2024-05-15 07:04:11,455 UTC [134535] INFO    PreprocessingTask timeseries/tas_amsterdam created.
+>2024-05-15 07:04:11,455 UTC [134535] INFO    Creating preprocessor task timeseries/tas_global
+>2024-05-15 07:04:11,455 UTC [134535] INFO    Creating preprocessor 'annual_mean_global' task for variable 'tas_global'
+>2024-05-15 07:04:11,814 UTC [134535] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, CMIP, historical, r1i1p1f1, gn, v20181214, supplementaries: areacella, fx, 1pctCO2, v20190613
+>2024-05-15 07:04:12,184 UTC [134535] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, v1, supplementaries: areacella, fx, r0i0p0
+>2024-05-15 07:04:12,186 UTC [134535] INFO    PreprocessingTask timeseries/tas_global created.
+>2024-05-15 07:04:12,187 UTC [134535] INFO    These tasks will be executed: timeseries/script1, timeseries/tas_global, map/script1, map/tas, timeseries/tas_amsterdam
+>2024-05-15 07:04:12,204 UTC [134535] INFO    Wrote recipe with version numbers and wildcards to:
+>file:///users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/recipe_python_filled.yml
+>2024-05-15 07:04:12,204 UTC [134535] INFO    Will download 129.2 MB
+>Will download the following files:
+>50.85 KB	ESGFFile:CMIP6/CMIP/BCC/BCC-ESM1/1pctCO2/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-ESM1_1pctCO2_r1i1p1f1_gn.nc on hosts ['aims3.llnl.gov', 'cmip.bcc.cma.cn', 'esgf-data04.diasjp.net', 'esgf.nci.org.au', 'esgf3.dkrz.de']
+>64.95 MB	ESGFFile:CMIP6/CMIP/BCC/BCC-ESM1/historical/r1i1p1f1/Amon/tas/gn/v20181214/tas_Amon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412.nc on hosts ['aims3.llnl.gov', 'cmip.bcc.cma.cn', 'esgf-data04.diasjp.net', 'esgf.ceda.ac.uk', 'esgf.nci.org.au', 'esgf3.dkrz.de']
+>44.4 KB	ESGFFile:cmip5/output1/BCC/bcc-csm1-1/historical/fx/atmos/fx/r0i0p0/v1/areacella_fx_bcc-csm1-1_historical_r0i0p0.nc on hosts ['aims3.llnl.gov', 'esgf.ceda.ac.uk', 'esgf2.dkrz.de']
+>64.15 MB	ESGFFile:cmip5/output1/BCC/bcc-csm1-1/historical/mon/atmos/Amon/r1i1p1/v1/tas_Amon_bcc-csm1-1_historical_r1i1p1_185001-201212.nc on hosts ['aims3.llnl.gov', 'esgf.ceda.ac.uk', 'esgf2.dkrz.de']
+>Downloading 129.2 MB..
+>2024-05-15 07:04:14,074 UTC [134535] INFO    Downloaded /users/username/climate_data/cmip5/output1/BCC/bcc-csm1-1/historical/fx/atmos/fx/r0i0p0/v1/areacella_fx_bcc-csm1-1_historical_r0i0p0.nc (44.4 KB) in 1.84 seconds (24.09 KB/s) from aims3.llnl.gov
+>2024-05-15 07:04:14,109 UTC [134535] INFO    Downloaded /users/username/climate_data/CMIP6/CMIP/BCC/BCC-ESM1/1pctCO2/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-ESM1_1pctCO2_r1i1p1f1_gn.nc (50.85 KB) in 1.88 seconds (27 KB/s) from aims3.llnl.gov
+>2024-05-15 07:04:20,505 UTC [134535] INFO    Downloaded /users/username/climate_data/CMIP6/CMIP/BCC/BCC-ESM1/historical/r1i1p1f1/Amon/tas/gn/v20181214/tas_Amon_BCC-ESM1_historical_r1i1p1f1_gn_185001-201412.nc (64.95 MB) in 8.27 seconds (7.85 MB/s) from aims3.llnl.gov
+>2024-05-15 07:04:25,862 UTC [134535] INFO    Downloaded /users/username/climate_data/cmip5/output1/BCC/bcc-csm1-1/historical/mon/atmos/Amon/r1i1p1/v1/tas_Amon_bcc-csm1-1_historical_r1i1p1_185001-201212.nc (64.15 MB) in 13.63 seconds (4.71 MB/s) from aims3.llnl.gov
+>2024-05-15 07:04:25,870 UTC [134535] INFO    Downloaded 129.2 MB in 13.67 seconds (9.45 MB/s)
+>2024-05-15 07:04:25,870 UTC [134535] INFO    Successfully downloaded all requested files.
+>2024-05-15 07:04:25,871 UTC [134535] INFO    Using the Dask basic scheduler.
+>2024-05-15 07:04:25,871 UTC [134535] INFO    Running 5 tasks using 5 processes
+>2024-05-15 07:04:25,956 UTC [144507] INFO    Starting task map/tas in process [144507]
+>2024-05-15 07:04:25,956 UTC [144522] INFO    Starting task timeseries/tas_amsterdam in process [144522]
+>2024-05-15 07:04:25,957 UTC [144534] INFO    Starting task timeseries/tas_global in process [144534]
+>2024-05-15 07:04:26,049 UTC [134535] INFO    Progress: 3 tasks running, 2 tasks waiting for ancestors, 0/5 done
+>2024-05-15 07:04:26,457 UTC [144534] WARNING Long name changed from 'Grid-Cell Area for Atmospheric Variables' to 'Grid-Cell Area for Atmospheric Grid Variables'
+>(for file /users/username/climate_data/CMIP6/CMIP/BCC/BCC-ESM1/1pctCO2/r1i1p1f1/fx/areacella/gn/v20190613/areacella_fx_BCC-ESM1_1pctCO2_r1i1p1f1_gn.nc)
+>2024-05-15 07:04:26,461 UTC [144507] WARNING /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style attribute handling for backwards compatibility.
+>This mode is deprecated since Iris 3.8, and will eventually be removed.
+>Please consider enabling the new split-attributes handling mode, by setting 'iris.FUTURE.save_split_attrs = True'.
+>  warn_deprecated(message)
+>
+>2024-05-15 07:04:26,856 UTC [144522] INFO    Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
+>2024-05-15 07:04:27,081 UTC [144507] WARNING /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style attribute handling for backwards compatibility.
+>This mode is deprecated since Iris 3.8, and will eventually be removed.
+>Please consider enabling the new split-attributes handling mode, by setting 'iris.FUTURE.save_split_attrs = True'.
+>  warn_deprecated(message)
+>
+>2024-05-15 07:04:27,085 UTC [144534] WARNING /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style attribute handling for backwards compatibility.
+>This mode is deprecated since Iris 3.8, and will eventually be removed.
+>Please consider enabling the new split-attributes handling mode, by setting 'iris.FUTURE.save_split_attrs = True'.
+>  warn_deprecated(message)
+>
+>2024-05-15 07:04:40,666 UTC [144507] INFO    Successfully completed task map/tas (priority 1) in 0:00:14.709864
+>2024-05-15 07:04:40,805 UTC [134535] INFO    Progress: 2 tasks running, 2 tasks waiting for ancestors, 1/5 done
+>2024-05-15 07:04:40,813 UTC [144547] INFO    Starting task map/script1 in process [144547]
+>2024-05-15 07:04:40,821 UTC [144547] INFO    Running command ['/LUMI_TYKKY_D1Npoag/miniconda/envs/env1/bin/python', '/LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/esmvaltool/diag_scripts/examples/diagnostic.py', '/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/map/script1/settings.yml']
+>2024-05-15 07:04:40,822 UTC [144547] INFO    Writing output to /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/work/map/script1
+>2024-05-15 07:04:40,822 UTC [144547] INFO    Writing plots to /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/plots/map/script1
+>2024-05-15 07:04:40,822 UTC [144547] INFO    Writing log to /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/map/script1/log.txt
+>2024-05-15 07:04:40,822 UTC [144547] INFO    To re-run this diagnostic script, run:
+>cd /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/map/script1; MPLBACKEND="Agg" /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/bin/python /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/esmvaltool/diag_scripts/examples/diagnostic.py /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/map/script1/settings.yml
+>2024-05-15 07:04:40,906 UTC [134535] INFO    Progress: 3 tasks running, 1 tasks waiting for ancestors, 1/5 done
+>2024-05-15 07:04:47,225 UTC [144522] INFO    Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
+>2024-05-15 07:04:47,308 UTC [144534] WARNING /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style attribute handling for backwards compatibility.
+>This mode is deprecated since Iris 3.8, and will eventually be removed.
+>Please consider enabling the new split-attributes handling mode, by setting 'iris.FUTURE.save_split_attrs = True'.
+>  warn_deprecated(message)
+>
+>2024-05-15 07:04:47,697 UTC [144534] INFO    Successfully completed task timeseries/tas_global (priority 4) in 0:00:21.738941
+>2024-05-15 07:04:47,845 UTC [134535] INFO    Progress: 2 tasks running, 1 tasks waiting for ancestors, 2/5 done
+>2024-05-15 07:04:48,053 UTC [144522] INFO    Generated PreprocessorFile: /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/preproc/timeseries/tas_amsterdam/MultiModelMean_historical_Amon_tas_1850-2000.nc
+>2024-05-15 07:04:48,058 UTC [144522] WARNING /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style attribute handling for backwards compatibility.
+>This mode is deprecated since Iris 3.8, and will eventually be removed.
+>Please consider enabling the new split-attributes handling mode, by setting 'iris.FUTURE.save_split_attrs = True'.
+>  warn_deprecated(message)
+>
+>2024-05-15 07:04:48,228 UTC [144522] INFO    Successfully completed task timeseries/tas_amsterdam (priority 3) in 0:00:22.271045
+>2024-05-15 07:04:48,346 UTC [134535] INFO    Progress: 1 tasks running, 1 tasks waiting for ancestors, 3/5 done
+>2024-05-15 07:04:48,358 UTC [144558] INFO    Starting task timeseries/script1 in process [144558]
+>2024-05-15 07:04:48,364 UTC [144558] INFO    Running command ['/LUMI_TYKKY_D1Npoag/miniconda/envs/env1/bin/python', '/LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/esmvaltool/diag_scripts/examples/diagnostic.py', '/users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/timeseries/script1/settings.yml']
+>2024-05-15 07:04:48,365 UTC [144558] INFO    Writing output to /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/work/timeseries/script1
+>2024-05-15 07:04:48,365 UTC [144558] INFO    Writing plots to /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/plots/timeseries/script1
+>2024-05-15 07:04:48,365 UTC [144558] INFO    Writing log to /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/timeseries/script1/log.txt
+>2024-05-15 07:04:48,365 UTC [144558] INFO    To re-run this diagnostic script, run:
+>cd /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/timeseries/script1; MPLBACKEND="Agg" /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/bin/python /LUMI_TYKKY_D1Npoag/miniconda/envs/env1/lib/python3.11/site-packages/esmvaltool/diag_scripts/examples/diagnostic.py /users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/timeseries/script1/settings.yml
+>2024-05-15 07:04:48,447 UTC [134535] INFO    Progress: 2 tasks running, 0 tasks waiting for ancestors, 3/5 done
+>2024-05-15 07:04:54,019 UTC [144547] INFO    Maximum memory used (estimate): 0.4 GB
+>2024-05-15 07:04:54,021 UTC [144547] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
+>2024-05-15 07:04:55,174 UTC [144547] INFO    Successfully completed task map/script1 (priority 0) in 0:00:14.360271
+>2024-05-15 07:04:55,366 UTC [144558] INFO    Maximum memory used (estimate): 0.4 GB
+>2024-05-15 07:04:55,368 UTC [144558] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
+>2024-05-15 07:04:55,566 UTC [134535] INFO    Progress: 1 tasks running, 0 tasks waiting for ancestors, 4/5 done
+>2024-05-15 07:04:56,958 UTC [144558] INFO    Successfully completed task timeseries/script1 (priority 2) in 0:00:08.599797
+>2024-05-15 07:04:57,072 UTC [134535] INFO    Progress: 0 tasks running, 0 tasks waiting for ancestors, 5/5 done
+>2024-05-15 07:04:57,072 UTC [134535] INFO    Successfully completed all tasks.
+>2024-05-15 07:04:57,134 UTC [134535] INFO    Wrote recipe with version numbers and wildcards to:
+>file:///users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/run/recipe_python_filled.yml
+>2024-05-15 07:04:57,399 UTC [134535] INFO    Wrote recipe output to:
+>file:///users/username/esmvaltool_tutorial/esmvaltool_output/recipe_python_20240515_070408/index.html
+>2024-05-15 07:04:57,399 UTC [134535] INFO    Ending the Earth System Model Evaluation Tool at time: 2024-05-15 07:04:57 UTC
+>2024-05-15 07:04:57,400 UTC [134535] INFO    Time for running the recipe was: 0:00:48.332409
+>2024-05-15 07:04:57,756 UTC [134535] INFO    Maximum memory used (estimate): 2.5 GB
+>2024-05-15 07:04:57,757 UTC [134535] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
+>2024-05-15 07:04:57,759 UTC [134535] INFO    Removing `preproc` directory containing preprocessed data
+>2024-05-15 07:04:57,759 UTC [134535] INFO    If this data is further needed, then set `remove_preproc_dir` to `false` in your user configuration file
+>2024-05-15 07:04:57,782 UTC [134535] INFO    Run was successful
 > ```
 >
 {: .solution}

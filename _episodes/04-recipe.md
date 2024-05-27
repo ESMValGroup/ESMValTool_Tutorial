@@ -2,7 +2,7 @@
 title: "Running your first recipe"
 teaching: 15
 exercises: 15
-compatibility: ESMValTool v2.8.0
+compatibility: ESMValTool v2.10.0
 
 questions:
 - "How to run a recipe?"
@@ -49,7 +49,7 @@ esmvaltool run --config_file ./config-user.yml examples/recipe_python.yml
 If everything is okay, you should see that ESMValTool is printing a lot of
 output to the command line. The final message should be "Run was successful".
 The exact output varies depending on your machine, but it should look something
-like the example output below.
+like the example log output on terminal below.
 
 {% include example_output.txt %}
 
@@ -132,7 +132,7 @@ distinguished in the log messages:
 > > following line in the output:
 > >
 > > ```
-> >[18776] INFO    These tasks will be executed: map/tas, timeseries/tas_global, 
+> >[134535] INFO    These tasks will be executed: map/tas, timeseries/tas_global, 
 >>timeseries/script1, map/script1, timeseries/tas_amsterdam
 > > ```
 > >
@@ -368,7 +368,7 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > >   which contains preprocessed data for each of the input datasets, plus a
 > >   combined `MultiModelMean`, a `metadata.yml` file and provenance files.
 > > - **map/script1**: creates `/run/map/script1` with general information and a
-> >   log of the diagnostic script run. It also creates `/plots/map/script1` and
+> >   log of the diagnostic script run. It also creates `/plots/map/script1/` and
 > >   `/work/map/script1`, which contain output figures and output datasets,
 > >   respectively. For each output file, there is also corresponding provenance
 > >   information in the form of `.xml`, `.bibtex` and `.txt` files.

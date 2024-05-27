@@ -1,11 +1,13 @@
 {% include base_path.html %}
 [activate-environment]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#pre-installed-versions-on-hpc-clusters-other-servers
+[add-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
 [cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
+[code-documentation]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [config-file]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html
 [contrib-covenant]: https://contributor-covenant.org/
@@ -18,6 +20,7 @@
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/diag_scripts/examples/diagnostic.py
 [ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
 [email]: mailto:team@carpentries.org
+[generate-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
 [install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source

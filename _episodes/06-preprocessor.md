@@ -135,7 +135,8 @@ files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 {: .error}
 
 We can use the the log message above, to understand why ESMValTool failed. Here, this is because
-we missed a required field with author names. The text `documentation.authors: Required field missing` 
+we missed a required field with author names. 
+The text `documentation.authors: Required field missing` 
 tells us that. We see that ESMValTool always tries to validate the recipe
 at an early stage. Note also the suggestion to open a GitHub issue if 
 you need help debugging the error message. This is something most
@@ -316,7 +317,8 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > The default order in which these preprocessors are applied can be seen
 > > [here][preprocessor-functions]{:target="_blank"}:
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
-> > can use the `custom_order` preprocessor as described [here][recipe-section-preprocessors]{:target="_blank"}. 
+> > can use the `custom_order` preprocessor as 
+>> described [here][recipe-section-preprocessors]{:target="_blank"}. 
 >> For this example, we will keep the default order..
 > >
 > > Let's name our preprocessor `global_anomalies`.
@@ -564,8 +566,9 @@ for each of the modifications we'll make below.
 
 
 > ## Pro-tip: YAML anchors
-> If you want to avoid retyping the arguments used in your preprocessor, you can use YAML anchors as 
-seen in the `anomalies` preprocessor specifications in the recipe above.
+> If you want to avoid retyping the arguments used in your preprocessor, 
+> you can use YAML anchors as seen in the `anomalies` preprocessor 
+> specifications in the recipe above.
 {:.callout}
 
 > ## Additional datasets
@@ -573,8 +576,8 @@ seen in the `anomalies` preprocessor specifications in the recipe above.
 > So far we have defined the datasets in the datasets section of the recipe.
 > However, it's also possible to add specific datasets only for specific
 > variables or variable groups. Take a look at the documentation to learn about the
-> `additional_datasets` keyword [here][additional-datasets]{:target="_blank"}, and add a second dataset only for one of the
-> variable groups.
+> `additional_datasets` keyword [here][additional-datasets]{:target="_blank"}, and 
+> add a second dataset only for one of the variable groups.
 >
 > > ## Solution
 > >

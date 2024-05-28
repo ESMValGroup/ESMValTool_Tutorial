@@ -6,11 +6,9 @@ documentation:
   title: Reproducing Ed Hawkins' warming stripes visualization.
   authors:
     - righi_mattia
-  maintainer:
-    - righi_mattia
 
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: "r(1:2)i1p1f1", grid: gn, start_year: 1850, end_year: 2014}
 
 preprocessors:
   global_anomalies:
@@ -29,7 +27,6 @@ preprocessors:
 
 diagnostics:
   diagnostic_warming_stripes:
-    description: visualize global temperature anomalies as warming stripes
     variables:
       global_temperature_anomalies:
         short_name: tas

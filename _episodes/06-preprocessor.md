@@ -604,7 +604,7 @@ for each of the modifications we'll make below.
 
 > ## Multiple ensemble members
 >
-> You can choose data from multiple ensemble members for a model in a single line
+> You can choose data from multiple ensemble members for a model in a single line.
 >
 >> ## Solution
 >>

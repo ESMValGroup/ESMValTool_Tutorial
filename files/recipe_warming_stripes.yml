@@ -29,6 +29,7 @@ preprocessors:
 
 diagnostics:
   diagnostic_warming_stripes:
+    description: visualize global temperature anomalies as warming stripes
     variables:
       global_temperature_anomalies:
         short_name: tas

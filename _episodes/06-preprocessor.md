@@ -9,6 +9,7 @@ questions:
 - "Can I use different preprocessors for different variables?"
 - "Can I use different datasets for different variables?"
 - "How can I combine different preprocessor functions?"
+- "Can I run the same recipe for multiple ensemble members?"
 objectives:
 - "Create a recipe with multiple preprocessors"
 - "Use different preprocessors for different variables"
@@ -18,6 +19,7 @@ keypoints:
 - "The setting `additional_datasets` can be used to add a different dataset."
 - "Variable groups are useful for defining different settings for different
   variables."
+- "Multiple ensemble members and experiments can be analysed in a single recipe through concatenation."
 ---
 
 ## Introduction
@@ -26,7 +28,7 @@ One of the key strengths of ESMValTool is in making complex analyses reusable
 and reproducible. But that doesn't mean everything in ESMValTool needs to be
 complex. Sometimes, the biggest challenge is in keeping things simple. You
 probably know the 'warming stripes' visualization by Professor Ed Hawkins. On
-the site <https://showyourstripes.info> you can find the same visualization for
+the site <https://showyourstripes.info>{:target="_blank"} you can find the same visualization for
 many regions in the world.
 
 ![Warming stripes](../fig/warming_stripes.png) *Shared by Ed Hawkins under a
@@ -42,7 +44,7 @@ The diagnostic script that we will use is called `warming_stripes.py` and
 can be downloaded [here](../files/warming_stripes.py).
 
 Download the file and store it in your working directory. If you want, you may
-also have a look at the contents, but it is not necessary to follow along.
+also have a look at the contents, but it is not necessary to do so for this lesson.
 
 We will write an ESMValTool recipe that takes some data, performs the necessary
 preprocessing, and then runs this Python script.
@@ -50,8 +52,8 @@ preprocessing, and then runs this Python script.
 > ## Drawing up a plan
 >
 > Previously, we saw that running ESMValTool executes a number of
-> tasks. Write down what tasks we will need to execute in this episode and what 
-> each of these tasks does?
+> tasks. What tasks do you think we will need to execute and what 
+> should each of these tasks do to generate the warming stripes?
 >
 > > ## Answer
 > >
@@ -69,11 +71,11 @@ preprocessing, and then runs this Python script.
 
 The easiest way to make a new recipe is to start from an existing one, and
 modify it until it does exactly what you need. However, in this episode we will
-start from scratch. This forces us to think about all the steps. We will deal
-with common errors as they occur throughout the development.
+start from scratch. This forces us to think about all the steps involved in processing the data. 
+We will also deal with commonly occurring  errors through the development of the recipe.
 
-Remember the basic structure of a recipe, and notice that each of them is
-extensively described in the documentation following the header
+Remember the basic structure of a recipe, and notice that each component is
+extensively described in the documentation under the section, 
  ["Overview"][recipe-overview]{:target="_blank"}:
 
 - [documentation][recipe-section-documentation]{:target="_blank"}
@@ -102,11 +104,11 @@ documentation:
 
 ```
 
-Notice that `yaml` always requires 2 spaces indentation between the different
+Notice that `yaml` always requires `two spaces` indentation between the different
 levels. Pressing `ctrl+o` will save the file. Verify the filename at the bottom
 and press enter. Then use `ctrl+x` to exit the editor.
 
-We will try to run the recipe after every modification we make, to see if it (still) works.
+We will try to run the recipe after every modification we make, to see if it (still) works!
 
 ```bash
 esmvaltool run recipe_warming_stripes.yml
@@ -132,9 +134,13 @@ files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 
-Here, ESMValTool is telling us that it is missing a required field, namely the
-authors. We see that ESMValTool always tries to validate the recipe
-at an early stage. 
+We can use the the log message above, to understand why ESMValTool failed. Here, this is because
+we missed a required field with author names. The text `documentation.authors: Required field missing` 
+tells us that. We see that ESMValTool always tries to validate the recipe
+at an early stage. Note also the suggestion to open a GitHub issue if 
+you need help debugging the error message. This is something most
+users do when they cannot understand the error or are not able to fix it 
+on their own.
 
 Let's add some additional information to the recipe. Open the recipe file again,
 and add an authors section below the description. ESMValTool expects the authors
@@ -238,8 +244,8 @@ Let's add a datasets section.
 > {: .solution}
 {: .challenge}
 
-We start with the BCC-ESM1 dataset and add a datasets section to the recipe,
-listing a single dataset, as shown below. Note that key fields such 
+Let us start with the BCC-ESM1 dataset and add a datasets section to the recipe,
+listing this single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
 of the `diagnostic` section in the recipe example seen in 
 [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
@@ -277,7 +283,7 @@ in ESMValTool.
 > You can select all available models for processing using 
 > `glob`  patterns or wildcards.  An example `datasets` section that uses all 
 > available CMIP6 models and ensemble members for the `historical` experiment
-> will look is available [here] [include-all-datasets]{:target="_blank"}.
+> is available [here] [include-all-datasets]{:target="_blank"}.
 > Note that you will have to set the `search_esgf` option in the `config_file` to 
 > `always` so that you can download data from ESGF nodes as  needed.
 {: .callout}
@@ -302,7 +308,7 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > ## Solution
 > >
 > > We need to calculate anomalies and global means. There is an `anomalies`
-> > preprocessor which needs a granularity, a reference period, and whether or
+> > preprocessor which takes in as arguments, a time period, a reference period, and whether or
 > > not to standardize the data. The global means can be calculated with the
 > > `area_statistics` preprocessor, which takes an operator as argument (in our
 > > case we want to compute the `mean`).
@@ -310,7 +316,8 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > The default order in which these preprocessors are applied can be seen
 > > [here][preprocessor-functions]{:target="_blank"}:
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
-> > can use the `custom_order` preprocessor. We will keep it like this.
+> > can use the `custom_order` preprocessor as described [here][recipe-section-preprocessors]{:target="_blank"}. 
+>> For this example, we will keep the default order..
 > >
 > > Let's name our preprocessor `global_anomalies`.
 > {: .solution}
@@ -448,8 +455,9 @@ for each of the modifications we'll make below.
 > ## Different time periods
 >
 > Split the diagnostic in two with two different time periods for the same variable.
-> You can choose the time periods yourself. For example, the recent past and 
-> the 20th century. You can do this by using variable groups.
+> You can choose the time periods yourself. In the example below, we have 
+> chosen the recent past and 
+> the 20th century and have used variable grouping.
 >
 > > ## Solution
 > >
@@ -552,17 +560,20 @@ for each of the modifications we'll make below.
 >
 {:.challenge}
 
->
+
+
+
 > ## Pro-tip: YAML anchors
-> If you want to avoid repetition, you can use YAML anchors as seen in the recipe above.
+> If you want to avoid retyping the arguments used in your preprocessor, you can use YAML anchors as 
+seen in the `anomalies` preprocessor specifications in the recipe above.
 {:.callout}
 
 > ## Additional datasets
 >
 > So far we have defined the datasets in the datasets section of the recipe.
 > However, it's also possible to add specific datasets only for specific
-> variable groups. Look at the documentation to learn about the
-> 'additional_datasets' keyword, and add a second dataset only for one of the
+> variables or variable groups. Take a look at the documentation to learn about the
+> `additional_datasets` keyword [here][additional-datasets]{:target="_blank"}, and add a second dataset only for one of the
 > variable groups.
 >
 > > ## Solution

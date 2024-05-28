@@ -1,6 +1,7 @@
 {% include base_path.html %}
 [activate-environment]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#pre-installed-versions-on-hpc-clusters-other-servers
 [add-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+[additional-datasets]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#diagnostic-and-variable-specific-datasets
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/

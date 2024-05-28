@@ -117,13 +117,15 @@ In this case, it gives an error. Below you see the last few lines of the error m
 ...
 yamale.yamale_error.YamaleError: 
 Error validating data '/home/users/username/esmvaltool_tutorial/recipe_warming_stripes.yml' 
-with schema '/apps/jasmin/community/esmvaltool/miniconda3_py311_23.11.0-2/envs/esmvaltool/lib/python3.11/
+with schema 
+'/apps/jasmin/community/esmvaltool/miniconda3_py311_23.11.0-2/envs/esmvaltool/lib/python3.11/
 site-packages/esmvalcore/_recipe/recipe_schema.yml'
 	documentation.authors: Required field missing
 2024-05-27 13:21:23,805 UTC [41924] INFO    
 If you have a question or need help, please start a new discussion on 
 https://github.com/ESMValGroup/ESMValTool/discussions
-If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
+If you suspect this is a bug, please open an issue on 
+https://github.com/ESMValGroup/ESMValTool/issues
 To make it easier to find out what the problem is, please consider attaching the 
 files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 
@@ -175,10 +177,9 @@ ValueError: Tag 'doe_john' does not exist in section
 >
 > The error message above points to a file named
 > [config-references.yml][config-references]
-
 > This is where ESMValTool stores all its citation information. To add yourself
 > as an author, add your name in the form `lastname_firstname` in alphabetical
-> order following the existing entries, under the `# Development team` comment.
+> order following the existing entries, under the `# Development team` section.
 > See the
 > [List of authors][list-of-authors]{:target="_blank"}
 > section in the ESMValTool documentation for more information.
@@ -276,17 +277,7 @@ in ESMValTool.
 > You can select all available models for processing using 
 > `glob`  patterns or wildcards.  An example `datasets` section that uses all 
 > available CMIP6 models and ensemble members for the `historical` experiment
-> will look like this:
->
->>```yaml
->>datasets:
->>  - project: CMIP6
->>    exp: historical
->>    dataset: '*'
->>    institute: '*'
->>    ensemble: '*'
->>    grid: '*'
->> ```
+> will look is available [here] [include-all-datasets]{:target="_blank"}.
 > Note that you will have to set the `search_esgf` option in the `config_file` to 
 > `always` so that you can download data from ESGF nodes as  needed.
 {: .callout}

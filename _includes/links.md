@@ -25,6 +25,7 @@
 [generate-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
+[include-all-datasets]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#automatically-populating-a-recipe-with-all-available-datasets
 [install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
 [jekyll-collection]: https://jekyllrb.com/docs/collections/

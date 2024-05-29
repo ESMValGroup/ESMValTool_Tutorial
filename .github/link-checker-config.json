@@ -1,0 +1,13 @@
+{
+  "projectBaseUrl":"${https://github.com/ESMValGroup/ESMValTool_Tutorial}",
+  "ignorePatterns": [
+    {
+      "pattern": "^http://example.net"
+    }
+  ],
+  "timeout": "20s",
+  "retryOn429": true,
+  "retryCount": 5,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206]
+}

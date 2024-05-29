@@ -1,0 +1,67 @@
+documentation:
+  title: Easy IPCC
+  description: Reproduce part of IPCC AR6 figure 9.3a.
+  references:
+    - fox-kemper21ipcc
+  authors:
+    - kalverla_peter
+    - andela_bouwe
+  maintainer:
+    - andela_bouwe
+
+preprocessors:
+  easy_ipcc:
+    custom_order: true
+    anomalies:
+      period: month
+      reference:
+        start_year: 1950
+        start_month: 1
+        start_day: 1
+        end_year: 1979
+        end_month: 12
+        end_day: 31
+    area_statistics:
+      operator: mean
+    annual_statistics:
+      operator: mean
+    convert_units:
+      units: 'degrees_C'
+    ensemble_statistics:
+      statistics:
+        - operator: mean
+    multi_model_statistics:
+      statistics:
+        - operator: mean
+        - operator: percentile
+          percent: 17
+        - operator: percentile
+          percent: 83
+      span: full
+      keep_input_datasets: false
+      ignore_scalar_coords: true
+
+diagnostics:
+  AR6_Figure_9.3:
+    variables:
+      tos_ssp585:
+        short_name: tos
+        exp: ['historical', 'ssp585']
+        project: CMIP6
+        mip: Omon
+        preprocessor: easy_ipcc
+        timerange: '1850/2100'
+      tos_ssp126:
+        short_name: tos
+        exp: ['historical', 'ssp126']
+        project: CMIP6
+        mip: Omon
+        timerange: '1850/2100'
+        preprocessor: easy_ipcc
+    scripts:
+      Figure_9.3a:
+        script: examples/make_plot.py
+
+datasets:
+  - {dataset: ACCESS-CM2, ensemble: r1i1p1f1, grid: gn}
+  - {dataset: CESM2, ensemble: r4i1p1f1, grid: gn}

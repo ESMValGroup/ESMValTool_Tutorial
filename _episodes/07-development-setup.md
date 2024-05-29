@@ -121,7 +121,7 @@ For a minimal mamba installation, see section **Install Mamba/Miniforge** in les
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 
 It is good practice to update the version of mamba and conda on your machine before
-setting up ESMValTool. This can be done as follows:
+setting up ESMValTool. If you have already installed Miniforge, this is can be done as follows:
 
 ~~~bash
 mamba update --name base mamba conda

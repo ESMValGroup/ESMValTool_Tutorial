@@ -1,4 +1,4 @@
---
+---
 title: "Development and contribution"
 teaching: 10
 exercises: 20
@@ -127,12 +127,13 @@ setting up ESMValTool. This can be done as follows:
 mamba update --name base mamba conda
 ~~~
 
-To simplify the installation process, run this:
+To start the installation process, run this:
 
 ~~~bash
 mamba create --name esmvaltool esmvaltool
 ~~~
 
+The environment is called `esmvaltool` by default. 
 If an ``esmvaltool`` environment is already created following the lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
 we should choose another name for the new environment in this lesson by:
@@ -140,6 +141,7 @@ we should choose another name for the new environment in this lesson by:
 ~~~bash
 mamba create --name a_new_name
 ~~~
+
 This will create a new conda environment and install ESMValTool (with all
 dependencies that are needed for development purposes) into it with a single command.
 

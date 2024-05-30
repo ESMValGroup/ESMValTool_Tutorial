@@ -43,8 +43,8 @@ available. Lazy data is the term the Iris library uses for Dask Arrays.
 
 ### Workers
 The most important concept to understand when using Dask Arrays is the concept
-of a Dask "worker". With Dask, computations are run in parallel by little
-programs that are called "workers". These could be on running on the
+of a Dask *worker*. With Dask, computations are run in parallel by little
+Python programs that are called *workers*. These could be on running on the
 same machine that you are running ESMValTool on, or they could be on one or
 more other computers. Dask workers typically require 2 to 4 gigabytes (GiB) of
 memory (RAM) each. In order to avoid running out of memory, it is important
@@ -59,7 +59,7 @@ workers.
 ### Scheduler
 
 In order to distribute the computations over the workers, Dask makes use of a
-"scheduler". There are two different schedulers available. The default
+*scheduler*. There are two different schedulers available. The default
 scheduler can be good choice for smaller computations that can run
 on a single computer, while the scheduler provided by the Dask Distributed
 package is more suitable for larger computations.
@@ -219,7 +219,7 @@ client:
 where the address depends on the Dask cluster. Code to start a
 [``distributed.LocalCluster``](https://distributed.dask.org/
 en/stable/api.html#distributed.LocalCluster)
-that automatically scales between 0 and 2 workers, depending on demand, could
+that automatically scales between 0 and 2 workers depending on demand, could
 look like this:
 
 ```python

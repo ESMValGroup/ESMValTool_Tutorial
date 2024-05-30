@@ -112,11 +112,14 @@ cluster:
 This tells ESMValCore to start a new cluster of one worker, that can use 2
 gigabytes (GiB) of memory and run computations using 2 threads. For a more
 extensive description of the available arguments and their values, see
-[``distributed.LocalCluster``](https://distributed.dask.org/en/stable/api.html#distributed.LocalCluster).
+[``distributed.LocalCluster``](https://distributed.dask.org/
+en/stable/api.html#distributed.LocalCluster).
 
-To see this configuration in action, run we will run a version
-of [recipe_easy_ipcc.yml](https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html) with just two datasets. This recipe takes a few minutes to run, once you have the data available. Download
-the recipe [here](../files/recipe_easy_ipcc_short.yml) and run it
+To see this configuration in action, run we will run a version of
+[recipe_easy_ipcc.yml](https://docs.esmvaltool.org/
+en/latest/recipes/recipe_examples.html) with just two datasets.
+This recipe takes a few minutes to run, once you have the data available.
+Download the recipe [here](../files/recipe_easy_ipcc_short.yml) and run it
 with the command:
 
 ~~~bash
@@ -188,8 +191,9 @@ asked to do.
 >>    threads_per_worker: 2
 >>    memory_limit: 4GiB
 >>```
->> and run the recipe again with the command ``esmvaltool run recipe_easy_ipcc_short.yml``. The time it took to run the recipe is printed
->> to the screen.
+>> and run the recipe again with the command
+>> ``esmvaltool run recipe_easy_ipcc_short.yml``.
+>> The time it took to run the recipe is printed to the screen.
 >>
 > {: .solution}
 {: .challenge}
@@ -229,18 +233,15 @@ if __name__ == '__main__':  # Remove this line when running from a Jupyter noteb
         memory_limit='4GiB',
     )
     cluster.adapt(minimum=0, maximum=2)
-
     # Print connection information
     print(f"Connect to the Dask Dashboard by opening {cluster.dashboard_link} in a browser.")
     print("Add the following text to ~/.esmvaltool/dask.yml to connect to the cluster:" )
     print("client:")
     print(f'  address: "{cluster.scheduler_address}"')
-
     # When running this as a Python script, the next two lines keep the cluster
     # running for an hour.
     hour = 3600 # seconds
     sleep(1 * hour)
-
     # Stop the cluster when you are done with it.
     cluster.close()
 ```
@@ -338,10 +339,10 @@ cluster:
 In this example we use the popular SLURM scheduduler, but other schedulers are also supported, see [this list](https://jobqueue.dask.org/en/latest/api.html).
 
 In the above example, ESMValCore will start 64 Dask workers
-(with 128 / 64 = 2 threads each) and for that it will need to launch a single SLURM
-batch job on the ``compute`` partition. If you would set ``n_workers`` to e.g.
-256, it would launch 4 SLURM batch jobs which would each start 64 workers for a
-total of 4 x 64 = 256 workers. In the above configuration, each worker is
+(with 128 / 64 = 2 threads each) and for that it will need to launch a single
+SLURM batch job on the ``compute`` partition. If you would set ``n_workers`` to
+e.g. 256, it would launch 4 SLURM batch jobs which would each start 64 workers
+for a total of 4 x 64 = 256 workers. In the above configuration, each worker is
 allowed to use 240 GiB per job / 64 workers per job = ~4 GiB per worker.
 
 It is important to read the documentation about your HPC system and answer questions such as
@@ -362,14 +363,19 @@ in order to find the optimal configuration for your situation.
 > Answer the questions above and create an ``~/.esmvaltool/dask.yml`` file that
 > matches your situation. To benefit from using an HPC system, you will probably
 > need to run a larger recipe than the example we have used so far. You could
-> try the full version of that recipe (``esmvaltool run examples/recipe_easy_ipcc.yml``) or use your own recipe. To understand performance, you may want
-> to experiment with different configurations.
+> try the full version of that recipe (
+> ``esmvaltool run examples/recipe_easy_ipcc.yml``) or use your own recipe.
+> To understand how the different settings affect performance, you may want to
+> experiment with different configurations.
 >
 >> ## Solution
 >>
 >> The best configuration depends on the HPC system that you are using.
->> Discuss your answer with the instructor and the class if possible. If you are
->> taking this course by yourself, you can have a look at the [Dask configuration examples in the ESMValCore documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-distributed-configuration).
+>> Discuss your answer with the instructor and the class if possible.
+>> If you are taking this course by yourself, you can have a look at the
+>> [Dask configuration examples in the ESMValCore documentation](
+>> https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/
+>> configure.html#dask-distributed-configuration).
 >>
 > {: .solution}
 {: .challenge}

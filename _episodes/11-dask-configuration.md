@@ -22,7 +22,7 @@ keypoints:
 
 ---
 
-## The Dask configuration file
+## Introduction
 
 When processing larger amounts of data, and especially when the tool crashes
 when running a recipe because there is not enough memory available, it is
@@ -41,7 +41,7 @@ en/stable/userguide/real_and_lazy_data.html)
 available. Lazy data is the term the Iris library uses for Dask Arrays.
 
 
-### Workers
+### Dask Workers
 The most important concept to understand when using Dask Arrays is the concept
 of a Dask *worker*. With Dask, computations are run in parallel by little
 Python programs that are called *workers*. These could be on running on the
@@ -56,7 +56,7 @@ Note that only array computations are run using Dask, so total runtime may not
 decrease as much as you might expect when you increase the number of Dask
 workers.
 
-### Scheduler
+### Dask Scheduler
 
 In order to distribute the computations over the workers, Dask makes use of a
 *scheduler*. There are two different schedulers available. The default

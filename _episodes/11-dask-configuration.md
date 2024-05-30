@@ -336,7 +336,8 @@ cluster:
   n_workers: 64                     # total number of workers to start
 ```
 
-In this example we use the popular SLURM scheduduler, but other schedulers are also supported, see [this list](https://jobqueue.dask.org/en/latest/api.html).
+In this example we use the popular SLURM scheduduler, but other schedulers are
+also supported, see [this list](https://jobqueue.dask.org/en/latest/api.html).
 
 In the above example, ESMValCore will start 64 Dask workers
 (with 128 / 64 = 2 threads each) and for that it will need to launch a single
@@ -345,16 +346,21 @@ e.g. 256, it would launch 4 SLURM batch jobs which would each start 64 workers
 for a total of 4 x 64 = 256 workers. In the above configuration, each worker is
 allowed to use 240 GiB per job / 64 workers per job = ~4 GiB per worker.
 
-It is important to read the documentation about your HPC system and answer questions such as
+It is important to read the documentation about your HPC system and answer
+questions such as:
 - Which batch scheduler does my HPC system use?
 - How many CPU cores are available per node (a computer in an HPC system)?
 - How much memory is available for use per node?
 - What is the fastest network interface (infiniband is much faster than ethernet)?
-- What path should I use for storing temporary files on the nodes (try to avoid slower network storage if possible)?
+- What path should I use for storing temporary files on the nodes (try to
+  avoid slower network storage if possible)?
 - Which computing queue has the best availability?
 - Can I use part of a node or do I need to use the full node?
-  - If you are always charged for using the full node, asking for only part of a node is wasteful of computational resources.
-  - If you can ask for part of a node, make sure the amount of memory you request matches the number of CPU cores if possible, or you will be charged for a larger fraction of the node.
+  - If you are always charged for using the full node, asking for only part of
+    a node is wasteful of computational resources.
+  - If you can ask for part of a node, make sure the amount of memory you
+    request matches the number of CPU cores if possible, or you will be charged
+    for a larger fraction of the node.
 
 in order to find the optimal configuration for your situation.
 

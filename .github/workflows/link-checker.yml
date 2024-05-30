@@ -11,5 +11,5 @@ jobs:
       with:
         use-quiet-mode: 'yes'
         use-verbose-mode: 'yes'
-        config-file: 'link-checker-config.json'
+        config-file: 'link_checker_config.json'
         file-path: './README.md, ./LICENSE.md, ./CONTRIBUTING.md, ./CODE_OF_CONDUCT.md, ./aio.md, ./index.md, ./reference.md, ./setup.md'

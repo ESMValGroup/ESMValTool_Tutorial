@@ -1,7 +1,7 @@
 ---
 title: "Configuring Dask"
 teaching: 20 (+ optional 10)
-exercises: 40 (+ optional 20) 
+exercises: 40 (+ optional 20)
 compatibility: ESMValCore v2.10.0
 
 questions:
@@ -27,7 +27,8 @@ keypoints:
 When processing larger amounts of data, and especially when the tool crashes
 when running a recipe because there is not enough memory available, it is
 usually beneficial to change the default
-[Dask configuration](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration).
+[Dask configuration](https://docs.esmvaltool.org/
+projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration).
 
 The preprocessor functions in ESMValCore use the
 [Iris](https://scitools-iris.readthedocs.io) library, which in turn uses Dask
@@ -35,14 +36,15 @@ Arrays to be able to process datasets that are larger than the available memory.
 It is not necesary to understand how these work exactly to use the ESMValTool,
 but if you are interested there is a
 [Dask Array Tutorial](https://tutorial.dask.org/02_array.html) as a well as a
-[guide to "Lazy Data"](https://scitools-iris.readthedocs.io/en/stable/userguide/real_and_lazy_data.html)
+[guide to "Lazy Data"](https://scitools-iris.readthedocs.io/
+en/stable/userguide/real_and_lazy_data.html)
 available. Lazy data is the term the Iris library uses for Dask Arrays.
 
 
 ### Workers
 The most important concept to understand when using Dask Arrays is the concept
-of a Dask "worker". With Dask, computations are run in parallel by little programs
-that are called "workers". These could be on running on the
+of a Dask "worker". With Dask, computations are run in parallel by little
+programs that are called "workers". These could be on running on the
 same machine that you are running ESMValTool on, or they could be on one or
 more other computers. Dask workers typically require 2 to 4 gigabytes (GiB) of
 memory (RAM) each. In order to avoid running out of memory, it is important
@@ -66,15 +68,15 @@ package is more suitable for larger computations.
 >
 > In the config-user.yml file, there is a setting called ``max_parallel_tasks``.
 > Any variable or diagnostic script in the recipe is considered a 'task' in this
-> context and when settings this to a value larger than 1, these will be processed
-> in parallel on the computer running the ``esmvaltool`` command.
+> context and when settings this to a value larger than 1, these will be
+> processed in parallel on the computer running the ``esmvaltool`` command.
 >
 > With the Dask Distributed scheduler, all the tasks running in parallel
 > can use the same workers, but with the default scheduler each task will
-> start its own workers. If a recipe does not run with ``max_parallel_tasks`` set
-> to a value larger than 1, try reducing the value or setting it to 1. This is
-> especially the case for recipes with high resolution data or many datasets
-> per variable.
+> start its own workers. If a recipe does not run with ``max_parallel_tasks``
+> set to a value larger than 1, try reducing the value or setting it to 1.
+> This is especially the case for recipes with high resolution data or many
+> datasets per variable.
 >
 {: .callout}
 
@@ -133,8 +135,8 @@ Open the Dashboard link in a browser to see the Dask Dashboard website.
 When the recipe has finished running, the Dashboard website will stop working.
 The top left panel shows the memory use of each of the workers, the panel on the
 right shows one row for each thread that is doing work, and the panel at the
-bottom shows the progress of all work that the scheduler currently has been asked
-to do.
+bottom shows the progress of all work that the scheduler currently has been
+asked to do.
 
 > ## Explore what happens if workers do not have enough memory
 >
@@ -156,8 +158,8 @@ to do.
 >> orange as the worker reaches the maximum amount of memory it is
 >> allowed to use and it starts 'spilling' (writing data temporarily) to disk.
 >> The red blocks in the top right panel represent time spent reading/writing
->> to disk. While 2 GiB per worker may be enough in other cases, it is apparently
->> not enough for this recipe.
+>> to disk. While 2 GiB per worker may be enough in other cases, it is
+>> apparently not enough for this recipe.
 >>
 > {: .solution}
 {: .challenge}
@@ -195,9 +197,12 @@ to do.
 ## Using an existing Dask Distributed cluster
 
 In some cases, it can be useful to start the Dask Distributed cluster before
-running the ``esmvaltool`` command. For example, if you would like to keep the Dashboard available for further investigation after the recipe completes running, or if you are working from a Jupyter notebook environment, see
+running the ``esmvaltool`` command. For example, if you would like to keep the
+Dashboard available for further investigation after the recipe completes
+running, or if you are working from a Jupyter notebook environment, see
 [dask-labextension](https://github.com/dask/dask-labextension) and
-[dask_jobqueue interactive use](https://jobqueue.dask.org/en/latest/interactive.html)
+[dask_jobqueue interactive use](https://jobqueue.dask.org/
+en/latest/interactive.html)
 for more information.
 
 To use a cluster that was started in some other way, the following configuration
@@ -208,7 +213,10 @@ client:
   address: "tcp://127.0.0.1:33041"
 ```
 where the address depends on the Dask cluster. Code to start a
-[``distributed.LocalCluster``](https://distributed.dask.org/en/stable/api.html#distributed.LocalCluster) that automatically scales between 0 and 2 workers, depending on demand, could look like this:
+[``distributed.LocalCluster``](https://distributed.dask.org/
+en/stable/api.html#distributed.LocalCluster)
+that automatically scales between 0 and 2 workers, depending on demand, could
+look like this:
 
 ```python
 from time import sleep
@@ -257,8 +265,8 @@ Dashboard remains available after the recipe completes.
 >> to the screen, edit the file ``~/.esmvaltool/dask.yml`` so it contains the
 lines
 >> ```yaml
->>  client:
->>    address: "tcp://127.0.0.1:34827"
+>> client:
+>>   address: "tcp://127.0.0.1:34827"
 >> ```
 >> open the link "http://127.0.0.1:8787/status" in your browser and
 >> run the recipe again with the command ``esmvaltool run recipe_easy_ipcc_short.yml``.
@@ -273,7 +281,7 @@ compute hours you are not using.
 
 It is recommended to use the Distributed scheduler explained above for
 processing larger amounts of data. However, in many cases the default scheduler
-is good enough. Note that it does not provide a Dashboard, so it is less 
+is good enough. Note that it does not provide a Dashboard, so it is less
 instructive and that is why we did not use it earlier in this tutorial.
 
 To use the default scheduler, comment out all the contents of
@@ -359,7 +367,7 @@ in order to find the optimal configuration for your situation.
 >
 >> ## Solution
 >>
->> The best configuration depends on the HPC system that you are using. 
+>> The best configuration depends on the HPC system that you are using.
 >> Discuss your answer with the instructor and the class if possible. If you are
 >> taking this course by yourself, you can have a look at the [Dask configuration examples in the ESMValCore documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-distributed-configuration).
 >>

@@ -351,7 +351,8 @@ questions such as:
 - Which batch scheduler does my HPC system use?
 - How many CPU cores are available per node (a computer in an HPC system)?
 - How much memory is available for use per node?
-- What is the fastest network interface (infiniband is much faster than ethernet)?
+- What is the fastest network interface (run `ip a` to find the available
+  interfaces, infiniband `ib*` is much faster than ethernet `eth*`)?
 - What path should I use for storing temporary files on the nodes (try to
   avoid slower network storage if possible)?
 - Which computing queue has the best availability?

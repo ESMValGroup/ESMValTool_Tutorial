@@ -1,5 +1,5 @@
 {
-  "projectBaseUrl": "https://github.com/ESMValGroup/ESMValTool_Tutorial",
+  "projectBaseUrl": "https://github.com/ESMValGroup/ESMValTool_Tutorial/.github",
   "ignorePatterns": [
     {
       "pattern": "^http://example.net"

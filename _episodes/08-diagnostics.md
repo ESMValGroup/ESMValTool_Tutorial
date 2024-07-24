@@ -31,9 +31,7 @@ languages such as Python, R, Julia and NCL but we will focus on understanding
 and writing Python diagnostics in this lesson.
 
 In this lesson, we will explain how to find an existing diagnostic and run it
-using ESMValTool installed in editable/development mode. For a development
-installation, see the instructions in the lesson [Development and
-contribution]({{ page.root }}{% link _episodes/07-development-setup.md %}).
+using ESMValTool installed in editable/development mode. 
 Also, we will work with the recipe [recipe_python.yml][recipe] and the
 diagnostic script [diagnostic.py][diagnostic] called by this recipe that we have
 seen in the lesson [Running your first recipe]({{ page.root }}{% link
@@ -44,9 +42,7 @@ Let's get started!
 ## Understanding an existing Python diagnostic
 
 If you clone the ESMValTool repository, a folder called ``ESMValTool`` is
-created in your home/working directory, see the instructions in the lesson
-[Development and contribution]({{ page.root }}{% link
-_episodes/07-development-setup.md %}).
+created in your home/working directory.
 
 The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
@@ -219,8 +215,6 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 
 > ## What information do I need when writing a diagnostic script?
 >
-> From the lesson [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}),
-> we saw how to change the configuration settings  before running a recipe.
 > First we set the option ``remove_preproc_dir`` to ``false`` in the configuration file,
 > then run the recipe ``recipe_python.yml``:
 >

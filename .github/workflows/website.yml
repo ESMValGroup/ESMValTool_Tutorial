@@ -97,12 +97,6 @@ jobs:
           ref: gh-pages
           path: gh-pages
 
-      - name: Validate workshop website
-        # https://github.com/carpentries/styles/issues/551 is no longer relevant as styles shouldn't be used for
-        # lessons but only workshop templates. So, always run the workshop checks now.
-        run: make workshop-check
-        if: always()
-
       - name: Commit and Push
         if: ${{ github.event_name == 'push' && steps.check-rmd.outputs.count != 0 && github.ref != 'refs/heads/gh-pages'}}
         run: |

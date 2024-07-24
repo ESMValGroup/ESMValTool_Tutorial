@@ -12,11 +12,11 @@
 carpentry: "et"
 
 # Overall title for pages.
-title: "ESMValTool Tutorial"
+title: "CMIP7 ACCESS MED Hackathon"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
-life_cycle: "beta"
+life_cycle: "stable"
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -31,7 +31,7 @@ kind: "lesson"
 repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: "esmvaltool_user_engagement_team@listserv.dfn.de"
+email: "romain.beucher@anu.edu.au"
 
 # Sites.
 amy_site: "https://amy.carpentries.org/workshops"

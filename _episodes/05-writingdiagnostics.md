@@ -2,7 +2,7 @@
 title: "Writing your own diagnostic script"
 teaching: 20
 exercises: 30
-compatibility: ESMValTool v2.9.0
+compatibility: ESMValTool v2.11.0
 
 questions:
 - "How do I write a new diagnostic in ESMValTool?"
@@ -35,7 +35,7 @@ using ESMValTool installed in editable/development mode.
 Also, we will work with the recipe [recipe_python.yml][recipe] and the
 diagnostic script [diagnostic.py][diagnostic] called by this recipe that we have
 seen in the lesson [Running your first recipe]({{ page.root }}{% link
-_episodes/04-recipe.md %}).
+_episodes/03-runarecipe.md %}).
 
 Let's get started!
 

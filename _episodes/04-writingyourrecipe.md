@@ -2,7 +2,7 @@
 title: "Writing your own recipe"
 teaching: 15
 exercises: 30
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.11.0
 
 questions:
 - "How do I create a new recipe?"
@@ -249,7 +249,7 @@ Let us start with the BCC-ESM1 dataset and add a datasets section to the recipe,
 listing this single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
 of the `diagnostic` section in the recipe example seen in 
-[Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
+[Running your first recipe]({{ page.root }}{% link _episodes/03-runarecipe.md %}).
 
 ```yaml
 # ESMValTool
@@ -395,7 +395,7 @@ Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
 own diagnostic scripts and want to add them to the ESMValTool repositories, this
 will be required. Writing your own diagnostic script is discussed in a 
-[later episode]({{ page.root }}{% link _episodes/08-diagnostics.md %}).
+[later episode]({{ page.root }}{% link _episodes/05-writingdiagnostics.md %}).
 
 ## Bonus exercises
 

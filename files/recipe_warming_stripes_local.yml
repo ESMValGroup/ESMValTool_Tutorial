@@ -8,14 +8,15 @@ documentation:
     - righi_mattia
 
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+  - {dataset: ACCESS-ESM1-5, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 
 preprocessors:
-  anomalies_amsterdam:
-    extract_point:
-      latitude: 52.379189
-      longitude: 4.899431
-      scheme: linear
+  anomalies_aus:
+    extract_region:
+      start_longitude: 110
+      end_longitude: 160
+      start_latitude: -45
+      end_latitude: -9
     anomalies:
       period: month
       reference:
@@ -30,9 +31,9 @@ preprocessors:
 diagnostics:
   diagnostic_warming_stripes:
     variables:
-      temperature_anomalies_amsterdam:
+      temperature_anomalies_aus:
         short_name: tas
-        preprocessor: anomalies_amsterdam
+        preprocessor: anomalies_aus
     scripts:
       warming_stripes_script:
         script: ~/esmvaltool_tutorial/warming_stripes.py

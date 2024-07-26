@@ -42,7 +42,10 @@ Let's get started!
 ## Understanding an existing Python diagnostic
 
 If you clone the ESMValTool repository, a folder called ``ESMValTool`` is
-created in your home/working directory.
+created in your home/working directory. 
+
+![VS Code directory](../fig/warming_stripes.png) You can find the cloned repo in
+VS code and add the folder to your workspace.
 
 The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
@@ -51,7 +54,7 @@ directories:
 - *~/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
 - *~/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
 
-Let's have look at the code in  ``diagnostic.py``.
+Let's have look at the code in ``diagnostic.py``.
 For reference, we show the diagnostic code in the dropdown box below.
 There are four main sections in the script:
 
@@ -189,7 +192,7 @@ There are four main sections in the script:
 >> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
->> in the  ``main`` function and extract information as needed
+>> in the ``main`` function and extract information as needed
 >> to do our analyses (e.g. in line 68).
 >> 3. The ``main`` function is called near the very end on line 108. So, it is mentioned
 >> twice in our code - once where it is called by the top-level Python script and
@@ -244,7 +247,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 
 ## Diagnostic shared functions
 
-Looking at the code in  ``diagnostic.py``, we see that ``input_data`` is
+Looking at the code in ``diagnostic.py``, we see that ``input_data`` is
 read from the ``cfg`` dictionary (line 68). Now we can group the ``input_data``
 according to some criteria such as the model or experiment. To do so,
 ESMValTool provides many functions such as ``select_metadata`` (line 71),

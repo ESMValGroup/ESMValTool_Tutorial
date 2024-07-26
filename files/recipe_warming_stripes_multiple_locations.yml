@@ -17,6 +17,8 @@ preprocessors:
       end_longitude: 160
       start_latitude: -45
       end_latitude: -9
+    area_statistics:
+      operator: mean
     anomalies: &anomalies
       period: month
       reference:

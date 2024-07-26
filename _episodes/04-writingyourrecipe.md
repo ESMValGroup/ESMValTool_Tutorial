@@ -110,6 +110,7 @@ Notice that `yaml` always requires `two spaces` indentation between the differen
 levels. Save the file in VS Code with `ctrl + s`.
 
 We will try to run the recipe after every modification we make, to see if it (still) works!
+Add the full path to your `recipe_warming_stripes.yml` in this command.
 
 ```bash
 esmvaltool run recipe_warming_stripes.yml
@@ -247,7 +248,7 @@ Let's add a datasets section.
 > {: .solution}
 {: .challenge}
 
-Let us start with the ACCESS-ESM1-5 dataset and add a datasets section to the recipe,
+Let us start with the ACCESS-ESM1-5 dataset and add a 'datasets' section to the recipe,
 listing this single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
 of the `diagnostic` section in the recipe example seen in 
@@ -288,7 +289,7 @@ in ESMValTool.
 > available CMIP6 models and ensemble members for the `historical` experiment
 > is available [here] [include-all-datasets]{:target="_blank"}.
 > Note that you will have to set the `search_esgf` option in the `config_file` to 
-> `always` so that you can download data from ESGF nodes as needed. This will need
+> `always` so that you can download data from ESGF nodes as needed. On Gadi, this will need
 > a queue with internet access (copyq).
 {: .callout}
 
@@ -322,7 +323,7 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
 > > can use the `custom_order` preprocessor as 
 >> described [here][recipe-section-preprocessors]{:target="_blank"}. 
->> For this example, we will keep the default order..
+>> For this example, we will keep the default order.
 > >
 > > Let's name our preprocessor `global_anomalies`.
 > {: .solution}
@@ -386,13 +387,17 @@ a custom colormap.
 > >         preprocessor: global_anomalies
 > >     scripts:
 > >       warming_stripes_script:
-> >         script: ~/esmvaltool_tutorial/warming_stripes.py
+> >         script: <working_dir>/warming_stripes.py
 > >         colormap: 'bwr'
 > > ```
 > {: .solution}
 {: .challenge}
 
 You should now be able to run the recipe to get your own warming stripes.
+```bash
+esmvaltool run recipe_warming_stripes.yml
+```
+Find the plots in the plot directory of the output run.
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
@@ -430,18 +435,18 @@ for each of the modifications we'll make below.
 > >
 > >  preprocessors:
 > > -  global_anomalies:
-> > -    area_statistics:
-> > -      operator: mean
 > > +  aus_anomalies:
 > > +    extract_region:
 > > +      start_longitude: 110
 > > +      end_longitude: 160
 > > +      start_latitude: -45
 > > +      end_latitude: -9
+> >      area_statistics:
+> >        operator: mean
 > >      anomalies:
 > >        period: month
 > >        reference:
-> > @@ -27,9 +29,9 @@
+> > @@ -29,9 +32,9 @@
 > >  diagnostics:
 > >    diagnostic_warming_stripes:
 > >      variables:
@@ -481,7 +486,7 @@ for each of the modifications we'll make below.
 > > +     ensemble: r1i1p1f1, grid: gn}
 > >
 > >  preprocessors:
-> >    anomalies_amsterdam:
+> >    anomalies_aus:
 > > @@ -31,9 +31,16 @@
 > > diagnostics:
 > >   diagnostic_warming_stripes:
@@ -522,16 +527,16 @@ for each of the modifications we'll make below.
 > > ```diff
 > > --- recipe_warming_stripes_periods.yml
 > > +++ recipe_warming_stripes_multiple_locations.yml
-> > @@ -17,7 +17,7 @@
-> >        end_longitude: 160
-> >        start_latitude: -45
+> > @@ -19,7 +19,7 @@
 > >        end_latitude: -9
+> >      area_statistics:
+> >        operator: mean
 > > -    anomalies:
 > > +    anomalies: &anomalies
 > >        period: month
 > >        reference:
 > >          start_year: 1981
-> > @@ -27,18 +27,24 @@
+> > @@ -29,18 +29,24 @@
 > >          end_month: 12
 > >          end_day: 31
 > >        standardize: false
@@ -591,8 +596,8 @@ for each of the modifications we'll make below.
 > > ```diff
 > > --- recipe_warming_stripes_multiple_locations.yml
 > > +++ recipe_warming_stripes_additional_datasets.yml
-> > @@ -45,6 +45,8 @@
-> >          preprocessor: anomalies_london
+> > @@ -49,6 +49,8 @@
+> >          preprocessor: anomalies_sydney
 > >          start_year: 1900
 > >          end_year: 1999
 > > +        additional_datasets:
@@ -617,8 +622,8 @@ for each of the modifications we'll make below.
 >>to do that.
 >> Changes made are shown in the diff output below:
 >>```diff
->>--- recipe_warming_stripes.yml	2024-05-27 15:37:52.340358967 +0100
->>+++ recipe_warming_stripes_multiens.yml	2024-05-27 22:18:42.035558837 +0100
+>>--- recipe_warming_stripes.yml	
+>>+++ recipe_warming_stripes_multiple_ensemble_members.yml	
 >>@@ -10,7 +10,7 @@
 >>-     ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 >>+     ensemble: "r(1:2)i1p1f1", grid: gn, start_year: 1850, end_year: 2014}

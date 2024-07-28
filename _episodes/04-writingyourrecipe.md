@@ -249,7 +249,7 @@ Let us start with the BCC-ESM1 dataset and add a datasets section to the recipe,
 listing this single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
 of the `diagnostic` section in the recipe example seen in 
-[Running your first recipe]({{ page.root }}{% link _episodes/03-runarecipe.md %}).
+[Running your first recipe]({{ page.root }}{% link _episodes/02-runarecipe.md %}).
 
 ```yaml
 # ESMValTool

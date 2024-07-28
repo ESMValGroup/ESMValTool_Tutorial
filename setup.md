@@ -1,108 +1,69 @@
 ---
-title: Pre-requisites
+title: pre-requisites
 ---
 
-This page includes some information on how to prepare for participating in this Hackathon.
+## Essential Preparation for the Hackathon
 
-> ## Prerequisites
->
-> *Minimal requirements:*
->  - Basic understanding of your preferred command line interface (ie a bash terminal)
->  - Access to Gadi
->  - Access to CMIP data
->
-> *Optional, but useful:*
->  - Basic understanding of git
->  - GitHub account
-{: .prereq}
+To get the most out of the Hackathon, please complete the following preparation tasks:
 
+### Join Required NCI Data Projects
 
-## Command line & git tutorials
+**Estimated time: 1-2 days (to receive membership approvals)**
 
-We typically use the command line to interact with ESMValTool. While most of us
-are likely to have experience with the command line, novices may want to work
-through this software carpentry unix shell course.
+To run the ESMValTool workflow at NCI, you will need:
 
-- Command line:
-  [https://swcarpentry.github.io/shell-novice/](https://swcarpentry.github.io/shell-novice/)
+- An active NCI account. (All hackathon participants have active NCI user IDs at this stage. Thanks!)
+- Join project [xp65](#)
+- Join project [nf33 (ACCESS-NRI training)](#)
+- Join the ACCESS-NRI replicated data collection for Model Evaluation project [ct11](#)
+- Join CMIP6 projects: [fs38](#), [oi10](#)
+- Join CMIP5 projects: [rr3](#), [al33](#)
+- Join ERA5 projects: [rt52](#), [zz93](#)
 
+This process will give you access to the ACCESS-NRI training project as well as a number of managed data collections. You should receive automated emails from NCI as your memberships are approved. You can also check on the status of your project memberships by logging into MyNCI.
 
-Git is a distributed version-control system for tracking changes in source code
-during software development. It’s how we distribute, share, and manage the
-ESMValTool code.
+**Note**: Joining NCI projects requires NCI staff to manually approve each request. Approvals may take 1-3 working days to process. We strongly recommend that you submit the listed membership requests **as soon as possible** if you have not already done so.
 
-- git:
-  [https://swcarpentry.github.io/git-novice/](https://swcarpentry.github.io/git-novice/)
+### Run Basic ESMValTool Test on Gadi
 
+**Estimated time: 5 minutes**
 
-## Access to CMIP and Observational data and a suitable compute cluster
+Once you have membership of the prerequisite NCI projects described above, run the following quick test in a Gadi (gadi.nci.org.au) login session:
 
-To complete this tutorial and use ESMValTool, you will need access to data in a
-reasonable format. Some data will be provided, but there is simply too much data
-available for your tutors to make it all available directly.
+```bash
+module use /g/data/xp65/public/modules
+module load esmvaltool
+check_hackathon
+```
 
-For more information see:
+This procedure will confirm that you are correctly set up to run ESMValTool on Gadi. Please report any issues to [romain.beucher@anu.edu.au](mailto:romain.beucher@anu.edu.au).
 
-- [CMIP5](https://pcmdi.llnl.gov/mips/cmip5/index.html) and
-[CMIP6](https://pcmdi.llnl.gov/CMIP6/Guide/dataUsers.html) data obey the
-[CF-conventions](http://cfconventions.org/). Available variables can be found
-under the [CMIP5 data request](https://pcmdi.llnl.gov/mips/cmip5/docs/standard_output.pdf?id=28)
-and the [CMIP6 Data Request](http://clipc-services.ceda.ac.uk/dreq/index.html).
+### Download and Set Up VS Code for Use with Gadi
 
-- List of all
-[CMIP named variables](http://clipc-services.ceda.ac.uk/dreq/index/CMORvar.html).
+**Estimated time: 15 minutes**
 
-- List of all [ESGF nodes](https://esgf.llnl.gov/nodes.html).
+We will use the code editor VS Code during the Hackathon. Please download and install the tool before arriving at the Hackathon. We have made a video that will take you through the steps of installing and using VS Code with NCI’s Gadi.
 
-- A good 
-[tutorial](https://esgf.github.io/esgf-user-support/user_guide.html#data-search-and-download)
-on how to search and download CMIP data from ESGF nodes.
+- Watch Video: [VSCODE workflow on Gadi](#) (6 min)
 
-- [Exploring climate model data](https://climate4impact.eu/impactportal/data/esgfsearch.jsp)
-on infrastructure for the European network for Earth system modelling.
+### Learn More About ESMValTool and Run Some Examples
 
-### NCI-Gadi
+We strongly encourage everyone to work through additional ACCESS-NRI ESMValTool training materials including videos and tutorials:
+
+- Watch: [What is ESMValTool?](#)
+
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YSs6A0H1MwE" frameborder="0" allowfullscreen></iframe>
+</div>
+
+- Watch: [ESMValTool – NCI Quickstart Guide](#)
 
 
-#### Gadi-login
+<div style="text-align: center;">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LSOzl6_CNy8" frameborder="0" allowfullscreen></iframe>
+</div>
 
+- Work through the [ESMValTool-workflow guide and examples](#)
+- Watch additional videos from ACCESS-NRI's [ESMValTool YouTube playlist](#)
+- Walk through ESMValTool’s [collection of tutorials](#)
 
-#### Access to data on Gadi
-
-
-#### Test your Setup
-
-
-## GitHub account (Advanced)
-
-You don’t need a github account to participate in the tutorial. However, if you
-want to raise an issue, contribute to the discussions, or share your code,
-please [create a github account](https://github.com/).
-
-To learn how to use github, please have a look at this [introduction to
-github](https://lab.github.com/githubtraining/introduction-to-github).
-
-You may hear a few of the following phrases during the tutorial. Don’t be
-alarmed, they will make sense eventually.
-
-### GitHub issues
-
-Issues are github’s ticketing system. They allow users and developers to discuss
-problems, identify bugs, or to make suggestions. Each issue is assigned a number
-and will have it’s own page on GitHub.
-
-Here’s an explanation of the [GitHub
-issues](https://guides.github.com/features/issues/).
-
-Raising an issue is the act of creating a new issue. If you are asked to raise
-an issue, please follow any instructions that you are given, and also make sure
-that you read the default issue text.
-
-### GitHub pull requests
-
-A GitHub pull request is the act of requesting that a branch is merged with another branch.
-
-This is an advanced feature of GitHub, and will generally be performed by the
-ESMValTool development team.
-
-{% include links.md %}

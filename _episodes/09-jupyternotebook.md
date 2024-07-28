@@ -5,10 +5,39 @@ exercises: 30
 compatibility: ESMValTool v2.11.0
 
 questions:
-
+- "How to view and run a recipe in a Jupyter Notebook?"
+- "How to run a single diagnostic or preprocessor task?"
 objectives:
+- "Learn about the esmvalcore experimental API"
+- "View the Recipe output in a Jupyter Notebook"
 
 keypoints:
+- "ESMValTool can be used in a Jupyter Notebook"
+- "ESMValTool uses ESMValCore as a tool"
 ---
+
+This episode..
+
+## Finding a recipe
+list
+print - metadata
+recipe object
+
+## Configuration in the notebook
+CFG object as dictionary
+```
+esmvaltool.CFG
+
+esmvaltool.CFG['offline'] = False
+```
+
+## Running the recipe
+
+
+## Recipe output
+output mapping
+image files
+datafiles
+
 
 {% include links.md %}

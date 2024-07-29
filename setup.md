@@ -13,12 +13,12 @@ To get the most out of the Hackathon, please complete the following preparation 
 To run the ESMValTool workflow at NCI, you will need:
 
 - An active NCI account. (All hackathon participants have active NCI user IDs at this stage. Thanks!)
-- Join project [xp65](#)
-- Join project [nf33 (ACCESS-NRI training)](#)
-- Join the ACCESS-NRI replicated data collection for Model Evaluation project [ct11](#)
-- Join CMIP6 projects: [fs38](#), [oi10](#)
-- Join CMIP5 projects: [rr3](#), [al33](#)
-- Join ERA5 projects: [rt52](#), [zz93](#)
+- Join project [xp65](https://my.nci.org.au/mancini/project/xp65)
+- Join project [nf33 (ACCESS-NRI training)](https://my.nci.org.au/mancini/project/nf33)
+- Join the ACCESS-NRI replicated data collection for Model Evaluation project [ct11](https://my.nci.org.au/mancini/project/ct11)
+- Join CMIP6 projects: [fs38](https://my.nci.org.au/mancini/project/fs38), [oi10](https://my.nci.org.au/mancini/project/oi10)
+- Join CMIP5 projects: [rr3](https://my.nci.org.au/mancini/project/rr3), [al33](https://my.nci.org.au/mancini/project/al33)
+- Join ERA5 projects: [rt52](https://my.nci.org.au/mancini/project/rt52), [zz93](https://my.nci.org.au/mancini/project/zz93)
 
 This process will give you access to the ACCESS-NRI training project as well as a number of managed data collections. You should receive automated emails from NCI as your memberships are approved. You can also check on the status of your project memberships by logging into MyNCI.
 
@@ -44,8 +44,6 @@ This procedure will confirm that you are correctly set up to run ESMValTool on G
 
 We will use the code editor VS Code during the Hackathon. Please download and install the tool before arriving at the Hackathon. We have made a video that will take you through the steps of installing and using VS Code with NCI’s Gadi.
 
-- Watch Video: [VSCODE workflow on Gadi](#) (6 min)
-
 ### Learn More About ESMValTool and Run Some Examples
 
 We strongly encourage everyone to work through additional ACCESS-NRI ESMValTool training materials including videos and tutorials:
@@ -55,9 +53,6 @@ We strongly encourage everyone to work through additional ACCESS-NRI ESMValTool 
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YSs6A0H1MwE" frameborder="0" allowfullscreen></iframe>
 </div>
-
-- Watch: [ESMValTool – NCI Quickstart Guide](#)
-
 
 <div style="text-align: center;">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LSOzl6_CNy8" frameborder="0" allowfullscreen></iframe>

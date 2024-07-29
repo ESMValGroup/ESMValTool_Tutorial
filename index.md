@@ -4,6 +4,10 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
+<div style="text-align: center;">
+  <img src="./assets/img/cmip7_hackathon_logo.png" alt="Description of Image" style="width: 100%; height: auto;" />
+</div>
+
 This tutorial helps you to use ESMValTool.
 
 The Earth System Model Evaluation Tool (ESMValTool) is a community developed

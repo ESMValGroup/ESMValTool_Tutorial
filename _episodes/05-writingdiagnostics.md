@@ -42,10 +42,7 @@ Let's get started!
 ## Understanding an existing Python diagnostic
 
 If you clone the ESMValTool repository, a folder called ``ESMValTool`` is
-created in your home/working directory. 
-
-![VS Code directory](../fig/warming_stripes.png) You can find the cloned repo in
-VS code and add the folder to your workspace.
+created in your working directory.
 
 The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
@@ -192,7 +189,7 @@ There are four main sections in the script:
 >> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
->> in the ``main`` function and extract information as needed
+>> in the  ``main`` function and extract information as needed
 >> to do our analyses (e.g. in line 68).
 >> 3. The ``main`` function is called near the very end on line 108. So, it is mentioned
 >> twice in our code - once where it is called by the top-level Python script and
@@ -208,6 +205,31 @@ There are four main sections in the script:
 >
 {: .callout}
 
+> ## Create a copy of the files for you to edit
+>
+> Copy the files `diagnostic.py` and `recipe_python.yml` to your working folder
+> to keep the ones in the repo as templates unaltered while you can more easily 
+> find the files you are editing. Edit your recipe to point to your copy of 
+> `diagnostic.py`. Also, note the location for when you run your recipe.
+>
+>> ## Answer
+>>
+>> Example of your working folder: 
+>> - */scratch/.../temp/recipe_python.yml*.
+>> - */scratch/.../temp/diagnostic.py*
+>> In your `recipe_python.yml`, edit the path to the diagnostic script.
+>> ```yaml
+>>     script1:
+>>       script: /scratch/.../temp/diagnostic.py
+>>        quickplot:
+>> ```
+>> When running the recipe run to the full path of your recipe:
+>> ```bash
+>> esmvaltool run /scratch/.../temp/recipe_python.yml
+>> ```
+> {: .solution}
+{: .challenge}
+
 ## Preprocessor-diagnostic interface
 
 In the previous exercise, we have seen that the variable ``cfg`` is the input
@@ -218,14 +240,18 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 
 > ## What information do I need when writing a diagnostic script?
 >
-> First we set the option ``remove_preproc_dir`` to ``false`` in the configuration file,
-> then run the recipe ``recipe_python.yml``:
+> Load the module in Gadi if you haven't already. We know how to change the configuration 
+> settings before running a recipe. First we set the option ``remove_preproc_dir`` 
+> to ``false`` in the configuration file, then run the recipe ``recipe_python.yml``:
 >
-> ~~~bash
-> esmvaltool run examples/recipe_python.yml
-> ~~~
+> ```bash
+> module use /g/data/xp65/public/modules
+> module load esmvaltool
 >
-> 1. Find one example of the file ``settings.yml`` in the ``run`` directory?
+> esmvaltool run <your_working_folder>/recipe_python.yml
+> ```
+>
+> 1. Can you find one example of the file ``settings.yml`` in the ``run`` directory?
 > 2. Open the file ``settings.yml`` and look at the ``input_files`` list.
 >    It contains paths to some files ``metadata.yml``. What information do you
 >    think is saved in those files?
@@ -233,7 +259,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 >> ## Answer
 >>
 >> 1. One example of ``settings.yml`` can be found in the directory:
->> *path_to_recipe_output/run/map/script1/settings.yml*
+>> *<path_to_recipe_output>/run/map/script1/settings.yml*
 >> 2. The ``metadata.yml`` files hold information
 >> about the preprocessed data. There is one file for each variable having
 >> detailed information on your data including project (e.g., CMIP6, CMIP5),
@@ -373,7 +399,7 @@ def compute_diagnostic(filename):
 
 > ## Reading data using xarray
 >
-> Alternately, you can use [xarrays](http://xarray.pydata.org/en/stable/) to read the data
+> Alternately, you can use [xarray](http://xarray.pydata.org/en/stable/) to read the data
 > instead of Iris.
 >
 >> ## Answer
@@ -463,7 +489,7 @@ there:
 
 This way, we can pass arguments such as the type of
 plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
-``quickplot``  function in the diagnostic.
+``quickplot`` function in the diagnostic.
 
 > ## Passing arguments from the recipe to the diagnostic
 >
@@ -482,7 +508,7 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >>          cmap: BuGn
 >>```
 >>
->> The plot can be found at *path_to_recipe_output/plots/map/script1/png*.
+>> The plot can be found at *<path_to_recipe_output>/plots/map/script1/png*.
 > {: .solution}
 {: .challenge}
 
@@ -498,8 +524,16 @@ In our example, the function ``save_data`` in line 56 is used to save the Iris
 cube. The saved files can be found under the ``work`` directory in a ``.nc`` format.
 There is also the function ``save_figure`` in line 62 to save the plots under the
 ``plot`` directory in a ``.png`` format (or preferred format specified in your
-configuration settings). Again, you may choose your own method
-of saving the output.
+configuration settings). Again, you may choose your own method of saving the output.
+You will see that they are imported from `esmvaltool.diag_scripts.shared` and 
+take arguments such as `cfg` so that they can be saved in the appropriate output location.
+```python
+55:      # Save the data used for the plot
+56:      save_data(basename, provenance_record, cfg, cube)
+..
+61:          # And save the plot
+62:          save_figure(basename, provenance_record, cfg)
+```
 
 ### Recording the provenance
 
@@ -511,6 +545,7 @@ possible to add custom provenance to our diagnostics output.
 Provenance is stored in the *[W3C PROV XML](https://www.w3.org/TR/prov-xml/)*
 format and also in an *SVG* file under the ``work`` and ``plot`` directory. For
 more information, see [recording provenance][provenance].
+You will see that it gets parsed as an argument in the saving outputs functions above.
 
 ## Congratulations!
 

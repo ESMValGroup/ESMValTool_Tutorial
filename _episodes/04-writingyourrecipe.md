@@ -86,7 +86,7 @@ extensively described in the documentation under the section,
 This is the first place to look for help if you get stuck.
 
 Open VS Code with a remote SSH connection to Gadi and in the terminal load the module to use
-ESMValTool on Gadi. If you don't have a terminal open the shortcut in VS Code is Ctrl + `.
+ESMValTool on Gadi. If you don't have a terminal open the shortcut in VS Code is `` Ctrl + ` ``.
 
 ```bash
 module use /g/data/xp65/public/modules

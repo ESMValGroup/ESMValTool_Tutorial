@@ -182,7 +182,7 @@ There are four main sections in the script:
 > 2. What are its input arguments?
 > 3. How many times is this function mentioned?
 >
->> ## Answer
+>> ## Solution
 >>
 >> 1. The ``main`` function is defined in line 65 as ``main(cfg)``.
 >> 2. The input argument to this function is the variable ``cfg``, a Python dictionary
@@ -212,11 +212,12 @@ There are four main sections in the script:
 > find the files you are editing. Edit your recipe to point to your copy of 
 > `diagnostic.py`. Also, note the location for when you run your recipe.
 >
->> ## Answer
+>> ## Solution
 >>
 >> Example of your working folder: 
 >> - */scratch/.../temp/recipe_python.yml*.
 >> - */scratch/.../temp/diagnostic.py*
+>>
 >> In your `recipe_python.yml`, edit the path to the diagnostic script.
 >> ```yaml
 >>     script1:
@@ -256,10 +257,10 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 >    It contains paths to some files ``metadata.yml``. What information do you
 >    think is saved in those files?
 >
->> ## Answer
+>> ## Solution
 >>
 >> 1. One example of ``settings.yml`` can be found in the directory:
->> *<path_to_recipe_output>/run/map/script1/settings.yml*
+>> *path_to_recipe_output/run/map/script1/settings.yml*
 >> 2. The ``metadata.yml`` files hold information
 >> about the preprocessed data. There is one file for each variable having
 >> detailed information on your data including project (e.g., CMIP6, CMIP5),
@@ -284,12 +285,12 @@ available functions and their description can be found in
 [The ESMValTool Diagnostic API reference][shared].
 
 
-> ## Extracting information needed for analyses
+> ## Extracting information needed for analysis
 >
 > We have seen the functions used for selecting, sorting and grouping data in the
 > script. What do these functions do?
 >
->> ## Answer
+>> ## Solution
 >>
 >> There is a statement after use of ``select_metadata``, ``sorted_metadata``
 >> and ``group_metadata`` that starts with ``logger.info`` (lines 72, 76 and
@@ -402,7 +403,7 @@ def compute_diagnostic(filename):
 > Alternately, you can use [xarray](http://xarray.pydata.org/en/stable/) to read the data
 > instead of Iris.
 >
->> ## Answer
+>> ## Solution
 >>
 >> First, import ``xarray`` package at the top of the script as:
 >>
@@ -435,7 +436,7 @@ def compute_diagnostic(filename):
 > Yet another option to read the NetCDF file data is to use
 > the [netCDF-4 Python interface][netCDF] to the netCDF C library.
 >
->> ## Answer
+>> ## Solution
 >>
 >> First, import the ``netCDF4`` package at the top of the script as:
 >>
@@ -495,7 +496,7 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >
 > Change the type of the plot and its colormap and inspect the output figure.
 >
->> ## Answer
+>> ## Solution
 >>
 >> In the recipe ``recipe_python.yml``, you could change ``plot_type`` and ``cmap``.
 >> As an example, we choose ``plot_type: pcolor`` and ``cmap: BuGn``:
@@ -508,7 +509,7 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >>          cmap: BuGn
 >>```
 >>
->> The plot can be found at *<path_to_recipe_output>/plots/map/script1/png*.
+>> The plot can be found at *path_to_recipe_output/plots/map/script1/png*.
 > {: .solution}
 {: .challenge}
 
@@ -545,7 +546,7 @@ possible to add custom provenance to our diagnostics output.
 Provenance is stored in the *[W3C PROV XML](https://www.w3.org/TR/prov-xml/)*
 format and also in an *SVG* file under the ``work`` and ``plot`` directory. For
 more information, see [recording provenance][provenance].
-You will see that it gets parsed as an argument in the saving outputs functions above.
+You will see that the `record` gets parsed as an argument in the saving outputs functions above.
 
 ## Congratulations!
 

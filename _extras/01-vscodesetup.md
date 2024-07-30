@@ -12,10 +12,10 @@ keypoints:
 
 ## Pre-workshop preparation
 
-- *0.1* In order to get the most out of the Hackathon, you will require a NCI account. If you do not yet have a NCI account, you can sign up on the [MyNCI website](https://my.nci.org.au).
-- *0.2* To run the exercises, access to specific projects on Gadi is required. To help things run as smoothly as possible on the day, please log in to the [MyNCI website](https://my.nci.org.au) and join the following projects:
+1. In order to get the most out of the Hackathon, you will require a NCI account. If you do not yet have a NCI account, you can sign up on the [MyNCI website](https://my.nci.org.au).
+2. To run the exercises, access to specific projects on Gadi is required. To help things run as smoothly as possible on the day, please log in to the [MyNCI website](https://my.nci.org.au) and join the following projects:
 `nf33`, `xp65`, `fs38`, `oi10`, `al33`, `rr3`, `rt52`, `zz93` and `ct11` **prior** to attending the Hackathon. Please note it can take 1-2 days to receive membership approvals.
-- *0.3* Download and install Microsoft Visual Studio Code on your local system. VS Code can be downloaded from [this page](https://code.visualstudio.com/).
+3. Download and install Microsoft Visual Studio Code on your local system. VS Code can be downloaded from [this page](https://code.visualstudio.com/).
 
 
 ## Installing VS Code extensions
@@ -53,19 +53,19 @@ This extension allows us to view, edit and run *Jupyter Notebooks* within VS Cod
 
 To connect to Gadi, follow these steps to establish and open a remote connection using the *Remote-SSH* extension.
 
-- *2.1* To get started, click the blue `Open a Remote Window` button in the bottom left-hand corner.
+1. To get started, click the blue `Open a Remote Window` button in the bottom left-hand corner.
 
 <p align="center"><img src="../assets/assets_vscode/open_remote1.png" alt="drawing" width="90%"/></p>
 
-- *2.2* Select `Connect Current Window to Host...` to open the connection to Gadi within the current window. Alternatively, you can select `Connect to Host...` to open the connection in a new window.
+2. Select `Connect Current Window to Host...` to open the connection to Gadi within the current window. Alternatively, you can select `Connect to Host...` to open the connection in a new window.
 
 <p align="center"><img src="../assets/assets_vscode/open_remote2.png" alt="drawing" width="90%"/></p>
 
-- *2.3* Click `+ Add New SSH Host`
+3. Click `+ Add New SSH Host`
 
 <p align="center"><img src="../assets/assets_vscode/open_remote3.png" alt="drawing" width="90%"/></p>
 
-- *2.4* Enter the remote host (Gadi) details which are comprised of your NCI `username` followed by `@gadi.nci.org.au`. You may be prompted to select a _ssh_ `config` file so VS Code can remember your _ssh_ connections in future. VS Code will automatically create a config file for you, so usually selecting the first default option that appears will work fine as VS Code will manage the file.
+4. Enter the remote host (Gadi) details which are comprised of your NCI `username` followed by `@gadi.nci.org.au`. You may be prompted to select a _ssh_ `config` file so VS Code can remember your _ssh_ connections in future. VS Code will automatically create a config file for you, so usually selecting the first default option that appears will work fine as VS Code will manage the file.
 
 <p align="center"><img src="../assets/assets_vscode/open_remote4.png" alt="drawing" width="90%"/></p>
 
@@ -77,7 +77,7 @@ You can then change the text next to the `Host` tag to any unique string that do
 
 <p align="center"><img src="../assets/assets_vscode/config_rename.png" alt="drawing" width="70%"/></p>
 
-- *2.5* You will then be prompted to enter your NCI account password. Once connected, the blue button in the bottom left-hand corner will say `SSH: gadi.nci.org.au`. VS Code also automatically opens a live terminal (bottom right) in your `/home` folder. Great news, you are now connected to Gadi!
+5. You will then be prompted to enter your NCI account password. Once connected, the blue button in the bottom left-hand corner will say `SSH: gadi.nci.org.au`. VS Code also automatically opens a live terminal (bottom right) in your `/home` folder. Great news, you are now connected to Gadi!
 
 <p align="center"><img src="../assets/assets_vscode/open_remote5.png" alt="drawing" width="90%"/></p>
 
@@ -93,11 +93,11 @@ You can now follow the instructions in the [README](https://github.com/ACCESS-NR
 
 VS Code allows you to create custom workspaces, which is particularly convenient for quick access to multiple directories/folders on Gadi which may be located in different locations.
 
-- *4.1* To add a directory/folder to the current workspace, simply click the `Open Folder` button marked in red below. Alternatively, you can also add folders via `File > Open Folder`.
+1. To add a directory/folder to the current workspace, simply click the `Open Folder` button marked in red below. Alternatively, you can also add folders via `File > Open Folder`.
 
 <p align="center"><img src="../assets/assets_vscode/workspace1.png" alt="drawing" width="90%"/></p>
 
-- *4.2* You will then be prompted to add a valid path on Gadi to the folder you wish to add. In this example, we are adding the path to your main Hackathon folder `/scratch/nf33/[username]/CMIP7-Hackathon` created by running `check_hackathon` above. Once you have entered the path, press `OK`. N.B. When adding a folder, VS Code may request you re-enter your NCI account password.
+2. You will then be prompted to add a valid path on Gadi to the folder you wish to add. In this example, we are adding the path to your main Hackathon folder `/scratch/nf33/[username]/CMIP7-Hackathon` created by running `check_hackathon` above. Once you have entered the path, press `OK`. N.B. When adding a folder, VS Code may request you re-enter your NCI account password.
 
 <p align="center"><img src="../assets/assets_vscode/workspace2.png" alt="drawing" width="90%"/></p>
 

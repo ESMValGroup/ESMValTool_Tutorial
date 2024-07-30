@@ -119,6 +119,8 @@ This is the first place to look for help if you get stuck.
 > esmvaltool run <path>/recipe_warming_stripes.yml
 > ```
 > 
+{: .challenge}
+
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
 ...

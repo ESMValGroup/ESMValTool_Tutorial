@@ -10,7 +10,7 @@ keypoints:
 <p>This is an introductory guide to setting up and using Microsoft Visual Studio Code (often referred to as VS Code) to interact with Gadi and run ESMValTool recipes for the ACCESS-NRI CMIP7-Hackathon.</p>
 
 
-## 0. Pre-workshop preparation
+## Pre-workshop preparation
 
 - *0.1* In order to get the most out of the Hackathon, you will require a NCI account. If you do not yet have a NCI account, you can sign up on the [MyNCI website](https://my.nci.org.au).
 - *0.2* To run the exercises, access to specific projects on Gadi is required. To help things run as smoothly as possible on the day, please log in to the [MyNCI website](https://my.nci.org.au) and join the following projects:
@@ -18,10 +18,10 @@ keypoints:
 - *0.3* Download and install Microsoft Visual Studio Code on your local system. VS Code can be downloaded from [this page](https://code.visualstudio.com/).
 
 
-## 1. Installing VS Code extensions
+## Installing VS Code extensions
 Out of the box, VS Code doesn't do everything we need it to - so we must install some software extensions to get the most out of the Hackathon.
 
-- *1.1* When VS Code starts up, you are greeted with a GUI that looks like this. The first thing we need to do is click the extensions icon in the left-hand navigation pane marked below with the red ellipse.
+1. When VS Code starts up, you are greeted with a GUI that looks like this. The first thing we need to do is click the extensions icon in the left-hand navigation pane marked below with the red ellipse.
 
 <p align="center"><img src="../assets/assets_vscode/extensions.png" alt="drawing" width="90%"/></p>
 
@@ -49,7 +49,7 @@ This extension allows us to view, edit and run *Jupyter Notebooks* within VS Cod
 
 [\[Back to top\]](https://github.com/ACCESS-NRI/CMIP7-Hackathon/blob/main/docs/1_VSCode_setup_guide_RECOMMENDED.md#getting-started-guide-for-visual-studio-code-vs-code)
 
-## 2. Open remote connection to Gadi
+## Open remote connection to Gadi
 
 To connect to Gadi, follow these steps to establish and open a remote connection using the *Remote-SSH* extension.
 
@@ -83,13 +83,13 @@ You can then change the text next to the `Host` tag to any unique string that do
 
 [\[Back to top\]](https://github.com/ACCESS-NRI/CMIP7-Hackathon/blob/main/docs/1_VSCode_setup_guide_RECOMMENDED.md#getting-started-guide-for-visual-studio-code-vs-code)
 
-## 3. Load ESMValTool modules and set up Hackathon environment
+## Load ESMValTool modules and set up Hackathon environment
 
 You can now follow the instructions in the [README](https://github.com/ACCESS-NRI/CMIP7-Hackathon/blob/main/README.md) for how to setup your environment to run ESMValTool and how to use ESMValTool recipes. To continue to Step 4 below, you must have at least run the steps under the heading [Set up our environment to run ESMValTool](https://github.com/paigem/CMIP7-Hackathon/blob/main/README.md#set-up-our-environment-to-run-esmvaltool), as these steps will create the folders that we will open below.
 
 [\[Back to top\]](https://github.com/ACCESS-NRI/CMIP7-Hackathon/blob/main/docs/1_VSCode_setup_guide_RECOMMENDED.md#getting-started-guide-for-visual-studio-code-vs-code)
 
-## 4. Create a workspace / open folders on Gadi
+## Create a workspace / open folders on Gadi
 
 VS Code allows you to create custom workspaces, which is particularly convenient for quick access to multiple directories/folders on Gadi which may be located in different locations.
 
@@ -113,7 +113,7 @@ Now that you have a workspace setup, we suggest adding the above mentioned `esmv
 
 [\[Back to top\]](https://github.com/ACCESS-NRI/CMIP7-Hackathon/blob/main/docs/1_VSCode_setup_guide_RECOMMENDED.md#getting-started-guide-for-visual-studio-code-vs-code)
 
-## 5. VS Code extras
+## VS Code extras
 
 To open any supported file(s), you can double click it in the left-hand `EXPLORER` pane or drag-and-drop it into the main panel. To add a second main panel, right-click any extra files in `EXPLORER` and select `Open to the Side`.
 

@@ -15,6 +15,13 @@ software toolkit that aims to facilitate the diagnosis and evaluation of the
 causes and effects of model biases and inter-model spread within the CMIP model
 ensemble.
 
+> ## Disclaimer    
+>    <p>The training material presented in this hackathon reproduces and adapts parts of the ESMValTool Tutorial. The original tutorial can be cited as follows:</p>
+>>
+>>        ESMValTool Development Team (2020): ESMValTool version 2.0. Zenodo. https://doi.org/10.5281/zenodo.3974591
+>>
+> This material has been specifically adapted for the ACCESS-NRI ESMValTool Workflow deployed on the NCI Gadi computing system.
+{: .callout}
 
 > ## What will you learn in this course
 >

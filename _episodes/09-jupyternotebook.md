@@ -5,6 +5,7 @@ exercises: 30
 compatibility: ESMValTool v2.11.0
 
 questions:
+- "How to load esmvaltool module in ARE?
 - "How to view and run a recipe in a Jupyter Notebook?"
 - "How to run a single diagnostic or preprocessor task?"
 objectives:
@@ -17,6 +18,10 @@ keypoints:
 ---
 
 This episode..
+
+## Start a session in ARE
+Log in to [ARE][are]{:target="_blank"} with your NCI account to start a session.
+Refer to this extras page for more details.
 
 ## Finding a recipe
 list

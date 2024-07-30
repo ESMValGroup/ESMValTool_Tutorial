@@ -18,6 +18,15 @@ keypoints:
 
 In this episode....
 
+## Start ARE session
+Log in to [ARE][are]{:target="_blank"} to start a session.
+> ## Jupyterlab settings
+>
+> Storage: 
+> Module directories:
+> Modules:
+{:.solution}
+
 ## Find Datasets with facets
 
 ## Add supplementary variables

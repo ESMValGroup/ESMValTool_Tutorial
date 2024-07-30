@@ -81,3 +81,4 @@
 [timeranges]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#time-ranges
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
+[are]: https://are.nci.org.au/

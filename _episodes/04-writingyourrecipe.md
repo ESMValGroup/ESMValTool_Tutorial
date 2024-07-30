@@ -41,10 +41,10 @@ timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
 The diagnostic script that we will use is called `warming_stripes.py` and
-can be downloaded [here](../files/warming_stripes.py).
+can be found in your main Hackathon folder 
+`/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files`.
 
-Download the file and store it in your working directory. If you want, you may
-also have a look at the contents, but it is not necessary to do so for this lesson.
+You may also have a look at the contents, but it is not necessary to do so for this lesson.
 
 We will write an ESMValTool recipe that takes some data, performs the necessary
 preprocessing, and then runs this Python script.
@@ -85,37 +85,40 @@ extensively described in the documentation under the section,
 
 This is the first place to look for help if you get stuck.
 
-Open VS Code with a remote SSH connection to Gadi and in the terminal load the module to use
-ESMValTool on Gadi. If you don't have a terminal open the shortcut in VS Code is `` Ctrl + ` ``.
-
-```bash
-module use /g/data/xp65/public/modules
-module load esmvaltool
-```
-Create a new file called `recipe_warming_stripes.yml` in your working directory.
-Let's add the standard header comments (these do not do anything), and a first
-description.
-
-```yaml
-# ESMValTool
-# recipe_warming_stripes.yml
----
-documentation:
-  description: Reproducing Ed Hawkins' warming stripes visualization
-  title: Reproducing Ed Hawkins' warming stripes visualization.
-
-```
-
-Notice that `yaml` always requires `two spaces` indentation between the different
-levels. Save the file in VS Code with `ctrl + s`.
-
-We will try to run the recipe after every modification we make, to see if it (still) works!
-Add the full path to your `recipe_warming_stripes.yml` in this command.
-
-```bash
-esmvaltool run recipe_warming_stripes.yml
-```
-
+> ## Create file and run on Gadi
+> 
+> Open VS Code with a remote SSH connection to Gadi with your main hackathon folder in your workspace. 
+> Refer to [VS Code setup]({{ page.root }}{% link _extras/01-vscodesetup.md %})
+> Create a new file called `recipe_warming_stripes.yml` in your working directory for this exercise. 
+> Let's add the standard header comments (these do not do anything), and a first
+> description.
+> 
+> ```yaml
+> # ESMValTool
+> # recipe_warming_stripes.yml
+> ---
+> documentation:
+>   description: Reproducing Ed Hawkins' warming stripes visualization
+>   title: Reproducing Ed Hawkins' warming stripes visualization.
+> 
+> ```
+> 
+> Notice that `yaml` always requires **two spaces** indentation between the different
+> levels. Save the file in VS Code with `ctrl + s`.
+> 
+> We will try to run the recipe after every modification we make, to see if it (still) works!
+> In the terminal, load the module to use ESMValTool on Gadi. If you don't have a terminal 
+> open, the shortcut in VS Code is `` Ctrl + ` ``. Add the full path 
+> (/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files)
+> to your `recipe_warming_stripes.yml` in this when you run your recipe.
+>
+> ```bash
+> module use /g/data/xp65/public/modules
+> module load esmvaltool
+>
+> esmvaltool run <path>/recipe_warming_stripes.yml
+> ```
+> 
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
 ...
@@ -136,7 +139,7 @@ files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 
-We can use the the log message above, to understand why ESMValTool failed. Here, this is because
+We can use the log message above, to understand why ESMValTool failed. Here, this is because
 we missed a required field with author names. 
 The text `documentation.authors: Required field missing` 
 tells us that. We see that ESMValTool always tries to validate the recipe
@@ -189,10 +192,10 @@ ValueError: Tag 'doe_john' does not exist in section
 > This is where ESMValTool stores all its citation information. To add yourself
 > as an author, add your name in the form `lastname_firstname` in alphabetical
 > order following the existing entries, under the `# Development team` section.
-> See the
+> The file used in this Gadi module doesn't have editing permissions 
+> so use an existing author. See the
 > [List of authors][list-of-authors]{:target="_blank"}
-> section in the ESMValTool documentation for more information. The file used in this
-> Gadi module doesn't have public editing permissions so use an existing author.
+> section in the ESMValTool documentation for more information. 
 {: .callout}
 
 For now, let's just use one of the existing references. Change the author field to
@@ -387,7 +390,7 @@ a custom colormap.
 > >         preprocessor: global_anomalies
 > >     scripts:
 > >       warming_stripes_script:
-> >         script: <working_dir>/warming_stripes.py
+> >         script: /scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/warming_stripes.py
 > >         colormap: 'bwr'
 > > ```
 > {: .solution}
@@ -395,9 +398,10 @@ a custom colormap.
 
 You should now be able to run the recipe to get your own warming stripes.
 ```bash
-esmvaltool run recipe_warming_stripes.yml
+esmvaltool run /scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/recipe_warming_stripes.yml
 ```
-Find the plots in the plot directory of the output run.
+Find the plots in the plot directory of the output run: 
+*/scratch/nf33/[username]/esmvaltool_outputs/[recipe]*
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
@@ -408,9 +412,11 @@ will be required. Writing your own diagnostic script is discussed in a
 ## Bonus exercises
 
 Below are a few exercises to practice modifying an ESMValTool recipe. For your
-reference, here's a copy of the [recipe at this
-point](../files/recipe_warming_stripes.yml). This will be the point of departure
-for each of the modifications we'll make below.
+reference, a copy of the recipe at this point can be found in the solution_recipes folder:
+*/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/solution_recipes*.
+Note the full path to the script will differ.  
+This will be the point of departure for each of the modifications we'll make below.
+An example of the modified recipes are also in this folder
 
 > ## Specific location selection
 >
@@ -422,9 +428,8 @@ for each of the modifications we'll make below.
 > > ## Solution
 > >
 > > You can use `extract_point` or `extract_region` to select a location. We used
-> > `extract_region` for Australia. Here's a copy of the [recipe at this
-> > point](../files/recipe_warming_stripes_local.yml) and this is the difference
-> > from the previous recipe:
+> > `extract_region` for Australia. A copy is called *recipe_warming_stripes_local.yml* 
+> > and this is the difference from the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes.yml
@@ -471,8 +476,7 @@ for each of the modifications we'll make below.
 >
 > > ## Solution
 > >
-> > Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_periods.yml)
-> > and this is the difference with the previous recipe:
+> > This is the difference with the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes_local.yml
@@ -520,9 +524,7 @@ for each of the modifications we'll make below.
 >
 > > ## Solution
 > >
-> > Here's a copy of the [recipe at this
-> > point](../files/recipe_warming_stripes_multiple_locations.yml) and this is
-> > the difference with the previous recipe:
+> > This is the difference with the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes_periods.yml
@@ -589,9 +591,7 @@ for each of the modifications we'll make below.
 >
 > > ## Solution
 > >
-> > Here's a copy of the [recipe at this
-> > point](../files/recipe_warming_stripes_additional_datasets.yml) and this is
-> > the difference with the previous recipe:
+> > This is the difference with the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes_multiple_locations.yml
@@ -617,9 +617,6 @@ for each of the modifications we'll make below.
 >> ## Solution
 >>
 >> The `dataset` section allows you to choose more than one ensemble member
->> Here's a copy of the changed 
->> [recipe](../files/recipe_warming_stripes_multiple_ensemble_members.yml) 
->>to do that.
 >> Changes made are shown in the diff output below:
 >>```diff
 >>--- recipe_warming_stripes.yml	

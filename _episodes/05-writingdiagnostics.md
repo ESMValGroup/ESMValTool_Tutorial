@@ -30,8 +30,7 @@ Diagnostics can be written in a number of open source
 languages such as Python, R, Julia and NCL but we will focus on understanding
 and writing Python diagnostics in this lesson.
 
-In this lesson, we will explain how to find an existing diagnostic and run it
-using ESMValTool installed in editable/development mode. 
+In this lesson, we will explain how to find an existing diagnostic and run it. 
 Also, we will work with the recipe [recipe_python.yml][recipe] and the
 diagnostic script [diagnostic.py][diagnostic] called by this recipe that we have
 seen in the lesson [Running your first recipe]({{ page.root }}{% link
@@ -41,8 +40,8 @@ Let's get started!
 
 ## Understanding an existing Python diagnostic
 
-If you clone the ESMValTool repository, a folder called ``ESMValTool`` is
-created in your working directory.
+If you ran `check_hackathon`, a folder called ``ESMValTool`` is
+created in your working directory, this is a clone of the ESMValTool repository.
 
 The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
@@ -189,7 +188,7 @@ There are four main sections in the script:
 >> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
->> in the  ``main`` function and extract information as needed
+>> in the ``main`` function and extract information as needed
 >> to do our analyses (e.g. in line 68).
 >> 3. The ``main`` function is called near the very end on line 108. So, it is mentioned
 >> twice in our code - once where it is called by the top-level Python script and
@@ -205,7 +204,7 @@ There are four main sections in the script:
 >
 {: .callout}
 
-> ## Create a copy of the files for you to edit
+> ## Create a copy of the files for you to edit (Optional)
 >
 > Copy the files `diagnostic.py` and `recipe_python.yml` to your working folder
 > to keep the ones in the repo as templates unaltered while you can more easily 
@@ -215,18 +214,18 @@ There are four main sections in the script:
 >> ## Solution
 >>
 >> Example of your working folder: 
->> - */scratch/.../temp/recipe_python.yml*.
->> - */scratch/.../temp/diagnostic.py*
+>> - */scratch/.../Exercise3_files/recipe_python.yml*.
+>> - */scratch/.../Exercise3_files/diagnostic.py*
 >>
 >> In your `recipe_python.yml`, edit the path to the diagnostic script.
 >> ```yaml
 >>     script1:
->>       script: /scratch/.../temp/diagnostic.py
+>>       script: /scratch/.../Exercise3_files/diagnostic.py
 >>        quickplot:
 >> ```
 >> When running the recipe run to the full path of your recipe:
 >> ```bash
->> esmvaltool run /scratch/.../temp/recipe_python.yml
+>> esmvaltool run /scratch/.../Exercise3_files/recipe_python.yml
 >> ```
 > {: .solution}
 {: .challenge}
@@ -260,7 +259,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 >> ## Solution
 >>
 >> 1. One example of ``settings.yml`` can be found in the directory:
->> *path_to_recipe_output/run/map/script1/settings.yml*
+>> */scratch/nf33/[username]/esmvaltool_outputs/recipe_python_latest/run/map/script1/settings.yml*
 >> 2. The ``metadata.yml`` files hold information
 >> about the preprocessed data. There is one file for each variable having
 >> detailed information on your data including project (e.g., CMIP6, CMIP5),
@@ -482,7 +481,7 @@ there:
 
 ```yaml
      script1:
-       script: examples/diagnostic.py
+       script: <path_to_script>/diagnostic.py
         quickplot:
           plot_type: pcolormesh
           cmap: Reds
@@ -503,7 +502,7 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >>
 >> ```yaml
 >>     script1:
->>       script: examples/diagnostic.py
+>>       script: <path_to_script>/diagnostic.py
 >>        quickplot:
 >>          plot_type: pcolor
 >>          cmap: BuGn
@@ -528,7 +527,7 @@ There is also the function ``save_figure`` in line 62 to save the plots under th
 configuration settings). Again, you may choose your own method of saving the output.
 You will see that they are imported from `esmvaltool.diag_scripts.shared` and 
 take arguments such as `cfg` so that they can be saved in the appropriate output location.
-```python
+```in diagnostic.py
 55:      # Save the data used for the plot
 56:      save_data(basename, provenance_record, cfg, cube)
 ..

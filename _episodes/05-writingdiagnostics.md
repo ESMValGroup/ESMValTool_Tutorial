@@ -40,8 +40,9 @@ Let's get started!
 
 ## Understanding an existing Python diagnostic
 
-If you ran `check_hackathon`, a folder called ``ESMValTool`` is
-created in your working directory, this is a clone of the ESMValTool repository.
+A clone of the ESMValTool repository should be available in your user folder in the `nf33`
+`scratch` folder (`/scratch/nf33/$USER/ESMValTool`). If not, please make sure to run the
+`check_hackathon` command after loading the `esmvaltool` module.
 
 The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
@@ -214,18 +215,20 @@ There are four main sections in the script:
 >> ## Solution
 >>
 >> Example of your working folder: 
->> - */scratch/.../Exercise3_files/recipe_python.yml*.
->> - */scratch/.../Exercise3_files/diagnostic.py*
+>```
+>/scratch/nf33/$USER/Exercise3_files/recipe_python.yml
+>/scratch/nf33/$USER/Exercise3_files/diagnostic.py
+>```
 >>
 >> In your `recipe_python.yml`, edit the path to the diagnostic script.
 >> ```yaml
 >>     script1:
->>       script: /scratch/.../Exercise3_files/diagnostic.py
+>>       script: /scratch/nf33/$USER/Exercise3_files/diagnostic.py
 >>        quickplot:
 >> ```
 >> When running the recipe run to the full path of your recipe:
 >> ```bash
->> esmvaltool run /scratch/.../Exercise3_files/recipe_python.yml
+>> esmvaltool run /scratch/nf33/$USER/Exercise3_files/recipe_python.yml
 >> ```
 > {: .solution}
 {: .challenge}
@@ -481,7 +484,7 @@ there:
 
 ```yaml
      script1:
-       script: <path_to_script>/diagnostic.py
+       script: <path_to_script diagnostic.py>
         quickplot:
           plot_type: pcolormesh
           cmap: Reds
@@ -502,7 +505,7 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >>
 >> ```yaml
 >>     script1:
->>       script: <path_to_script>/diagnostic.py
+>>       script: <path_to_script diagnostic.py>
 >>        quickplot:
 >>          plot_type: pcolor
 >>          cmap: BuGn

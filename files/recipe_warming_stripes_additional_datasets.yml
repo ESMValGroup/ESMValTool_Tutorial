@@ -50,7 +50,7 @@ diagnostics:
         start_year: 1900
         end_year: 1999
         additional_datasets:
-          - {dataset: ACCESS1-3, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
+          - {dataset: CanESM5, grid: gn, institute: CCCma, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1}
     scripts:
       warming_stripes_script:
         script: ~/esmvaltool_tutorial/warming_stripes.py

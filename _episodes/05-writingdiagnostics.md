@@ -48,8 +48,8 @@ The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
 directories:
 
-- *~/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
-- *~/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
+- *ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
+- *ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
 
 Let's have look at the code in ``diagnostic.py``.
 For reference, we show the diagnostic code in the dropdown box below.

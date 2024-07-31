@@ -41,10 +41,10 @@ timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
 The diagnostic script that we will use is called `warming_stripes.py` and
-can be downloaded [here](../files/warming_stripes.py).
+can be found in your main Hackathon folder 
+`/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files`.
 
-Download the file and store it in your working directory. If you want, you may
-also have a look at the contents, but it is not necessary to do so for this lesson.
+You may also have a look at the contents, but it is not necessary to do so for this lesson.
 
 We will write an ESMValTool recipe that takes some data, performs the necessary
 preprocessing, and then runs this Python script.
@@ -72,7 +72,7 @@ preprocessing, and then runs this Python script.
 The easiest way to make a new recipe is to start from an existing one, and
 modify it until it does exactly what you need. However, in this episode we will
 start from scratch. This forces us to think about all the steps involved in processing the data. 
-We will also deal with commonly occurring  errors through the development of the recipe.
+We will also deal with commonly occurring errors through the development of the recipe.
 
 Remember the basic structure of a recipe, and notice that each component is
 extensively described in the documentation under the section, 
@@ -85,34 +85,41 @@ extensively described in the documentation under the section,
 
 This is the first place to look for help if you get stuck.
 
-Open a new file called `recipe_warming_stripes.yml`:
-
-```bash
-nano recipe_warming_stripes.yml
-```
-
-Let's add the standard header comments (these do not do anything), and a first
-description.
-
-```yaml
-# ESMValTool
-# recipe_warming_stripes.yml
----
-documentation:
-  description: Reproducing Ed Hawkins' warming stripes visualization
-  title: Reproducing Ed Hawkins' warming stripes visualization.
-
-```
-
-Notice that `yaml` always requires `two spaces` indentation between the different
-levels. Pressing `ctrl+o` will save the file. Verify the filename at the bottom
-and press enter. Then use `ctrl+x` to exit the editor.
-
-We will try to run the recipe after every modification we make, to see if it (still) works!
-
-```bash
-esmvaltool run recipe_warming_stripes.yml
-```
+> ## Create file and run on Gadi
+> 
+> Open VS Code with a remote SSH connection to Gadi with your main hackathon folder in your workspace. 
+> Refer to [VS Code setup]({{ page.root }}{% link _extras/01-vscodesetup.md %})
+> Create a new file called `recipe_warming_stripes.yml` in your working directory for this exercise. 
+> Let's add the standard header comments (these do not do anything), and a first
+> description.
+> 
+> ```yaml
+> # ESMValTool
+> # recipe_warming_stripes.yml
+> ---
+> documentation:
+>   description: Reproducing Ed Hawkins' warming stripes visualization
+>   title: Reproducing Ed Hawkins' warming stripes visualization.
+> 
+> ```
+> 
+> Notice that `yaml` always requires **two spaces** indentation between the different
+> levels. Save the file in VS Code with `ctrl + s`.
+> 
+> We will try to run the recipe after every modification we make, to see if it (still) works!
+> In the terminal, load the module to use ESMValTool on Gadi. If you don't have a terminal 
+> open, the shortcut in VS Code is `` Ctrl + ` ``. Add the full path 
+> (/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files)
+> to your `recipe_warming_stripes.yml` in this when you run your recipe.
+>
+> ```bash
+> module use /g/data/xp65/public/modules
+> module load esmvaltool
+>
+> esmvaltool run <path>/recipe_warming_stripes.yml
+> ```
+> 
+{: .challenge}
 
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
@@ -134,7 +141,7 @@ files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
 ```
 {: .error}
 
-We can use the the log message above, to understand why ESMValTool failed. Here, this is because
+We can use the log message above, to understand why ESMValTool failed. Here, this is because
 we missed a required field with author names. 
 The text `documentation.authors: Required field missing` 
 tells us that. We see that ESMValTool always tries to validate the recipe
@@ -187,9 +194,10 @@ ValueError: Tag 'doe_john' does not exist in section
 > This is where ESMValTool stores all its citation information. To add yourself
 > as an author, add your name in the form `lastname_firstname` in alphabetical
 > order following the existing entries, under the `# Development team` section.
-> See the
+> The file used in this Gadi module doesn't have editing permissions 
+> so use an existing author. See the
 > [List of authors][list-of-authors]{:target="_blank"}
-> section in the ESMValTool documentation for more information.
+> section in the ESMValTool documentation for more information. 
 {: .callout}
 
 For now, let's just use one of the existing references. Change the author field to
@@ -232,7 +240,7 @@ Let's add a datasets section.
 > > | project | CMIP6 | CMIP5 |
 > > | short name | tas | tas |
 > > | CMIP table | Amon | Amon |
-> > | dataset | BCC-ESM1 | bcc-csm1-1|
+> > | dataset | ACCESS-ESM1-5 | ACCESS1-0 |
 > > | experiment | historical | historical |
 > > | ensemble | r1i1p1f1 | r1i1p1 |
 > > | grid | gn (native grid) | N/A |
@@ -245,7 +253,7 @@ Let's add a datasets section.
 > {: .solution}
 {: .challenge}
 
-Let us start with the BCC-ESM1 dataset and add a datasets section to the recipe,
+Let us start with the ACCESS-ESM1-5 dataset and add a 'datasets' section to the recipe,
 listing this single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
 of the `diagnostic` section in the recipe example seen in 
@@ -260,9 +268,9 @@ documentation:
   title: Reproducing Ed Hawkins' warming stripes visualization.
 
   authors:
-    - doe_john
+    - righi_mattia
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+  - {dataset: ACCESS-ESM1-5, project: CMIP6, mip: Amon, exp: historical, 
      ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 
 diagnostics:
@@ -279,14 +287,15 @@ This is not really necessary for our simple use case, but it is common practice
 in ESMValTool.
 
 
-> ## Pro-tip:  Automatically populating a recipe with all available datasets
+> ## Pro-tip: Automatically populating a recipe with all available datasets
 >
 > You can select all available models for processing using 
-> `glob`  patterns or wildcards.  An example `datasets` section that uses all 
+> `glob` patterns or wildcards.  An example `datasets` section that uses all 
 > available CMIP6 models and ensemble members for the `historical` experiment
 > is available [here] [include-all-datasets]{:target="_blank"}.
 > Note that you will have to set the `search_esgf` option in the `config_file` to 
-> `always` so that you can download data from ESGF nodes as  needed.
+> `always` so that you can download data from ESGF nodes as needed. On Gadi, this will need
+> a queue with internet access (copyq).
 {: .callout}
 
 
@@ -319,7 +328,7 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
 > > can use the `custom_order` preprocessor as 
 >> described [here][recipe-section-preprocessors]{:target="_blank"}. 
->> For this example, we will keep the default order..
+>> For this example, we will keep the default order.
 > >
 > > Let's name our preprocessor `global_anomalies`.
 > {: .solution}
@@ -378,18 +387,23 @@ a custom colormap.
 > >   diagnostic_warming_stripes:
 > >     description: visualize global temperature anomalies as warming stripes
 > >     variables:
-> >       global_temperature_anomalies_global:
+> >       global_temperature_anomalies:
 > >         short_name: tas
 > >         preprocessor: global_anomalies
 > >     scripts:
 > >       warming_stripes_script:
-> >         script: ~/esmvaltool_tutorial/warming_stripes.py
+> >         script: /scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/warming_stripes.py
 > >         colormap: 'bwr'
 > > ```
 > {: .solution}
 {: .challenge}
 
 You should now be able to run the recipe to get your own warming stripes.
+```bash
+esmvaltool run /scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/recipe_warming_stripes.yml
+```
+Find the plots in the plot directory of the output run: 
+*/scratch/nf33/[username]/esmvaltool_outputs/[recipe]*
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
@@ -400,9 +414,11 @@ will be required. Writing your own diagnostic script is discussed in a
 ## Bonus exercises
 
 Below are a few exercises to practice modifying an ESMValTool recipe. For your
-reference, here's a copy of the [recipe at this
-point](../files/recipe_warming_stripes.yml). This will be the point of departure
-for each of the modifications we'll make below.
+reference, a copy of the recipe at this point can be found in the solution_recipes folder:
+*/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/solution_recipes*.
+Note the full path to the script will differ.  
+This will be the point of departure for each of the modifications we'll make below.
+An example of the modified recipes are also in this folder
 
 > ## Specific location selection
 >
@@ -414,38 +430,38 @@ for each of the modifications we'll make below.
 > > ## Solution
 > >
 > > You can use `extract_point` or `extract_region` to select a location. We used
-> > `extract_point`. Here's a copy of the [recipe at this
-> > point](../files/recipe_warming_stripes_local.yml) and this is the difference
-> > from the previous recipe:
+> > `extract_region` for Australia. A copy is called *recipe_warming_stripes_local.yml* 
+> > and this is the difference from the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes.yml
 > > +++ recipe_warming_stripes_local.yml
 > > @@ -10,9 +10,11 @@
-> >    - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> >    - {dataset: ACCESS-ESM1-5, project: CMIP6, mip: Amon, exp: historical, 
 > >       ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 > >
 > >  preprocessors:
 > > -  global_anomalies:
-> > -    area_statistics:
-> > -      operator: mean
-> > +  anomalies_amsterdam:
-> > +    extract_point:
-> > +      latitude: 52.379189
-> > +      longitude: 4.899431
-> > +      scheme: linear
+> > +  aus_anomalies:
+> > +    extract_region:
+> > +      start_longitude: 110
+> > +      end_longitude: 160
+> > +      start_latitude: -45
+> > +      end_latitude: -9
+> >      area_statistics:
+> >        operator: mean
 > >      anomalies:
 > >        period: month
 > >        reference:
-> > @@ -27,9 +29,9 @@
+> > @@ -29,9 +32,9 @@
 > >  diagnostics:
 > >    diagnostic_warming_stripes:
 > >      variables:
 > > -      global_temperature_anomalies:
-> > +      temperature_anomalies_amsterdam:
+> > +      temperature_anomalies_aus:
 > >          short_name: tas
 > > -        preprocessor: global_anomalies
-> > +        preprocessor: anomalies_amsterdam
+> > +        preprocessor: aus_anomalies
 > >      scripts:
 > >        warming_stripes_script:
 > >          script: ~/esmvaltool_tutorial/warming_stripes.py
@@ -458,13 +474,11 @@ for each of the modifications we'll make below.
 >
 > Split the diagnostic in two with two different time periods for the same variable.
 > You can choose the time periods yourself. In the example below, we have 
-> chosen the recent past and 
-> the 20th century and have used variable grouping.
+> chosen the recent past and the 20th century and have used variable grouping.
 >
 > > ## Solution
 > >
-> > Here's a copy of the [recipe at this point](../files/recipe_warming_stripes_periods.yml)
-> > and this is the difference with the previous recipe:
+> > This is the difference with the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes_local.yml
@@ -472,26 +486,26 @@ for each of the modifications we'll make below.
 > > @@ -7,7 +7,7 @@
 > >
 > >  datasets:
-> > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> > -  - {dataset: ACCESS-ESM1-5, project: CMIP6, mip: Amon, exp: historical, 
 > > -  	  ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
-> > +  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
+> > +  - {dataset: ACCESS-ESM1-5, project: CMIP6, mip: Amon, exp: historical, 
 > > +     ensemble: r1i1p1f1, grid: gn}
 > >
 > >  preprocessors:
-> >    anomalies_amsterdam:
-> > @@ -29,9 +29,16 @@
-> >  diagnostics:
-> >    diagnostic_warming_stripes:
-> >      variables:
-> > -      temperature_anomalies_amsterdam:
+> >    anomalies_aus:
+> > @@ -31,9 +31,16 @@
+> > diagnostics:
+> >   diagnostic_warming_stripes:
+> >     variables:
+> > -      temperature_anomalies_aus:
 > > +      temperature_anomalies_recent:
 > >          short_name: tas
-> >          preprocessor: anomalies_amsterdam
+> >          preprocessor: anomalies_aus
 > > +        start_year: 1950
 > > +        end_year: 2014
 > > +      temperature_anomalies_20th_century:
 > > +        short_name: tas
-> > +        preprocessor: anomalies_amsterdam
+> > +        preprocessor: anomalies_aus
 > > +        start_year: 1900
 > > +        end_year: 1999
 > >      scripts:
@@ -512,30 +526,28 @@ for each of the modifications we'll make below.
 >
 > > ## Solution
 > >
-> > Here's a copy of the [recipe at this
-> > point](../files/recipe_warming_stripes_multiple_locations.yml) and this is
-> > the difference with the previous recipe:
+> > This is the difference with the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes_periods.yml
 > > +++ recipe_warming_stripes_multiple_locations.yml
-> > @@ -15,7 +15,7 @@
-> >        latitude: 52.379189
-> >        longitude: 4.899431
-> >        scheme: linear
+> > @@ -19,7 +19,7 @@
+> >        end_latitude: -9
+> >      area_statistics:
+> >        operator: mean
 > > -    anomalies:
 > > +    anomalies: &anomalies
 > >        period: month
 > >        reference:
 > >          start_year: 1981
-> > @@ -25,18 +25,24 @@
+> > @@ -29,18 +29,24 @@
 > >          end_month: 12
 > >          end_day: 31
 > >        standardize: false
-> > +  anomalies_london:
+> > +  anomalies_sydney:
 > > +    extract_point:
-> > +      latitude: 51.5074
-> > +      longitude: 0.1278
+> > +      latitude: -34
+> > +      longitude: 151
 > > +      scheme: linear
 > > +    anomalies: *anomalies
 > >
@@ -543,16 +555,16 @@ for each of the modifications we'll make below.
 > >    diagnostic_warming_stripes:
 > >      variables:
 > > -      temperature_anomalies_recent:
-> > +      temperature_anomalies_recent_amsterdam:
+> > +      temperature_anomalies_recent_aus:
 > >          short_name: tas
 > >          preprocessor: anomalies_amsterdam
 > >          start_year: 1950
 > >          end_year: 2014
 > > -      temperature_anomalies_20th_century:
-> > +      temperature_anomalies_20th_century_london:
+> > +      temperature_anomalies_20th_century_sydney:
 > >          short_name: tas
 > > -        preprocessor: anomalies_amsterdam
-> > +        preprocessor: anomalies_london
+> > +        preprocessor: anomalies_sydney
 > >          start_year: 1900
 > >          end_year: 1999
 > >      scripts:
@@ -581,19 +593,17 @@ for each of the modifications we'll make below.
 >
 > > ## Solution
 > >
-> > Here's a copy of the [recipe at this
-> > point](../files/recipe_warming_stripes_additional_datasets.yml) and this is
-> > the difference with the previous recipe:
+> > This is the difference with the previous recipe:
 > >
 > > ```diff
 > > --- recipe_warming_stripes_multiple_locations.yml
 > > +++ recipe_warming_stripes_additional_datasets.yml
-> > @@ -45,6 +45,8 @@
-> >          preprocessor: anomalies_london
+> > @@ -49,6 +49,8 @@
+> >          preprocessor: anomalies_sydney
 > >          start_year: 1900
 > >          end_year: 1999
 > > +        additional_datasets:
-> > +          - {dataset: CanESM2, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
+> > +          - {dataset: ACCESS1-3, project: CMIP5, mip: Amon, exp: historical, ensemble: r1i1p1}
 > >      scripts:
 > >        warming_stripes_script:
 > >          script: ~/esmvaltool_tutorial/warming_stripes.py
@@ -609,13 +619,10 @@ for each of the modifications we'll make below.
 >> ## Solution
 >>
 >> The `dataset` section allows you to choose more than one ensemble member
->> Here's a copy of the changed 
->> [recipe](../files/recipe_warming_stripes_multiple_ensemble_members.yml) 
->>to do that.
 >> Changes made are shown in the diff output below:
 >>```diff
->>--- recipe_warming_stripes.yml	2024-05-27 15:37:52.340358967 +0100
->>+++ recipe_warming_stripes_multiens.yml	2024-05-27 22:18:42.035558837 +0100
+>>--- recipe_warming_stripes.yml	
+>>+++ recipe_warming_stripes_multiple_ensemble_members.yml	
 >>@@ -10,7 +10,7 @@
 >>-     ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
 >>+     ensemble: "r(1:2)i1p1f1", grid: gn, start_year: 1850, end_year: 2014}

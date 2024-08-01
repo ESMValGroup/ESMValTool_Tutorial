@@ -1,5 +1,5 @@
 ---
-title: "Optimize Runs Using Multiple Cores and Dask on Gadi"
+title: "Advanced Jupyter notebook"
 teaching: 20
 exercises: 30
 compatibility: ESMValTool v2.11.0

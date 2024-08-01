@@ -42,7 +42,7 @@
 [lesson-introduction]: {{ relative_root_path }}{% link _episodes/00-introduction.md %}
 [lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
-[lesson-recipe]: {{ relative_root_path }}{% link _episodes/03-runarecipe.md %}
+[lesson-recipe]: {{ relative_root_path }}{% link _episodes/02-runarecipe.md %}
 [lesson-reference]: {{ relative_root_path }}{% link reference.md %}
 [lesson-setup]: {{ relative_root_path }}{% link setup.md %}
 [list-of-authors]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html#list-of-authors

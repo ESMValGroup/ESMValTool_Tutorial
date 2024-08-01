@@ -30,28 +30,28 @@ Diagnostics can be written in a number of open source
 languages such as Python, R, Julia and NCL but we will focus on understanding
 and writing Python diagnostics in this lesson.
 
-In this lesson, we will explain how to find an existing diagnostic and run it
-using ESMValTool installed in editable/development mode. 
+In this lesson, we will explain how to find an existing diagnostic and run it. 
 Also, we will work with the recipe [recipe_python.yml][recipe] and the
 diagnostic script [diagnostic.py][diagnostic] called by this recipe that we have
 seen in the lesson [Running your first recipe]({{ page.root }}{% link
-_episodes/03-runarecipe.md %}).
+_episodes/02-runarecipe.md %}).
 
 Let's get started!
 
 ## Understanding an existing Python diagnostic
 
-If you clone the ESMValTool repository, a folder called ``ESMValTool`` is
-created in your home/working directory.
+A clone of the ESMValTool repository should be available in your user folder in the `nf33`
+`scratch` folder (`/scratch/nf33/$USER/ESMValTool`). If not, please make sure to run the
+`check_hackathon` command after loading the `esmvaltool` module.
 
 The folder ``ESMValTool`` contains the source code of the tool. We can find the
 recipe ``recipe_python.yml`` and the python script ``diagnostic.py`` in these
 directories:
 
-- *~/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
-- *~/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
+- *ESMValTool/esmvaltool/recipes/examples/recipe_python.yml*
+- *ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py*
 
-Let's have look at the code in  ``diagnostic.py``.
+Let's have look at the code in ``diagnostic.py``.
 For reference, we show the diagnostic code in the dropdown box below.
 There are four main sections in the script:
 
@@ -182,14 +182,14 @@ There are four main sections in the script:
 > 2. What are its input arguments?
 > 3. How many times is this function mentioned?
 >
->> ## Answer
+>> ## Solution
 >>
 >> 1. The ``main`` function is defined in line 65 as ``main(cfg)``.
 >> 2. The input argument to this function is the variable ``cfg``, a Python dictionary
 >> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
->> in the  ``main`` function and extract information as needed
+>> in the ``main`` function and extract information as needed
 >> to do our analyses (e.g. in line 68).
 >> 3. The ``main`` function is called near the very end on line 108. So, it is mentioned
 >> twice in our code - once where it is called by the top-level Python script and
@@ -205,6 +205,34 @@ There are four main sections in the script:
 >
 {: .callout}
 
+> ## Create a copy of the files for you to edit (Optional)
+>
+> Copy the files `diagnostic.py` and `recipe_python.yml` to your working folder
+> to keep the ones in the repo as templates unaltered while you can more easily 
+> find the files you are editing. Edit your recipe to point to your copy of 
+> `diagnostic.py`. Also, note the location for when you run your recipe.
+>
+>> ## Solution
+>>
+>> Example of your working folder: 
+>```
+>/scratch/nf33/$USER/Exercise3_files/recipe_python.yml
+>/scratch/nf33/$USER/Exercise3_files/diagnostic.py
+>```
+>>
+>> In your `recipe_python.yml`, edit the path to the diagnostic script.
+>> ```yaml
+>>     script1:
+>>       script: /scratch/nf33/$USER/Exercise3_files/diagnostic.py
+>>        quickplot:
+>> ```
+>> When running the recipe run to the full path of your recipe:
+>> ```bash
+>> esmvaltool run /scratch/nf33/$USER/Exercise3_files/recipe_python.yml
+>> ```
+> {: .solution}
+{: .challenge}
+
 ## Preprocessor-diagnostic interface
 
 In the previous exercise, we have seen that the variable ``cfg`` is the input
@@ -215,22 +243,26 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 
 > ## What information do I need when writing a diagnostic script?
 >
-> First we set the option ``remove_preproc_dir`` to ``false`` in the configuration file,
-> then run the recipe ``recipe_python.yml``:
+> Load the module in Gadi if you haven't already. We know how to change the configuration 
+> settings before running a recipe. First we set the option ``remove_preproc_dir`` 
+> to ``false`` in the configuration file, then run the recipe ``recipe_python.yml``:
 >
-> ~~~bash
-> esmvaltool run examples/recipe_python.yml
-> ~~~
+> ```bash
+> module use /g/data/xp65/public/modules
+> module load esmvaltool
 >
-> 1. Find one example of the file ``settings.yml`` in the ``run`` directory?
+> esmvaltool run <your_working_folder>/recipe_python.yml
+> ```
+>
+> 1. Can you find one example of the file ``settings.yml`` in the ``run`` directory?
 > 2. Open the file ``settings.yml`` and look at the ``input_files`` list.
 >    It contains paths to some files ``metadata.yml``. What information do you
 >    think is saved in those files?
 >
->> ## Answer
+>> ## Solution
 >>
 >> 1. One example of ``settings.yml`` can be found in the directory:
->> *path_to_recipe_output/run/map/script1/settings.yml*
+>> */scratch/nf33/[username]/esmvaltool_outputs/recipe_python_latest/run/map/script1/settings.yml*
 >> 2. The ``metadata.yml`` files hold information
 >> about the preprocessed data. There is one file for each variable having
 >> detailed information on your data including project (e.g., CMIP6, CMIP5),
@@ -244,7 +276,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 
 ## Diagnostic shared functions
 
-Looking at the code in  ``diagnostic.py``, we see that ``input_data`` is
+Looking at the code in ``diagnostic.py``, we see that ``input_data`` is
 read from the ``cfg`` dictionary (line 68). Now we can group the ``input_data``
 according to some criteria such as the model or experiment. To do so,
 ESMValTool provides many functions such as ``select_metadata`` (line 71),
@@ -255,12 +287,12 @@ available functions and their description can be found in
 [The ESMValTool Diagnostic API reference][shared].
 
 
-> ## Extracting information needed for analyses
+> ## Extracting information needed for analysis
 >
 > We have seen the functions used for selecting, sorting and grouping data in the
 > script. What do these functions do?
 >
->> ## Answer
+>> ## Solution
 >>
 >> There is a statement after use of ``select_metadata``, ``sorted_metadata``
 >> and ``group_metadata`` that starts with ``logger.info`` (lines 72, 76 and
@@ -370,10 +402,10 @@ def compute_diagnostic(filename):
 
 > ## Reading data using xarray
 >
-> Alternately, you can use [xarrays](http://xarray.pydata.org/en/stable/) to read the data
+> Alternately, you can use [xarray](http://xarray.pydata.org/en/stable/) to read the data
 > instead of Iris.
 >
->> ## Answer
+>> ## Solution
 >>
 >> First, import ``xarray`` package at the top of the script as:
 >>
@@ -406,7 +438,7 @@ def compute_diagnostic(filename):
 > Yet another option to read the NetCDF file data is to use
 > the [netCDF-4 Python interface][netCDF] to the netCDF C library.
 >
->> ## Answer
+>> ## Solution
 >>
 >> First, import the ``netCDF4`` package at the top of the script as:
 >>
@@ -452,7 +484,7 @@ there:
 
 ```yaml
      script1:
-       script: examples/diagnostic.py
+       script: <path_to_script diagnostic.py>
         quickplot:
           plot_type: pcolormesh
           cmap: Reds
@@ -460,20 +492,20 @@ there:
 
 This way, we can pass arguments such as the type of
 plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
-``quickplot``  function in the diagnostic.
+``quickplot`` function in the diagnostic.
 
 > ## Passing arguments from the recipe to the diagnostic
 >
 > Change the type of the plot and its colormap and inspect the output figure.
 >
->> ## Answer
+>> ## Solution
 >>
 >> In the recipe ``recipe_python.yml``, you could change ``plot_type`` and ``cmap``.
 >> As an example, we choose ``plot_type: pcolor`` and ``cmap: BuGn``:
 >>
 >> ```yaml
 >>     script1:
->>       script: examples/diagnostic.py
+>>       script: <path_to_script diagnostic.py>
 >>        quickplot:
 >>          plot_type: pcolor
 >>          cmap: BuGn
@@ -495,8 +527,16 @@ In our example, the function ``save_data`` in line 56 is used to save the Iris
 cube. The saved files can be found under the ``work`` directory in a ``.nc`` format.
 There is also the function ``save_figure`` in line 62 to save the plots under the
 ``plot`` directory in a ``.png`` format (or preferred format specified in your
-configuration settings). Again, you may choose your own method
-of saving the output.
+configuration settings). Again, you may choose your own method of saving the output.
+You will see that they are imported from `esmvaltool.diag_scripts.shared` and 
+take arguments such as `cfg` so that they can be saved in the appropriate output location.
+```in diagnostic.py
+55:      # Save the data used for the plot
+56:      save_data(basename, provenance_record, cfg, cube)
+..
+61:          # And save the plot
+62:          save_figure(basename, provenance_record, cfg)
+```
 
 ### Recording the provenance
 
@@ -508,6 +548,7 @@ possible to add custom provenance to our diagnostics output.
 Provenance is stored in the *[W3C PROV XML](https://www.w3.org/TR/prov-xml/)*
 format and also in an *SVG* file under the ``work`` and ``plot`` directory. For
 more information, see [recording provenance][provenance].
+You will see that the `record` gets parsed as an argument in the saving outputs functions above.
 
 ## Congratulations!
 

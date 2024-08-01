@@ -82,3 +82,4 @@
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
 [are]: https://are.nci.org.au/
+[experimental-api]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.html

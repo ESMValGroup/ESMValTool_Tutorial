@@ -20,8 +20,18 @@ keypoints:
 This episode..
 
 ## Start a session in ARE
-Log in to [ARE][are]{:target="_blank"} with your NCI account to start a session.
-Refer to this extras page for more details.
+Log in to [ARE][are]{:target="_blank"} with your NCI account to start a JupyterLab session.
+Refer to this [extras page]({{ page.root }}{% link _extras/02-aresetup.md %})for more details.
+Open the folder to your hackathon folder in `nf33` where you can create a new notebook and find 
+solution notebooks.
+This tutorial is using material from the [documentation][experimental-api]{:target="_blank"} 
+which is a good point for reference and a [short tutorial from EGU22]
+(https://github.com/ESMValGroup/EGU22-short-course/blob/main/notebooks/Introduction_to_ESMValTool.ipynb, target="_blank").
+![Warming stripes](../assets/img/ESMValTool-logo.png)
+
+<div style="text-align: center;">
+    <img width=200 src=\"https://docs.esmvaltool.org/en/v2.5.0/_static/ESMValTool-logo-2.png\"> <img width=200 src=\"https://jupyter.org/assets/homepage/hublogo.svg\"> <img width=200 src=\"https://zenodo.org/api/files/00000000-0000-0000-0000-000000000000/is-enes3/logo.png\"> <img width=200 src=\"https://www.smhi.se/polopoly_fs/1.135796.1527766089!/image/LoggaEUCP.png_gen/derivatives/Original_366px/image/LoggaEUCP.png\"> <img width=200 src=\"https://www.dkrz.de/@@site-logo/dkrz.svg\"> <img width=200 src=\"https://upload.wikimedia.org/wikipedia/commons/8/85/SMHI_Logo.svg\"> <img width=200 src=\"https://www.dtls.nl/wp-content/uploads/2015/03/NleSc.png\">
+</div>
 
 ## Finding a recipe
 list

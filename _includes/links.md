@@ -83,3 +83,7 @@
 [yaml]: http://yaml.org/
 [are]: https://are.nci.org.au/
 [experimental-api]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.html
+[EGU22_tutorial]: https://github.com/ESMValGroup/EGU22-short-course/blob/main/notebooks/Introduction_to_ESMValTool.ipynb
+[experimental-recipe]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe.html#module-esmvalcore.experimental.recipe
+[api-config]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.config.html
+[experimental-output]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe_output.html

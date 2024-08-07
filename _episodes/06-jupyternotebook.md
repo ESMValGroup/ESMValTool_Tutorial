@@ -1,19 +1,18 @@
 ---
 title: "Use a Jupyter Notebook to run a recipe"
 teaching: 20
-exercises: 30
+exercises: 20
 compatibility: ESMValTool v2.11.0
 
 questions:
-- "How to load esmvaltool module in ARE?"
+- "How to load the `esmvaltool` module in ARE?"
 - "How to view and run a recipe in a Jupyter Notebook?"
 - "How to run a single diagnostic or preprocessor task?"
 objectives:
-- "Learn about the esmvalcore experimental API"
+- "Learn about the *esmvalcore experimental* API"
 - "View the Recipe output in a Jupyter Notebook"
 keypoints:
-- "ESMValTool can be used in a Jupyter Notebook"
-- "ESMValTool uses ESMValCore as a tool"
+- "ESMValTool can be run in a Jupyter Notebook"
 ---
 
 This episode shows us how we can use ESMValTool in a Jupyter notebook. We are using material from a [short tutorial from EGU22][EGU22-tutorial]{:target="_blank"} 
@@ -27,7 +26,6 @@ Refer to this [ARE setup guide]({{ page.root }}{% link _extras/02-aresetup.md %}
 Open the folder to your hackathon folder in `nf33` where you can create a new notebook or use the 
 `Introduction_to_ESMValTool.ipynb` notebook.
 
-## Finding a recipe
 Let's start by importing the tool and some other tools we can use later. Note that we are importing from `esmvalcore` and calling
 it `esmvaltool`.
 ```python
@@ -38,10 +36,23 @@ import esmvalcore.experimental as esmvaltool
 import matplotlib.pyplot as plt
 import iris.quickplot
 ```
+
+## Finding a recipe
+
 There is a *utils* submodule we can use to find and get recipes. Call the `get_all_recipes()` function to get a
 list of all available recipes from which you can use the `find()` method to return any matches. If you already know the
 recipe you want you can use the `get_recipe()` function.
+>## In Jupyter Notebook
+> ```python
+> all_recipes = esmvaltool.get_all_recipes()
+> all_recipes
+> ```
+> ```python
+> recipes.find('python') ## error
+> ```
+{: .solution}
 
+> ## Get a recipe
 > Let's use the `examples/recipe_python.yml` for this exercise, the documentation for it can be found 
 > [here](https://docs.esmvaltool.org/en/latest/recipes/recipe_examples.html). Then see what's in the recipe metadata.
 >
@@ -56,48 +67,102 @@ recipe you want you can use the `get_recipe()` function.
 > > ```
 > > The `example_recipe` here is a Recipe class with attributes `data` and `name`, see the 
 > > [reference][experimental-recipe]{:target="_blank"}.
+> > ```python
+> > example_recipe.name
+> > # 'Recipe python'
+> > ```
 > {: .solution}
 {: .challenge}
 
 > ## Pro tip: remember the command line?
 > This is another way of doing a similar thing from the command line:
 > ```bash 
-> esmvaltool recipes get <recipe file>
+> >esmvaltool recipes get $recipeFile
 > ```
 {: .callout}
 
 ## Configuration in the notebook
-We can look at the default user configuration file, `~/.esmvaltool/config-user.yml` 
-which a `CFG` object can be called as a dictionary which gives us the ability to edit the settings.
-Since version 2.4, the tool can automatically download the climate data files required to run a recipe for you, 
-enable the setting and ensure the download directory is created.
-```python
-esmvaltool.CFG
 
-esmvaltool.CFG['offline'] = False
-esmvaltool.CFG['download_dir'].mkdir(exist_ok=True)
-```
-You can also check your output directory where your recipe runs will be saved.
-As the command in the `xp65` module we use is a wrapper, check this location 
-is your `\scratch\nf33\$USERNAME\esmvaltool_outputs\`
-```python
-CFG['output_dir']
-```
+We can look at the default user configuration file, `~/.esmvaltool/config-user.yml` 
+by calling a `CFG` object as a dictionary. This gives us the ability to edit the settings.
+The tool can automatically download the climate data files required to run a recipe for you.
+You can check your download directory and output directory where your recipe runs will be saved.
 This `CFG` object is from the `config` module in the ESMValCore API, for more details see [here][api-config].
 
+> Check and ensure download directory exists
+> > ## Solution
+> > ```python
+> > # call CFG object like this
+> > esmvaltool.CFG
+> > # then can access settings like a dictionary
+> > esmvaltool.CFG['download_dir'].mkdir(exist_ok=True)
+> > ```
+> {: .solution}
+> Check output directory and change
+> > ## Solution
+> > Check this location is your `\scratch\nf33\$USERNAME\esmvaltool_outputs\`
+> > ```python
+> > print(CFG['output_dir'])
+> > # edit if required
+> > # esmvaltool.CFG['output_dir'] = '/scratch/nf33/$USERNAME/esmvaltool_output'
+> > ```
+> {: .solution}
+{: .challenge}
+
+
+> ## Pro tip: Missing config file or load different config
+> Rememeber that this command line copies and creates the default user configuration file
+> in your home `.esmvaltool` folder:
+> ```bash 
+> esmvaltool config get-config-user
+> ```
+> 
+> > ## Load a different configuration file to use
+> > ```python
+> > # an example path to other configuration file
+> > CFG.load_from_file('/home/189/fc6164/esmValTool/config-fc-copy.yml')
+> > ```
+> {: .solution}
+{: .callout}
+
 ## Running the recipe
-You can now run the recipe and get the output.
-```python
-output = example_recipe.run()
-output
-```
+Run the recipe and inspect the output.
+> ## Run
+> ```python
+> output = example_recipe.run()
+> output
+> ```
+> This may take some time and you will see some logging messages as it runs
+> > ## Inspect output
+> > ```output
+> > map/script1:
+> >   ImageFile('CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_2000-P1M.png')
+> >   ImageFile('CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_2000-P1M.png')
+> >   DataFile('CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_2000-P1M.nc')
+> >   DataFile('CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_2000-P1M.nc')
+> > 
+> > timeseries/script1:
+> >   ImageFile('tas_amsterdam_CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_1850-2000.png')
+> >   ImageFile('tas_amsterdam_CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_1850-2000.png')
+> >   ImageFile('tas_amsterdam_MultiModelMean_historical_Amon_tas_1850-2000.png')
+> >   ImageFile('tas_global_CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_1850-2000.png')
+> >   ImageFile('tas_global_CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_1850-2000.png')
+> >   DataFile('tas_amsterdam_CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_1850-2000.nc')
+> >   DataFile('tas_amsterdam_CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_1850-2000.nc')
+> >   DataFile('tas_amsterdam_MultiModelMean_historical_Amon_tas_1850-2000.nc')
+> >   DataFile('tas_global_CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_1850-2000.nc')
+> >   DataFile('tas_global_CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_1850-2000.nc')
+> > ```
+> {: .solution}
+{: .challenge}
+
 ## Recipe output
-The output can return the files as well as the image files and data files, we will show some in this tutorial,
+The output can return the files as well as the image files and data files,
 also see the [reference page][experimental-output].
 > Let's look through this recipe output.
 > - Get the file paths.
 > - Look at one of the plots.
-> - Access the data used for the plots.
+> - Access and inspect the data used for the plots.
 >
 > > ## Solution
 > > Print the file paths.
@@ -120,6 +185,14 @@ also see the [reference page][experimental-output].
 > {: .solution}
 {: .challenge}
 
+> ## Pro tip: run a single Diagnostic
+> To run a single diagnostic, the name of the task can be passed as an argument to `run()`
+> ```python
+> output_1 = example_recipe.run('map/script1')
+> output_1
+> ```
+{: .callout}
+
 > ## Use the loaded data to make your own plot in your notebook.
 >
 > > ## Solution
@@ -136,7 +209,9 @@ also see the [reference page][experimental-output].
 > > # Show the resulting figure
 > > plt.show()
 > > ```
-> > ![image]()
+> > Output
+> > ![image](../fig/bcc_tas.png)
+> > 
 > {: .solution}
 {: .challenge}
 

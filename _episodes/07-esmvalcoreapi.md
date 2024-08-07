@@ -18,7 +18,8 @@ keypoints:
 
 In this episode we will introduce the ESMValCore API in a jupyter notebook. This is reformatted from material from
 this [blog post](https://blog.esciencecenter.nl/easy-ipcc-powered-by-esmvalcore-19a0b6366ea7){:target="_blank"}
-by Peter Kalverla
+by Peter Kalverla. There's also material from the [example notebooks][docs-notebooks]{:target="_blank"} and the
+[API reference documentation][api-reference]{:target="_blank"}.
 
 ## Start ARE session
 Log in to [ARE][are]{:target="_blank"} with your NCI account to start a JupyterLab session.
@@ -27,6 +28,9 @@ Open the folder to your hackathon folder in `nf33` where you can create a new no
 example notebook.
 
 ## Find Datasets with facets
+We have seen from running available recipes that ESMValTool is able to find data from facets that were given in
+the recipe. We can use this in a Notebook, including filling out the facets for data definition. 
+To do this we will use the `Dataset` object from the API. Let's look at this example. 
 
 ```python
 from esmvalcore.dataset import Dataset
@@ -43,61 +47,97 @@ dataset = Dataset(
 dataset.augment_facets()
 print(dataset)
 ```
-search from files (locally and ESGF) with wildcard functionality `'*'`
+> ### Tip: 
+> when running a recipe there is a `_filled` recipe in the output which augments the facets.
+{: .callout}
 
-```python
-CFG['search_esgf'] = 'always'
-dataset_search = Dataset(
-    short_name='tos',
-    mip='Omon',
-    project='CMIP6',
-    exp='historical',
-    dataset='CESM2',
-    ensemble='*',
-    grid='gn',
-)
-ensemble_datasets = list(dataset_search.from_files())
+> Search from files locally with wildcard functionality `'*'` to get the available datasets. 
+> How can you search for all available ensembles?
+> 
+> > ## Solution
+> > ```python
+> > CFG['search_esgf'] = 'always'
+> > dataset_search = Dataset(
+> >     short_name='tos',
+> >     mip='Omon',
+> >     project='CMIP6',
+> >     exp='historical',
+> >     dataset='CESM2',
+> >     ensemble='*',
+> >     grid='gn',
+> > )
+> > ensemble_datasets = list(dataset_search.from_files())
+> > 
+> > print([ds['ensemble'] for dataset in ensemble_datasets])
+> > ```
+> {: .solution}
+{: .challenge}
 
-print([ds['ensemble'] for dataset in ensemble_datasets])
-```
+> ## Add supplementary variables
+> Supplementary variables can be added to the `Dataset` object which can be used for certain 
+> preprocessors such as area statistics and weighting. Add the area file to this Dataset.
+>
+> > ## Solution
+> > ```python
+> > # Discard augmented facets as they will be different for areacello
+> > dataset = Dataset(**dataset.minimal_facets)
+> > 
+> > # Add areacello as supplementary dataset
+> > dataset.add_supplementary(short_name='areacello', mip='Ofx')
+> > 
+> > # Autocomplete and inspect
+> > dataset.augment_facets()
+> > print(dataset.summary())
+> > ```
+> {: .solution}
+{: .challenge}
 
-## Add supplementary variables
 
-```python
-# Discard augmented facets as they will be different for areacello
-dataset = Dataset(**dataset.minimal_facets)
-
-# Add areacello as supplementary dataset
-dataset.add_supplementary(short_name='areacello', mip='Ofx')
-
-# Autocomplete and inspect
-dataset.augment_facets()
-print(dataset.summary())
-```
-
-Loading the data can be done with a method.
-
-```python
-# Before load
-print(dataset.files)
-
-cube = dataset.load()
-cube
-```
-
+> ## Loading the data and inspect
+> 
+> ```python
+> # Before load
+> print(dataset.files)
+> 
+> cube = dataset.load()
+> cube
+> ```
+> > ## Output
+> > ```output
+> > ```
+> {: .solution}
+{: .challenge}
 
 ## Preprocessors
+As mentioned in previous lessons, the idea of preprocessors are that they are a set of 
+functions that can be applied in a centralised, documented and efficient way. There 
+are a broad range of operations that are commonly done to input data before diagnostics 
+or metrics are applied and can be done to all the datasets in a recipe consistently. 
+See the [documentation][recipe-section-preprocessors]{:target="_blank"}.
 
-```python
-from esmvalcore.preprocessor import annual_statistics, anomalies, area_statistics
-
-cube = area_statistics(cube, operator='mean')
-cube = anomalies(cube, reference=reference_period, period='month')
-cube = annual_statistics(cube, operator='mean')
-cube.convert_units('degrees_C')
-cube
-```
-- arguments for functions 
+> ## Exercise: apply preprocessors using the API 
+> See [API reference][api-preprocessors]{:target="_blank"} to check the 
+> arguments for preprocessor functions. For this exercise, find the global mean, then
+> anomalies which we can get monthly, then aggregate to annually for plotting.
+> 
+> > ## Solution
+> > ```python
+> > from esmvalcore.preprocessor import annual_statistics, anomalies, area_statistics
+> > 
+> > # Set the reference period for anomalies 
+> > reference_period = {
+> >     "start_year": 1950, "start_month": 1, "start_day": 1,
+> >     "end_year": 1979, "end_month": 12, "end_day": 31,
+> > }
+> > 
+> > cube = area_statistics(cube, operator='mean')
+> > cube = anomalies(cube, reference=reference_period, period='month')
+> > cube = annual_statistics(cube, operator='mean')
+> > cube.convert_units('degrees_C')
+> > cube
+> > ```
+> {: .solution}
+{: .challenge}
 
 ## Custom code
 Continue with other libraries and make custom plots

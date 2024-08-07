@@ -9,7 +9,6 @@ questions:
 objectives:
 
 keypoints:
-
 ---
 
 {% include links.md %}

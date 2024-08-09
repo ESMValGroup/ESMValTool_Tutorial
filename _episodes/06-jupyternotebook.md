@@ -15,16 +15,18 @@ keypoints:
 - "ESMValTool can be run in a Jupyter Notebook"
 ---
 
+<!-- ![logo](../assets/img/logobanner.png) -->
+
 This episode shows us how we can use ESMValTool in a Jupyter notebook. We are using material from a [short tutorial from EGU22][EGU22-tutorial]{:target="_blank"} 
 and the [documentation][experimental-api]{:target="_blank"} which is a good place for further reference.
 
-![logo](../assets/img/logobanner.png)
+![image](../fig/bcc_tas.png)
 
 ## Start a session in ARE
 Log in to [ARE][are]{:target="_blank"} with your NCI account to start a JupyterLab session.
 Refer to this [ARE setup guide]({{ page.root }}{% link _extras/02-aresetup.md %}) for more details.
 Open the folder to your hackathon folder in `nf33` where you can create a new notebook or use the 
-`Introduction_to_ESMValTool.ipynb` notebook.
+`Intro_to_ESMValTool.ipynb` notebook in `CMIP7-Hackathon\exercises\Exercise4_files`
 
 Let's start by importing the tool and some other tools we can use later. Note that we are importing from `esmvalcore` and calling
 it `esmvaltool`.
@@ -156,6 +158,14 @@ Run the recipe and inspect the output.
 > {: .solution}
 {: .challenge}
 
+> ## Pro tip: run a single Diagnostic
+> To run a single diagnostic, the name of the task can be passed as an argument to `run()`
+> ```python
+> output_1 = example_recipe.run('map/script1')
+> output_1
+> ```
+{: .callout}
+
 ## Recipe output
 The output can return the files as well as the image files and data files,
 also see the [reference page][experimental-output].
@@ -172,8 +182,8 @@ also see the [reference page][experimental-output].
 > > ```
 > > Look at a plot from the list of plots.
 > > ```python
-> > plots = [f for f in output['map/script1'] if isinstance(f, esmvaltool.recipe_output.ImageFile)]
-> > plots[0]
+> > plots = [f for f in output['timeseries/script1'] if isinstance(f, esmvaltool.recipe_output.ImageFile)]
+> > plots[-1]
 > > ```
 > > Load one of the preprocessed data files.
 > > ```python
@@ -184,14 +194,6 @@ also see the [reference page][experimental-output].
 > > ```
 > {: .solution}
 {: .challenge}
-
-> ## Pro tip: run a single Diagnostic
-> To run a single diagnostic, the name of the task can be passed as an argument to `run()`
-> ```python
-> output_1 = example_recipe.run('map/script1')
-> output_1
-> ```
-{: .callout}
 
 > ## Use the loaded data to make your own plot in your notebook.
 >
@@ -209,8 +211,6 @@ also see the [reference page][experimental-output].
 > > # Show the resulting figure
 > > plt.show()
 > > ```
-> > Output
-> > ![image](../fig/bcc_tas.png)
 > > 
 > {: .solution}
 {: .challenge}

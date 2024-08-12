@@ -26,9 +26,7 @@ keypoints:
 
 When processing larger amounts of data, and especially when the tool crashes
 when running a recipe because there is not enough memory available, it is
-usually beneficial to change the default
-[Dask configuration](https://docs.esmvaltool.org/
-projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration).
+usually beneficial to change the default [Dask configuration][dask-configuration].
 
 The preprocessor functions in ESMValCore use the
 [Iris](https://scitools-iris.readthedocs.io) library, which in turn uses Dask
@@ -60,7 +58,7 @@ workers.
 
 In order to distribute the computations over the workers, Dask makes use of a
 *scheduler*. There are two different schedulers available. The default
-scheduler can be good choice for smaller computations that can run
+scheduler can be a good choice for smaller computations that can run
 on a single computer, while the scheduler provided by the Dask Distributed
 package is more suitable for larger computations.
 
@@ -68,7 +66,7 @@ package is more suitable for larger computations.
 >
 > In the config-user.yml file, there is a setting called ``max_parallel_tasks``.
 > Any variable or diagnostic script in the recipe is considered a 'task' in this
-> context and when settings this to a value larger than 1, these will be
+> context and this is set to a value larger than 1, these will be
 > processed in parallel on the computer running the ``esmvaltool`` command.
 >
 > With the Dask Distributed scheduler, all the tasks running in parallel
@@ -112,8 +110,7 @@ cluster:
 This tells ESMValCore to start a new cluster of one worker, that can use 2
 gigabytes (GiB) of memory and run computations using 2 threads. For a more
 extensive description of the available arguments and their values, see
-[``distributed.LocalCluster``](https://distributed.dask.org/
-en/stable/api.html#distributed.LocalCluster).
+[``distributed.LocalCluster``][distributed-localcluster].
 
 To see this configuration in action, run we will run a version of
 [recipe_easy_ipcc.yml](https://docs.esmvaltool.org/
@@ -157,12 +154,16 @@ asked to do.
 >>    threads_per_worker: 2
 >>    memory_limit: 2GiB
 >>```
->> Note that the bars representing the memory use turn
->> orange as the worker reaches the maximum amount of memory it is
->> allowed to use and it starts 'spilling' (writing data temporarily) to disk.
+>> Note that the bars representing the memory use turn orange as the worker
+>> reaches the maximum amount of memory it is allowed to use and it starts
+>> 'spilling' (writing data temporarily) to disk.
 >> The red blocks in the top right panel represent time spent reading/writing
 >> to disk. While 2 GiB per worker may be enough in other cases, it is
 >> apparently not enough for this recipe.
+>>
+>> Warning messages about high memory usage by workers and/or killed workers
+>> will also be written to the terminal, which may be convenient to diagnose
+>> issues that occurred while you were not watching the dashboard.
 >>
 > {: .solution}
 {: .challenge}
@@ -175,6 +176,10 @@ asked to do.
 > ``memory_limit`` back to 4 GiB per worker and increase the number of Dask
 > workers so they use total amount available minus a few gigabytes for your
 > other work. Run the recipe again and notice that it completed faster.
+>
+> If are working on a computer that is shared with other users, please be
+> mindful of them and only use a modest amount of memory instead of all
+> available memory.
 >
 >> ## Solution
 >>
@@ -200,14 +205,12 @@ asked to do.
 
 ## Using an existing Dask Distributed cluster
 
-In some cases, it can be useful to start the Dask Distributed cluster before
+It can be useful to start the Dask Distributed cluster before
 running the ``esmvaltool`` command. For example, if you would like to keep the
 Dashboard available for further investigation after the recipe completes
 running, or if you are working from a Jupyter notebook environment, see
 [dask-labextension](https://github.com/dask/dask-labextension) and
-[dask_jobqueue interactive use](https://jobqueue.dask.org/
-en/latest/interactive.html)
-for more information.
+[dask_jobqueue interactive use][dask-jobqueue-interactive] for more information.
 
 To use a cluster that was started in some other way, the following configuration
 can be used in ``~/.esmvaltool/dask.yml``:
@@ -217,8 +220,7 @@ client:
   address: "tcp://127.0.0.1:33041"
 ```
 where the address depends on the Dask cluster. Code to start a
-[``distributed.LocalCluster``](https://distributed.dask.org/
-en/stable/api.html#distributed.LocalCluster)
+[``distributed.LocalCluster``][distributed-localcluster]
 that automatically scales between 0 and 2 workers depending on demand, could
 look like this:
 
@@ -380,10 +382,8 @@ in order to find the optimal configuration for your situation.
 >> The best configuration depends on the HPC system that you are using.
 >> Discuss your answer with the instructor and the class if possible.
 >> If you are taking this course by yourself, you can have a look at the
->> [Dask configuration examples in the ESMValCore documentation](
->> https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/
->> configure.html#dask-distributed-configuration).
->>
+>> [Dask configuration examples][dask-configuration] in the ESMValCore
+>> documentation.
 > {: .solution}
 {: .challenge}
 

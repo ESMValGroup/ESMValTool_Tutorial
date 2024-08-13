@@ -2,7 +2,7 @@
 title: "Introduction"
 teaching: 5
 exercises: 10
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.11.0
 
 questions:
 - What is ESMValTool?
@@ -66,8 +66,8 @@ documentation:
     - lastname_firstname
 
 datasets:
-  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, 
-     ensemble: r1i1p1, start_year: 1960, end_year: 2005}
+  - {dataset: ACCESS-CM2, project: CMIP6, exp: historical, mip: Amon, 
+     ensemble: r1i1p1f1, start_year: 1960, end_year: 2005}
 
 preprocessors:
   global_mean:
@@ -75,13 +75,13 @@ preprocessors:
       operator: mean
 
 diagnostics:
-  hockeystick_plot:
+  average_plot:
     description: plot of global mean temperature change
     variables:
       temperature:
         short_name: tas
         preprocessor: global_mean
-    scripts: hockeystick.py
+    scripts: examples/diagnostic.py
 ```
 
 > ## Understanding the different section of the recipe

@@ -22,6 +22,17 @@ This episode describes how ESMValTool recipes work, how to run a recipe and how
 to explore the recipe output. By the end of this episode, you should be able to
 run your first recipe, look at the recipe output, and make small modifications.
 
+## Import module in GADI
+In a terminal with an SSH connection into Gadi, load the module to use ESMValTool on Gadi.
+```bash
+module use /g/data/xp65/public/modules
+module load esmvaltool
+```
+
+You may want to open VS Code with a remote SSH connection to Gadi and use the VS Code terminal,
+then you can later view the recipe file. 
+Refer to [VS Code setup]({{ page.root }}{% link _extras/01-vscodesetup.md %})
+
 ## Running an existing recipe
 
 The recipe format has briefly been introduced in the 
@@ -34,16 +45,18 @@ esmvaltool recipes list
 
 We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.
 org/en/latest/recipes/recipe_examples.html)
-
+This is the command with esmvaltool installed.
 ```
 esmvaltool run examples/recipe_python.yml
 ```
-
-
+On Gadi, this can be done using the `esmvaltool-workflow` wrapper in the loaded module.
+```bash
+esmvaltool-workflow run examples/recipe_python.yml
+```
 or if you have the user configuration file in your current directory then
 
 ```
-esmvaltool run --config_file ./config-user.yml examples/recipe_python.yml
+esmvaltool-workflow run --config_file ./config-user.yml examples/recipe_python.yml
 ```
 
 If everything is okay, you should see that ESMValTool is printing a lot of
@@ -52,6 +65,10 @@ The exact output varies depending on your machine, but it should look something
 like the example log output on terminal below.
 
 {% include example_output.txt %}
+
+On Gadi with `esmvaltool-workflow` you will see the wrapper has run esmvaltool in a
+PBS job for you, when complete you can find the output directory, including this
+output log.
 
 > ## Pro tip: ESMValTool search paths
 >
@@ -154,11 +171,10 @@ esmvaltool recipes get examples/recipe_python.yml
 ```
 
 Now you should see the recipe file in your working directory (type `ls` to
-verify). Use the `nano` editor to open this file:
+verify). Use VS Code to open this file, you should be able to open from your
+explorer panel:
 
-```bash
-nano recipe_python.yml
-```
+![recipe_python.yml](../fig/vs_code_recipefile.png)
 
 For reference, you can also view the recipe by unfolding the box below.
 
@@ -395,10 +411,10 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 ## Modifying the example recipe
 
 Let's make a small modification to the example recipe. Notice that now that
-you have copied and edited the recipe, you can use
+you have copied and edited the recipe, you can use in your working directory.
 
 ```
-esmvaltool run recipe_python.yml
+esmvaltool-workflow run recipe_python.yml
 ```
 
 to refer to your local file rather than the default version shipped with

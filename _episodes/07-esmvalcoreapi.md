@@ -50,7 +50,7 @@ print(dataset)
 ```
 > ## Pro tip: Augmented facets in the output
 > When running a recipe there is a `_filled` recipe in the output /run folder which augments the facets.
-> > ## Example folder
+> > ## Example recipe output folder
 > > ```output
 > > esmvaltool_output/flato13ipcc_figure914_CMIP6_20240729_043707/run
 > > ├── cmor_log.txt
@@ -70,9 +70,7 @@ print(dataset)
 > 
 > > ## Solution
 > > ```python
-> > from esmvalcore.config import CFG
 > > 
-> > CFG['search_esgf'] = 'always'
 > > dataset_search = Dataset(
 > >     short_name='tos',
 > >     mip='Omon',
@@ -87,6 +85,9 @@ print(dataset)
 > > print([ds['ensemble'] for ds in ensemble_datasets])
 > > ```
 > {: .solution}
+> There is also the ability to search on ESGF nodes and download. See 
+> [reference](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.esgf.html){:target="_blank"}
+> for more details.
 {: .challenge}
 
 > ## Add supplementary variables
@@ -193,9 +194,9 @@ See the [documentation][recipe-section-preprocessors]{:target="_blank"} to read 
 > ## Exercise: apply preprocessors using the API 
 > See [API reference][api-preprocessors]{:target="_blank"} to check the 
 > arguments for preprocessor functions. For this exercise, find; 
-> 1. the global mean, 
-> 2. then anomalies which we can get monthly, 
-> 3. then aggregate to annual for plotting.
+> 1. The global mean, 
+> 2. Then anomalies which we can get monthly, 
+> 3. Then aggregate annually for plotting and inspect the cube.
 > 
 > > ## Solution
 > > ```python
@@ -245,13 +246,13 @@ da.plot()
 print(da)
 ```
 ## Build workflow and diagnostic
-> ## Exercise
+> ## Exercise - Easy IPCC plot for sea surface temperature
 > Let's pull some of these bits together to build a diagnostic.
-> - using the `Dataset` object, make a template which we can use to find multiple
-> datasets we want to analyse together.
-> - the datasets being `"CESM2", "MPI-ESM1-2-LR", "IPSL-CM6A-LR"` and 
-> experiments `'ssp126', 'ssp585'`, iterate to build a list of datasets.
-> - apply the preprocessors to each dataset and plot the result
+> - Using the `Dataset` object, make a template which we can use to find multiple
+> datasets we want to analyse together for variable `tos`.
+> - The datasets being `"CESM2", "MPI-ESM1-2-LR", "ACCESS-ESM1-5"` and 
+> experiments `'ssp126', 'ssp585'` with historical, iterate to build a list of datasets.
+> - Apply the preprocessors to each dataset and plot the result
 > 
 > > ## Solution
 > > ```python
@@ -280,7 +281,7 @@ print(da)
 > > 
 > > # Substitute data sources and experiments
 > > datasets = []
-> > for dataset_id in ["CESM2", "MPI-ESM1-2-LR", "IPSL-CM6A-LR"]:
+> > for dataset_id in ["CESM2", "MPI-ESM1-2-LR", "ACCESS-ESM1-5"]:
 > >     for experiment_id in ['ssp126', 'ssp585']:
 > >         dataset = template.copy(dataset=dataset_id, exp=['historical', experiment_id])
 > >         dataset.add_supplementary(short_name='areacello', mip='Ofx', exp='historical')
@@ -316,7 +317,9 @@ print(da)
 {: .challenge}
 
 > ## Pro tip: Convert to recipe
-> We can use the helper to start making the recipe which we can use for reproducibility.
+> We can use the helper to start making the recipe. A recipe can be used for reproducibility of an
+> analysis. This list the datasets in a recipe format and we would then have to create the preprocessors
+> and diagnostic script.
 > ```python
 > from esmvalcore.dataset import datasets_to_recipe
 > import yaml
@@ -369,5 +372,89 @@ print(da)
 > > ```
 > {: .solution}
 {: .callout}
+
+> ## Exercise 2 Sea-ice area
+> Using observation data and 2 model datasets to show trends in sea-ice.
+> Solution notebook - `example_seaicearea.ipynb`
+>
+> - Using variable `siconc` which is a fraction percen(t 0-100)
+> - Using datasets: 
+> `dataset:'ACCESS-ESM1-5', exp:'historical', ensemble:'r1i1p1f1', timerange:'1960/2010'`
+> `dataset :'ACCESS-OM2', exp:'omip2', ensemble='r1i1p1f1', timerange:'0306/0366'`
+> - Using observations:
+> `dataset:'NSIDC-G02202-sh', tier:'3', version:'4', timerange:'1979/2018'`
+> 
+> 1. Extract Southern hemisphere
+> 2. Use only valid values (15 -100 %)
+> 3. Sum sea ice area which will be the fraction multiplied by cell area and summed
+> 4. Plot yearly minimum and maximum value
+> 
+> > ## Solution
+> > Define datasets:
+> > 
+> > ```python
+> > from esmvalcore.dataset import Dataset
+> > obs = Dataset(
+> >     short_name='siconc', mip='SImon', project='OBS6', type='reanaly',
+> >     dataset='NSIDC-G02202-sh', tier='3', version='4', timerange='1979/2018',
+> > )
+> > # Add areacello as supplementary dataset
+> > obs.add_supplementary(short_name='areacello', mip='Ofx')
+> > 
+> > model = Dataset(
+> >     short_name='siconc', mip='SImon', project='CMIP6', activity='CMIP',
+> >     dataset='ACCESS-ESM1-5', ensemble='r1i1p1f1', grid='gn', exp='historical',
+> >     timerange='1960/2010', institute = '*',
+> > )
+> > 
+> > om_facets={'dataset' :'ACCESS-OM2', 'exp':'omip2', 'activity':'OMIP', 'timerange':'0306/0366' }
+> > 
+> > model.add_supplementary(short_name='areacello', mip='Ofx')
+> > 
+> > model_om = model.copy(**om_facets) 
+> > ```
+> > 
+> > Use esmvalcore API preprocessors on the datasets and plot results
+> > 
+> > ```python
+> > import iris
+> > import matplotlib.pyplot as plt
+> > from iris import quickplot
+> > from esmvalcore.preprocessor import (
+> >             mask_outside_range,
+> >             extract_region,
+> >             area_statistics,
+> >             annual_statistics
+> > )
+> > # om - at index 1 to offset years
+> > load_data = [model, model_om, obs] 
+> > 
+> > # function to use for both min and max ['max','min'] 
+> > 
+> > def trends_seaicearea(min_max):
+> >     plt.clf()
+> >     for i,data in enumerate(load_data):
+> >         cube = data.load()
+> >         cube = mask_outside_range(cube, 15, 100)
+> >         cube = extract_region(cube,0,360,-90,0)
+> >         cube = area_statistics(cube, 'sum')
+> >         cube = annual_statistics(cube, min_max)
+> >     
+> >         iris.util.promote_aux_coord_to_dim_coord(cube, 'year')
+> >         cube.convert_units('km2')
+> >         if i == 1: ## om years 306/366 apply offset
+> >             cube.coord('year').points = [y + 1652 for y in cube.coord('year').points]
+> >         label_name = data['dataset']
+> >         print(label_name, cube.shape)
+> >         quickplot.plot(cube, label=label_name)
+> >     
+> >     plt.title(f'Trends in Sea-Ice {min_max.title()}ima')
+> >     plt.ylabel('Sea-Ice Area (km2)')
+> >     plt.legend()
+> > 
+> > trends_seaicearea('min')
+> > ```
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}

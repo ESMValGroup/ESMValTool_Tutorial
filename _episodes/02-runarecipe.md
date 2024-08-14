@@ -23,15 +23,15 @@ to explore the recipe output. By the end of this episode, you should be able to
 run your first recipe, look at the recipe output, and make small modifications.
 
 ## Import module in GADI
+You may want to open VS Code with a remote SSH connection to Gadi and use the VS Code terminal,
+then you can later view the recipe file. 
+Refer to [VS Code setup]({{ page.root }}{% link _extras/01-vscodesetup.md %}).
+
 In a terminal with an SSH connection into Gadi, load the module to use ESMValTool on Gadi.
 ```bash
 module use /g/data/xp65/public/modules
 module load esmvaltool
 ```
-
-You may want to open VS Code with a remote SSH connection to Gadi and use the VS Code terminal,
-then you can later view the recipe file. 
-Refer to [VS Code setup]({{ page.root }}{% link _extras/01-vscodesetup.md %})
 
 ## Running an existing recipe
 
@@ -44,8 +44,8 @@ esmvaltool recipes list
 ```
 
 We will start by running [examples/recipe_python.yml](https://docs.esmvaltool.
-org/en/latest/recipes/recipe_examples.html)
-This is the command with esmvaltool installed.
+org/en/latest/recipes/recipe_examples.html).
+This is the command with ESMValTool installed.
 ```
 esmvaltool run examples/recipe_python.yml
 ```
@@ -55,7 +55,7 @@ esmvaltool-workflow run examples/recipe_python.yml
 ```
 or if you have the user configuration file in your current directory then
 
-```
+```bash
 esmvaltool-workflow run --config_file ./config-user.yml examples/recipe_python.yml
 ```
 
@@ -164,7 +164,7 @@ distinguished in the log messages:
 
 To get more insight into what is happening, we will have a look at the recipe
 file itself. Use the following command to copy the recipe to your working
-directory
+directory (eg. in `\scratch\nf33\$USERNAME\`)
 
 ```bash
 esmvaltool recipes get examples/recipe_python.yml

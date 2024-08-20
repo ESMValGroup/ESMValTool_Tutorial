@@ -17,6 +17,7 @@ To run the ESMValTool workflow at NCI, you will need:
 - Join CMIP6 projects: [fs38](https://my.nci.org.au/mancini/project/fs38), [oi10](https://my.nci.org.au/mancini/project/oi10)
 - Join CMIP5 projects: [rr3](https://my.nci.org.au/mancini/project/rr3), [al33](https://my.nci.org.au/mancini/project/al33)
 - Join ERA5 projects: [rt52](https://my.nci.org.au/mancini/project/rt52), [zz93](https://my.nci.org.au/mancini/project/zz93)
+- Join the CMIP7 collaborative development and evaluation project: [zv30](https://my.nci.org.au/mancini/project/zv30)
 
 This process will give you access to the ACCESS-NRI training project as well as a number of managed data collections. You should receive automated emails from NCI as your memberships are approved. You can also check on the status of your project memberships by logging into MyNCI.
 

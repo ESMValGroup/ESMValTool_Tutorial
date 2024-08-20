@@ -13,6 +13,7 @@ objectives:
 - "View the Recipe output in a Jupyter Notebook"
 keypoints:
 - "ESMValTool can be run in a Jupyter Notebook"
+- "Access ImageFiles and DataFiles from the recipe run"
 ---
 
 <!-- ![logo](../assets/img/logobanner.png) -->

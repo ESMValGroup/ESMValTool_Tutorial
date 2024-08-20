@@ -483,11 +483,11 @@ section in the recipe ``recipe_python.yml``, you see ``quickplot`` is a key
 there:
 
 ```yaml
-     script1:
-       script: <path_to_script diagnostic.py>
-        quickplot:
-          plot_type: pcolormesh
-          cmap: Reds
+    script1:
+      script: <path_to_script diagnostic.py>
+      quickplot:
+        plot_type: pcolormesh
+        cmap: Reds
 ```
 
 This way, we can pass arguments such as the type of
@@ -506,9 +506,9 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 >> ```yaml
 >>     script1:
 >>       script: <path_to_script diagnostic.py>
->>        quickplot:
->>          plot_type: pcolor
->>          cmap: BuGn
+>>       quickplot:
+>>         plot_type: pcolor
+>>         cmap: BuGn
 >>```
 >>
 >> The plot can be found at *path_to_recipe_output/plots/map/script1/png*.
@@ -530,7 +530,8 @@ There is also the function ``save_figure`` in line 62 to save the plots under th
 configuration settings). Again, you may choose your own method of saving the output.
 You will see that they are imported from `esmvaltool.diag_scripts.shared` and 
 take arguments such as `cfg` so that they can be saved in the appropriate output location.
-```in diagnostic.py
+```
+## in diagnostic.py ##
 55:      # Save the data used for the plot
 56:      save_data(basename, provenance_record, cfg, cube)
 ..

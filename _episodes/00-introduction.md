@@ -33,7 +33,9 @@ technical steps, let's talk about what ESMValTool is all about.
 > > EMSValTool is many things, but in this tutorial we will focus on the
 > > following traits:
 > >
-> > &#10003; **A tool to analyse climate data**
+> > &#10003; **A Python-based preprocessing framework**
+> >
+> > &#10003; **A Standardised framework for climate data analysis**
 > >
 > > &#10003; **A collection of diagnostics for reproducible climate science**
 > >
@@ -42,10 +44,91 @@ technical steps, let's talk about what ESMValTool is all about.
 > {: .solution}
 {: .challenge}
 
-## A tool to analyse climate data
+## A Python-based preprocessing framework
 
-ESMValTool takes care of finding, opening, checking, fixing, concatenating, and
-preprocessing CMIP data and several other supported datasets.
+ESMValTool is powered by ESMValCore, a powerfull python-based workflow engine that facilitates CMIP analysis.
+ESMValCore implements the core functionality of ESMValTool: it takes care of finding, opening, checking, fixing, concatenating, and preprocessing CMIP data and several other supported datasets.
+ESMValCore has matured as a reliable foundation for the ESMValTool with recent addition making it attractive as a lightweight approach to CMIP evaluation.
+
+A common scenario consist in visualising the global temperature of an historical run over a 2 year period.
+To do so, you need first to:
+- Find the data
+- Extract the period of interest
+- Calculate the mean
+- Convert the units to degrees celsius
+- Finally Plot the data
+
+The following example illustrate how to leverage ESMValCore, the engine powering the ESMValTool collection of recipes, to quickly load CMIP data and do some analysis on them.
+
+ ```python
+ from esmvalcore.dataset import Dataset
+ from esmvalcore.preprocessor import extract_time
+ from esmvalcore.preprocessor import climate_statistics
+ from esmvalcore.preprocessor import convert_units
+
+ dataset = Dataset(
+   short_name='tas',
+   project='CMIP6',
+   mip="Amon",
+   exp="historical",
+   ensemble="r1i1p1f1",
+   dataset='ACCESS-ESM1-5',
+   grid="gn"
+)
+
+ temperature = dataset.load()
+ temperature_1990_1991 = extract_time(temperature, start_year=1990, start_month=1, start_day=1, end_year=1991, end_month=1, end_day=1) 
+ temperature_weighted_mean = climate_statistics(temperature_1990_1991, operator="mean")
+ temperature_celsius = convert_units(temperature_weighted_mean, units="degrees_C")
+```
+
+> ## Example Plots
+>
+> ESMValCore uses Iris Cube to manipulate data. Iris can thus be used to quickly plot the data in a notebook, but you could use your package of choice.
+>
+> ```python
+>  import cartopy.crs as ccrs
+>  import matplotlib.pyplot as plt
+>  from matplotlib import colormaps
+>  
+>  import iris
+>  import iris.plot as iplt
+>  import iris.quickplot as qplt
+>  
+>  # Load a Cynthia Brewer palette.
+>  brewer_cmap = colormaps["brewer_OrRd_09"]
+>  
+>  # Create a figure
+>  plt.figure(figsize=(12, 5))
+>  
+>  # Plot #1: countourf with axes longitude from -180 to 180
+>  proj = ccrs.PlateCarree(central_longitude=0.0)
+>  plt.subplot(121, projection=proj)
+>  qplt.contourf(temperature_weighted_mean, brewer_cmap.N, cmap=brewer_cmap)
+>  plt.gca().coastlines()
+>  
+>  # Plot #2: contourf with axes longitude from 0 to 360
+>  proj = ccrs.PlateCarree(central_longitude=-180.0)
+>  plt.subplot(122, projection=proj)
+>  qplt.contourf(temperature_weighted_mean, brewer_cmap.N, cmap=brewer_cmap)
+>  plt.gca().coastlines()
+>  iplt.show()
+> ```
+> ![image](../fig/tas_plots.png)
+>
+{: .solution}
+
+> ## Exercices
+> ESMValCore has a growing collection of preprocessors, have a look at the documentation and see what is available. 
+> - Open an ARE session and run the above example. 
+> - See if you can load other datasets
+> - change the time period
+> - Add a new preprocessing step
+{: .challenge}
+
+## A Standardised framework for climate data analysis
+
+ESMValTool is a software project that was designed by and for climate scientists to evaluate CMIP data in a standardized and reproducible manner. 
 
 The central component of ESMValTool that we will see in this tutorial is the
 **recipe**. Any ESMValTool recipe is basically a set of instructions to reproduce

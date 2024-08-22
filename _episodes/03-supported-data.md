@@ -30,12 +30,13 @@ Broadly, the datasets available which can be easily found and read in ESMValTool
 - published CMIP5 data
 
 > ## What are the NCI projects I need to join?
-> On NCI, join relevant NCI projects to access that data. The [NCI data catalogue] can be searched for more information
-> on the collections. Log into NCI with your NCI account to find and join the projects. 
-> Join a project and find the data catalogue entries:
+> On NCI, join relevant NCI projects to access that data. The 
+> [NCI data catalogue](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/home) can be searched
+> for more information on the collections. Log into NCI with your NCI account to find and join the projects.
+> These would have been checked when you ran the `check_hackathon` set up.
 > 
-> > ## Solution
-> > - You can check if you're a member or join ct11 with [this link](https://my.nci.org.au/mancini/project/ct11/join).
+> > ## Data and NCI projects:
+> > - You can check if you're a member or join **ct11** with [this link](https://my.nci.org.au/mancini/project/ct11/join).
 > > 
 > > The NCI data catalog entries with NCI project:
 > > - [ESMValTool observation data collection](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f0550_0998_4567_4139): **ct11**
@@ -43,9 +44,11 @@ Broadly, the datasets available which can be easily found and read in ESMValTool
 > > - [ERA5](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f2836_1346_3774_9763) : **rt52**
 > > and [ERA5-Land](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f1615_8798_0889_6540): **zz93**
 > > - [CMIP6 replicas](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f5194_5909_8003_9216): **oi10** and
-> > [Australian published](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f3154_9976_7262_7595): **fs38**
+> > [Australian published](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f3154_9976_7262_7595): **fs38** and 
 > > - [CMIP5 replicas](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f9489_5106_5649_5038): **al33** and
 > > [Australian](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f1451_9473_6216_4637): **rr3**
+> > 
+> > There is also the NCI project **zv30** for *CMIP7 collaborative development and evaluation* currently with more CMIP6 piControl data.
 > {: .solution}
 {: .challenge}
 
@@ -63,18 +66,46 @@ Broadly, the datasets available which can be easily found and read in ESMValTool
 > >   OBS6: /g/data/ct11/access-nri/replicas/esmvaltool/obsdata-v2
 > >   obs4MIPs: [/g/data/ct11/access-nri/replicas/esmvaltool/obsdata-v2]
 > >   ana4mips: [/g/data/ct11/access-nri/replicas/esmvaltool/obsdata-v2]
-> >   native6: [/g/data/xp65/public/apps/esmvaltool/native6]
-> >   RAWOBS: /g/data/kj13/datasets/esmvaltool/raw-data
+> >   native6: [/g/data/rt52/era5]
+> >   ACCESS: /g/data/p73/archive/non-CMIP
 > > ```
 > {: .solution}
 {: .callout}
 
+## ESMValTool Tiers
+Observational datasets in ESMValTool are organised in tiers reflecting access restriction levels.
+- **Tier 1**
+Primarily Obs4MIPS where data is formatted, freely available and ready to use in ESMValTool.
+- **Tier 2**
+Data is freely available, CMORised datasets are available in *ct11* in ESMValTool.
+- **Tier 3**
+These datasets have access rectrictions, licensing and acknowledgement may be required so 
+direct access to the data cannot be provided. NCI can provide support to download and CMORise.
+
+### ERA5 in native6 and ERA5 daily in OBS6 Tier3
+- **native6-era5**
+
+The project [*native6*](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/find_data.html#read-native-datasets) 
+refers to a collection of datasets that can be read directly into CMIP6 format for
+use in ESMValTool recipes. ESMValTool supports this with an extra facets file to map the variable names
+across. This would have been added to your `~/.esmvaltool/extra_facets` directory which is also used to fill
+out default facet values and help find the data. See more information on 
+[extra facets](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#extra-facets).
+
+- **ERA5 daily derived**
+
+*The original hourly data from the "ERA5 hourly data on single levels" and "ERA5 hourly data on pressure levels"* 
+*collections have been transformed into daily means using the ESMValTool (v2.10) Python package.* 
+These are Tier 3 datasets for OBS6. Variables available are: 
+`'clt', 'fx', 'pr', 'prw', 'psl', 'rlds', 'rsds', 'rsdt', 
+'tas', 'tasmax', 'tasmin', 'tdps', 'ua', 'uas', 'vas'`
+
 ## What is the ESMValTool observation data collection?
 We have created a collection of observation datasets that can be pulled directly into ESMValTool.
 The data has been CMORised, meaning they are netCDF files formatted to CF conventions and CMIP projects.
-There is a table of available data which can be found 
-[here](https://github.com/ACCESS-NRI/ESMValTool-workflow/blob/main/observations/observations.md).
-You can also expand the below:
+There is a table of available Tier 1 and 2 data which can be found 
+[here](https://github.com/ACCESS-NRI/ESMValTool-workflow/blob/main/observations/observations.md) 
+or you can also expand the below:
 
 > ## Observation collection
 > 
@@ -154,15 +185,6 @@ You can also expand the below:
 > | Ice Water Path                                                                            | <a target="_blank" href="https://public.satproj.klima.dwd.de/data/ESA_Cloud_CCI/CLD_PRODUCTS/v3.0/">ESACCI-CLOUD</a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | clivi        |
 {: .solution} 
 
-## ESMValTool Tiers
-Observational datasets in ESMValTool are organised in tiers reflecting access restriction levels.
-- **Tier 1**
-Primarily Obs4MIPS where data is formatted, freely available and ready to use in ESMValTool.
-- **Tier 2**
-Data is freely available, CMORised datasets are available in *ct11* in ESMValTool.
-- **Tier 3**
-These datasets have access rectrictions, licensing and acknowledgement may be required so 
-direct access to the data cannot be provided. NCI can provide support to download and CMORise.
 
 ## ESMValTool data download and CMORise
 ESMValTool has the capability to download and format certain observational datasets with

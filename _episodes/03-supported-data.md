@@ -470,4 +470,15 @@ See something wrong in a dataset? Have a suggestion? This collection is continua
 > </tbody></table>
 {: .solution} 
 
+
+## The CMIP7 collaborative development and evaluation project (zv30) on NCI-Gadi
+
+The Australian CMIP7 community, supported by ACCESS-NRI, aims to establish a data space for effectively comparing and evaluating CMIP experiments in preparation for Australia's forthcoming submission to CMIP7. This shared platform will serve as a collaborative hub, bringing together researchers and model developers to assess model outputs. It will enable comparisons with previous simulations and CMIP6 models, facilitating the real-time exchange of feedback. Additionally, this space will support iterative model improvement by providing a platform for testing and refining model configurations.
+
+This collection is part of the `zv30` project on NCI, managed by ACCESS-NRI. Similar to the NCI National data collections, users only have read access to this data. To share a dataset for model evaluation purposes, users must prepare the data according to CF conventions (i.e., CMORize the data) and submit a request to copy the dataset to the `zv30` project. To do so, please contact Romain Beucher or Clare Richards at ACCESS-NRI.
+
+If you have not done so already, please join the [zv30 project](https://my.nci.org.au/mancini/project/zv30)
+
+
+
 {% include links.md %}

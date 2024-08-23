@@ -5,22 +5,14 @@ exercises: 20
 compatibility: ESMValTool v2.11.0
 
 questions:
-- "What is the purpose of the quickstart guide?"
-- "How do I run ILAMB on GADI?"
-- "HOW do I organise data before run ILAMB?"
-- "HOW do I configure ILAMB?"
+- "How do I run the ILAMB on NCI GADI?"
 objectives:
-- "Understand the purpose of the quickstart guide"
-- "Load module for ILAMB"
-- "Configure ILAMB"
-- "organise data directory structure for ILAMB"
-- "run ILAMB"
+- "Understand how to load, configure and run the ILAMB using the ACCESS-NRI ILAMB-Workflow"
 keypoints:
-- "ILAMB work environment has been packaged as a module for GADI users."
-- "use `.cfg` file to configure a ilamb run."
-- "use `ilamb-tree-generator` to simplely build a data directory sreucture for ILAMB to read."
-- "Two ways to specify input data while trigger ILAMB run"
-- "use MPI if posiable to speed up ILAMB"
+- "The ACCESS-NRI ILAMB-Workflow facilitates the configuration of the ILAMB on NCI Gadi."
+- "Users need to set up a run using a configuration file."
+- "The `ilamb-tree-generator` allows to quickly build a data directory srtucture for the ILAMB."
+- "The ILAMB can take advantage of the multiple CPUs available on Gadi."
 ---
 
 > ## What is the purpose of the quickstart guide?

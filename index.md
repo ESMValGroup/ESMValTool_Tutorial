@@ -13,6 +13,30 @@ software toolkit that aims to facilitate the diagnosis and evaluation of the
 causes and effects of model biases and inter-model spread within the CMIP model
 ensemble.
 
+## Workshop Instructors
+
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+
+    <div style="text-align: center;">
+        <img src="https://www.access-nri.org.au/wp-content/uploads/2022/08/RomainPhoto-bw-300x300.jpg" alt="Romain Beucher" width="150" height="150" style="border-radius: 50%;">
+        <p>Romain Beucher</p>
+        <p>Team Lead</p>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="https://www.access-nri.org.au/wp-content/uploads/2023/08/felicity-300x300.png" alt="Felicity Chun" width="150" height="150" style="border-radius: 50%;">
+        <p>Felicity Chun</p>
+        <p>Research Software Engineer</p>
+    </div>
+
+    <div style="text-align: center;">
+        <img src="https://www.access-nri.org.au/wp-content/uploads/2023/02/Rhaegar-Zeng-BW-300x300.jpg" alt="Rhaegar Zeng" width="150" height="150" style="border-radius: 50%;">
+        <p>Rhaegar Zeng</p>
+        <p>Research Software Engineer</p>
+    </div>
+
+</div>
+
 > ## What will you learn in this course
 >
 > - What is ESMValTool / What is the ACCESS ESMValTool-Workflow

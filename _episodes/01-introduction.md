@@ -1,5 +1,5 @@
 ---
-title: "Introduction"
+title: "Introducing ESMValTool"
 teaching: 5
 exercises: 10
 compatibility: ESMValTool v2.11.0

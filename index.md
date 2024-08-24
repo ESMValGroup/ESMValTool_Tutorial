@@ -8,10 +8,11 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
   <img src="./assets/img/cmip7_hackathon_logo.png" alt="Description of Image" style="width: 100%; height: auto;" />
 </div>
 
-The Earth System Model Evaluation Tool (ESMValTool) is a community developed
-software toolkit that aims to facilitate the diagnosis and evaluation of the
-causes and effects of model biases and inter-model spread within the CMIP model
-ensemble.
+Welcome to the second CMIP7 Evaluation Hackathon, following our successful event held in March this year. This hackathon will focus on the evaluation frameworks developed by ACCESS-NRI. Our aim is to provide you with a comprehensive overview of the tools available for climate model evaluation, including ILAMB and ESMValTool, and to familiarize you with the relevant datasets.
+
+Throughout the day, you will engage in a series of hands-on exercises designed to deepen your understanding of evaluation frameworks, including how to run and write recipes and use Jupyter notebooks to interact with ESMValTool. We hope these activities will enhance your skills and knowledge, and facilitate more effective evaluation of climate models.
+
+Thank you for joining us, and we look forward to a productive and insightful workshop.
 
 ## Workshop Instructors
 

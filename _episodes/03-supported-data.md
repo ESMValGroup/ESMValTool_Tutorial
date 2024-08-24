@@ -11,8 +11,9 @@ objectives:
 - "Gain knowledge of relevant Gadi projects for data"
 - "How observation data is organised for ESMValTool"
 - "Understanding download and CMORise functions available in ESMValTool"
+- "How observation data is organised for the ILAMB"
 keypoints:
-- "There is supported data on Gadi to start with using ESMValTool"
+- "There is supported data on Gadi to start with using ESMValTool and the ILAMB"
 ---
 
 ## Introduction
@@ -267,5 +268,217 @@ where *OBS* is CMIP5 format and *OBS6* is CMIP6 format.
 > > ```
 > {: .solution}
 {: .challenge}
+
+
+## What is ILAMB-Data?
+
+The ILAMB community maintains a collection of reference datasets that have been carefully formatted following [CF conventions](https://cfconventions.org/). ACCESS-NRI hosts a replica of this ILAMB-data collection on NCI-Gadi as part of the ACCESS-NRI Replicated Datasets for Climate Model Evaluation
+NCI data collection, which can be accessed [here](https://geonetwork.nci.org.au/geonetwork/srv/eng/catalog.search#/metadata/f7199_2480_5432_9703). While we ensure this replica is regularly updated, the datasets were initially downloaded from primary sources and reformatted for use within the ILAMB framework. For specific reference information, please check the global attributes within the files.
+
+See something wrong in a dataset? Have a suggestion? This collection is continually evolving and depends on community input. Please submit request for new observation datasets support on the ACCESS-Hive Forum. You can also track progress by following the [ILAMB-Data](https://github.com/rubisco-sfa/ILAMB-Data) GitHub repository or check out what the ILAMB community users are working on currently on the [ILAMB Dataset Integration project board](https://github.com/orgs/rubisco-sfa/projects/1/views/1).
+
+
+> ## Observation collection
+> 
+> <table>
+>   <tbody><tr>
+>     <td>Albedo</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/albedo/CERESed4.1/albedo.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/albedo/GEWEX.SRB/albedo_0.5x0.5.nc">GEWEX.SRB</a></td>
+>   </tr>
+>   <tr>
+>     <td>Biomass</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/ESACCI/biomass.nc">ESACCI</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/GEOCARBON/biomass.nc">GEOCARBON</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/NBCD2000/biomass_0.5x0.5.nc">NBCD2000</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/Saatchi2011/biomass_0.5x0.5.nc">Saatchi2011</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/Thurner/biomass_0.5x0.5.nc">Thurner</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/USForest/biomass_0.5x0.5.nc">USForest</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/biomass/XuSaatchi2021/XuSaatchi.nc">XuSaatchi2021</a></td>
+>   </tr>
+>   <tr>
+>     <td>Burned Area</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/burntArea/GFED4.1S/burntArea.nc">GFED4.1S</a></td>
+>   </tr>
+>   <tr>
+>     <td>Carbon Dioxide</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/co2/NOAA.GMD/co2.nc">NOAA.Emulated</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/co2/HIPPO_AToM/HIPPO_AToM.nc">HIPPOAToM</a></td>
+>   </tr>
+>   <tr>
+>     <td>Diurnal Max Temperature</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/tasmax/CRU4.02/tasmax.nc">CRU4.02</a></td>
+>   </tr>
+>   <tr>
+>     <td>Diurnal Min Temperature</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/tasmin/CRU4.02/tasmin.nc">CRU4.02</a></td>
+>   </tr>
+>   <tr>
+>     <td>Diurnal Temperature Range</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/dtr/CRU4.02/dtr.nc">CRU4.02</a></td>
+>   </tr>
+>   <tr>
+>     <td>Ecosystem Respiration</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/reco/FLUXNET2015/reco.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/reco/FLUXCOM/reco.nc">FLUXCOM</a></td>
+>   </tr>
+>   <tr>
+>     <td>Evapotranspiration</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/evspsbl/GLEAMv3.3a/et.nc">GLEAMv3.3a</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/evspsbl/MODIS/et_0.5x0.5.nc">MODIS</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/evspsbl/MOD16A2/et.nc">MOD16A2</a></td>
+>   </tr>
+>   <tr>
+>     <td>Global Net Ecosystem Carbon Balance</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/nbp/GCP/nbp_1959-2016.nc">GCP</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/nbp/HOFFMAN/nbp_1850-2010.nc">Hoffman</a></td>
+>   </tr>
+>   <tr>
+>     <td>Gross Primary Productivity</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/gpp/FLUXNET2015/gpp.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/gpp/FLUXCOM/gpp.nc">FLUXCOM</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/gpp/WECANN/gpp.nc">WECANN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Ground Heat Flux</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/hfdsl/CLASS/hfdsl.nc">CLASS</a></td>
+>   </tr>
+>   <tr>
+>     <td>Latent Heat</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/hfls/FLUXNET2015/hfls.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/hfls/FLUXCOM/le.nc">FLUXCOM</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/evspsbl/DOLCE/DOLCE.nc">DOLCE</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/hfls/CLASS/hfls.nc">CLASS</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/hfls/WECANN/hfls.nc">WECANN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Leaf Area Index</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/lai/AVHRR/lai_0.5x0.5.nc">AVHRR</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/lai/AVH15C1/lai.nc">AVH15C1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/lai/MODIS/lai_0.5x0.5.nc">MODIS</a></td>
+>   </tr>
+>   <tr>
+>     <td>Methane</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/ch4/FluxnetANN/FCH4_F_ANN_monthly_wetland_tier1.nc">FluxnetANN</a>
+>     </td>
+>   </tr>
+>   <tr>
+>     <td>Net Ecosystem Exchange</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/nee/FLUXNET2015/nee.nc">FLUXNET2015</a></td>
+>   </tr>
+>   <tr>
+>     <td>Nitrogen Fixation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/fBNF/DaviesBarnard/fBNF_0.5x0.5.nc">Davies-Barnard</a></td>
+>   </tr>
+>   <tr>
+>     <td>Permafrost</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/permafrost/Brown2002/Brown2002.nc">Brown2002</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/permafrost/Obu2018/Obu2018.nc">Obu2018</a></td>
+>   </tr>
+>   <tr>
+>     <td>Precipitation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/pr/CMAPv1904/pr.nc">CMAPv1904</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/pr/FLUXNET2015/pr.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/pr/GPCCv2018/pr.nc">GPCCv2018</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/pr/GPCPv2.3/pr.nc">GPCPv2.3</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/pr/CLASS/pr.nc">CLASS</a></td>
+>   </tr>
+>   <tr>
+>     <td>Runoff</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/mrro/Dai/runoff.nc">Dai</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/mrro/LORA/LORA.nc">LORA</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/mrro/CLASS/mrro.nc">CLASS</a></td>
+>   </tr>
+>   <tr>
+>     <td>Sensible Heat</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/hfss/FLUXNET2015/hfss.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/hfss/FLUXCOM/sh.nc">FLUXCOM</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/hfss/CLASS/hfss.nc">CLASS</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/hfss/WECANN/hfss.nc">WECANN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Snow Water Equivalent</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/swe/CanSISE/swe.nc">CanSISE</a></td>
+>   </tr>
+>   <tr>
+>     <td>Soil Carbon</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/cSoil/HWSD/soilc_0.5x0.5.nc">HWSD</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/cSoil/NCSCDV22/soilc_0.5x0.5.nc">NCSCDV22</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Air Temperature</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/tas/CRU4.02/tas.nc">CRU4.02</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/tas/FLUXNET2015/tas.nc">FLUXNET2015</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Downward LW Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rlds/CERESed4.1/rlds.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlds/FLUXNET2015/rlds.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlds/GEWEX.SRB/rlds_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlds/WRMC.BSRN/rlds.nc">WRMC.BSRN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Downward SW Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rsds/CERESed4.1/rsds.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsds/FLUXNET2015/rsds.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsds/GEWEX.SRB/rsds_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsds/WRMC.BSRN/rsds.nc">WRMC.BSRN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Net LW Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rlns/CERESed4.1/rlns.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlns/FLUXNET2015/rlns.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlns/GEWEX.SRB/rlns_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlns/WRMC.BSRN/rlns.nc">WRMC.BSRN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Net Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rns/CERESed4.1/rns.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rns/FLUXNET2015/rns.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rns/GEWEX.SRB/rns_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rns/WRMC.BSRN/rns.nc">WRMC.BSRN</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rns/CLASS/rns.nc">CLASS</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Net SW Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rsns/CERESed4.1/rsns.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsns/FLUXNET2015/rsns.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsns/GEWEX.SRB/rsns_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsns/WRMC.BSRN/rsns.nc">WRMC.BSRN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Relative Humidity</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rhums/ERA5/rhums.nc">ERA5</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rhums/CRU4.02/rhums.nc">CRU4.02</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Soil Moisture</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/mrsos/WangMao/mrsos_olc.nc">WangMao</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Upward LW Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rlus/CERESed4.1/rlus.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlus/FLUXNET2015/rlus.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlus/GEWEX.SRB/rlus_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rlus/WRMC.BSRN/rlus.nc">WRMC.BSRN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Surface Upward SW Radiation</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/rsus/CERESed4.1/rsus.nc">CERESed4.1</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsus/FLUXNET2015/rsus.nc">FLUXNET2015</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsus/GEWEX.SRB/rsus_0.5x0.5.nc">GEWEX.SRB</a>, <a href="https://www.ilamb.org/ILAMB-Data/DATA/rsus/WRMC.BSRN/rsus.nc">WRMC.BSRN</a></td>
+>   </tr>
+>   <tr>
+>     <td>Terrestrial Water Storage Anomaly</td>
+>     <td><a href="https://www.ilamb.org/ILAMB-Data/DATA/twsa/GRACE/twsa_0.5x0.5.nc">GRACE</a></td>
+>   </tr>
+> </tbody></table>
+> 
+> IOMB-DATA list
+> 
+> <table>
+>   <tbody><tr>
+>     <td>Alkalinity</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/talk.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Anthropogenic DIC 1994-2007</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/Gruber/Gruber.nc">Gruber</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/OCIM/OCIM.nc">OCIM</a></td>
+>   </tr>
+>   <tr>
+>     <td>Chlorophyll</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/chla.nc">GLODAP2.2022</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/SeaWIFS/SeaWIFS.nc">SeaWIFS</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/MODISAqua/MODISAqua.nc">MODISAqua</a></td>
+>   </tr>
+>   <tr>
+>     <td>Dissolved Inorganic Carbon</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/dissic.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Nitrate</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/no3.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/no3.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Oxygen</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/o2.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/o2.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Phosphate</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/po4.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/po4.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Salinity</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/so.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/so.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Silicate</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/sio3.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/sio3.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Temperature</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/thetao.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/thetao.nc">GLODAP2.2022</a></td>
+>   </tr>
+>   <tr>
+>     <td>Vertical Temperature Gradient</td>
+>     <td><a href="https://www.ilamb.org/IOMB-Data/DATA/WOA2018/thetao.nc">WOA2018</a>, <a href="https://www.ilamb.org/IOMB-Data/DATA/GLODAP2.2022/thetao.nc">GLODAP2.2022</a></td>
+>   </tr>
+> </tbody></table>
+{: .solution} 
+
+
+## The CMIP7 collaborative development and evaluation project (zv30) on NCI-Gadi
+
+The Australian CMIP7 community, supported by ACCESS-NRI, aims to establish a data space for effectively comparing and evaluating CMIP experiments in preparation for Australia's forthcoming submission to CMIP7. This shared platform will serve as a collaborative hub, bringing together researchers and model developers to assess model outputs. It will enable comparisons with previous simulations and CMIP6 models, facilitating the real-time exchange of feedback. Additionally, this space will support iterative model improvement by providing a platform for testing and refining model configurations.
+
+This collection is part of the `zv30` project on NCI, managed by ACCESS-NRI. Similar to the NCI National data collections, users only have read access to this data. To share a dataset for model evaluation purposes, users must prepare the data according to CF conventions (i.e., CMORize the data) and submit a request to copy the dataset to the `zv30` project. To do so, please contact Romain Beucher or Clare Richards at ACCESS-NRI.
+
+If you have not done so already, please join the [zv30 project](https://my.nci.org.au/mancini/project/zv30)
+
+
 
 {% include links.md %}

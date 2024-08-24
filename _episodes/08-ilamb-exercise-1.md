@@ -1,7 +1,7 @@
 ---
 title: "Running the ILAMB on Gadi"
-teaching: 15
-exercises: 20
+teaching: 30
+exercises: 60
 compatibility: ILAMB v2.7.1
 
 questions:
@@ -155,9 +155,252 @@ ILAMB uses a `config.cfg` file as its configuration file to initiate a benchmark
 
 An example configuration file for ILAMB on *Gadi* might be named `config.cfg`. It could be used to compare your models with two variables from the radiation and energy cycle, as measured by the [Clouds and the Earth’s Radiant Energy System (CERES) project](https://ceres.larc.nasa.gov):
 
->
-> ## Example
+This configuration file is used to define the comparison sections, variables, and observational datasets required for running ILAMB on Gadi. The file is organised with the following structure:
+
+```text
+[h1:] Sections
+[h2:] Variables
+[]    Observational Datasets
+```
+
+- **Sections**: Define the major comparison categories or groups within the benchmark study.
+- **Variables**: Specify the particular variables that will be compared between model outputs and observational data.
+- **Observational Datasets**: List the datasets used for comparison, detailing where ILAMB will source the observational data.
+
+For further guidance on how to create and use configuration files, refer to the ILAMB Tutorial on [Configure Files](https://www.ilamb.org/doc/first_steps.html#configure-files). You can also consult the ILAMB and IOMB dataset collections at [ILAMB Datasets](https://www.ilamb.org/datasets.html).
+
+### A minimal Example
+
+```bash
+
+[h1: Hydrology Cycle]
+bgcolor = "#E6F9FF"
+
+[h2: Evapotranspiration]
+variable       = "et"
+alternate_vars = "evspsbl"
+cmap           = "Blues"
+weight         = 5
+mass_weighting = True
+
+[MODIS]
+source        = "DATA/evspsbl/MODIS/et_0.5x0.5.nc"
+weight        = 15
+table_unit    = "mm d-1"
+plot_unit     = "mm d-1"
+relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+``` 
+
+his example configuration file is set up for running ILAMB on Gadi and specifies details for comparing data related to the hydrology cycle. Here’s a breakdown of what each section does:
+
+ ```bash
+ [h1: Hydrology Cycle]
+ bgcolor = "#E6F9FF"
+ ```
+ - **[h1: Hydrology Cycle]**: This section defines a major comparison category called "Hydrology Cycle" and sets a background color for visualizations.
+
+ ```bash
+ [h2: Evapotranspiration]
+ variable       = "et"
+ alternate_vars = "evspsbl"
+ cmap           = "Blues"
+ weight         = 5
+ mass_weighting = True
+ ```
+ - **[h2: Evapotranspiration]**: This subsection focuses on "Evapotranspiration" within the hydrology cycle.
+   - `variable`: Specifies the main variable to compare, which is "et" (evapotranspiration).
+   - `alternate_vars`: Provides an alternate variable name "evspsbl" that might be used in the data.
+   - `cmap`: Sets the color map for plotting the data, here using shades of blue.
+   - `weight`: Assigns a weight of 5 to this variable in the comparisons.
+   - `mass_weighting`: Indicates that mass weighting should be applied (True).
+
+ ```bash
+ [MODIS]
+ source        = "DATA/evspsbl/MODIS/et_0.5x0.5.nc"
+ weight        = 15
+ table_unit    = "mm d-1"
+ plot_unit     = "mm d-1"
+ relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+ ```
+ - **[MODIS]**: This section specifies details for the observational dataset related to MODIS.
+   - `source`: Points to the file location of the MODIS dataset.
+   - `weight`: Assigns a weight of 15 to this dataset in the comparisons.
+   - `table_unit`: Defines the unit of measurement for the dataset, "mm d-1" (millimeters per day).
+   - `plot_unit`: Specifies the unit of measurement for plotting, also "mm d-1".
+   - `relationships`: Lists other related datasets, such as precipitation and surface air temperature, indicating how they relate to the MODIS dataset.
+
+> ## Exercise: Adding a Second Observational Dataset to the ILAMB Configuration File
 > 
+> In this exercise, you will add a second observational dataset to your ILAMB configuration file. Follow these steps to integrate a new dataset, `[MOD16A2]`, into your existing configuration:
+> 
+> 1. **Open Your ILAMB Configuration File**: Locate and open the ILAMB configuration file you are currently using.
+> 
+> 2. **Identify the Section for Observational Datasets**:
+>    - Scroll to the section of the file where observational datasets are listed.
+> 
+> 3. **Add the New Dataset**:
+>    - Insert the following block of code to include the `[MOD16A2]` observational dataset:
+> 
+>     ```bash
+>     [MOD16A2]
+>     source        = "DATA/evspsbl/MOD16A2/et.nc"
+>     weight        = 15
+>     table_unit    = "mm d-1"
+>     plot_unit     = "mm d-1"
+>     relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+>     ```
+> 
+>    - This entry specifies the details for the new dataset:
+>      - `source`: Path to the dataset file.
+>      - `weight`: Weight assigned to this dataset for comparisons.
+>      - `table_unit`: Unit of measurement used in tables.
+>      - `plot_unit`: Unit of measurement used in plots.
+>      - `relationships`: Lists other related datasets for comparison.
+> 
+> 4. **Save Your Changes**: Make sure to save the configuration file after adding the new dataset.
+> 
+> > ## Solution
+> >
+> > ```bash
+> > # This configure file specifies comparison sections, variables and observational data for running ILAMB on Gadi.
+> > 
+> > # See https://www.ilamb.org/doc/first_steps.html#configure-files for the ILAMB Tutorial that addesses Configure Files
+> > # See https://www.ilamb.org/datasets.html for the ILAMB and IOMB collections
+> > 
+> > # Structure:
+> > # [h1:] Sections
+> > # [h2:] Variables
+> > # []    Observational Datasets
+> > 
+> > #=======================================================================================
+> > 
+> > [h1: Hydrology Cycle]
+> > bgcolor = "#E6F9FF"
+> > 
+> > [h2: Evapotranspiration]
+> > variable       = "et"
+> > alternate_vars = "evspsbl"
+> > cmap           = "Blues"
+> > weight         = 5
+> > mass_weighting = True
+> > 
+> > [MODIS]
+> > source        = "DATA/evspsbl/MODIS/et_0.5x0.5.nc"
+> > weight        = 15
+> > table_unit    = "mm d-1"
+> > plot_unit     = "mm d-1"
+> > relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+> > 
+> > [MOD16A2]
+> > source        = "DATA/evspsbl/MOD16A2/et.nc"
+> > weight        = 15
+> > table_unit    = "mm d-1"
+> > plot_unit     = "mm d-1"
+> > relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+> > 
+> > 
+> > #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >```
+> {: .solution}
+{: .challenge}
+
+> ## Exercise: Adding New Comparison Details to the ILAMB Configuration File
+> 
+> In this exercise, you will add a new section for "Latent Heat" to the ILAMB configuration file. Follow the steps below:
+> 
+> 1. **Open your existing ILAMB configuration file**: Locate and open the configuration file you have been working with.
+> 
+> 2. **Add a new subsection for Latent Heat**:
+>    - Scroll to the appropriate location in the file where you want to add the new details.
+>    - Insert the following content to define the "Latent Heat" comparison:
+> 
+>     ```bash
+>     [h2: Latent Heat]
+>     variable       = "hfls"
+>     alternate_vars = "le"
+>     cmap           = "Oranges"
+>     weight         = 5
+>     mass_weighting = True
+>     ```
+> 
+>    - This section sets up a comparison for "Latent Heat," specifying the variable, alternate names, color map, weight, and mass weighting.
+> 
+> 3. **Add details for the FLUXCOM dataset**:
+>    - Below the "Latent Heat" subsection, add the following content to define the FLUXCOM dataset:
+> 
+>     ```bash
+>     [FLUXCOM]
+>     source   = "DATA/hfls/FLUXCOM/le.nc"
+>     land     = True
+>     weight   = 9
+>     skip_iav = True
+>     ```
+> 
+>    - This section specifies the source file for the FLUXCOM dataset, assigns a weight, indicates whether land data is included, and whether to skip inter-annual variability.
+> 
+> 4. **Save your changes**: Ensure that the file is saved with the new sections included.
+>
+> > ## Solution
+> >
+> > ```bash
+> > # This configure file specifies comparison sections, variables and observational data for running ILAMB on Gadi.
+> > 
+> > # See https://www.ilamb.org/doc/first_steps.html#configure-files for the ILAMB Tutorial that addesses Configure Files
+> > # See https://www.ilamb.org/datasets.html for the ILAMB and IOMB collections
+> > 
+> > # Structure:
+> > # [h1:] Sections
+> > # [h2:] Variables
+> > # []    Observational Datasets
+> > 
+> > #=======================================================================================
+> > 
+> > [h1: Hydrology Cycle]
+> > bgcolor = "#E6F9FF"
+> > 
+> > [h2: Evapotranspiration]
+> > variable       = "et"
+> > alternate_vars = "evspsbl"
+> > cmap           = "Blues"
+> > weight         = 5
+> > mass_weighting = True
+> > 
+> > [MODIS]
+> > source        = "DATA/evspsbl/MODIS/et_0.5x0.5.nc"
+> > weight        = 15
+> > table_unit    = "mm d-1"
+> > plot_unit     = "mm d-1"
+> > relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+> > 
+> > [MOD16A2]
+> > source        = "DATA/evspsbl/MOD16A2/et.nc"
+> > weight        = 15
+> > table_unit    = "mm d-1"
+> > plot_unit     = "mm d-1"
+> > relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
+> > 
+> > 
+> > #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > 
+> > [h2: Latent Heat]
+> > variable       = "hfls"
+> > alternate_vars = "le"
+> > cmap           = "Oranges"
+> > weight         = 5
+> > mass_weighting = True
+> > 
+> > [FLUXCOM]
+> > source   = "DATA/hfls/FLUXCOM/le.nc"
+> > land     = True
+> > weight   = 9
+> > skip_iav = True
+> > 
+> > #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> >```
+> {: .solution}
+{: .challenge}
+
+> ## A Comprehensive example
 > ```bash
 > # This configure file specifies comparison sections, variables and observational data for running ILAMB on Gadi.
 > 
@@ -462,7 +705,6 @@ An example configuration file for ILAMB on *Gadi* might be named `config.cfg`. I
 > ```
 >
 {: .solution}
-
 
 ## Running the ILAMB
  

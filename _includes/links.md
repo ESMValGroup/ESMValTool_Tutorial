@@ -42,7 +42,7 @@
 [lesson-introduction]: {{ relative_root_path }}{% link _episodes/00-introduction.md %}
 [lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
-[lesson-recipe]: {{ relative_root_path }}{% link _episodes/03-runarecipe.md %}
+[lesson-recipe]: {{ relative_root_path }}{% link _episodes/02-runarecipe.md %}
 [lesson-reference]: {{ relative_root_path }}{% link reference.md %}
 [lesson-setup]: {{ relative_root_path }}{% link setup.md %}
 [list-of-authors]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html#list-of-authors
@@ -81,3 +81,12 @@
 [timeranges]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#time-ranges
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
+[are]: https://are.nci.org.au/
+[experimental-api]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.html
+[EGU22-tutorial]: https://github.com/ESMValGroup/EGU22-short-course/blob/main/notebooks/Introduction_to_ESMValTool.ipynb
+[experimental-recipe]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe.html#module-esmvalcore.experimental.recipe
+[api-config]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.config.html
+[experimental-output]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe_output.html
+[docs-notebooks]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/example-notebooks.html
+[api-reference]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.html#api
+[api-preprocessors]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html

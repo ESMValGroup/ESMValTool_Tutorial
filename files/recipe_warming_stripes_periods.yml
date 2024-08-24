@@ -8,14 +8,17 @@ documentation:
     - righi_mattia
 
 datasets:
-  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn}
+  - {dataset: ACCESS-ESM1-5, project: CMIP6, mip: Amon, exp: historical, ensemble: r1i1p1f1, grid: gn}
 
 preprocessors:
-  anomalies_amsterdam:
-    extract_point:
-      latitude: 52.379189
-      longitude: 4.899431
-      scheme: linear
+  anomalies_aus:
+    extract_region:
+      start_longitude: 110
+      end_longitude: 160
+      start_latitude: -45
+      end_latitude: -9
+    area_statistics:
+      operator: mean
     anomalies:
       period: month
       reference:
@@ -32,12 +35,12 @@ diagnostics:
     variables:
       temperature_anomalies_recent:
         short_name: tas
-        preprocessor: anomalies_amsterdam
+        preprocessor: anomalies_aus
         start_year: 1950
         end_year: 2014
       temperature_anomalies_20th_century:
         short_name: tas
-        preprocessor: anomalies_amsterdam
+        preprocessor: anomalies_aus
         start_year: 1900
         end_year: 1999
     scripts:

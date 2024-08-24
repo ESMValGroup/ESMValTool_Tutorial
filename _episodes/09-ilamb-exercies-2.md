@@ -1,58 +1,60 @@
 ---
-title: "ILAMB exercise part-two: Support for Raw Access Output"
+title: "ILAMB support for RAW ACCESS-ESM outputs"
 teaching: 15
 exercises: 15
-compatibility: ILAMB v2.7
+compatibility: ILAMB v2.7.1
 
 questions:
-- "What is CMORise"
+- "What do we mean by CMORising?"
 - "How to use ilamb-tree-generator to CMORise Raw Access data"
 objectives:
-- "Explaination of CMORise"
-- "use ilamb-tree-generator as a CMORiser to easily CMORise for ILAMB"
+- "Analyse raw (non-CMORised) ACCESS outputs with the ILAMB"
 keypoints:
-- "only support CMIP6 Access raw data"
-- "More cpu will increase the speed while running ilamb-tree-generator as a CMORiser"
+- "The ILAMB-Workflow only support RAW ACCESS data"
+- "Running the ILAMB-Workflow on RAW ACCESS data can take some time. Consider if it is appropriate for your work"
+- "Only a limited number of CMIP variables are supported"
 ---
 
 In this episode we will introduce how to use `ilamb-tree-generator` as a CMORiser to help you use `ILAMB` to evaluate Access raw output. But before that, we will introduce what is 'CMORise' first.
 
-## What is CMORise
+## What is CMORisation?
 
 "CMORise" refers to the process of converting climate model output data into a standardized format that conforms to the Climate and Forecast (CF) metadata conventions. This process involves using the Climate Model Output Rewriter (CMOR) tool, which ensures that the data adheres to specific requirements for structure, metadata, and units, making it easier to compare and share across different climate models.
 
 ## Use `ilamb-tree-generator` to CMORise Access raw output
 
-### Load module
+### Load the ILAMB-Workflow module
 
-Now, new version of `ilamb-tree-generator` is avaiable on module `access-med-0.6`, to load the module:
+The`ilamb-tree-generator` is available in the **ILAMB-Workflow** module that can be loaded as follow:
+
 ```bash
-module use /g/data/xp65/public/modules/
-module load conda/access-med-0.6
+module use /g/data/xp65/public/modules
+module load ilamb-workflow
+```
+or
+```bash
+module use /g/data/xp65/public/modules
+module load conda/access-med
 ```
 
-### config `ilamb-tree-generator`
+## Configuring Dataset Inputs for `ilamb-tree-generator`: CMIP and Non-CMIP Examples"
 
-As we mentioned in the previous section, `ilamb-tree-generator` use a `.yml` file for all necessary input, so the usage are similar, below is an example for cmip dataset and non-cmip dataset.
-```yml
+As mentioned earlier, the `ilamb-tree-generator` utilizes a `.yml` file for all input configurations. This format is consistent for different datasets. Below is an example configuration for both CMIP and non-CMIP datasets:
+
+```yaml
 datasets:
     - {mip: CMIP, institute: CSIRO, dataset: ACCESS-ESM1-5, project: CMIP6, exp: historical, ensemble: r1i1p1f1}
-    
     - {mip: non-CMIP, institute: CSIRO, dataset: ACCESS-ESM1-5, project: CMIP6, exp: HI-CN-05}
 ```
 
-First one is a cmip dataset, which is the origin way to use `ilamb-tree-generator`. The second dataset is an ACCESS raw output which is a non-cmip dataset, most parts are the same but with some special parameters for non-cmip dataset only, following are the detail of each parameters:
+The first entry represents a CMIP dataset, which is the standard usage for `ilamb-tree-generator`. The second entry corresponds to an ACCESS raw output, which is a non-CMIP dataset. Although most parameters are similar, there are specific settings for non-CMIP datasets. Here are the details of each parameter:
 
-```
-mip: 
-    need to be non-cmip to trigger the cmoriser for non-cmip data.
-path:
-    For people who want to use there own ACCESS raw data, you can speciy your data root there, otherwise it will automatically use data in `p73` 
-```
+- `mip`: Set to `non-CMIP` to activate the CMORiser for non-CMIP data.
+- `path`: For users working with their own ACCESS raw data, specify the root directory here. If not provided, the tool will default to using data in the `p73` directory.
 
 ### run `ilamb-tree-generator`
 
-After you finish set up the `config.yml` file, trigger the `ilamb-tree-generator`, then you will get your cmorised data in `ILAMB-ROOT` which ilamb can read:
+After setting up the `config.yml` file, run the `ilamb-tree-generator`. This will generate the CMORized data within the `ILAMB-ROOT` directory, making it accessible for ILAMB to read and use:
 
 ```bash
 ilamb-tree-generator --datasets {your-config.yml-file} --ilamb_root $ILAMB_ROOT
@@ -87,6 +89,7 @@ Once it finish, you will get your CMORised data been stored by variable names in
             └── tsl.nc
 ```
 
-### Limited variables
-
-Now `ilamb-tree-generator` doesn't support all variable in `ACCESS-ESM1-5`, only 19 variables which is required in `ilamb.cfg`. Will try to add more variables in the next version.
+> ## Limitations
+> `ilamb-tree-generator` doesn't support all variable in `ACCESS-ESM1-5`, only 19 variables which is required in `ilamb.cfg`. Will try to add more variables in the next version.
+>
+{: .callout}

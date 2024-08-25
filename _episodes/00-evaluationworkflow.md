@@ -14,6 +14,26 @@ objectives:
 keypoints:
 ---
 
+<p align="center">
+  <img src="../fig/med-workflows.png" alt="Medical Workflows" style="width:50%;">
+</p>
+
+## The Model Evaluation and Diagnostics (MED) Team is Here to Help!
+
+We support **infrastructure** (software + data) and provide **technical support / training** to the **ACCESS community**.
+
+- **Tool Deployment on NCI Gadi:** We make sure essential tools like ESMValTool and ILAMB are ready to go on NCI Gadi, so your research workflows run smoothly.
+
+- **Evaluation Tools & Recipes:** We develop, support, and fine-tune evaluation tools and scripts, ensuring they're up to scratch.
+
+- **Publication & Dissemination:** Need to get your work out there? We assist with publishing and sharing your evaluation scripts.
+
+- **Training:** Whether you're a newbie or a pro, we offer training for all levels to help you make the most of our tools and resources.
+
+- **Community Hub:** We're your go-to for collaboration and knowledge-sharing, keeping the ACCESS ecosystem thriving.
+
+If you need support, the MED team is here to help!
+
 ## ACCESS-NRI Evaluation tools and infrastructure
 
 Here is the current list of tools and supporting infrastructure under the ACCESS-NRI Model Evaluation and Diagnostics team responsibility: 
@@ -55,11 +75,9 @@ ESMValTool meets the community's need for a robust, reliable, and reproducible f
 > > ## Using ARE
 > > If you have carefully completed the requirements, you should already be a member of the `xp65` project and be ready to go.
 > > 
-> >```bash
-> > module use /g/data/xp65/public/modules
-> > # Load the ESMValTool-Workflow:
-> > module load esmvaltool-workflow
-> >```
+> > <p align="center">
+> >  <img src="../assets/assets_ARE/esmvaltool-workflow-ARE.png" alt="esmvaltool Workflows" style="width:50%;">
+> > </p>
 > {: .solution}
 {: .challenge}
 
@@ -93,11 +111,9 @@ ILAMB addresses the needs of the Land community for a robust, reliable, and repr
 > > ## Using ARE
 > > If you have carefully completed the requirements, you should already be a member of the `xp65` project and be ready to go.
 > > 
-> >```bash
-> > module use /g/data/xp65/public/modules
-> > # Load the ILAMB-Workflow:
-> > module load ilamb-workflow
-> >```
+> > <p align="center">
+> >  <img src="../assets/assets_ARE/ilamb-workflow-ARE.png" alt="esmvaltool Workflows" style="width:50%;">
+> > </p>
 > {: .solution}
 {: .challenge}
 

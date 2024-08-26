@@ -42,7 +42,7 @@ figure.
 
 The diagnostic script that we will use is called `warming_stripes.py` and
 can be found in your main Hackathon folder 
-`/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files`.
+`/scratch/nf33/$USER/CMIP7-Hackathon/exercises/Exercise2_files`.
 
 You may also have a look at the contents, but it is not necessary to do so for this lesson.
 
@@ -112,13 +112,13 @@ This is the first place to look for help if you get stuck.
 > to your `recipe_warming_stripes.yml` in this when you run your recipe or `cd` to the directory.
 >
 > You can run with esmvaltool directly to see the output in your terminal with 
-> output directory set `--output_dir=/scratch/nf33/\$USER/esmvaltool_outputs` :
+> output directory set `--output_dir=/scratch/nf33/$USER/esmvaltool_outputs` :
 >
 > ```bash
 > module use /g/data/xp65/public/modules
 > module load esmvaltool
 >
-> esmvaltool run --output_dir=/scratch/nf33/\$USER/esmvaltool_outputs <path>/recipe_warming_stripes.yml
+> esmvaltool run --output_dir=/scratch/nf33/$USER/esmvaltool_outputs <path>/recipe_warming_stripes.yml
 > ```
 > 
 {: .challenge}
@@ -394,7 +394,7 @@ a custom colormap.
 > >         preprocessor: global_anomalies
 > >     scripts:
 > >       warming_stripes_script:
-> >         script: /scratch/nf33/[username]/CMIP7-Hackathon/exercises/WritingYourOwnRecipe/warming_stripes.py
+> >         script: /scratch/nf33/$USER/CMIP7-Hackathon/exercises/WritingYourOwnRecipe/warming_stripes.py
 > >         colormap: 'bwr'
 > > ```
 > {: .solution}
@@ -406,7 +406,7 @@ to get your own warming stripes.
 esmvaltool-workflow run recipe_warming_stripes.yml
 ```
 Find the plots in the plot directory of the output run: 
-*/scratch/nf33/[username]/esmvaltool_outputs/[recipe]*
+*/scratch/nf33/$USER/esmvaltool_outputs/$recipe_/plots*
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
@@ -418,7 +418,7 @@ will be required. Writing your own diagnostic script is discussed in a
 
 Below are a few exercises to practice modifying an ESMValTool recipe. For your
 reference, a copy of the recipe at this point can be found in the solution_recipes folder:
-*/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/solution_recipes*.
+*/scratch/nf33/$USER/CMIP7-Hackathon/exercises/Exercise2_files/solution_recipes*.
 Note the full path to the script will differ.  
 This will be the point of departure for each of the modifications we'll make below.
 An example of the modified recipes are also in this folder

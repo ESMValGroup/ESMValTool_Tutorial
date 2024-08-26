@@ -59,16 +59,197 @@ or if you have the user configuration file in your current directory then
 esmvaltool-workflow run --config_file ./config-user.yml examples/recipe_python.yml
 ```
 
-If everything is okay, you should see that ESMValTool is printing a lot of
-output to the command line. The final message should be "Run was successful".
-The exact output varies depending on your machine, but it should look something
-like the example log output on terminal below.
+You should see that Gadi has created a PBS job to run the recipe. You can check your
+queue status with `qstat`.
+```
+[fc6164@gadi-login-01 fc6164]$ module load esmvaltool
+Welcome to the ACCESS-NRI ESMValTool-Workflow
+
+enter command `esmvaltool-workflow` for help
+
+Loading esmvaltool/workflow_v1.2
+  Loading requirement: singularity conda/esmvaltool-0.4
+
+[fc6164@gadi-login-01 fc6164]$ esmvaltool-workflow run recipe_python.yml 
+conda/esmvaltool-0.4
+123732363.gadi-pbs
+Running recipe: recipe_python.yml
+
+[fc6164@gadi-login-01 fc6164]$ qstat
+Job id                 Name             User              Time Use S Queue
+---------------------  ---------------- ----------------  -------- - -----
+123732363.gadi-pbs     recipe_python    fc6164                   0 Q normal-exec     
+[fc6164@gadi-login-01 fc6164]$ 
+
+```
+
+If everything is okay, the final log message should be "Run was successful".
+The exact output varies depending on your machine, this is an example of a 
+successful log output below.
 
 {% include example_output.txt %}
 
 On Gadi with `esmvaltool-workflow` you will see the wrapper has run esmvaltool in a
-PBS job for you, when complete you can find the output directory, including this
-output log.
+PBS job for you, when complete you can find the output in 
+`/scratch/nf33/$USER/esmvaltool_outputs/`. In the `run` folder, the `main_log` would
+be the terminal output of the command. This recipe won't complete as it needs internet 
+connection to search for the location. 
+
+We will modify this recipe later so that it completes, for 
+now you will likely see the below in your log file.
+
+>## Error output
+>```
+>
+>ERROR   [2488385] Program terminated abnormally, see stack trace below for more information:
+>multiprocessing.pool.RemoteTraceback: 
+>"""
+>Traceback (most recent call last):
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connection.py", line 196, in _new_conn
+>    sock = connection.create_connection(
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/util/connection.py", line 85, in create_connection
+>    raise err
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/util/connection.py", line 73, in create_connection
+>    sock.connect(sa)
+>OSError: [Errno 101] Network is unreachable
+>
+>The above exception was the direct cause of the following exception:
+>
+>Traceback (most recent call last):
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+>    response = self._make_request(
+>               ^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+>    raise new_e
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+>    self._validate_conn(conn)
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+>    conn.connect()
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connection.py", line 615, in connect
+>    self.sock = sock = self._new_conn()
+>                       ^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connection.py", line 211, in _new_conn
+>    raise NewConnectionError(
+>urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x14fafc352e10>: Failed to establish a new connection: [Errno 101] Network is unreachable
+>
+>The above exception was the direct cause of the following exception:
+>
+>Traceback (most recent call last):
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/requests/adapters.py", line 667, in send
+>    resp = conn.urlopen(
+>           ^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 873, in urlopen
+>    return self.urlopen(
+>           ^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 873, in urlopen
+>    return self.urlopen(
+>           ^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+>    retries = retries.increment(
+>              ^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/urllib3/util/retry.py", line 519, in increment
+>    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+>    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Amsterdam&format=json&limit=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14fafc352e10>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+>
+>During handling of the above exception, another exception occurred:
+>
+>Traceback (most recent call last):
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/geopy/adapters.py", line 482, in _request
+>    resp = self.session.get(url, timeout=timeout, headers=headers)
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/requests/sessions.py", line 602, in get
+>    return self.request("GET", url, **kwargs)
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/requests/sessions.py", line 589, in request
+>    resp = self.send(prep, **send_kwargs)
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/requests/sessions.py", line 703, in send
+>    r = adapter.send(request, **kwargs)
+>        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/requests/adapters.py", line 700, in send
+>    raise ConnectionError(e, request=request)
+>requests.exceptions.ConnectionError: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Amsterdam&format=json&limit=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14fafc352e10>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+>
+>During handling of the above exception, another exception occurred:
+>
+>Traceback (most recent call last):
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/multiprocessing/pool.py", line 125, in worker
+>    result = (True, func(*args, **kwds))
+>                    ^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_task.py", line 816, in _run_task
+>    output_files = task.run()
+>                   ^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_task.py", line 264, in run
+>    self.output_files = self._run(input_files)
+>                        ^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/preprocessor/__init__.py", line 684, in _run
+>    product.apply(step, self.debug)
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/preprocessor/__init__.py", line 492, in apply
+>    self.cubes = preprocess(self.cubes, step,
+>                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/preprocessor/__init__.py", line 401, in preprocess
+>    result.append(_run_preproc_function(function, item, settings,
+>                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/preprocessor/__init__.py", line 346, in _run_preproc_function
+>    return function(items, **kwargs)
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/preprocessor/_regrid.py", line 403, in extract_location
+>    geolocation = geolocator.geocode(location)
+>                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/geopy/geocoders/nominatim.py", line 297, in geocode
+>    return self._call_geocoder(url, callback, timeout=timeout)
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/geopy/geocoders/base.py", line 368, in _call_geocoder
+>    result = self.adapter.get_json(url, timeout=timeout, headers=req_headers)
+>             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/geopy/adapters.py", line 472, in get_json
+>    resp = self._request(url, timeout=timeout, headers=headers)
+>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/geopy/adapters.py", line 494, in _request
+>    raise GeocoderUnavailable(message)
+>geopy.exc.GeocoderUnavailable: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Amsterdam&format=json&limit=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14fafc352e10>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+>"""
+>
+>The above exception was the direct cause of the following exception:
+>
+>Traceback (most recent call last):
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_main.py", line 533, in run
+>    fire.Fire(ESMValTool())
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/fire/core.py", line 143, in Fire
+>    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+>                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/fire/core.py", line 477, in _Fire
+>    component, remaining_args = _CallAndUpdateTrace(
+>                                ^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+>    component = fn(*varargs, **kwargs)
+>                ^^^^^^^^^^^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_main.py", line 413, in run
+>    self._run(recipe, session)
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_main.py", line 455, in _run
+>    process_recipe(recipe_file=recipe, session=session)
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_main.py", line 130, in process_recipe
+>    recipe.run()
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_recipe/recipe.py", line 1095, in run
+>    self.tasks.run(max_parallel_tasks=self.session['max_parallel_tasks'])
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_task.py", line 738, in run
+>    self._run_parallel(address, max_parallel_tasks)
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_task.py", line 782, in _run_parallel
+>    _copy_results(task, running[task])
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/site-packages/esmvalcore/_task.py", line 805, in _copy_results
+>    task.output_files, task.products = future.get()
+>                                       ^^^^^^^^^^^^
+>  File "/g/data/xp65/public/apps/med_conda/envs/esmvaltool-0.4/lib/python3.11/multiprocessing/pool.py", line 774, in get
+>    raise self._value
+>geopy.exc.GeocoderUnavailable: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): Max retries exceeded with url: /search?q=Amsterdam&format=json&limit=1 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14fafc352e10>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+>INFO    [2488385] 
+>If you have a question or need help, please start a new discussion on https://github.com/ESMValGroup/ESMValTool/discussions
+>If you suspect this is a bug, please open an issue on https://github.com/ESMValGroup/ESMValTool/issues
+>To make it easier to find out what the problem is, please consider attaching the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+>```
+{: .solution}
 
 > ## Pro tip: ESMValTool search paths
 >
@@ -408,10 +589,11 @@ Do you recognize the basic recipe structure that was introduced in episode 1?
 > script. When you use this the output *will* be printed to the command line.
 {: .callout}
 
+
 ## Modifying the example recipe
 
 Let's make a small modification to the example recipe. Notice that now that
-you have copied and edited the recipe, you can use in your working directory.
+you have copied and edited the recipe, you can use in your working directory:
 
 ```
 esmvaltool-workflow run recipe_python.yml
@@ -422,11 +604,14 @@ ESMValTool.
 
 > ## Change your location
 >
-> Modify and run the recipe to analyse the temperature for your own location.
+> Modify and run the recipe to analyse the temperature for your another location.
+> Change the `extract_location` prerpocessor to one that doesn't require internet
+> connection
 >
 > > ## Solution
 > >
-> > In principle, you only have to modify the location
+> > In principle, you only have to replace the `extract_location` with `extract_point`
+> > preprocessor function and use latitude and longitude to define location.
 > > in the preprocessor called `annual_mean_amsterdam`. However, it is good
 > > practice to also replace all instances of `amsterdam` with the correct name
 > > of your location. Otherwise the log messages and output will be confusing.
@@ -439,44 +624,55 @@ ESMValTool.
 > > [here](https://en.wikipedia.org/wiki/Diff#Unified_format).
 > >
 > > ```diff
->>--- recipe_python.yml	
->>+++ recipe_python_london.yml	
->>@@ -39,9 +39,9 @@
->>     convert_units:
->>       units: degrees_C
->> 
->>-  annual_mean_amsterdam:
->>+  annual_mean_london:
->>     extract_location:
->>-      location: Amsterdam
->>+      location: London
->>       scheme: linear
->>     annual_statistics:
->>       operator: mean
->>@@ -83,7 +83,7 @@
->>           cmap: Reds
->> 
->>   timeseries:
->>-    description: Annual mean temperature in Amsterdam and global mean since 1850.
->>+    description: Annual mean temperature in London and global mean since 1850.
->>     themes:
->>       - phys
->>     realms:
->>@@ -92,9 +92,9 @@
->>       tas_amsterdam:
->>         short_name: tas
->>         mip: Amon
->>-        preprocessor: annual_mean_amsterdam
->>+        preprocessor: annual_mean_london
->>         timerange: 1850/2000
->>-        caption: Annual mean {long_name} in Amsterdam according to {dataset}.
->>+        caption: Annual mean {long_name} in London according to {dataset}.
->>       tas_global:
->>         short_name: tas
->>         mip: Amon
+> > --- recipe_python.yml	
+> > +++ recipe_python_sydney.yml	
+> > @@ -39,10 +39,9 @@ preprocessors:
+> >      convert_units:
+> >        units: degrees_C
+> >  
+> > -  annual_mean_sydney:
+> > -    extract_point:
+> > -      latitude: -34
+> > -      longitude: 151
+> > +  annual_mean_amsterdam:
+> > +    extract_location:
+> > +      location: Amsterdam
+> >        scheme: linear
+> >      annual_statistics:
+> >        operator: mean
+> > @@ -84,18 +83,18 @@ diagnostics:
+> >      themes:
+> >        - phys
+> >      realms:
+> >        - atmos
+> >      variables:
+> > -      tas_sydney:
+> > +      tas_amsterdam:
+> >          short_name: tas
+> >          mip: Amon
+> > -        preprocessor: annual_mean_sydney
+> > +        preprocessor: annual_mean_amsterdam
+> >          timerange: 1850/2000
+> > -        caption: Annual mean {long_name} in Sydney according to {dataset}.
+> > +        caption: Annual mean {long_name} in Amsterdam according to {dataset}.
+> >        tas_global:
+> >          short_name: tas
+> >          mip: Amon
 > > ```
 > >
 > {: .solution}
 {: .challenge}
+
+## View the output
+Now that the recipe runs we can look at the output. We recommend using VS Code with the "Live Preview"
+extension to view the html that is generated. When you open the html file, you will see the preview button
+appear in the top right.
+![LivePreviewExtension](../fig/htmlpreview.png)
+
+You can see the output folder in explorer with the index.html file with a successful run. When you click on 
+the preview button, the preview will appear to the right. You can also drag this across as a tab to use
+more of your screen to view. 
+![htmlPreview](../fig/htmlpage.png)
+![htmloutput](../fig/outputhtml.png)
 
 {% include links.md %}

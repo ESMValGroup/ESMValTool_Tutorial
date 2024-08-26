@@ -39,7 +39,7 @@
 [lesson-aio]: {{ relative_root_path }}{% link aio.md %}
 [lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
 [lesson-example]: https://carpentries.github.io/lesson-example/
-[lesson-introduction]: {{ relative_root_path }}{% link _episodes/00-introduction.md %}
+[lesson-introduction]: {{ relative_root_path }}{% link _episodes/01-introduction.md %}
 [lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
 [lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
 [lesson-recipe]: {{ relative_root_path }}{% link _episodes/02-runarecipe.md %}

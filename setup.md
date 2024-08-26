@@ -34,7 +34,12 @@ This process will give you access to the ACCESS-NRI training project as well as 
 module use /g/data/xp65/public/modules
 module load esmvaltool
 ```
-3. Run the hackathon setup script from any directory. This verifies that your NCI account has access to the required projects on Gadi and that their respective storage locations are mounted, clones the [CMIP7-Hackathon Github repository](https://github.com/ACCESS-NRI/CMIP7-Hackathon), and automatically runs each of the hackathon ESMValTool recipes as PBS jobs on Gadi.
+3. Make sure to select project nf33 (ACCESS-NRI Training)
+```bash
+switchproj nf33
+```
+
+4. Run the hackathon setup script from any directory. This verifies that your NCI account has access to the required projects on Gadi and that their respective storage locations are mounted, clones the [CMIP7-Hackathon Github repository](https://github.com/ACCESS-NRI/CMIP7-Hackathon), and automatically runs each of the hackathon ESMValTool recipes as PBS jobs on Gadi.
 
 ```bash
 check_hackathon

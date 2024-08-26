@@ -205,9 +205,14 @@ There are four main sections in the script:
 >
 {: .callout}
 
-> ## Create a copy of the files for you to edit (Optional)
+> ## Create a copy of the files for you to edit
 >
-> Copy the files `diagnostic.py` and `recipe_python.yml` to your working folder
+> You would already have a copy of the `recipe_python.yml` from the lesson
+> Running your first recipe. Use the file you edited after you ran
+> ```
+> esmvaltool recipes get examples/recipe_python.yml
+> ```
+> Copy the file `diagnostic.py` to your working folder
 > to keep the ones in the repo as templates unaltered while you can more easily 
 > find the files you are editing. Edit your recipe to point to your copy of 
 > `diagnostic.py`. Also, note the location for when you run your recipe.
@@ -216,19 +221,20 @@ There are four main sections in the script:
 >>
 >> Example of your working folder: 
 >```
->/scratch/nf33/$USER/Exercise3_files/recipe_python.yml
->/scratch/nf33/$USER/Exercise3_files/diagnostic.py
+>/scratch/nf33/$USER/Exercise_writeDiagnostic/recipe_python.yml
+>/scratch/nf33/$USER/Exercise_writeDiagnostic/diagnostic.py
 >```
 >>
 >> In your `recipe_python.yml`, edit the path to the diagnostic script.
 >> ```yaml
 >>     script1:
->>       script: /scratch/nf33/$USER/Exercise3_files/diagnostic.py
->>        quickplot:
+>>       script: /scratch/nf33/$USER/Exercise_writeDiagnostic/diagnostic.py
+>>       quickplot:
 >> ```
->> When running the recipe run to the full path of your recipe:
+>> When running the recipe you can run to the full path of your recipe if you are not
+>> in that directory:
 >> ```bash
->> esmvaltool run /scratch/nf33/$USER/Exercise3_files/recipe_python.yml
+>> esmvaltool-workflow run /scratch/nf33/$USER/Exercise_writeDiagnostic/recipe_python.yml
 >> ```
 > {: .solution}
 {: .challenge}
@@ -251,7 +257,7 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 > module use /g/data/xp65/public/modules
 > module load esmvaltool
 >
-> esmvaltool run <your_working_folder>/recipe_python.yml
+> esmvaltool-workflow run <your_working_folder>/recipe_python.yml
 > ```
 >
 > 1. Can you find one example of the file ``settings.yml`` in the ``run`` directory?
@@ -523,13 +529,11 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 
 ### Saving the output
 
-In our example, the function ``save_data`` in line 56 is used to save the Iris
+In our example, the function ``save_data`` in *line 56* is used to save the Iris
 cube. The saved files can be found under the ``work`` directory in a ``.nc`` format.
-There is also the function ``save_figure`` in line 62 to save the plots under the
+There is also the function ``save_figure`` in *line 62* to save the plots under the
 ``plot`` directory in a ``.png`` format (or preferred format specified in your
 configuration settings). Again, you may choose your own method of saving the output.
-You will see that they are imported from `esmvaltool.diag_scripts.shared` and 
-take arguments such as `cfg` so that they can be saved in the appropriate output location.
 ```
 ## in diagnostic.py ##
 55:      # Save the data used for the plot
@@ -538,6 +542,10 @@ take arguments such as `cfg` so that they can be saved in the appropriate output
 61:          # And save the plot
 62:          save_figure(basename, provenance_record, cfg)
 ```
+You will see that they are imported from `esmvaltool.diag_scripts.shared` and 
+take arguments such as `cfg` so that they can be saved in the appropriate output location.
+Using these helper functions will allow the `index.html` output to generated as it requires 
+certain references that are parsed though with the `provenance_record`.
 
 ### Recording the provenance
 

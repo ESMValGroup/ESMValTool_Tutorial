@@ -87,7 +87,7 @@ This is the first place to look for help if you get stuck.
 
 > ## Create file and run on Gadi
 > 
-> Open VS Code with a remote SSH connection to Gadi with your main hackathon folder in your workspace. 
+> Open VS Code with a remote SSH connection to Gadi with your */scratch/nf33/$USER* folder in your workspace. 
 > Refer to [VS Code setup]({{ page.root }}{% link _extras/01-vscodesetup.md %})
 > Create a new file called `recipe_warming_stripes.yml` in your working directory for this exercise. 
 > Let's add the standard header comments (these do not do anything), and a first
@@ -108,15 +108,17 @@ This is the first place to look for help if you get stuck.
 > 
 > We will try to run the recipe after every modification we make, to see if it (still) works!
 > In the terminal, load the module to use ESMValTool on Gadi. If you don't have a terminal 
-> open, the shortcut in VS Code is `` Ctrl + ` ``. Add the full path 
-> (/scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files)
-> to your `recipe_warming_stripes.yml` in this when you run your recipe.
+> open, the shortcut in VS Code is `` Ctrl + ` ``. Add the full path (eg. */scratch/nf33/$USER*)
+> to your `recipe_warming_stripes.yml` in this when you run your recipe or `cd` to the directory.
+>
+> You can run with esmvaltool directly to see the output in your terminal with 
+> output directory set `--output_dir=/scratch/nf33/\$USER/esmvaltool_outputs` :
 >
 > ```bash
 > module use /g/data/xp65/public/modules
 > module load esmvaltool
 >
-> esmvaltool run <path>/recipe_warming_stripes.yml
+> esmvaltool run --output_dir=/scratch/nf33/\$USER/esmvaltool_outputs <path>/recipe_warming_stripes.yml
 > ```
 > 
 {: .challenge}
@@ -392,15 +394,16 @@ a custom colormap.
 > >         preprocessor: global_anomalies
 > >     scripts:
 > >       warming_stripes_script:
-> >         script: /scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/warming_stripes.py
+> >         script: /scratch/nf33/[username]/CMIP7-Hackathon/exercises/WritingYourOwnRecipe/warming_stripes.py
 > >         colormap: 'bwr'
 > > ```
 > {: .solution}
 {: .challenge}
 
-You should now be able to run the recipe to get your own warming stripes.
+You should now be able to run the recipe from your working directory
+to get your own warming stripes.
 ```bash
-esmvaltool run /scratch/nf33/[username]/CMIP7-Hackathon/exercises/Exercise2_files/recipe_warming_stripes.yml
+esmvaltool-workflow run recipe_warming_stripes.yml
 ```
 Find the plots in the plot directory of the output run: 
 */scratch/nf33/[username]/esmvaltool_outputs/[recipe]*

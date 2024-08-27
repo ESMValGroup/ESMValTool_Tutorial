@@ -100,10 +100,9 @@ To add model outputs, you can list them in a YAML file, formatted as follows:
 
 ```yaml
 datasets:
-  - {mip: CMIP, institute: CSIRO, dataset: ACCESS-ESM1-5, project: CMIP6, exp: historical, ensemble: r1i1p1f1}
-  - {mip: CMIP, institute: BCC, dataset: BCC-ESM1, project: CMIP6, exp: historical, ensemble: r1i1p1f1}
-  - {mip: CMIP, institute: CCCma, dataset: CanESM5, project: CMIP6, exp: historical, ensemble: r1i1p1f1}
-  - {mip: LUMIP, institute: CSIRO, dataset: ACCESS-ESM1-5, project: CMIP6, exp: hist-noLu, ensemble: r1i1p1f1}
+   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p1f1}
+   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p2f1}
+   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p3f1}
 ```
 
 Once your YAML file is ready, you can run the tool from the command line to generate the directory structure:
@@ -127,27 +126,13 @@ In the `model_setup.txt`, you can select all the model outputs that you want to 
 Assuming you want to compare the three models that we used in [ILAMB_ROOT/MODELS](#ilamb_rootmodels) (ACCESS-ESM1.5, BCC-ESM1, and CanESM5), you would need to create a `model_setup.txt` file wehere you define both the model labels and their paths:
 
 ```bash
- # Model Name (used as label), ABSOLUTE/PATH/TO/MODELS or relative to $ILAMB_ROOT/ , Optional comments
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p10f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p11f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p12f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p13f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p14f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p15f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p16f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p17f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p18f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p19f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p1f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p2f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p3f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p4f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p5f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p6f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p7f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p8f1}
-   - {mip: CMIP, institute: CSIRO-ARCCSS, dataset: ACCESS-CM2, project: CMIP6, exp: piControl, ensemble: r3i1p9f1}
+ # Model Name (used as label), ABSOLUTE/PATH/TO/MODELS or relative to $ILAMB_ROOT/ , Time Shift
+   piControl_r3i1p1f1, /scratch/nf33/yz9299/ILAMB-sep-2024/ILAMB_ROOT/MODELS/ACCESS-CM2/piControl/r3i1p1f1/, 1000, 1920
+   piControl_r3i1p2f1, /scratch/nf33/yz9299/ILAMB-sep-2024/ILAMB_ROOT/MODELS/ACCESS-CM2/piControl/r3i1p2f1/, 1000, 1920
+   piControl_r3i1p3f1, /scratch/nf33/yz9299/ILAMB-sep-2024/ILAMB_ROOT/MODELS/ACCESS-CM2/piControl/r3i1p3f1/, 1000, 1920
 ```
+Since `ILAMB` require model-output data and observational data should have time overlap. In this case, our piControl data time-range is (1000-1080)
+, and most of the observational data time range is (1900-2000), so we specify time shift in `model_setup.txt` from 1000 to 1920, make it comparable with observational data.
 
 ## Configuring and Running a Benchmark Study with the ILAMB
 
@@ -191,7 +176,7 @@ plot_unit     = "mm d-1"
 relationships = "Precipitation/GPCPv2.3","SurfaceAirTemperature/CRU4.02"
 ``` 
 
-his example configuration file is set up for running ILAMB on Gadi and specifies details for comparing data related to the hydrology cycle. Here’s a breakdown of what each section does:
+this example configuration file is set up for running ILAMB on Gadi and specifies details for comparing data related to the hydrology cycle. Here’s a breakdown of what each section does:
 
  ```bash
  [h1: Hydrology Cycle]
@@ -753,6 +738,28 @@ qsub ilamb_test.job
 
 Running this job will create a `_build` directory with the comparison results within `$ILAMB_ROOT`. You can adjust the place of this directory via a agrument `--build_dir` argument for `ilamb-run`.
 
+## View Result
 
+Once you finish your `ILAMB` run, you will get your `ILAMB` result. The default path to the result is `./_built`，unless you specified an environment variable `BUILD_DIR` before you run your experiment with `ILAMB`.
 
+Then you change your directory to this path, create a new local host by below command:
+```bash
+python3 -m http.server
+```
+Your `ILAMB` result can be viewed in the following address: localhost address:
+```
+http://0.0.0.0:8000/
+```
+![image](../fig/ilamb_result-matrix.png)
 
+This is an example that we compared different ensemble members in piControl use the `config.cfg` we showed above. Click each raw, you can see the detail of conparison result with each observational data.
+
+![image](../fig/ilamb_details_1.png)
+
+Click each raw of this matrix, you can view all the graphs of comparison results of this specific dataset.
+
+![image](../fig/ilamb_details_2.png)
+
+And also if you would like to view all graphs of one specific comparasion, you can click `All Models`, and choose which comparison you would liek to see(use `Temporally integrated period mean rmse score` as example), then you will get then all togather.
+
+![image](../fig/ilamb_details_3.png)

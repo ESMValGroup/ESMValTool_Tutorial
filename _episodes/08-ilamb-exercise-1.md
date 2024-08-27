@@ -740,7 +740,7 @@ Running this job will create a `_build` directory with the comparison results wi
 
 ## View Result
 
-Once you finish your `ILAMB` run, you will get your `ILAMB` result. The default path to the result is `./_built`，unless you specified an environment variable `BUILD_DIR` before you run your experiment with `ILAMB`.
+Once you finish your `ILAMB` run, you will get your `ILAMB` result. The default path to the result is `./_built`，unless you specified `--build_dir` before you run your experiment with `ILAMB`.
 
 Then you change your directory to this path, create a new local host by below command:
 ```bash

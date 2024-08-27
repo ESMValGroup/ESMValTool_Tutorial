@@ -41,7 +41,9 @@ Thank you for joining us, and we look forward to a productive and insightful wor
 > ## What will you learn in this course
 >
 > - What is ESMValTool / What is the ACCESS ESMValTool-Workflow
+> - What is ILAMB / What is the ACCESS ILAMB-Workflow
 > - How to run an ESMValTool recipe on NCI-Gadi using the ESMValTool-Workflow
+> - How to run ILAMB using the ILAMB-Workflow
 > - What are the data supported on Gadi?
 > - How to develop your own recipes.
 > - How to develop your own diagnostics.

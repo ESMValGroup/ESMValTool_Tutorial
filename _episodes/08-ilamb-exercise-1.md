@@ -744,7 +744,7 @@ Once you finish your `ILAMB` run, you will get your `ILAMB` result. The default 
 
 ### Use VSCode to Simplily Visualise
 
-This is the recommand way to visualise result, you need to install extension `Live Server` in your VSCode, Type `live server` into the extensions search bar and select the *Live Server* extension published by Ritwick Dey marked with the red ellipse below. This extension allows us to preview html files from a browser on our computer, and will update automatically as the html file is updated in VS Code. We will use this extension to preview some of the ESMValTool recipe outputs that come in html format. Click `install` to add the extension.
+This is the recommended way to visualise result, you need to install extension `Live Server` in your VSCode, Type `live server` into the extensions search bar and select the *Live Server* extension published by Ritwick Dey marked with the red ellipse below. This extension allows us to preview html files from a browser on our computer, and will update automatically as the html file is updated in VS Code. We will use this extension to preview some of the ESMValTool recipe outputs that come in html format. Click `install` to add the extension.
 
 ![image](../fig/extensions_liveserver.png)
 

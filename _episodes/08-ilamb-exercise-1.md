@@ -742,7 +742,15 @@ Running this job will create a `_build` directory with the comparison results wi
 
 Once you finish your `ILAMB` run, you will get your `ILAMB` result. The default path to the result is `./_built`，unless you specified `--build_dir` before you run your experiment with `ILAMB`.
 
-Then you change your directory to this path, create a new local host by below command:
+### Use VSCode to Simplily Visualise
+
+This is the recommand way to visualise result, you need to install extension `Live Server` in your VSCode, Type `live server` into the extensions search bar and select the *Live Server* extension published by Ritwick Dey marked with the red ellipse below. This extension allows us to preview html files from a browser on our computer, and will update automatically as the html file is updated in VS Code. We will use this extension to preview some of the ESMValTool recipe outputs that come in html format. Click `install` to add the extension.
+
+![image](../fig/extensions_liveserver.png)
+
+Once you installed the extension, go to your result directory and right click `index.html`, choose `Open with Liev Server`, then you will have your result opened in your browser.
+
+In case you don't use VSCode or `Live Server` doesn't work for you, this is another way to view the result. You change your directory to the result directory, create a new local host by below command:
 ```bash
 python3 -m http.server
 ```

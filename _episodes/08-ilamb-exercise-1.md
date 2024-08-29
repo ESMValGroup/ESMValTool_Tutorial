@@ -123,7 +123,7 @@ This command will automatically create the appropriate folders under the specifi
 
 In the `model_setup.txt`, you can select all the model outputs that you want to compare.
 
-Assuming you want to compare the three models that we used in [ILAMB_ROOT/MODELS](#ilamb_rootmodels) (ACCESS-ESM1.5, BCC-ESM1, and CanESM5), you would need to create a `model_setup.txt` file wehere you define both the model labels and their paths:
+Assuming you want to compare the three models that we used in [ILAMB_ROOT/MODELS](#ilamb_rootmodels), you would need to create a `model_setup.txt` file wehere you define both the model labels and their paths:
 
 ```bash
  # Model Name (used as label), ABSOLUTE/PATH/TO/MODELS or relative to $ILAMB_ROOT/ , Time Shift
@@ -748,7 +748,7 @@ This is the recommended way to visualise result, you need to install extension `
 
 ![image](../fig/extensions_liveserver.png)
 
-Once you installed the extension, go to your result directory and right click `index.html`, choose `Open with Liev Server`, then you will have your result opened in your browser.
+Once you installed the extension, go to your result directory and right click `index.html`, choose `Open with Live Server`, then you will have your result opened in your browser.
 
 In case you don't use VSCode or `Live Server` doesn't work for you, this is another way to view the result. You change your directory to the result directory, create a new local host by below command:
 ```bash

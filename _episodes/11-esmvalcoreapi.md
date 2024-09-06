@@ -130,16 +130,16 @@ print(dataset)
 > ```
 > > ## Output
 > > ```output
-> > sea_surface_temperature / (degC)          (time: 1980; cell index al...: 300; cell index al...: 360)
+> > sea_surface_temperature / (degC)          (time: 1980; cell index...: 300; cell inde...: 360)
 > >     Dimension coordinates:
-> >         time                                   x                  -                        -
-> >         cell index along second dimension      -                  x                        -
-> >         cell index along first dimension       -                  -                        x
+> >         time                                   x                  -                   -
+> >         cell index along second dimension      -                  x                   -
+> >         cell index along first dimension       -                  -                   x
 > >     Auxiliary coordinates:
-> >         latitude                               -                  x                        x
-> >         longitude                              -                  x                        x
+> >         latitude                               -                  x                   x
+> >         longitude                              -                  x                   x
 > >     Cell measures:
-> >         cell_area                              -                  x                        x
+> >         cell_area                              -                  x                   x
 > >     Cell methods:
 > >         0                                 area: mean where sea
 > >         1                                 time: mean
@@ -176,7 +176,7 @@ print(dataset)
 > >         product                           'model-output'
 > >         realization_index                 4
 > >         realm                             'ocean'
-> >         run_variant                       'forcing: GHG, Oz, SA, Sl, Vl, BC, OC, (GHG = CO2, ...'
+> >         run_variant                       'forcing: GHG, Oz, SA, Sl, Vl, BC, OC, (GHG = ...'
 > >         source                            'ACCESS-ESM1.5 (2019): \naerosol: CLASSIC (v1.0) ...'
 > >         source_id                         'ACCESS-ESM1-5'
 > >         source_type                       'AOGCM'
@@ -491,7 +491,6 @@ quickplot.plot(cube)
 > >        cube = extract_region(cube,0,360,-90,0)
 > >        cube = area_statistics(cube, 'sum')
 > >        cube = annual_statistics(cube, min_max)
-> >    
 > >        iris.util.promote_aux_coord_to_dim_coord(cube, 'year')
 > >        cube.convert_units('km2')
 > >        if i == 1: ## om years 306/366 apply offset
@@ -506,7 +505,7 @@ quickplot.plot(cube)
 > >
 > >trends_seaicearea('min')
 > >```
-> {: .solution}
+>{: .solution}
 {: .challenge}
 
 {% include links.md %}

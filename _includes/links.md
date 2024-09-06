@@ -83,3 +83,8 @@
 [timeranges]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#time-ranges
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
+[api-config]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.config.html
+[experimental-output]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe_output.html
+[docs-notebooks]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/example-notebooks.html
+[api-reference]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.html#api
+[api-preprocessors]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html

@@ -130,16 +130,16 @@ print(dataset)
 > ```
 > > ## Output
 > > ```output
-> > sea_surface_temperature / (degC)          (time: 1980; cell index along second dimension: 300; cell index along first dimension: 360)
+> > sea_surface_temperature / (degC)          (time: 1980; cell index al...: 300; cell index al...: 360)
 > >     Dimension coordinates:
-> >         time                                   x                                        -                                      -
-> >         cell index along second dimension      -                                        x                                      -
-> >         cell index along first dimension       -                                        -                                      x
+> >         time                                   x                  -                        -
+> >         cell index along second dimension      -                  x                        -
+> >         cell index along first dimension       -                  -                        x
 > >     Auxiliary coordinates:
-> >         latitude                               -                                        x                                      x
-> >         longitude                              -                                        x                                      x
+> >         latitude                               -                  x                        x
+> >         longitude                              -                  x                        x
 > >     Cell measures:
-> >         cell_area                              -                                        x                                      x
+> >         cell_area                              -                  x                        x
 > >     Cell methods:
 > >         0                                 area: mean where sea
 > >         1                                 time: mean
@@ -156,16 +156,16 @@ print(dataset)
 > >         external_variables                'areacello'
 > >         forcing_index                     1
 > >         frequency                         'mon'
-> >         further_info_url                  'https://furtherinfo.es-doc.org/CMIP6.CSIRO.ACCESS-ESM1-5.historical.no ...'
+> >         further_info_url                  'https://furtherinfo.es-doc.org/ ...'
 > >         grid                              'native atmosphere N96 grid (145x192 latxlon)'
 > >         grid_label                        'gn'
 > >         initialization_index              1
-> >         institution                       'Commonwealth Scientific and Industrial Research Organisation, Aspendale, ...'
+> >         institution                       'Commonwealth Scientific and Industrial Research  ...'
 > >         institution_id                    'CSIRO'
-> >         license                           'CMIP6 model data produced by CSIRO is licensed under a Creative Commons ...'
+> >         license                           'CMIP6 model data produced by CSIRO is  ...'
 > >         mip_era                           'CMIP6'
 > >         nominal_resolution                '250 km'
-> >         notes                             "Exp: ESM-historical; Local ID: HI-08; Variable: tos (['sst'])"
+> >         notes                             "Exp: ESM-historical; Local ID: HI-08; "
 > >         parent_activity_id                'CMIP'
 > >         parent_experiment_id              'piControl'
 > >         parent_mip_era                    'CMIP6'
@@ -176,14 +176,14 @@ print(dataset)
 > >         product                           'model-output'
 > >         realization_index                 4
 > >         realm                             'ocean'
-> >         run_variant                       'forcing: GHG, Oz, SA, Sl, Vl, BC, OC, (GHG = CO2, N2O, CH4, CFC11, CFC12, ...'
-> >         source                            'ACCESS-ESM1.5 (2019): \naerosol: CLASSIC (v1.0)\natmos: HadGAM2 (r1.1, ...'
+> >         run_variant                       'forcing: GHG, Oz, SA, Sl, Vl, BC, OC, (GHG = CO2, ...'
+> >         source                            'ACCESS-ESM1.5 (2019): \naerosol: CLASSIC (v1.0) ...'
 > >         source_id                         'ACCESS-ESM1-5'
 > >         source_type                       'AOGCM'
 > >         sub_experiment                    'none'
 > >         sub_experiment_id                 'none'
 > >         table_id                          'Omon'
-> >         table_info                        'Creation Date:(30 April 2019) MD5:40e9ef53d4d2ec9daef980b76f23d39a'
+> >         table_info                        'Creation Date:(30 April 2019) MD5:'
 > >         title                             'ACCESS-ESM1-5 output prepared for CMIP6'
 > >         variable_id                       'tos'
 > >         variant_label                     'r4i1p1f1'
@@ -233,7 +233,8 @@ See the [documentation][recipe-section-preprocessors]{:target="_blank"} to read 
 > >         cell index along first dimension  179, bound=(0, 359)
 > >         cell index along second dimension 149, bound=(0, 299)
 > >         latitude                          6.0 degrees_north, bound=(-78.0, 90.0) degrees_north
-> >         longitude                         179.9867706298828 degrees_east, bound=(0.0, 359.9735412597656) degrees_east
+> >         longitude                         179.9867706298828 degrees_east, 
+> >bound=(0.0, 359.9735412597656) degrees_east
 > >     Cell methods:
 > >         0                                 area: mean where sea
 > >         1                                 time: mean
@@ -459,11 +460,11 @@ quickplot.plot(cube)
 > >```python
 > >obs_other = Dataset(
 > >    short_name='siconc', mip='*', project='OBS', type='*',
-> >    dataset='*', tier='*', timerange='1979/2018'
-> >)
+> >    dataset='*', tier='*', timerange='1979/2018')
+> >
 > >obs_other.files
 > >```
-> {: .solution}
+>{: .solution}
 > > ## 2. Use esmvalcore API preprocessors on the datasets and plot results
 > > 
 > >```python
@@ -477,7 +478,7 @@ quickplot.plot(cube)
 > >            annual_statistics
 > >)
 > ># model_om - at index 1 to offset years
-> 
+> >
 > >load_data = [model, model_om, obs] 
 > >
 > ># function to use for both min and max ['max','min'] 

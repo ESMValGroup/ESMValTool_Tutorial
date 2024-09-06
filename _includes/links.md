@@ -84,7 +84,10 @@
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
 [api-config]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.config.html
+[easy-ipcc-blog]: https://blog.esciencecenter.nl/easy-ipcc-powered-by-esmvalcore-19a0b6366ea7
 [experimental-output]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe_output.html
 [docs-notebooks]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/example-notebooks.html
 [api-reference]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.html#api
+[api-esgf]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.esgf.html
 [api-preprocessors]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html
+[iris-plot]: https://scitools-iris.readthedocs.io/en/latest/userguide/plotting_a_cube.html#iris-cube-plotting

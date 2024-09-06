@@ -441,20 +441,15 @@ quickplot.plot(cube)
 > > ```
 > {: .solution}
 > > ## Tip: Check dataset files can be found
-> > The observational dataset used is a Tier 3, so with some licensing restrictions. It is not directly
-> > accesible here. Check files can be found for all the datasets:
+> > The observational dataset used is a Tier 3, so with some licensing restrictions.
+> > Check files can be found for all the datasets:
 > > 
 > > ```python
 > > for ds in [model, model_om, obs]:
 > >     print(ds['dataset'],' : ' ,ds.files)
 > >     print(ds.supplementaries[0].files)
 > > ```
-> > This observation dataset does have a downloader and formatter with ESMValTool.
-> > ```bash
-> > esmvaltool data download --config_file <path to config-user.yml>  NSIDC-G02202-sh
-> > esmvaltool data format --config_file <path to config-user.yml>  NSIDC-G02202-sh
-> > ```
-> > For this plot we can drop it for now. But you can also try to find and add another dataset. eg:
+> > You can try to find and add another observational dataset. eg:
 > > ```python
 > > obs_other = Dataset(
 > >     short_name='siconc', mip='*', project='OBS', type='*',
@@ -475,9 +470,9 @@ quickplot.plot(cube)
 > >             area_statistics,
 > >             annual_statistics
 > > )
-> > # om - at index 1 to offset years
-> > # drop observations that cannot be found
-> > load_data = [model, model_om] #, obs] 
+> > # model_om - at index 1 to offset years
+> >
+> > load_data = [model, model_om, obs] 
 > > 
 > > # function to use for both min and max ['max','min'] 
 > > 

@@ -125,7 +125,7 @@ esmvaltool data format --config_file <path to config-user.yml>  <dataset-name>
 
 The options `--start` and `--end` can be added to command above to restrict the
 formatting of raw data to a time range. They will be ignored if a specific
-dataset does not support (i.e. because it is provided as a single file).
+dataset does not support this option (i.e. because all the data is provided as a single file).
 Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The same way is also applicable for 
 the option `esmvaltool data download`.
 
@@ -153,7 +153,7 @@ If everything is okay, the output should look something like this:
 ... Starting the CMORization Tool at time: 2024-05-27 13:24:48 UTC
 ... ----------------------------------------------------------------------
 ... input_dir  = /work/bd0854/DATA/ESMValTool2/RAWOBS
-... output_dir = /scratch/b/b309059/esmvaltool_output/data_formatting_20240527_132448
+... output_dir = /scratch/b/username/esmvaltool_output/data_formatting_20240527_132448
 ... ----------------------------------------------------------------------
 ... Running the CMORization scripts.
 ... Processing datasets ['FLUXCOM']
@@ -658,7 +658,7 @@ esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
 ~~~
 {: .error}
 
-If you look closely at the error messages, you can see that these error concern
+If you look closely at the error messages, you can see the reasons for these errors
 e.g. the units of the coordinates. ESMValTool tries to fix them automatically,
 but since no units are defined on the coordinates, this fails.
 

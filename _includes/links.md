@@ -1,6 +1,7 @@
 {% include base_path.html %}
 [activate-environment]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#pre-installed-versions-on-hpc-clusters-other-servers
 [add-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+[additional-datasets]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#diagnostic-and-variable-specific-datasets
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
@@ -8,20 +9,24 @@
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [code-documentation]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html
+[concatenating-datasets]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#concatenating-data-corresponding-to-multiple-facets
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
 [config-file]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html
+[config-references]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/config-references.yml
 [contrib-covenant]: https://contributor-covenant.org/
 [contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
 [cran-checkpoint]: https://cran.r-project.org/package=checkpoint
 [cran-knitr]: https://cran.r-project.org/package=knitr
 [cran-stringr]: https://cran.r-project.org/package=stringr
 [dc-lessons]: http://www.datacarpentry.org/lessons/
+[datasets-overview]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#datasets
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/diag_scripts/examples/diagnostic.py
 [ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
 [email]: mailto:team@carpentries.org
 [generate-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 [github-importer]: https://import.github.com/
 [importer]: https://github.com/new/import
+[include-all-datasets]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#automatically-populating-a-recipe-with-all-available-datasets
 [install-from-source]: https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source
 [interface]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/interfaces.html
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
@@ -42,6 +47,7 @@
 [lesson-recipe]: {{ relative_root_path }}{% link _episodes/04-recipe.md %}
 [lesson-reference]: {{ relative_root_path }}{% link reference.md %}
 [lesson-setup]: {{ relative_root_path }}{% link setup.md %}
+[list-of-authors]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html#list-of-authors
 [manage-environments]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
 [mit-license]: https://opensource.org/licenses/mit-license.html
 [morea]: https://morea-framework.github.io/
@@ -51,10 +57,17 @@
 [pandoc]: https://pandoc.org/
 [paper-now]: https://github.com/PeerJ/paper-now
 [preproc-area-manipulation]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/preprocessor.html#area-operations
+[preprocessor]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/preprocessor.html 
+[preprocessor-functions]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/api/esmvalcore.preprocessor.html#preprocessor-functions
 [provenance]: https://docs.esmvaltool.org/en/latest/community/diagnostic.html?highlight=provenance#recording-provenance
 [python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
 [pyyaml]: https://pypi.python.org/pypi/PyYAML
 [recipe]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/recipes/examples/recipe_python.yml
+[recipe-overview]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html
+[recipe-section-datasets]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-datasets
+[recipe-section-diagnostics]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-diagnostics
+[recipe-section-documentation]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-documentation
+[recipe-section-preprocessors]: https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html#recipe-section-preprocessors
 [r-markdown]: https://rmarkdown.rstudio.com/
 [rstudio]: https://www.rstudio.com/
 [ruby-install-guide]: https://www.ruby-lang.org/en/downloads/

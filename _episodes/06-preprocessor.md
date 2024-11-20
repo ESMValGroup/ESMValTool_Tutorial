@@ -2,13 +2,14 @@
 title: "Writing your own recipe"
 teaching: 15
 exercises: 30
-compatibility: ESMValTool v2.6.0
+compatibility: ESMValTool v2.10.0
 
 questions:
 - "How do I create a new recipe?"
 - "Can I use different preprocessors for different variables?"
 - "Can I use different datasets for different variables?"
 - "How can I combine different preprocessor functions?"
+- "Can I run the same recipe for multiple ensemble members?"
 objectives:
 - "Create a recipe with multiple preprocessors"
 - "Use different preprocessors for different variables"
@@ -18,15 +19,16 @@ keypoints:
 - "The setting `additional_datasets` can be used to add a different dataset."
 - "Variable groups are useful for defining different settings for different
   variables."
+- "Multiple ensemble members and experiments can be analysed in a single recipe through concatenation."
 ---
 
 ## Introduction
 
-One of the key strenghts of ESMValTool is in making complex analyses reusable
+One of the key strengths of ESMValTool is in making complex analyses reusable
 and reproducible. But that doesn't mean everything in ESMValTool needs to be
 complex. Sometimes, the biggest challenge is in keeping things simple. You
 probably know the 'warming stripes' visualization by Professor Ed Hawkins. On
-the site <https://showyourstripes.info> you can find the same visualization for
+the site <https://showyourstripes.info>{:target="_blank"} you can find the same visualization for
 many regions in the world.
 
 ![Warming stripes](../fig/warming_stripes.png) *Shared by Ed Hawkins under a
@@ -38,24 +40,24 @@ ESMValTool. We have prepared a small Python script that takes a NetCDF file with
 timeseries data, and visualizes it in the form of our desired warming stripes
 figure.
 
-You can find the diagnostic script that we will use 
-[here (`warming_stripes.py`)](../files/warming_stripes.py).
+The diagnostic script that we will use is called `warming_stripes.py` and
+can be downloaded [here](../files/warming_stripes.py).
 
 Download the file and store it in your working directory. If you want, you may
-also have a look at the contents, but it is not necessary to follow along.
+also have a look at the contents, but it is not necessary to do so for this lesson.
 
 We will write an ESMValTool recipe that takes some data, performs the necessary
-preprocessing, and then runs our Python script.
+preprocessing, and then runs this Python script.
 
 > ## Drawing up a plan
 >
 > Previously, we saw that running ESMValTool executes a number of
-> tasks. Write down what tasks we will need to execute in this episode and what 
-> each of these tasks does?
+> tasks. What tasks do you think we will need to execute and what 
+> should each of these tasks do to generate the warming stripes?
 >
 > > ## Answer
 > >
-> > In this episode, we will need to do 2 tasks:
+> > In this episode, we will need to do the following two tasks:
 > >
 > > - A preprocessing task that converts the gridded temperature data to a timeseries
 > >   of global temperature anomalies
@@ -69,21 +71,17 @@ preprocessing, and then runs our Python script.
 
 The easiest way to make a new recipe is to start from an existing one, and
 modify it until it does exactly what you need. However, in this episode we will
-start from scratch. This forces us to think about all the steps. We will deal
-with common errors as they occur throughout the development.
+start from scratch. This forces us to think about all the steps involved in processing the data. 
+We will also deal with commonly occurring  errors through the development of the recipe.
 
-Remember the basic structure of a recipe, and notice that each of them is
-extensively described in the documentation under the header ["The recipe
-format"](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/overview.html):
+Remember the basic structure of a recipe, and notice that each component is
+extensively described in the documentation under the section, 
+ ["Overview"][recipe-overview]{:target="_blank"}:
 
-- [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-documentation)
-- [datasets](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/recipe/
-overview.html#recipe-section-datasets)
-- [preprocessors](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-preprocessors)
-- [diagnostics](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-diagnostics)
+- [documentation][recipe-section-documentation]{:target="_blank"}
+- [datasets][recipe-section-datasets]{:target="_blank"}
+- [preprocessors][recipe-section-preprocessors]{:target="_blank"}
+- [diagnostics][recipe-section-diagnostics]{:target="_blank"}
 
 This is the first place to look for help if you get stuck.
 
@@ -106,11 +104,11 @@ documentation:
 
 ```
 
-Notice that `yaml` always requires 2 spaces indentation between the different
+Notice that `yaml` always requires `two spaces` indentation between the different
 levels. Pressing `ctrl+o` will save the file. Verify the filename at the bottom
 and press enter. Then use `ctrl+x` to exit the editor.
 
-We will try to run the recipe after every modification we make, to see if it (still) works.
+We will try to run the recipe after every modification we make, to see if it (still) works!
 
 ```bash
 esmvaltool run recipe_warming_stripes.yml
@@ -119,23 +117,31 @@ esmvaltool run recipe_warming_stripes.yml
 In this case, it gives an error. Below you see the last few lines of the error message.
 ```
 ...
-Error validating data /home/user/esmvaltool_tutorial/recipe_warming_stripes.yml
-        with schema /home/user/mambaforge/envs/esmvaltool_tutorial/lib/python3.10
-        /site-packages/esmvalcore/recipe_schema.yml
-            documentation.authors: Required field missing
-YYYY-MM-DD HH:mm:SS,NNN UTC [19451] INFO    If you have a question or need help,
-    please start a new discussion on https://github.com/ESMValGroup/
-    ESMValTool/discussions
-If you suspect this is a bug, please open an issue on
-    https://github.com/ESMValGroup/ESMValTool/issues
-To make it easier to find out what the problem is, please consider attaching
-    the files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+yamale.yamale_error.YamaleError: 
+Error validating data '/home/users/username/esmvaltool_tutorial/recipe_warming_stripes.yml' 
+with schema 
+'/apps/jasmin/community/esmvaltool/miniconda3_py311_23.11.0-2/envs/esmvaltool/lib/python3.11/
+site-packages/esmvalcore/_recipe/recipe_schema.yml'
+	documentation.authors: Required field missing
+2024-05-27 13:21:23,805 UTC [41924] INFO    
+If you have a question or need help, please start a new discussion on 
+https://github.com/ESMValGroup/ESMValTool/discussions
+If you suspect this is a bug, please open an issue on 
+https://github.com/ESMValGroup/ESMValTool/issues
+To make it easier to find out what the problem is, please consider attaching the 
+files run/recipe_*.yml and run/main_log_debug.txt from the output directory.
+
 ```
 {: .error}
 
-Here, ESMValTool is telling us that it is missing a required field, namely the
-authors. We see that ESMValTool always tries to validate the recipe
-at an early stage. 
+We can use the the log message above, to understand why ESMValTool failed. Here, this is because
+we missed a required field with author names. 
+The text `documentation.authors: Required field missing` 
+tells us that. We see that ESMValTool always tries to validate the recipe
+at an early stage. Note also the suggestion to open a GitHub issue if 
+you need help debugging the error message. This is something most
+users do when they cannot understand the error or are not able to fix it 
+on their own.
 
 Let's add some additional information to the recipe. Open the recipe file again,
 and add an authors section below the description. ESMValTool expects the authors
@@ -168,23 +174,21 @@ This is the minimal recipe layout that is required by ESMValTool. If we now run
 the recipe again, you will probably see the following error:
 
 ```
-ValueError: Tag 'doe_john' does not exist in section 'authors' of 
-	    /home/user/mambaforge/envs/esmvaltool_tutorial/python3.10/
-	    site-packages/esmvaltool/config-references.yml
+ValueError: Tag 'doe_john' does not exist in section 
+'authors' of /apps/jasmin/community/esmvaltool/ESMValTool_2.10.0/esmvaltool/config-references.yml
+
 ```
 {: .error}
 
 > ## Pro tip: config-references.yml
 >
 > The error message above points to a file named
-> [config-references.yml](https://github.com/ESMValGroup/ESMValTool/blob/main
-/esmvaltool/config-references.yml).
+> [config-references.yml][config-references]
 > This is where ESMValTool stores all its citation information. To add yourself
 > as an author, add your name in the form `lastname_firstname` in alphabetical
-> order following the existing entries, under the `# Development team` comment.
+> order following the existing entries, under the `# Development team` section.
 > See the
-> [List of authors](https://docs.esmvaltool.org/en/latest/community/
-code_documentation.html#list-of-authors)
+> [List of authors][list-of-authors]{:target="_blank"}
 > section in the ESMValTool documentation for more information.
 {: .callout}
 
@@ -201,16 +205,15 @@ Although there is no actual error in the recipe, ESMValTool assumes you mistaken
 left out a variable name to process and alerts you with this error message.
 ## Adding a dataset entry
 
-Let's add a datasets section. We will reuse the same datasets that we used in
-previous episodes. 
+Let's add a datasets section.
+
 
 > ## Filling in the dataset keys
 >
 > Use the paths specified in the configuration file to explore the data directory, 
 > and look at the explanation of the dataset entry
 > in the [ESMValTool
-> documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-recipe/overview.html#recipe-section-documentation).
+> documentation][recipe-section-datasets]{:target="_blank"}.
 > For both the datasets, write down the following properties:
 >
 > - project
@@ -229,7 +232,7 @@ recipe/overview.html#recipe-section-documentation).
 > > | project | CMIP6 | CMIP5 |
 > > | short name | tas | tas |
 > > | CMIP table | Amon | Amon |
-> > | dataset | BCC-ESM1 | CanESM2 |
+> > | dataset | BCC-ESM1 | bcc-csm1-1|
 > > | experiment | historical | historical |
 > > | ensemble | r1i1p1f1 | r1i1p1 |
 > > | grid | gn (native grid) | N/A |
@@ -242,16 +245,30 @@ recipe/overview.html#recipe-section-documentation).
 > {: .solution}
 {: .challenge}
 
-We start with the BCC-ESM1 dataset and add a datasets section to the recipe,
-listing a single dataset, as shown below. Note that key fields such 
+Let us start with the BCC-ESM1 dataset and add a datasets section to the recipe,
+listing this single dataset, as shown below. Note that key fields such 
 as `mip` or `start_year` are included in the `datasets` section here but are part 
 of the `diagnostic` section in the recipe example seen in 
 [Running your first recipe]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 ```yaml
+# ESMValTool
+# recipe_warming_stripes.yml
+---
+documentation:
+  description: Reproducing Ed Hawkins' warming stripes visualization
+  title: Reproducing Ed Hawkins' warming stripes visualization.
+
+  authors:
+    - doe_john
 datasets:
   - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
      ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+
+diagnostics:
+  dummy_diagnostic_1:
+    scripts: null
+
 ```
 
 The recipe should run but produce the same message as in the previous case since we
@@ -261,6 +278,18 @@ us to reuse this dataset entry with different variable names later on.
 This is not really necessary for our simple use case, but it is common practice 
 in ESMValTool.
 
+
+> ## Pro-tip:  Automatically populating a recipe with all available datasets
+>
+> You can select all available models for processing using 
+> `glob`  patterns or wildcards.  An example `datasets` section that uses all 
+> available CMIP6 models and ensemble members for the `historical` experiment
+> is available [here] [include-all-datasets]{:target="_blank"}.
+> Note that you will have to set the `search_esgf` option in the `config_file` to 
+> `always` so that you can download data from ESGF nodes as  needed.
+{: .callout}
+
+
 ## Adding the preprocessor section
 
 Above, we already described the preprocessing task that needs to convert the
@@ -269,8 +298,7 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > ## Defining the preprocessor
 >
 > Have a look at the available preprocessors in the
-> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest
-/recipe/preprocessor.html).
+> [documentation][preprocessor]{:target="_blank"}.
 > Write down
 >
 > - Which preprocessor functions do you think we should use?
@@ -281,22 +309,24 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > ## Solution
 > >
 > > We need to calculate anomalies and global means. There is an `anomalies`
-> > preprocessor which needs a granularity, a reference period, and whether or
+> > preprocessor which takes in as arguments, a time period, a reference period, and whether or
 > > not to standardize the data. The global means can be calculated with the
 > > `area_statistics` preprocessor, which takes an operator as argument (in our
 > > case we want to compute the `mean`).
 > >
 > > The default order in which these preprocessors are applied can be seen
-> > [here](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/api/
-esmvalcore.preprocessor.html#preprocessor-functions):
+> > [here][preprocessor-functions]{:target="_blank"}:
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
-> > can use the `custom_order` preprocessor. We will keep it like this.
+> > can use the `custom_order` preprocessor as 
+>> described [here][recipe-section-preprocessors]{:target="_blank"}. 
+>> For this example, we will keep the default order..
 > >
 > > Let's name our preprocessor `global_anomalies`.
 > {: .solution}
 {: .challenge}
 
-Add the following block to your recipe file:
+Add the following block to your recipe file between the `datasets` and `diagnostics` 
+block:
 
 ```yaml
 preprocessors:
@@ -317,8 +347,8 @@ preprocessors:
 
 ## Completing the diagnostics section
 
-Now we are ready to finish our diagnostics section. Remember that we want to
-make two tasks: a preprocessor task, and a diagnostic task. To illustrate that
+We are now ready to finish our diagnostics section. Remember that we want to
+create two tasks: a preprocessor task, and a diagnostic task. To illustrate that
 we can also pass settings to the diagnostic script, we add the option to specify
 a custom colormap.
 
@@ -359,30 +389,31 @@ a custom colormap.
 > {: .solution}
 {: .challenge}
 
-Now you should be able to run the recipe to get your own warming stripes.
+You should now be able to run the recipe to get your own warming stripes.
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
 own diagnostic scripts and want to add them to the ESMValTool repositories, this
-will be required. However, writing your own diagnostic script is beyond the
-scope of the basic tutorial.
+will be required. Writing your own diagnostic script is discussed in a 
+[later episode]({{ page.root }}{% link _episodes/08-diagnostics.md %}).
 
 ## Bonus exercises
 
-Below are a couple of exercise to practice modifying the recipe. For your
+Below are a few exercises to practice modifying an ESMValTool recipe. For your
 reference, here's a copy of the [recipe at this
 point](../files/recipe_warming_stripes.yml). This will be the point of departure
 for each of the modifications we'll make below.
 
-> ## Specific location
+> ## Specific location selection
 >
-> On showyourstripes.org, you can download stripes for specific locations. We
-> will reproduce this possibility. Look at the available preprocessors in the
-> documentation, and replace the global mean with a suitable alternative.
+> On showyourstripes.org, you can download stripes for specific locations. Here we 
+> show how this can be done with ESMValTool. 
+> Instead of the global mean, we can pick a location to plot the stripes for. 
+> Can you find a suitable preprocessor to do this?
 >
 > > ## Solution
 > >
-> > You could have used `extract_point` or `extract_region`. We used
+> > You can use `extract_point` or `extract_region` to select a location. We used
 > > `extract_point`. Here's a copy of the [recipe at this
 > > point](../files/recipe_warming_stripes_local.yml) and this is the difference
 > > from the previous recipe:
@@ -423,11 +454,12 @@ for each of the modifications we'll make below.
 > {: .solution}
 {:.challenge}
 
-> ## Different periods
+> ## Different time periods
 >
-> Split the diagnostic in 2: the second one should use a different period.
-> You're free to choose the periods yourself. For example, 1 could be 'recent',
-> the other '20th_century'. For this, you'll have to add a new variable group.
+> Split the diagnostic in two with two different time periods for the same variable.
+> You can choose the time periods yourself. In the example below, we have 
+> chosen the recent past and 
+> the 20th century and have used variable grouping.
 >
 > > ## Solution
 > >
@@ -438,7 +470,6 @@ for each of the modifications we'll make below.
 > > --- recipe_warming_stripes_local.yml
 > > +++ recipe_warming_stripes_periods.yml
 > > @@ -7,7 +7,7 @@
-> >      - righi_mattia
 > >
 > >  datasets:
 > > -  - {dataset: BCC-ESM1, project: CMIP6, mip: Amon, exp: historical, 
@@ -477,7 +508,7 @@ for each of the modifications we'll make below.
 > preprocessors. Add a second preprocessor to add another location of your
 > choosing.
 >
-> Pro-tip: if you want to avoid repetition, you can use YAML anchors.
+>
 >
 > > ## Solution
 > >
@@ -531,13 +562,22 @@ for each of the modifications we'll make below.
 >
 {:.challenge}
 
+
+
+
+> ## Pro-tip: YAML anchors
+> If you want to avoid retyping the arguments used in your preprocessor, 
+> you can use YAML anchors as seen in the `anomalies` preprocessor 
+> specifications in the recipe above.
+{:.callout}
+
 > ## Additional datasets
 >
 > So far we have defined the datasets in the datasets section of the recipe.
 > However, it's also possible to add specific datasets only for specific
-> variable groups. Look at the documentation to learn about the
-> 'additional_datasets' keyword, and add a second dataset only for one of the
-> variable groups.
+> variables or variable groups. Take a look at the documentation to learn about the
+> `additional_datasets` keyword [here][additional-datasets]{:target="_blank"}, and 
+> add a second dataset only for one of the variable groups.
 >
 > > ## Solution
 > >
@@ -561,3 +601,35 @@ for each of the modifications we'll make below.
 > >
 > {: .solution}
 {:.challenge}
+
+> ## Multiple ensemble members
+>
+> You can choose data from multiple ensemble members for a model in a single line.
+>
+>> ## Solution
+>>
+>> The `dataset` section allows you to choose more than one ensemble member
+>> Here's a copy of the changed 
+>> [recipe](../files/recipe_warming_stripes_multiple_ensemble_members.yml) 
+>>to do that.
+>> Changes made are shown in the diff output below:
+>>```diff
+>>--- recipe_warming_stripes.yml	2024-05-27 15:37:52.340358967 +0100
+>>+++ recipe_warming_stripes_multiens.yml	2024-05-27 22:18:42.035558837 +0100
+>>@@ -10,7 +10,7 @@
+>>-     ensemble: r1i1p1f1, grid: gn, start_year: 1850, end_year: 2014}
+>>+     ensemble: "r(1:2)i1p1f1", grid: gn, start_year: 1850, end_year: 2014}
+>>```
+>>
+> {: .solution}
+{:.challenge}
+
+> ## Pro-tip: Concatenating datasets
+> Check out the section on a different way to use multiple ensemble 
+> members or even multiple experiments at [Concatenating data corresponding to multiple facets]
+>[concatenating-datasets]{:target="_blank"}.
+>
+{: .callout}
+
+
+{% include links.md %}

@@ -1,5 +1,5 @@
 ---
-title: "ESMValCore API in a Jupyter notebook"
+title: "What is ESMValCore API and using it in a Jupyter notebook"
 teaching: 20
 exercises: 30
 compatibility: ESMValTool, ESMValCore v2.11.0
@@ -17,7 +17,9 @@ keypoints:
 - "Use `datasets_to_recipe` helper to start making recipes"
 ---
 
-In this episode we will introduce the ESMValCore API in a jupyter notebook. This is reformatted 
+In this episode we will introduce the ESMValCore API in a jupyter notebook. ESMValTool acts as a 
+wrapper and collection of recipes and diagnostics and CMORisers for observations that is built on
+top of ESMValCore which has the core functionality. This episode is reformatted 
 from material from this [blog post][easy-ipcc-blog]{:target="_blank"}
 by Peter Kalverla. There's also material from the 
 [example notebooks][docs-notebooks]{:target="_blank"} and the 
@@ -25,14 +27,45 @@ by Peter Kalverla. There's also material from the
 
 ## Start JupyterLab
 A [jupyter notebook](https://jupyter.org/){:target="_blank"} is an interactive document where 
-you can run code.
+you can run code. If using a HPC server they may provide a service which can start up an interactive job
+with Jupyter running for you which is convenient for this exercise, for example, 
+[ARE](https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide) at NCI's Gadi in Australia or
+[Jupyterhub@DKRZ](https://docs.dkrz.de/doc/software%26services/jupyterhub/index.html).
 You will need to use a python environment with ESMValTool and ESMValCore installed.
+
+## Configuration in the notebook
+
+We can look at the default user configuration file, by default found in `~/.esmvaltool/config-user.yml` 
+by calling a `CFG` object as a dictionary structure. This gives us the ability to edit the settings.
+The tool can automatically download the climate data files required to run a recipe for you.
+You can check your download directory and output directory where your recipe runs will be saved.
+This `CFG` object is from the `config` module in the ESMValCore API, for more details see [here][api-config].
+
+> Call the `CFG` object in a Jupyter notebook and inspect the values.
+> > ## Solution
+> > ```python
+> > from esmvalcore.config import CFG
+> > # call CFG object like this
+> > CFG
+> > ```
+> {: .solution}
+> Check output directory and change
+> > ## Solution
+> > 
+> > ```python
+> > print(CFG['output_dir'])
+> > # edit directory
+> > CFG['output_dir'] = '/scratch/$USERNAME/esmvaltool_outputs'
+> > ```
+> {: .solution}
+{: .challenge}
 
 ## Find Datasets with facets
 We have seen from running available recipes that ESMValTool is able to find data from facets that
 were given in the recipe. We can use this in a Notebook, including filling out the facets for 
 data definition. 
-To do this we will use the `Dataset` object from the API. Let's look at this example. 
+To do this we will use the `Dataset` object from the API. Let's look at this example which you
+can copy to a Jupyter notebook. 
 
 ```python
 from esmvalcore.dataset import Dataset

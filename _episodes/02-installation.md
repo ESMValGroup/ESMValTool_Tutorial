@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.11.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"
@@ -229,13 +229,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.10.0
-> > ESMValTool: 2.10.0
+> > ESMValCore: 2.11.0
+> > ESMValTool: 2.11.0
 > > ~~~
 > > {: .output}
 > Note that on HPC servers such as JASMIN, sometimes a more recent development 
 > version may be displayed for ESMValTool, for e.g. 
-> `ESMValTool: 2.9.0.dev4+g6948d5512`
+> `ESMValTool: 2.11.0.dev71+g2c60b4d97`
 > {: .solution}
 {: .challenge}
 

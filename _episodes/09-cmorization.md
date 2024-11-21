@@ -148,8 +148,8 @@ If everything is okay, the output should look something like this:
 
 ~~~
 ... Writing program log files to:
-/scratch/b/b309059/esmvaltool_output/data_formatting_20240527_132448/run/main_log.txt
-/scratch/b/b309059/esmvaltool_output/data_formatting_20240527_132448/run/main_log_debug.txt
+/scratch/b/username/esmvaltool_output/data_formatting_20240527_132448/run/main_log.txt
+/scratch/b/username/esmvaltool_output/data_formatting_20240527_132448/run/main_log_debug.txt
 ... Starting the CMORization Tool at time: 2024-05-27 13:24:48 UTC
 ... ----------------------------------------------------------------------
 ... input_dir  = /work/bd0854/DATA/ESMValTool2/RAWOBS
@@ -158,18 +158,18 @@ If everything is okay, the output should look something like this:
 ... Running the CMORization scripts.
 ... Processing datasets ['FLUXCOM']
 ... Input data from: /work/bd0854/DATA/ESMValTool2/RAWOBS/Tier3/FLUXCOM
-... Output will be written to: /scratch/b/b309059/esmvaltool_output/data_formatting_20240527_132448
+... Output will be written to: /scratch/b/username/esmvaltool_output/data_formatting_20240527_132448
     /Tier3/FLUXCOM
-... Reformat script: /home/b/b309059/ESMValTool/ESMValTool/esmvaltool/cmorizers/data/formatters/
+... Reformat script: /home/b/username/ESMValTool/ESMValTool/esmvaltool/cmorizers/data/formatters/
     datasets/fluxcom
-... CMORizing dataset FLUXCOM using Python script /home/b/b309059/ESMValTool/ESMValTool/esmvaltool/
+... CMORizing dataset FLUXCOM using Python script /home/b/username/ESMValTool/ESMValTool/esmvaltool/
     cmorizers/data/formatters/datasets/fluxcom.py
 ... Found input file '/work/bd0854/DATA/ESMValTool2/RAWOBS/Tier3/FLUXCOM/GPP.ANN.CRUNCEPv6.monthly.
     *.nc'
 ... CMORizing variable 'gpp'
 ... Lmon
 ... Var is gpp
-...  WARNING /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/lib/python3.11/site-packages/
+...  WARNING /work/bd0854/username/utils/mambaforge/envs/esmvaltool/lib/python3.11/site-packages/
      iris/fileformats/_nc_load_rules/helpers.py:913: _WarnComboIgnoringCfLoad: Ignoring invalid u
 nits 'gC m-2 day-1' on netCDF variable 'GPP'.
   warnings.warn(
@@ -179,10 +179,10 @@ nits 'gC m-2 day-1' on netCDF variable 'GPP'.
 ... Fixing longitude...
 ... Flipping dimensional coordinate latitude...
 ... Saving file
-... Saving: /scratch/b/b309059/esmvaltool_output/data_formatting_20240527_132448/Tier3/FLUXCOM/
+... Saving: /scratch/b/username/esmvaltool_output/data_formatting_20240527_132448/Tier3/FLUXCOM/
     OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
 ... Cube has lazy data [lazy is preferred]
-... WARNING /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/lib/python3.11/site-packages/
+... WARNING /work/bd0854/username/utils/mambaforge/envs/esmvaltool/lib/python3.11/site-packages/
     iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style a
 ttribute handling for backwards compatibility.
 This mode is deprecated since Iris 3.8, and will eventually be removed.

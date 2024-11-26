@@ -36,7 +36,7 @@ by Peter Kalverla. There's also material from the
 
 ## Start JupyterLab
 A [jupyter notebook](https://jupyter.org/){:target="_blank"} is an interactive document where 
-you can run code. All python code in this episode was written to be in a python sell of a
+you can run code. All python code in this episode was written to be in a python cell of a
 Jupyter Notebook. 
 
 If using a HPC server they may provide a service which can start up an interactive job
@@ -45,6 +45,8 @@ access the data stored at those HPC servers, for example,
 - [ARE](https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide) 
 at NCI's Gadi in Australia or
 - [Jupyterhub@DKRZ](https://docs.dkrz.de/doc/software%26services/jupyterhub/index.html).
+- [JASMIN Notebooks Service]
+(https://help.jasmin.ac.uk/docs/interactive-computing/jasmin-notebooks-service/).
 
 You will need to use a python environment with ESMValTool and ESMValCore installed.
 

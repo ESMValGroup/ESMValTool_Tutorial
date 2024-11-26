@@ -1,7 +1,7 @@
 ---
 title: "What is ESMValCore API and using it in a Jupyter notebook"
 teaching: 20
-exercises: 30
+exercises: 40
 compatibility: ESMValTool, ESMValCore v2.11.0
 
 questions:
@@ -17,20 +17,35 @@ keypoints:
 - "Use `datasets_to_recipe` helper to start making recipes"
 ---
 
-In this episode we will introduce the ESMValCore API in a jupyter notebook. ESMValTool acts as a 
+In this episode we will introduce the ESMValCore API in a jupyter notebook. ESMValTool acts as a
 wrapper and collection of recipes and diagnostics and CMORisers for observations that is built on
-top of ESMValCore which has the core functionality. This episode is reformatted 
+top of ESMValCore which has the core functionality. 
+A schematic overview is depicted below.
+![image](../fig/esmvaltool_architecture.png)
+Using the functionalities in the ESMValCore light blue box in this modular way allows users to 
+use existing code to explore and build insights in the data and can help them build and write a
+recipeand diagnostic script with the previous episodes Writing your own [recipe]({{ page.root
+ }}{% link _episodes/06-preprocessor.md %}) / [diagnostic script]({{ page.root }}{% link 
+_episodes/08-diagnostics.md %})
+
+This episode is reformatted 
 from material from this [blog post][easy-ipcc-blog]{:target="_blank"}
-by Peter Kalverla. There's also material from the 
+by Peter Kalverla. There's also material from the
 [example notebooks][docs-notebooks]{:target="_blank"} and the 
 [API reference documentation][api-reference]{:target="_blank"}.
 
 ## Start JupyterLab
 A [jupyter notebook](https://jupyter.org/){:target="_blank"} is an interactive document where 
-you can run code. If using a HPC server they may provide a service which can start up an interactive job
-with Jupyter running for you which is convenient for this exercise, for example, 
-[ARE](https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide) at NCI's Gadi in Australia or
-[Jupyterhub@DKRZ](https://docs.dkrz.de/doc/software%26services/jupyterhub/index.html).
+you can run code. All python code in this episode was written to be in a python sell of a
+Jupyter Notebook. 
+
+If using a HPC server they may provide a service which can start up an interactive job
+with Jupyter running for you. This would be convenient for this exercise where you can also
+access the data stored at those HPC servers, for example,
+- [ARE](https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide) 
+at NCI's Gadi in Australia or
+- [Jupyterhub@DKRZ](https://docs.dkrz.de/doc/software%26services/jupyterhub/index.html).
+
 You will need to use a python environment with ESMValTool and ESMValCore installed.
 
 ## Configuration in the notebook
@@ -61,10 +76,12 @@ This `CFG` object is from the `config` module in the ESMValCore API, for more de
 {: .challenge}
 
 ## Find Datasets with facets
-We have seen from running available recipes that ESMValTool is able to find data from facets that
-were given in the recipe. We can use this in a Notebook, including filling out the facets for 
-data definition. 
-To do this we will use the `Dataset` object from the API. Let's look at this example which you
+Facets are key names and their values which help define the dataset. They are used to find the
+particular dataset. See **Adding a dataset entry** section in the [Writing your own recipe]({{ 
+page.root }}{% link _episodes/06-preprocessor.md %}) 
+episode for examples.
+We can use this in a Notebook, including filling out the facets for data definition. 
+To do this we will use the `Dataset` object from the API. Let's look at this example, which you
 can copy to a Jupyter notebook. 
 
 ```python
@@ -85,13 +102,17 @@ print(dataset)
 > ## Pro tip: Augmented facets in the output
 > When running a recipe there is a `_filled` recipe `yml` file in the output `/run` folder which
 > augments the facets.
+> ```
+> esmvaltool run examples/recipe_python.yml
+> ```
 > > ## Example recipe output folder
 > > ```output
-> > esmvaltool_output/flato13ipcc_figure914_20240729_043707/run
+> > esmvaltool_output/recipe_python_20240729_043707/run
 > > ├── cmor_log.txt
-> > ├── fig09-14
-> > ├── flato13ipcc_figure914_filled.yml
-> > ├── flato13ipcc_figure914.yml
+> > ├── map
+> > ├── timeseries
+> > ├── recipe_python_filled.yml
+> > ├── recipe_python.yml
 > > ├── main_log_debug.txt
 > > ├── main_log.txt
 > > └── resource_usage.txt
@@ -277,6 +298,15 @@ See the [documentation][recipe-section-preprocessors]{:target="_blank"} to read 
 > {: .solution}
 {: .challenge}
 
+> ## Note: Warnings
+> When the notebook cell runs you may get some warnings. These would be similar to what is in the
+> *main_log.txt* and *main_log_debug.txt* files in the output of a recipe run. The warnings can come 
+> from any of the python libraries used to process the data. If they are just warnings the cell can
+> still complete and return an output
+> > ## Example warnings
+> > ![image](../fig/preproc_warnings.png)
+> {: .solution}
+{: .callout}
 
 ## Custom code
 We have so far solely used ESMValCore, however, you can use your own custom code and
@@ -445,7 +475,7 @@ quickplot.plot(cube)
 > - Using variable `siconc` which is a fraction percent(0-100)
 > - Using datasets: 
 >   - `dataset:'ACCESS-ESM1-5', exp:'historical', ensemble:'r1i1p1f1', timerange:'1960/2010'`
->   - `dataset :'ACCESS-OM2', exp:'omip2', ensemble='r1i1p1f1', timerange:'0306/0366'`
+>   - `dataset :'BCC-CSM2-MR', exp:'piControl', ensemble='r1i1p1f1', timerange:'1960/2010'`
 > - Using observations:
 >   - `dataset:'NSIDC-G02202-sh', tier:'3', version:'4', timerange:'1979/2018'`
 > 
@@ -473,11 +503,11 @@ quickplot.plot(cube)
 > >    timerange='1960/2010', institute = '*',
 > >)
 > >
-> >om_facets={'dataset' :'ACCESS-OM2', 'exp':'omip2', 'activity':'OMIP', 'timerange':'0306/0366' }
+> >pi_facets={'dataset' :'BCC-CSM2-MR', 'exp':'piControl', 'activity':'CMIP'}
 > >
 > >model.add_supplementary(short_name='areacello', mip='Ofx')
 > >
-> >model_om = model.copy(**om_facets) 
+> >model_pi = model.copy(**pi_facets) 
 > >```
 > {: .solution}
 > > ## Tip: Check dataset files can be found
@@ -485,7 +515,7 @@ quickplot.plot(cube)
 > > Check files can be found for all the datasets:
 > > 
 > >```python
-> >for ds in [model, model_om, obs]:
+> >for ds in [model, model_pi, obs]:
 > >    print(ds['dataset'],' : ' ,ds.files)
 > >    print(ds.supplementaries[0].files)
 > >```
@@ -512,7 +542,7 @@ quickplot.plot(cube)
 > >)
 > ># model_om - at index 1 to offset years
 > >
-> >load_data = [model, model_om, obs] 
+> >load_data = [model, model_pi, obs] 
 > >
 > ># function to use for both min and max ['max','min'] 
 > >
@@ -526,8 +556,6 @@ quickplot.plot(cube)
 > >        cube = annual_statistics(cube, min_max)
 > >        iris.util.promote_aux_coord_to_dim_coord(cube, 'year')
 > >        cube.convert_units('km2')
-> >        if i == 1: ## om years 306/366 apply offset
-> >            cube.coord('year').points = [y + 1652 for y in cube.coord('year').points]
 > >        label_name = data['dataset']
 > >        print(label_name, cube.shape)
 > >        quickplot.plot(cube, label=label_name)

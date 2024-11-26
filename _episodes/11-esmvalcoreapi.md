@@ -52,11 +52,13 @@ You will need to use a python environment with ESMValTool and ESMValCore install
 
 ## Configuration in the notebook
 
-We can look at the default user configuration file, by default found in `~/.esmvaltool/config-user.yml` 
-by calling a `CFG` object as a dictionary structure. This gives us the ability to edit the settings.
+We can look at the default user configuration file, by default found in 
+`~/.esmvaltool/config-user.yml` by calling a `CFG` object as a dictionary structure. 
+This gives us the ability to edit the settings.
 The tool can automatically download the climate data files required to run a recipe for you.
 You can check your download directory and output directory where your recipe runs will be saved.
-This `CFG` object is from the `config` module in the ESMValCore API, for more details see [here][api-config].
+This `CFG` object is from the `config` module in the ESMValCore API,
+for more details see [here][api-config].
 
 > Call the `CFG` object in a Jupyter notebook and inspect the values.
 > > ## Solution
@@ -302,9 +304,9 @@ See the [documentation][recipe-section-preprocessors]{:target="_blank"} to read 
 
 > ## Note: Warnings
 > When the notebook cell runs you may get some warnings. These would be similar to what is in the
-> *main_log.txt* and *main_log_debug.txt* files in the output of a recipe run. The warnings can come 
-> from any of the python libraries used to process the data. If they are just warnings the cell can
-> still complete and return an output
+> *main_log.txt* and *main_log_debug.txt* files in the output of a recipe run. 
+> The warnings can come from any of the python libraries used to process the data. 
+> If they are just warnings the cell can still complete and return an output
 > > ## Example warnings
 > > ![image](../fig/preproc_warnings.png)
 > {: .solution}
@@ -323,7 +325,7 @@ print(da)
 ### Plot data
 The output from the preprocessor functions are Iris cubes.
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html){:target="_blank"} 
-has wrappers for [matplotlib](https://matplotlib.org/){:target="_blank"} to [plot the processed 
+has wrappers for [matplotlib](https://matplotlib.org/){:target="_blank"} to [plot the processed
 cubes][iris-plot]{:target="_blank"}. 
 This is useful in a notebook to help develop your recipe with the esmvalcore preprocessors.
 ```python

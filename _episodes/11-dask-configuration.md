@@ -65,9 +65,10 @@ package is more suitable for larger computations.
 > ## On using ``max_parallel_tasks``
 >
 > In the config-user.yml file, there is a setting called ``max_parallel_tasks``.
-> Any variable or diagnostic script in the recipe is considered a 'task' in this
-> context and this is set to a value larger than 1, these will be
-> processed in parallel on the computer running the ``esmvaltool`` command.
+> Any variable to be processed or diagnostic script to be run in the recipe is
+> considered a 'task'. When ``max_parallel_tasks`` is set to a value larger
+> than 1, these tasks will be processed in parallel on the computer running the
+> ``esmvaltool`` command.
 >
 > With the Dask Distributed scheduler, all the tasks running in parallel
 > can use the same workers, but with the default scheduler each task will
@@ -203,52 +204,54 @@ asked to do.
 > {: .solution}
 {: .challenge}
 
-## Using an existing Dask Distributed cluster
+## Pro tip: Using an existing Dask Distributed cluster
 
-It can be useful to start the Dask Distributed cluster before
-running the ``esmvaltool`` command. For example, if you would like to keep the
-Dashboard available for further investigation after the recipe completes
-running, or if you are working from a Jupyter notebook environment, see
-[dask-labextension](https://github.com/dask/dask-labextension) and
-[dask_jobqueue interactive use][dask-jobqueue-interactive] for more information.
+> It can be useful to start the Dask Distributed cluster before
+> running the ``esmvaltool`` command. For example, if you would like to keep
+> the Dashboard available for further investigation after the recipe completes
+> running, or if you are working from a Jupyter notebook environment, see
+> [dask-labextension](https://github.com/dask/dask-labextension) and
+> [dask_jobqueue interactive use][dask-jobqueue-interactive] for more
+> information.
+>
+> To use a cluster that was started in some other way, the following
+> configuration can be used in ``~/.esmvaltool/dask.yml``:
+>
+> ```yaml
+> client:
+>   address: "tcp://127.0.0.1:33041"
+> ```
+> where the address depends on the Dask cluster. Code to start a
+> [``distributed.LocalCluster``][distributed-localcluster]
+> that automatically scales between 0 and 2 workers depending on demand, could
+> look like this:
+>
+> ```python
+> from time import sleep
+>
+> from distributed import LocalCluster
+>
+> if __name__ == '__main__':  # Remove this line when running from a Jupyter notebook
+>     cluster = LocalCluster(
+>         threads_per_worker=2,
+>         memory_limit='4GiB',
+>     )
+>     cluster.adapt(minimum=0, maximum=2)
+>     # Print connection information
+>     print(f"Connect to the Dask Dashboard by opening {cluster.dashboard_link} in a browser.")
+>     print("Add the following text to ~/.esmvaltool/dask.yml to connect to the cluster:" )
+>     print("client:")
+>     print(f'  address: "{cluster.scheduler_address}"')
+>     # When running this as a Python script, the next two lines keep the cluster
+>     # running for an hour.
+>     hour = 3600 # seconds
+>     sleep(1 * hour)
+>     # Stop the cluster when you are done with it.
+>     cluster.close()
+> ```
+{: .callout}
 
-To use a cluster that was started in some other way, the following configuration
-can be used in ``~/.esmvaltool/dask.yml``:
-
-```yaml
-client:
-  address: "tcp://127.0.0.1:33041"
-```
-where the address depends on the Dask cluster. Code to start a
-[``distributed.LocalCluster``][distributed-localcluster]
-that automatically scales between 0 and 2 workers depending on demand, could
-look like this:
-
-```python
-from time import sleep
-
-from distributed import LocalCluster
-
-if __name__ == '__main__':  # Remove this line when running from a Jupyter notebook
-    cluster = LocalCluster(
-        threads_per_worker=2,
-        memory_limit='4GiB',
-    )
-    cluster.adapt(minimum=0, maximum=2)
-    # Print connection information
-    print(f"Connect to the Dask Dashboard by opening {cluster.dashboard_link} in a browser.")
-    print("Add the following text to ~/.esmvaltool/dask.yml to connect to the cluster:" )
-    print("client:")
-    print(f'  address: "{cluster.scheduler_address}"')
-    # When running this as a Python script, the next two lines keep the cluster
-    # running for an hour.
-    hour = 3600 # seconds
-    sleep(1 * hour)
-    # Stop the cluster when you are done with it.
-    cluster.close()
-```
-
-> ## Start a cluster and use it
+> ## Pro tip excercise: Start a cluster yourself and tell ESMValTool to use it
 >
 > Copy the Python code above into a file called ``start_dask_cluster.py`` (or
 into a Jupyter notebook if you prefer) and start the cluster using the command

@@ -83,26 +83,27 @@ Please skip this section if you are not going to use JASMIN
 and go [here](#github-account-advanced).
 
 If you do not already have an account on JASMIN, then request an account as soon
-as possible. Please follow [these instructions on how to create a Jasmin
-account](https://help.jasmin.ac.uk/article/4435-get-a-jasmin-account-portal)
+as possible. Please follow the steps below (also documented in detail here:
+[Essential steps to gain login access to JASMIN
+](https://help.jasmin.ac.uk/docs/getting-started/get-started-with-jasmin/#essential-steps)).
 
-During the account creation, you will need an SSH key, which can be generated
-following [these
-instructions](https://help.jasmin.ac.uk/article/185-generate-ssh-key-pair)
+- Generate an [SSH key
+](https://help.jasmin.ac.uk/docs/getting-started/generate-ssh-key-pair)
+- Get a [JASMIN portal account
+](https://help.jasmin.ac.uk/docs/getting-started/get-jasmin-portal-account)
+- Get a [jasmin-login account
+](https://help.jasmin.ac.uk/docs/getting-started/get-login-account)
 
-Here are some more [instructions on how to get started with
-jasmin](https://help.jasmin.ac.uk/article/189-get-started-with-jasmin).
+Note that the JASMIN portal is only an account for the web-interface. A jasmin-login
+account is also required.
 
 Also note that if you are working from home, JASMIN may not be directly
 accessible from your home. You may need to use ssh to connect to a machine in
 your institute and then on to JASMIN. Please test your connection before the
 tutorial.
 
-#### Jasmin-login
-
-Note that you have only created an account for the web-interface. To log into
-the jasmin machine and do work, you'll need to create a login account too using
-[this page](https://help.jasmin.ac.uk/article/161-get-login-account).
+Here are some further, general resources for [getting started with
+JASMIN](https://help.jasmin.ac.uk/article/189-get-started-with-jasmin).
 
 #### Access to data on JASMIN
 

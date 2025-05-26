@@ -22,7 +22,7 @@ keypoints:
 
 ## The configuration file
 
-For the purposes of this episode, we will create a directory in our home directory
+First, for the purposes of this tutorial, we will create a directory in our home directory
 called `esmvaltool_tutorial` and use that as our working directory. The following steps 
 should do that:
 

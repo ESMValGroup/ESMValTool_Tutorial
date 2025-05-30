@@ -43,7 +43,7 @@ esmvaltool run examples/recipe_python.yml
 or if you have the user configuration file in your current directory then
 
 ```
-esmvaltool run --config_file ./config-user.yml examples/recipe_python.yml
+esmvaltool run --config_dir . examples/recipe_python.yml
 ```
 
 If everything is okay, you should see that ESMValTool is printing a lot of
@@ -80,7 +80,7 @@ Let's dissect what's happening here.
 > > ## Answers
 > >
 > > 1. The config file should be the one we edited in the previous episode,
-> >    something like `/home/<username>/.esmvaltool/config-user.yml` or
+> >    something like `/home/<username>/.config/esmvaltool/config-user.yml` or
  `~/esmvaltool_tutorial/config-user.yml`.
 > > 1. ESMValTool found the recipe in its installation directory, 
 >> something like

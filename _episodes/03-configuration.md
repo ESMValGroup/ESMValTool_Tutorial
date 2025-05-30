@@ -45,7 +45,7 @@ The default configuration file will be downloaded to the default location:
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.config` directory in the terminal use
 `ls -la ~`. 
-With the optional --path=<target_dir> you could specifiy the directory where to save the configuration
+With the optional ``--path=<target_dir>`` you could specifiy the directory where to save the configuration
 file. For instance, you can provide the path to your working directory 
 as the `target_dir`. 
 Note that if a configuration file by that name already exists in the default 

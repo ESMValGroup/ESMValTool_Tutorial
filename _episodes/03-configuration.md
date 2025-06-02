@@ -45,7 +45,8 @@ The default configuration file will be downloaded to the default location:
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.config` directory in the terminal use
 `ls -la ~`. 
-With the optional ``--path=<target_dir>`` you could specifiy the directory where to save the configuration
+With the optional ``--path=<target_dir>`` you could specifiy the directory
+where to save the configuration
 file. For instance, you can provide the path to your working directory 
 as the `target_dir`. 
 Note that if a configuration file by that name already exists in the default 
@@ -243,7 +244,8 @@ The ``drs`` setting describes the file structure for several projects (e.g.
 CMIP6, CMIP5, obs4mips, OBS6, OBS) on several key machines
 (e.g. BADC, CP4CDS, DKRZ, ETHZ, SMHI, BSC). For more
 information about ``drs``, you can visit the ESMValTool documentation on
-[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/find_data.html#explaining-drs-cmip5-or-drs-cmip6).
+[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/ESMValCore/
+en/latest/quickstart/find_data.html#explaining-drs-cmip5-or-drs-cmip6).
 
 > ## Set the correct drs
 >
@@ -319,7 +321,8 @@ if you want to feed some additional data (e.g. shape files) to your recipe.
 > auxiliary_data_dir: ~/auxiliary_data
 > ```
 > See more information in ESMValTool
-[documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
+[documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
 {: .callout}
 
 > ## Number of parallel tasks
@@ -352,7 +355,8 @@ amount of memory available in your system.
 > for example: config-user_formalised_runs.yml, config-user_debugging.yml.
 > In this case, ESMValTool searches for all YAML files within each of the 
 > configuration directories and merges them together. How this is done is 
-> exlained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#yaml-files).
+> exlained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+> quickstart/configure.html#yaml-files).
 {: .callout}
 
 {% include links.md %}

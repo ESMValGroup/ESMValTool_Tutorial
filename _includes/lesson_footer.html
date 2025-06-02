@@ -4,6 +4,22 @@
 
 {% include gh_variables.html %}
 
+<head>
+   <script type="text/javascript">
+     function mail(user,domain,mailbody)
+        {
+                if (!domain) {
+                        domain="dlr.de";
+                }
+		if (!mailbody){
+			mailbody=""
+		}
+                url="mail"+"to:"+user+"@"+domain+"?body="+mailbody;
+                window.location.href=url;
+        }
+    </script>
+</head>
+
 <footer>
   <div class="row">
     <div class="col-md-6 copyright" align="left">
@@ -51,4 +67,22 @@
       version <a href="https://github.com/carpentries/styles/releases/tag/v9.5.3">9.5.3</a>.
     </div>
   </div>
+  
+  <table>
+    <tr>
+      <th>Contact</th>
+      <th>Impressum</th>
+<!--      <th>Privacy</th>-->
+      <th>Terms of use</th>
+      <th>Acknowledgements</th>
+    </tr>
+    <tr>
+      <td><p style="font-size:95%;"><a href="javascript:mail('birgit.hassler','dlr.de')">Birgit Hassler (Project Co-PI)</a><br>
+        <a href="javascript:mail('axel.lauer','dlr.de')">Axel Lauer (Core Developer)</a><br></p></td>
+      <td><p style="font-size:95%;"><a href="https://esmvaltool.org/legal_notice/">Legal Notice</a></p></td>
+<!--    <td><p style="font-size:95%;"><a href="https://esmvaltool.org/privacy/">Privacy Notice</a></p></td>-->
+      <td><p style="font-size:95%;"><a href="https://esmvaltool.org/terms_of_use/">Terms of use</a></p></td>
+      <td><p style="font-size:95%;"><a href="https://esmvaltool.org/acknowledgements/">ESMValTool Funding</a></p></td>
+    </tr>
+  </table>
 </footer>

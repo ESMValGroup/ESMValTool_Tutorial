@@ -46,10 +46,9 @@ path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.config` directory in the terminal use
 `ls -la ~`. 
 With the optional ``--path=<target_dir>`` you could specifiy the directory
-where to save the configuration
-file. For instance, you can provide the path to your working directory 
-as the `target_dir`. 
-Note that if a configuration file by that name already exists in the default 
+in which the configuration file can be saved. For instance, you can provide
+the path to your working directory as the `target_dir`. 
+Note, if a configuration file by that name already exists in the default 
 location, the `get_config_user` command will not update the file as ESMValTool will not 
 overwrite the file. You will have to move the file first if you want an updated copy of the 
 default user configuration file.
@@ -345,7 +344,7 @@ amount of memory available in your system.
 
 > ## Make your own configuration file
 >
-> Configuration files could live in the user configuration directory, wihch is 
+> Configuration files could live in the user configuration directory, which is 
 > by default ``~/.config/esmvaltool``. The directory could be also specified
 > via the command line argument ``--config_dir``.
 > We will learn how to do this in the

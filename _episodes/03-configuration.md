@@ -22,7 +22,7 @@ keypoints:
 
 ## The configuration file
 
-For the purposes of this tutorial, we will create a directory in our home directory
+First, for the purposes of this tutorial, we will create a directory in our home directory
 called `esmvaltool_tutorial` and use that as our working directory. The following steps 
 should do that:
 
@@ -38,18 +38,20 @@ This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
 You can get the default configuration file by running:
 
 ~~~bash
-  esmvaltool config get_config_user --path=<target_dir>
+  esmvaltool config get_config_user
 ~~~
-The default configuration file will be downloaded to the directory specified with 
-the `--path` variable. For instance, you can provide the path to your working directory 
-as the `target_dir`. If this option is not used, the file will be saved to the default 
-location: `~/.esmvaltool/config-user.yml`, where `~` is the
+The default configuration file will be downloaded to the default location: 
+`~/.config/esmvaltool/config-user.yml`, where `~` is the
 path to your home directory. Note that files and directories starting with a
-period are "hidden", to see the `.esmvaltool` directory in the terminal use
-`ls -la ~`. Note that if a configuration file by that name already exists in the default 
+period are "hidden", to see the `.config` directory in the terminal use
+`ls -la ~`. 
+With the optional ``--path=<target_dir>`` you could specifiy the directory
+in which the configuration file can be saved. For instance, you can provide
+the path to your working directory as the `target_dir`. 
+Note, if a configuration file by that name already exists in the default 
 location, the `get_config_user` command will not update the file as ESMValTool will not 
 overwrite the file. You will have to move the file first if you want an updated copy of the 
-user configuration file.
+default user configuration file.
 
 
 
@@ -57,7 +59,7 @@ We run a text editor called ``nano`` to have a look inside the configuration fil
 and then modify it if needed:
 
 ~~~bash
-  nano ~/.esmvaltool/config-user.yml
+  nano ~/.config/esmvaltool/config-user.yml
 ~~~
 
 Any other editor can be used, e.g.vim.
@@ -120,7 +122,7 @@ using the format: YYYYMMDD_HHMMSS.
 
 > ## Set the destination directory
 >
-> Let's name our destination directory ``esmvaltool_output`` in the working directory.
+> Let's name our destination directory ``esmvaltool_output`` in the current directory.
 > ESMValTool should write the output to this path, so make sure you have the disk space
 > to write output to this directory.
 > How do we set this in the `config-user.yml`?
@@ -172,7 +174,7 @@ rootpath:
   default: ~/climate_data
 ```
 These are typically available in the default configuration file you downloaded, so simply 
-removing the machine specific lines should be sufficient to access input data.
+uncommenting the machine specific lines should be sufficient to access input data.
 
 > ## Set the correct rootpath
 >
@@ -236,15 +238,13 @@ quickstart/find_data.html).
 ## Directory structure for the data from different projects
 
 Input data can be from various models, observations and reanalysis data that
-adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). The ``drs`` setting
-describes the file structure.
-
+adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). 
 The ``drs`` setting describes the file structure for several projects (e.g.
 CMIP6, CMIP5, obs4mips, OBS6, OBS) on several key machines
 (e.g. BADC, CP4CDS, DKRZ, ETHZ, SMHI, BSC). For more
 information about ``drs``, you can visit the ESMValTool documentation on
-[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/esmvalcore/
-en/latest/quickstart/find_data.html#cmor-drs).
+[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/ESMValCore/
+en/latest/quickstart/find_data.html#explaining-drs-cmip5-or-drs-cmip6).
 
 > ## Set the correct drs
 >
@@ -293,23 +293,14 @@ en/latest/quickstart/find_data.html#cmor-drs).
 
 > ## Explain the default drs (if working on local machine)
 >
-> 1. In the previous exercise, we set the `drs` of CMIP5 data to `default`.
+> In the previous exercise, we set the `drs` of CMIP5 data to `default`.
 >    Can you explain why?
-> 2. Have a look at the directory structure of the `OBS` data.
->    There is a folder called `Tier1`. What does it mean?
 >
 >> ## Solution
 >>
->> 1. `drs: default` is one way to retrieve data from a ROOT directory that has
+>> `drs: default` is one way to retrieve data from a ROOT directory that has
 >>    no DRS-like structure. ``default`` indicates that all the files are in a
 >>    folder without any structure.
->>
->> 2. Observational data are organized in Tiers depending on their level of
->>    public availability. Therefore the default directory must be structured
->>    accordingly with sub-directories `TierX` e.g. Tier1, Tier2 or Tier3, even
->>    when `drs: default`. More details can be found in the 
-[documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-quickstart/find_data.html#observational-data).
 >>
 > {: .solution}
 {: .challenge}
@@ -329,8 +320,8 @@ if you want to feed some additional data (e.g. shape files) to your recipe.
 > auxiliary_data_dir: ~/auxiliary_data
 > ```
 > See more information in ESMValTool
-[document](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart
-/configure.html?highlight=auxiliary_data#user-configuration-file).
+[documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
 {: .callout}
 
 > ## Number of parallel tasks
@@ -353,12 +344,18 @@ amount of memory available in your system.
 
 > ## Make your own configuration file
 >
-> It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml.
-> In this case, you have to pass the path of your own configuration file
-> as a command-line option when running the ESMValTool.
+> Configuration files could live in the user configuration directory, which is 
+> by default ``~/.config/esmvaltool``. The directory could be also specified
+> via the command line argument ``--config_dir``.
 > We will learn how to do this in the
 > [next lesson]({{ page.root }}{% link _episodes/04-recipe.md %}).
+>
+> It is possible to have several configuration files with different purposes,
+> for example: config-user_formalised_runs.yml, config-user_debugging.yml.
+> In this case, ESMValTool searches for all YAML files within each of the 
+> configuration directories and merges them together. How this is done is 
+> exlained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+> quickstart/configure.html#yaml-files).
 {: .callout}
 
 {% include links.md %}

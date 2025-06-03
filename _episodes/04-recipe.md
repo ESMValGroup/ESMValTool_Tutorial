@@ -2,7 +2,7 @@
 title: "Running your first recipe"
 teaching: 15
 exercises: 15
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.12.0
 
 questions:
 - "How to run a recipe?"
@@ -132,8 +132,8 @@ distinguished in the log messages:
 > > following line in the output:
 > >
 > > ```
-> >[134535] INFO    These tasks will be executed: map/tas, timeseries/tas_global, 
->>timeseries/script1, map/script1, timeseries/tas_amsterdam
+> >INFO    [3966381] These tasks will be executed: timeseries/script1,
+> > timeseries/tas_amsterdam, timeseries/tas_global, map/tas, map/script1
 > > ```
 > >
 > > So there are three tasks related to timeseries: global temperature,

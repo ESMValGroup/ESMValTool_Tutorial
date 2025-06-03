@@ -62,7 +62,8 @@ and then modify it if needed:
   nano ~/.config/esmvaltool/config-user.yml
 ~~~
 
-If ``nano`` does not work on your system, or if you prefer a different editor, any other editor can be used, e.g. ``vim``.
+If ``nano`` does not work on your system, or if you prefer a different editor, 
+any other editor can be used, e.g. ``vim``.
 
 This file contains the information for:
 

@@ -2,7 +2,7 @@
 title: "Configuration"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.12.0
 
 questions:
 - What is the user configuration file and how should I use it?
@@ -45,7 +45,7 @@ The default configuration file will be downloaded to the default location:
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.config` directory in the terminal use
 `ls -la ~`. 
-With the optional ``--path=<target_dir>`` you could specifiy the directory
+With the optional ``--path=<target_dir>`` you can specifiy the directory
 in which the configuration file can be saved. For instance, you can provide
 the path to your working directory as the `target_dir`. 
 Note, if a configuration file by that name already exists in the default 
@@ -62,7 +62,8 @@ and then modify it if needed:
   nano ~/.config/esmvaltool/config-user.yml
 ~~~
 
-Any other editor can be used, e.g.vim.
+If ``nano`` does not work on your system, or if you prefer a different editor, 
+any other editor can be used, e.g. ``vim``.
 
 This file contains the information for:
 
@@ -230,8 +231,8 @@ uncommenting the machine specific lines should be sufficient to access input dat
 >>```
 >>
 >> - For more information about setting the rootpath, see also the ESMValTool
->> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-quickstart/find_data.html).
+>> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/
+latest/quickstart/find_data.html).
 > {: .solution}
 {: .challenge}
 
@@ -321,7 +322,7 @@ if you want to feed some additional data (e.g. shape files) to your recipe.
 > ```
 > See more information in ESMValTool
 [documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
-quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
+> quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
 {: .callout}
 
 > ## Number of parallel tasks
@@ -354,8 +355,8 @@ amount of memory available in your system.
 > for example: config-user_formalised_runs.yml, config-user_debugging.yml.
 > In this case, ESMValTool searches for all YAML files within each of the 
 > configuration directories and merges them together. How this is done is 
-> exlained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
-> quickstart/configure.html#yaml-files).
+> explained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/
+> latest/quickstart/configure.html#yaml-files).
 {: .callout}
 
 {% include links.md %}

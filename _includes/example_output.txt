@@ -36,19 +36,19 @@ INFO    [3966381] ESMValCore: 2.12.0
 INFO    [3966381] ESMValTool: 2.12.0
 INFO    [3966381] ----------------
 INFO    [3966381] Reading configuration files from:
-/home/b/b309059/ESMValTool/ESMValCore/esmvalcore/config/configurations/defaults (defaults)
-/home/b/b309059/.config/esmvaltool (default user configuration directory)
+/home/user/username/ESMValTool/ESMValCore/esmvalcore/config/configurations/defaults (defaults)
+/home/user/username/.config/esmvaltool (default user configuration directory)
 INFO    [3966381] Writing program log files to:
-/scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/main_log.txt
-/scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/main_log_debug.txt
-/scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/cmor_log.txt
+/scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/main_log.txt
+/scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/main_log_debug.txt
+/scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/cmor_log.txt
 INFO    [3966381] Starting the Earth System Model Evaluation Tool at time: 2025-06-03 12:01:59 UTC
 INFO    [3966381] ----------------------------------------------------------------------
-INFO    [3966381] RECIPE   = /home/b/b309059/ESMValTool/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml
-INFO    [3966381] RUNDIR     = /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run
-INFO    [3966381] WORKDIR    = /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/work
-INFO    [3966381] PREPROCDIR = /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/preproc
-INFO    [3966381] PLOTDIR    = /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/plots
+INFO    [3966381] RECIPE   = /home/user/username/ESMValTool/ESMValTool/esmvaltool/recipes/examples/recipe_python.yml
+INFO    [3966381] RUNDIR     = /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run
+INFO    [3966381] WORKDIR    = /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/work
+INFO    [3966381] PREPROCDIR = /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/preproc
+INFO    [3966381] PLOTDIR    = /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/plots
 INFO    [3966381] ----------------------------------------------------------------------
 INFO    [3966381] Running tasks using at most 256 processes
 INFO    [3966381] If your system hangs during execution, it may not have enough memory for keeping this number of tasks in memory.
@@ -75,8 +75,8 @@ INFO    [3966381] Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, h
 INFO    [3966381] PreprocessingTask timeseries/tas_global created.
 INFO    [3966381] These tasks will be executed: timeseries/script1, timeseries/tas_amsterdam, timeseries/tas_global, map/tas, map/script1
 INFO    [3966381] Wrote recipe with version numbers and wildcards to:
-file:///scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/recipe_python_filled.yml
-WARNING [3966381] /home/b/b309059/ESMValTool/ESMValCore/esmvalcore/config/_dask.py:160: ESMValCoreDeprecationWarning: Usage of Dask configuration file ~/.esmvaltool/dask.yml has been deprecated in ESMValCore version 2.12.0 and is scheduled for removal in version 2.14.0. Please use the configuration option `dask` instead (see https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration for details). Ignoring all existing `dask` configuration options for this run. To enable the new `dask` configuration options, delete or move the file ~/.esmvaltool/dask.yml or set the environment variable ESMVALTOOL_USE_NEW_DASK_CONFIG=1.
+file:///scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/recipe_python_filled.yml
+WARNING [3966381] /home/user/username/ESMValTool/ESMValCore/esmvalcore/config/_dask.py:160: ESMValCoreDeprecationWarning: Usage of Dask configuration file ~/.esmvaltool/dask.yml has been deprecated in ESMValCore version 2.12.0 and is scheduled for removal in version 2.14.0. Please use the configuration option `dask` instead (see https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration for details). Ignoring all existing `dask` configuration options for this run. To enable the new `dask` configuration options, delete or move the file ~/.esmvaltool/dask.yml or set the environment variable ESMVALTOOL_USE_NEW_DASK_CONFIG=1.
   warn_if_old_dask_config_exists()
 
 INFO    [3966381] Using Dask distributed scheduler (address: tcp://10.128.10.130:41935, dashboard link: http://10.128.10.130:8787/status)
@@ -87,7 +87,7 @@ INFO    [3967062] Starting task timeseries/tas_amsterdam in process [3967062]
 INFO    [3967064] Starting task timeseries/tas_global in process [3967064]
 INFO    [3967062] Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
 INFO    [3967062] Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
-INFO    [3967062] Generated PreprocessorFile: /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/preproc/timeseries/tas_amsterdam/MultiModelMean_historical_Amon_tas_1850-2000.nc
+INFO    [3967062] Generated PreprocessorFile: /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/preproc/timeseries/tas_amsterdam/MultiModelMean_historical_Amon_tas_1850-2000.nc
 INFO    [3967062] Computing and saving data for preprocessing task timeseries/tas_amsterdam
 INFO    [3967062] timeseries/tas_amsterdam      [                                        ] |   0% Completed | 10.18 s
 INFO    [3967062] timeseries/tas_amsterdam      [                                        ] |   0% Completed | 20.24 s
@@ -106,23 +106,23 @@ INFO    [3967064] Computing and saving data for preprocessing task timeseries/ta
 INFO    [3967058] Successfully completed task map/tas (priority 1) in 0:01:36.040206
 INFO    [3966381] Progress: 1 tasks running, 2 tasks waiting for ancestors, 2/5 done
 INFO    [3967066] Starting task map/script1 in process [3967066]
-INFO    [3967066] Running command ['/work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12', '/home/b/b309059/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', '/scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/map/script1/settings.yml']
-INFO    [3967066] Writing output to /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/work/map/script1
-INFO    [3967066] Writing plots to /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/plots/map/script1
-INFO    [3967066] Writing log to /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/map/script1/log.txt
+INFO    [3967066] Running command ['/work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12', '/home/user/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', '/scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/map/script1/settings.yml']
+INFO    [3967066] Writing output to /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/work/map/script1
+INFO    [3967066] Writing plots to /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/plots/map/script1
+INFO    [3967066] Writing log to /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/map/script1/log.txt
 INFO    [3967066] To re-run this diagnostic script, run:
-cd /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/map/script1; MPLBACKEND="Agg" /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/b/b309059/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/map/script1/settings.yml
+cd /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/map/script1; MPLBACKEND="Agg" /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/user/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/map/script1/settings.yml
 INFO    [3966381] Progress: 2 tasks running, 1 tasks waiting for ancestors, 2/5 done
 INFO    [3967064] timeseries/tas_global         [########################################] | 100% Completed | 2.08 s
 INFO    [3967064] Successfully completed task timeseries/tas_global (priority 4) in 0:01:38.392573
 INFO    [3966381] Progress: 1 tasks running, 1 tasks waiting for ancestors, 3/5 done
 INFO    [3967068] Starting task timeseries/script1 in process [3967068]
-INFO    [3967068] Running command ['/work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12', '/home/b/b309059/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', '/scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1/settings.yml']
-INFO    [3967068] Writing output to /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/work/timeseries/script1
-INFO    [3967068] Writing plots to /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/plots/timeseries/script1
-INFO    [3967068] Writing log to /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1/log.txt
+INFO    [3967068] Running command ['/work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12', '/home/user/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', '/scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1/settings.yml']
+INFO    [3967068] Writing output to /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/work/timeseries/script1
+INFO    [3967068] Writing plots to /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/plots/timeseries/script1
+INFO    [3967068] Writing log to /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1/log.txt
 INFO    [3967068] To re-run this diagnostic script, run:
-cd /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1; MPLBACKEND="Agg" /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/b/b309059/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1/settings.yml
+cd /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1; MPLBACKEND="Agg" /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/user/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/timeseries/script1/settings.yml
 INFO    [3966381] Progress: 2 tasks running, 0 tasks waiting for ancestors, 3/5 done
 INFO    [3967066] Maximum memory used (estimate): 0.3 GB
 INFO    [3967066] Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
@@ -134,18 +134,18 @@ INFO    [3967068] Successfully completed task timeseries/script1 (priority 2) in
 INFO    [3966381] Progress: 0 tasks running, 0 tasks waiting for ancestors, 5/5 done
 INFO    [3966381] Successfully completed all tasks.
 INFO    [3966381] Wrote recipe with version numbers and wildcards to:
-file:///scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/recipe_python_filled.yml
+file:///scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/recipe_python_filled.yml
 INFO    [3966381] Wrote recipe output to:
-file:///scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/index.html
+file:///scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/index.html
 INFO    [3966381] It looks like you are connected to a remote machine via SSH. To show the output html file, you can try the following command on your local machine:
-server=136.172.124.1 && port=31415 && ssh -t -L ${port}:localhost:${port} b309059@${server} /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12 -m http.server ${port} -d /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145
+server=136.172.124.1 && port=31415 && ssh -t -L ${port}:localhost:${port} b309059@${server} /work/bd0854/b309059/utils/mambaforge/envs/esmvaltool/bin/python3.12 -m http.server ${port} -d /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145
 Then visit http://localhost:31415 in your browser
 INFO    [3966381] If the port 31415 is already in use, you can replace it with any other free one (e.g., 12789). If you are connected through a jump host, replace the server IP address 136.172.124.1 with your SSH server name
 INFO    [3966381] Ending the Earth System Model Evaluation Tool at time: 2025-06-03 12:04:12 UTC
 INFO    [3966381] Time for running the recipe was: 0:02:12.411071
 INFO    [3966381] Maximum memory used (estimate): 2.2 GB
 INFO    [3966381] Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
-WARNING [3966381] Input data is not (fully) CMOR-compliant, see /scratch/b/b309059/esmvaltool_output/recipe_python_20250603_120145/run/cmor_log.txt for details
+WARNING [3966381] Input data is not (fully) CMOR-compliant, see /scratch/user/username/esmvaltool_output/recipe_python_20250603_120145/run/cmor_log.txt for details
 INFO    [3966381] Run was successful
-WARNING [3966381] /home/b/b309059/ESMValTool/ESMValCore/esmvalcore/_main.py:441: ESMValCoreDeprecationWarning: Usage of Dask configuration file ~/.esmvaltool/dask.yml has been deprecated in ESMValCore version 2.12.0 and is scheduled for removal in version 2.14.0. Please use the configuration option `dask` instead (see https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration for details). Ignoring all existing `dask` configuration options for this run. To enable the new `dask` configuration options, delete or move the file ~/.esmvaltool/dask.yml or set the environment variable ESMVALTOOL_USE_NEW_DASK_CONFIG=1.
+WARNING [3966381] /home/user/username/ESMValTool/ESMValCore/esmvalcore/_main.py:441: ESMValCoreDeprecationWarning: Usage of Dask configuration file ~/.esmvaltool/dask.yml has been deprecated in ESMValCore version 2.12.0 and is scheduled for removal in version 2.14.0. Please use the configuration option `dask` instead (see https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration for details). Ignoring all existing `dask` configuration options for this run. To enable the new `dask` configuration options, delete or move the file ~/.esmvaltool/dask.yml or set the environment variable ESMVALTOOL_USE_NEW_DASK_CONFIG=1.
 

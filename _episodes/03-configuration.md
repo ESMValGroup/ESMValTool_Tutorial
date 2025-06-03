@@ -62,7 +62,7 @@ and then modify it if needed:
   nano ~/.config/esmvaltool/config-user.yml
 ~~~
 
-If ``nano`` does not work on your system, any other editor can be used, e.g. ``vim``.
+If ``nano`` does not work on your system, or if you prefer a different editor, any other editor can be used, e.g. ``vim``.
 
 This file contains the information for:
 
@@ -230,7 +230,8 @@ uncommenting the machine specific lines should be sufficient to access input dat
 >>```
 >>
 >> - For more information about setting the rootpath, see also the ESMValTool
->> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/quickstart/find_data.html).
+>> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/
+latest/quickstart/find_data.html).
 > {: .solution}
 {: .challenge}
 
@@ -242,7 +243,8 @@ The ``drs`` setting describes the file structure for several projects (e.g.
 CMIP6, CMIP5, obs4mips, OBS6, OBS) on several key machines
 (e.g. BADC, CP4CDS, DKRZ, ETHZ, SMHI, BSC). For more
 information about ``drs``, you can visit the ESMValTool documentation on
-[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/find_data.html#explaining-drs-cmip5-or-drs-cmip6).
+[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/ESMValCore/
+en/latest/quickstart/find_data.html#explaining-drs-cmip5-or-drs-cmip6).
 
 > ## Set the correct drs
 >
@@ -318,7 +320,8 @@ if you want to feed some additional data (e.g. shape files) to your recipe.
 > auxiliary_data_dir: ~/auxiliary_data
 > ```
 > See more information in ESMValTool
-[documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
+[documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+> quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
 {: .callout}
 
 > ## Number of parallel tasks
@@ -351,7 +354,8 @@ amount of memory available in your system.
 > for example: config-user_formalised_runs.yml, config-user_debugging.yml.
 > In this case, ESMValTool searches for all YAML files within each of the 
 > configuration directories and merges them together. How this is done is 
-> exlained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#yaml-files).
+> explained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/
+> latest/quickstart/configure.html#yaml-files).
 {: .callout}
 
 {% include links.md %}

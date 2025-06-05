@@ -2,7 +2,7 @@
 title: "Conclusion of the basic tutorial"
 teaching: 10
 exercises: 0
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.12.0
 
 questions:
 - "What do I do now?"
@@ -63,7 +63,7 @@ to be suitable for use by ESMValTool.
 > - [ESMValTool home page](https://www.esmvaltool.org/)
 > - [Papers](https://esmvaltool.org/references/)
 > - [Source code (ESMValTool)](https://github.com/ESMValGroup/ESMValTool)
-> - [Source code (ESMValCore )](https://github.com/ESMValGroup/ESMValCore)
+> - [Source code (ESMValCore)](https://github.com/ESMValGroup/ESMValCore)
 {: .callout}
 
 

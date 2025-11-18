@@ -28,6 +28,8 @@ that follow the CMOR standards. Unfortunately, not all datasets follow these
 standards. In order to use such datasets in ESMValTool we first need to reformat
 the data. This process is called "CMORization".
 
+More detailed informations can be found in the [Documentation](https://docs.esmvaltool.org/en/latest/develop/dataset.html).
+
 > ## What are the CMOR standards?
 >
 > The name "CMOR" originates from a tool: [the Climate Model Output

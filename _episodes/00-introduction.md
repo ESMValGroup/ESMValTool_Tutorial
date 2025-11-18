@@ -2,7 +2,7 @@
 title: "Introduction"
 teaching: 5
 exercises: 10
-compatibility: ESMValTool v2.12.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - What is ESMValTool?

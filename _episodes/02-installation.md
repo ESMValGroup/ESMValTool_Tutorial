@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.12.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"
@@ -146,52 +146,6 @@ installed in it.
 >
 {: .callout}
 
-### Install Julia
-
-Some ESMValTool diagnostics are written in the Julia programming language.
-If you want a full installation of ESMValTool including Julia diagnostics, you need
-to make sure Julia is installed before installing ESMValTool.
-
-In this tutorial, we will not use Julia, but for reference, we have listed the steps
-to install Julia below.
-Complete instructions for installing Julia can be found on the [Julia
-installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
-
-> ## Julia installation instructions
->
-> First, open a bash terminal and activate the newly created `esmvaltool` environment.
->
-> ```bash
-> conda activate esmvaltool
-> ```
->
-> Next, to install Julia via `mamba`, you can use the following command:
->
-> ```bash
-> mamba install julia
-> ```
-> 
-> To check that the Julia executable can be found, run
->
-> ```bash
-> which julia
-> ```
->
-> to display the path to the Julia executable, it should be
->
-> ```
-> ~/mambaforge/envs/esmvaltool/bin/julia
-> ```
-> {: .output}
->
-> To test that Julia is installed correctly, run
->
-> ```bash
-> julia
-> ```
->
-> to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
-{: .solution}
 
 ### Test that the installation was successful
 
@@ -229,13 +183,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.10.0
-> > ESMValTool: 2.10.0
+> > ESMValCore: 2.12.0
+> > ESMValTool: 2.12.0
 > > ~~~
 > > {: .output}
 > Note that on HPC servers such as JASMIN, sometimes a more recent development 
 > version may be displayed for ESMValTool, for e.g. 
-> `ESMValTool: 2.9.0.dev4+g6948d5512`
+> `ESMValTool: 2.12.0.dev71+g2c60b4d97`
 > {: .solution}
 {: .challenge}
 

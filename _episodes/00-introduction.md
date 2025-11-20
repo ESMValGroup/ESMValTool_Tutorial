@@ -67,7 +67,7 @@ documentation:
 
 datasets:
   - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical, mip: Amon, 
-     ensemble: r1i1p1, start_year: 1960, end_year: 2005}
+     ensemble: r1i1p1f2, start_year: 1960, end_year: 2005}
 
 preprocessors:
   global_mean:

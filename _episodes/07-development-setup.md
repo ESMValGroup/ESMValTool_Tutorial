@@ -145,7 +145,8 @@ mamba env create --name a_new_name --file environment.yml
 This will create a new conda environment and install ESMValTool (with all
 dependencies that are needed for development purposes) into it with a single command.
 
-For more information see [Mamba User Guide](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html).
+For more information see 
+[Mamba User Guide](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html).
 
 Now, we should activate the environment:
 
@@ -273,7 +274,8 @@ The good news is that ``pre-commit`` has been already installed
 when we chose development installation.
 ``pre-commit`` is a command line and runs all of those tools. It also fixes some of those errors.
 To explore other tools, have a look at ESMValTool documentation on
-[Code quality](https://docs.esmvaltool.org/en/latest/community/code_documentation.html#code-quality).
+[Code quality](https://docs.esmvaltool.org/en/latest/community/
+code_documentation.html#code-quality).
 
 > ## Using pre-commit
 >

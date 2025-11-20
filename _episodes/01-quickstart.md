@@ -49,7 +49,13 @@ keypoints:
 > 
 > - Load the ESMValTool environment by following the instructions at
 >   [ESMValTool: Pre-installed versions on HPC clusters / other 
->   servers][activate-environment].
+>   servers][activate-environment]. This will typically involving loading a module
+>   like so:
+>
+>     ~~~
+>     module load esmvaltool
+>     ~~~
+>     {: .language-bash}
 >
 > - Check the ESMValTool environment by accessing the help for ESMValTool:
 >
@@ -62,7 +68,7 @@ keypoints:
 > ## How do I configure ESMValTool?
 >
 > - Create the ESMValTool user configuration file (the file is written by 
->   default to `~/.esmvaltool/config-user.yml`):
+>   default to `~/.config/esmvaltool/config-user.yml`):
 >
 >     ~~~
 >     esmvaltool config get_config_user

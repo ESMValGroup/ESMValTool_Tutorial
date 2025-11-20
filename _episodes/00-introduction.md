@@ -2,14 +2,14 @@
 title: "Introduction"
 teaching: 5
 exercises: 10
-compatibility: ESMValTool v2.12.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - What is ESMValTool?
 - Who are the people behind ESMValTool?
 
 objectives:
-- Familiarize with ESMValTool
+- Familiarization with ESMValTool
 - Synchronize expectations
 
 keypoints:
@@ -66,8 +66,8 @@ documentation:
     - lastname_firstname
 
 datasets:
-  - {dataset: HadGEM2-ES, project: CMIP5, exp: historical, mip: Amon, 
-     ensemble: r1i1p1, start_year: 1960, end_year: 2005}
+  - {dataset: UKESM1-0-LL, project: CMIP6, exp: historical, mip: Amon, 
+     ensemble: r1i1p1f2, start_year: 1960, end_year: 2005}
 
 preprocessors:
   global_mean:
@@ -84,7 +84,7 @@ diagnostics:
     scripts: hockeystick.py
 ```
 
-> ## Understanding the different section of the recipe
+> ## Understanding the different sections of the recipe
 >
 > Try to figure out the meaning of the different dataset keys. Hint: they can
 > be found in the documentation of ESMValTool.
@@ -106,7 +106,7 @@ results.
 > ## Explore the available recipes
 >
 > Go to the [ESMValTool Documentation webpage](https://docs.esmvaltool.org/) and
-> explore the `Available recipes` section. Which recipe(s) would you like to
+> explore the `Recipes` section in the sidebar. Which recipe(s) would you like to
 > try?
 {: .challenge}
 
@@ -123,8 +123,8 @@ some of the most important pages.
 > the GitHub page of our 'organization'. Have a look around. How many collaborators are
 > there? Do you know any of them?
 >
-> Near the top of the page there are 2 pinned repositories: ESMValTool and
-> ESMValCore. Visit each of the repositories. How many people have contributed
+> Near the top of the page there are 3 pinned repositories: ESMValTool, 
+> ESMValCore and Community. Visit each of the repositories. How many people have contributed
 > to each of them? Can you also find out how many people have contributed to
 > this tutorial?
 {: .challenge}

@@ -406,8 +406,8 @@ for each of the modifications we'll make below.
 
 > ## Specific location selection
 >
-> On <https://showyourstripes.info>{:target="_blank"}, you can download stripes for specific locations. Here we 
-> show how this can be done with ESMValTool. 
+> On <https://showyourstripes.info>{:target="_blank"}, you can download stripes for 
+> specific locations. Here we show how this can be done with ESMValTool. 
 > Instead of the global mean, we can pick a location to plot the stripes for. 
 > Can you find a suitable preprocessor to do this?
 >

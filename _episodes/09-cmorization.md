@@ -2,7 +2,7 @@
 title: "CMORization: adding new datasets to ESMValTool"
 teaching: 15
 exercises: 45
-compatibility: ESMValTool v2.11.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - "CMORization: what is it and why do we need it?"
@@ -28,7 +28,7 @@ that follow the CMOR standards. Unfortunately, not all datasets follow these
 standards. In order to use such datasets in ESMValTool we first need to reformat
 the data. This process is called "CMORization".
 
-More detailed informations can be found in the 
+More detailed informations can be found in the
 [Documentation](https://docs.esmvaltool.org/en/latest/develop/dataset.html).
 
 > ## What are the CMOR standards?
@@ -123,7 +123,7 @@ run the existing one. There is a specific command available in the ESMValTool to
 run the CMORizer scripts:
 
 ```bash
-esmvaltool data format --config_file <path to config-user.yml>  <dataset-name>
+esmvaltool data format --config_dir <directory of config-user.yml>  <dataset-name>
 ```
 
 The options `--start` and `--end` can be added to command above to restrict the
@@ -290,7 +290,8 @@ CMORized, ESMValTool will give a warning or error.
 Try to run the example recipe with
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml>
+ --log_level debug
 ```
 
 If everything is okay, the recipe should run without problems.
@@ -413,7 +414,7 @@ You can try running the CMORizer at this point, and it should work without
 errors. However, it doesn't produce any output yet:
 
 ```bash
-esmvaltool data format --config_file <path to config-user.yml> FLUXCOM
+esmvaltool data format --config_dir <directory of config-user.yml> FLUXCOM
 ```
 
 ### 1. Find the input data
@@ -643,7 +644,8 @@ rootpath:
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml>
+ --log_level debug
 ```
 
 it should be able to find the correct file, but it does not succeed yet. The ESMValTool CMOR checker

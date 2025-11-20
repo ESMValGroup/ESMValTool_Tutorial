@@ -28,7 +28,7 @@ that follow the CMOR standards. Unfortunately, not all datasets follow these
 standards. In order to use such datasets in ESMValTool we first need to reformat
 the data. This process is called "CMORization".
 
-More detailed informations can be found in the 
+More detailed informations can be found in the
 [Documentation](https://docs.esmvaltool.org/en/latest/develop/dataset.html).
 
 > ## What are the CMOR standards?
@@ -290,7 +290,8 @@ CMORized, ESMValTool will give a warning or error.
 Try to run the example recipe with
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml>
+ --log_level debug
 ```
 
 If everything is okay, the recipe should run without problems.
@@ -643,7 +644,8 @@ rootpath:
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml>
+ --log_level debug
 ```
 
 it should be able to find the correct file, but it does not succeed yet. The ESMValTool CMOR checker

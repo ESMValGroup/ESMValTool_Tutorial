@@ -2,7 +2,7 @@
 title: "Writing your own recipe"
 teaching: 15
 exercises: 30
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - "How do I create a new recipe?"
@@ -16,7 +16,7 @@ objectives:
 - "Run a recipe with variables from different datasets"
 keypoints:
 - "A recipe can work with different preprocessors at the same time."
-- "The setting `additional_datasets` can be used to add a different dataset."
+- "The setting `additional_datasets` can be used to add a different dataset for a specific variable group or diagnostic."
 - "Variable groups are useful for defining different settings for different
   variables."
 - "Multiple ensemble members and experiments can be analysed in a single recipe through concatenation."
@@ -197,7 +197,7 @@ For now, let's just use one of the existing references. Change the author field 
 ESMValTool. If you now run the recipe again, you should see the final message
 
 ```
-ERROR   No tasks to run!
+esmvalcore.exceptions.RecipeError: No tasks to run!
 ```
 {: .output}
 
@@ -319,7 +319,7 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
 > > can use the `custom_order` preprocessor as 
 >> described [here][recipe-section-preprocessors]{:target="_blank"}. 
->> For this example, we will keep the default order..
+>> For this example, we will keep the default order.
 > >
 > > Let's name our preprocessor `global_anomalies`.
 > {: .solution}
@@ -406,7 +406,7 @@ for each of the modifications we'll make below.
 
 > ## Specific location selection
 >
-> On showyourstripes.org, you can download stripes for specific locations. Here we 
+> On <https://showyourstripes.info>{:target="_blank"}, you can download stripes for specific locations. Here we 
 > show how this can be done with ESMValTool. 
 > Instead of the global mean, we can pick a location to plot the stripes for. 
 > Can you find a suitable preprocessor to do this?

@@ -18,9 +18,12 @@
 [cran-checkpoint]: https://cran.r-project.org/package=checkpoint
 [cran-knitr]: https://cran.r-project.org/package=knitr
 [cran-stringr]: https://cran.r-project.org/package=stringr
-[dc-lessons]: http://www.datacarpentry.org/lessons/
+[dask-configuration]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#dask-configuration
+[dask-jobqueue-interactive]: https://jobqueue.dask.org/en/latest/interactive.html
 [datasets-overview]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#datasets
+[dc-lessons]: http://www.datacarpentry.org/lessons/
 [diagnostic]: https://github.com/ESMValGroup/ESMValTool/blob/main/esmvaltool/diag_scripts/examples/diagnostic.py
+[distributed-localcluster]: https://distributed.dask.org/en/stable/api.html#distributed.LocalCluster
 [ds]: https://github.com/ESMValGroup/ESMValTool_Tutorial/blob/main/data/dataset.urls
 [email]: mailto:team@carpentries.org
 [generate-ssh-key]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent

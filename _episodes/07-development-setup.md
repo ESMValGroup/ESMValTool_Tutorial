@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.9.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - "What is a development installation?"
@@ -116,11 +116,11 @@ following the lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
 we should choose another name for the new environment in this lesson.
 
-ESMValTool now uses `mamba` instead of `conda` for the recommended installation.
+ESMValTool uses `mamba` for the recommended installation.
 For a minimal mamba installation, see section **Install Mamba** in lesson
 [Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
 
-It is good practice to update the version of mamba and conda on your machine before
+It is good practice to update the version of mamba on your machine before
 setting up ESMValTool. This can be done as follows:
 
 ~~~bash
@@ -145,7 +145,8 @@ mamba env create --name a_new_name --file environment.yml
 This will create a new conda environment and install ESMValTool (with all
 dependencies that are needed for development purposes) into it with a single command.
 
-For more information see [conda managing environments][manage-environments].
+For more information see 
+[Mamba User Guide](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html).
 
 Now, we should activate the environment:
 
@@ -179,9 +180,6 @@ If the installation is successful, ESMValTool prints a help message to the conso
 > the ``esmvaltool`` environment.
 > Use this command to check that ESMValTool is installed in a ``develop`` mode.
 >
-> **Tip**: see the
-> [documentation on conda list](https://docs.conda.io/projects/conda/en/latest/commands/list.html).
->
 >> ## Solution
 >>
 >> Run:
@@ -202,7 +200,7 @@ If the installation is successful, ESMValTool prints a help message to the conso
 
 The ``main`` branch has the latest features of ESMValTool. Please make sure
 that the source code on your machine is up-to-date. If you obtain the source
-code using git clone as explained in step **1 Source code**, you can run ``git pull``
+code using git clone as explained in section **1 Source code**, you can run ``git pull``
 to update the source code. Then ESMValTool installation will be updated
 with changes from the ``main`` branch.
 
@@ -276,7 +274,8 @@ The good news is that ``pre-commit`` has been already installed
 when we chose development installation.
 ``pre-commit`` is a command line and runs all of those tools. It also fixes some of those errors.
 To explore other tools, have a look at ESMValTool documentation on
-[Code style](https://docs.esmvaltool.org/en/latest/community/introduction.html#code-style).
+[Code quality](https://docs.esmvaltool.org/en/latest/community/
+code_documentation.html#code-quality).
 
 > ## Using pre-commit
 >

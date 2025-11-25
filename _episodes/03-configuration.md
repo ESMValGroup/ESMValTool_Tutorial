@@ -2,7 +2,7 @@
 title: "Configuration"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.12.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - What is the user configuration file and how should I use it?
@@ -20,7 +20,7 @@ keypoints:
 
 ---
 
-## The configuration file
+## The configuration file 
 
 First, for the purposes of this tutorial, we will create a directory in our home directory
 called `esmvaltool_tutorial` and use that as our working directory. The following steps 

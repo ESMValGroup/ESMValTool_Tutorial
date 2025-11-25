@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.12.0
+compatibility: ESMValTool v2.13.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"
@@ -74,13 +74,13 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
     On ``Linux``:
 
     ```bash
-    bash Mambaforge-Linux-x86_64.sh
+    bash Miniforge3-Linux-x86_64.sh
     ```
 
     On ``MacOSX``:
 
     ```bash
-    bash Mambaforge-MacOSX-x86_64.sh
+    bash Miniforge3-MacOSX-x86_64.sh
     ```
 
 3.  Follow the instructions in the installer. The defaults should normally
@@ -152,7 +152,7 @@ installed in it.
 To test that the installation was successful, run
 
 ```bash
-conda activate esmvaltool
+mamba activate esmvaltool
 ```
 
 to activate the conda environment called `esmvaltool`. In the shell prompt the
@@ -183,13 +183,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.12.0
-> > ESMValTool: 2.12.0
+> > ESMValCore: 2.13.0
+> > ESMValTool: 2.13.0
 > > ~~~
 > > {: .output}
 > Note that on HPC servers such as JASMIN, sometimes a more recent development 
 > version may be displayed for ESMValTool, for e.g. 
-> `ESMValTool: 2.12.0.dev71+g2c60b4d97`
+> `ESMValTool: 2.14.0.dev17+g3505bfed2`
 > {: .solution}
 {: .challenge}
 

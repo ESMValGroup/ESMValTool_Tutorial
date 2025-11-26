@@ -136,8 +136,8 @@ distinguished in the log messages:
 > > following line in the output:
 > >
 > > ```
-> > 2025-11-26 09:59:39,409 UTC [3098040] INFO    These tasks will be executed: timeseries/tas_global, map/tas, map/script1, 
-> > timeseries/tas_amsterdam, timeseries/script1
+> > 2025-11-26 09:59:39,409 UTC [3098040] INFO    These tasks will be executed: timeseries/tas_global, 
+> > map/tas, map/script1, timeseries/tas_amsterdam, timeseries/script1
 > >
 > > ```
 > >

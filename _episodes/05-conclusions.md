@@ -2,7 +2,7 @@
 title: "Conclusion of the basic tutorial"
 teaching: 10
 exercises: 0
-compatibility: ESMValTool v2.12.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - "What do I do now?"
@@ -14,20 +14,18 @@ questions:
 objectives:
 - "Breathe - you're finished now!"
 - "Congratulations & Thanks!"
-- "Find out about the mini-tutorials, and what to do next."
+- "Find out how to get help."
 
 keypoints:
-- "Individual mini-tutorials help work through a specific issue (not developed yet)."
+- "Resources available for new users."
 - "We are constantly improving this tutorial."
 ---
 
 ## Congratulations!
 
 Congratulations on completing the ESMValTool tutorial!
-You should be now ready to go and start using ESMValTool independently.
+You should now be ready to go and start using ESMValTool independently.
 
-The rest of this tutorial contains individual mini-tutorials
-to help work through a specific issue (not developed yet).
 
 ### What next?
 
@@ -76,7 +74,7 @@ is a good place to find information on general issues, or check
  if your question has already been addressed.
 If you have a GitHub account, you can also post your questions there.
 
-If you encounter difficulties, a great starting point is to visit issues page
+If you encounter difficulties, a great starting point is to visit the issues page
  [issue page](https://github.com/ESMValGroup/ESMValTool/issues) to check 
 whether your issues have already been reported or not. If they have been reported before,
  suggestions provided by developers can help you to solve the issues you encountered.

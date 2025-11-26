@@ -27,7 +27,7 @@ The diagnostic script is an important component of ESMValTool and it is where th
 scientific analysis or performance metric is implemented. With ESMValTool, you
 can adapt an existing diagnostic or write a new script from scratch.
 Diagnostics can be written in a number of open source
-languages such as Python, R, Julia and NCL but we will focus on understanding
+languages such as Python, R and NCL but we will focus on understanding
 and writing Python diagnostics in this lesson.
 
 In this lesson, we will explain how to find an existing diagnostic and run it

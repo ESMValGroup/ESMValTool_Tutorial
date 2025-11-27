@@ -109,7 +109,7 @@ see [the mamba installation documentation](https://docs.esmvaltool.org/en
 ### Install the ESMValTool package
 
 The ESMValTool package contains diagnostics scripts in four languages: R,
-Python, Julia and NCL. This introduces a lot of dependencies, and therefore the
+Python and NCL. This introduces a lot of dependencies, and therefore the
 installation can take quite long. It is, however, possible to install
 'subpackages' for each of the languages. The following (sub)packages are
 available:
@@ -126,7 +126,7 @@ ESMValTool package, run
 mamba create --name esmvaltool esmvaltool 
 ```
 
-On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
+On MacOSX ESMValTool functionalities in  NCL, and R are not supported. To install
 a Mamba environment on MacOSX, please refer to specific [information](https://
 docs.esmvaltool.org/en/latest/quickstart/installation.html#installation-on-
 macosx).

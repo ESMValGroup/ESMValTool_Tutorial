@@ -2,7 +2,7 @@
 title: "Running your first recipe"
 teaching: 15
 exercises: 15
-compatibility: ESMValTool v2.12.0
+compatibility: ESMValTool v2.13.0
 
 questions:
 - "How to run a recipe?"
@@ -45,13 +45,17 @@ or if you have the user configuration file in your current directory then
 ```
 esmvaltool run --config_dir . examples/recipe_python.yml
 ```
-
 If everything is okay, you should see that ESMValTool is printing a lot of
 output to the command line. The final message should be "Run was successful".
 The exact output varies depending on your machine, but it should look something
-like the example log output on terminal below.
+like the example log output below.
+
+```
 
 {% include example_output.txt %}
+
+```
+{: .output}
 
 > ## Pro tip: ESMValTool search paths
 >
@@ -132,8 +136,9 @@ distinguished in the log messages:
 > > following line in the output:
 > >
 > > ```
-> >INFO    [3966381] These tasks will be executed: timeseries/script1,
-> > timeseries/tas_amsterdam, timeseries/tas_global, map/tas, map/script1
+> > [3098040] INFO    These tasks will be executed: timeseries/tas_global, 
+> > map/tas, map/script1, timeseries/tas_amsterdam, timeseries/script1
+> >
 > > ```
 > >
 > > So there are three tasks related to timeseries: global temperature,

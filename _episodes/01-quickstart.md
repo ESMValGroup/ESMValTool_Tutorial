@@ -24,9 +24,8 @@ keypoints:
   to run ESMValTool as quickly as possible without having to go through the  
   whole tutorial"
 - "Use the `module load` command to load the ESMValTool environment, 
-  see the [Installation][lesson-installation]
-  episode for more details and use `esmvaltool --help` to check the ESMValTool 
-  environment"
+  see the Installation episode for more details and use `esmvaltool --help` to
+  check the ESMValTool environment"
 - "Use `esmvaltool config get_config_user` to create the ESMValTool user 
   configuration file"
 - "Use `esmvaltool run <recipe>.yml` to run a recipe"
@@ -64,6 +63,8 @@ keypoints:
 >     ~~~
 >     {: .language-bash}
 {: .challenge}
+
+{% include load_environment.html %}
 
 > ## How do I configure ESMValTool?
 >

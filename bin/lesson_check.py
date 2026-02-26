@@ -556,7 +556,7 @@ CHECKERS = [
     (re.compile(r'README\.md'), CheckNonJekyll),
     (re.compile(r'index\.md'), CheckIndex),
     (re.compile(r'reference\.md'), CheckReference),
-    (re.compile(os.path.join('_episodes', '*\.md')), CheckEpisode),
+    (re.compile(os.path.join('_episodes', r'*\.md')), CheckEpisode),
     (re.compile(r'.*\.md'), CheckGeneric)
 ]
 

@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.13.0
+compatibility: ESMValTool v2.14.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"
@@ -67,7 +67,8 @@ ESMValTool is distributed using [Mamba](https://mamba.readthedocs.io/en/latest/i
 To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 1.  Please download the installation file for the latest Mamba version 
-[here](https://github.com/conda-forge/miniforge#mambaforge).
+for Linux [here](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh)
+or for MacOSX [here](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh).
 
 2.  Next, run the installer from the place where you downloaded it:
 
@@ -88,10 +89,10 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 4.  You will need to restart your terminal for the changes to have effect.
 
-5.  We recommend updating mamba before the esmvaltool installation. To do so, run:
+5.  We recommend updating mamba and conda before the esmvaltool installation. To do so, run:
 
     ```bash
-    mamba update --name base mamba
+    mamba update --name base mamba conda
     ```
 
 6.  Verify you have a working mamba installation by: 
@@ -100,7 +101,7 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
     which mamba
     ```
 
-    This should show the path to your mamba executable, e.g. `~/mambaforge/bin/mamba`.
+    This should show the path to your mamba executable, e.g. `~/miniforge3/bin/mamba`.
 
 For more information about installing mamba,
 see [the mamba installation documentation](https://docs.esmvaltool.org/en
@@ -183,13 +184,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.13.0
-> > ESMValTool: 2.13.0
+> > ESMValCore: 2.14.0
+> > ESMValTool: 2.14.0
 > > ~~~
 > > {: .output}
 > Note that on HPC servers such as JASMIN, sometimes a more recent development 
 > version may be displayed for ESMValTool, for e.g. 
-> `ESMValTool: 2.14.0.dev17+g3505bfed2`
+> `ESMValTool: 2.15.0.dev4+g74d7837f0`
 > {: .solution}
 {: .challenge}
 

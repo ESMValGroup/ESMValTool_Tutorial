@@ -367,8 +367,7 @@ look like this:
 >>```
 >>
 >> - For more information about configure the data sources, see also the ESMValTool
->> [documentation]
->> (https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#project-specific-configuration).
+>> [documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#project-specific-configuration).
 > {: .solution}
 {: .challenge}
 

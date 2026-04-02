@@ -67,8 +67,12 @@ ESMValTool is distributed using [Mamba](https://mamba.readthedocs.io/en/latest/i
 To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 1.  Please download the installation file for the latest Mamba version 
-for Linux [here](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh)
-or for MacOSX [here](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-x86_64.sh).
+for Linux 
+[here](https://github.com/conda-forge/miniforge/releases/latest/download/
+Miniforge3-Linux-x86_64.sh)
+or for MacOSX 
+[here](https://github.com/conda-forge/miniforge/releases/latest/download/
+Miniforge3-MacOSX-x86_64.sh).
 
 2.  Next, run the installer from the place where you downloaded it:
 

@@ -21,19 +21,13 @@ keypoints:
 
 ## The configuration file 
 
-First, for the purposes of this tutorial, we will create a directory in our home directory
-called `esmvaltool_tutorial` and use that as our working directory. The following steps 
-should do that:
-
-~~~bash
- mkdir esmvaltool_tutorial
- cd esmvaltool_tutorial
-~~~
-
-The ``config-user.yml`` configuration file contains all the global level
+ESMValTool provides a list of default configuration files, e.g. 
+the ``config-user.yml`` configuration file contains all the global level
 information needed by ESMValTool to run.
-This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
+All configuration files are [YAML files](https://yaml.org/spec/1.2/spec.html).
 
+If you need to update the configuration files for your own system, you need to 
+copy them in your own configurtaion directory (`~/.config/esmvaltool/config-user.yml`).
 You can get the default configuration file by running:
 
 ~~~bash

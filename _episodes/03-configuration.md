@@ -238,10 +238,12 @@ we need to copy the appropriate configuration file in the default configuration 
   esmvaltool config copy data-intake-esgf.yml
 ~~~
 
-Additionally we need to configure [intake-esgf](https://intake-esgf.readthedocs.io/en/stable/configure.html).
-This can be done by specifying a download directory in the intake-esgf configure file, which is by default
-`~/.esgf`. Therefor copy the conf.yaml file in the `~/.config/intake-esgf` folder and replace the default
-under `local_cache:` and add this download folder also under `esg_dataroot:`. The uodated file should 
+Additionally we need to configure [intake-esgf]
+(https://intake-esgf.readthedocs.io/en/stable/configure.html).
+This can be done by specifying a download directory in the intake-esgf configure file, 
+which is by default `~/.esgf`. Therefor copy the conf.yaml file in the 
+`~/.config/intake-esgf` folder and replace the default under `local_cache:` and add 
+this download folder also under `esg_dataroot:`. The uodated file should 
 look like this:
 > ## conf.yml
 >
@@ -365,7 +367,8 @@ look like this:
 >>```
 >>
 >> - For more information about configure the data sources, see also the ESMValTool
->> [documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#project-specific-configuration).
+>> [documentation]
+>> (https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#project-specific-configuration).
 > {: .solution}
 {: .challenge}
 

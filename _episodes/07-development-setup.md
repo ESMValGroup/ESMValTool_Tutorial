@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.13.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "What is a development installation?"
@@ -161,7 +161,7 @@ in case another environment name was used).
 ESMValTool can be installed in a ``develop`` mode by running:
 
 ~~~bash
-pip install --editable '.[develop]'
+pip install --no-deps --editable '.[develop]'
 ~~~
 
 This will add the ``esmvaltool`` directory to the Python path in editable mode and
@@ -174,27 +174,6 @@ esmvaltool --help
 
 If the installation is successful, ESMValTool prints a help message to the console.
 
-> ## Checking the development installation
->
-> We can use the command ``mamba list`` to list installed packages in
-> the ``esmvaltool`` environment.
-> Use this command to check that ESMValTool is installed in a ``develop`` mode.
->
->> ## Solution
->>
->> Run:
->>
->> ~~~bash
->> mamba list esmvaltool
->>~~~
->>
->> ~~~bash
->> # Name                    Version                   Build  Channel
->> esmvaltool                2.10.0.dev3+g2dbc2cfcc    pypi_0   pypi
->>~~~
->>
-> {: .solution}
-{: .challenge}
 
 ### 4 Updating ESMValTool
 
@@ -511,6 +490,11 @@ xdg-open doc/sphinx/build/index.html
 > {: .solution}
 {: .challenge}
 
-Congratulations! You are now ready to make a pull request.
+Congratulations! You are now ready to make a pull request. 
+
+However, we kindly ask that you hold 
+off for now if this would create additional workload for the ESMValTool Development Team. We 
+appreciate your thoughtful consideration and look forward to receiving your personal contributions 
+in the future.
 
 {% include links.md %}

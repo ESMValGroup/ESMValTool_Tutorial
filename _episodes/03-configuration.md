@@ -176,10 +176,10 @@ amount of memory available in your system.
 
 ## Customizing your configuration
 
-Configuration files could live in the user configuration directory, which is 
-by default ``~/.config/esmvaltool``. The directory could be also specified
-via the command line argument ``--config_dir`` or can be changed with the 
-ESMVALTOOL_CONFIG_DIR environment variable.
+By default, configuration files are read from the directory ``~/.config/esmvaltool``.
+This can be changed via the ``ESMVALTOOL_CONFIG_DIR`` environment variable.
+In addition another custom configuration directory can be specified via the
+``--config_dir`` command line argument.
 We will learn how to do this in the
 [next lesson]({{ page.root }}{% link _episodes/04-recipe.md %}).
 

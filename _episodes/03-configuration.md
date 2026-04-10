@@ -35,9 +35,8 @@ esmvaltool config list
 
 All configuration files are [YAML files](https://yaml.org/spec/1.2/spec.html).
 
-If you need to update the configuration files for your own system, you need to 
-copy them in your own configurtaion directory (`~/.config/esmvaltool/config-user.yml`).
-You can get the default configuration file by running:
+To customize your configuration vie YAML files, you can copy one of the existing files.
+For example, to copy the file containing the default values for many options, run
 
 ~~~bash
   esmvaltool config copy defaults/config-user.yml

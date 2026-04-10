@@ -83,7 +83,7 @@ This file contains the information for:
 
 ## Destination directory
 
-The configuration file starts with setting the destination directory, which is 
+The example configuration file contains the option ``output_dir``, which is
 the rootpath where ESMValTool will store its output folders containing
 e.g. figures, data, logs, etc. With every run, ESMValTool automatically
 generates a new output folder determined by recipe name, and date and time
@@ -111,8 +111,7 @@ using the format: YYYYMMDD_HHMMSS.
 
 Additionally you can configure the output settings that
 inform ESMValTool about your preference for output.
-You can turn on or off the setting by ``true`` or ``false``
-values. Most of these settings are fairly self-explanatory.
+Most of these settings are fairly self-explanatory.
 
 
 > ## Saving preprocessed data
@@ -121,7 +120,7 @@ values. Most of these settings are fairly self-explanatory.
 > `preproc` folder.
 > This folder contains preprocessed data and is removed by default when
 > ESMValTool is run.
-> In the configuration file, which settings can be modified to prevent
+> In the configuration, which settings can be modified to prevent
 > this from happening?
 >
 >> ## Solution
@@ -175,26 +174,32 @@ amount of memory available in your system.
 {: .callout}
 
 
-## Make your own configuration file
+## Customizing your configuration
 
-Configuration files could live in the user configuration directory, which is 
-by default ``~/.config/esmvaltool``. The directory could be also specified
-via the command line argument ``--config_dir`` or can be changed with the 
-ESMVALTOOL_CONFIG_DIR environment variable.
+By default, configuration files are read from the directory ``~/.config/esmvaltool``.
+This can be changed via the ``ESMVALTOOL_CONFIG_DIR`` environment variable.
+In addition another custom configuration directory can be specified via the
+``--config_dir`` command line argument.
 We will learn how to do this in the
 [next lesson]({{ page.root }}{% link _episodes/04-recipe.md %}).
 
 It is possible to have several configuration files with different purposes,
-for example: config-user_formalised_runs.yml, config-user_debugging.yml.
+for example: ``dask_options.yml``, ``data_sources.yml``.
 In this case, ESMValTool searches for all YAML files within each of the 
 configuration directories and merges them together. How this is done is 
 explained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/
 latest/quickstart/configure.html#yaml-files).
 
+To show the final configuration that is actually used when running ESMValTool, you can use
+
+~~~bash
+esmvaltool config show
+~~~
+
 
 ## Rootpath to input data
 
-ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
+ESMValTool uses several categories (in ESMValTool, these are referred to as projects)
 for input data based on their source (e.g.
 CMIP6, CMIP5, obs4mips, OBS6, OBS). For example, CMIP is used for a dataset from
 the Climate Model Intercomparison Project whereas OBS may be 
@@ -212,41 +217,40 @@ be obtained by running the command
   esmvaltool config copy data-local-esmvaltool.yml
 ~~~
 
-After the default file "data-local-esmvaltool.yml" is copied in your configuration
-folder `~/.config/esmvaltool/config-user.yml` you can update the `rootpath` and the
+After the file ``data-local-esmvaltool.yml`` has been copied to your configuration
+directory `~/.config/esmvaltool/`, you can update the `rootpath` and the
 `dirname_template` to match your file locations. The ``rootpath`` specifies the 
 directories where ESMValTool will look for input data of the specific project. The
 `dirname_template` setting describes the file structure for each project.
 
-If you are working on a HPC system there are also  several example configurations 
-for popular HPC systems, .e.g. JASMIN/DKRZ/ETH/IPSL. To list the available example 
+If you are working on a HPC system, there are also several configurations 
+for popular HPC systems, e. g. JASMIN, DKRZ, ETH, and IPSL. To list the available example 
 files, run the command:
 
 ~~~bash
   esmvaltool config list data-hpc
 ~~~
 
-To load the suitable configuration file for the HPC system at DKRZ you can type:
+To load the configuration suitable for the HPC system at DKRZ, run:
 ~~~bash
   esmvaltool config copy data-hpc-dkrz.yml
 ~~~
 
 It is also possible to ask ESMValTool to download climate model data as needed. When
-running `ESMValTool` you can automatically download the files required to run a recipe 
-from ESGF for the projects CMIP3, CMIP5, CMIP6, CORDEX, and obs4MIPs. Therefore
-we need to copy the appropriate configuration file in the default configuration folder:
+running ESMValTool you can automatically download the files required to run a recipe 
+from ESGF for the projects CMIP3, CMIP5, CMIP6, CORDEX, and obs4MIPs. For this,
+copy the appropriate configuration file by running
 
 ~~~bash
   esmvaltool config copy data-intake-esgf.yml
 ~~~
 
-Additionally we need to configure [intake-esgf]
+Additionally, it is necessary to configure [intake-esgf]
 (https://intake-esgf.readthedocs.io/en/stable/configure.html).
-This can be done by specifying a download directory in the intake-esgf configure file, 
-which is by default `~/.esgf`. Therefor copy the conf.yaml file in the 
-`~/.config/intake-esgf` folder and replace the default under `local_cache:` and add 
-this download folder also under `esg_dataroot:`. The uodated file should 
-look like this:
+This can be done by updating the `local_cache` and  `esg_dataroot`
+with your desired download directory in your
+intake-esgf configuration file located at `~/.config/intake-esgf/conf.yaml`.
+The updated file should look like this:
 > ## conf.yml
 >
 > ```yaml 
@@ -303,8 +307,8 @@ look like this:
 >> ## Solution
 >>
 >> - Are you working on your own local machine?
->>   You need to copy the `data-local-esmvaltool.yml` into your config directory 
->>   and add the root path of the folder where the data is available (e.g., ``<your_climate_data_dir>``) as:
+>>   You need to copy `data-local-esmvaltool.yml` into your configuration directory 
+>>   and specify the root path of the folder where the data is available (e.g., ``<your_climate_data_dir>``) as:
 >>
 >>```yaml
 >>   projects:
@@ -362,7 +366,7 @@ look like this:
 >>   Site-specific path to the data for JASMIN/DKRZ/ETH/IPSL 
 >>   are already available in specific configuration files. You 
 >>   need to copy this file in your configuration directory.
->>   For example, on DKRZ:
+>>   For example, on DKRZ, run:
 >>
 >>```bash
 >>   esmvaltool config copy data-hpc-dkrz.yml

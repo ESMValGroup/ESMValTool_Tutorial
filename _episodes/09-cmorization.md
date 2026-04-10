@@ -2,7 +2,7 @@
 title: "CMORization: adding new datasets to ESMValTool"
 teaching: 15
 exercises: 45
-compatibility: ESMValTool v2.13.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "CMORization: what is it and why do we need it?"
@@ -68,8 +68,8 @@ that is important for calculating components of the global carbon cycle.
 See the next section on how to obtain data.
 
 As in the previous episode 
-([Development and Contribution episode]({{ page.root }}{% link
- _episodes/07-development-setup.md %})),
+["Development and Contribution"]({{ page.root }}{% link
+ _episodes/07-development-setup.md %}),
 we will be using the development installation of ESMValTool.
 
 
@@ -123,27 +123,16 @@ run the existing one. There is a specific command available in the ESMValTool to
 run the CMORizer scripts:
 
 ```bash
-esmvaltool data format --config_dir <directory of config-user.yml>  <dataset-name>
+esmvaltool data format --original-data-dir </path/to/original/data> <dataset-name>
 ```
 
-The options `--start` and `--end` can be added to command above to restrict the
+This will look for the original data in the `original-data-dir` folder and store the
+formatted data in the the output_dir path given in the configuration file. If 
+`original-data-dir` is not specified ESMValTool looks for the data in the current directory. The 
+options `--start` and `--end` can be added to command above to restrict the
 formatting of raw data to a time range. They will be ignored if a specific
 dataset does not support this option (i.e. because all the data is provided as a single file).
-Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The same way is also applicable for 
-the option `esmvaltool data download`.
-
-The ``config-user.yml`` is the file in which we define the different data
-paths, see the episode on [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
-In the ``rootpath`` of your ``config-user.yml``, make sure to add the right
-directory for "RAWOBS" data in which you downloaded the FLUXCOM dataset:
-
-```yaml
-rootpath:
-  RAWOBS: ~/data/RAWOBS
-```
-
-This enables ESMValTool to find the raw observational datasets stored in the
-"RAWOBS" folder. The ``dataset-name`` needs to be identical to the folder
+Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The ``dataset-name`` needs to be identical to the folder
 name that was created to store the raw observation data files, i.e.
 ``RAWOBS/TierX/dataset-name``. In our case this would be "FLUXCOM".
 
@@ -207,8 +196,20 @@ called `~/data/OBS/Tier3/FLUXCOM` and make sure the path to ``OBS`` is set
 correctly in our config-user file:
 
 ```yaml
-rootpath:
-  OBS: ~/data/OBS
+OBS6:
+  data:
+    dkrz:
+      type: esmvalcore.io.local.LocalDataSource
+      rootpath: ~/data/OBS
+      dirname_template: "Tier{tier}/{dataset}"
+      filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
+OBS:
+  data:
+    dkrz:
+      type: esmvalcore.io.local.LocalDataSource
+      rootpath: ~/data/OBS
+      dirname_template: "Tier{tier}/{dataset}"
+      filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
 ```
 
 You can also see the path where ESMValTool stores the reformatting script:
@@ -290,8 +291,7 @@ CMORized, ESMValTool will give a warning or error.
 Try to run the example recipe with
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml>
- --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --log_level debug
 ```
 
 If everything is okay, the recipe should run without problems.
@@ -414,7 +414,7 @@ You can try running the CMORizer at this point, and it should work without
 errors. However, it doesn't produce any output yet:
 
 ```bash
-esmvaltool data format --config_dir <directory of config-user.yml> FLUXCOM
+esmvaltool data format --original-data-dir </path/to/original/data> FLUXCOM
 ```
 
 ### 1. Find the input data
@@ -637,15 +637,19 @@ upgrading the CMORizer to newer standards here!). Make sure the path to ``OBS6``
 is set correctly in our config-user file:
 
 ```yaml
-rootpath:
-  OBS6: ~/data/OBS6
+  OBS6:
+    data:
+      dkrz:
+        type: esmvalcore.io.local.LocalDataSource
+        rootpath: ~/data/OBS6/
+        dirname_template: "Tier{tier}/{dataset}"
+        filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
 ```
 
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_dir <directory of config-user.yml>
- --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --log_level debug
 ```
 
 it should be able to find the correct file, but it does not succeed yet. The ESMValTool CMOR checker

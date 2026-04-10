@@ -35,7 +35,7 @@ esmvaltool config list
 
 All configuration files are [YAML files](https://yaml.org/spec/1.2/spec.html).
 
-To customize your configuration vie YAML files, you can copy one of the existing files.
+To customize your configuration via YAML files, you can copy one of the existing files.
 For example, to copy the file containing the default values for many options, run
 
 ~~~bash
@@ -303,7 +303,7 @@ look like this:
 >> ## Solution
 >>
 >> - Are you working on your own local machine?
->>   You need to copy teh `data-local-esmvaltool.yml` into your config directory 
+>>   You need to copy the `data-local-esmvaltool.yml` into your config directory 
 >>   and add the root path of the folder where the data is available (e.g., ``<your_climate_data_dir>``) as:
 >>
 >>```yaml
@@ -325,9 +325,9 @@ look like this:
 >>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}*.nc"
 >>```
 >>
->> - Are you working on your local machine and have downloaded data using ESMValTool?
->> You need to add the root path of the folder where the data has been downloaded to as
->> specified in the `esgf-cache`.
+>> - Are you working on your local machine and you want to download missing data using ESMValTool?
+>> You need to configure `intake-esgf` (see above) ans add the root path of the folder where the data 
+>> has been downloaded to in `data-local-esmvaltool.yml` as specified in the `esgf-cache`.
 >>
 >> ```yaml
 >>   projects:

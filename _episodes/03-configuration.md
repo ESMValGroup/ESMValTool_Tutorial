@@ -308,7 +308,8 @@ The updated file should look like this:
 >>
 >> - Are you working on your own local machine?
 >>   You need to copy `data-local-esmvaltool.yml` into your configuration directory 
->>   and specify the root path of the folder where the data is available (e.g., ``<your_climate_data_dir>``) as:
+>>   and specify the root path of the folder where the data is available (e.g., 
+>>   ``<your_climate_data_dir>``) as:
 >>
 >>```yaml
 >>   projects:

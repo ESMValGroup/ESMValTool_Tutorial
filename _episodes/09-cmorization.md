@@ -132,8 +132,8 @@ formatted data in the the output_dir path given in the configuration file. If
 options `--start` and `--end` can be added to command above to restrict the
 formatting of raw data to a time range. They will be ignored if a specific
 dataset does not support this option (i.e. because all the data is provided as a single file).
-Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The ``dataset-name`` needs to be identical to the folder
-name that was created to store the raw observation data files, i.e.
+Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The ``dataset-name`` needs to be identical to the 
+folder name that was created to store the raw observation data files, i.e.
 ``RAWOBS/TierX/dataset-name``. In our case this would be "FLUXCOM".
 
 If everything is okay, the output should look something like this:

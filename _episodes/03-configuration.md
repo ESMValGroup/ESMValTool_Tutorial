@@ -8,8 +8,8 @@ questions:
 - What is the user configuration file and how should I use it?
 
 objectives:
-- Understand the contents of the ``config-user.yml`` file
-- Prepare a personalized ``config-user.yml`` file
+- Understand how ESMValTool is configured
+- Prepare a personalized ESMValTool configuration
 - Configure ESMValTool to use stored climate data and to download climate data
 
 keypoints:

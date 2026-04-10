@@ -174,7 +174,7 @@ amount of memory available in your system.
 {: .callout}
 
 
-## Make your own configuration file
+## Customizing your configuration
 
 Configuration files could live in the user configuration directory, which is 
 by default ``~/.config/esmvaltool``. The directory could be also specified

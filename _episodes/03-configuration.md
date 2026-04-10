@@ -111,8 +111,7 @@ using the format: YYYYMMDD_HHMMSS.
 
 Additionally you can configure the output settings that
 inform ESMValTool about your preference for output.
-You can turn on or off the setting by ``true`` or ``false``
-values. Most of these settings are fairly self-explanatory.
+Most of these settings are fairly self-explanatory.
 
 
 > ## Saving preprocessed data

@@ -120,7 +120,7 @@ Most of these settings are fairly self-explanatory.
 > `preproc` folder.
 > This folder contains preprocessed data and is removed by default when
 > ESMValTool is run.
-> In the configuration file, which settings can be modified to prevent
+> In the configuration, which settings can be modified to prevent
 > this from happening?
 >
 >> ## Solution

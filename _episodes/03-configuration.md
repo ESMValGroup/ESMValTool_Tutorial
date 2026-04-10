@@ -13,9 +13,10 @@ objectives:
 - Configure ESMValTool to use stored climate data and to download climate data
 
 keypoints:
-- The ``config-user.yml`` sets basic configurations for ESMValTool.
-- There are specific configuration files to find stored climate data.
-- ESMvalTool can download automatically climate data from ESGF, therefore specific configurations are needed.
+- ESMValTool can be configured through YAML files located in `~/.config/esmvaltool` or command line arguments
+- The final configuration is created by merging the contents of all YAML files and command line arguments
+- Users can choose to use one big configuration file, or spread its contents among many small configuration files
+- ESMValTool can be configured to automatically download climate data from ESGF
 
 ---
 

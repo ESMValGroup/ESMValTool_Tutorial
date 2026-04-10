@@ -22,9 +22,17 @@ keypoints:
 
 ## Configuring ESMValTool via YAML files
 
-ESMValTool provides a list of default configuration files, e.g. 
-the ``config-user.yml`` configuration file contains all the global level
-information needed by ESMValTool to run.
+ESMValTool provides a set of predefined configuration files.
+These include the files specifying the default configuration values,
+but also machine-specific files that include data sources for various
+HPC systems.
+
+To show all available files, run
+
+~~~bash
+esmvaltool config list
+~~~
+
 All configuration files are [YAML files](https://yaml.org/spec/1.2/spec.html).
 
 If you need to update the configuration files for your own system, you need to 

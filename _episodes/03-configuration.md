@@ -20,7 +20,7 @@ keypoints:
 
 ---
 
-## The configuration file 
+## Configuring ESMValTool via YAML files
 
 ESMValTool provides a list of default configuration files, e.g. 
 the ``config-user.yml`` configuration file contains all the global level

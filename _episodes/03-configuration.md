@@ -83,7 +83,7 @@ This file contains the information for:
 
 ## Destination directory
 
-The configuration file starts with setting the destination directory, which is 
+The example configuration file contains the option ``output_dir``, which is
 the rootpath where ESMValTool will store its output folders containing
 e.g. figures, data, logs, etc. With every run, ESMValTool automatically
 generates a new output folder determined by recipe name, and date and time

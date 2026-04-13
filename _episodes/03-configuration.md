@@ -379,5 +379,13 @@ configure.html#project-specific-configuration).
 > {: .solution}
 {: .challenge}
 
+> ## Configuration via command line
+>
+> In addition, all configuration options can also be specified vie the command line and those settings will 
+> overwrite any setting given by the YAML files. You can find more information in the 
+> [documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/configure.html#command-line-arguments).
+>
+{: .callout}
+
 
 {% include links.md %}

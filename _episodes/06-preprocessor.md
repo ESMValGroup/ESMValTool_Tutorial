@@ -285,8 +285,8 @@ in ESMValTool.
 > `glob`  patterns or wildcards.  An example `datasets` section that uses all 
 > available CMIP6 models and ensemble members for the `historical` experiment
 > is available [here] [include-all-datasets]{:target="_blank"}.
-> Note that you will have to configure the intake-esgf configure file so that you 
-> can download data from ESGF nodes as  needed (see the 
+> Note that you will have to configure the intake-esgf configuration file so that you 
+> can download data from ESGF nodes as needed (see the 
 > [Configuration Episode]({{ page.root }}{% link _episodes/03-configuration.md %})).
 {: .callout}
 

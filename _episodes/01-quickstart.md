@@ -2,7 +2,7 @@
 title: "Quickstart guide"
 teaching: 2
 exercises: 8
-compatibility: ESMValTool v2.13.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 
@@ -27,7 +27,7 @@ keypoints:
   see the [Installation][lesson-installation]
   episode for more details and use `esmvaltool --help` to check the ESMValTool 
   environment"
-- "Use `esmvaltool config get_config_user` to create the ESMValTool user 
+- "Use `esmvaltool config copy defaults/config-user.yml` to create the ESMValTool user 
   configuration file"
 - "Use `esmvaltool run <recipe>.yml` to run a recipe"
 ---
@@ -71,7 +71,7 @@ keypoints:
 >   default to `~/.config/esmvaltool/config-user.yml`):
 >
 >     ~~~
->     esmvaltool config get_config_user
+>     esmvaltool config copy defaults/config-user.yml
 >     ~~~
 >     {: .language-bash}
 > 

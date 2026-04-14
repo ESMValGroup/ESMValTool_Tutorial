@@ -129,7 +129,7 @@ esmvaltool data format --original-data-dir </path/to/original/data> <dataset-nam
 This will look for the original data in the `original-data-dir` folder and store the
 formatted data in the the output_dir path given in the configuration file. If 
 `original-data-dir` is not specified ESMValTool looks for the data in the current directory. The 
-options `--start` and `--end` can be added to command above to restrict the
+options `--start` and `--end` can be added to the command above to restrict the
 formatting of raw data to a time range. They will be ignored if a specific
 dataset does not support this option (i.e. because all the data is provided as a single file).
 Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The ``dataset-name`` needs to be identical to the 
@@ -641,7 +641,7 @@ is set correctly in our config-user file:
     data:
       dkrz:
         type: esmvalcore.io.local.LocalDataSource
-        rootpath: ~/data/OBS6/
+        rootpath: ~/data/OBS6
         dirname_template: "Tier{tier}/{dataset}"
         filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
 ```

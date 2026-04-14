@@ -493,8 +493,8 @@ xdg-open doc/sphinx/build/index.html
 Congratulations! You are now ready to make a pull request. 
 
 However, we kindly ask that you hold 
-off for now since this would create (unnecessary) additional workload for the ESMValTool Development Team. We 
-appreciate your thoughtful consideration and look forward to receiving your personal contributions 
-in the future.
+off for now since this would create (unnecessary) additional workload for the ESMValTool 
+Development Team. We appreciate your thoughtful consideration and look forward to receiving 
+your personal contributions in the future.
 
 {% include links.md %}

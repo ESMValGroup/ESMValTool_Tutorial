@@ -2,7 +2,7 @@
 title: "Conclusion of the basic tutorial"
 teaching: 10
 exercises: 0
-compatibility: ESMValTool v2.13.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "What do I do now?"

@@ -2,7 +2,7 @@
 title: "Writing your own recipe"
 teaching: 15
 exercises: 30
-compatibility: ESMValTool v2.13.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "How do I create a new recipe?"
@@ -285,8 +285,9 @@ in ESMValTool.
 > `glob`  patterns or wildcards.  An example `datasets` section that uses all 
 > available CMIP6 models and ensemble members for the `historical` experiment
 > is available [here] [include-all-datasets]{:target="_blank"}.
-> Note that you will have to set the `search_esgf` option in the `config_file` to 
-> `always` so that you can download data from ESGF nodes as  needed.
+> Note that you will have to configure the intake-esgf configuration file so that you 
+> can download data from ESGF nodes as needed (see the 
+> [Configuration Episode]({{ page.root }}{% link _episodes/03-configuration.md %})).
 {: .callout}
 
 

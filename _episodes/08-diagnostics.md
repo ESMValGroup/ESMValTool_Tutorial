@@ -2,7 +2,7 @@
 title: "Writing your own diagnostic script"
 teaching: 20
 exercises: 30
-compatibility: ESMValTool v2.9.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "How do I write a new diagnostic in ESMValTool?"
@@ -90,7 +90,10 @@ There are four main sections in the script:
 > 20:
 > 21:  def get_provenance_record(attributes, ancestor_files):
 > 22:      """Create a provenance record describing the diagnostic data and plot."""
-> 23:      caption = caption = attributes['caption'].format(**attributes)
+> 23:       # Associated recipe uses contains a caption string with placeholders
+> 24:       # like {long_name} that are now populated from attributes dictionary.
+> 25:       # Note that for simple recipes, caption can be set here as a simple string
+> 23:    caption = caption = attributes['caption'].format(**attributes)
 > 24:
 > 25:      record = {
 > 26:          'caption': caption,

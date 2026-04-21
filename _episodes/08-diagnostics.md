@@ -68,117 +68,126 @@ There are four main sections in the script:
 > ## diagnostic.py
 >
 >~~~python
->  1:  """Python example diagnostic."""
->  2:  import logging
->  3:  from pathlib import Path
->  4:  from pprint import pformat
->  5:
->  6:  import iris
->  7:
->  8:  from esmvaltool.diag_scripts.shared import (
->  9:      group_metadata,
-> 10:      run_diagnostic,
-> 11:      save_data,
-> 12:      save_figure,
-> 13:      select_metadata,
-> 14:      sorted_metadata,
-> 15:  )
-> 16:  from esmvaltool.diag_scripts.shared.plot import quickplot
-> 17:
-> 18:  logger = logging.getLogger(Path(__file__).stem)
-> 19:
-> 20:
-> 21:  def get_provenance_record(attributes, ancestor_files):
-> 22:      """Create a provenance record describing the diagnostic data and plot."""
-> 23:       # Associated recipe uses contains a caption string with placeholders
-> 24:       # like {long_name} that are now populated from attributes dictionary.
-> 25:       # Note that for simple recipes, caption can be set here as a simple string
-> 23:    caption = caption = attributes['caption'].format(**attributes)
-> 24:
-> 25:      record = {
-> 26:          'caption': caption,
-> 27:          'statistics': ['mean'],
-> 28:          'domains': ['global'],
-> 29:          'plot_types': ['zonal'],
-> 30:          'authors': [
-> 31:              'andela_bouwe',
-> 32:              'righi_mattia',
-> 33:          ],
-> 34:          'references': [
-> 35:              'acknow_project',
-> 36:          ],
-> 37:          'ancestors': ancestor_files,
-> 38:      }
-> 39:      return record
-> 40:
-> 41:
-> 42:  def compute_diagnostic(filename):
-> 43:      """Compute an example diagnostic."""
-> 44:      logger.debug("Loading %s", filename)
-> 45:      cube = iris.load_cube(filename)
-> 46:
-> 47:      logger.debug("Running example computation")
-> 48:      cube = iris.util.squeeze(cube)
-> 49:      return cube
-> 50:
-> 51:
-> 52:  def plot_diagnostic(cube, basename, provenance_record, cfg):
-> 53:      """Create diagnostic data and plot it."""
+> 1:  """Python example diagnostic."""
+> 2:  
+> 3:  import logging
+> 4:  from pathlib import Path
+> 5:  from pprint import pformat
+> 6:  
+> 7:  import iris
+> 8:  
+> 9:  from esmvaltool.diag_scripts.shared import (
+> 10:      group_metadata,
+> 11:      run_diagnostic,
+> 12:      save_data,
+> 13:      save_figure,
+> 14:      select_metadata,
+> 15:      sorted_metadata,
+> 16:  )
+> 17:  from esmvaltool.diag_scripts.shared.plot import quickplot
+> 18:  
+> 19:  logger = logging.getLogger(Path(__file__).stem)
+> 20:  
+> 21:  
+> 22:  def get_provenance_record(attributes, ancestor_files):
+> 23:      """Create a provenance record describing the diagnostic data and plot."""
+> 24:      # Associated recipe uses contains a caption string with placeholders
+> 25:      # like {long_name} that are now populated from attributes dictionary.
+> 26:      # Note that for simple recipes, caption can be set here as a simple string
+> 27:      caption = attributes["caption"].format(**attributes)
+> 28:  
+> 29:      record = {
+> 30:          "caption": caption,
+> 31:          "statistics": ["mean"],
+> 32:          "domains": ["global"],
+> 33:          "plot_types": ["zonal"],
+> 34:          "authors": [
+> 35:              "andela_bouwe",
+> 36:              "righi_mattia",
+> 37:          ],
+> 38:          "references": [
+> 39:              "acknow_project",
+> 40:          ],
+> 41:          "ancestors": ancestor_files,
+> 42:      }
+> 43:      return record
+> 44:
+> 45:
+> 46:  def compute_diagnostic(filename):
+> 47:      """Compute an example diagnostic."""
+> 48:      logger.debug("Loading %s", filename)
+> 49:      cube = iris.load_cube(filename)
+> 50:  
+> 51:      logger.debug("Running example computation")
+> 52:      cube = iris.util.squeeze(cube)
+> 53:      return cube
 > 54:
-> 55:      # Save the data used for the plot
-> 56:      save_data(basename, provenance_record, cfg, cube)
-> 57:
-> 58:      if cfg.get('quickplot'):
-> 59:          # Create the plot
-> 60:          quickplot(cube, **cfg['quickplot'])
-> 61:          # And save the plot
-> 62:          save_figure(basename, provenance_record, cfg)
-> 63:
-> 64:
-> 65:  def main(cfg):
-> 66:      """Compute the time average for each input dataset."""
-> 67:      # Get a description of the preprocessed data that we will use as input.
-> 68:      input_data = cfg['input_data'].values()
-> 69:
-> 70:      # Demonstrate use of metadata access convenience functions.
-> 71:      selection = select_metadata(input_data, short_name='tas', project='CMIP5')
-> 72:      logger.info("Example of how to select only CMIP5 temperature data:\n%s",
-> 73:                  pformat(selection))
-> 74:
-> 75:      selection = sorted_metadata(selection, sort='dataset')
-> 76:      logger.info("Example of how to sort this selection by dataset:\n%s",
-> 77:                  pformat(selection))
-> 78:
-> 79:      grouped_input_data = group_metadata(input_data,
-> 80:                                          'variable_group',
-> 81:                                          sort='dataset')
-> 82:      logger.info(
-> 83:          "Example of how to group and sort input data by variable groups from "
-> 84:          "the recipe:\n%s", pformat(grouped_input_data))
-> 85:
-> 86:      # Example of how to loop over variables/datasets in alphabetical order
-> 87:      groups = group_metadata(input_data, 'variable_group', sort='dataset')
-> 88:      for group_name in groups:
-> 89:          logger.info("Processing variable %s", group_name)
-> 90:          for attributes in groups[group_name]:
-> 91:              logger.info("Processing dataset %s", attributes['dataset'])
-> 92:              input_file = attributes['filename']
-> 93:              cube = compute_diagnostic(input_file)
-> 94:
-> 95:              output_basename = Path(input_file).stem
-> 96:              if group_name != attributes['short_name']:
-> 97:                  output_basename = group_name + '_' + output_basename
-> 98:              if "caption" not in attributes:
-> 99:                  attributes['caption'] = input_file
->100:              provenance_record = get_provenance_record(
->101:                  attributes, ancestor_files=[input_file])
->102:              plot_diagnostic(cube, output_basename, provenance_record, cfg)
->103:
->104:
->105:  if __name__ == '__main__':
->106:
->107:      with run_diagnostic() as config:
->108:          main(config)
+> 55:
+> 56:  def plot_diagnostic(cube, basename, provenance_record, cfg):
+> 57:      """Create diagnostic data and plot it."""
+> 58:      # Save the data used for the plot
+> 59:      save_data(basename, provenance_record, cfg, cube)
+> 60: 
+> 61:      if cfg.get("quickplot"):
+> 62:          # Create the plot
+> 63:          quickplot(cube, **cfg["quickplot"])
+> 64:          # And save the plot
+> 65:          save_figure(basename, provenance_record, cfg)
+> 66: 
+> 67:
+> 68:  def main(cfg):
+> 69:      """Compute the time average for each input dataset."""
+> 70:      # Get a description of the preprocessed data that we will use as input.
+> 71:      input_data = cfg["input_data"].values()
+> 72:  
+> 73:      # Demonstrate use of metadata access convenience functions.
+> 74:      selection = select_metadata(input_data, short_name="tas", project="CMIP5")
+> 75:      logger.info(
+> 76:          "Example of how to select only CMIP5 temperature data:\n%s",
+> 77:          pformat(selection),
+> 78:      )
+> 79:  
+> 80:      selection = sorted_metadata(selection, sort="dataset")
+> 81:      logger.info(
+> 82:          "Example of how to sort this selection by dataset:\n%s",
+> 83:          pformat(selection),
+> 84:      )
+> 85:  
+> 86:      grouped_input_data = group_metadata(
+> 87:          input_data,
+> 88:          "variable_group",
+> 89:          sort="dataset",
+> 90:      )
+> 91:      logger.info(
+> 92:          "Example of how to group and sort input data by variable groups from "
+> 93:          "the recipe:\n%s",
+> 94:          pformat(grouped_input_data),
+> 95:      )
+> 96: 
+> 97:      # Example of how to loop over variables/datasets in alphabetical order
+> 98:      groups = group_metadata(input_data, "variable_group", sort="dataset")
+> 99:      for group_name in groups:
+> 100:          logger.info("Processing variable %s", group_name)
+> 101:          for attributes in groups[group_name]:
+> 102:              logger.info("Processing dataset %s", attributes["dataset"])
+> 103:              input_file = attributes["filename"]
+> 104:              cube = compute_diagnostic(input_file)
+> 105:  
+> 106:              output_basename = Path(input_file).stem
+> 107:              if group_name != attributes["short_name"]:
+> 108:                  output_basename = group_name + "_" + output_basename
+> 109:              if "caption" not in attributes:
+> 110:                  attributes["caption"] = input_file
+> 111:              provenance_record = get_provenance_record(
+> 112:                  attributes,
+> 113:                  ancestor_files=[input_file],
+> 114:             )
+> 115:             plot_diagnostic(cube, output_basename, provenance_record, cfg)
+> 116: 
+> 117: 
+> 118:  if __name__ == "__main__":
+> 119:      with run_diagnostic() as config:
+> 120:          main(config)
 >~~~
 >
 {:.solution}
@@ -191,14 +200,14 @@ There are four main sections in the script:
 >
 >> ## Answer
 >>
->> 1. The ``main`` function is defined in line 65 as ``main(cfg)``.
+>> 1. The ``main`` function is defined in line 68 as ``main(cfg)``.
 >> 2. The input argument to this function is the variable ``cfg``, a Python dictionary
 >> that holds all the necessary
 >> information needed to run the diagnostic script such as the location of input
 >> data and various settings. We will next parse this ``cfg`` variable
 >> in the  ``main`` function and extract information as needed
->> to do our analyses (e.g. in line 68).
->> 3. The ``main`` function is called near the very end on line 108. So, it is mentioned
+>> to do our analyses (e.g. in line 71).
+>> 3. The ``main`` function is called near the very end on line 120. So, it is mentioned
 >> twice in our code - once where it is called by the top-level Python script and
 >> second where it is defined.
 > {: .solution}
@@ -206,7 +215,7 @@ There are four main sections in the script:
 
 > ## The function run_diagnostic
 >
-> The function ``run_diagnostic`` (line 107) is called a context manager
+> The function ``run_diagnostic`` (line 119) is called a context manager
 > provided with ESMValTool and is the main entry point for most Python
 > diagnostics.
 >
@@ -254,11 +263,11 @@ The ESMValTool documentation page provides an overview of what is in this file, 
 ## Diagnostic shared functions
 
 Looking at the code in  ``diagnostic.py``, we see that ``input_data`` is
-read from the ``cfg`` dictionary (line 68). Now we can group the ``input_data``
+read from the ``cfg`` dictionary (line 71). Now we can group the ``input_data``
 according to some criteria such as the model or experiment. To do so,
-ESMValTool provides many functions such as ``select_metadata`` (line 71),
-``sorted_metadata`` (line 75), and ``group_metadata`` (line 79). As you can see
-in line 8, these functions are imported from ``esmvaltool.diag_scripts.shared``
+ESMValTool provides many functions such as ``select_metadata`` (line 74),
+``sorted_metadata`` (line 80), and ``group_metadata`` (line 86). As you can see
+in line 9, these functions are imported from ``esmvaltool.diag_scripts.shared``
 that means these are shared across several diagnostics scripts. A list of
 available functions and their description can be found in
 [The ESMValTool Diagnostic API reference][shared].
@@ -272,68 +281,69 @@ available functions and their description can be found in
 >> ## Answer
 >>
 >> There is a statement after use of ``select_metadata``, ``sorted_metadata``
->> and ``group_metadata`` that starts with ``logger.info`` (lines 72, 76 and
->> 82). These lines print output to the log files. In the previous exercise, we
+>> and ``group_metadata`` that starts with ``logger.info`` (lines 75, 81 and
+>> 91). These lines print output to the log files. In the previous exercise, we
 >> ran the recipe ``recipe_python.yml``. If you look at the log file
->> ``recipe_python_#_#/run/map/script1/log.txt`` in ``esmvaltool_output``
->> directory, you can see the output from each of these functions, for example:
+>> ``recipe_python_#_#/run/map/script1/log.txt`` in the ``esmvaltool_output``
+>> directory, you can see the output from each of these functions. An example 
+>> of how the ``group_metadata`` function groups by variable groups:
 >>
 >>```
->>2023-06-28 12:47:14,038 [2548510] INFO     diagnostic,106	Example of how to
->>group and sort input data by variable groups from the recipe:
->>{'tas': [{'alias': 'CMIP5',
->>          'caption': 'Global map of {long_name} in January 2000 according to '
->>                     '{dataset}.\n',
->>          'dataset': 'bcc-csm1-1',
->>          'diagnostic': 'map',
->>          'end_year': 2000,
->>          'ensemble': 'r1i1p1',
->>          'exp': 'historical',
->>          'filename': '~/recipe_python_20230628_124639/preproc/map/tas/
-                CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_2000-P1M.nc',
->>          'frequency': 'mon',
->>          'institute': ['BCC'],
->>          'long_name': 'Near-Surface Air Temperature',
->>          'mip': 'Amon',
->>          'modeling_realm': ['atmos'],
->>          'preprocessor': 'to_degrees_c',
->>          'product': ['output1', 'output2'],
->>          'project': 'CMIP5',
->>          'recipe_dataset_index': 1,
->>          'short_name': 'tas',
->>          'standard_name': 'air_temperature',
->>          'start_year': 2000,
->>          'timerange': '2000/P1M',
->>          'units': 'degrees_C',
->>          'variable_group': 'tas',
->>          'version': 'v1'},
->>         {'activity': 'CMIP',
->>          'alias': 'CMIP6',
->>          'caption': 'Global map of {long_name} in January 2000 according to '
->>                     '{dataset}.\n',
->>          'dataset': 'BCC-ESM1',
->>          'diagnostic': 'map',
->>          'end_year': 2000,
->>          'ensemble': 'r1i1p1f1',
->>          'exp': 'historical',
->>          'filename': '~/recipe_python_20230628_124639/preproc/map/tas/
-                CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_2000-P1M.nc',
->>          'frequency': 'mon',
->>          'grid': 'gn',
->>          'institute': ['BCC'],
->>          'long_name': 'Near-Surface Air Temperature',
->>          'mip': 'Amon',
->>          'modeling_realm': ['atmos'],
->>          'preprocessor': 'to_degrees_c',
->>          'project': 'CMIP6',
->>          'recipe_dataset_index': 0,
->>          'short_name': 'tas',
->>          'standard_name': 'air_temperature',
->>          'start_year': 2000,
->>          'timerange': '2000/P1M',
->>          'units': 'degrees_C',
->>          'variable_group': 'tas',
->>          'version': 'v20181214'}]}
+>> INFO:diagnostic:Example of how to group and sort input data by variable groups from the recipe:
+>> {'tas': [{'alias': 'CMIP5',
+>>           'caption': 'Global map of {long_name} in January 2000 according to '
+>>                      '{dataset}.\n',
+>>           'dataset': 'bcc-csm1-1',
+>>           'diagnostic': 'map',
+>>           'end_year': 2000,
+>>           'ensemble': 'r1i1p1',
+>>           'exp': 'historical',
+>>           'filename': '/path/recipe_python_#_#/preproc/map/tas/
+>> CMIP5_bcc-csm1-1_Amon_historical_r1i1p1_tas_20000101-20000201.nc',
+>>           'frequency': 'mon',
+>>           'institute': ['BCC'],
+>>           'long_name': 'Near-Surface Air Temperature',
+>>           'mip': 'Amon',
+>>           'modeling_realm': ['atmos'],
+>>           'preprocessor': 'to_degrees_c',
+>>           'product': ['output1', 'output2'],
+>>           'project': 'CMIP5',
+>>           'recipe_dataset_index': 1,
+>>           'short_name': 'tas',
+>>           'standard_name': 'air_temperature',
+>>           'start_year': 2000,
+>>           'timerange': '2000/P1M',
+>>           'units': 'degrees_C',
+>>           'variable_group': 'tas',
+>>           'version': 'v1'},
+>>          {'activity': 'CMIP',
+>>           'alias': 'CMIP6',
+>>           'caption': 'Global map of {long_name} in January 2000 according to '
+>>                      '{dataset}.\n',
+>>           'dataset': 'BCC-ESM1',
+>>           'diagnostic': 'map',
+>>           'end_year': 2000,
+>>           'ensemble': 'r1i1p1f1',
+>>           'exp': 'historical',
+>>           'filename': '/path/recipe_python_#_#/preproc/map/tas/
+>> CMIP6_BCC-ESM1_Amon_historical_r1i1p1f1_tas_gn_20000101-20000201.nc',
+>>           'frequency': 'mon',
+>>           'grid': 'gn',
+>>           'institute': ['BCC'],
+>>           'long_name': 'Near-Surface Air Temperature',
+>>           'mip': 'Amon',
+>>           'modeling_realm': ['atmos'],
+>>           'preprocessor': 'to_degrees_c',
+>>           'project': 'CMIP6',
+>>           'recipe_dataset_index': 0,
+>>           'short_name': 'tas',
+>>           'standard_name': 'air_temperature',
+>>           'start_year': 2000,
+>>           'timerange': '2000/P1M',
+>>           'units': 'degrees_C',
+>>           'variable_group': 'tas',
+>>           'version': 'v20181214'}]}
+>> 
 >>```
 >>
 >> This is how we can access preprocessed data within our diagnostic.
@@ -344,16 +354,18 @@ available functions and their description can be found in
 
 After grouping and selecting data, we can read individual attributes (such as filename)
 of each item. Here, we have grouped the input data  by ``variables``, 
-so we loop over the variables (line 88). Following this is a call to the
-function ``compute_diagnostic`` (line 93). Let's look at the
-definition of this function in line 42, where the actual analysis of the data is done.
+so we loop over the variables (line 99). Following this is a call to the
+function ``compute_diagnostic`` (line 104). Let's look at the
+definition of this function in line 46, where the actual analysis of the data is done.
 
 Note that output from the ESMValCore preprocessor is in the form of NetCDF files.
 Here, ``compute_diagnostic`` uses
 [Iris](https://scitools-iris.readthedocs.io/en/latest/index.html) to read data
 from a netCDF file and performs an operation ``squeeze`` to remove any dimensions
 of length one. We can adapt this function to add our own analysis. As an example,
-here we calculate the bias using the average of the data using Iris cubes.
+here we calculate the bias using the average of the data using Iris cubes. Note that
+this is not in the original diagnostic but a suggestion for how to  get 
+started adding code to the existing diagnostic.
 
 ~~~python
 def compute_diagnostic(filename):
@@ -448,12 +460,12 @@ def compute_diagnostic(filename):
 ### Plotting the output
 
 Often, the end product of a diagnostic script is a plot or figure. The Iris cube
-returned from the ``compute_diagnostic`` function (line 93) is passed to the
-``plot_diagnostic`` function (line 102). Let's have a look at the definition of
-this function in line 52. This is where we would plug in our plotting routine in the
+returned from the ``compute_diagnostic`` function (line 104) is passed to the
+``plot_diagnostic`` function (line 115). Let's have a look at the definition of
+this function in line 56. This is where we would plug in our plotting routine in the
 diagnostic script.
 
-More specifically, the ``quickplot`` function (line 60) can be replaced with the
+More specifically, the ``quickplot`` function (line 63) can be replaced with the
 function of our choice. As can be seen, this function uses
 ``**cfg['quickplot']`` as an input argument. If you look at the diagnostic
 section in the recipe ``recipe_python.yml``, you see ``quickplot`` is a key
@@ -500,9 +512,9 @@ plot ``pcolormesh`` and the colormap ``cmap:Reds`` from the recipe to the
 
 ### Saving the output
 
-In our example, the function ``save_data`` in line 56 is used to save the Iris
+In our example, the function ``save_data`` in line 59 is used to save the Iris
 cube. The saved files can be found under the ``work`` directory in a ``.nc`` format.
-There is also the function ``save_figure`` in line 62 to save the plots under the
+There is also the function ``save_figure`` in line 65 to save the plots under the
 ``plot`` directory in a ``.png`` format (or preferred format specified in your
 configuration settings). Again, you may choose your own method
 of saving the output.
@@ -510,8 +522,8 @@ of saving the output.
 ### Recording the provenance
 
 When developing a diagnostic script, it is good practice to record
-provenance. To do so, we use the function ``get_provenance_record`` (line 100).
-Let us have a look at the definition of this function in line 21 where we
+provenance. To do so, we use the function ``get_provenance_record`` (line 111).
+Let us have a look at the definition of this function in line 22 where we
 describe the diagnostic data and plot. Using the dictionary ``record``, it is
 possible to add custom provenance to our diagnostics output.
 Provenance is stored in the *[W3C PROV XML](https://www.w3.org/TR/prov-xml/)*

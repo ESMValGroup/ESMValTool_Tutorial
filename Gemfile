@@ -8,3 +8,6 @@ git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 ruby '>=2.5.3'
 
 gem 'github-pages', group: :jekyll_plugins
+gem 'jekyll', '~> 4.3'
+gem 'csv'
+gem 'bigdecimal'

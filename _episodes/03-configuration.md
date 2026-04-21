@@ -246,9 +246,9 @@ copy the appropriate configuration file by running
 
 Additionally, it is necessary to configure
 [intake-esgf](https://intake-esgf.readthedocs.io/en/stable/configure.html).
-This can be done by updating the `local_cache` and `esg_dataroot` with your
-desired download directory in your intake-esgf configuration file located at
-`~/.config/intake-esgf/conf.yaml`. The updated file should look like this:
+For this you need to copy the file `conf.yaml` in the directory `~/.config/intake-esgf` and 
+update the `local_cache` and `esg_dataroot` with your desired download directory in this intake-esgf 
+configuration file. The updated file should look like this:
 > ## conf.yml
 >
 > ```yaml 

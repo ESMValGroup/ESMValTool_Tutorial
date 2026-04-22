@@ -143,19 +143,23 @@ r0i0p0, fx
 > 2026-04-02 12:03:15,805 UTC [3236558] INFO    Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
 > 2026-04-02 12:03:16,177 UTC [3236558] INFO    Extracting data for Amsterdam, Noord-Holland, Nederland (52.3730796 °N, 4.8924534 °E)
 > 2026-04-02 12:03:16,239 UTC [3236556] INFO    Computing and saving data for preprocessing task map/tas
-> 2026-04-02 12:03:16,384 UTC [3236558] INFO    Generated PreprocessorFile: /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/preproc/timeseries/tas_amsterdam/MultiModelMean_historical_Amon_tas_1850-2000.nc
+> 2026-04-02 12:03:16,384 UTC [3236558] INFO    Generated PreprocessorFile: /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/preproc/timeseries/
+tas_amsterdam/MultiModelMean_historical_Amon_tas_1850-2000.nc
 > 2026-04-02 12:03:17,250 UTC [3236556] INFO    map/tas                       [########################################] | 100% Completed | 1.01 s
 > 2026-04-02 12:03:17,252 UTC [3236560] INFO    Computing and saving data for preprocessing task timeseries/tas_global
 > 2026-04-02 12:03:17,256 UTC [3236556] INFO    Successfully completed task map/tas (priority 1) in 0:00:01.736625
 > 2026-04-02 12:03:17,414 UTC [3235444] INFO    Progress: 2 tasks running, 2 tasks waiting for ancestors, 1/5 done
 > 2026-04-02 12:03:17,442 UTC [3236562] INFO    Starting task map/script1 in process [3236562]
-> 2026-04-02 12:03:17,447 UTC [3236562] INFO    Running command ['/work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12', '/home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', '/scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/settings.yml']
+> 2026-04-02 12:03:17,447 UTC [3236562] INFO    Running command ['/work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12', 
+'/home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', 
+'/scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/settings.yml']
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    Writing output to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/work/map/script1
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    Writing plots to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/plots/map/script1
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    Writing log to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/log.txt
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    To re-run this diagnostic script, run:
 > cd /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1; MPLBACKEND="Agg" /work/bd0854/username/utils/mambaforge/envs/esmvaltool/
-bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/settings.yml
+bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py 
+/scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/settings.yml
 > 2026-04-02 12:03:17,514 UTC [3235444] INFO    Progress: 3 tasks running, 1 tasks waiting for ancestors, 1/5 done
 > 2026-04-02 12:03:18,367 UTC [3236560] INFO    timeseries/tas_global         [########################################] | 100% Completed | 1.10 s
 > 2026-04-02 12:03:18,370 UTC [3236558] INFO    Computing and saving data for preprocessing task timeseries/tas_amsterdam
@@ -165,12 +169,16 @@ bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/ex
 > 2026-04-02 12:03:20,591 UTC [3236558] INFO    Successfully completed task timeseries/tas_amsterdam (priority 3) in 0:00:05.071412
 > 2026-04-02 12:03:20,712 UTC [3235444] INFO    Progress: 1 tasks running, 1 tasks waiting for ancestors, 3/5 done
 > 2026-04-02 12:03:20,730 UTC [3236564] INFO    Starting task timeseries/script1 in process [3236564]
-> 2026-04-02 12:03:20,757 UTC [3236564] INFO    Running command ['/work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12', '/home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', '/scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1/settings.yml']
+> 2026-04-02 12:03:20,757 UTC [3236564] INFO    Running command ['/work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12', 
+'/home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py', 
+'/scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1/settings.yml']
 > 2026-04-02 12:03:20,757 UTC [3236564] INFO    Writing output to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/work/timeseries/script1
 > 2026-04-02 12:03:20,757 UTC [3236564] INFO    Writing plots to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/plots/timeseries/script1
 > 2026-04-02 12:03:20,757 UTC [3236564] INFO    Writing log to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1/log.txt
 > 2026-04-02 12:03:20,758 UTC [3236564] INFO    To re-run this diagnostic script, run:
-> cd /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1; MPLBACKEND="Agg" /work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1/settings.yml
+> cd /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1; MPLBACKEND="Agg" 
+/work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py 
+/scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/timeseries/script1/settings.yml
 > 2026-04-02 12:03:20,812 UTC [3235444] INFO    Progress: 2 tasks running, 0 tasks waiting for ancestors, 3/5 done
 > 2026-04-02 12:03:28,198 UTC [3236562] INFO    Maximum memory used (estimate): 0.3 GB
 > 2026-04-02 12:03:28,199 UTC [3236562] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
@@ -187,7 +195,8 @@ bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/ex
 > file:///scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/index.html
 > 2026-04-02 12:03:30,651 UTC [3235444] INFO    It looks like you are connected to a remote machine via SSH. To show the output html file, you can try the following 
 command on your local machine:
-> server=136.172.124.6 && port=31415 && ssh -t -L ${port}:localhost:${port} username@${server} /work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12 -m http.server ${port} -d /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254
+> server=136.172.124.6 && port=31415 && ssh -t -L ${port}:localhost:${port} username@${server} /work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12 -m 
+http.server ${port} -d /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254
 > Then visit http://localhost:31415 in your browser
 > 2026-04-02 12:03:30,651 UTC [3235444] INFO    If the port 31415 is already in use, you can replace it with any other free one (e.g., 12789). If you are connected 
 through a jump host, replace the server IP address 136.172.124.6 with your SSH server name
@@ -195,7 +204,8 @@ through a jump host, replace the server IP address 136.172.124.6 with your SSH s
 > 2026-04-02 12:03:30,652 UTC [3235444] INFO    Time for running the recipe was: 0:00:34.547424
 > 2026-04-02 12:03:31,701 UTC [3235444] INFO    Maximum memory used (estimate): 8.3 GB
 > 2026-04-02 12:03:31,708 UTC [3235444] INFO    Sampled every second. It may be inaccurate if short but high spikes in memory consumption occur.
-> 2026-04-02 12:03:31,733 UTC [3235444] WARNING Input data is not (fully) CMOR-compliant, see /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/cmor_log.txt for details
+> 2026-04-02 12:03:31,733 UTC [3235444] WARNING Input data is not (fully) CMOR-compliant, see /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/
+run/cmor_log.txt for details
 > 2026-04-02 12:03:31,733 UTC [3235444] INFO    Run was successful
 >
 > ```

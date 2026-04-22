@@ -126,8 +126,10 @@ like the example log output below.
 > 2026-04-02 12:02:56,838 UTC [3235444] INFO    PreprocessingTask timeseries/tas_amsterdam created.
 > 2026-04-02 12:02:56,838 UTC [3235444] INFO    Creating preprocessor task timeseries/tas_global
 > 2026-04-02 12:02:56,838 UTC [3235444] INFO    Creating preprocessor 'annual_mean_global' task for variable 'tas_global'
-> 2026-04-02 12:02:56,845 UTC [3235444] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, historical, r1i1p1f1, mon, gn, v20181214, supplementaries: areacella, fx, 1pctCO2, fx, v20190613
-> 2026-04-02 12:02:56,849 UTC [3235444] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, mon, v1, supplementaries: areacella, fx, r0i0p0, fx
+> 2026-04-02 12:02:56,845 UTC [3235444] INFO    Found input files for Dataset: tas, Amon, CMIP6, BCC-ESM1, historical, r1i1p1f1, mon, gn, v20181214, 
+supplementaries: areacella, fx, 1pctCO2, fx, v20190613
+> 2026-04-02 12:02:56,849 UTC [3235444] INFO    Found input files for Dataset: tas, Amon, CMIP5, bcc-csm1-1, historical, r1i1p1, mon, v1, supplementaries: areacella, fx, 
+r0i0p0, fx
 > 2026-04-02 12:02:56,850 UTC [3235444] INFO    PreprocessingTask timeseries/tas_global created.
 > 2026-04-02 12:02:56,850 UTC [3235444] INFO    These tasks will be executed: timeseries/tas_amsterdam, map/tas, map/script1, timeseries/script1, timeseries/tas_global
 > 2026-04-02 12:02:56,880 UTC [3235444] INFO    Wrote recipe with version numbers and wildcards to:
@@ -152,7 +154,8 @@ like the example log output below.
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    Writing plots to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/plots/map/script1
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    Writing log to /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/log.txt
 > 2026-04-02 12:03:17,447 UTC [3236562] INFO    To re-run this diagnostic script, run:
-> cd /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1; MPLBACKEND="Agg" /work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/settings.yml
+> cd /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1; MPLBACKEND="Agg" /work/bd0854/username/utils/mambaforge/envs/esmvaltool/
+bin/python3.12 /home/b/username/ESMValTool/ESMValTool/esmvaltool/diag_scripts/examples/diagnostic.py /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/map/script1/settings.yml
 > 2026-04-02 12:03:17,514 UTC [3235444] INFO    Progress: 3 tasks running, 1 tasks waiting for ancestors, 1/5 done
 > 2026-04-02 12:03:18,367 UTC [3236560] INFO    timeseries/tas_global         [########################################] | 100% Completed | 1.10 s
 > 2026-04-02 12:03:18,370 UTC [3236558] INFO    Computing and saving data for preprocessing task timeseries/tas_amsterdam
@@ -182,10 +185,12 @@ like the example log output below.
 > file:///scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/run/recipe_python_filled.yml
 > 2026-04-02 12:03:30,651 UTC [3235444] INFO    Wrote recipe output to:
 > file:///scratch/b/username/esmvaltool_output/recipe_python_20260402_120254/index.html
-> 2026-04-02 12:03:30,651 UTC [3235444] INFO    It looks like you are connected to a remote machine via SSH. To show the output html file, you can try the following command on your local machine:
+> 2026-04-02 12:03:30,651 UTC [3235444] INFO    It looks like you are connected to a remote machine via SSH. To show the output html file, you can try the following 
+command on your local machine:
 > server=136.172.124.6 && port=31415 && ssh -t -L ${port}:localhost:${port} username@${server} /work/bd0854/username/utils/mambaforge/envs/esmvaltool/bin/python3.12 -m http.server ${port} -d /scratch/b/username/esmvaltool_output/recipe_python_20260402_120254
 > Then visit http://localhost:31415 in your browser
-> 2026-04-02 12:03:30,651 UTC [3235444] INFO    If the port 31415 is already in use, you can replace it with any other free one (e.g., 12789). If you are connected through a jump host, replace the server IP address 136.172.124.6 with your SSH server name
+> 2026-04-02 12:03:30,651 UTC [3235444] INFO    If the port 31415 is already in use, you can replace it with any other free one (e.g., 12789). If you are connected 
+through a jump host, replace the server IP address 136.172.124.6 with your SSH server name
 > 2026-04-02 12:03:30,652 UTC [3235444] INFO    Ending the Earth System Model Evaluation Tool at time: 2026-04-02 12:03:30 UTC
 > 2026-04-02 12:03:30,652 UTC [3235444] INFO    Time for running the recipe was: 0:00:34.547424
 > 2026-04-02 12:03:31,701 UTC [3235444] INFO    Maximum memory used (estimate): 8.3 GB

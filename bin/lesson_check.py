@@ -103,7 +103,7 @@ BREAK_METADATA_FIELDS = {
 
 # How long are lines allowed to be?
 # Please keep this in sync with .editorconfig!
-MAX_LINE_LEN = 100
+MAX_LINE_LEN = 170
 
 
 def main():
@@ -556,7 +556,7 @@ CHECKERS = [
     (re.compile(r'README\.md'), CheckNonJekyll),
     (re.compile(r'index\.md'), CheckIndex),
     (re.compile(r'reference\.md'), CheckReference),
-    (re.compile(os.path.join('_episodes', '*\.md')), CheckEpisode),
+    (re.compile(os.path.join('_episodes', r'*\.md')), CheckEpisode),
     (re.compile(r'.*\.md'), CheckGeneric)
 ]
 

@@ -1,55 +1,52 @@
 ---
 title: "Configuration"
 teaching: 10
-exercises: 10
-compatibility: ESMValTool v2.13.0
+exercises: 15
+compatibility: ESMValTool v2.14.0
 
 questions:
 - What is the user configuration file and how should I use it?
 
 objectives:
-- Understand the contents of the user-config.yml file
-- Prepare a personalized user-config.yml file
-- Configure ESMValTool to use some settings
-
+- Understand how ESMValTool is configured
+- Prepare a personalized ESMValTool configuration
+- Configure ESMValTool to use stored climate data and to download climate data
 keypoints:
-- The ``config-user.yml`` tells ESMValTool where to find input data.
-- "``output_dir`` defines the destination directory."
-- "``rootpath`` defines the root path of the data."
-- "``drs`` defines the directory structure of the data."
+- ESMValTool can be configured through YAML files located in `~/.config/esmvaltool` or command line arguments
+- The final configuration is created by merging the contents of all YAML files and command line arguments
+- Users can choose to use one big configuration file, or spread its contents among many small configuration files
+- ESMValTool can be configured to automatically download climate data from ESGF
 
 ---
 
-## The configuration file 
+## Configuring ESMValTool via YAML files
 
-First, for the purposes of this tutorial, we will create a directory in our home directory
-called `esmvaltool_tutorial` and use that as our working directory. The following steps 
-should do that:
+ESMValTool provides a set of predefined configuration files.
+These include the files specifying the default configuration values,
+but also machine-specific files that include data sources for various
+HPC systems.
+
+To show all available files, run
 
 ~~~bash
- mkdir esmvaltool_tutorial
- cd esmvaltool_tutorial
+esmvaltool config list
 ~~~
 
-The ``config-user.yml`` configuration file contains all the global level
-information needed by ESMValTool to run.
-This is a [YAML file](https://yaml.org/spec/1.2/spec.html).
+All configuration files are [YAML files](https://yaml.org/spec/1.2/spec.html).
 
-You can get the default configuration file by running:
+To customize your configuration via YAML files, you can copy one of the existing files.
+For example, to copy the file containing the default values for many options, run
 
 ~~~bash
-  esmvaltool config get_config_user
+  esmvaltool config copy defaults/config-user.yml
 ~~~
 The default configuration file will be downloaded to the default location: 
 `~/.config/esmvaltool/config-user.yml`, where `~` is the
 path to your home directory. Note that files and directories starting with a
 period are "hidden", to see the `.config` directory in the terminal use
 `ls -la ~`. 
-With the optional ``--path=<target_dir>`` you can specifiy the directory
-in which the configuration file can be saved. For instance, you can provide
-the path to your working directory as the `target_dir`. 
 Note, if a configuration file by that name already exists in the default 
-location, the `get_config_user` command will not update the file as ESMValTool will not 
+location, the `config copy` command will not update the file as ESMValTool will not 
 overwrite the file. You will have to move the file first if you want an updated copy of the 
 default user configuration file.
 
@@ -62,7 +59,7 @@ and then modify it if needed:
   nano ~/.config/esmvaltool/config-user.yml
 ~~~
 
-If ``nano`` does not work on your system, or if you prefer a different editor, 
+If ``nano`` does not work on your system, or if you prefer a different editor,
 any other editor can be used, e.g. ``vim``.
 
 This file contains the information for:
@@ -71,61 +68,31 @@ This file contains the information for:
 - Destination directory
 - Auxiliary data directory
 - Number of tasks that can be run in parallel
-- Rootpath to input data
-- Directory structure for the data from different projects
+- ...
 
 > ## Text editor side note
 >
-> No matter what editor you use, you will need to know where it searches
-> for and saves files. If you start it from the shell, it will (probably)
-> use your current working directory as its default location. We use ``nano``
-> in examples here because it is one of the least complex text editors.
+> No matter what editor you use, you will need to know where it searches for
+> and saves files. If you start it from the shell, it will (probably) use your
+> current working directory as its default location. We use ``nano`` in examples
+> here because it is one of the least complex text editors.
 > Press <kbd>ctrl</kbd> + <kbd>O</kbd> to save the file,
 > and then <kbd>ctrl</kbd> + <kbd>X</kbd> to exit ``nano``.
 {: .callout}
 
-## Output settings
-
-The configuration file starts with output settings that
-inform ESMValTool about your preference for output.
-You can turn on or off the setting by ``true`` or ``false``
-values. Most of these settings are fairly self-explanatory.
-
-
-> ## Saving preprocessed data
->
-> Later in this tutorial, we will want to look at the contents of the
-> `preproc` folder.
-> This folder contains preprocessed data and is removed by default when
-> ESMValTool is run.
-> In the configuration file, which settings can be modified to prevent
-> this from happening?
->
->> ## Solution
->>
->> If the option ``remove_preproc_dir`` is set to ``false``, then the
->> ``preproc/`` directory contains all the pre-processed data and the
->> metadata interface files.
->> If the option ``save_intermediary_cubes`` is set to ``true``
->> then data will also be saved after each preprocessor step in the folder
->> ``preproc``. Note that saving all intermediate results to file will result
->> in a considerable slowdown, and can quickly fill your disk.
-> {: .solution}
-{: .challenge}
-
 ## Destination directory
 
-The destination directory is the rootpath where ESMValTool will store its
-output folders containing
-e.g. figures, data, logs, etc. With every run, ESMValTool automatically
-generates a new output folder determined by recipe name, and date and time
-using the format: YYYYMMDD_HHMMSS.
+The example configuration file contains the option ``output_dir``, which is the
+rootpath where ESMValTool will store its output folders containing e.g. figures,
+data, logs, etc. With every run, ESMValTool automatically generates a new output
+folder determined by recipe name, and date and time using the format:
+YYYYMMDD_HHMMSS.
 
 > ## Set the destination directory
 >
-> Let's name our destination directory ``esmvaltool_output`` in the current directory.
-> ESMValTool should write the output to this path, so make sure you have the disk space
-> to write output to this directory.
+> Let's name our destination directory ``esmvaltool_output`` in the current
+> directory. ESMValTool should write the output to this path, so make sure you
+> have the disk space to write output to this directory.
 > How do we set this in the `config-user.yml`?
 >
 >> ## Solution
@@ -139,45 +106,192 @@ using the format: YYYYMMDD_HHMMSS.
 > {: .solution}
 {: .challenge}
 
+## Output settings
+
+Additionally you can configure the output settings that
+inform ESMValTool about your preference for output.
+Most of these settings are fairly self-explanatory.
+
+
+> ## Saving preprocessed data
+>
+> Later in this tutorial, we will want to look at the contents of the
+> `preproc` folder.
+> This folder contains preprocessed data and is removed by default when
+> ESMValTool is run.
+> In the configuration, which settings can be modified to prevent
+> this from happening?
+>
+>> ## Solution
+>>
+>> If the option ``remove_preproc_dir`` is set to ``false``, then the
+>> ``preproc/`` directory contains all the pre-processed data and the metadata
+>> interface files.
+>> If the option ``save_intermediary_cubes`` is set to ``true`` then data will
+>> also be saved after each preprocessor step in the folder ``preproc``. Note
+>> that saving all intermediate results to file will result in a considerable
+>> slowdown, and can quickly fill your disk.
+> {: .solution}
+{: .challenge}
+
+
+## Other settings
+
+> ## Auxiliary data directory
+>
+> The ``auxiliary_data_dir`` setting is the path where any required additional
+> auxiliary data files are stored. This location allows us to tell the diagnostic
+> script where to find the files if they can not be downloaded at runtime. This
+> option should not be used for model or observational datasets, but for data
+> files (e.g. shape files) used in plotting such as coastline descriptions and
+> if you want to feed some additional data (e.g. shape files) to your recipe.
+>
+>```yaml
+> auxiliary_data_dir: ~/auxiliary_data
+> ```
+> See more information in ESMValTool
+> [documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+> quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
+{: .callout}
+
+> ## Number of parallel tasks
+>
+> This option enables you to perform parallel processing. You can choose the
+> number of tasks in parallel as 1/2/3/4/... or you can set it to ``null``. That
+> tells ESMValTool to use the maximum number of available CPUs. For the purpose
+> of the tutorial, please set ESMValTool use only 1 cpu:
+>
+>```yaml
+> max_parallel_tasks: 1
+> ```
+>
+> In general, if you run out of memory, try setting ``max_parallel_tasks`` to 1.
+> Then, check the amount of memory you need for that by inspecting the file
+> ``run/resource_usage.txt`` in the output directory. Using the number there you
+> can increase the number of parallel tasks again to a reasonable number for the
+> amount of memory available in your system.
+{: .callout}
+
+
+## Customizing your configuration
+
+By default, configuration files are read from the directory ``~/.config/esmvaltool``.
+This can be changed via the ``ESMVALTOOL_CONFIG_DIR`` environment variable.
+In addition another custom configuration directory can be specified via the
+``--config_dir`` command line argument.
+We will learn how to do this in the
+[next lesson]({{ page.root }}{% link _episodes/04-recipe.md %}).
+
+It is possible to have several configuration files with different purposes, for
+example: ``dask_options.yml``, ``data_sources.yml``.
+In this case, ESMValTool searches for all YAML files within each of the
+configuration directories and merges them together. How this is done is explained
+[here](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/
+configure.html#yaml-files).
+
+To show the final configuration that is actually used when running ESMValTool, you can use
+
+~~~bash
+esmvaltool config show
+~~~
+
+
 ## Rootpath to input data
 
-ESMValTool uses several categories (in ESMValTool, this is referred to as projects)
-for input data based on their source. The current categories in the configuration
-file are mentioned below. For example, CMIP is used for a dataset from
+ESMValTool uses several categories (in ESMValTool, these are referred to as projects)
+for input data based on their source (e.g.
+CMIP6, CMIP5, obs4mips, OBS6, OBS). For example, CMIP is used for a dataset from
 the Climate Model Intercomparison Project whereas OBS may be 
 used for an observational dataset.
-More information about the projects used in ESMValTool is available in the 
+More information about the projects used in ESMValTool is available in the
 [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/latest/
-quickstart/find_data.html).
-When using ESMValTool on your own machine, you can create a directory to download 
-climate model data or observation data sets and let the tool use data from there. 
-It is also possible to ask 
-ESMValTool to download climate model data as needed. This can be done by specifying a 
-download directory and by setting the option to download data as shown below.
+quickstart/find_data.html). The ``data`` section for each project in the configuration 
+files defines sources of input data. The easiest way to get started with these is to 
+copy one of the example configuration files and tailor it to your needs.
 
-```yaml
-# Directory for storing downloaded climate data
-download_dir: ~/climate_data
-search_esgf: always
-```
-If you are working offline or do not want to download the data then set the 
-option above to `never`. If you want to download data only when the necessary files 
-are missing at the usual location, you can set the option to `when_missing`.
+When using ESMValTool on your own machine, the recommended setup can 
+be obtained by running the command
 
-The ``rootpath`` specifies the directories where ESMValTool will look for input data.
-For each category, you can define either one path or several paths as a list. For example:
+~~~bash
+  esmvaltool config copy data-local-esmvaltool.yml
+~~~
 
-```yaml
-rootpath:
-  CMIP5: [~/cmip5_inputpath1, ~/cmip5_inputpath2]
-  OBS: ~/obs_inputpath
-  RAWOBS: ~/rawobs_inputpath
-  default: ~/climate_data
-```
-These are typically available in the default configuration file you downloaded, so simply 
-uncommenting the machine specific lines should be sufficient to access input data.
+After the file ``data-local-esmvaltool.yml`` has been copied to your configuration
+directory `~/.config/esmvaltool/`, you can update the `rootpath` and the
+`dirname_template` to match your file locations. The ``rootpath`` specifies the 
+directories where ESMValTool will look for input data of the specific project. The
+`dirname_template` setting describes the file structure for each project.
 
-> ## Set the correct rootpath
+If you are working on a HPC system, there are also several configurations 
+for popular HPC systems, e. g. JASMIN, DKRZ, ETH, and IPSL. To list the available example 
+files, run the command:
+
+~~~bash
+  esmvaltool config list data-hpc
+~~~
+
+To load the configuration suitable for the HPC system at DKRZ, run:
+~~~bash
+  esmvaltool config copy data-hpc-dkrz.yml
+~~~
+
+It is also possible to ask ESMValTool to download climate model data as needed. When
+running ESMValTool you can automatically download the files required to run a recipe 
+from ESGF for the projects CMIP3, CMIP5, CMIP6, CORDEX, and obs4MIPs. For this,
+copy the appropriate configuration file by running
+
+~~~bash
+  esmvaltool config copy data-intake-esgf.yml
+~~~
+
+Additionally, it is necessary to configure
+[intake-esgf](https://intake-esgf.readthedocs.io/en/stable/configure.html).
+For this you need to copy the file `conf.yaml` in the directory `~/.config/intake-esgf` and 
+update the `local_cache` and `esg_dataroot` with your desired download directory in this intake-esgf 
+configuration file. The updated file should look like this:
+> ## conf.yml
+>
+> ```yaml 
+> additional_df_cols: []
+> break_on_error: true
+> confirm_download: false
+> download_db: ~/.config/intake-esgf/download.db
+> esg_dataroot:
+> - <your_download_dir>
+> - /p/css03/esgf_publish
+> - /eagle/projects/ESGF2/esg_dataroot
+> - /global/cfs/projectdirs/m3522/cmip6/
+> - /glade/campaign/collections/cmip.mirror
+> globus_indices:
+>   ESGF2-US-1.5-Catalog: true
+>   anl-dev: false
+>   ornl-dev: false
+> local_cache:
+> - <your_download_dir>
+> logfile: ~/.config/intake-esgf/esgf.log
+> num_threads: 6
+> print_log_on_error: false
+> requests_cache:
+>   cache_name: intake-esgf/requests-cache.sqlite
+>   expire_after: 3600
+>   use_cache_dir: true
+> slow_download_threshold: 0.5
+> solr_indices:
+>   esg-dn1.nsc.liu.se: false
+>   esgf-data.dkrz.de: false
+>   esgf-node.ipsl.upmc.fr: false
+>   esgf-node.llnl.gov: false
+>   esgf-node.ornl.gov: false
+>   esgf.ceda.ac.uk: false
+>   esgf.nci.org.au: false
+> stac_indices:
+>   api.stac.ceda.ac.uk: false
+> ```
+>
+{: .solution}
+
+
+> ## Set the correct rootpaths
 >
 > In this tutorial, we will work with data from
 > [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
@@ -191,172 +305,88 @@ uncommenting the machine specific lines should be sufficient to access input dat
 >> ## Solution
 >>
 >> - Are you working on your own local machine?
->>   You need to add the root path of the folder where the data is available
->> to the `config-user.yml` file as:
+>>   You need to copy `data-local-esmvaltool.yml` into your configuration directory 
+>>   and specify the root path of the folder where the data is available (e.g., 
+>>   ``<your_climate_data_dir>``) as:
 >>
 >>```yaml
->>   rootpath:
+>>   projects:
 >>   ...
->>     CMIP5: ~/esmvaltool_tutorial/data
->>     CMIP6: ~/esmvaltool_tutorial/data
+>>     CMIP6:
+>>       data:
+>>         local:
+>>           type: esmvalcore.io.local.LocalDataSource
+>>           rootpath: <your_climate_data_dir>
+>>           dirname_template: "{project}/{activity}/{institute}/{dataset}/{exp}/{ensemble}/{mip}/{short_name}/{grid}/{version}"
+>>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}_{grid}*.nc"
+>>     CMIP5:
+>>       data:
+>>         local:
+>>           type: esmvalcore.io.local.LocalDataSource
+>>           rootpath: <your_climate_data_dir>
+>>           dirname_template: "{project.lower}/{product}/{institute}/{dataset}/{exp}/{frequency}/{modeling_realm}/{mip}/{ensemble}/{version}/{short_name}"
+>>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}*.nc"
 >>```
 >>
->> - Are you working on your local machine and have downloaded data using ESMValTool?
->> You need to add the root path of the folder where the data has been downloaded to as
->> specified in the `download_dir`.
+>> - Are you working on your local machine and you want to download missing data using ESMValTool?
+>> You need to configure `intake-esgf` (see above) ans add the root path of the folder where the data
+>> has been downloaded to in `data-local-esmvaltool.yml` as specified in the `esgf-cache`.
 >>
 >> ```yaml
->> rootpath:
->> ...
->>   CMIP5: ~/climate_data
->>   CMIP6: ~/climate_data
+>>   projects:
+>>   ...
+>>     CMIP6:
+>>       data:
+>>         local:
+>>           type: esmvalcore.io.local.LocalDataSource
+>>           rootpath: <your_climate_data_dir>
+>>           dirname_template: "{project}/{activity}/{institute}/{dataset}/{exp}/{ensemble}/{mip}/{short_name}/{grid}/{version}"
+>>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}_{grid}*.nc"
+>>         esgf-cache:
+>>           type: esmvalcore.io.local.LocalDataSource
+>>           rootpath: <your_download_dir>
+>>           dirname_template: "{project}/{activity}/{institute}/{dataset}/{exp}/{ensemble}/{mip}/{short_name}/{grid}/{version}"
+>>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}_{grid}*.nc"
+>>     CMIP5:
+>>       data:
+>>         local:
+>>           type: esmvalcore.io.local.LocalDataSource
+>>           rootpath: <your_climate_data_dir>
+>>           dirname_template: "{project.lower}/{product}/{institute}/{dataset}/{exp}/{frequency}/{modeling_realm}/{mip}/{ensemble}/{version}/{short_name}"
+>>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}*.nc"
+>>         esgf-cache:
+>>           type: esmvalcore.io.local.LocalDataSource
+>>           rootpath: <your_download_dir>
+>>           dirname_template: "{project.lower}/{product}/{institute}/{dataset}/{exp}/{frequency}/{modeling_realm}/{mip}/{ensemble}/{version}"
+>>           filename_template: "{short_name}_{mip}_{dataset}_{exp}_{ensemble}*.nc"
 >>```
 >>
 >> - Are you working on a computer cluster like Jasmin or DKRZ?
 >>   Site-specific path to the data for JASMIN/DKRZ/ETH/IPSL 
->>   are already listed at the end of the
->> `config-user.yml` file. You need to uncomment the related lines.
->> For example, on JASMIN:
+>>   are already available in specific configuration files. You 
+>>   need to copy this file in your configuration directory.
+>>   For example, on DKRZ, run:
 >>
->>```yaml
->>auxiliary_data_dir: /gws/nopw/j04/esmeval/aux_data/AUX
->>rootpath: 
->>  CMIP6: /badc/cmip6/data/CMIP6
->>  CMIP5: /badc/cmip5/data/cmip5/output1
->>  OBS: /gws/nopw/j04/esmeval/obsdata-v2
->>  OBS6: /gws/nopw/j04/esmeval/obsdata-v2
->>  obs4MIPs: /gws/nopw/j04/esmeval/obsdata-v2
->>  ana4mips: /gws/nopw/j04/esmeval/obsdata-v2
->>  default: /gws/nopw/j04/esmeval/obsdata-v2
+>>```bash
+>>   esmvaltool config copy data-hpc-dkrz.yml
 >>```
 >>
->> - For more information about setting the rootpath, see also the ESMValTool
->> [documentation](https://docs.esmvaltool.org/projects/esmvalcore/en/
-latest/quickstart/find_data.html).
+>> - For more information about configure the data sources, see also the
+>>   [ESMValTool documentation](
+>>   https://docs.esmvaltool.org/projects/ESMValCore/en/latest/quickstart/
+>>   configure.html#project-specific-configuration).
 > {: .solution}
 {: .challenge}
 
-## Directory structure for the data from different projects
-
-Input data can be from various models, observations and reanalysis data that
-adhere to the [CF/CMOR standard](https://cmor.llnl.gov/). 
-The ``drs`` setting describes the file structure for several projects (e.g.
-CMIP6, CMIP5, obs4mips, OBS6, OBS) on several key machines
-(e.g. BADC, CP4CDS, DKRZ, ETHZ, SMHI, BSC). For more
-information about ``drs``, you can visit the ESMValTool documentation on
-[Data Reference Syntax (DRS)](https://docs.esmvaltool.org/projects/ESMValCore/
-en/latest/quickstart/find_data.html#explaining-drs-cmip5-or-drs-cmip6).
-
-> ## Set the correct drs
+> ## Configuration via command line
 >
-> In this lesson, we will work with data from
-> [CMIP5](https://esgf-node.llnl.gov/projects/cmip5/)
-> and [CMIP6](https://esgf-node.llnl.gov/projects/cmip6/).
-> How can we set the correct `drs`?
+> In addition, all configuration options can also be specified via the command
+> line and those settings will overwrite any setting given by the YAML files. You
+> can find more information in the
+> [documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
+> quickstart/configure.html#command-line-arguments).
 >
->> ## Solution
->>
->> - Are you working on your own local machine?
->>   You need to set the `drs` of the data
->> in the `config-user.yml` file as:
->>```yaml
->>   drs:
->>     CMIP5: default
->>     CMIP6: default
->>```
->> - Are you asking ESMValTool to download the data for use with your diagnostics?
->> You need to set the `drs` of the data in the `config-user.yml` file as:
->> ```yaml
->>    drs:
->>      CMIP5: ESGF
->>      CMIP6: ESGF
->>      CORDEX: ESGF
->>      obs4MIPs: ESGF
->>```
->> - Are you working on a computer cluster like Jasmin or DKRZ?
->>   Site-specific `drs` of the data are already listed at the end of the
->> `config-user.yml` file. You need to uncomment the related lines.
->> For example, on Jasmin:
->>```yaml
->>   # Site-specific entries: Jasmin
->>   # Uncomment the lines below to locate data on JASMIN
->>   drs:
->>     CMIP6: BADC
->>     CMIP5: BADC
->>     OBS: default
->>     OBS6: default
->>     obs4mips: default
->>     ana4mips: default
->>```
->>
-> {: .solution}
-{: .challenge}
-
-> ## Explain the default drs (if working on local machine)
->
-> In the previous exercise, we set the `drs` of CMIP5 data to `default`.
->    Can you explain why?
->
->> ## Solution
->>
->> `drs: default` is one way to retrieve data from a ROOT directory that has
->>    no DRS-like structure. ``default`` indicates that all the files are in a
->>    folder without any structure.
->>
-> {: .solution}
-{: .challenge}
-
-## Other settings
-
-> ## Auxiliary data directory
->
-> The ``auxiliary_data_dir`` setting is the path where any required additional
-auxiliary data files are stored. This location allows us to tell the diagnostic
-script where to find the files if they can not be downloaded at runtime. This
-option should not be used for model or observational datasets, but for data
-files (e.g. shape files) used in plotting such as coastline descriptions and
-if you want to feed some additional data (e.g. shape files) to your recipe.
->
->```yaml
-> auxiliary_data_dir: ~/auxiliary_data
-> ```
-> See more information in ESMValTool
-[documentation](https://docs.esmvaltool.org/projects/ESMValCore/en/latest/
-> quickstart/configure.html?highlight=auxiliary_data#top-level-configuration-options).
 {: .callout}
 
-> ## Number of parallel tasks
->
-> This option enables you to perform parallel processing. You can choose the
-number of tasks in parallel as 1/2/3/4/... or you can set it to ``null``. That
-tells ESMValTool to use the maximum number of available CPUs. For the purpose of
-the tutorial, please set ESMValTool use only 1 cpu:
->
->```yaml
-> max_parallel_tasks: 1
-> ```
->
-> In general, if you run out of memory, try setting ``max_parallel_tasks`` to 1.
-Then, check the amount of memory you need for that by inspecting the file
-``run/resource_usage.txt`` in the output directory. Using the number there you
-can increase the number of parallel tasks again to a reasonable number for the
-amount of memory available in your system.
-{: .callout}
-
-> ## Make your own configuration file
->
-> Configuration files could live in the user configuration directory, which is 
-> by default ``~/.config/esmvaltool``. The directory could be also specified
-> via the command line argument ``--config_dir``.
-> We will learn how to do this in the
-> [next lesson]({{ page.root }}{% link _episodes/04-recipe.md %}).
->
-> It is possible to have several configuration files with different purposes,
-> for example: config-user_formalised_runs.yml, config-user_debugging.yml.
-> In this case, ESMValTool searches for all YAML files within each of the 
-> configuration directories and merges them together. How this is done is 
-> explained [here](https://docs.esmvaltool.org/projects/ESMValCore/en/
-> latest/quickstart/configure.html#yaml-files).
-{: .callout}
 
 {% include links.md %}

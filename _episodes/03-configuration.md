@@ -223,8 +223,8 @@ directories where ESMValTool will look for input data of the specific project. T
 `dirname_template` setting describes the file structure for each project.
 
 If you are working on a HPC system, there are also several configurations 
-for popular HPC systems, e. g. JASMIN, DKRZ, ETH, and IPSL. To list the available example 
-files, run the command:
+for popular HPC systems available that you can use instead, e. g. JASMIN, DKRZ, 
+ETH, and IPSL. To list the available example files, run the command:
 
 ~~~bash
   esmvaltool config list data-hpc

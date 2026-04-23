@@ -60,10 +60,10 @@ For reference, we show the diagnostic code in the dropdown box below.
 There are four main sections in the script:
 
 - A description i.e. the ``docstring`` (line 1).
-- Import statements (line 2-16).
-- Functions that implement our analysis (line 21-102).
+- Import statements (line 3-17).
+- Functions that implement our analysis and record provenance (line 22-115).
 - A typical Python top-level script i.e. ``if __name__ == '__main__'`` (line
-  105-108).
+  118-120).
 
 > ## diagnostic.py
 >

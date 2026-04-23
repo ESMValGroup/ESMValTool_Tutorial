@@ -6,6 +6,7 @@
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
 [ci]: http://communityin.org/
 [cmip5-search]: https://esgf-data.dkrz.de/search/cmip5-dkrz/
+[cmip6-cmor-tables]: https://github.com/PCMDI/cmip6-cmor-tables/tree/main/Tables/
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [code-documentation]: https://docs.esmvaltool.org/en/latest/community/code_documentation.html

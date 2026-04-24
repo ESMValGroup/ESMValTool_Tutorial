@@ -2,7 +2,7 @@
 title: "Debugging"
 teaching: 30
 exercises: 15
-compatibility: ESMValTool v2.7.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "How can I handle errors/warnings?"
@@ -321,7 +321,11 @@ What suggestions would you give the researcher for fixing the error?
 >
 >> ## Solution
 >>
->> 1. Check ``user-config.yml`` to see if the correct directory for input data is introduced
+>> 1. Check project data configuration to see if the correct directory for 
+>> input data is introduced. See [data sources](https://docs.esmvaltool.org/
+>> projects/ESMValCore/en/latest/quickstart/configure.html#data-sources). 
+>> For example, [data-hpc-dkrz.yml](https://github.com/ESMValGroup/ESMValCore/blob/main/
+>> esmvalcore/config/configurations/data-hpc-dkrz.yml)
 >> 2. Check the available data, regarding exp, mip, ensemble, start_year, and end_year
 >> 3. Check the variable names in the diagnostics section in the recipe
 > {: .solution}

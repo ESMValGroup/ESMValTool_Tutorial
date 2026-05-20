@@ -91,3 +91,6 @@
 [api-esgf]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.esgf.html
 [api-preprocessors]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html
 [iris-plot]: https://scitools-iris.readthedocs.io/en/latest/userguide/plotting_a_cube.html#iris-cube-plotting
+[jasmin-notebooks]: (https://help.jasmin.ac.uk/docs/interactive-computing/jasmin-notebooks-service/)
+[access-esmvalcore]: (https://docs.access-hive.org.au/model_evaluation/evaluation_on_gadi/esmvaltool_workflow/#using-esmvalcore-api-in-a-jupyter-notebook)
+[doc-input-obs]: https://docs.esmvaltool.org/en/latest/input.html#observations

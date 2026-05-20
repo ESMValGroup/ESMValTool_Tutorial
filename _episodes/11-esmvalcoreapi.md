@@ -2,7 +2,7 @@
 title: "What is ESMValCore API and using it in a Jupyter notebook"
 teaching: 20
 exercises: 40
-compatibility: ESMValTool, ESMValCore v2.11.0
+compatibility: ESMValTool, ESMValCore v2.14.0
 
 questions:
 - "How to find data for ESMValTool in a Jupyter Notebook?"
@@ -24,7 +24,7 @@ A schematic overview is depicted below.
 ![image](../fig/esmvaltool_architecture.png)
 Using the functionalities in the ESMValCore light blue box in this modular way allows users to 
 use existing code to explore and build insights in the data and can help them build and write a
-recipeand diagnostic script with the previous episodes Writing your own [recipe]({{ page.root
+recipe and diagnostic script with the previous episodes Writing your own [recipe]({{ page.root
  }}{% link _episodes/06-preprocessor.md %}) / [diagnostic script]({{ page.root }}{% link 
 _episodes/08-diagnostics.md %})
 
@@ -36,29 +36,32 @@ by Peter Kalverla. There's also material from the
 
 ## Start JupyterLab
 A [jupyter notebook](https://jupyter.org/){:target="_blank"} is an interactive document where 
-you can run code. All python code in this episode was written to be in a python cell of a
-Jupyter Notebook. 
+you can run code alongside markdown cells for explanation text and images. 
+All python code in this episode was written to be in a python cell of a Jupyter Notebook.
 
 If using a HPC server they may provide a service which can start up an interactive job
-with Jupyter running for you. This would be convenient for this exercise where you can also
-access the data stored at those HPC servers, for example,
-- [ARE](https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide) 
-at NCI's Gadi in Australia or
-- [Jupyterhub@DKRZ](https://docs.dkrz.de/doc/software%26services/jupyterhub/index.html).
-- [JASMIN Notebooks Service]
-(https://help.jasmin.ac.uk/docs/interactive-computing/jasmin-notebooks-service/).
+with JupyterLab running for you. This would be convenient for this exercise where you can also
+access the data stored at those HPC servers, for example:
+- [ARE](https://opus.nci.org.au/spaces/Help/pages/162431120/ARE+User+Guide){:target="_blank"} 
+at NCI's Gadi in Australia
+- [Jupyterhub@DKRZ](https://docs.dkrz.de/doc/software%26services/jupyterhub/index.html){:target="_blank"}.
+- [JASMIN Notebooks Service][jasmin-notebooks]{:target="_blank"}.
 
-You will need to use a python environment with ESMValTool and ESMValCore installed.
+Whether on a HPC server or your personal computer, you will need to use a python environment
+with ESMValCore ([installation episode]({{ page.root }}{% link _episodes/02-installation.md %}) 
+can help with this) and [JupyterLab](https://jupyter.org/install).
+There may be one available, for example [with ARE mentioned above][access-esmvalcore]{:target="_blank"}
+and see in the [installation documentation][activate-environment]{:target="_blank"}.
 
 ## Configuration in the notebook
 
-We can look at the default user configuration file, by default found in 
-`~/.esmvaltool/config-user.yml` by calling a `CFG` object as a dictionary structure. 
+We can look at the default configuration files, by default found in 
+`~/.config/esmvaltool` by calling a `CFG` object as a dictionary structure. 
 This gives us the ability to edit the settings.
 The tool can automatically download the climate data files required to run a recipe for you.
 You can check your download directory and output directory where your recipe runs will be saved.
 This `CFG` object is from the `config` module in the ESMValCore API,
-for more details see [here][api-config].
+for more details see [here][api-config]{:target="_blank"}.
 
 > Call the `CFG` object in a Jupyter notebook and inspect the values.
 > > ## Solution
@@ -84,7 +87,7 @@ Facets are key names and their values which help define the dataset. They are us
 particular dataset. See **Adding a dataset entry** section in the [Writing your own recipe]({{ 
 page.root }}{% link _episodes/06-preprocessor.md %}) 
 episode for examples.
-We can use this in a Notebook, including filling out the facets for data definition. 
+We can use this in a Jupyter notebook, including filling out the facets for data definition. 
 To do this we will use the `Dataset` object from the API. Let's look at this example, which you
 can copy to a Jupyter notebook. 
 
@@ -146,14 +149,6 @@ print(dataset)
 > > print([ds['ensemble'] for ds in ensemble_datasets])
 > > ```
 > {: .solution}
-> There is also the ability to search on ESGF nodes and download. See 
-> [reference][api-esgf]{:target="_blank"} for more details.
-> Check the configuration settings for this.
->```python
->from esmvalcore.config import CFG
->CFG['search_esgf'] = 'always'
->CFG['download_dir'].mkdir(exist_ok=True)
->```
 {: .challenge}
 
 > ## Add supplementary variables
@@ -256,6 +251,8 @@ functions that can be applied in a centralised, documented and efficient way. Th
 are a broad range of operations that are commonly done to input data before diagnostics 
 or metrics are applied and can be done to all the datasets in a recipe consistently. 
 See the [documentation][recipe-section-preprocessors]{:target="_blank"} to read further.
+We can use these preprocessor functions in a Jupyter notebook to help us develop and inspect
+our diagnostic.
 
 > ## Exercise: apply preprocessors using the API 
 > See [API reference][api-preprocessors]{:target="_blank"} to check the 
@@ -353,8 +350,6 @@ quickplot.plot(cube)
 > >from esmvalcore.preprocessor import annual_statistics, anomalies, area_statistics
 > >
 > >
-> ># Settings for automatic ESGF search
-> >CFG['search_esgf'] = 'when_missing'
 > >
 > ># Declare common dataset facets
 > >template = Dataset(
@@ -382,7 +377,7 @@ quickplot.plot(cube)
 > >    "end_year": 1979, "end_month": 12, "end_day": 31,
 > >}
 > >
-> ># (Down)load, pre-process, and plot the cubes
+> ># Load, pre-process, and plot the cubes
 > >for dataset in datasets: 
 > >    cube = dataset.load()
 > >    cube = area_statistics(cube, operator='mean')
@@ -482,7 +477,8 @@ quickplot.plot(cube)
 >   - `dataset :'BCC-CSM2-MR', exp:'piControl', ensemble='r1i1p1f1', timerange:'1960/2010'`
 > - Using observations:
 >   - `dataset:'NSIDC-G02202-sh', tier:'3', version:'4', timerange:'1979/2018'`
-> 
+>   - or use other `siconc` [observations][doc-input-obs]{:target="_blank"}
+>
 > 1. Extract Southern hemisphere
 > 2. Use only valid values (15 -100 %)
 > 3. Sum sea ice area which will be the fraction multiplied by cell area and summed

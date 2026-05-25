@@ -2,7 +2,7 @@
 title: "CMORization: adding new datasets to ESMValTool"
 teaching: 15
 exercises: 45
-compatibility: ESMValTool v2.6.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "CMORization: what is it and why do we need it?"
@@ -27,6 +27,9 @@ This episode deals with "CMORization". ESMValTool is designed to work with data
 that follow the CMOR standards. Unfortunately, not all datasets follow these
 standards. In order to use such datasets in ESMValTool we first need to reformat
 the data. This process is called "CMORization".
+
+More detailed informations can be found in the
+[Documentation](https://docs.esmvaltool.org/en/latest/develop/dataset.html).
 
 > ## What are the CMOR standards?
 >
@@ -65,8 +68,8 @@ that is important for calculating components of the global carbon cycle.
 See the next section on how to obtain data.
 
 As in the previous episode 
-([Development and Contribution episode]({{ page.root }}{% link
- _episodes/07-development-setup.md %})),
+["Development and Contribution"]({{ page.root }}{% link
+ _episodes/07-development-setup.md %}),
 we will be using the development installation of ESMValTool.
 
 
@@ -120,59 +123,68 @@ run the existing one. There is a specific command available in the ESMValTool to
 run the CMORizer scripts:
 
 ```bash
-esmvaltool data format --config_file <path to config-user.yml>  <dataset-name>
+esmvaltool data format --original-data-dir </path/to/original/data> <dataset-name>
 ```
 
-The ``config-user.yml`` is the file in which we define the different data
-paths, see the episode on [Configuration]({{ page.root }}{% link _episodes/03-configuration.md %}).
-In the ``rootpath`` of your ``config-user.yml``, make sure to add the right
-directory for "RAWOBS" data in which you downloaded the FLUXCOM dataset:
-
-```yaml
-rootpath:
-  RAWOBS: ~/data/RAWOBS
-```
-
-This enables ESMValTool to find the raw observational datasets stored in the
-"RAWOBS" folder. The ``dataset-name`` needs to be identical to the folder
-name that was created to store the raw observation data files, i.e.
+This will look for the original data in the `original-data-dir` folder and store the
+formatted data in the the output_dir path given in the configuration file. If 
+`original-data-dir` is not specified ESMValTool looks for the data in the current directory. The 
+options `--start` and `--end` can be added to the command above to restrict the
+formatting of raw data to a time range. They will be ignored if a specific
+dataset does not support this option (i.e. because all the data is provided as a single file).
+Valid formats are `YYYY`, `YYYYMM`, `YYYYMMDD`. The ``dataset-name`` needs to be identical to the 
+folder name that was created to store the raw observation data files, i.e.
 ``RAWOBS/TierX/dataset-name``. In our case this would be "FLUXCOM".
 
 If everything is okay, the output should look something like this:
 
 ~~~
-...
-... Starting the CMORization Tool at time: 2022-07-26 14:02:16 UTC
+... Writing program log files to:
+/scratch/b/username/esmvaltool_output/data_formatting_20240527_132448/run/main_log.txt
+/scratch/b/username/esmvaltool_output/data_formatting_20240527_132448/run/main_log_debug.txt
+... Starting the CMORization Tool at time: 2024-05-27 13:24:48 UTC
 ... ----------------------------------------------------------------------
-... input_dir  = /home/peter/data/RAWOBS
-... output_dir = /home/peter/esmvaltool_output/data_formatting_20220726_140216
+... input_dir  = /work/bd0854/DATA/ESMValTool2/RAWOBS
+... output_dir = /scratch/b/username/esmvaltool_output/data_formatting_20240527_132448
 ... ----------------------------------------------------------------------
 ... Running the CMORization scripts.
 ... Processing datasets ['FLUXCOM']
-... Input data from: /home/peter/data/RAWOBS/Tier3/FLUXCOM
-... Output will be written to: /home/peter/esmvaltool_output/
-      data_formatting_20220726_140216/Tier3/FLUXCOM
-... Reformat script: /home/peter/mambaforge/envs/esmvaltool/lib/python3.9/
-      site-packages/esmvaltool/cmorizers/data/formatters/datasets/fluxcom
-... CMORizing dataset FLUXCOM using Python script /home/peter/mambaforge/envs/
-      esmvaltool/lib/python3.9/site-packages/esmvaltool/cmorizers/data/formatters/
-      datasets/fluxcom.py
-... Found input file '/home/peter/data/RAWOBS/Tier3/FLUXCOM/GPP.ANN.CRUNCEPv6.monthly.*.nc'
+... Input data from: /work/bd0854/DATA/ESMValTool2/RAWOBS/Tier3/FLUXCOM
+... Output will be written to: /scratch/b/username/esmvaltool_output/data_formatting_20240527_132448
+    /Tier3/FLUXCOM
+... Reformat script: /home/b/username/ESMValTool/ESMValTool/esmvaltool/cmorizers/data/formatters/
+    datasets/fluxcom
+... CMORizing dataset FLUXCOM using Python script /home/b/username/ESMValTool/ESMValTool/esmvaltool/
+    cmorizers/data/formatters/datasets/fluxcom.py
+... Found input file '/work/bd0854/DATA/ESMValTool2/RAWOBS/Tier3/FLUXCOM/GPP.ANN.CRUNCEPv6.monthly.
+    *.nc'
 ... CMORizing variable 'gpp'
 ... Lmon
 ... Var is gpp
-... ... UserWarning: Ignoring netCDF variable 'GPP' invalid units 'gC m-2 day-1'
+...  WARNING /work/bd0854/username/utils/mambaforge/envs/esmvaltool/lib/python3.11/site-packages/
+     iris/fileformats/_nc_load_rules/helpers.py:913: _WarnComboIgnoringCfLoad: Ignoring invalid u
+nits 'gC m-2 day-1' on netCDF variable 'GPP'.
+  warnings.warn(
 
 ... Fixing time...
 ... Fixing latitude...
 ... Fixing longitude...
 ... Flipping dimensional coordinate latitude...
 ... Saving file
-... Saving: /home/peter/esmvaltool_output/data_formatting_20220726_140216/Tier3/
-      FLUXCOM/OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_200001-200012.nc
+... Saving: /scratch/b/username/esmvaltool_output/data_formatting_20240527_132448/Tier3/FLUXCOM/
+    OBS_FLUXCOM_reanaly_ANN-v1_Lmon_gpp_198001-198012.nc
 ... Cube has lazy data [lazy is preferred]
+... WARNING /work/bd0854/username/utils/mambaforge/envs/esmvaltool/lib/python3.11/site-packages/
+    iris/fileformats/netcdf/saver.py:2670: IrisDeprecation: Saving to netcdf with legacy-style a
+ttribute handling for backwards compatibility.
+This mode is deprecated since Iris 3.8, and will eventually be removed.
+Please consider enabling the new split-attributes handling mode, by setting 'iris.FUTURE.
+save_split_attrs = True'.
+  warn_deprecated(message)
+
 ... CMORization of dataset FLUXCOM finished!
 ... Formatting successful for dataset FLUXCOM
+
 ~~~
 {: .output}
 
@@ -184,14 +196,32 @@ called `~/data/OBS/Tier3/FLUXCOM` and make sure the path to ``OBS`` is set
 correctly in our config-user file:
 
 ```yaml
-rootpath:
-  OBS: ~/data/OBS
+OBS6:
+  data:
+    dkrz:
+      type: esmvalcore.io.local.LocalDataSource
+      rootpath: ~/data/OBS
+      dirname_template: "Tier{tier}/{dataset}"
+      filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
+OBS:
+  data:
+    dkrz:
+      type: esmvalcore.io.local.LocalDataSource
+      rootpath: ~/data/OBS
+      dirname_template: "Tier{tier}/{dataset}"
+      filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
 ```
 
 You can also see the path where ESMValTool stores the reformatting script:
 `~/ESMValTool/esmvaltool/data/formatters/datasets/fluxcom.py`. You may
 have a look at this file if you want. The script also uses a configuration file:
 `~/ESMValTool/esmvaltool/cmorizers/data/cmor_config/FLUXCOM.yml`.
+
+To get help on CMORizer commands, run the tool with:
+
+```bash
+esmvaltool data --help
+```
 
 ## Make a test recipe
 
@@ -261,7 +291,7 @@ CMORized, ESMValTool will give a warning or error.
 Try to run the example recipe with
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --log_level debug
 ```
 
 If everything is okay, the recipe should run without problems.
@@ -384,7 +414,7 @@ You can try running the CMORizer at this point, and it should work without
 errors. However, it doesn't produce any output yet:
 
 ```bash
-esmvaltool data format --config_file <path to config-user.yml> FLUXCOM
+esmvaltool data format --original-data-dir </path/to/original/data> FLUXCOM
 ```
 
 ### 1. Find the input data
@@ -607,27 +637,38 @@ upgrading the CMORizer to newer standards here!). Make sure the path to ``OBS6``
 is set correctly in our config-user file:
 
 ```yaml
-rootpath:
-  OBS6: ~/data/OBS6
+  OBS6:
+    data:
+      dkrz:
+        type: esmvalcore.io.local.LocalDataSource
+        rootpath: ~/data/OBS6
+        dirname_template: "Tier{tier}/{dataset}"
+        filename_template: "{project}_{dataset}_{type}_{version}_{mip}_{short_name}[_.]*nc"
 ```
 
 If we now run the test recipe on our newly 'CMORized' data,
 
 ```bash
-esmvaltool run recipe_check_fluxcom.yml --config_file <path to config-user.yml> --log_level debug
+esmvaltool run recipe_check_fluxcom.yml --log_level debug
 ```
 
-it should be able to find the correct file, but it does not succeed yet. The first
-thing that the ESMValTool CMOR checker brings up is:
+it should be able to find the correct file, but it does not succeed yet. The ESMValTool CMOR checker
+brings up is:
 
 ~~~
-iris.exceptions.UnitConversionError: Cannot convert from unknown units. The
-"units" attribute may be set directly.
+esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
+ GPP: units should be kg m-2 s-1, not unknown
+ lon: standard_name should be longitude, not None
+ lat: standard_name should be latitude, not None
+ lon: units should be degrees_east, not unknown
+ lon: has values < valid_min = 0.0
+ lat: units should be degrees_north, not unknown
+ GPP: does not match coordinate rank
 ~~~
 {: .error}
 
-If you look closely at the error messages, you can see that this error concerns
-the units of the coordinates. ESMValTool tries to fix them automatically,
+If you look closely at the error messages, you can see the reasons for these errors
+e.g. the units of the coordinates. ESMValTool tries to fix them automatically,
 but since no units are defined on the coordinates, this fails.
 
 The cmorizer utilities also include a function called `fix_coords`, but before
@@ -684,7 +725,7 @@ The next error is:
 
 ~~~
 esmvalcore.cmor.check.CMORCheckError: There were errors in variable GPP:
-Variable GPP units unknown can not be converted to kg m-2 s-1 in cube:
+ GPP: units should be kg m-2 s-1, not unknown
 ~~~
 {: .error}
 

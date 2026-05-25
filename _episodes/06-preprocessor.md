@@ -2,7 +2,7 @@
 title: "Writing your own recipe"
 teaching: 15
 exercises: 30
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.14.0
 
 questions:
 - "How do I create a new recipe?"
@@ -16,7 +16,7 @@ objectives:
 - "Run a recipe with variables from different datasets"
 keypoints:
 - "A recipe can work with different preprocessors at the same time."
-- "The setting `additional_datasets` can be used to add a different dataset."
+- "The setting `additional_datasets` can be used to add a different dataset for a specific variable group or diagnostic."
 - "Variable groups are useful for defining different settings for different
   variables."
 - "Multiple ensemble members and experiments can be analysed in a single recipe through concatenation."
@@ -197,7 +197,7 @@ For now, let's just use one of the existing references. Change the author field 
 ESMValTool. If you now run the recipe again, you should see the final message
 
 ```
-ERROR   No tasks to run!
+esmvalcore.exceptions.RecipeError: No tasks to run!
 ```
 {: .output}
 
@@ -285,8 +285,9 @@ in ESMValTool.
 > `glob`  patterns or wildcards.  An example `datasets` section that uses all 
 > available CMIP6 models and ensemble members for the `historical` experiment
 > is available [here] [include-all-datasets]{:target="_blank"}.
-> Note that you will have to set the `search_esgf` option in the `config_file` to 
-> `always` so that you can download data from ESGF nodes as  needed.
+> Note that you will have to configure the intake-esgf configuration file so that you 
+> can download data from ESGF nodes as needed (see the 
+> [Configuration Episode]({{ page.root }}{% link _episodes/03-configuration.md %})).
 {: .callout}
 
 
@@ -319,7 +320,7 @@ standard, gridded temperature data to a timeseries of temperature anomalies.
 > > `area_statistics` comes before `anomalies`. If you want to change this, you
 > > can use the `custom_order` preprocessor as 
 >> described [here][recipe-section-preprocessors]{:target="_blank"}. 
->> For this example, we will keep the default order..
+>> For this example, we will keep the default order.
 > >
 > > Let's name our preprocessor `global_anomalies`.
 > {: .solution}
@@ -406,8 +407,8 @@ for each of the modifications we'll make below.
 
 > ## Specific location selection
 >
-> On showyourstripes.org, you can download stripes for specific locations. Here we 
-> show how this can be done with ESMValTool. 
+> On <https://showyourstripes.info>{:target="_blank"}, you can download stripes for 
+> specific locations. Here we show how this can be done with ESMValTool. 
 > Instead of the global mean, we can pick a location to plot the stripes for. 
 > Can you find a suitable preprocessor to do this?
 >

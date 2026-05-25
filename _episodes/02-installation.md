@@ -2,7 +2,7 @@
 title: "Installation"
 teaching: 10
 exercises: 10
-compatibility: ESMValTool v2.10.0
+compatibility: ESMValTool v2.14.0
 questions:
 - "What are the prerequisites for installing ESMValTool?"
 - "How do I confirm that the installation was successful?"
@@ -67,20 +67,25 @@ ESMValTool is distributed using [Mamba](https://mamba.readthedocs.io/en/latest/i
 To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 1.  Please download the installation file for the latest Mamba version 
-[here](https://github.com/conda-forge/miniforge#mambaforge).
+for Linux 
+[here](https://github.com/conda-forge/miniforge/releases/latest/download/
+Miniforge3-Linux-x86_64.sh)
+or for MacOSX 
+[here](https://github.com/conda-forge/miniforge/releases/latest/download/
+Miniforge3-MacOSX-x86_64.sh).
 
 2.  Next, run the installer from the place where you downloaded it:
 
     On ``Linux``:
 
     ```bash
-    bash Mambaforge-Linux-x86_64.sh
+    bash Miniforge3-Linux-x86_64.sh
     ```
 
     On ``MacOSX``:
 
     ```bash
-    bash Mambaforge-MacOSX-x86_64.sh
+    bash Miniforge3-MacOSX-x86_64.sh
     ```
 
 3.  Follow the instructions in the installer. The defaults should normally
@@ -88,10 +93,10 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
 
 4.  You will need to restart your terminal for the changes to have effect.
 
-5.  We recommend updating mamba before the esmvaltool installation. To do so, run:
+5.  We recommend updating mamba and conda before the esmvaltool installation. To do so, run:
 
     ```bash
-    mamba update --name base mamba
+    mamba update --name base mamba conda
     ```
 
 6.  Verify you have a working mamba installation by: 
@@ -100,7 +105,7 @@ To install mamba on ``Linux`` or ``MacOSX``, follow the  instructions below:
     which mamba
     ```
 
-    This should show the path to your mamba executable, e.g. `~/mambaforge/bin/mamba`.
+    This should show the path to your mamba executable, e.g. `~/miniforge3/bin/mamba`.
 
 For more information about installing mamba,
 see [the mamba installation documentation](https://docs.esmvaltool.org/en
@@ -109,7 +114,7 @@ see [the mamba installation documentation](https://docs.esmvaltool.org/en
 ### Install the ESMValTool package
 
 The ESMValTool package contains diagnostics scripts in four languages: R,
-Python, Julia and NCL. This introduces a lot of dependencies, and therefore the
+Python and NCL. This introduces a lot of dependencies, and therefore the
 installation can take quite long. It is, however, possible to install
 'subpackages' for each of the languages. The following (sub)packages are
 available:
@@ -126,7 +131,7 @@ ESMValTool package, run
 mamba create --name esmvaltool esmvaltool 
 ```
 
-On MacOSX ESMValTool functionalities in Julia, NCL, and R are not supported. To install
+On MacOSX ESMValTool functionalities in  NCL, and R are not supported. To install
 a Mamba environment on MacOSX, please refer to specific [information](https://
 docs.esmvaltool.org/en/latest/quickstart/installation.html#installation-on-
 macosx).
@@ -146,59 +151,13 @@ installed in it.
 >
 {: .callout}
 
-### Install Julia
-
-Some ESMValTool diagnostics are written in the Julia programming language.
-If you want a full installation of ESMValTool including Julia diagnostics, you need
-to make sure Julia is installed before installing ESMValTool.
-
-In this tutorial, we will not use Julia, but for reference, we have listed the steps
-to install Julia below.
-Complete instructions for installing Julia can be found on the [Julia
-installation page](https://julialang.org/downloads/platform/#linux_and_freebsd).
-
-> ## Julia installation instructions
->
-> First, open a bash terminal and activate the newly created `esmvaltool` environment.
->
-> ```bash
-> conda activate esmvaltool
-> ```
->
-> Next, to install Julia via `mamba`, you can use the following command:
->
-> ```bash
-> mamba install julia
-> ```
-> 
-> To check that the Julia executable can be found, run
->
-> ```bash
-> which julia
-> ```
->
-> to display the path to the Julia executable, it should be
->
-> ```
-> ~/mambaforge/envs/esmvaltool/bin/julia
-> ```
-> {: .output}
->
-> To test that Julia is installed correctly, run
->
-> ```bash
-> julia
-> ```
->
-> to start the interactive Julia interpreter. Press `Ctrl+D` to exit.
-{: .solution}
 
 ### Test that the installation was successful
 
 To test that the installation was successful, run
 
 ```bash
-conda activate esmvaltool
+mamba activate esmvaltool
 ```
 
 to activate the conda environment called `esmvaltool`. In the shell prompt the
@@ -229,13 +188,13 @@ to display the command line help.
 > > {: .bash}
 > > The version of ESMValTool installed should be displayed on the screen as:
 > > ~~~
-> > ESMValCore: 2.10.0
-> > ESMValTool: 2.10.0
+> > ESMValCore: 2.14.0
+> > ESMValTool: 2.14.0
 > > ~~~
 > > {: .output}
 > Note that on HPC servers such as JASMIN, sometimes a more recent development 
 > version may be displayed for ESMValTool, for e.g. 
-> `ESMValTool: 2.9.0.dev4+g6948d5512`
+> `ESMValTool: 2.15.0.dev4+g74d7837f0`
 > {: .solution}
 {: .challenge}
 

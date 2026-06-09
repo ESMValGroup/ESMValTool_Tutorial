@@ -83,3 +83,14 @@
 [timeranges]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/recipe/overview.html#time-ranges
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/
+[api-config]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.config.html
+[easy-ipcc-blog]: https://blog.esciencecenter.nl/easy-ipcc-powered-by-esmvalcore-19a0b6366ea7
+[experimental-output]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.experimental.recipe_output.html
+[docs-notebooks]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/example-notebooks.html
+[api-reference]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.html#api
+[api-esgf]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.esgf.html
+[api-preprocessors]: https://docs.esmvaltool.org/projects/ESMValCore/en/latest/api/esmvalcore.preprocessor.html
+[iris-plot]: https://scitools-iris.readthedocs.io/en/latest/userguide/plotting_a_cube.html#iris-cube-plotting
+[jasmin-notebooks]: (https://help.jasmin.ac.uk/docs/interactive-computing/jasmin-notebooks-service/)
+[access-esmvalcore]: (https://docs.access-hive.org.au/model_evaluation/evaluation_on_gadi/esmvaltool_workflow/#using-esmvalcore-api-in-a-jupyter-notebook)
+[doc-input-obs]: https://docs.esmvaltool.org/en/latest/input.html#observations

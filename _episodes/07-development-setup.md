@@ -109,63 +109,33 @@ nothing to commit, working tree clean
 ~~~
 {: .output}
 
-### 2 ESMValTool dependencies
+### 2 ESMValTool installation
 
-Please don’t forget if an esmvaltool environment is already created
-following the lesson
-[Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
-we should choose another name for the new environment in this lesson.
-
-ESMValTool uses `mamba` for the recommended installation.
-For a minimal mamba installation, see section **Install Mamba** in lesson
-[Installation]({{ page.root }}{% link _episodes/02-installation.md %}).
-
-It is good practice to update the version of mamba on your machine before
-setting up ESMValTool. This can be done as follows:
-
+It is recommended to use [pixi](https://pixi.prefix.dev/) to manage ESMValTool 
+dependencies. To install pixi you can type
 ~~~bash
-mamba update --name base mamba conda
+curl -fsSL https://pixi.sh/install.sh | sh
+~~~
+but there are also other ways to install pixi which you find on the  
+[pixi installation instructions](https://pixi.prefix.dev/latest/installation/) 
+website.
+
+After installing pixi you can run the following command to install all of the 
+required dependencies for running and developing Python diagnostics:
+~~~bash
+pixi shell --frozen
+~~~
+Using the '--frozen' flag instructs pixi to use the versions of the packages 
+listed in the ``pixi.lock`` file. Using this option makes all pixi 
+commands run faster and makes your analyses more reproducible.
+
+As we want to add code later, we already install ``pre-commit``, this will make
+sure that our changes will be formatted correctly when we commit them.
+~~~bash
+pre-commit install
 ~~~
 
-To simplify the installation process, an environment file ``environment.yml`` is
-provided in the ESMValTool directory. We create an environment by running:
-
-~~~bash
-mamba env create --name esmvaltool --file environment.yml
-~~~
-
-The environment is called ``esmvaltool`` by default.
-If an ``esmvaltool`` environment is already created following the lesson
-[Installation]({{ page.root }}{% link _episodes/02-installation.md %}),
-we should choose another name for the new environment in this lesson by:
-
-~~~bash
-mamba env create --name a_new_name --file environment.yml
-~~~
-This will create a new conda environment and install ESMValTool (with all
-dependencies that are needed for development purposes) into it with a single command.
-
-For more information see 
-[Mamba User Guide](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html).
-
-Now, we should activate the environment:
-
-~~~bash
-conda activate esmvaltool
-~~~
-where ``esmvaltool`` is the name of the environment (replace by ``a_new_name``
-in case another environment name was used).
-
-### 3 ESMValTool installation
-
-ESMValTool can be installed in a ``develop`` mode by running:
-
-~~~bash
-pip install --no-deps --editable '.[develop]'
-~~~
-
-This will add the ``esmvaltool`` directory to the Python path in editable mode and
-install the development dependencies. We should check if the installation
+We should check if the installation
 works properly. To do this, run the tool with:
 
 ~~~bash
@@ -174,8 +144,12 @@ esmvaltool --help
 
 If the installation is successful, ESMValTool prints a help message to the console.
 
+Further information and instructions using pixi could be find the [ESMValTool
+documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source).
+And if you need to exit the pixi environment, run ``exit`` or ``Ctrl+D``.
 
-### 4 Updating ESMValTool
+
+### 3 Updating ESMValTool
 
 The ``main`` branch has the latest features of ESMValTool. Please make sure
 that the source code on your machine is up-to-date. If you obtain the source

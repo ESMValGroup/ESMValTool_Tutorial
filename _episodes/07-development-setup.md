@@ -2,7 +2,7 @@
 title: "Development and contribution"
 teaching: 10
 exercises: 20
-compatibility: ESMValTool v2.14.0
+compatibility: ESMValTool v2.15.0
 
 questions:
 - "What is a development installation?"
@@ -112,15 +112,14 @@ nothing to commit, working tree clean
 ### 2 ESMValTool installation
 
 It is recommended to use [pixi](https://pixi.prefix.dev/) to manage ESMValTool 
-dependencies. To install pixi you can type
+dependencies. There are different ways to install pixi which you find on the  
+[pixi installation instructions](https://pixi.prefix.dev/latest/installation/) 
+website. You can type for example:
 ~~~bash
 curl -fsSL https://pixi.sh/install.sh | sh
 ~~~
-but there are also other ways to install pixi which you find on the  
-[pixi installation instructions](https://pixi.prefix.dev/latest/installation/) 
-website.
 
-After installing pixi you can run the following command to install all of the 
+After installing pixi you run the following command to install all of the 
 required dependencies for running and developing Python diagnostics:
 ~~~bash
 pixi shell --frozen
@@ -223,9 +222,8 @@ no syntax errors in our recipes and config files
 - [lintr](https://github.com/jimhester/lintr) for diagnostic scripts written in R
 - [codespell](https://pypi.org/project/codespell/) to check grammar
 
-The good news is that ``pre-commit`` has been already installed
-when we chose development installation.
-``pre-commit`` is a command line and runs all of those tools. It also fixes some of those errors.
+The good news is that ``pre-commit`` we installed already is a command line and runs all 
+of those tools. It also fixes some of those errors.
 To explore other tools, have a look at ESMValTool documentation on
 [Code quality](https://docs.esmvaltool.org/en/latest/community/
 code_documentation.html#code-quality).

@@ -128,8 +128,8 @@ Using the '--frozen' flag instructs pixi to use the versions of the packages
 listed in the ``pixi.lock`` file. Using this option makes all pixi 
 commands run faster and makes your analyses more reproducible.
 
-As we want to add new code later in teh epsiode, we already install ``pre-commit``, 
-this will make sure that our changes will be formatted correctly when we commit 
+As we want to add new code later in the epsiode, we want to install ``pre-commit``.
+This will make sure that our changes will be formatted correctly when we commit 
 them.
 ~~~bash
 pre-commit install

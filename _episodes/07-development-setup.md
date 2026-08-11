@@ -112,9 +112,9 @@ nothing to commit, working tree clean
 ### 2 ESMValTool installation
 
 It is recommended to use [pixi](https://pixi.prefix.dev/) to manage ESMValTool 
-dependencies. There are different ways to install pixi which you find on the  
+dependencies. There are different ways to install pixi which you can find on the  
 [pixi installation instructions](https://pixi.prefix.dev/latest/installation/) 
-website. You can type for example:
+website. One way to install pixi is for example:
 ~~~bash
 curl -fsSL https://pixi.sh/install.sh | sh
 ~~~
@@ -128,14 +128,14 @@ Using the '--frozen' flag instructs pixi to use the versions of the packages
 listed in the ``pixi.lock`` file. Using this option makes all pixi 
 commands run faster and makes your analyses more reproducible.
 
-As we want to add code later, we already install ``pre-commit``, this will make
-sure that our changes will be formatted correctly when we commit them.
+As we want to add new code later in teh epsiode, we already install ``pre-commit``, 
+this will make sure that our changes will be formatted correctly when we commit 
+them.
 ~~~bash
 pre-commit install
 ~~~
 
-We should check if the installation
-works properly. To do this, run the tool with:
+To check if the installation of pixi works properly, we run ESMValTool with:
 
 ~~~bash
 esmvaltool --help
@@ -143,7 +143,7 @@ esmvaltool --help
 
 If the installation is successful, ESMValTool prints a help message to the console.
 
-Further information and instructions using pixi could be find the [ESMValTool
+Further information and instructions using pixi can be found in the [ESMValTool
 documentation](https://docs.esmvaltool.org/en/latest/quickstart/installation.html#install-from-source).
 And if you need to exit the pixi environment, run ``exit`` or ``Ctrl+D``.
 
@@ -222,8 +222,8 @@ no syntax errors in our recipes and config files
 - [lintr](https://github.com/jimhester/lintr) for diagnostic scripts written in R
 - [codespell](https://pypi.org/project/codespell/) to check grammar
 
-The good news is that ``pre-commit`` we installed already is a command line and runs all 
-of those tools. It also fixes some of those errors.
+The good news is that ``pre-commit`` which we already installed earlier is a command line 
+and runs all of those tools. It also fixes some of those errors.
 To explore other tools, have a look at ESMValTool documentation on
 [Code quality](https://docs.esmvaltool.org/en/latest/community/
 code_documentation.html#code-quality).

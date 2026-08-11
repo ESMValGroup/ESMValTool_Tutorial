@@ -390,7 +390,9 @@ a custom colormap.
 > {: .solution}
 {: .challenge}
 
-You should now be able to run the recipe to get your own warming stripes.
+You should now be able to run the recipe to get your own warming stripes. For a list of
+climate variable short names in CMIP6, see
+[CMIP6 CMOR Tables][cmip6-cmor-tables]{:target="_blank"}
 
 Note: for the purpose of simplicity in this episode, we have not added logging
 or provenance tracking in the diagnostic script. Once you start to develop your
